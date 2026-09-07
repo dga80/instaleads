@@ -64,6 +64,7 @@ GEMINI_MODEL = "gemini-2.5-flash"
 
 def obtener_cliente_gemini():
     """Obtiene una instancia del cliente oficial google-genai si la API key está configurada."""
+    load_dotenv(override=True)
     api_key = os.getenv("GEMINI_API_KEY", "").strip()
     if not HAS_GENAI_LIB or not api_key or api_key == "tu_api_key_aqui":
         return None
