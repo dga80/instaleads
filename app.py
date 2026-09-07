@@ -78,7 +78,7 @@ def obtener_cliente_gemini():
 # CONFIGURACIÓN SMTP (GMAIL)
 # -------------------------------------------------------------
 SMTP_EMAIL = os.getenv("SMTP_EMAIL", "").strip()
-SMTP_APP_PASSWORD = os.getenv("SMTP_APP_PASSWORD", "").strip()
+SMTP_APP_PASSWORD = os.getenv("SMTP_APP_PASSWORD", "").strip().replace(" ", "")
 SMTP_HOST = os.getenv("SMTP_HOST", "smtp.gmail.com").strip()
 try:
     SMTP_PORT = int(os.getenv("SMTP_PORT", "587"))
@@ -92,7 +92,7 @@ def enviar_email_propuesta(destinatario: str, asunto: str, cuerpo_texto: str) ->
     Requiere que SMTP_EMAIL y SMTP_APP_PASSWORD estén configurados en .env.
     """
     email_user = os.getenv("SMTP_EMAIL", "").strip()
-    app_pwd = os.getenv("SMTP_APP_PASSWORD", "").strip()
+    app_pwd = os.getenv("SMTP_APP_PASSWORD", "").strip().replace(" ", "")
 
     if not email_user or not app_pwd or "tu_correo" in email_user:
         raise ValueError(
@@ -562,7 +562,8 @@ async def index(request: Request):
 
 @app.get("/health")
 async def health_check():
-    """Estado del servidor y verificación de la API de Gemini."""
+    """Estado del servidor y verificación de la API de Gemini y SMTP."""
+    load_dotenv(override=True)
     api_key = os.getenv("GEMINI_API_KEY", "").strip()
     configurado = bool(api_key and api_key != "tu_api_key_aqui")
     smtp_user = os.getenv("SMTP_EMAIL", "").strip()
