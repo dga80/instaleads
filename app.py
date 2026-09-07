@@ -59,20 +59,15 @@ app = FastAPI(
 templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
 app.mount("/demos", StaticFiles(directory=str(DEMOS_DIR), html=True), name="demos")
 
-# Modelo sugerido de Gemini
-GEMINI_MODEL = "gemini-2.5-flash"
+# Servicio centralizado de Gemini con auto-desescalado en cascada
+from gemini_service import (
+    generar_con_gemini_cascade,
+    obtener_cliente_gemini,
+    obtener_estado_gemini,
+    GEMINI_MODELS_CASCADE
+)
 
-def obtener_cliente_gemini():
-    """Obtiene una instancia del cliente oficial google-genai si la API key está configurada."""
-    load_dotenv(override=True)
-    api_key = os.getenv("GEMINI_API_KEY", "").strip()
-    if not HAS_GENAI_LIB or not api_key or api_key == "tu_api_key_aqui":
-        return None
-    try:
-        return genai.Client(api_key=api_key)
-    except Exception as e:
-        print(f"[Aviso Gemini] No se pudo inicializar el cliente: {e}")
-        return None
+GEMINI_MODEL = GEMINI_MODELS_CASCADE[0]  # "gemini-3.8-flash"
 
 
 # -------------------------------------------------------------
@@ -271,26 +266,14 @@ Ejemplos:
 Categoría a clasificar: "{termino_usuario}"
 """
         try:
-            config = None
-            if types and hasattr(types, "GenerateContentConfig"):
-                config = types.GenerateContentConfig(
-                    response_mime_type="application/json",
-                    temperature=0.1
-                )
-            
-            response = cliente.models.generate_content(
-                model=GEMINI_MODEL,
-                contents=prompt,
-                config=config
-            )
-            
-            texto = response.text.strip()
-            # Limpiar posible markdown en caso de que venga con comillas triples
-            texto = re.sub(r"^```(json)?", "", texto, flags=re.MULTILINE).strip("` \n")
-            data = json.loads(texto)
-            if "key" in data and "value" in data:
-                print(f"[Gemini OSM Mapping] '{termino_usuario}' -> {data}")
-                return {"key": data["key"], "value": data["value"]}
+            texto, modelo_usado = generar_con_gemini_cascade(prompt, cliente=cliente, temperatura=0.1, formato_json=True)
+            if texto:
+                # Limpiar posible markdown en caso de que venga con comillas triples
+                texto_limpio = re.sub(r"^```(json)?", "", texto, flags=re.MULTILINE).strip("` \n")
+                data = json.loads(texto_limpio)
+                if "key" in data and "value" in data:
+                    print(f"[Gemini OSM Mapping] '{termino_usuario}' -> {data} (usando {modelo_usado})")
+                    return {"key": data["key"], "value": data["value"], "modelo": modelo_usado}
         except Exception as e:
             print(f"[Error Gemini OSM Mapping] {e}. Usando fallback local...")
 
@@ -312,6 +295,7 @@ def verificar_y_redactar_pitch(nombre_negocio: str, datos_ig: str, ciudad: str, 
     1. Mensaje DM inicial (cercano, elogiando su trabajo, explicando que somos un equipo local de diseño
        que busca comercios en su zona para mejorar su tráfico de clientes, con frase de tranquilidad anti-malware).
     2. Mensaje de seguimiento (para enviar a las 48-72h por Email o WhatsApp si no han contestado).
+    Utiliza gemini-3.8-flash y auto-desescalado a 3.7, 3.5 y 2.5 si hay saturación.
     """
     cliente = obtener_cliente_gemini()
     demo_texto = f"la maqueta interactiva segura que te preparé: {demo_url}" if demo_url else "la propuesta visual"
@@ -331,7 +315,7 @@ Datos del perfil de Instagram / web encontrados:
 Debes evaluar y responder:
 1. 'es_gran_cadena': true si es una gran cadena corporativa, franquicia nacional/multinacional, aseguradora o gran empresa (ejemplos: Vitaldent, Sanitas, Adeslas, Vivanta, Dentix, Dorsia, McDonald's, Midas, etc.). False si es un comercio o clínica local independiente.
 2. 'es_perfil_correcto': true si y solo si los datos del perfil de Instagram corresponden CLARAMENTE a este negocio ({nombre_negocio} en {ciudad}). Si el perfil es de una marca ajena (ej: marcas de coches, revistas, influencers o negocios de otras ciudades o países sin relación), devuelve FALSE.
-3. 'razon': Justificación breve y directa de tu decisión (ej: 'Coincide nombre y clínica en Badalona', 'Descartado por ser gran franquicia nacional', o 'Descartado: el perfil de Instagram no tiene relación con el comercio').
+3. 'razon': Justificación breve y directa de tu decisión (ej: 'Coincide nombre y clínica en {ciudad}', 'Descartado por ser gran franquicia nacional', o 'Descartado: el perfil de Instagram no tiene relación con el comercio').
 4. 'mensaje_dm_sugerido': Si 'es_perfil_correcto' es true Y 'es_gran_cadena' es false, redacta el DM de primer contacto (máximo 60 palabras, cálido, profesional, equipo local de diseño, enlace seguro a la maqueta {demo_url or 'https://...'} sin registros ni descargas). En caso contrario, devuelve cadena vacía "".
 5. 'mensaje_seguimiento': Si 'es_perfil_correcto' es true Y 'es_gran_cadena' es false, redacta el seguimiento educado a las 48-72h. En caso contrario, devuelve cadena vacía "".
 
@@ -345,29 +329,19 @@ Devuelve ÚNICAMENTE un JSON con esta estructura:
 }}
 """
         try:
-            config = None
-            if types and hasattr(types, "GenerateContentConfig"):
-                config = types.GenerateContentConfig(
-                    response_mime_type="application/json",
-                    temperature=0.2
-                )
-            
-            response = cliente.models.generate_content(
-                model=GEMINI_MODEL,
-                contents=prompt,
-                config=config
-            )
-            
-            texto = response.text.strip()
-            texto = re.sub(r"^```(json)?", "", texto, flags=re.MULTILINE).strip("` \n")
-            data = json.loads(texto)
-            return {
-                "es_gran_cadena": bool(data.get("es_gran_cadena", False)),
-                "es_perfil_correcto": bool(data.get("es_perfil_correcto", True)),
-                "razon": str(data.get("razon", "Evaluación completada")),
-                "mensaje_dm_sugerido": str(data.get("mensaje_dm_sugerido", "")),
-                "mensaje_seguimiento": str(data.get("mensaje_seguimiento", ""))
-            }
+            texto, modelo_usado = generar_con_gemini_cascade(prompt, cliente=cliente, temperatura=0.2, formato_json=True)
+            if texto:
+                texto_limpio = re.sub(r"^```(json)?", "", texto, flags=re.MULTILINE).strip("` \n")
+                data = json.loads(texto_limpio)
+                print(f"[Gemini Pitch] '{nombre_negocio}' evaluado con éxito (modelo: {modelo_usado})")
+                return {
+                    "es_gran_cadena": bool(data.get("es_gran_cadena", False)),
+                    "es_perfil_correcto": bool(data.get("es_perfil_correcto", True)),
+                    "razon": str(data.get("razon", "Evaluación completada")),
+                    "mensaje_dm_sugerido": str(data.get("mensaje_dm_sugerido", "")),
+                    "mensaje_seguimiento": str(data.get("mensaje_seguimiento", "")),
+                    "modelo_usado": modelo_usado
+                }
         except Exception as e:
             print(f"[Error Gemini Pitch] {e}. Usando plantilla fallback...")
 
@@ -394,131 +368,229 @@ Devuelve ÚNICAMENTE un JSON con esta estructura:
 # -------------------------------------------------------------
 # 3. OPENSTREETMAP: BÚSQUEDA POR CÓDIGO POSTAL Y ETIQUETA
 # -------------------------------------------------------------
-def obtener_bounding_box_cp(codigo_postal: str) -> Optional[Dict[str, Any]]:
-    """Consulta Nominatim para obtener el bounding box y localidad del Código Postal en España."""
+# Lista de espejos públicos de Overpass para garantizar alta disponibilidad
+OVERPASS_ENDPOINTS = [
+    "https://overpass-api.de/api/interpreter",
+    "https://overpass.kumi.systems/api/interpreter",
+    "https://overpass.private.coffee/api/interpreter"
+]
+
+def obtener_bounding_box_ubicacion(
+    localidad: str = "",
+    provincia: str = "",
+    codigo_postal: str = ""
+) -> Optional[Dict[str, Any]]:
+    """
+    Consulta Nominatim para obtener el bounding box y datos geográficos
+    a partir de localidad/municipio, provincia y/o código postal en España.
+    """
     url = "https://nominatim.openstreetmap.org/search"
     headers = {"User-Agent": "InstaLeads-App/1.0 (local-prospecting-tool)"}
+    
+    # 1. Búsqueda estructurada
     params = {
-        "postalcode": codigo_postal,
         "country": "Spain",
         "format": "json",
         "addressdetails": 1,
         "limit": 1
     }
+    if codigo_postal:
+        params["postalcode"] = codigo_postal
+    if localidad:
+        params["city"] = localidad
+    if provincia:
+        params["county"] = provincia
+
+    items = []
     try:
         r = requests.get(url, params=params, headers=headers, timeout=6)
         if r.status_code == 200 and r.json():
-            item = r.json()[0]
-            bbox = item.get("boundingbox") # [south, north, west, east]
-            addr = item.get("address", {})
-            ciudad = (
-                addr.get("city") or 
-                addr.get("town") or 
-                addr.get("municipality") or 
-                addr.get("village") or 
-                addr.get("county") or 
-                addr.get("state") or 
-                "España"
-            )
-            if bbox and len(bbox) == 4:
-                return {
-                    "south": float(bbox[0]),
-                    "north": float(bbox[1]),
-                    "west": float(bbox[2]),
-                    "east": float(bbox[3]),
-                    "ciudad": ciudad
-                }
+            items = r.json()
     except Exception as e:
-        print(f"[Nominatim Error] {e}")
+        print(f"[Nominatim Structured Warning] {e}")
+
+    # 2. Fallback no estructurado si la consulta estructurada no arrojó resultados
+    if not items:
+        partes = [p for p in [localidad, provincia, codigo_postal, "España"] if p]
+        if partes:
+            q_str = ", ".join(partes)
+            try:
+                r = requests.get(
+                    url,
+                    params={
+                        "q": q_str,
+                        "countrycodes": "es",
+                        "format": "json",
+                        "addressdetails": 1,
+                        "limit": 1
+                    },
+                    headers=headers,
+                    timeout=6
+                )
+                if r.status_code == 200 and r.json():
+                    items = r.json()
+            except Exception as e:
+                print(f"[Nominatim Fallback Warning] {e}")
+
+    if items:
+        item = items[0]
+        bbox = item.get("boundingbox")
+        addr = item.get("address", {})
+        
+        ciudad = (
+            addr.get("city") or
+            addr.get("town") or
+            addr.get("municipality") or
+            addr.get("village") or
+            localidad or
+            "España"
+        )
+        prov = (
+            addr.get("state_district") or
+            addr.get("province") or
+            addr.get("county") or
+            provincia or
+            ""
+        )
+        cp = addr.get("postcode") or codigo_postal or ""
+
+        if bbox and len(bbox) == 4:
+            return {
+                "south": float(bbox[0]),
+                "north": float(bbox[1]),
+                "west": float(bbox[2]),
+                "east": float(bbox[3]),
+                "ciudad": ciudad,
+                "provincia": prov,
+                "codigo_postal": cp
+            }
     return None
 
 
-def consultar_overpass(codigo_postal: str, osm_key: str, osm_value: str) -> List[Dict[str, Any]]:
+def obtener_bounding_box_cp(codigo_postal: str) -> Optional[Dict[str, Any]]:
+    """Función de compatibilidad que redirige a obtener_bounding_box_ubicacion."""
+    return obtener_bounding_box_ubicacion(codigo_postal=codigo_postal)
+
+
+def consultar_overpass(
+    codigo_postal: str = "",
+    osm_key: str = "",
+    osm_value: str = "",
+    localidad: str = "",
+    provincia: str = "",
+    max_resultados: int = 50
+) -> List[Dict[str, Any]]:
     """
     Ejecuta una consulta Overpass QL buscando elementos que coincidan con la clave/valor de OSM
-    dentro del Código Postal especificado.
+    dentro de la localidad, provincia o código postal especificados.
+    Dispone de failover automático entre múltiples espejos públicos de Overpass.
     """
-    url = "https://overpass-api.de/api/interpreter"
+    geo_data = obtener_bounding_box_ubicacion(
+        localidad=localidad,
+        provincia=provincia,
+        codigo_postal=codigo_postal
+    )
     
-    geo_data = obtener_bounding_box_cp(codigo_postal)
-    ciudad_default = geo_data["ciudad"] if geo_data else "España"
+    ciudad_default = (geo_data["ciudad"] if geo_data else None) or localidad or "España"
+    provincia_default = (geo_data["provincia"] if geo_data else None) or provincia or ""
+    cp_default = (geo_data["codigo_postal"] if geo_data else None) or codigo_postal or ""
 
     if geo_data:
-        # Búsqueda rápida y precisa por Bounding Box geográfico del CP
         s, n, w, e = geo_data["south"], geo_data["north"], geo_data["west"], geo_data["east"]
         query = f"""
-        [out:json][timeout:25];
+        [out:json][timeout:30];
         (
           node["{osm_key}"="{osm_value}"]({s},{w},{n},{e});
           way["{osm_key}"="{osm_value}"]({s},{w},{n},{e});
         );
-        out center tags;
+        out center tags {max_resultados};
         """
     else:
-        # Búsqueda por tag postal_code o addr:postcode
+        # Fallback de búsqueda directa por atributos en OSM
+        condiciones = []
+        if codigo_postal:
+            condiciones.extend([
+                f'node["addr:postcode"="{codigo_postal}"]["{osm_key}"="{osm_value}"];',
+                f'way["addr:postcode"="{codigo_postal}"]["{osm_key}"="{osm_value}"];',
+                f'node["postal_code"="{codigo_postal}"]["{osm_key}"="{osm_value}"];'
+            ])
+        if localidad:
+            condiciones.extend([
+                f'node["addr:city"~"^{localidad}$",i]["{osm_key}"="{osm_value}"];',
+                f'way["addr:city"~"^{localidad}$",i]["{osm_key}"="{osm_value}"];'
+            ])
+        if not condiciones:
+            condiciones = [
+                f'node["{osm_key}"="{osm_value}"];',
+                f'way["{osm_key}"="{osm_value}"];'
+            ]
+        
+        bloque_query = "\n  ".join(condiciones)
         query = f"""
-        [out:json][timeout:25];
+        [out:json][timeout:30];
         (
-          node["addr:postcode"="{codigo_postal}"]["{osm_key}"="{osm_value}"];
-          way["addr:postcode"="{codigo_postal}"]["{osm_key}"="{osm_value}"];
-          node["postal_code"="{codigo_postal}"]["{osm_key}"="{osm_value}"];
+          {bloque_query}
         );
-        out center tags;
+        out center tags {max_resultados};
         """
 
-    headers = {"User-Agent": "InstaLeads-App/1.0"}
-    try:
-        resp = requests.post(url, data={"data": query}, headers=headers, timeout=25)
-        if resp.status_code == 200:
-            elementos = resp.json().get("elements", [])
-            resultados = []
-            for el in elementos:
-                tags = el.get("tags", {})
-                nombre = tags.get("name") or tags.get("brand") or tags.get("operator")
-                if not nombre:
-                    continue  # Si no tiene nombre comercial público no es útil para prospección
-
-                # FILTRAR: Excluir si ya tiene página web propia
-                website = tags.get("website") or tags.get("contact:website") or tags.get("url")
-                if website and ("instagram.com" not in website.lower()):
-                    # Si tiene un sitio web propio (ej. mipeluqueria.com), lo ignoramos
-                    continue
-
-                # FILTRAR: Excluir grandes cadenas, franquicias o corporaciones
-                if es_cadena_o_franquicia(nombre, tags):
-                    print(f"      [Filtro Cadena] Ignorado '{nombre}' por ser gran cadena o franquicia.")
-                    continue
-
-                # Extraer dirección
-                calle = tags.get("addr:street", "")
-                numero = tags.get("addr:housenumber", "")
-                direccion = f"{calle} {numero}".strip() if calle else tags.get("address", "")
-                
-                ciudad = tags.get("addr:city") or ciudad_default
-                cp = tags.get("addr:postcode") or codigo_postal
-                telefono = tags.get("phone") or tags.get("contact:phone") or tags.get("contact:mobile", "")
-                email = tags.get("email") or tags.get("contact:email", "")
-                
-                # Revisar si OSM ya tenía etiquetado Instagram
-                ig_osm = tags.get("contact:instagram") or tags.get("instagram", "")
-
-                resultados.append({
-                    "osm_id": str(el.get("id")),
-                    "nombre": nombre.strip(),
-                    "categoria": f"{osm_key}: {osm_value}",
-                    "direccion": direccion,
-                    "ciudad": ciudad,
-                    "codigo_postal": cp,
-                    "telefono": telefono,
-                    "email": email,
-                    "tiene_web": False,
-                    "instagram_tag_osm": ig_osm,
-                    "tags": tags
-                })
-            return resultados
-    except Exception as e:
-        print(f"[Overpass Error] {e}")
+    headers = {"User-Agent": "InstaLeads-App/1.0 (local-prospecting-tool)"}
     
+    # Intento secuencial entre espejos Overpass
+    for endpoint in OVERPASS_ENDPOINTS:
+        try:
+            resp = requests.post(endpoint, data={"data": query}, headers=headers, timeout=25)
+            if resp.status_code == 200:
+                elementos = resp.json().get("elements", [])
+                resultados = []
+                for el in elementos:
+                    tags = el.get("tags", {})
+                    nombre = tags.get("name") or tags.get("brand") or tags.get("operator")
+                    if not nombre:
+                        continue  # Si no tiene nombre comercial público no es útil para prospección
+
+                    # FILTRAR: Excluir si ya tiene página web propia
+                    website = tags.get("website") or tags.get("contact:website") or tags.get("url")
+                    if website and ("instagram.com" not in website.lower()):
+                        continue
+
+                    # FILTRAR: Excluir grandes cadenas, franquicias o corporaciones
+                    if es_cadena_o_franquicia(nombre, tags):
+                        print(f"      [Filtro Cadena] Ignorado '{nombre}' por ser gran cadena o franquicia.")
+                        continue
+
+                    calle = tags.get("addr:street", "")
+                    numero = tags.get("addr:housenumber", "")
+                    direccion = f"{calle} {numero}".strip() if calle else tags.get("address", "")
+                    
+                    ciudad = tags.get("addr:city") or ciudad_default
+                    prov_res = tags.get("addr:province") or provincia_default
+                    cp_res = tags.get("addr:postcode") or cp_default
+                    telefono = tags.get("phone") or tags.get("contact:phone") or tags.get("contact:mobile", "")
+                    email = tags.get("email") or tags.get("contact:email", "")
+                    
+                    ig_osm = tags.get("contact:instagram") or tags.get("instagram", "")
+
+                    resultados.append({
+                        "osm_id": str(el.get("id")),
+                        "nombre": nombre.strip(),
+                        "categoria": f"{osm_key}: {osm_value}",
+                        "direccion": direccion,
+                        "ciudad": ciudad,
+                        "provincia": prov_res,
+                        "codigo_postal": cp_res,
+                        "telefono": telefono,
+                        "email": email,
+                        "tiene_web": False,
+                        "instagram_tag_osm": ig_osm,
+                        "tags": tags
+                    })
+                return resultados
+            else:
+                print(f"[Overpass Warning] Servidor {endpoint} respondió con status {resp.status_code}. Probando siguiente espejo...")
+        except Exception as e:
+            print(f"[Overpass Error] Fallo al consultar {endpoint}: {e}. Probando siguiente espejo...")
+
     return []
 
 
@@ -670,9 +742,11 @@ def guardar_leads_deduplicados(nuevos_leads: List[Dict[str, Any]]) -> int:
 # 6. MODELOS PYDANTIC Y ENDPOINTS FASTAPI
 # -------------------------------------------------------------
 class ScanRequest(BaseModel):
-    codigo_postal: str
+    codigo_postal: Optional[str] = ""
+    localidad: Optional[str] = ""
+    provincia: Optional[str] = ""
     categoria: str
-    max_comercios: int = 15
+    max_comercios: int = 20
 
 
 @app.get("/", response_class=HTMLResponse)
@@ -685,17 +759,17 @@ async def index(request: Request):
 async def health_check():
     """Estado del servidor y verificación de la API de Gemini y SMTP."""
     load_dotenv(override=True)
-    api_key = os.getenv("GEMINI_API_KEY", "").strip()
-    configurado = bool(api_key and api_key != "tu_api_key_aqui")
+    estado_gemini = obtener_estado_gemini()
     smtp_user = os.getenv("SMTP_EMAIL", "").strip()
     smtp_pwd = os.getenv("SMTP_APP_PASSWORD", "").strip()
     smtp_ok = bool(smtp_user and smtp_pwd and "tu_correo" not in smtp_user)
     return {
         "status": "ok",
-        "gemini_configurado": configurado,
-        "modelo": GEMINI_MODEL,
+        "gemini_configurado": estado_gemini["configurado"],
+        "modelo": estado_gemini["modelo_primario"],
+        "cascada": estado_gemini["cascada"],
         "duckduckgo_disponible": HAS_DDGS,
-        "google_genai_instalado": HAS_GENAI_LIB,
+        "google_genai_instalado": estado_gemini["sdk_instalado"],
         "smtp_configurado": smtp_ok,
         "smtp_email": smtp_user if smtp_ok else ""
     }
@@ -738,25 +812,42 @@ async def clear_leads():
 async def scan_local_leads(req: ScanRequest):
     """
     Orquesta el pipeline completo de prospección:
-    1. Normaliza la categoría a etiquetas OSM con Gemini.
-    2. Consulta OpenStreetMap filtrando negocios sin web.
+    1. Normaliza la categoría a etiquetas OSM con Gemini (con auto-desescalado desde gemini-3.8-flash).
+    2. Consulta OpenStreetMap (por localidad, provincia y/o código postal) filtrando negocios sin web.
     3. Descubre o extrae el perfil de Instagram.
     4. Verifica con Gemini y redacta el pitch comercial DM.
     5. Deduplica y persiste en data/leads.json.
     """
-    cp = req.codigo_postal.strip()
+    cp = (req.codigo_postal or "").strip()
+    loc = (req.localidad or "").strip()
+    prov = (req.provincia or "").strip()
     cat_usuario = req.categoria.strip()
 
-    if not cp or not cat_usuario:
-        raise HTTPException(status_code=400, detail="El código postal y la categoría son obligatorios.")
+    if not cat_usuario:
+        raise HTTPException(status_code=400, detail="La categoría de negocio es obligatoria.")
+
+    if not cp and not loc and not prov:
+        raise HTTPException(
+            status_code=400,
+            detail="Debes especificar al menos un dato de ubicación: Localidad / Municipio, Provincia o Código Postal."
+        )
+
+    ubicacion_texto = ", ".join([p for p in [loc, prov, f"CP {cp}" if cp else ""] if p])
 
     print(f"\n[1/4] Mapeando categoría '{cat_usuario}' con Gemini...")
     osm_tag = mapear_categoria_osm(cat_usuario)
     osm_key = osm_tag["key"]
     osm_value = osm_tag["value"]
 
-    print(f"[2/4] Buscando comercios en OSM (CP: {cp}, {osm_key}={osm_value})...")
-    comercios = consultar_overpass(cp, osm_key, osm_value)
+    print(f"[2/4] Buscando comercios en OSM ({ubicacion_texto}, {osm_key}={osm_value})...")
+    comercios = consultar_overpass(
+        codigo_postal=cp,
+        osm_key=osm_key,
+        osm_value=osm_value,
+        localidad=loc,
+        provincia=prov,
+        max_resultados=50
+    )
     print(f"      Encontrados {len(comercios)} comercios sin web propia.")
 
     if not comercios:
@@ -764,7 +855,7 @@ async def scan_local_leads(req: ScanRequest):
             "status": "ok",
             "categoria_osm": osm_tag,
             "nuevos_leads_encontrados": 0,
-            "mensaje": f"No se encontraron comercios sin página web con la etiqueta OSM '{osm_key}={osm_value}' en el CP {cp}."
+            "mensaje": f"No se encontraron comercios sin página web con la etiqueta OSM '{osm_key}={osm_value}' en {ubicacion_texto}."
         }
 
     # Limitar para respetar cuotas de búsqueda y generación
@@ -774,7 +865,8 @@ async def scan_local_leads(req: ScanRequest):
     print(f"[3/4 y 4/4] Buscando Instagram, verificando y generando pitch con Gemini...")
     for com in comercios_a_procesar:
         nombre = com["nombre"]
-        ciudad = com["ciudad"]
+        ciudad = com.get("ciudad") or loc or "Local"
+        prov_lead = com.get("provincia") or prov or ""
         ig_osm = com.get("instagram_tag_osm", "")
 
         # Buscar perfil en Instagram
@@ -791,7 +883,7 @@ async def scan_local_leads(req: ScanRequest):
             analisis = {
                 "es_gran_cadena": False,
                 "es_perfil_correcto": False,
-                "razon": "No se detectó perfil de Instagram público",
+                "razon": "No se detectó perfil de Instagram público verificado",
                 "mensaje_dm_sugerido": "",
                 "mensaje_seguimiento": ""
             }
@@ -819,6 +911,7 @@ async def scan_local_leads(req: ScanRequest):
             "categoria": f"{cat_usuario} ({osm_key}:{osm_value})",
             "direccion": com["direccion"],
             "ciudad": ciudad,
+            "provincia": prov_lead,
             "codigo_postal": com["codigo_postal"],
             "telefono": com["telefono"],
             "email": com.get("email", ""),

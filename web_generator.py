@@ -35,10 +35,10 @@ def estructurar_contenido_con_gemini(
     de servicios, titular de alto impacto y texto de presentación para la web.
     """
     # Si tenemos cliente Gemini disponible
-    if cliente_gemini:
-        try:
-            posts_text = "\n".join([f"- Post {i+1}: {p.get('caption', '')[:100]}" for i, p in enumerate(ig_posts[:6])])
-            prompt = f"""
+    try:
+        from gemini_service import generar_con_gemini_cascade
+        posts_text = "\n".join([f"- Post {i+1}: {p.get('caption', '')[:100]}" for i, p in enumerate(ig_posts[:6])])
+        prompt = f"""
 Actúa como Director Creativo y Copywriter Web de élite para comercios locales.
 Vamos a convertir el perfil de Instagram de este negocio en una página web mobile-first de alta conversión.
 
@@ -63,21 +63,18 @@ Tu misión es extraer y estructurar el contenido de la web en formato JSON:
 
 Responde ÚNICAMENTE con el objeto JSON válido:
 """
-            response = cliente_gemini.models.generate_content(
-                model="gemini-2.5-flash",
-                contents=prompt
-            )
-            texto = response.text.strip()
+        texto, modelo_usado = generar_con_gemini_cascade(prompt, cliente=cliente_gemini, formato_json=True)
+        if texto:
             texto = re.sub(r"^```(json)?", "", texto, flags=re.MULTILINE).strip("` \n")
             data = json.loads(texto)
             if "titular" in data and "servicios" in data:
-                # Asignar imágenes de los posts a los servicios
+                print(f"[Gemini Web Structuring] Contenido web generado exitosamente con modelo {modelo_usado}")
                 for i, s in enumerate(data.get("servicios", [])):
                     if i < len(ig_posts):
                         s["imagen"] = ig_posts[i].get("image_url")
                 return data
-        except Exception as e:
-            print(f"[Gemini Web Structuring Warning] {e}. Usando generador inteligente local.")
+    except Exception as e:
+        print(f"[Gemini Web Structuring Warning] {e}. Usando generador inteligente local.")
 
     # Fallback inteligente según categoría si no hay Gemini o hay error
     servicios_base = []

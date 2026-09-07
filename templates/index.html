@@ -74,51 +74,78 @@
           Descubre comercios locales <span class="ig-text-gradient">con Instagram</span> pero <span class="text-indigo-400">sin página web</span>
         </h1>
         <p class="text-sm text-slate-400 mt-1 max-w-3xl">
-          El Agente Gemini normaliza la categoría a etiquetas exactas de OpenStreetMap, verifica la autenticidad del perfil de Instagram y redacta un DM de prospección comercial de alta conversión.
+          Escanea comercios locales por <strong>Localidad/Municipio</strong>, <strong>Provincia</strong> o <strong>Código Postal</strong>. El Agente <strong>Gemini 3.8 Flash</strong> normaliza la categoría a OpenStreetMap, valida el perfil de Instagram y redacta un DM con desescalado automático.
         </p>
 
+        <!-- SELECTOR DE MODO DE BÚSQUEDA -->
+        <div class="mt-6 flex flex-wrap items-center gap-2 border-b border-slate-800 pb-3">
+          <span class="text-xs text-slate-400 font-semibold uppercase tracking-wider mr-1">Escanear por:</span>
+          <button type="button" id="tab-modo-localidad" onclick="cambiarModoBusqueda('localidad')"
+            class="px-3 py-1.5 rounded-lg text-xs font-semibold transition flex items-center space-x-1.5 bg-pink-500/20 text-pink-300 border border-pink-500/40 shadow-sm">
+            <span>📍 Localidad / Municipio y Provincia</span>
+          </button>
+          <button type="button" id="tab-modo-cp" onclick="cambiarModoBusqueda('cp')"
+            class="px-3 py-1.5 rounded-lg text-xs font-semibold transition flex items-center space-x-1.5 bg-slate-800 text-slate-400 hover:text-white border border-slate-700/80">
+            <span>📮 Código Postal</span>
+          </button>
+        </div>
+
         <!-- FORMULARIO DE BÚSQUEDA -->
-        <form id="scan-form" onsubmit="iniciarEscaneo(event)" class="mt-6 grid grid-cols-1 md:grid-cols-12 gap-4">
-          <!-- Código Postal -->
-          <div class="md:col-span-3">
-            <label for="cp" class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Código Postal</label>
+        <form id="scan-form" onsubmit="iniciarEscaneo(event)" class="mt-4 grid grid-cols-1 md:grid-cols-12 gap-4">
+          <!-- Modo Localidad: Campo Localidad -->
+          <div id="campo-localidad-wrapper" class="md:col-span-3">
+            <label for="localidad" class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Localidad / Municipio</label>
             <div class="relative">
-              <input type="text" id="cp" name="cp" required placeholder="Ej: 28001, 08001..." 
+              <input type="text" id="localidad" name="localidad" placeholder="Ej: Badalona, Sabadell, Marbella..." 
                 class="w-full bg-slate-900/90 border border-slate-700/80 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition">
               <span class="absolute right-3 top-3 text-slate-500">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                </svg>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </span>
+            </div>
+          </div>
+
+          <!-- Modo Localidad: Campo Provincia -->
+          <div id="campo-provincia-wrapper" class="md:col-span-3">
+            <label for="provincia" class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Provincia <span class="text-slate-500 lowercase">(opcional)</span></label>
+            <div class="relative">
+              <input type="text" id="provincia" name="provincia" placeholder="Ej: Barcelona, Madrid, Málaga..." 
+                class="w-full bg-slate-900/90 border border-slate-700/80 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition">
+              <span class="absolute right-3 top-3 text-slate-500">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </span>
+            </div>
+          </div>
+
+          <!-- Modo CP: Campo Código Postal (oculto inicialmente) -->
+          <div id="campo-cp-wrapper" class="hidden md:col-span-4">
+            <label for="cp" class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Código Postal</label>
+            <div class="relative">
+              <input type="text" id="cp" name="cp" placeholder="Ej: 28001, 08001, 08914..." 
+                class="w-full bg-slate-900/90 border border-slate-700/80 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition">
+              <span class="absolute right-3 top-3 text-slate-500">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
               </span>
             </div>
           </div>
 
           <!-- Categoría en lenguaje natural -->
-          <div class="md:col-span-6">
+          <div id="campo-categoria-wrapper" class="md:col-span-4">
             <label for="categoria" class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Categoría de Negocio (Español)</label>
             <div class="relative">
-              <input type="text" id="categoria" name="categoria" required placeholder="Ej: taller de motos, centro de uñas, peluquería, clínica dental..." 
+              <input type="text" id="categoria" name="categoria" required placeholder="Ej: clínica dental, taller de motos, peluquería..." 
                 class="w-full bg-slate-900/90 border border-slate-700/80 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition">
               <span class="absolute right-3 top-3 text-slate-500">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                </svg>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
               </span>
             </div>
           </div>
 
           <!-- Botón de Acción -->
-          <div class="md:col-span-3 flex items-end">
-            <button type="submit" id="btn-scan" class="w-full py-3 px-6 rounded-xl ig-gradient text-white font-semibold text-sm shadow-lg shadow-pink-500/25 hover:opacity-95 active:scale-[0.98] transition flex items-center justify-center space-x-2">
-              <svg id="scan-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-              </svg>
-              <svg id="scan-spinner" class="w-5 h-5 animate-spin hidden" fill="none" viewBox="0 0 24 24">
-                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-              </svg>
-              <span id="btn-scan-text">Escanear Zona</span>
+          <div id="campo-btn-wrapper" class="md:col-span-2 flex items-end">
+            <button type="submit" id="btn-scan" class="w-full py-3 px-4 rounded-xl ig-gradient text-white font-semibold text-sm shadow-lg shadow-pink-500/25 hover:opacity-95 active:scale-[0.98] transition flex items-center justify-center space-x-2">
+              <svg id="scan-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+              <svg id="scan-spinner" class="w-5 h-5 animate-spin hidden" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+              <span id="btn-scan-text">Escanear</span>
             </button>
           </div>
         </form>
@@ -471,7 +498,8 @@
         if (data.gemini_configurado) {
           dot.className = "w-2 h-2 rounded-full bg-emerald-400";
           text.className = "text-emerald-300 font-medium";
-          text.innerText = `Gemini (${data.modelo || '2.5-flash'}) Conectado`;
+          text.innerText = `Gemini ${data.modelo || '3.8-flash'} (Auto-desescalado)`;
+          badge.title = `Modelos en cascada activa: ${(data.cascada || []).join(' → ')}`;
           badge.className = "flex items-center space-x-2 text-xs px-3 py-1.5 rounded-full bg-emerald-950/40 border border-emerald-800/60";
         } else {
           dot.className = "w-2 h-2 rounded-full bg-amber-400";
@@ -604,7 +632,7 @@
             <!-- Ubicación -->
             <td class="px-6 py-4 text-xs text-slate-300">
               <div class="font-medium">${lead.direccion || 'Sin dirección exacta'}</div>
-              <div class="text-slate-500">${lead.ciudad ? lead.ciudad + ' - ' : ''}CP ${lead.codigo_postal}</div>
+              <div class="text-slate-500">${lead.ciudad || 'Local'}${lead.provincia ? ' (' + lead.provincia + ')' : ''}${lead.codigo_postal ? ' · CP ' + lead.codigo_postal : ''}</div>
             </td>
             <!-- Instagram -->
             <td class="px-6 py-4">
@@ -749,7 +777,7 @@
               </div>
 
               <div class="text-[11px] text-slate-400">
-                📍 ${lead.ciudad} · CP ${lead.codigo_postal}
+                📍 ${lead.ciudad || 'Local'}${lead.provincia ? ' (' + lead.provincia + ')' : ''}${lead.codigo_postal ? ' · CP ' + lead.codigo_postal : ''}
               </div>
 
               ${alertaBadge}
@@ -992,6 +1020,39 @@
       });
     }
 
+    let modoBusquedaActual = 'localidad';
+
+    function cambiarModoBusqueda(modo) {
+      modoBusquedaActual = modo;
+      const tabLoc = document.getElementById('tab-modo-localidad');
+      const tabCp = document.getElementById('tab-modo-cp');
+      const wrapLoc = document.getElementById('campo-localidad-wrapper');
+      const wrapProv = document.getElementById('campo-provincia-wrapper');
+      const wrapCp = document.getElementById('campo-cp-wrapper');
+      const wrapCat = document.getElementById('campo-categoria-wrapper');
+      const wrapBtn = document.getElementById('campo-btn-wrapper');
+
+      if (modo === 'localidad') {
+        tabLoc.className = "px-3 py-1.5 rounded-lg text-xs font-semibold transition flex items-center space-x-1.5 bg-pink-500/20 text-pink-300 border border-pink-500/40 shadow-sm";
+        tabCp.className = "px-3 py-1.5 rounded-lg text-xs font-semibold transition flex items-center space-x-1.5 bg-slate-800 text-slate-400 hover:text-white border border-slate-700/80";
+        
+        wrapLoc.classList.remove('hidden');
+        wrapProv.classList.remove('hidden');
+        wrapCp.classList.add('hidden');
+        wrapCat.className = "md:col-span-4";
+        wrapBtn.className = "md:col-span-2 flex items-end";
+      } else {
+        tabCp.className = "px-3 py-1.5 rounded-lg text-xs font-semibold transition flex items-center space-x-1.5 bg-pink-500/20 text-pink-300 border border-pink-500/40 shadow-sm";
+        tabLoc.className = "px-3 py-1.5 rounded-lg text-xs font-semibold transition flex items-center space-x-1.5 bg-slate-800 text-slate-400 hover:text-white border border-slate-700/80";
+        
+        wrapLoc.classList.add('hidden');
+        wrapProv.classList.add('hidden');
+        wrapCp.classList.remove('hidden');
+        wrapCat.className = "md:col-span-5";
+        wrapBtn.className = "md:col-span-3 flex items-end";
+      }
+    }
+
     function filtrarTabla() {
       const q = document.getElementById('filtro-tabla').value.toLowerCase().trim();
       let filtrados = todosLosLeads;
@@ -999,6 +1060,7 @@
         filtrados = todosLosLeads.filter(l => 
           (l.nombre && l.nombre.toLowerCase().includes(q)) ||
           (l.ciudad && l.ciudad.toLowerCase().includes(q)) ||
+          (l.provincia && l.provincia.toLowerCase().includes(q)) ||
           (l.categoria && l.categoria.toLowerCase().includes(q)) ||
           (l.codigo_postal && l.codigo_postal.includes(q))
         );
@@ -1012,10 +1074,34 @@
 
     async function iniciarEscaneo(e) {
       e.preventDefault();
-      const cp = document.getElementById('cp').value.trim();
-      const categoria = document.getElementById('categoria').value.trim();
+      const elLoc = document.getElementById('localidad');
+      const elProv = document.getElementById('provincia');
+      const elCp = document.getElementById('cp');
+      const elCat = document.getElementById('categoria');
 
-      if (!cp || !categoria) return;
+      const localidad = elLoc ? elLoc.value.trim() : '';
+      const provincia = elProv ? elProv.value.trim() : '';
+      const cp = elCp ? elCp.value.trim() : '';
+      const categoria = elCat ? elCat.value.trim() : '';
+
+      if (!categoria) {
+        mostrarToast('Por favor, ingresa una categoría de negocio', true);
+        return;
+      }
+
+      if (modoBusquedaActual === 'localidad' && !localidad && !provincia) {
+        mostrarToast('Indica una localidad/municipio o provincia para escanear', true);
+        return;
+      }
+
+      if (modoBusquedaActual === 'cp' && !cp) {
+        mostrarToast('Indica un código postal para escanear', true);
+        return;
+      }
+
+      const ubicacionTexto = modoBusquedaActual === 'localidad' 
+        ? `${localidad}${provincia ? (localidad ? ', ' : '') + provincia : ''}`
+        : `CP ${cp}`;
 
       const btn = document.getElementById('btn-scan');
       const btnText = document.getElementById('btn-scan-text');
@@ -1032,29 +1118,36 @@
       btnText.innerText = "Escaneando...";
 
       progressBox.classList.remove('hidden');
-      progressMsg.innerText = `Consultando con Gemini y mapeando categoría "${categoria}"...`;
+      progressMsg.innerText = `Consultando con Gemini 3.8 Flash y mapeando "${categoria}"...`;
       progressSub.innerText = "Paso 1/4";
 
       try {
         const timer1 = setTimeout(() => {
-          progressMsg.innerText = `Buscando comercios en OSM para el CP ${cp}...`;
+          progressMsg.innerText = `Buscando comercios en OSM para ${ubicacionTexto}...`;
           progressSub.innerText = "Paso 2/4";
-        }, 1500);
+        }, 1200);
 
         const timer2 = setTimeout(() => {
           progressMsg.innerText = "Filtrando comercios sin web e investigando perfiles de Instagram...";
           progressSub.innerText = "Paso 3/4";
-        }, 4000);
+        }, 3500);
 
         const timer3 = setTimeout(() => {
-          progressMsg.innerText = "Gemini validando perfiles y redactando pitches comerciales...";
+          progressMsg.innerText = "Gemini validando autenticidad y redactando pitches comerciales...";
           progressSub.innerText = "Paso 4/4";
-        }, 7000);
+        }, 6500);
+
+        const payload = {
+          categoria: categoria,
+          localidad: modoBusquedaActual === 'localidad' ? localidad : '',
+          provincia: modoBusquedaActual === 'localidad' ? provincia : '',
+          codigo_postal: modoBusquedaActual === 'cp' ? cp : ''
+        };
 
         const res = await fetch('/scan', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ codigo_postal: cp, categoria: categoria })
+          body: JSON.stringify(payload)
         });
 
         clearTimeout(timer1);
@@ -1064,7 +1157,7 @@
         const data = await res.json();
 
         if (res.ok) {
-          mostrarToast(`¡Escaneo completado! Se han procesado ${data.nuevos_leads_encontrados || 0} oportunidades.`);
+          mostrarToast(`¡Escaneo completado! Se han procesado ${data.nuevos_leads_encontrados || 0} oportunidades en ${ubicacionTexto}.`);
           await cargarLeads();
         } else {
           mostrarToast(data.detail || 'Error al procesar la solicitud', true);
@@ -1077,7 +1170,7 @@
         btn.classList.remove('opacity-75', 'cursor-not-allowed');
         icon.classList.remove('hidden');
         spinner.classList.add('hidden');
-        btnText.innerText = "Escanear Zona";
+        btnText.innerText = "Escanear";
       }
     }
 
