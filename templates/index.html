@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full bg-slate-900 text-slate-100">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InstaLeads AI - Prospección Local Inteligente</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .glass { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
+    .glass-card { background: rgba(15, 23, 42, 0.65); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.06); }
+    .ig-gradient { background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); }
+    .ig-text-gradient {
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body class="min-h-full flex flex-col bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 text-slate-200">
+
+  <!-- TOP NAVIGATION BAR -->
+  <header class="border-b border-slate-800/80 glass sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl ig-gradient flex items-center justify-center shadow-lg shadow-pink-500/20">
+          <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </div>
+        <div>
+          <span class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
+            InstaLeads <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">AI Pro</span>
+          </span>
+          <p class="text-xs text-slate-400">Prospección Local sin Web + Agente Gemini</p>
+        </div>
+      </div>
+
+      <div class="flex items-center space-x-4">
+        <!-- API Status Indicator -->
+        <div id="gemini-badge" class="flex items-center space-x-2 text-xs px-3 py-1.5 rounded-full bg-slate-800/80 border border-slate-700">
+          <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse" id="status-dot"></span>
+          <span id="status-text" class="text-slate-300">Comprobando Gemini...</span>
+        </div>
+
+        <button onclick="exportarCSV()" class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium border border-slate-700 transition">
+          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          <span>Exportar CSV</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+
+    <!-- SEARCH HERO CARD -->
+    <div class="glass-card rounded-2xl p-6 shadow-2xl relative overflow-hidden border border-slate-800">
+      <div class="absolute -right-16 -top-16 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -left-16 -bottom-16 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10">
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+          Descubre comercios locales <span class="ig-text-gradient">con Instagram</span> pero <span class="text-indigo-400">sin página web</span>
+        </h1>
+        <p class="text-sm text-slate-400 mt-1 max-w-3xl">
+          El Agente Gemini normaliza la categoría a etiquetas exactas de OpenStreetMap, verifica la autenticidad del perfil de Instagram y redacta un DM de prospección comercial de alta conversión.
+        </p>
+
+        <!-- FORMULARIO DE BÚSQUEDA -->
+        <form id="scan-form" onsubmit="iniciarEscaneo(event)" class="mt-6 grid grid-cols-1 md:grid-cols-12 gap-4">
+          <!-- Código Postal -->
+          <div class="md:col-span-3">
+            <label for="cp" class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Código Postal</label>
+            <div class="relative">
+              <input type="text" id="cp" name="cp" required placeholder="Ej: 28001, 08001..." 
+                class="w-full bg-slate-900/90 border border-slate-700/80 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition">
+              <span class="absolute right-3 top-3 text-slate-500">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+
+          <!-- Categoría en lenguaje natural -->
+          <div class="md:col-span-6">
+            <label for="categoria" class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Categoría de Negocio (Español)</label>
+            <div class="relative">
+              <input type="text" id="categoria" name="categoria" required placeholder="Ej: taller de motos, centro de uñas, peluquería, clínica dental..." 
+                class="w-full bg-slate-900/90 border border-slate-700/80 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition">
+              <span class="absolute right-3 top-3 text-slate-500">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+
+          <!-- Botón de Acción -->
+          <div class="md:col-span-3 flex items-end">
+            <button type="submit" id="btn-scan" class="w-full py-3 px-6 rounded-xl ig-gradient text-white font-semibold text-sm shadow-lg shadow-pink-500/25 hover:opacity-95 active:scale-[0.98] transition flex items-center justify-center space-x-2">
+              <svg id="scan-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+              <svg id="scan-spinner" class="w-5 h-5 animate-spin hidden" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              <span id="btn-scan-text">Escanear Zona</span>
+            </button>
+          </div>
+        </form>
+
+        <!-- CATEGORÍAS SUGERIDAS (PILLS) -->
+        <div class="mt-4 flex flex-wrap items-center gap-2 text-xs">
+          <span class="text-slate-400 font-medium">Sugerencias rápidas:</span>
+          <button type="button" onclick="setPreset('taller de motos')" class="px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 border border-slate-700 transition">🏍️ Taller de motos</button>
+          <button type="button" onclick="setPreset('centro de uñas')" class="px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 border border-slate-700 transition">💅 Centro de uñas</button>
+          <button type="button" onclick="setPreset('peluqueria')" class="px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 border border-slate-700 transition">✂️ Peluquería</button>
+          <button type="button" onclick="setPreset('cafeteria')" class="px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 border border-slate-700 transition">☕ Cafetería</button>
+          <button type="button" onclick="setPreset('clinica dental')" class="px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 border border-slate-700 transition">🦷 Clínica dental</button>
+          <button type="button" onclick="setPreset('gimnasio')" class="px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 border border-slate-700 transition">💪 Gimnasio</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCANNER PROGRESS FEEDBACK -->
+    <div id="progress-box" class="hidden glass-card rounded-xl p-4 border border-indigo-500/30 bg-indigo-950/20">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <div class="w-3 h-3 rounded-full bg-pink-500 animate-ping"></div>
+          <span id="progress-msg" class="text-sm font-medium text-slate-200">Ejecutando pipeline de prospección...</span>
+        </div>
+        <span id="progress-sub" class="text-xs text-indigo-300 font-mono">Paso 1/4</span>
+      </div>
+    </div>
+
+    <!-- STATS COUNTER BAR -->
+    <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
+      <div class="glass-card p-4 rounded-xl border border-slate-800">
+        <div class="text-xs text-slate-400 font-medium">Total Leads Guardados</div>
+        <div id="stat-total" class="text-2xl font-bold text-white mt-1">0</div>
+      </div>
+      <div class="glass-card p-4 rounded-xl border border-slate-800">
+        <div class="text-xs text-slate-400 font-medium">Con Instagram Detectado</div>
+        <div id="stat-ig" class="text-2xl font-bold text-pink-400 mt-1">0</div>
+      </div>
+      <div class="glass-card p-4 rounded-xl border border-slate-800">
+        <div class="text-xs text-slate-400 font-medium">Sin Web Propia (Oportunidad)</div>
+        <div id="stat-noweb" class="text-2xl font-bold text-emerald-400 mt-1">0</div>
+      </div>
+      <div class="glass-card p-4 rounded-xl border border-slate-800 flex items-center justify-between">
+        <div>
+          <div class="text-xs text-slate-400 font-medium">Base de Datos</div>
+          <div class="text-xs text-slate-500 mt-1">data/leads.json</div>
+        </div>
+        <button onclick="limpiarLeads()" title="Limpiar base de datos" class="text-xs px-2.5 py-1.5 rounded-lg bg-red-900/30 text-red-300 hover:bg-red-900/50 border border-red-800/40 transition">
+          Borrar Todo
+        </button>
+      </div>
+    </div>
+
+    <!-- LEADS TABLE SECTION -->
+    <div class="glass-card rounded-2xl shadow-xl overflow-hidden border border-slate-800">
+      <div class="px-6 py-4 border-b border-slate-800 flex items-center justify-between">
+        <div>
+          <h2 class="text-lg font-bold text-white">Listado de Oportunidades Comerciales</h2>
+          <p class="text-xs text-slate-400">Comercios locales sin página web con perfil verificado de Instagram</p>
+        </div>
+        <div class="flex items-center space-x-2">
+          <input type="text" id="filtro-tabla" oninput="filtrarTabla()" placeholder="Filtrar por nombre o ciudad..." 
+            class="bg-slate-900/90 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">
+        </div>
+      </div>
+
+      <!-- TABLE WRAPPER -->
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm text-slate-300">
+          <thead class="bg-slate-900/70 text-xs uppercase font-semibold text-slate-400 border-b border-slate-800 tracking-wider">
+            <tr>
+              <th scope="col" class="px-6 py-3.5">Negocio / Categoría</th>
+              <th scope="col" class="px-6 py-3.5">Ubicación / CP</th>
+              <th scope="col" class="px-6 py-3.5">Contacto</th>
+              <th scope="col" class="px-6 py-3.5">Instagram</th>
+              <th scope="col" class="px-6 py-3.5 text-center">Validación Gemini</th>
+              <th scope="col" class="px-6 py-3.5 text-right">Pitch Comercial DM</th>
+            </tr>
+          </thead>
+          <tbody id="leads-tbody" class="divide-y divide-slate-800/70">
+            <!-- Empty state default -->
+            <tr id="empty-row">
+              <td colspan="6" class="px-6 py-12 text-center text-slate-500">
+                <div class="flex flex-col items-center justify-center space-y-3">
+                  <div class="w-12 h-12 rounded-2xl bg-slate-800/60 flex items-center justify-center text-slate-400">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                    </svg>
+                  </div>
+                  <p class="text-sm font-medium text-slate-400">No hay prospectos aún en la base de datos.</p>
+                  <p class="text-xs text-slate-500">Ingresa un Código Postal y categoría arriba para comenzar la búsqueda con el agente.</p>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- PITCH MODAL -->
+  <div id="pitch-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm hidden">
+    <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-lg w-full p-6 shadow-2xl relative">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <div class="flex items-center space-x-2">
+          <div class="w-7 h-7 rounded-lg ig-gradient flex items-center justify-center text-white">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/>
+            </svg>
+          </div>
+          <h3 id="modal-title" class="text-base font-bold text-white">Pitch para Negocio</h3>
+        </div>
+        <button onclick="cerrarModal()" class="text-slate-400 hover:text-white p-1">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="mt-4 space-y-4">
+        <!-- Razón de validación -->
+        <div class="bg-slate-800/60 rounded-xl p-3 border border-slate-700/60 text-xs">
+          <span class="text-slate-400 font-semibold uppercase tracking-wider block mb-1">Verificación del Perfil por Gemini:</span>
+          <p id="modal-razon" class="text-slate-300 italic">Coincidencia de datos comprobada.</p>
+        </div>
+
+        <!-- Mensaje sugerido -->
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Mensaje Directo (DM) Sugerido:</label>
+          <div class="relative">
+            <textarea id="modal-pitch-text" readonly rows="5" 
+              class="w-full bg-slate-950/80 border border-slate-800 rounded-xl p-3.5 text-sm text-slate-200 focus:outline-none focus:ring-1 focus:ring-pink-500 font-sans leading-relaxed"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-6 flex items-center justify-between">
+        <a id="modal-ig-link" href="#" target="_blank" rel="noopener noreferrer" 
+          class="text-xs text-pink-400 hover:text-pink-300 font-medium inline-flex items-center gap-1.5">
+          <span>Abrir Instagram</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+          </svg>
+        </a>
+        <div class="flex space-x-2">
+          <button onclick="cerrarModal()" class="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 text-xs font-semibold hover:bg-slate-700 transition">
+            Cerrar
+          </button>
+          <button id="modal-copy-btn" onclick="copiarPitchModal()" class="px-4 py-2 rounded-xl ig-gradient text-white text-xs font-semibold shadow-lg hover:opacity-90 transition">
+            Copiar Mensaje
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-slate-800 border border-slate-700 text-white px-4 py-3 rounded-xl shadow-2xl flex items-center space-x-3 pointer-events-none">
+    <div id="toast-icon" class="text-emerald-400 font-bold">✓</div>
+    <span id="toast-msg" class="text-xs font-medium">Mensaje copiado al portapapeles</span>
+  </div>
+
+  <script>
+    let todosLosLeads = [];
+
+    // Al cargar la página
+    document.addEventListener('DOMContentLoaded', () => {
+      cargarConfiguracion();
+      cargarLeads();
+    });
+
+    async function cargarConfiguracion() {
+      try {
+        const res = await fetch('/health');
+        const data = await res.json();
+        const badge = document.getElementById('gemini-badge');
+        const dot = document.getElementById('status-dot');
+        const text = document.getElementById('status-text');
+
+        if (data.gemini_configurado) {
+          dot.className = "w-2 h-2 rounded-full bg-emerald-400";
+          text.className = "text-emerald-300 font-medium";
+          text.innerText = `Gemini (${data.modelo || '2.5-flash'}) Conectado`;
+          badge.className = "flex items-center space-x-2 text-xs px-3 py-1.5 rounded-full bg-emerald-950/40 border border-emerald-800/60";
+        } else {
+          dot.className = "w-2 h-2 rounded-full bg-amber-400";
+          text.className = "text-amber-300 font-medium";
+          text.innerText = "GEMINI_API_KEY no detectada";
+          badge.className = "flex items-center space-x-2 text-xs px-3 py-1.5 rounded-full bg-amber-950/40 border border-amber-800/60";
+        }
+      } catch (err) {
+        console.error('Error al comprobar configuración:', err);
+      }
+    }
+
+    function setPreset(categoria) {
+      document.getElementById('categoria').value = categoria;
+    }
+
+    async function cargarLeads() {
+      try {
+        const res = await fetch('/leads');
+        todosLosLeads = await res.json();
+        renderizarTabla(todosLosLeads);
+        actualizarEstadisticas(todosLosLeads);
+      } catch (err) {
+        console.error('Error al cargar leads:', err);
+      }
+    }
+
+    function actualizarEstadisticas(leads) {
+      document.getElementById('stat-total').innerText = leads.length;
+      document.getElementById('stat-ig').innerText = leads.filter(l => l.instagram_url).length;
+      document.getElementById('stat-noweb').innerText = leads.filter(l => !l.tiene_web).length;
+    }
+
+    function renderizarTabla(leads) {
+      const tbody = document.getElementById('leads-tbody');
+      if (!leads || leads.length === 0) {
+        tbody.innerHTML = `
+          <tr id="empty-row">
+            <td colspan="6" class="px-6 py-12 text-center text-slate-500">
+              <div class="flex flex-col items-center justify-center space-y-3">
+                <div class="w-12 h-12 rounded-2xl bg-slate-800/60 flex items-center justify-center text-slate-400">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                  </svg>
+                </div>
+                <p class="text-sm font-medium text-slate-400">No hay prospectos en la base de datos.</p>
+                <p class="text-xs text-slate-500">Ingresa un Código Postal y categoría para buscar con el agente inteligente.</p>
+              </div>
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = leads.map((lead, idx) => {
+        const igBadge = lead.instagram_url ? `
+          <a href="${lead.instagram_url}" target="_blank" rel="noopener noreferrer" 
+            class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-lg bg-pink-500/10 text-pink-400 border border-pink-500/30 hover:bg-pink-500/20 text-xs font-semibold transition">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/></svg>
+            <span>${lead.instagram_handle || '@ver_perfil'}</span>
+            <svg class="w-3 h-3 text-pink-400/70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        ` : `<span class="text-xs text-slate-500 italic">No detectado</span>`;
+
+        const validacionBadge = lead.gemini_verificado ? `
+          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20" title="${lead.gemini_razon || 'Verificado'}">
+            ✓ Coincide
+          </span>
+        ` : `
+          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-800 text-slate-400 border border-slate-700" title="${lead.gemini_razon || 'Pendiente'}">
+            Por verificar
+          </span>
+        `;
+
+        const pitchBtn = lead.mensaje_dm ? `
+          <div class="flex items-center justify-end space-x-2">
+            <button onclick="abrirModal(${idx})" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition" title="Ver análisis completo">
+              Ver Pitch
+            </button>
+            <button onclick="copiarPitch(${idx}, this)" class="text-xs px-3 py-1.5 rounded-lg ig-gradient text-white font-medium shadow-sm hover:opacity-90 active:scale-95 transition flex items-center space-x-1.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+              <span>Copiar DM</span>
+            </button>
+          </div>
+        ` : `<span class="text-xs text-slate-500 italic">Sin pitch</span>`;
+
+        return `
+          <tr class="hover:bg-slate-800/40 transition">
+            <!-- Negocio -->
+            <td class="px-6 py-4">
+              <div class="font-bold text-white text-sm leading-snug">${lead.nombre}</div>
+              <div class="text-xs text-indigo-400 mt-0.5">${lead.categoria || 'Comercio local'}</div>
+            </td>
+            <!-- Ubicación -->
+            <td class="px-6 py-4 text-xs text-slate-300">
+              <div class="font-medium">${lead.direccion || 'Sin dirección exacta'}</div>
+              <div class="text-slate-500">${lead.ciudad ? lead.ciudad + ' - ' : ''}CP ${lead.codigo_postal}</div>
+            </td>
+            <!-- Contacto -->
+            <td class="px-6 py-4 text-xs text-slate-300">
+              ${lead.telefono ? `<div class="text-slate-200">📞 ${lead.telefono}</div>` : `<span class="text-slate-500 italic">Sin teléfono</span>`}
+            </td>
+            <!-- Instagram -->
+            <td class="px-6 py-4">
+              ${igBadge}
+            </td>
+            <!-- Validación -->
+            <td class="px-6 py-4 text-center">
+              ${validacionBadge}
+            </td>
+            <!-- Acciones -->
+            <td class="px-6 py-4 text-right">
+              ${pitchBtn}
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function filtrarTabla() {
+      const q = document.getElementById('filtro-tabla').value.toLowerCase().trim();
+      if (!q) {
+        renderizarTabla(todosLosLeads);
+        return;
+      }
+      const filtrados = todosLosLeads.filter(l => 
+        (l.nombre && l.nombre.toLowerCase().includes(q)) ||
+        (l.ciudad && l.ciudad.toLowerCase().includes(q)) ||
+        (l.categoria && l.categoria.toLowerCase().includes(q)) ||
+        (l.codigo_postal && l.codigo_postal.includes(q))
+      );
+      renderizarTabla(filtrados);
+    }
+
+    async function iniciarEscaneo(e) {
+      e.preventDefault();
+      const cp = document.getElementById('cp').value.trim();
+      const categoria = document.getElementById('categoria').value.trim();
+
+      if (!cp || !categoria) return;
+
+      const btn = document.getElementById('btn-scan');
+      const btnText = document.getElementById('btn-scan-text');
+      const icon = document.getElementById('scan-icon');
+      const spinner = document.getElementById('scan-spinner');
+      const progressBox = document.getElementById('progress-box');
+      const progressMsg = document.getElementById('progress-msg');
+      const progressSub = document.getElementById('progress-sub');
+
+      btn.disabled = true;
+      btn.classList.add('opacity-75', 'cursor-not-allowed');
+      icon.classList.add('hidden');
+      spinner.classList.remove('hidden');
+      btnText.innerText = "Escaneando...";
+
+      progressBox.classList.remove('hidden');
+      progressMsg.innerText = `Consultando con Gemini y mapeando categoría "${categoria}"...`;
+      progressSub.innerText = "Paso 1/4";
+
+      try {
+        const timer1 = setTimeout(() => {
+          progressMsg.innerText = `Buscando comercios en OSM para el CP ${cp}...`;
+          progressSub.innerText = "Paso 2/4";
+        }, 1500);
+
+        const timer2 = setTimeout(() => {
+          progressMsg.innerText = "Filtrando comercios sin web e investigando perfiles de Instagram...";
+          progressSub.innerText = "Paso 3/4";
+        }, 4000);
+
+        const timer3 = setTimeout(() => {
+          progressMsg.innerText = "Gemini validando perfiles y redactando pitches comerciales...";
+          progressSub.innerText = "Paso 4/4";
+        }, 7000);
+
+        const res = await fetch('/scan', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ codigo_postal: cp, categoria: categoria })
+        });
+
+        clearTimeout(timer1);
+        clearTimeout(timer2);
+        clearTimeout(timer3);
+
+        const data = await res.json();
+
+        if (res.ok) {
+          mostrarToast(`¡Escaneo completado! Se han procesado ${data.nuevos_leads_encontrados || 0} oportunidades.`);
+          await cargarLeads();
+        } else {
+          mostrarToast(data.detail || 'Error al procesar la solicitud', true);
+        }
+      } catch (err) {
+        console.error(err);
+        mostrarToast('Error de conexión con el servidor', true);
+      } finally {
+        btn.disabled = false;
+        btn.classList.remove('opacity-75', 'cursor-not-allowed');
+        icon.classList.remove('hidden');
+        spinner.classList.add('hidden');
+        btnText.innerText = "Escanear Zona";
+        progressBox.classList.add('hidden');
+      }
+    }
+
+    function abrirModal(idx) {
+      const lead = todosLosLeads[idx];
+      if (!lead) return;
+
+      document.getElementById('modal-title').innerText = lead.nombre;
+      document.getElementById('modal-razon').innerText = lead.gemini_razon || 'Perfil coincidente y verificado por Gemini.';
+      document.getElementById('modal-pitch-text').value = lead.mensaje_dm || 'Sin mensaje generado.';
+      
+      const link = document.getElementById('modal-ig-link');
+      if (lead.instagram_url) {
+        link.href = lead.instagram_url;
+        link.classList.remove('hidden');
+      } else {
+        link.classList.add('hidden');
+      }
+
+      document.getElementById('pitch-modal').classList.remove('hidden');
+    }
+
+    function cerrarModal() {
+      document.getElementById('pitch-modal').classList.add('hidden');
+    }
+
+    function copiarPitch(idx, btnElement) {
+      const lead = todosLosLeads[idx];
+      if (!lead || !lead.mensaje_dm) return;
+
+      navigator.clipboard.writeText(lead.mensaje_dm).then(() => {
+        mostrarToast('¡Mensaje copiado al portapapeles!');
+        const origText = btnElement.innerHTML;
+        btnElement.innerHTML = `
+          <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          <span>¡Copiado!</span>
+        `;
+        btnElement.classList.add('bg-emerald-600');
+        setTimeout(() => {
+          btnElement.innerHTML = origText;
+          btnElement.classList.remove('bg-emerald-600');
+        }, 2000);
+      });
+    }
+
+    function copiarPitchModal() {
+      const text = document.getElementById('modal-pitch-text').value;
+      if (!text) return;
+      navigator.clipboard.writeText(text).then(() => {
+        mostrarToast('¡Mensaje copiado al portapapeles!');
+        const btn = document.getElementById('modal-copy-btn');
+        const orig = btn.innerText;
+        btn.innerText = "¡Copiado!";
+        setTimeout(() => { btn.innerText = orig; }, 2000);
+      });
+    }
+
+    function mostrarToast(msg, isError = false) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-msg');
+      const toastIcon = document.getElementById('toast-icon');
+
+      toastMsg.innerText = msg;
+      if (isError) {
+        toastIcon.innerText = "⚠️";
+        toastIcon.className = "text-rose-400 font-bold";
+      } else {
+        toastIcon.innerText = "✓";
+        toastIcon.className = "text-emerald-400 font-bold";
+      }
+
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 3500);
+    }
+
+    async function limpiarLeads() {
+      if (!confirm('¿Estás seguro de que deseas vaciar todos los leads guardados?')) return;
+      try {
+        const res = await fetch('/leads', { method: 'DELETE' });
+        if (res.ok) {
+          mostrarToast('Base de datos limpiada con éxito');
+          await cargarLeads();
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    function exportarCSV() {
+      window.location.href = '/export-csv';
+    }
+  </script>
+</body>
+</html>
