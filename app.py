@@ -4,6 +4,8 @@ import re
 import csv
 import io
 import subprocess
+import urllib.parse
+import time
 from typing import List, Optional, Dict, Any
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
@@ -33,12 +35,16 @@ except ImportError:
     types = None
     HAS_GENAI_LIB = False
 
-# DuckDuckGo Search para descubrimiento de perfiles
+# Motor de búsqueda web DuckDuckGo (ddgs moderno / fallback legacy)
 try:
-    from duckduckgo_search import DDGS
+    from ddgs import DDGS
     HAS_DDGS = True
 except ImportError:
-    HAS_DDGS = False
+    try:
+        from duckduckgo_search import DDGS
+        HAS_DDGS = True
+    except ImportError:
+        HAS_DDGS = False
 
 # Configuración del servidor y carpetas
 BASE_DIR = Path(__file__).resolve().parent
@@ -176,6 +182,7 @@ CADENAS_Y_FRANQUICIAS = {
     "quiron", "dexeus", "vithas", "clinica baviera", "baviera", "dental star", "dentisalut",
     "centros dentalplus", "i-dental", "idental", "eva fertility", "hedonai", "centros unico",
     "laserum", "no+vello", "no mas vello", "clinicas dorsia", "instituto odontologico",
+    "propdental", "clínica propdental", "clinica propdental", "clíniques propdental", "cliniques propdental",
     # Restauración y Franquicias de Comida
     "mcdonald", "mcdonald's", "burger king", "telepizza", "domino's", "dominos", "kfc",
     "subway", "starbucks", "100 montaditos", "tagliatella", "la tagliatella", "vips",
@@ -289,34 +296,37 @@ Categoría a clasificar: "{termino_usuario}"
 # -------------------------------------------------------------
 # 2. ROL GEMINI: VERIFICAR PERFIL Y REDACTAR PITCH DE VENTA
 # -------------------------------------------------------------
-def verificar_y_redactar_pitch(nombre_negocio: str, datos_ig: str, ciudad: str, demo_url: str = "") -> dict:
+def verificar_y_redactar_pitch(nombre_negocio: str, datos_presencia: str, ciudad: str, demo_url: str = "", tiene_ig: bool = True) -> dict:
     """
-    Analiza el perfil de Instagram encontrado y genera:
-    1. Mensaje DM inicial (cercano, elogiando su trabajo, explicando que somos un equipo local de diseño
-       que busca comercios en su zona para mejorar su tráfico de clientes, con frase de tranquilidad anti-malware).
+    Analiza el negocio local y su presencia digital (Instagram, Doctoralia, Facebook, directorios) y genera:
+    1. Mensaje de prospección comercial inicial (cercano, elogiando su trabajo/reputación, explicando que somos
+       un equipo local de diseño que busca comercios en su zona para mejorar su captación móvil, con frase anti-malware).
     2. Mensaje de seguimiento (para enviar a las 48-72h por Email o WhatsApp si no han contestado).
     Utiliza gemini-3.8-flash y auto-desescalado a 3.7, 3.5 y 2.5 si hay saturación.
     """
     cliente = obtener_cliente_gemini()
-    demo_texto = f"la maqueta interactiva segura que te preparé: {demo_url}" if demo_url else "la propuesta visual"
+    demo_texto = f"la maqueta interactiva segura que os preparé: {demo_url}" if demo_url else "la propuesta visual"
+
+    contexto_tipo = "perfil de Instagram detectado" if tiene_ig else "huella digital y presencia en internet detectada (Doctoralia, Facebook, directorios)"
+    canal_contacto = "Instagram DM" if tiene_ig else "Email / WhatsApp / Formulario"
 
     if cliente:
         prompt = f"""
-Actúa como un estratega de prospección comercial B2B y auditor de negocios locales.
-Analiza con rigor crítico este negocio local y los datos del perfil de Instagram detectado:
+Actúa como un estratega de prospección comercial B2B y auditor de negocios locales en España.
+Analiza con rigor crítico este negocio local y los datos de su {contexto_tipo}:
 
 Negocio local buscado:
 - Nombre: {nombre_negocio}
 - Localidad / Ciudad: {ciudad}
 
-Datos del perfil de Instagram / web encontrados:
-{datos_ig}
+Datos de presencia encontrados en internet:
+{datos_presencia}
 
 Debes evaluar y responder:
 1. 'es_gran_cadena': true si es una gran cadena corporativa, franquicia nacional/multinacional, aseguradora o gran empresa (ejemplos: Vitaldent, Sanitas, Adeslas, Vivanta, Dentix, Dorsia, McDonald's, Midas, etc.). False si es un comercio o clínica local independiente.
-2. 'es_perfil_correcto': true si y solo si los datos del perfil de Instagram corresponden CLARAMENTE a este negocio ({nombre_negocio} en {ciudad}). Si el perfil es de una marca ajena (ej: marcas de coches, revistas, influencers o negocios de otras ciudades o países sin relación), devuelve FALSE.
-3. 'razon': Justificación breve y directa de tu decisión (ej: 'Coincide nombre y clínica en {ciudad}', 'Descartado por ser gran franquicia nacional', o 'Descartado: el perfil de Instagram no tiene relación con el comercio').
-4. 'mensaje_dm_sugerido': Si 'es_perfil_correcto' es true Y 'es_gran_cadena' es false, redacta el DM de primer contacto (máximo 60 palabras, cálido, profesional, equipo local de diseño, enlace seguro a la maqueta {demo_url or 'https://...'} sin registros ni descargas). En caso contrario, devuelve cadena vacía "".
+2. 'es_perfil_correcto': true si los datos corresponden CLARAMENTE a este negocio ({nombre_negocio} en {ciudad}). Si los datos son de una marca ajena o negocio sin relación de otra localidad lejana, devuelve false.
+3. 'razon': Justificación breve y directa de tu decisión (ej: 'Coincide clínica local en {ciudad}', 'Descartado por ser gran franquicia nacional', o 'Comercio local verificado con presencia en directorios y redes').
+4. 'mensaje_dm_sugerido': Si 'es_perfil_correcto' es true Y 'es_gran_cadena' es false, redacta la propuesta de primer contacto para {canal_contacto} (máximo 60 palabras, tono cercano, profesional, equipo local de diseño en su zona, enlace seguro a la maqueta {demo_url or 'https://...'} sin registros ni descargas). En caso contrario, devuelve cadena vacía "".
 5. 'mensaje_seguimiento': Si 'es_perfil_correcto' es true Y 'es_gran_cadena' es false, redacta el seguimiento educado a las 48-72h. En caso contrario, devuelve cadena vacía "".
 
 Devuelve ÚNICAMENTE un JSON con esta estructura:
@@ -324,8 +334,8 @@ Devuelve ÚNICAMENTE un JSON con esta estructura:
   "es_gran_cadena": false,
   "es_perfil_correcto": true,
   "razon": "Coincide el negocio y ubicación",
-  "mensaje_dm_sugerido": "¡Hola equipo de {nombre_negocio}! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño y estamos contactando con comercios de vuestra zona porque vemos que tenéis un potencial enorme para recibir clientes directos en Google. Os he preparado una maqueta interactiva adaptada a vuestro negocio: {demo_url or 'https://...'}. Es un enlace 100% seguro para verla en el navegador móvil sin registros ni descargas. ¿Qué os parece la idea?",
-  "mensaje_seguimiento": "¡Hola de nuevo! Os escribí hace un par de días por Instagram porque os preparé una web demo interactiva: {demo_url or 'https://...'}. Os lo dejo por aquí por si os resulta más cómodo revisarlo desde el móvil. ¡Un saludo cordial!"
+  "mensaje_dm_sugerido": "¡Hola equipo de {nombre_negocio}! Me alegra contactaros. Somos un equipo local de diseño web en {ciudad} y vemos que tenéis un gran potencial para recibir más clientes directos en Google y móvil. Os hemos preparado una maqueta interactiva adaptada a vuestro negocio: {demo_url or 'https://...'}. Es un enlace 100% seguro para verla en el navegador sin descargas. ¿Qué os parece?",
+  "mensaje_seguimiento": "¡Hola de nuevo! Os escribí hace un par de días con una maqueta web interactiva para vuestro negocio: {demo_url or 'https://...'}. Os lo comparto por aquí por si os resulta cómodo revisarlo desde el móvil. ¡Un saludo cordial!"
 }}
 """
         try:
@@ -347,17 +357,26 @@ Devuelve ÚNICAMENTE un JSON con esta estructura:
 
     # Fallback si no hay API key de Gemini
     link_texto = f" {demo_url}" if demo_url else ""
-    pitch_dm_fallback = (
-        f"¡Hola equipo de {nombre_negocio}! Me encantan vuestros trabajos en Instagram. "
-        f"Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de {ciudad} para ayudarles a conseguir más clientes desde Google. "
-        f"Os he preparado una maqueta interactiva de cómo luciría vuestra web:{link_texto} "
-        f"(El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!"
-    )
+    if tiene_ig:
+        pitch_dm_fallback = (
+            f"¡Hola equipo de {nombre_negocio}! Me encantan vuestros trabajos en Instagram. "
+            f"Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de {ciudad} para ayudarles a conseguir más clientes desde Google. "
+            f"Os he preparado una maqueta interactiva de cómo luciría vuestra web:{link_texto} "
+            f"(El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!"
+        )
+    else:
+        pitch_dm_fallback = (
+            f"¡Hola equipo de {nombre_negocio}! Os contactamos desde un equipo local de diseño web en {ciudad}. "
+            f"Hemos estado revisando negocios con buenas referencias en vuestra zona y os hemos preparado una maqueta interactiva móvil para vuestra clínica:{link_texto} "
+            f"(Es un enlace 100% seguro sin registros para verlo en el navegador). ¿Os gustaría que conversemos 2 minutos sin compromiso? ¡Un saludo!"
+        )
+
     seguimiento_fallback = (
-        f"¡Hola de nuevo equipo de {nombre_negocio}! Os escribí hace unos días por Instagram con una propuesta web interactiva para vuestro negocio:{link_texto} "
+        f"¡Hola de nuevo equipo de {nombre_negocio}! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio:{link_texto} "
         f"Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!"
     )
     return {
+        "es_gran_cadena": False,
         "es_perfil_correcto": True,
         "razon": "Validación automática heurística",
         "mensaje_dm_sugerido": pitch_dm_fallback,
@@ -453,6 +472,8 @@ def obtener_bounding_box_ubicacion(
             ""
         )
         cp = addr.get("postcode") or codigo_postal or ""
+        lat = float(item.get("lat", 0)) if item.get("lat") else None
+        lon = float(item.get("lon", 0)) if item.get("lon") else None
 
         if bbox and len(bbox) == 4:
             return {
@@ -460,6 +481,8 @@ def obtener_bounding_box_ubicacion(
                 "north": float(bbox[1]),
                 "west": float(bbox[2]),
                 "east": float(bbox[3]),
+                "lat": lat,
+                "lon": lon,
                 "ciudad": ciudad,
                 "provincia": prov,
                 "codigo_postal": cp
@@ -496,15 +519,28 @@ def consultar_overpass(
     cp_default = (geo_data["codigo_postal"] if geo_data else None) or codigo_postal or ""
 
     if geo_data:
-        s, n, w, e = geo_data["south"], geo_data["north"], geo_data["west"], geo_data["east"]
-        query = f"""
-        [out:json][timeout:30];
-        (
-          node["{osm_key}"="{osm_value}"]({s},{w},{n},{e});
-          way["{osm_key}"="{osm_value}"]({s},{w},{n},{e});
-        );
-        out center tags {max_resultados};
-        """
+        lat = geo_data.get("lat")
+        lon = geo_data.get("lon")
+        if codigo_postal and lat and lon:
+            # Para Código Postal, utilizamos un radio focalizado de 1400m para no capturar municipios vecinos
+            query = f"""
+            [out:json][timeout:30];
+            (
+              node["{osm_key}"="{osm_value}"](around:1400, {lat}, {lon});
+              way["{osm_key}"="{osm_value}"](around:1400, {lat}, {lon});
+            );
+            out center tags {max_resultados};
+            """
+        else:
+            s, n, w, e = geo_data["south"], geo_data["north"], geo_data["west"], geo_data["east"]
+            query = f"""
+            [out:json][timeout:30];
+            (
+              node["{osm_key}"="{osm_value}"]({s},{w},{n},{e});
+              way["{osm_key}"="{osm_value}"]({s},{w},{n},{e});
+            );
+            out center tags {max_resultados};
+            """
     else:
         # Fallback de búsqueda directa por atributos en OSM
         condiciones = []
@@ -558,6 +594,15 @@ def consultar_overpass(
                     if es_cadena_o_franquicia(nombre, tags):
                         print(f"      [Filtro Cadena] Ignorado '{nombre}' por ser gran cadena o franquicia.")
                         continue
+
+                    # FILTRAR: Si se buscó un CP específico, descartar nodos cuyo código postal o ciudad difiera claramente
+                    if codigo_postal:
+                        node_cp = tags.get("addr:postcode", "").strip()
+                        if node_cp and node_cp != codigo_postal:
+                            continue
+                        node_city = tags.get("addr:city", "").strip().lower()
+                        if node_city and ciudad_default and node_city != ciudad_default.lower() and ciudad_default.lower() not in node_city:
+                            continue
 
                     calle = tags.get("addr:street", "")
                     numero = tags.get("addr:housenumber", "")
@@ -639,67 +684,203 @@ def extraer_handle_ig(url_or_handle: str) -> tuple[str, str]:
     return "", ""
 
 
-def buscar_instagram_negocio(nombre: str, ciudad: str, ig_osm: str = "") -> dict:
-    """Busca o valida el perfil de Instagram del negocio con filtros estrictos de dominio y relevancia."""
+def clasificar_fuente_web(url: str, titulo: str = "") -> dict:
+    url_lower = url.lower()
+
+    if "instagram.com" in url_lower:
+        return {"tipo": "instagram", "label": "Instagram", "icono": "📸", "url": url, "titulo": titulo}
+    elif "facebook.com" in url_lower:
+        return {"tipo": "facebook", "label": "Facebook", "icono": "👥", "url": url, "titulo": titulo}
+    elif "doctoralia.es" in url_lower or "doctoralia.com" in url_lower:
+        return {"tipo": "doctoralia", "label": "Doctoralia", "icono": "🩺", "url": url, "titulo": titulo}
+    elif any(x in url_lower for x in ["topdoctors.es", "topdentistas", "dentalia"]):
+        return {"tipo": "topdoctors", "label": "Top Doctors / Dentistas", "icono": "👨‍⚕️", "url": url, "titulo": titulo}
+    elif "linkedin.com" in url_lower:
+        return {"tipo": "linkedin", "label": "LinkedIn", "icono": "💼", "url": url, "titulo": titulo}
+    elif any(x in url_lower for x in ["setmore.com", "treatwell", "reservas", "booking"]):
+        return {"tipo": "reserva", "label": "Citas Online", "icono": "📅", "url": url, "titulo": titulo}
+    elif any(x in url_lower for x in [
+        "paginasamarillas.es", "qdq.com", "empresite", "einforma.com", "axesor.es",
+        "mejoresclinicas.com", "espainfo.com", "geodruid.com", "mapaclinicas.com",
+        "citacentrodesalud.com", "centreodontologic", "cylex", "infocif", "vulka",
+        "metropoliabierta", "guias.es", "dentavacation", "medicaltourismco", "eixsagradafamilia"
+    ]):
+        return {"tipo": "directorio", "label": "Directorio Local", "icono": "📁", "url": url, "titulo": titulo}
+    else:
+        return {"tipo": "web", "label": "Sitio Web", "icono": "🌐", "url": url, "titulo": titulo}
+
+
+def investigar_presencia_negocio(nombre: str, ciudad: str, ig_osm: str = "") -> dict:
+    """
+    Investiga a fondo la presencia digital de un negocio:
+    1. Perfil de Instagram (vía OSM o DuckDuckGo con matching por tokens)
+    2. Fuentes de internet alternativas (Facebook, Doctoralia, directorios, etc.)
+    3. Enlaces directos 1-click a Google Search y Google Maps
+    4. Detección de posibles webs existentes en internet
+    """
+    nom_limpio = nombre.strip()
+    ciu_limpia = ciudad.strip()
+    q_encoded = urllib.parse.quote_plus(f"{nom_limpio} {ciu_limpia}")
+    google_search_url = f"https://www.google.com/search?q={q_encoded}"
+    google_maps_url = f"https://www.google.com/maps/search/?api=1&query={q_encoded}"
+
+    res_ig = {"encontrado": False, "handle": "", "url": "", "datos_crudos": ""}
+    enlaces_internet = []
+    web_detectada = ""
+
+    # 1. Si viene en etiqueta OSM
     if ig_osm:
         handle, url = extraer_handle_ig(ig_osm)
         if handle and url:
-            return {
+            res_ig = {
                 "encontrado": True,
                 "handle": handle,
                 "url": url,
                 "datos_crudos": f"Etiquetado en OpenStreetMap: {ig_osm}"
             }
+            enlaces_internet.append({
+                "tipo": "instagram",
+                "label": "Instagram (OSM)",
+                "icono": "📸",
+                "url": url,
+                "titulo": f"Instagram @{handle}",
+                "snippet": "Perfil oficial enlazado en OpenStreetMap"
+            })
 
     if not HAS_DDGS:
-        return {"encontrado": False, "handle": "", "url": "", "datos_crudos": "DuckDuckGo search no disponible"}
+        return {
+            "instagram": res_ig,
+            "enlaces_internet": enlaces_internet,
+            "web_detectada": web_detectada,
+            "google_search_url": google_search_url,
+            "google_maps_url": google_maps_url
+        }
 
-    query = f'site:instagram.com "{nombre}" "{ciudad}"'
+    # Tokens clave del negocio para validación
+    tokens_negocio = [
+        t for t in re.sub(r"[^a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]", " ", nom_limpio.lower()).split()
+        if len(t) > 2 and t not in (
+            "dr", "dra", "carrer", "calle", "avenida", "avda", "del", "los", "las", "les", "dels",
+            "clinic", "clinica", "dent", "dental", "taller", "peluqueria", "bar", "restaurant",
+            "restaurante", "centro", "centre"
+        )
+    ]
+
     try:
         with DDGS() as ddgs:
-            resultados = list(ddgs.text(query, max_results=5))
-            for res in resultados:
-                href = res.get("href", "")
-                title = res.get("title", "")
-                body = res.get("body", "")
+            # A) Si aún no tenemos Instagram, buscar con DDG
+            if not res_ig["encontrado"]:
+                query_ig = f"site:instagram.com {nom_limpio} {ciu_limpia}"
+                try:
+                    resultados_ig = ddgs.text(query_ig, region="es-es", max_results=4)
+                    for r in resultados_ig:
+                        href = r.get("href", "")
+                        title = r.get("title", "")
+                        body = r.get("body", "")
 
-                # FILTRO ESTRICTO: Descartar si el enlace no es de instagram.com
-                if "instagram.com" not in href.lower():
-                    continue
+                        if "instagram.com" not in href.lower():
+                            continue
 
-                handle, url = extraer_handle_ig(href)
-                if handle and url:
-                    # Comprobación de relevancia: evitar falsos positivos con cuentas no relacionadas
-                    tokens_negocio = [
-                        t for t in re.sub(r"[^a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]", " ", nombre.lower()).split()
-                        if len(t) > 2 and t not in ("dr", "dra", "carrer", "calle", "avenida", "del", "los", "las", "clinic", "clinica", "dent", "dental")
-                    ]
-                    
-                    texto_busqueda = (handle + " " + title + " " + body).lower()
-                    
-                    coincide = False
-                    if not tokens_negocio:
-                        # Si solo se llama "Clínica Dental", exigimos que en el título o bio aparezca la ciudad
-                        if ciudad.lower() in texto_busqueda:
-                            coincide = True
-                    else:
-                        # Al menos un token identificativo del nombre debe aparecer
-                        for tok in tokens_negocio:
-                            if tok in texto_busqueda:
-                                coincide = True
+                        handle, url = extraer_handle_ig(href)
+                        if handle and url:
+                            texto_busqueda = (handle + " " + title + " " + body).lower()
+                            coincide = False
+                            if not tokens_negocio:
+                                if ciu_limpia.lower() in texto_busqueda:
+                                    coincide = True
+                            else:
+                                for tok in tokens_negocio:
+                                    if tok in texto_busqueda:
+                                        coincide = True
+                                        break
+
+                            if coincide:
+                                res_ig = {
+                                    "encontrado": True,
+                                    "handle": handle,
+                                    "url": url,
+                                    "datos_crudos": f"Título: {title} | Snippet: {body} | URL: {url}"
+                                }
+                                enlaces_internet.append({
+                                    "tipo": "instagram",
+                                    "label": f"Instagram ({handle})",
+                                    "icono": "📸",
+                                    "url": url,
+                                    "titulo": title or f"Perfil {handle}",
+                                    "snippet": body[:120] if body else ""
+                                })
                                 break
+                except Exception as e_ig:
+                    print(f"[DDG IG Search Error para '{nombre}'] {e_ig}")
 
-                    if coincide:
-                        return {
-                            "encontrado": True,
-                            "handle": handle,
-                            "url": url,
-                            "datos_crudos": f"Título: {title} | Snippet: {body} | URL: {url}"
-                        }
+            time.sleep(0.3)
+
+            # B) Buscar presencia general en internet (Doctoralia, Facebook, directorios, etc.)
+            query_general = f"{nom_limpio} {ciu_limpia}"
+            try:
+                resultados_gen = ddgs.text(query_general, region="es-es", max_results=6)
+                vistos_urls = {res_ig["url"].rstrip("/")} if res_ig["url"] else set()
+
+                for r in resultados_gen:
+                    href = r.get("href", "")
+                    title = r.get("title", "")
+                    body = r.get("body", "")
+                    clean_href = href.rstrip("/")
+
+                    if not clean_href or clean_href in vistos_urls:
+                        continue
+                    vistos_urls.add(clean_href)
+
+                    # Si es Instagram y no lo teníamos
+                    if "instagram.com" in href.lower() and not res_ig["encontrado"]:
+                        handle, url = extraer_handle_ig(href)
+                        if handle and url:
+                            res_ig = {
+                                "encontrado": True,
+                                "handle": handle,
+                                "url": url,
+                                "datos_crudos": f"Título: {title} | Snippet: {body} | URL: {url}"
+                            }
+                            enlaces_internet.append({
+                                "tipo": "instagram",
+                                "label": f"Instagram ({handle})",
+                                "icono": "📸",
+                                "url": url,
+                                "titulo": title or f"Perfil {handle}",
+                                "snippet": body[:120] if body else ""
+                            })
+                            continue
+
+                    fuente = clasificar_fuente_web(href, title)
+                    fuente["snippet"] = body[:120] if body else ""
+
+                    # Si parece ser su propia web oficial (ej. www.garzondental.com)
+                    if fuente["tipo"] == "web" and not web_detectada:
+                        domain = urllib.parse.urlparse(href).netloc.lower()
+                        if any(tok in domain for tok in tokens_negocio if len(tok) >= 3):
+                            web_detectada = href
+                            fuente["label"] = "Sitio Web Detectado"
+
+                    enlaces_internet.append(fuente)
+            except Exception as e_gen:
+                print(f"[DDG General Search Error para '{nombre}'] {e_gen}")
+
     except Exception as e:
-        print(f"[DDG Error para '{nombre}'] {e}")
+        print(f"[DDG Global Error para '{nombre}'] {e}")
 
-    return {"encontrado": False, "handle": "", "url": "", "datos_crudos": "No se localizó perfil público verificado"}
+    return {
+        "instagram": res_ig,
+        "enlaces_internet": enlaces_internet[:6],
+        "web_detectada": web_detectada,
+        "google_search_url": google_search_url,
+        "google_maps_url": google_maps_url
+    }
+
+
+def buscar_instagram_negocio(nombre: str, ciudad: str, ig_osm: str = "") -> dict:
+    """Función de compatibilidad que redirige a investigar_presencia_negocio."""
+    presencia = investigar_presencia_negocio(nombre, ciudad, ig_osm)
+    return presencia["instagram"]
 
 
 # -------------------------------------------------------------
@@ -797,6 +978,16 @@ async def get_leads():
                 pass
         l["horas_transcurridas"] = horas_transcurridas
         l["alerta_seguimiento"] = alerta_seguimiento
+
+        # Compatibilidad: asegurar URLs de búsqueda directa y enlaces_internet
+        if not l.get("google_search_url") and l.get("nombre"):
+            q_enc = urllib.parse.quote_plus(f"{l['nombre']} {l.get('ciudad', '')}")
+            l["google_search_url"] = f"https://www.google.com/search?q={q_enc}"
+        if not l.get("google_maps_url") and l.get("nombre"):
+            q_enc = urllib.parse.quote_plus(f"{l['nombre']} {l.get('ciudad', '')}")
+            l["google_maps_url"] = f"https://www.google.com/maps/search/?api=1&query={q_enc}"
+        if "enlaces_internet" not in l:
+            l["enlaces_internet"] = []
     return leads
 
 
@@ -814,8 +1005,8 @@ async def scan_local_leads(req: ScanRequest):
     Orquesta el pipeline completo de prospección:
     1. Normaliza la categoría a etiquetas OSM con Gemini (con auto-desescalado desde gemini-3.8-flash).
     2. Consulta OpenStreetMap (por localidad, provincia y/o código postal) filtrando negocios sin web.
-    3. Descubre o extrae el perfil de Instagram.
-    4. Verifica con Gemini y redacta el pitch comercial DM.
+    3. Descubre o extrae el perfil de Instagram y huella en internet (Doctoralia, Facebook, etc.).
+    4. Verifica con Gemini y redacta el pitch comercial adaptado (DM o Email/WhatsApp).
     5. Deduplica y persiste en data/leads.json.
     """
     cp = (req.codigo_postal or "").strip()
@@ -862,28 +1053,37 @@ async def scan_local_leads(req: ScanRequest):
     comercios_a_procesar = comercios[:req.max_comercios]
     prospectos_procesados = []
 
-    print(f"[3/4 y 4/4] Buscando Instagram, verificando y generando pitch con Gemini...")
+    print(f"[3/4 y 4/4] Investigando presencia online, verificando y generando pitch con Gemini...")
     for com in comercios_a_procesar:
+        time.sleep(0.5)
         nombre = com["nombre"]
         ciudad = com.get("ciudad") or loc or "Local"
         prov_lead = com.get("provincia") or prov or ""
         ig_osm = com.get("instagram_tag_osm", "")
+        calle = com.get("direccion", "")
 
-        # Buscar perfil en Instagram
-        ig_info = buscar_instagram_negocio(nombre, ciudad, ig_osm)
-        
-        datos_ig_texto = ig_info["datos_crudos"]
-        ig_url = ig_info["url"]
-        ig_handle = ig_info["handle"]
+        nombre_para_buscar = f"{nombre} {calle}".strip() if nombre.lower().strip() in ["clínica dental", "clinica dental", "dentista", "peluqueria", "taller"] and calle else nombre
 
-        # Si encontramos perfil o datos de Instagram, consultamos a Gemini
+        # Investigar huella en internet (Instagram, Facebook, Doctoralia, directorios, etc.)
+        presencia = investigar_presencia_negocio(nombre_para_buscar, ciudad, ig_osm)
+        ig_info = presencia["instagram"]
+        enlaces_internet = presencia["enlaces_internet"]
+        web_detectada = presencia["web_detectada"]
+        google_search_url = presencia["google_search_url"]
+        google_maps_url = presencia["google_maps_url"]
+
+        # Si encontramos perfil de Instagram, consultamos a Gemini para evaluar IG
         if ig_info["encontrado"]:
-            analisis = verificar_y_redactar_pitch(nombre, datos_ig_texto, ciudad)
+            analisis = verificar_y_redactar_pitch(nombre, ig_info["datos_crudos"], ciudad, tiene_ig=True)
+        elif enlaces_internet:
+            # Si no tiene Instagram pero encontramos huella digital en internet
+            resumen_enlaces = "\n".join([f"- {e['label']}: {e['url']} | {e.get('titulo', '')} {e.get('snippet', '')}" for e in enlaces_internet])
+            analisis = verificar_y_redactar_pitch(nombre, resumen_enlaces, ciudad, tiene_ig=False)
         else:
             analisis = {
                 "es_gran_cadena": False,
                 "es_perfil_correcto": False,
-                "razon": "No se detectó perfil de Instagram público verificado",
+                "razon": "No se detectó perfil de Instagram ni presencia web directa en el rastreo inicial",
                 "mensaje_dm_sugerido": "",
                 "mensaje_seguimiento": ""
             }
@@ -893,17 +1093,32 @@ async def scan_local_leads(req: ScanRequest):
             print(f"      [Descarte Cadena] Omitido '{nombre}' por ser gran cadena o franquicia.")
             continue
 
-        # 2. Si Gemini determina que el perfil de IG no es el correcto, limpiar para no mostrar datos falsos o incongruentes
-        if not analisis.get("es_perfil_correcto"):
+        # 2. Configurar perfil y pitch según si tiene Instagram o presencia web alternativa
+        if ig_info["encontrado"] and not analisis.get("es_perfil_correcto"):
             ig_url = ""
             ig_handle = ""
             mensaje_dm = ""
             mensaje_seguimiento = ""
-            razon = analisis.get("razon", "Perfil no coincidente")
-        else:
+            razon = analisis.get("razon", "Perfil de Instagram no coincidente")
+        elif ig_info["encontrado"] and analisis.get("es_perfil_correcto"):
+            ig_url = ig_info["url"]
+            ig_handle = ig_info["handle"]
             mensaje_dm = analisis.get("mensaje_dm_sugerido", "")
             mensaje_seguimiento = analisis.get("mensaje_seguimiento", "")
-            razon = analisis.get("razon", "Perfil verificado y coincidente")
+            razon = analisis.get("razon", "Perfil de Instagram verificado y coincidente")
+        elif enlaces_internet:
+            ig_url = ""
+            ig_handle = ""
+            mensaje_dm = analisis.get("mensaje_dm_sugerido", "")
+            mensaje_seguimiento = analisis.get("mensaje_seguimiento", "")
+            nombres_fuentes = ", ".join(list(dict.fromkeys([e['label'] for e in enlaces_internet])))
+            razon = f"Sin Instagram. Presencia online detectada ({len(enlaces_internet)} fuentes: {nombres_fuentes})"
+        else:
+            ig_url = ""
+            ig_handle = ""
+            mensaje_dm = ""
+            mensaje_seguimiento = ""
+            razon = "Sin Instagram ni presencia web detectada"
 
         lead = {
             "osm_id": com["osm_id"],
@@ -918,7 +1133,11 @@ async def scan_local_leads(req: ScanRequest):
             "tiene_web": False,
             "instagram_url": ig_url,
             "instagram_handle": ig_handle,
-            "gemini_verificado": bool(analisis.get("es_perfil_correcto") and ig_url),
+            "enlaces_internet": enlaces_internet,
+            "web_detectada": web_detectada,
+            "google_search_url": google_search_url,
+            "google_maps_url": google_maps_url,
+            "gemini_verificado": bool(analisis.get("es_perfil_correcto")),
             "gemini_razon": razon,
             "mensaje_dm": mensaje_dm,
             "mensaje_seguimiento": mensaje_seguimiento,

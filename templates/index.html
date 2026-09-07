@@ -279,7 +279,7 @@
             <tr>
               <th scope="col" class="px-6 py-3.5">Negocio / Contacto</th>
               <th scope="col" class="px-6 py-3.5">Ubicación / CP</th>
-              <th scope="col" class="px-6 py-3.5">Instagram</th>
+              <th scope="col" class="px-6 py-3.5">Instagram / Presencia Web</th>
               <th scope="col" class="px-6 py-3.5 text-center">Estado Lead</th>
               <th scope="col" class="px-6 py-3.5 text-center">Web Demo (Stitch)</th>
               <th scope="col" class="px-6 py-3.5 text-right">Pitch Comercial DM</th>
@@ -348,6 +348,22 @@
               <span>📱 Probar Web</span>
             </button>
           </div>
+        </div>
+
+        <!-- Información e Investigación en Internet -->
+        <div id="modal-internet-box" class="bg-slate-950/70 rounded-xl p-3.5 border border-slate-800 space-y-2 text-xs">
+          <div class="flex items-center justify-between">
+            <span class="text-slate-400 font-semibold uppercase tracking-wider block">🌐 Información e Investigación en Internet:</span>
+            <div class="flex items-center gap-2 text-[11px]">
+              <a id="modal-google-link" href="#" target="_blank" class="px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-sky-300 border border-slate-700 font-medium transition inline-flex items-center gap-1">
+                <span>🔍 Buscar en Google</span>
+              </a>
+              <a id="modal-maps-link" href="#" target="_blank" class="px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-emerald-300 border border-slate-700 font-medium transition inline-flex items-center gap-1">
+                <span>🗺️ Ver en Maps</span>
+              </a>
+            </div>
+          </div>
+          <div id="modal-internet-links" class="space-y-1.5 pt-0.5"></div>
         </div>
 
         <!-- Pestañas de Cadencia: Paso 1 (DM) vs Paso 2 (Seguimiento) -->
@@ -561,13 +577,61 @@
       }
 
       tbody.innerHTML = leads.map((lead, idx) => {
-        const igBadge = lead.instagram_url ? `
-          <a href="${lead.instagram_url}" target="_blank" rel="noopener noreferrer" 
-            class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-lg bg-pink-500/10 text-pink-400 border border-pink-500/30 hover:bg-pink-500/20 text-xs font-semibold transition">
-            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/></svg>
-            <span>${lead.instagram_handle || '@ver_perfil'}</span>
-          </a>
-        ` : `<span class="text-xs text-slate-500 italic">No detectado</span>`;
+        const googleSearchUrl = lead.google_search_url || `https://www.google.com/search?q=${encodeURIComponent(lead.nombre + ' ' + (lead.ciudad || ''))}`;
+        const googleMapsUrl = lead.google_maps_url || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(lead.nombre + ' ' + (lead.ciudad || ''))}`;
+
+        let presenciaHtml = '';
+        if (lead.instagram_url) {
+          presenciaHtml = `
+            <div class="space-y-1">
+              <a href="${lead.instagram_url}" target="_blank" rel="noopener noreferrer" 
+                class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-lg bg-pink-500/10 text-pink-400 border border-pink-500/30 hover:bg-pink-500/20 text-xs font-semibold transition">
+                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/></svg>
+                <span>${lead.instagram_handle || '@ver_perfil'}</span>
+              </a>
+              <div class="flex items-center gap-1.5 text-[10px] text-slate-400 pl-0.5">
+                <a href="${googleSearchUrl}" target="_blank" class="hover:text-sky-300 underline decoration-dotted">🔍 Google</a>
+                <span class="text-slate-600">·</span>
+                <a href="${googleMapsUrl}" target="_blank" class="hover:text-emerald-300 underline decoration-dotted">🗺️ Maps</a>
+                ${(lead.enlaces_internet && lead.enlaces_internet.length > 1) ? `
+                  <span class="text-slate-600">·</span>
+                  <button onclick="abrirModal(${idx})" class="text-indigo-400 hover:text-indigo-300 font-medium">+${lead.enlaces_internet.length - 1} más</button>
+                ` : ''}
+              </div>
+            </div>
+          `;
+        } else if (lead.enlaces_internet && lead.enlaces_internet.length > 0) {
+          const mainSource = lead.enlaces_internet[0];
+          presenciaHtml = `
+            <div class="space-y-1">
+              <a href="${mainSource.url}" target="_blank" rel="noopener noreferrer" 
+                class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-lg bg-sky-500/10 text-sky-300 border border-sky-500/30 hover:bg-sky-500/20 text-xs font-semibold transition" title="${mainSource.titulo || mainSource.label}">
+                <span>${mainSource.icono || '🌐'}</span>
+                <span class="truncate max-w-[120px]">${mainSource.label}</span>
+              </a>
+              <div class="flex items-center gap-1.5 text-[10px] text-slate-400 pl-0.5">
+                <a href="${googleSearchUrl}" target="_blank" class="hover:text-sky-300 underline decoration-dotted">🔍 Google</a>
+                <span class="text-slate-600">·</span>
+                <a href="${googleMapsUrl}" target="_blank" class="hover:text-emerald-300 underline decoration-dotted">🗺️ Maps</a>
+                ${lead.enlaces_internet.length > 1 ? `
+                  <span class="text-slate-600">·</span>
+                  <button onclick="abrirModal(${idx})" class="text-indigo-400 hover:text-indigo-300 font-medium">+${lead.enlaces_internet.length - 1} más</button>
+                ` : ''}
+              </div>
+            </div>
+          `;
+        } else {
+          presenciaHtml = `
+            <div class="space-y-1">
+              <span class="text-xs text-slate-500 italic">Sin IG directo</span>
+              <div class="flex items-center gap-1.5 text-[10px] text-slate-400 pl-0.5">
+                <a href="${googleSearchUrl}" target="_blank" class="hover:text-sky-300 underline decoration-dotted">🔍 Google</a>
+                <span class="text-slate-600">·</span>
+                <a href="${googleMapsUrl}" target="_blank" class="hover:text-emerald-300 underline decoration-dotted">🗺️ Maps</a>
+              </div>
+            </div>
+          `;
+        }
 
         // Selector de estado
         const estadoActual = lead.estado || "Sin Web";
@@ -634,9 +698,9 @@
               <div class="font-medium">${lead.direccion || 'Sin dirección exacta'}</div>
               <div class="text-slate-500">${lead.ciudad || 'Local'}${lead.provincia ? ' (' + lead.provincia + ')' : ''}${lead.codigo_postal ? ' · CP ' + lead.codigo_postal : ''}</div>
             </td>
-            <!-- Instagram -->
+            <!-- Instagram / Presencia Web -->
             <td class="px-6 py-4">
-              ${igBadge}
+              ${presenciaHtml}
             </td>
             <!-- Estado Lead -->
             <td class="px-6 py-4 text-center">
@@ -773,11 +837,20 @@
                   <a href="${lead.instagram_url}" target="_blank" class="text-pink-400 hover:text-pink-300 p-1 rounded bg-pink-500/10 flex-shrink-0" title="Ver Instagram">
                     <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/></svg>
                   </a>
-                ` : ''}
+                ` : (lead.enlaces_internet && lead.enlaces_internet.length > 0 ? `
+                  <a href="${lead.enlaces_internet[0].url}" target="_blank" class="text-sky-400 hover:text-sky-300 px-1.5 py-0.5 rounded bg-sky-500/10 border border-sky-500/20 flex-shrink-0 text-xs flex items-center gap-1" title="${lead.enlaces_internet[0].label}: ${lead.enlaces_internet[0].titulo || ''}">
+                    <span>${lead.enlaces_internet[0].icono || '🌐'}</span>
+                    <span class="text-[10px] font-medium truncate max-w-[70px]">${lead.enlaces_internet[0].label}</span>
+                  </a>
+                ` : '')}
               </div>
 
-              <div class="text-[11px] text-slate-400">
-                📍 ${lead.ciudad || 'Local'}${lead.provincia ? ' (' + lead.provincia + ')' : ''}${lead.codigo_postal ? ' · CP ' + lead.codigo_postal : ''}
+              <div class="flex items-center justify-between text-[11px] text-slate-400">
+                <span>📍 ${lead.ciudad || 'Local'}${lead.provincia ? ' (' + lead.provincia + ')' : ''}${lead.codigo_postal ? ' · CP ' + lead.codigo_postal : ''}</span>
+                <div class="flex items-center gap-1.5 text-[11px] pl-1">
+                  <a href="${lead.google_search_url || ('https://www.google.com/search?q=' + encodeURIComponent(lead.nombre + ' ' + (lead.ciudad||'')))}" target="_blank" class="hover:text-sky-300" title="Buscar en Google">🔍</a>
+                  <a href="${lead.google_maps_url || ('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(lead.nombre + ' ' + (lead.ciudad||'')))}" target="_blank" class="hover:text-emerald-300" title="Ver en Google Maps">🗺️</a>
+                </div>
               </div>
 
               ${alertaBadge}
@@ -960,12 +1033,57 @@
       document.getElementById('modal-lead-email').value = lead.email || '';
       document.getElementById('modal-lead-subject').value = `Propuesta web interactiva para ${lead.nombre}`;
       
+      // Enlaces de búsqueda en Google y Google Maps
+      const googleSearchUrl = lead.google_search_url || `https://www.google.com/search?q=${encodeURIComponent(lead.nombre + ' ' + (lead.ciudad || ''))}`;
+      const googleMapsUrl = lead.google_maps_url || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(lead.nombre + ' ' + (lead.ciudad || ''))}`;
+      document.getElementById('modal-google-link').href = googleSearchUrl;
+      document.getElementById('modal-maps-link').href = googleMapsUrl;
+
+      // Lista dinámica de fuentes en internet (Doctoralia, Facebook, directorios, etc.)
+      const linksContainer = document.getElementById('modal-internet-links');
+      if (lead.enlaces_internet && lead.enlaces_internet.length > 0) {
+        linksContainer.innerHTML = lead.enlaces_internet.map(f => `
+          <a href="${f.url}" target="_blank" rel="noopener noreferrer" 
+            class="flex items-center justify-between p-2 rounded-lg bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 transition group text-xs">
+            <div class="flex items-center gap-2 overflow-hidden">
+              <span class="text-sm">${f.icono || '🌐'}</span>
+              <div class="truncate">
+                <span class="font-semibold text-slate-200 group-hover:text-white">${f.label}:</span>
+                <span class="text-slate-400 text-[11px] ml-1">${f.titulo || f.url}</span>
+              </div>
+            </div>
+            <svg class="w-3.5 h-3.5 text-slate-500 group-hover:text-slate-300 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        `).join('');
+      } else {
+        linksContainer.innerHTML = `
+          <div class="p-2.5 rounded-lg bg-slate-900/60 border border-slate-800 text-[11px] text-slate-400">
+            ℹ️ No se detectaron perfiles sociales directos en el rastreo inicial. Utiliza los botones superiores de <strong>Google</strong> o <strong>Maps</strong> para abrir la información completa del comercio con un solo clic.
+          </div>
+        `;
+      }
+      
       const link = document.getElementById('modal-ig-link');
       if (lead.instagram_url) {
         link.href = lead.instagram_url;
+        link.innerHTML = `<span>Abrir Instagram</span><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>`;
+        link.className = "text-xs text-pink-400 hover:text-pink-300 font-medium inline-flex items-center gap-1.5";
+        link.classList.remove('hidden');
+      } else if (lead.web_detectada) {
+        link.href = lead.web_detectada;
+        link.innerHTML = `<span>🌐 Web Detectada</span><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>`;
+        link.className = "text-xs text-sky-400 hover:text-sky-300 font-medium inline-flex items-center gap-1.5";
+        link.classList.remove('hidden');
+      } else if (lead.enlaces_internet && lead.enlaces_internet.length > 0) {
+        link.href = lead.enlaces_internet[0].url;
+        link.innerHTML = `<span>${lead.enlaces_internet[0].icono || '🌐'} Abrir ${lead.enlaces_internet[0].label}</span><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>`;
+        link.className = "text-xs text-sky-400 hover:text-sky-300 font-medium inline-flex items-center gap-1.5";
         link.classList.remove('hidden');
       } else {
-        link.classList.add('hidden');
+        link.href = googleSearchUrl;
+        link.innerHTML = `<span>🔍 Buscar en Google</span><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>`;
+        link.className = "text-xs text-slate-400 hover:text-white font-medium inline-flex items-center gap-1.5";
+        link.classList.remove('hidden');
       }
 
       // Caja de demo en el modal
