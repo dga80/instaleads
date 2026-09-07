@@ -42,15 +42,15 @@ fi
 (
     sleep 2
     if command -v open &>/dev/null; then
-        open "http://127.0.0.1:8000"
+        open "http://127.0.0.1:8085"
     elif command -v xdg-open &>/dev/null; then
-        xdg-open "http://127.0.0.1:8000"
+        xdg-open "http://127.0.0.1:8085"
     elif command -v start &>/dev/null; then
-        start "http://127.0.0.1:8000"
+        start "http://127.0.0.1:8085"
     fi
 ) &
 
-echo "🌐 Servidor arrancando en: http://127.0.0.1:8000"
+echo "🌐 Servidor arrancando en: http://127.0.0.1:8085"
 echo "Presiona CTRL+C para detener el servidor."
 echo "----------------------------------------------------------"
 

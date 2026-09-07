@@ -26,10 +26,10 @@ if exist "venv\Scripts\activate.bat" (
 )
 
 :: Abrir el navegador automaticamente
-start http://127.0.0.1:8000
+start http://127.0.0.1:8085
 
 :: Iniciar servidor
-echo Servidor en ejecucion en http://127.0.0.1:8000
+echo Servidor en ejecucion en http://127.0.0.1:8085
 echo Presiona CTRL+C para cerrar el servidor.
 echo ----------------------------------------------------------
 python app.py

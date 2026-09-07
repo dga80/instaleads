@@ -44,7 +44,7 @@ Aplicación Full-Stack de prospección comercial local construida con **FastAPI*
    Copia el archivo `.env.example` a `.env` (o edita el `.env` existente):
    ```env
    GEMINI_API_KEY=tu_clave_de_google_ai_studio_aqui
-   PORT=8000
+   PORT=8085
    HOST=127.0.0.1
    ```
 
@@ -54,11 +54,11 @@ Aplicación Full-Stack de prospección comercial local construida con **FastAPI*
    ```
    O alternativamente con uvicorn:
    ```bash
-   uvicorn app:app --reload --port 8000
+   uvicorn app:app --reload --port 8085
    ```
 
 5. **Abrir en el navegador**:
-   Visita [http://127.0.0.1:8000](http://127.0.0.1:8000)
+   Visita [http://127.0.0.1:8085](http://127.0.0.1:8085)
 
 ---
 
