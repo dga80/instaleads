@@ -3,6 +3,7 @@ import json
 import re
 import csv
 import io
+import subprocess
 from typing import List, Optional, Dict, Any
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
@@ -874,6 +875,169 @@ async def send_lead_email(osm_id: str, req: EmailSendRequest):
         "mensaje": f"Correo enviado exitosamente a {email_limpio}",
         "lead": target_lead
     }
+
+
+def ejecutar_despliegue_github_pages() -> dict:
+    """
+    Sincroniza y despliega la carpeta demos/ en la rama 'gh-pages' de GitHub.
+    Calcula la URL pública de GitHub Pages y actualiza las demos y pitches.
+    """
+    demos_path = BASE_DIR / "demos"
+    if not demos_path.exists() or not any(demos_path.iterdir()):
+        raise HTTPException(
+            status_code=400,
+            detail="No hay demos generadas en la carpeta 'demos/'. Genera al menos una web demo primero."
+        )
+
+    # 1. Crear archivo .nojekyll en demos/
+    nojekyll = demos_path / ".nojekyll"
+    if not nojekyll.exists():
+        nojekyll.touch()
+
+    # 2. Generar index.html centralizado en demos/ para que la raíz de GitHub Pages no dé 404
+    leads = leer_leads_guardados()
+    demos_leads = [l for l in leads if l.get("demo_slug")]
+
+    items_html = ""
+    for dl in demos_leads:
+        items_html += f"""
+        <li style="margin-bottom: 12px; padding: 16px; background: #1e293b; border-radius: 12px; border: 1px solid #334155; display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <div style="font-weight: bold; font-size: 16px; color: #f8fafc;">{dl.get('nombre', 'Comercio')}</div>
+            <div style="color: #94a3b8; font-size: 13px; margin-top: 2px;">{dl.get('categoria', '')} · {dl.get('ciudad', '')}</div>
+          </div>
+          <a href="./{dl['demo_slug']}/" style="background: linear-gradient(135deg, #ec4899, #8b5cf6); color: #ffffff; text-decoration: none; padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 13px;">Ver Demo &rarr;</a>
+        </li>"""
+
+    index_html = f"""<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InstaLeads Demos Showcase</title>
+  <style>
+    body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0b0f19; color: #f8fafc; padding: 40px 16px; margin: 0; }}
+    .container {{ max-width: 620px; margin: 0 auto; }}
+    ul {{ list-style: none; padding: 0; margin-top: 24px; }}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 style="font-size: 26px; margin-bottom: 6px; font-weight: 800;">🚀 Portafolio de Webs Demo</h1>
+    <p style="color: #94a3b8; font-size: 14px; margin-top: 0;">Sitios web interactivos diseñados para comercios locales por nuestro equipo.</p>
+    <ul>{items_html or '<li style="color: #64748b; padding: 16px;">No hay comercios generados aún.</li>'}</ul>
+  </div>
+</body>
+</html>"""
+    with open(demos_path / "index.html", "w", encoding="utf-8") as f:
+        f.write(index_html)
+
+    # 3. Detectar remote URL de origin
+    try:
+        remote_proc = subprocess.run(
+            ["git", "remote", "get-url", "origin"],
+            cwd=str(BASE_DIR),
+            check=True,
+            capture_output=True,
+            text=True
+        )
+        remote_url = remote_proc.stdout.strip()
+    except Exception:
+        remote_url = "https://github.com/dga80/instaleads.git"
+
+    # Calcular base pública de GitHub Pages
+    gh_pages_base = ""
+    m = re.search(r"github\.com[:/]([^/]+)/([^/.]+)(?:\.git)?", remote_url)
+    if m:
+        user = m.group(1)
+        repo = m.group(2)
+        gh_pages_base = f"https://{user}.github.io/{repo}"
+    else:
+        gh_pages_base = os.getenv("GITHUB_PAGES_BASE_URL", "https://dga80.github.io/instaleads")
+    
+    gh_pages_base = gh_pages_base.rstrip("/")
+
+    # 4. Git add & commit de demos/
+    try:
+        subprocess.run(["git", "add", "demos/"], cwd=str(BASE_DIR), check=True, capture_output=True, text=True)
+        diff_proc = subprocess.run(["git", "diff-index", "--quiet", "HEAD", "--", "demos"], cwd=str(BASE_DIR))
+        if diff_proc.returncode != 0:
+            subprocess.run(
+                ["git", "commit", "-m", "chore(demos): actualizar webs demo para GitHub Pages"],
+                cwd=str(BASE_DIR),
+                check=True,
+                capture_output=True,
+                text=True
+            )
+
+        # 5. Obtener hash del commit de demos/ con git subtree split
+        split_proc = subprocess.run(
+            ["git", "subtree", "split", "--prefix", "demos", "HEAD"],
+            cwd=str(BASE_DIR),
+            check=True,
+            capture_output=True,
+            text=True
+        )
+        commit_hash = split_proc.stdout.strip().splitlines()[-1]
+
+        # 6. Push a la rama gh-pages de origin
+        push_proc = subprocess.run(
+            ["git", "push", "origin", f"{commit_hash}:refs/heads/gh-pages", "--force"],
+            cwd=str(BASE_DIR),
+            check=True,
+            capture_output=True,
+            text=True
+        )
+
+        # 7. Actualizar leads en data/leads.json con la URL pública activa
+        leads_actualizados = 0
+        for l in leads:
+            slug = l.get("demo_slug")
+            if slug:
+                public_demo_url = f"{gh_pages_base}/{slug}/"
+                old_demo_url = l.get("demo_url_absoluta", "")
+                l["demo_url_absoluta"] = public_demo_url
+                l["demo_url_publica"] = public_demo_url
+
+                # Actualizar DM y Seguimiento sustituyendo la URL local por la URL pública
+                if old_demo_url and old_demo_url in l.get("mensaje_dm", ""):
+                    l["mensaje_dm"] = l["mensaje_dm"].replace(old_demo_url, public_demo_url)
+                else:
+                    l["mensaje_dm"] = re.sub(r"http://[^/]+/demos/[a-zA-Z0-9_-]+", public_demo_url, l.get("mensaje_dm", ""))
+
+                if old_demo_url and old_demo_url in l.get("mensaje_seguimiento", ""):
+                    l["mensaje_seguimiento"] = l["mensaje_seguimiento"].replace(old_demo_url, public_demo_url)
+                else:
+                    l["mensaje_seguimiento"] = re.sub(r"http://[^/]+/demos/[a-zA-Z0-9_-]+", public_demo_url, l.get("mensaje_seguimiento", ""))
+
+                leads_actualizados += 1
+
+        with open(LEADS_FILE, "w", encoding="utf-8") as f:
+            json.dump(leads, f, ensure_ascii=False, indent=2)
+
+        return {
+            "status": "ok",
+            "mensaje": "¡Demos publicadas con éxito en GitHub Pages!",
+            "github_pages_url": gh_pages_base,
+            "demos_actualizadas": leads_actualizados,
+            "commit": commit_hash[:7]
+        }
+
+    except subprocess.CalledProcessError as err:
+        err_msg = err.stderr or err.stdout or str(err)
+        print(f"[Error Deploy GitHub Pages] {err_msg}")
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error al desplegar en GitHub Pages: {err_msg.strip()}"
+        )
+    except Exception as ex:
+        raise HTTPException(status_code=500, detail=f"Error inesperado durante el despliegue: {str(ex)}")
+
+
+@app.post("/deploy-github-pages")
+async def deploy_github_pages_endpoint():
+    """Endpoint llamado desde el botón de la UI para publicar las demos en GitHub Pages."""
+    return ejecutar_despliegue_github_pages()
 
 
 @app.get("/demo/{osm_id}")

@@ -15,12 +15,13 @@
     "estado": "DM Enviado",
     "demo_slug": "motos-dani-racing-madrid",
     "demo_url": "/demos/motos-dani-racing-madrid",
-    "demo_url_absoluta": "http://127.0.0.1:8085/demos/motos-dani-racing-madrid",
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/motos-dani-racing-madrid/",
     "demo_vibe": "Technical Bold (Potencia, Precisión & Mecánica)",
-    "mensaje_dm": "¡Hola equipo de Motos Dani Racing! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño en el área de Madrid y estamos contactando con talleres mecánicos de gran potencial para ayudarles a captar más clientes directos en Google y reservas de mantenimiento. Os he preparado una maqueta interactiva adaptada a vuestro negocio: http://127.0.0.1:8085/demos/motos-dani-racing-madrid. Es un enlace 100% seguro para verla en el navegador móvil sin registros ni descargas. ¿Podéis echarle un vistazo a ver qué os parece?",
-    "mensaje_seguimiento": "¡Hola de nuevo! Os escribí hace un par de días por Instagram con la web demo que os preparé: http://127.0.0.1:8085/demos/motos-dani-racing-madrid. Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el móvil. ¿Os gustaría que hablemos un par de minutos sin compromiso? ¡Un saludo!",
+    "mensaje_dm": "¡Hola equipo de Motos Dani Racing! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño en el área de Madrid y estamos contactando con talleres mecánicos de gran potencial para ayudarles a captar más clientes directos en Google y reservas de mantenimiento. Os he preparado una maqueta interactiva adaptada a vuestro negocio: https://dga80.github.io/instaleads/motos-dani-racing-madrid/. Es un enlace 100% seguro para verla en el navegador móvil sin registros ni descargas. ¿Podéis echarle un vistazo a ver qué os parece?",
+    "mensaje_seguimiento": "¡Hola de nuevo! Os escribí hace un par de días por Instagram con la web demo que os preparé: https://dga80.github.io/instaleads/motos-dani-racing-madrid/. Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el móvil. ¿Os gustaría que hablemos un par de minutos sin compromiso? ¡Un saludo!",
     "fecha_contacto": "2026-09-05T13:07:54.257935+00:00",
-    "email": "taller@motosdaniracing.com"
+    "email": "taller@motosdaniracing.com",
+    "demo_url_publica": "https://dga80.github.io/instaleads/motos-dani-racing-madrid/"
   },
   {
     "osm_id": "osm_102",
@@ -38,10 +39,12 @@
     "estado": "Web Generada",
     "demo_slug": "glamour-nails-studio-barcelona",
     "demo_url": "/demos/glamour-nails-studio-barcelona",
-    "demo_url_absoluta": "http://testserver/demos/glamour-nails-studio-barcelona",
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/glamour-nails-studio-barcelona/",
     "demo_vibe": "Editorial Luxury (Refinado & Alta Gama)",
-    "mensaje_dm": "¡Hola equipo de Glamour Nails Studio! Me encantan vuestros trabajos en Instagram. Me he tomado la libertad de crearos una maqueta interactiva de cómo luciría vuestra web profesional lista para recibir clientes y reservas: http://testserver/demos/glamour-nails-studio-barcelona ¿Podéis echarle un vistazo desde el móvil a ver qué os parece? ¡Un saludo!",
-    "email": "contacto@glamournails.es"
+    "mensaje_dm": "¡Hola equipo de Glamour Nails Studio! Me encantan vuestros trabajos en Instagram. Me he tomado la libertad de crearos una maqueta interactiva de cómo luciría vuestra web profesional lista para recibir clientes y reservas: https://dga80.github.io/instaleads/glamour-nails-studio-barcelona/ ¿Podéis echarle un vistazo desde el móvil a ver qué os parece? ¡Un saludo!",
+    "email": "contacto@glamournails.es",
+    "demo_url_publica": "https://dga80.github.io/instaleads/glamour-nails-studio-barcelona/",
+    "mensaje_seguimiento": ""
   },
   {
     "osm_id": "osm_103",
