@@ -12,12 +12,17 @@ Aplicación Full-Stack de prospección comercial local construida con **FastAPI*
 2. **Filtrado de Oportunidades Reales**:
    - Descarta automáticamente negocios que ya cuentan con página web propia.
    - Detecta perfiles de Instagram asociados (etiquetados en OSM o investigados en DuckDuckGo).
-3. **Validación y Pitch Comercial con Gemini**:
-   - **Verificación**: Gemini analiza si el perfil de Instagram encontrado corresponde realmente al negocio local.
-   - **Redacción Persuasiva**: Redacta un mensaje directo (DM) de máximo 60 palabras, educado y persuasivo para ofrecerle la creación de su web profesional aprovechando su presencia visual en Instagram.
-4. **Persistencia Deduplicada y Exportación**:
-   - Almacena los leads en `data/leads.json` sin duplicar negocios ya prospectados.
-   - Exportación directa a **CSV** listo para importar en CRM o Excel.
+3. **Replicación de Instagram a Web Demo (Mobile-First + Stitch Design System)**:
+   - Extrae el avatar, biografía y publicaciones reales de Instagram (con soporte de Apify o fallback curado).
+   - Sintetiza un **Design System individualizado** (principios de Google Stitch) con paletas tonales personalizadas, fuentes de Google Fonts de impacto y lenguaje de formas exclusivo para evitar webs clónicas.
+   - Genera una landing page responsive autocontenida (`demos/{slug}/index.html`) con barra fija para WhatsApp directo, galería de trabajos y mapa interactivo.
+4. **Validación y Pitch Comercial con Demo Interactiva**:
+   - **Verificación**: Gemini analiza la correspondencia del perfil.
+   - **Pitch con Enlace a la Demo**: Redacta un DM persuasivo que incluye el enlace a su web interactiva para que la miren desde su smartphone.
+5. **Simulador de Móvil Integrado & Exportación para GitHub Pages**:
+   - Visualizador de iPhone interactivo integrado directamente en el Dashboard.
+   - Estructura `demos/{slug}/index.html` lista para subir a un repositorio de **GitHub Pages**.
+   - Exportación directa a **CSV** con enlaces a las demos y estados del lead.
 
 ---
 
@@ -91,15 +96,21 @@ Analiza la correspondencia del perfil y genera el pitch:
 
 ```text
 instaleads/
-├── app.py                # Servidor FastAPI, endpoints /scan, /leads, agente Gemini
-├── requirements.txt      # Dependencias oficiales (google-genai, fastapi, etc.)
-├── .env                  # Variables de entorno locales (API Key)
-├── .env.example          # Plantilla de configuración
-├── README.md             # Documentación del proyecto
+├── app.py                    # Servidor FastAPI, endpoints de escaneo, cadencia y emails
+├── instagram_extractor.py    # Extractor Apify de Instagram + fallback fotográfico Unsplash
+├── stitch_designer.py        # Sintetizador de Design System estilo Stitch (tokens, fuentes, paleta)
+├── web_generator.py          # Compilador de landings mobile-first en demos/{slug}/index.html
+├── deploy_github_pages.sh    # Script de publicación a GitHub Pages
+├── requirements.txt          # Dependencias (google-genai, fastapi, uvicorn, etc.)
+├── .env                      # Variables de entorno locales (API Keys y Gmail SMTP)
+├── .env.example              # Plantilla con ejemplos de configuración
+├── README.md                 # Documentación completa
 ├── data/
-│   └── leads.json        # Base de datos persistente y deduplicada
+│   └── leads.json            # Base de datos persistente de leads y estados CRM
+├── demos/                    # Webs estáticas individuales generadas (GitHub Pages ready)
 └── templates/
-    └── index.html        # Frontend en Tailwind CSS interactivo
+    ├── index.html            # Dashboard dual (Tabla + Tablero Kanban + Simulador iPhone)
+    └── landing_template.html # Plantilla mobile-first con barra WhatsApp fija y mapa
 ```
 
 ---
@@ -108,9 +119,16 @@ instaleads/
 
 | Método | Endpoint | Descripción |
 |---|---|---|
-| `GET` | `/` | Interfaz de usuario interactiva |
-| `POST` | `/scan` | Ejecuta el escaneo de Código Postal y Categoría con Gemini |
-| `GET` | `/leads` | Devuelve los leads almacenados en `data/leads.json` |
+| `GET` | `/` | Dashboard interactivo (Tabla + Kanban CRM + Simulador móvil) |
+| `POST` | `/scan` | Ejecuta el escaneo de CP y Categoría con OpenStreetMap + Gemini |
+| `GET` | `/leads` | Devuelve leads calculando horas transcurridas y alertas >48h |
 | `DELETE` | `/leads` | Vacía la base de datos de leads locales |
-| `GET` | `/export-csv` | Descarga el CSV con todos los comercios y mensajes DM |
-| `GET` | `/health` | Chequea el estado del servidor y si Gemini está configurado |
+| `POST` | `/leads/{id}/generate-web` | Extrae Instagram, diseña con Stitch y genera demo en `/demos/{slug}` |
+| `POST` | `/leads/{id}/status` | Actualiza estado CRM (*Sin Web, Web Lista, DM Enviado, Respondido, Cerrado*) |
+| `POST` | `/leads/{id}/pitch` | Guarda ediciones manuales de los mensajes del Paso 1 y Paso 2 |
+| `POST` | `/leads/{id}/send-email` | Envía la propuesta comercial directamente usando Gmail SMTP |
+| `POST` | `/leads/{id}/simulate-time` | Simula +50h transcurridas para probar la alerta de seguimiento |
+| `GET` | `/demo/{id}` | Redirección directa a la demo del comercio |
+| `GET` | `/demos/{slug}` | Servidor de webs demo individuales generadas |
+| `GET` | `/export-csv` | Descarga el CSV con leads, enlaces de demo y estados |
+| `GET` | `/health` | Chequea el estado del servidor, Gemini y credenciales SMTP |

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Motos Dani Racing | Web Oficial & Reservas</title>
+  <meta name="description" content="Sitio web oficial y reservas para Motos Dani Racing en Madrid">
+  
+  <!-- Favicon desde avatar de Instagram -->
+  <link rel="icon" type="image/jpeg" href="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=300&auto=format&fit=crop&q=80">
+
+  <!-- Tipografías de Google Fonts según Stitch Design System -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Leaflet CSS & JS para Mapa Interactivo OpenStreetMap -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <style>
+    :root {
+      --primary: #f97316;
+      --primary-container: rgba(249, 115, 22, 0.15);
+      --on-primary: #ffffff;
+      --accent: #fb923c;
+      --bg-surface: #09090b;
+      --card-surface: rgba(24, 24, 27, 0.8);
+      --border-color: rgba(249, 115, 22, 0.25);
+      --text-primary: #f4f4f5;
+      --text-secondary: #a1a1aa;
+      --font-headline: 'Space Grotesk', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --radius: 0.625rem;
+      --radius-btn: 0.75rem;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-surface);
+      color: var(--text-primary);
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    h1, h2, h3, .font-headline {
+      font-family: var(--font-headline);
+    }
+
+    .theme-card {
+      background: var(--card-surface);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+      color: var(--on-primary);
+      border-radius: var(--radius-btn);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 0 15px -3px var(--primary);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .btn-primary:active {
+      transform: scale(0.97);
+    }
+
+    .ig-gradient-border {
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      padding: 2.5px;
+      border-radius: 9999px;
+    }
+
+    /* Ocultar barra de scroll en carruseles táctiles */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col pb-28 md:pb-16 selection:bg-orange-500 selection:text-white">
+
+  <!-- TOP HEADER DE NAVEGACIÓN -->
+  <header class="sticky top-0 z-40 backdrop-blur-xl border-b" style="background-color: rgba(12, 10, 9, 0.85); border-color: var(--border-color);">
+    <div class="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
+      <!-- Identidad Comercio -->
+      <a href="#inicio" class="flex items-center space-x-3">
+        <div class="ig-gradient-border">
+          <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=300&auto=format&fit=crop&q=80" alt="Motos Dani Racing" class="w-9 h-9 rounded-full object-cover bg-black">
+        </div>
+        <div>
+          <span class="font-headline font-bold text-base md:text-lg tracking-tight block leading-tight truncate max-w-[200px] sm:max-w-none">
+            Motos Dani Racing
+          </span>
+          <span class="text-[11px] font-medium tracking-wide flex items-center gap-1.5" style="color: var(--accent);">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            Abierto Hoy · Madrid
+          </span>
+        </div>
+      </a>
+
+      <!-- Botón Instagram Oficial -->
+      
+      <a href="https://www.instagram.com/motosdaniracing/" target="_blank" rel="noopener noreferrer" 
+        class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-white/5 hover:bg-white/10 border transition" style="border-color: var(--border-color);">
+        <svg class="w-3.5 h-3.5 text-pink-500" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/>
+        </svg>
+        <span class="hidden sm:inline">Instagram</span>
+      </a>
+      
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-4xl mx-auto w-full px-4 pt-4 space-y-6">
+
+    <!-- HISTORIAS / HIGHLIGHTS TÁCTILES ESTILO INSTAGRAM -->
+    <section class="py-2">
+      <div class="flex items-center space-x-4 overflow-x-auto no-scrollbar py-1">
+        <a href="#servicios" class="flex flex-col items-center space-y-1.5 flex-shrink-0 group">
+          <div class="w-16 h-16 ig-gradient-border group-hover:scale-105 transition transform">
+            <div class="w-full h-full rounded-full bg-slate-900 flex items-center justify-center text-xl overflow-hidden">
+              ⭐
+            </div>
+          </div>
+          <span class="text-[11px] font-medium text-slate-300">Servicios</span>
+        </a>
+
+        <a href="#galeria" class="flex flex-col items-center space-y-1.5 flex-shrink-0 group">
+          <div class="w-16 h-16 ig-gradient-border group-hover:scale-105 transition transform">
+            <div class="w-full h-full rounded-full bg-slate-900 flex items-center justify-center text-xl overflow-hidden">
+              📸
+            </div>
+          </div>
+          <span class="text-[11px] font-medium text-slate-300">Trabajos</span>
+        </a>
+
+        <a href="#contacto" class="flex flex-col items-center space-y-1.5 flex-shrink-0 group">
+          <div class="w-16 h-16 ig-gradient-border group-hover:scale-105 transition transform">
+            <div class="w-full h-full rounded-full bg-slate-900 flex items-center justify-center text-xl overflow-hidden">
+              📍
+            </div>
+          </div>
+          <span class="text-[11px] font-medium text-slate-300">Ubicación</span>
+        </a>
+
+        <a href="#nosotros" class="flex flex-col items-center space-y-1.5 flex-shrink-0 group">
+          <div class="w-16 h-16 ig-gradient-border group-hover:scale-105 transition transform">
+            <div class="w-full h-full rounded-full bg-slate-900 flex items-center justify-center text-xl overflow-hidden">
+              👥
+            </div>
+          </div>
+          <span class="text-[11px] font-medium text-slate-300">Nosotros</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- HERO SECTION MOBILE-FIRST IMPACTANTE -->
+    <section id="inicio" class="relative rounded-3xl overflow-hidden border shadow-2xl" style="border-color: var(--border-color);">
+      <!-- Imagen de fondo con overlay oscuro tonal -->
+      <div class="absolute inset-0 z-0">
+        <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=800&auto=format&fit=crop&q=80" alt="Motos Dani Racing" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/40"></div>
+      </div>
+
+      <div class="relative z-10 p-6 sm:p-10 flex flex-col justify-end min-h-[360px] sm:min-h-[420px]">
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full text-xs font-semibold w-fit mb-3" style="background-color: var(--primary-container); color: var(--accent); border: 1px solid var(--border-color);">
+          <span>Shop</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
+          Motos Dani Racing en Madrid
+        </h1>
+
+        <p class="mt-3 text-sm sm:text-base text-slate-300 max-w-xl font-normal leading-relaxed">
+          Especialistas en mecánica de precisión, mantenimiento y diagnóstico en Madrid. Pasión por el motor. ¡Pide tu cita sin compromiso!
+        </p>
+
+        <!-- CTAs Principales -->
+        <div class="mt-6 flex flex-col sm:flex-row gap-3">
+          
+          <a href="https://api.whatsapp.com/send?phone=34914023456&text=¡Hola%20equipo%20de%20Motos%20Dani%20Racing!%20Os%20contacto%20desde%20vuestra%20web%20para%20pedir%20información%20o%20cita." target="_blank" class="btn-primary py-3.5 px-6 font-bold text-sm text-center flex items-center justify-center space-x-2">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+            </svg>
+            <span>Reservar Cita por WhatsApp</span>
+          </a>
+          
+
+          
+          <a href="tel:914023456" class="py-3.5 px-6 rounded-full font-semibold text-sm text-center bg-white/10 hover:bg-white/15 text-white border transition flex items-center justify-center space-x-2" style="border-color: var(--border-color);">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+            <span>Llamar: 914023456</span>
+          </a>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN DE SERVICIOS / ESPECIALIDADES -->
+    <section id="servicios" class="space-y-4 pt-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-wider block" style="color: var(--accent);">Nuestras Especialidades</span>
+          <h2 class="text-2xl font-bold text-white tracking-tight">Servicios Destacados</h2>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        
+        <div class="theme-card overflow-hidden flex flex-col justify-between group hover:border-orange-500/50 transition">
+          
+          <div class="h-44 w-full overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=800&auto=format&fit=crop&q=80" alt="Revisión completa de motor y puesta" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            
+            <span class="absolute bottom-3 right-3 text-xs font-bold px-2.5 py-1 rounded-full bg-black/70 text-white border border-white/20">
+              Cita previa
+            </span>
+            
+          </div>
+          
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-bold text-lg text-white mb-1.5">Revisión completa de motor y puesta</h3>
+              <p class="text-xs sm:text-sm leading-relaxed" style="color: var(--text-secondary);">
+                Revisión completa de motor y puesta a punto. Seguridad garantizada en cada curva
+              </p>
+            </div>
+            
+            <div class="mt-4 pt-3 border-t" style="border-color: var(--border-color);">
+              <a href="https://api.whatsapp.com/send?phone=34914023456&text=¡Hola%20equipo%20de%20Motos%20Dani%20Racing!%20Os%20contacto%20desde%20vuestra%20web%20para%20pedir%20información%20o%20cita.&text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20Revisi%C3%B3n%20completa%20de%20motor%20y%20puesta" target="_blank" 
+                class="text-xs font-bold inline-flex items-center gap-1 hover:underline" style="color: var(--accent);">
+                <span>Consultar o pedir cita</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+            
+          </div>
+        </div>
+        
+        <div class="theme-card overflow-hidden flex flex-col justify-between group hover:border-orange-500/50 transition">
+          
+          <div class="h-44 w-full overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=800&auto=format&fit=crop&q=80" alt="Cambio de neumáticos de alto rendim" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            
+            <span class="absolute bottom-3 right-3 text-xs font-bold px-2.5 py-1 rounded-full bg-black/70 text-white border border-white/20">
+              Cita previa
+            </span>
+            
+          </div>
+          
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-bold text-lg text-white mb-1.5">Cambio de neumáticos de alto rendim</h3>
+              <p class="text-xs sm:text-sm leading-relaxed" style="color: var(--text-secondary);">
+                Cambio de neumáticos de alto rendimiento y equilibrado de precisión.
+              </p>
+            </div>
+            
+            <div class="mt-4 pt-3 border-t" style="border-color: var(--border-color);">
+              <a href="https://api.whatsapp.com/send?phone=34914023456&text=¡Hola%20equipo%20de%20Motos%20Dani%20Racing!%20Os%20contacto%20desde%20vuestra%20web%20para%20pedir%20información%20o%20cita.&text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20Cambio%20de%20neum%C3%A1ticos%20de%20alto%20rendim" target="_blank" 
+                class="text-xs font-bold inline-flex items-center gap-1 hover:underline" style="color: var(--accent);">
+                <span>Consultar o pedir cita</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+            
+          </div>
+        </div>
+        
+        <div class="theme-card overflow-hidden flex flex-col justify-between group hover:border-orange-500/50 transition">
+          
+          <div class="h-44 w-full overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800&auto=format&fit=crop&q=80" alt="Mantenimiento integral de frenos y " class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            
+            <span class="absolute bottom-3 right-3 text-xs font-bold px-2.5 py-1 rounded-full bg-black/70 text-white border border-white/20">
+              Cita previa
+            </span>
+            
+          </div>
+          
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-bold text-lg text-white mb-1.5">Mantenimiento integral de frenos y </h3>
+              <p class="text-xs sm:text-sm leading-relaxed" style="color: var(--text-secondary);">
+                Mantenimiento integral de frenos y suspensiones. Tu moto siempre lista.
+              </p>
+            </div>
+            
+            <div class="mt-4 pt-3 border-t" style="border-color: var(--border-color);">
+              <a href="https://api.whatsapp.com/send?phone=34914023456&text=¡Hola%20equipo%20de%20Motos%20Dani%20Racing!%20Os%20contacto%20desde%20vuestra%20web%20para%20pedir%20información%20o%20cita.&text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20Mantenimiento%20integral%20de%20frenos%20y%20" target="_blank" 
+                class="text-xs font-bold inline-flex items-center gap-1 hover:underline" style="color: var(--accent);">
+                <span>Consultar o pedir cita</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- GALERÍA DE TRABAJOS (FEED DE INSTAGRAM) -->
+    <section id="galeria" class="space-y-4 pt-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-wider block" style="color: var(--accent);">Portfolio & Galería</span>
+          <h2 class="text-2xl font-bold text-white tracking-tight">Directo desde Instagram</h2>
+        </div>
+        
+        <a href="https://www.instagram.com/motosdaniracing/" target="_blank" class="text-xs font-semibold hover:underline flex items-center gap-1" style="color: var(--accent);">
+          <span>Ver perfil @motosdaniracing</span>
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        </a>
+        
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+        
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-black/40 cursor-pointer" style="border-color: var(--border-color);" onclick="verFoto('https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=800&auto=format&fit=crop&q=80', 'Revisión completa de motor y puesta a punto. Seguridad garantizada en cada curva.')">
+          <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=800&auto=format&fit=crop&q=80" alt="Publicación Instagram" class="w-full h-full object-cover group-hover:scale-108 transition duration-300">
+          <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
+            <p class="text-[11px] text-white line-clamp-2 leading-tight">Revisión completa de motor y puesta a punto. Seguridad garantizada en cada curva.</p>
+            <span class="text-[10px] text-pink-400 font-semibold mt-1 flex items-center gap-1">
+              ❤️ 42
+            </span>
+          </div>
+        </div>
+        
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-black/40 cursor-pointer" style="border-color: var(--border-color);" onclick="verFoto('https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=800&auto=format&fit=crop&q=80', 'Cambio de neumáticos de alto rendimiento y equilibrado de precisión.')">
+          <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=800&auto=format&fit=crop&q=80" alt="Publicación Instagram" class="w-full h-full object-cover group-hover:scale-108 transition duration-300">
+          <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
+            <p class="text-[11px] text-white line-clamp-2 leading-tight">Cambio de neumáticos de alto rendimiento y equilibrado de precisión.</p>
+            <span class="text-[10px] text-pink-400 font-semibold mt-1 flex items-center gap-1">
+              ❤️ 60
+            </span>
+          </div>
+        </div>
+        
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-black/40 cursor-pointer" style="border-color: var(--border-color);" onclick="verFoto('https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800&auto=format&fit=crop&q=80', 'Mantenimiento integral de frenos y suspensiones. Tu moto siempre lista.')">
+          <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800&auto=format&fit=crop&q=80" alt="Publicación Instagram" class="w-full h-full object-cover group-hover:scale-108 transition duration-300">
+          <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
+            <p class="text-[11px] text-white line-clamp-2 leading-tight">Mantenimiento integral de frenos y suspensiones. Tu moto siempre lista.</p>
+            <span class="text-[10px] text-pink-400 font-semibold mt-1 flex items-center gap-1">
+              ❤️ 78
+            </span>
+          </div>
+        </div>
+        
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-black/40 cursor-pointer" style="border-color: var(--border-color);" onclick="verFoto('https://images.unsplash.com/photo-1558980394-4c7c9299fe96?w=800&auto=format&fit=crop&q=80', 'Diagnóstico electrónico y resolución de averías complejas.')">
+          <img src="https://images.unsplash.com/photo-1558980394-4c7c9299fe96?w=800&auto=format&fit=crop&q=80" alt="Publicación Instagram" class="w-full h-full object-cover group-hover:scale-108 transition duration-300">
+          <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
+            <p class="text-[11px] text-white line-clamp-2 leading-tight">Diagnóstico electrónico y resolución de averías complejas.</p>
+            <span class="text-[10px] text-pink-400 font-semibold mt-1 flex items-center gap-1">
+              ❤️ 96
+            </span>
+          </div>
+        </div>
+        
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-black/40 cursor-pointer" style="border-color: var(--border-color);" onclick="verFoto('https://images.unsplash.com/photo-1508974239320-0a029497e820?w=800&auto=format&fit=crop&q=80', 'Instalación de escapes y accesorios homologados.')">
+          <img src="https://images.unsplash.com/photo-1508974239320-0a029497e820?w=800&auto=format&fit=crop&q=80" alt="Publicación Instagram" class="w-full h-full object-cover group-hover:scale-108 transition duration-300">
+          <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
+            <p class="text-[11px] text-white line-clamp-2 leading-tight">Instalación de escapes y accesorios homologados.</p>
+            <span class="text-[10px] text-pink-400 font-semibold mt-1 flex items-center gap-1">
+              ❤️ 114
+            </span>
+          </div>
+        </div>
+        
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-black/40 cursor-pointer" style="border-color: var(--border-color);" onclick="verFoto('https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=800&auto=format&fit=crop&q=80', 'Cuidamos cada detalle como si fuera nuestra propia moto.')">
+          <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=800&auto=format&fit=crop&q=80" alt="Publicación Instagram" class="w-full h-full object-cover group-hover:scale-108 transition duration-300">
+          <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
+            <p class="text-[11px] text-white line-clamp-2 leading-tight">Cuidamos cada detalle como si fuera nuestra propia moto.</p>
+            <span class="text-[10px] text-pink-400 font-semibold mt-1 flex items-center gap-1">
+              ❤️ 132
+            </span>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- SOBRE NOSOTROS -->
+    <section id="nosotros" class="theme-card p-6 sm:p-8 space-y-3">
+      <span class="text-xs font-semibold uppercase tracking-wider block" style="color: var(--accent);">Quiénes Somos</span>
+      <h2 class="text-2xl font-bold text-white tracking-tight">Compromiso y Pasión por el Detalle</h2>
+      <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
+        Especialistas en mecánica de precisión, mantenimiento y diagnóstico en Madrid. Pasión por el motor. ¡Pide tu cita sin compromiso!
+      </p>
+    </section>
+
+    <!-- MAPA INTERACTIVO Y UBICACIÓN -->
+    <section id="contacto" class="theme-card overflow-hidden">
+      <div class="p-6 pb-4">
+        <span class="text-xs font-semibold uppercase tracking-wider block" style="color: var(--accent);">Encuéntranos</span>
+        <h2 class="text-2xl font-bold text-white tracking-tight mb-2">Ubicación y Horarios</h2>
+        <div class="text-sm space-y-1" style="color: var(--text-secondary);">
+          <p class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-rose-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <span><strong>Dirección:</strong> Calle de Alcalá 124, Madrid (CP 28009)</span>
+          </p>
+          
+          <p class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            <span><strong>Teléfono directo:</strong> <a href="tel:914023456" class="hover:underline text-white font-medium">914023456</a></span>
+          </p>
+          
+        </div>
+      </div>
+
+      <!-- Contenedor del Mapa Leaflet -->
+      <div id="map" class="w-full h-64 z-10"></div>
+
+      <div class="p-4 bg-black/40 flex items-center justify-between text-xs">
+        <span class="text-slate-400">¿Vienes en coche o a pie?</span>
+        <a href="https://www.google.com/maps/search/?api=1&query=Motos%20Dani%20Racing%20Calle%20de%20Alcal%C3%A1%20124%20Madrid" target="_blank" 
+          class="font-bold inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white transition">
+          <span>Abrir en Google Maps</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- BANNER DE PROSPECCIÓN / WATERMARK DE AGENCIA -->
+    <div class="rounded-2xl p-4 text-center border text-xs" style="background-color: var(--primary-container); border-color: var(--border-color);">
+      <p class="text-slate-200">
+        ✨ <strong>Maqueta interactiva exclusiva</strong> creada para <strong>Motos Dani Racing</strong>.
+      </p>
+      <p class="text-slate-400 mt-1">
+        Diseñada para captar clientes desde Instagram y Google Maps con reservas directas.
+      </p>
+    </div>
+
+  </main>
+
+  <!-- BARRA DE ACCIÓN INFERIOR FIJA (STICKY BOTTOM BAR - MOBILE FIRST) -->
+  <div class="fixed bottom-0 left-0 right-0 z-50 p-3 bg-black/90 backdrop-blur-xl border-t sm:hidden" style="border-color: var(--border-color);">
+    <div class="grid grid-cols-2 gap-2 max-w-md mx-auto">
+      
+      <a href="https://api.whatsapp.com/send?phone=34914023456&text=¡Hola%20equipo%20de%20Motos%20Dani%20Racing!%20Os%20contacto%20desde%20vuestra%20web%20para%20pedir%20información%20o%20cita." target="_blank" class="btn-primary py-3 px-3 text-xs font-bold text-center flex items-center justify-center space-x-1.5">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+        <span>WhatsApp Citas</span>
+      </a>
+      
+
+      
+      <a href="tel:914023456" class="py-3 px-3 rounded-full text-xs font-bold text-center bg-white/10 hover:bg-white/15 text-white border flex items-center justify-center space-x-1.5" style="border-color: var(--border-color);">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        <span>Llamar Ahora</span>
+      </a>
+      
+    </div>
+  </div>
+
+  <!-- MODAL DE VISUALIZACIÓN DE FOTOS -->
+  <div id="lightbox" class="fixed inset-0 z-50 bg-black/90 p-4 flex items-center justify-center hidden" onclick="this.classList.add('hidden')">
+    <div class="max-w-md w-full text-center" onclick="event.stopPropagation()">
+      <img id="lightbox-img" src="" alt="Detalle de foto" class="w-full max-h-[70vh] object-contain rounded-2xl mb-3 shadow-2xl">
+      <p id="lightbox-caption" class="text-xs text-slate-300 px-2"></p>
+      <button onclick="document.getElementById('lightbox').classList.add('hidden')" class="mt-4 px-4 py-2 rounded-full bg-white/20 text-white text-xs font-bold">Cerrar</button>
+    </div>
+  </div>
+
+  <!-- SCRIPT PARA EL MAPA LEAFLET -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Coordenadas aproximadas por ciudad / CP
+      const lat = 40.4168;
+      const lon = -3.7038;
+
+      const map = L.map('map', {
+        center: [lat, lon],
+        zoom: 15,
+        zoomControl: false,
+        attributionControl: false
+      });
+
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+        maxZoom: 19
+      }).addTo(map);
+
+      // Marcador personalizado
+      L.marker([lat, lon]).addTo(map)
+        .bindPopup("<b>Motos Dani Racing</b><br>Calle de Alcalá 124")
+        .openPopup();
+    });
+
+    function verFoto(url, caption) {
+      document.getElementById('lightbox-img').src = url;
+      document.getElementById('lightbox-caption').innerText = caption;
+      document.getElementById('lightbox').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>

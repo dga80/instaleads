@@ -153,8 +153,8 @@
         <div id="stat-ig" class="text-2xl font-bold text-pink-400 mt-1">0</div>
       </div>
       <div class="glass-card p-4 rounded-xl border border-slate-800">
-        <div class="text-xs text-slate-400 font-medium">Sin Web Propia (Oportunidad)</div>
-        <div id="stat-noweb" class="text-2xl font-bold text-emerald-400 mt-1">0</div>
+        <div class="text-xs text-slate-400 font-medium">Web Demos Generadas</div>
+        <div id="stat-demos" class="text-2xl font-bold text-indigo-400 mt-1">0</div>
       </div>
       <div class="glass-card p-4 rounded-xl border border-slate-800 flex items-center justify-between">
         <div>
@@ -169,27 +169,87 @@
 
     <!-- LEADS TABLE SECTION -->
     <div class="glass-card rounded-2xl shadow-xl overflow-hidden border border-slate-800">
-      <div class="px-6 py-4 border-b border-slate-800 flex items-center justify-between">
+      <div class="px-6 py-4 border-b border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h2 class="text-lg font-bold text-white">Listado de Oportunidades Comerciales</h2>
-          <p class="text-xs text-slate-400">Comercios locales sin página web con perfil verificado de Instagram</p>
+          <h2 class="text-lg font-bold text-white">Pipeline de Oportunidades Comerciales</h2>
+          <p class="text-xs text-slate-400">Cadencia inteligente: DM inicial, alertas de seguimiento a las 48h y webs personalizadas</p>
         </div>
-        <div class="flex items-center space-x-2">
-          <input type="text" id="filtro-tabla" oninput="filtrarTabla()" placeholder="Filtrar por nombre o ciudad..." 
+        <div class="flex items-center space-x-3">
+          <!-- Selector de Vista -->
+          <div class="inline-flex rounded-xl bg-slate-900 border border-slate-700 p-1 text-xs font-semibold">
+            <button type="button" id="btn-view-table" onclick="cambiarVista('table')" class="px-3 py-1 rounded-lg bg-indigo-600 text-white shadow-sm transition">
+              📋 Tabla
+            </button>
+            <button type="button" id="btn-view-kanban" onclick="cambiarVista('kanban')" class="px-3 py-1 rounded-lg text-slate-400 hover:text-white transition">
+              📊 Kanban CRM
+            </button>
+          </div>
+
+          <input type="text" id="filtro-tabla" oninput="filtrarTabla()" placeholder="Filtrar comercios..." 
             class="bg-slate-900/90 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">
         </div>
       </div>
 
+      <!-- KANBAN WRAPPER -->
+      <div id="kanban-wrapper" class="hidden p-6 overflow-x-auto bg-slate-950/40">
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-4 min-w-[1100px]">
+          <!-- Columna 1: Sin Contactar -->
+          <div class="bg-slate-900/70 rounded-2xl p-3.5 border border-slate-800 flex flex-col">
+            <div class="flex items-center justify-between pb-2 mb-3 border-b border-slate-800 text-xs font-bold text-slate-300">
+              <span class="flex items-center gap-1.5">⚪ Sin Contactar</span>
+              <span id="kb-count-sinweb" class="px-2 py-0.5 rounded-full bg-slate-800 text-[10px]">0</span>
+            </div>
+            <div id="kb-col-sinweb" class="space-y-3 flex-1 min-h-[200px]"></div>
+          </div>
+
+          <!-- Columna 2: Web Lista -->
+          <div class="bg-slate-900/70 rounded-2xl p-3.5 border border-slate-800 flex flex-col">
+            <div class="flex items-center justify-between pb-2 mb-3 border-b border-slate-800 text-xs font-bold text-indigo-300">
+              <span class="flex items-center gap-1.5">🟣 Web Lista</span>
+              <span id="kb-count-weblista" class="px-2 py-0.5 rounded-full bg-indigo-950 text-indigo-400 text-[10px]">0</span>
+            </div>
+            <div id="kb-col-weblista" class="space-y-3 flex-1 min-h-[200px]"></div>
+          </div>
+
+          <!-- Columna 3: DM Enviado -->
+          <div class="bg-slate-900/70 rounded-2xl p-3.5 border border-slate-800 flex flex-col">
+            <div class="flex items-center justify-between pb-2 mb-3 border-b border-slate-800 text-xs font-bold text-amber-300">
+              <span class="flex items-center gap-1.5">🟡 DM Enviado</span>
+              <span id="kb-count-dmenviado" class="px-2 py-0.5 rounded-full bg-amber-950 text-amber-400 text-[10px]">0</span>
+            </div>
+            <div id="kb-col-dmenviado" class="space-y-3 flex-1 min-h-[200px]"></div>
+          </div>
+
+          <!-- Columna 4: Respondido -->
+          <div class="bg-slate-900/70 rounded-2xl p-3.5 border border-slate-800 flex flex-col">
+            <div class="flex items-center justify-between pb-2 mb-3 border-b border-slate-800 text-xs font-bold text-sky-300">
+              <span class="flex items-center gap-1.5">🔵 Respondido</span>
+              <span id="kb-count-respondido" class="px-2 py-0.5 rounded-full bg-sky-950 text-sky-400 text-[10px]">0</span>
+            </div>
+            <div id="kb-col-respondido" class="space-y-3 flex-1 min-h-[200px]"></div>
+          </div>
+
+          <!-- Columna 5: Cerrado -->
+          <div class="bg-slate-900/70 rounded-2xl p-3.5 border border-slate-800 flex flex-col">
+            <div class="flex items-center justify-between pb-2 mb-3 border-b border-slate-800 text-xs font-bold text-emerald-300">
+              <span class="flex items-center gap-1.5">🟢 Cerrado</span>
+              <span id="kb-count-cerrado" class="px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-400 text-[10px]">0</span>
+            </div>
+            <div id="kb-col-cerrado" class="space-y-3 flex-1 min-h-[200px]"></div>
+          </div>
+        </div>
+      </div>
+
       <!-- TABLE WRAPPER -->
-      <div class="overflow-x-auto">
+      <div id="table-wrapper" class="overflow-x-auto">
         <table class="w-full text-left text-sm text-slate-300">
           <thead class="bg-slate-900/70 text-xs uppercase font-semibold text-slate-400 border-b border-slate-800 tracking-wider">
             <tr>
-              <th scope="col" class="px-6 py-3.5">Negocio / Categoría</th>
+              <th scope="col" class="px-6 py-3.5">Negocio / Contacto</th>
               <th scope="col" class="px-6 py-3.5">Ubicación / CP</th>
-              <th scope="col" class="px-6 py-3.5">Contacto</th>
               <th scope="col" class="px-6 py-3.5">Instagram</th>
-              <th scope="col" class="px-6 py-3.5 text-center">Validación Gemini</th>
+              <th scope="col" class="px-6 py-3.5 text-center">Estado Lead</th>
+              <th scope="col" class="px-6 py-3.5 text-center">Web Demo (Stitch)</th>
               <th scope="col" class="px-6 py-3.5 text-right">Pitch Comercial DM</th>
             </tr>
           </thead>
@@ -235,17 +295,85 @@
 
       <div class="mt-4 space-y-4">
         <!-- Razón de validación -->
-        <div class="bg-slate-800/60 rounded-xl p-3 border border-slate-700/60 text-xs">
-          <span class="text-slate-400 font-semibold uppercase tracking-wider block mb-1">Verificación del Perfil por Gemini:</span>
-          <p id="modal-razon" class="text-slate-300 italic">Coincidencia de datos comprobada.</p>
+        <div class="bg-slate-800/60 rounded-xl p-3 border border-slate-700/60 text-xs flex items-center justify-between">
+          <div>
+            <span class="text-slate-400 font-semibold uppercase tracking-wider block mb-0.5">Verificación del Perfil por Gemini:</span>
+            <p id="modal-razon" class="text-slate-300 italic">Coincidencia de datos comprobada.</p>
+          </div>
+          <button onclick="simularTiempoLeadModal()" title="Simula que han pasado 50 horas para ver el aviso de seguimiento" class="text-[10px] px-2 py-1 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30 hover:bg-amber-500/30 transition">
+            ⏰ Simular +50h
+          </button>
         </div>
 
-        <!-- Mensaje sugerido -->
+        <!-- Web Demo Asociada -->
+        <div id="modal-demo-box" class="bg-indigo-950/30 rounded-xl p-3 border border-indigo-500/30 text-xs hidden">
+          <div class="flex items-center justify-between">
+            <div>
+              <span class="text-indigo-400 font-semibold uppercase tracking-wider block">Web Demo Generada:</span>
+              <span id="modal-demo-url" class="text-slate-300 font-mono text-[11px] truncate max-w-xs block mt-0.5"></span>
+            </div>
+            <button id="modal-ver-demo-btn" onclick="abrirSimuladorDesdeModal()" class="px-3 py-1.5 rounded-lg bg-indigo-600/40 hover:bg-indigo-600/60 text-indigo-200 border border-indigo-500/40 text-xs font-semibold transition flex items-center gap-1">
+              <span>📱 Probar Web</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Pestañas de Cadencia: Paso 1 (DM) vs Paso 2 (Seguimiento) -->
+        <div class="border-b border-slate-800 flex space-x-4 text-xs font-semibold">
+          <button type="button" id="tab-pitch-step1" onclick="switchPitchTab(1)" class="pb-2 text-pink-400 border-b-2 border-pink-500 transition">
+            Paso 1: Primer Contacto (DM)
+          </button>
+          <button type="button" id="tab-pitch-step2" onclick="switchPitchTab(2)" class="pb-2 text-slate-400 hover:text-slate-200 transition">
+            Paso 2: Seguimiento (48-72h)
+          </button>
+        </div>
+
+        <!-- Badge de Confianza Anti-Malware -->
+        <div class="flex items-center space-x-1.5 text-[11px] text-emerald-400/90 bg-emerald-950/20 border border-emerald-800/30 px-3 py-1.5 rounded-lg">
+          <span>🛡️</span>
+          <span>Redactado para generar confianza: explica quiénes sois en la zona y aclara que el enlace es seguro sin registros.</span>
+        </div>
+
+        <!-- Mensaje sugerido editable -->
         <div>
-          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Mensaje Directo (DM) Sugerido:</label>
+          <div class="flex items-center justify-between mb-1.5">
+            <label id="modal-tab-label" class="block text-xs font-semibold uppercase tracking-wider text-slate-400">Mensaje Directo (DM) Editable:</label>
+            <span class="text-[10px] text-slate-500">Puedes editar el texto libremente</span>
+          </div>
           <div class="relative">
-            <textarea id="modal-pitch-text" readonly rows="5" 
-              class="w-full bg-slate-950/80 border border-slate-800 rounded-xl p-3.5 text-sm text-slate-200 focus:outline-none focus:ring-1 focus:ring-pink-500 font-sans leading-relaxed"></textarea>
+            <textarea id="modal-pitch-text" rows="5" 
+              class="w-full bg-slate-950/90 border border-slate-700/80 rounded-xl p-3.5 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-pink-500/50 font-sans leading-relaxed"></textarea>
+          </div>
+        </div>
+
+        <!-- Opción de Envío Directo por Email (Gmail SMTP) -->
+        <div id="modal-email-box" class="bg-slate-950/70 rounded-xl p-3 border border-slate-800 space-y-2.5">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-indigo-400">✉️ Envío por Correo Electrónico</span>
+              <span class="text-[10px] px-2 py-0.5 rounded-full bg-indigo-950/60 text-indigo-300 border border-indigo-800/40">Gmail SMTP</span>
+            </div>
+            <span class="text-[10px] text-slate-500">Paso 2 / Contacto Formal</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div>
+              <label class="block text-[10px] text-slate-400 mb-0.5">Email Destinatario:</label>
+              <input type="email" id="modal-lead-email" placeholder="contacto@negocio.com" 
+                class="w-full bg-slate-900/90 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 focus:outline-none focus:ring-1 focus:ring-indigo-500">
+            </div>
+            <div>
+              <label class="block text-[10px] text-slate-400 mb-0.5">Asunto del Email:</label>
+              <input type="text" id="modal-lead-subject" placeholder="Propuesta de web demo..." 
+                class="w-full bg-slate-900/90 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 focus:outline-none focus:ring-1 focus:ring-indigo-500">
+            </div>
+          </div>
+          <div class="flex items-center justify-between pt-1">
+            <span class="text-[10px] text-slate-500 italic">Enviará el mensaje actual redactado arriba con formato responsive.</span>
+            <button type="button" id="btn-enviar-email" onclick="enviarEmailModal(this)" 
+              class="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold shadow-md transition flex items-center gap-1.5 active:scale-95">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              <span>Enviar por Email</span>
+            </button>
           </div>
         </div>
       </div>
@@ -259,13 +387,55 @@
           </svg>
         </a>
         <div class="flex space-x-2">
-          <button onclick="cerrarModal()" class="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 text-xs font-semibold hover:bg-slate-700 transition">
+          <button onclick="guardarPitchEditado()" class="px-3.5 py-2 rounded-xl bg-slate-800 text-slate-200 text-xs font-semibold hover:bg-slate-700 border border-slate-700 transition flex items-center gap-1.5">
+            <span>💾 Guardar</span>
+          </button>
+          <button onclick="cerrarModal()" class="px-3.5 py-2 rounded-xl bg-slate-800 text-slate-300 text-xs font-semibold hover:bg-slate-700 transition">
             Cerrar
           </button>
           <button id="modal-copy-btn" onclick="copiarPitchModal()" class="px-4 py-2 rounded-xl ig-gradient text-white text-xs font-semibold shadow-lg hover:opacity-90 transition">
             Copiar Mensaje
           </button>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIMULADOR SMARTPHONE (MOCKUP IPHONE) -->
+  <div id="simulator-modal" class="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80 backdrop-blur-md hidden">
+    <div class="flex flex-col items-center max-w-sm sm:max-w-md w-full relative">
+      <!-- Acciones Superiores del Simulador -->
+      <div class="w-full flex items-center justify-between mb-3 px-2">
+        <div class="flex items-center space-x-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span id="simulator-title" class="text-xs font-bold text-white truncate max-w-[180px]">Simulador Móvil</span>
+        </div>
+        <div class="flex items-center space-x-2">
+          <button id="simulator-open-tab" onclick="abrirTabExterna()" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition flex items-center gap-1.5 font-medium">
+            <span>Nueva Pestaña</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </button>
+          <button onclick="cerrarSimulador()" class="p-1.5 rounded-lg bg-slate-800 text-slate-400 hover:text-white transition">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Carcasa del Teléfono (Bezel Mockup) -->
+      <div class="w-[340px] sm:w-[375px] h-[670px] bg-slate-950 rounded-[50px] p-3 shadow-2xl border-[6px] border-slate-700/80 relative flex flex-col items-center">
+        <!-- Dynamic Island -->
+        <div class="w-24 h-4 bg-black rounded-full absolute top-4 z-20 flex items-center justify-center">
+          <div class="w-2 h-2 rounded-full bg-slate-800 mr-2"></div>
+          <div class="w-1.5 h-1.5 rounded-full bg-indigo-950"></div>
+        </div>
+
+        <!-- Pantalla Iframe -->
+        <div class="w-full h-full rounded-[40px] overflow-hidden bg-black relative">
+          <iframe id="simulator-iframe" src="about:blank" class="w-full h-full border-0"></iframe>
+        </div>
+
+        <!-- Barra Inferior Home -->
+        <div class="w-28 h-1 bg-slate-500 rounded-full absolute bottom-4 z-20 opacity-50"></div>
       </div>
     </div>
   </div>
@@ -317,7 +487,11 @@
       try {
         const res = await fetch('/leads');
         todosLosLeads = await res.json();
-        renderizarTabla(todosLosLeads);
+        if (vistaActual === 'kanban') {
+          renderizarKanban(todosLosLeads);
+        } else {
+          renderizarTabla(todosLosLeads);
+        }
         actualizarEstadisticas(todosLosLeads);
       } catch (err) {
         console.error('Error al cargar leads:', err);
@@ -327,8 +501,10 @@
     function actualizarEstadisticas(leads) {
       document.getElementById('stat-total').innerText = leads.length;
       document.getElementById('stat-ig').innerText = leads.filter(l => l.instagram_url).length;
-      document.getElementById('stat-noweb').innerText = leads.filter(l => !l.tiene_web).length;
+      document.getElementById('stat-demos').innerText = leads.filter(l => l.demo_slug).length;
     }
+
+    let urlDemoActual = "";
 
     function renderizarTabla(leads) {
       const tbody = document.getElementById('leads-tbody');
@@ -354,26 +530,55 @@
       tbody.innerHTML = leads.map((lead, idx) => {
         const igBadge = lead.instagram_url ? `
           <a href="${lead.instagram_url}" target="_blank" rel="noopener noreferrer" 
-            class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-lg bg-pink-500/10 text-pink-400 border border-pink-500/30 hover:bg-pink-500/20 text-xs font-semibold transition">
+            class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-lg bg-pink-500/10 text-pink-400 border border-pink-500/30 hover:bg-pink-500/20 text-xs font-semibold transition">
             <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/></svg>
             <span>${lead.instagram_handle || '@ver_perfil'}</span>
-            <svg class="w-3 h-3 text-pink-400/70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           </a>
         ` : `<span class="text-xs text-slate-500 italic">No detectado</span>`;
 
-        const validacionBadge = lead.gemini_verificado ? `
-          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20" title="${lead.gemini_razon || 'Verificado'}">
-            ✓ Coincide
-          </span>
+        // Selector de estado
+        const estadoActual = lead.estado || "Sin Web";
+        const estadoColors = {
+          "Sin Web": "bg-slate-800 text-slate-300 border-slate-700",
+          "Web Generada": "bg-indigo-900/40 text-indigo-300 border-indigo-700/50",
+          "DM Enviado": "bg-amber-900/40 text-amber-300 border-amber-700/50",
+          "Respuesta Recibida": "bg-sky-900/40 text-sky-300 border-sky-700/50",
+          "Cerrado": "bg-emerald-900/40 text-emerald-300 border-emerald-700/50"
+        };
+
+        const estadoSelect = `
+          <select onchange="cambiarEstado('${lead.osm_id}', this.value)" class="text-[11px] font-semibold rounded-lg px-2 py-1 bg-slate-900 border ${estadoColors[estadoActual] || 'border-slate-700 text-slate-300'} focus:outline-none cursor-pointer">
+            <option value="Sin Web" ${estadoActual === "Sin Web" ? "selected" : ""}>⚪ Sin Web</option>
+            <option value="Web Generada" ${estadoActual === "Web Generada" ? "selected" : ""}>🟣 Web Lista</option>
+            <option value="DM Enviado" ${estadoActual === "DM Enviado" ? "selected" : ""}>🟡 DM Enviado</option>
+            <option value="Respuesta Recibida" ${estadoActual === "Respuesta Recibida" ? "selected" : ""}>🔵 Respondido</option>
+            <option value="Cerrado" ${estadoActual === "Cerrado" ? "selected" : ""}>🟢 Cerrado</option>
+          </select>
+        `;
+
+        // Columna Web Demo (Stitch)
+        const demoUrl = lead.demo_url_absoluta || (lead.demo_slug ? `/demos/${lead.demo_slug}` : "");
+        const webDemoCol = lead.demo_slug ? `
+          <div class="flex flex-col items-center space-y-1">
+            <div class="flex items-center space-x-1.5">
+              <button onclick="abrirSimulador('${demoUrl}', '${lead.nombre}')" class="text-xs px-2.5 py-1.5 rounded-lg bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 hover:bg-indigo-500/30 transition flex items-center gap-1 font-semibold">
+                <span>📱 Ver Web</span>
+              </button>
+              <button onclick="copiarEnlaceDemo('${demoUrl}', this)" class="text-xs p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition" title="Copiar enlace de la demo">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+              </button>
+            </div>
+            ${lead.demo_vibe ? `<span class="text-[10px] text-slate-400 truncate max-w-[140px]" title="${lead.demo_vibe}">${lead.demo_vibe.split(' ')[0]}</span>` : ''}
+          </div>
         ` : `
-          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-800 text-slate-400 border border-slate-700" title="${lead.gemini_razon || 'Pendiente'}">
-            Por verificar
-          </span>
+          <button onclick="generarWebLead('${lead.osm_id}', this)" class="text-xs px-3 py-1.5 rounded-lg bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-semibold shadow-md shadow-indigo-500/20 active:scale-95 transition flex items-center space-x-1.5 mx-auto">
+            <span>⚡ Generar Web</span>
+          </button>
         `;
 
         const pitchBtn = lead.mensaje_dm ? `
           <div class="flex items-center justify-end space-x-2">
-            <button onclick="abrirModal(${idx})" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition" title="Ver análisis completo">
+            <button onclick="abrirModal(${idx})" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition" title="Ver análisis y pitch">
               Ver Pitch
             </button>
             <button onclick="copiarPitch(${idx}, this)" class="text-xs px-3 py-1.5 rounded-lg ig-gradient text-white font-medium shadow-sm hover:opacity-90 active:scale-95 transition flex items-center space-x-1.5">
@@ -385,29 +590,30 @@
 
         return `
           <tr class="hover:bg-slate-800/40 transition">
-            <!-- Negocio -->
+            <!-- Negocio / Contacto -->
             <td class="px-6 py-4">
               <div class="font-bold text-white text-sm leading-snug">${lead.nombre}</div>
               <div class="text-xs text-indigo-400 mt-0.5">${lead.categoria || 'Comercio local'}</div>
+              ${lead.telefono ? `<div class="text-[11px] text-slate-400 mt-1">📞 ${lead.telefono}</div>` : ''}
             </td>
             <!-- Ubicación -->
             <td class="px-6 py-4 text-xs text-slate-300">
               <div class="font-medium">${lead.direccion || 'Sin dirección exacta'}</div>
               <div class="text-slate-500">${lead.ciudad ? lead.ciudad + ' - ' : ''}CP ${lead.codigo_postal}</div>
             </td>
-            <!-- Contacto -->
-            <td class="px-6 py-4 text-xs text-slate-300">
-              ${lead.telefono ? `<div class="text-slate-200">📞 ${lead.telefono}</div>` : `<span class="text-slate-500 italic">Sin teléfono</span>`}
-            </td>
             <!-- Instagram -->
             <td class="px-6 py-4">
               ${igBadge}
             </td>
-            <!-- Validación -->
+            <!-- Estado Lead -->
             <td class="px-6 py-4 text-center">
-              ${validacionBadge}
+              ${estadoSelect}
             </td>
-            <!-- Acciones -->
+            <!-- Web Demo (Stitch) -->
+            <td class="px-6 py-4 text-center">
+              ${webDemoCol}
+            </td>
+            <!-- Pitch Comercial DM -->
             <td class="px-6 py-4 text-right">
               ${pitchBtn}
             </td>
@@ -416,19 +622,387 @@
       }).join('');
     }
 
-    function filtrarTabla() {
-      const q = document.getElementById('filtro-tabla').value.toLowerCase().trim();
-      if (!q) {
+    async function generarWebLead(osmId, btnElement) {
+      const origHtml = btnElement.innerHTML;
+      btnElement.disabled = true;
+      btnElement.innerHTML = `
+        <svg class="w-3.5 h-3.5 animate-spin text-white" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        <span>Creando...</span>
+      `;
+
+      try {
+        const res = await fetch(`/leads/${osmId}/generate-web`, { method: 'POST' });
+        const data = await res.json();
+        if (res.ok) {
+          mostrarToast(`¡Web Demo creada con éxito! Lista para ver.`);
+          await cargarLeads();
+          // Abrir simulador inmediatamente
+          if (data.lead && data.lead.demo_slug) {
+            abrirSimulador(`/demos/${data.lead.demo_slug}`, data.lead.nombre);
+          }
+        } else {
+          mostrarToast(data.detail || 'Error al generar la web', true);
+          btnElement.disabled = false;
+          btnElement.innerHTML = origHtml;
+        }
+      } catch (err) {
+        console.error(err);
+        mostrarToast('Error de conexión al generar la web', true);
+        btnElement.disabled = false;
+        btnElement.innerHTML = origHtml;
+      }
+    }
+
+    let vistaActual = 'table';
+    let leadSeleccionadoIdx = null;
+    let tabPitchPaso = 1;
+
+    function cambiarVista(tipo) {
+      vistaActual = tipo;
+      const btnTable = document.getElementById('btn-view-table');
+      const btnKanban = document.getElementById('btn-view-kanban');
+      const tableWrapper = document.getElementById('table-wrapper');
+      const kanbanWrapper = document.getElementById('kanban-wrapper');
+
+      if (tipo === 'table') {
+        btnTable.className = "px-3 py-1 rounded-lg bg-indigo-600 text-white shadow-sm transition";
+        btnKanban.className = "px-3 py-1 rounded-lg text-slate-400 hover:text-white transition";
+        tableWrapper.classList.remove('hidden');
+        kanbanWrapper.classList.add('hidden');
         renderizarTabla(todosLosLeads);
+      } else {
+        btnKanban.className = "px-3 py-1 rounded-lg bg-indigo-600 text-white shadow-sm transition";
+        btnTable.className = "px-3 py-1 rounded-lg text-slate-400 hover:text-white transition";
+        tableWrapper.classList.add('hidden');
+        kanbanWrapper.classList.remove('hidden');
+        renderizarKanban(todosLosLeads);
+      }
+    }
+
+    function renderizarKanban(leads) {
+      const colMap = {
+        "Sin Web": { id: "kb-col-sinweb", countId: "kb-count-sinweb", items: [] },
+        "Web Generada": { id: "kb-col-weblista", countId: "kb-count-weblista", items: [] },
+        "DM Enviado": { id: "kb-col-dmenviado", countId: "kb-count-dmenviado", items: [] },
+        "Respuesta Recibida": { id: "kb-col-respondido", countId: "kb-count-respondido", items: [] },
+        "Cerrado": { id: "kb-col-cerrado", countId: "kb-count-cerrado", items: [] }
+      };
+
+      // Clasificar leads
+      leads.forEach((l, idx) => {
+        const est = l.estado || "Sin Web";
+        if (colMap[est]) {
+          colMap[est].items.push({ lead: l, originalIdx: idx });
+        } else {
+          colMap["Sin Web"].items.push({ lead: l, originalIdx: idx });
+        }
+      });
+
+      // Renderizar columnas
+      Object.keys(colMap).forEach(k => {
+        const col = colMap[k];
+        const el = document.getElementById(col.id);
+        const countEl = document.getElementById(col.countId);
+        if (countEl) countEl.innerText = col.items.length;
+        if (!el) return;
+
+        if (col.items.length === 0) {
+          el.innerHTML = `<div class="p-4 text-center text-xs text-slate-600 italic border border-dashed border-slate-800 rounded-xl">Sin comercios</div>`;
+          return;
+        }
+
+        el.innerHTML = col.items.map(({ lead, originalIdx }) => {
+          const demoUrl = lead.demo_url_absoluta || (lead.demo_slug ? `/demos/${lead.demo_slug}` : "");
+
+          // Alerta temporal de cadencia
+          const alertaBadge = lead.alerta_seguimiento ? `
+            <div class="mt-2.5 p-2 rounded-lg bg-amber-500/20 border border-amber-500/40 text-[11px] text-amber-300 flex items-center gap-1.5 animate-pulse">
+              <span>⏰</span>
+              <span class="font-bold">Han pasado ${Math.round(lead.horas_transcurridas || 48)}h: Toca Paso 2 (Seguimiento).</span>
+            </div>
+          ` : (lead.horas_transcurridas > 0 && lead.estado === "DM Enviado" ? `
+            <div class="mt-2 text-[10px] text-slate-400">
+              🕒 Enviado hace ${Math.round(lead.horas_transcurridas)}h
+            </div>
+          ` : '');
+
+          return `
+            <div class="bg-slate-900/90 rounded-xl p-3.5 border border-slate-800 hover:border-slate-700 shadow-lg space-y-2.5 transition">
+              <div class="flex items-start justify-between gap-2">
+                <div>
+                  <h4 class="font-bold text-white text-xs leading-snug">${lead.nombre}</h4>
+                  <span class="text-[10px] text-indigo-400 block">${lead.categoria || 'Comercio local'}</span>
+                </div>
+                ${lead.instagram_url ? `
+                  <a href="${lead.instagram_url}" target="_blank" class="text-pink-400 hover:text-pink-300 p-1 rounded bg-pink-500/10 flex-shrink-0" title="Ver Instagram">
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/></svg>
+                  </a>
+                ` : ''}
+              </div>
+
+              <div class="text-[11px] text-slate-400">
+                📍 ${lead.ciudad} · CP ${lead.codigo_postal}
+              </div>
+
+              ${alertaBadge}
+
+              <!-- Botones de Acción -->
+              <div class="pt-2 border-t border-slate-800 flex items-center justify-between gap-2">
+                ${lead.demo_slug ? `
+                  <button onclick="abrirSimulador('${demoUrl}', '${lead.nombre}')" class="text-[11px] px-2.5 py-1 rounded-lg bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 hover:bg-indigo-500/30 transition flex items-center gap-1 font-semibold">
+                    <span>📱 Web</span>
+                  </button>
+                ` : `
+                  <button onclick="generarWebLead('${lead.osm_id}', this)" class="text-[11px] px-2.5 py-1 rounded-lg bg-indigo-600/40 hover:bg-indigo-600/60 text-indigo-200 border border-indigo-500/40 transition font-semibold">
+                    <span>⚡ Crear Web</span>
+                  </button>
+                `}
+
+                <button onclick="abrirModal(${originalIdx})" class="text-[11px] px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+                  ✉️ Pitch
+                </button>
+              </div>
+
+              <!-- Mover de Estado -->
+              <div class="pt-1">
+                <select onchange="cambiarEstado('${lead.osm_id}', this.value)" class="w-full text-[10px] rounded-lg px-2 py-1 bg-slate-950 border border-slate-800 text-slate-300 focus:outline-none">
+                  <option value="Sin Web" ${lead.estado === "Sin Web" ? "selected" : ""}>⚪ Sin Contactar</option>
+                  <option value="Web Generada" ${lead.estado === "Web Generada" ? "selected" : ""}>🟣 Web Lista</option>
+                  <option value="DM Enviado" ${lead.estado === "DM Enviado" ? "selected" : ""}>🟡 DM Enviado</option>
+                  <option value="Respuesta Recibida" ${lead.estado === "Respuesta Recibida" ? "selected" : ""}>🔵 Respondido</option>
+                  <option value="Cerrado" ${lead.estado === "Cerrado" ? "selected" : ""}>🟢 Cerrado</option>
+                </select>
+              </div>
+            </div>
+          `;
+        }).join('');
+      });
+    }
+
+    async function cambiarEstado(osmId, nuevoEstado) {
+      try {
+        const res = await fetch(`/leads/${osmId}/status`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ estado: nuevoEstado })
+        });
+        if (res.ok) {
+          mostrarToast(`Estado actualizado a: ${nuevoEstado}`);
+          await cargarLeads();
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    function switchPitchTab(paso) {
+      tabPitchPaso = paso;
+      const tab1 = document.getElementById('tab-pitch-step1');
+      const tab2 = document.getElementById('tab-pitch-step2');
+      const label = document.getElementById('modal-tab-label');
+      const textarea = document.getElementById('modal-pitch-text');
+      const lead = todosLosLeads[leadSeleccionadoIdx];
+      if (!lead) return;
+
+      if (paso === 1) {
+        tab1.className = "pb-2 text-pink-400 border-b-2 border-pink-500 transition";
+        tab2.className = "pb-2 text-slate-400 hover:text-slate-200 transition";
+        label.innerText = "Mensaje Directo (DM) Inicial Editable:";
+        textarea.value = lead.mensaje_dm || '';
+        document.getElementById('modal-lead-subject').value = `Propuesta web interactiva para ${lead.nombre}`;
+      } else {
+        tab2.className = "pb-2 text-pink-400 border-b-2 border-pink-500 transition";
+        tab1.className = "pb-2 text-slate-400 hover:text-slate-200 transition";
+        label.innerText = "Mensaje de Seguimiento a las 48-72h (Email / WhatsApp):";
+        textarea.value = lead.mensaje_seguimiento || `¡Hola de nuevo equipo de ${lead.nombre}! Os escribí hace unos días por Instagram con una propuesta web interactiva para vuestro negocio: ${lead.demo_url_absoluta || ''}. Os lo comparto por aquí por si os resulta más cómodo revisarlo. ¡Un saludo cordial!`;
+        document.getElementById('modal-lead-subject').value = `Seguimiento: Propuesta web para ${lead.nombre}`;
+      }
+    }
+
+    async function guardarPitchEditado() {
+      const lead = todosLosLeads[leadSeleccionadoIdx];
+      if (!lead) return;
+
+      const textoActual = document.getElementById('modal-pitch-text').value;
+      const payload = {
+        mensaje_dm: tabPitchPaso === 1 ? textoActual : (lead.mensaje_dm || ""),
+        mensaje_seguimiento: tabPitchPaso === 2 ? textoActual : (lead.mensaje_seguimiento || "")
+      };
+
+      try {
+        const res = await fetch(`/leads/${lead.osm_id}/pitch`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        if (res.ok) {
+          mostrarToast('¡Mensaje guardado correctamente en la base de datos!');
+          if (tabPitchPaso === 1) lead.mensaje_dm = textoActual;
+          else lead.mensaje_seguimiento = textoActual;
+        }
+      } catch (err) {
+        console.error(err);
+        mostrarToast('Error al guardar el mensaje', true);
+      }
+    }
+
+    async function enviarEmailModal(btnElement) {
+      const lead = todosLosLeads[leadSeleccionadoIdx];
+      if (!lead) return;
+
+      const emailDestino = document.getElementById('modal-lead-email').value.trim();
+      const asunto = document.getElementById('modal-lead-subject').value.trim();
+      const mensaje = document.getElementById('modal-pitch-text').value.trim();
+
+      if (!emailDestino || !emailDestino.includes('@')) {
+        alert('Por favor, introduce una dirección de correo electrónico válida.');
         return;
       }
-      const filtrados = todosLosLeads.filter(l => 
-        (l.nombre && l.nombre.toLowerCase().includes(q)) ||
-        (l.ciudad && l.ciudad.toLowerCase().includes(q)) ||
-        (l.categoria && l.categoria.toLowerCase().includes(q)) ||
-        (l.codigo_postal && l.codigo_postal.includes(q))
-      );
-      renderizarTabla(filtrados);
+      if (!mensaje) {
+        alert('El mensaje a enviar no puede estar vacío.');
+        return;
+      }
+
+      const origHtml = btnElement.innerHTML;
+      btnElement.disabled = true;
+      btnElement.innerHTML = `
+        <svg class="w-3.5 h-3.5 animate-spin text-white" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        <span>Enviando...</span>
+      `;
+
+      try {
+        const res = await fetch(`/leads/${lead.osm_id}/send-email`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email_destino: emailDestino,
+            asunto: asunto,
+            mensaje: mensaje
+          })
+        });
+        const data = await res.json();
+        if (res.ok) {
+          mostrarToast(`¡Email enviado con éxito a ${emailDestino}!`);
+          await cargarLeads();
+          cerrarModal();
+        } else {
+          alert(`⚠️ Información de Envío:\n\n${data.detail || 'Error al enviar correo'}`);
+          btnElement.disabled = false;
+          btnElement.innerHTML = origHtml;
+        }
+      } catch (err) {
+        alert('Error al conectar con el servidor: ' + err.message);
+        btnElement.disabled = false;
+        btnElement.innerHTML = origHtml;
+      }
+    }
+
+    async function simularTiempoLeadModal() {
+      const lead = todosLosLeads[leadSeleccionadoIdx];
+      if (!lead) return;
+      try {
+        const res = await fetch(`/leads/${lead.osm_id}/simulate-time`, { method: 'POST' });
+        if (res.ok) {
+          mostrarToast('⏰ Simuladas 50 horas. Alerta de seguimiento activada.');
+          await cargarLeads();
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    function abrirModal(idx) {
+      leadSeleccionadoIdx = idx;
+      const lead = todosLosLeads[idx];
+      if (!lead) return;
+
+      document.getElementById('modal-title').innerText = lead.nombre;
+      document.getElementById('modal-razon').innerText = lead.gemini_razon || 'Perfil coincidente y verificado por Gemini.';
+      document.getElementById('modal-lead-email').value = lead.email || '';
+      document.getElementById('modal-lead-subject').value = `Propuesta web interactiva para ${lead.nombre}`;
+      
+      const link = document.getElementById('modal-ig-link');
+      if (lead.instagram_url) {
+        link.href = lead.instagram_url;
+        link.classList.remove('hidden');
+      } else {
+        link.classList.add('hidden');
+      }
+
+      // Caja de demo en el modal
+      const demoBox = document.getElementById('modal-demo-box');
+      const demoUrlEl = document.getElementById('modal-demo-url');
+      if (lead.demo_slug) {
+        urlDemoActual = lead.demo_url_absoluta || `/demos/${lead.demo_slug}`;
+        demoUrlEl.innerText = urlDemoActual;
+        demoBox.classList.remove('hidden');
+      } else {
+        demoBox.classList.add('hidden');
+        urlDemoActual = "";
+      }
+
+      // Resetear a pestaña 1
+      switchPitchTab(1);
+      document.getElementById('pitch-modal').classList.remove('hidden');
+    }
+
+    function cerrarModal() {
+      document.getElementById('pitch-modal').classList.add('hidden');
+    }
+
+    function copiarPitch(idx, btnElement) {
+      const lead = todosLosLeads[idx];
+      if (!lead || !lead.mensaje_dm) return;
+
+      navigator.clipboard.writeText(lead.mensaje_dm).then(() => {
+        mostrarToast('¡Mensaje copiado al portapapeles!');
+        const origText = btnElement.innerHTML;
+        btnElement.innerHTML = `
+          <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          <span>¡Copiado!</span>
+        `;
+        btnElement.classList.add('bg-emerald-600');
+        setTimeout(() => {
+          btnElement.innerHTML = origText;
+          btnElement.classList.remove('bg-emerald-600');
+        }, 2000);
+      });
+    }
+
+    function copiarPitchModal() {
+      const text = document.getElementById('modal-pitch-text').value;
+      if (!text) return;
+      navigator.clipboard.writeText(text).then(() => {
+        mostrarToast('¡Mensaje copiado al portapapeles!');
+        const btn = document.getElementById('modal-copy-btn');
+        const orig = btn.innerText;
+        btn.innerText = "¡Copiado!";
+        setTimeout(() => { btn.innerText = orig; }, 2000);
+      });
+    }
+
+    function filtrarTabla() {
+      const q = document.getElementById('filtro-tabla').value.toLowerCase().trim();
+      let filtrados = todosLosLeads;
+      if (q) {
+        filtrados = todosLosLeads.filter(l => 
+          (l.nombre && l.nombre.toLowerCase().includes(q)) ||
+          (l.ciudad && l.ciudad.toLowerCase().includes(q)) ||
+          (l.categoria && l.categoria.toLowerCase().includes(q)) ||
+          (l.codigo_postal && l.codigo_postal.includes(q))
+        );
+      }
+      if (vistaActual === 'kanban') {
+        renderizarKanban(filtrados);
+      } else {
+        renderizarTabla(filtrados);
+      }
     }
 
     async function iniciarEscaneo(e) {
@@ -499,62 +1073,7 @@
         icon.classList.remove('hidden');
         spinner.classList.add('hidden');
         btnText.innerText = "Escanear Zona";
-        progressBox.classList.add('hidden');
       }
-    }
-
-    function abrirModal(idx) {
-      const lead = todosLosLeads[idx];
-      if (!lead) return;
-
-      document.getElementById('modal-title').innerText = lead.nombre;
-      document.getElementById('modal-razon').innerText = lead.gemini_razon || 'Perfil coincidente y verificado por Gemini.';
-      document.getElementById('modal-pitch-text').value = lead.mensaje_dm || 'Sin mensaje generado.';
-      
-      const link = document.getElementById('modal-ig-link');
-      if (lead.instagram_url) {
-        link.href = lead.instagram_url;
-        link.classList.remove('hidden');
-      } else {
-        link.classList.add('hidden');
-      }
-
-      document.getElementById('pitch-modal').classList.remove('hidden');
-    }
-
-    function cerrarModal() {
-      document.getElementById('pitch-modal').classList.add('hidden');
-    }
-
-    function copiarPitch(idx, btnElement) {
-      const lead = todosLosLeads[idx];
-      if (!lead || !lead.mensaje_dm) return;
-
-      navigator.clipboard.writeText(lead.mensaje_dm).then(() => {
-        mostrarToast('¡Mensaje copiado al portapapeles!');
-        const origText = btnElement.innerHTML;
-        btnElement.innerHTML = `
-          <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-          <span>¡Copiado!</span>
-        `;
-        btnElement.classList.add('bg-emerald-600');
-        setTimeout(() => {
-          btnElement.innerHTML = origText;
-          btnElement.classList.remove('bg-emerald-600');
-        }, 2000);
-      });
-    }
-
-    function copiarPitchModal() {
-      const text = document.getElementById('modal-pitch-text').value;
-      if (!text) return;
-      navigator.clipboard.writeText(text).then(() => {
-        mostrarToast('¡Mensaje copiado al portapapeles!');
-        const btn = document.getElementById('modal-copy-btn');
-        const orig = btn.innerText;
-        btn.innerText = "¡Copiado!";
-        setTimeout(() => { btn.innerText = orig; }, 2000);
-      });
     }
 
     function mostrarToast(msg, isError = false) {

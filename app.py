@@ -5,13 +5,19 @@ import csv
 import io
 from typing import List, Optional, Dict, Any
 from pathlib import Path
-
+from datetime import datetime, timezone, timedelta
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 import requests
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import HTMLResponse, JSONResponse, StreamingResponse
+from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
+
+from web_generator import generar_web_comercio, DEMOS_DIR
 
 # Cargar variables de entorno desde .env
 load_dotenv()
@@ -50,6 +56,7 @@ app = FastAPI(
 )
 
 templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
+app.mount("/demos", StaticFiles(directory=str(DEMOS_DIR), html=True), name="demos")
 
 # Modelo sugerido de Gemini
 GEMINI_MODEL = "gemini-2.5-flash"
@@ -64,6 +71,70 @@ def obtener_cliente_gemini():
     except Exception as e:
         print(f"[Aviso Gemini] No se pudo inicializar el cliente: {e}")
         return None
+
+
+# -------------------------------------------------------------
+# CONFIGURACIÓN SMTP (GMAIL)
+# -------------------------------------------------------------
+SMTP_EMAIL = os.getenv("SMTP_EMAIL", "").strip()
+SMTP_APP_PASSWORD = os.getenv("SMTP_APP_PASSWORD", "").strip()
+SMTP_HOST = os.getenv("SMTP_HOST", "smtp.gmail.com").strip()
+try:
+    SMTP_PORT = int(os.getenv("SMTP_PORT", "587"))
+except ValueError:
+    SMTP_PORT = 587
+
+
+def enviar_email_propuesta(destinatario: str, asunto: str, cuerpo_texto: str) -> dict:
+    """
+    Envía un email comercial o de seguimiento a través de Gmail SMTP.
+    Requiere que SMTP_EMAIL y SMTP_APP_PASSWORD estén configurados en .env.
+    """
+    email_user = os.getenv("SMTP_EMAIL", "").strip()
+    app_pwd = os.getenv("SMTP_APP_PASSWORD", "").strip()
+
+    if not email_user or not app_pwd or "tu_correo" in email_user:
+        raise ValueError(
+            "Configura tu cuenta de Gmail en el archivo .env añadiendo:\n"
+            "SMTP_EMAIL=tu_correo@gmail.com\n"
+            "SMTP_APP_PASSWORD=tu_contraseña_de_aplicacion\n\n"
+            "Puedes generar una contraseña de aplicación en https://myaccount.google.com/apppasswords"
+        )
+
+    msg = MIMEMultipart("alternative")
+    msg["From"] = f"Equipo de Diseño Web <{email_user}>"
+    msg["To"] = destinatario
+    msg["Subject"] = asunto
+
+    # Texto plano
+    part_text = MIMEText(cuerpo_texto, "plain", "utf-8")
+    msg.attach(part_text)
+
+    # Versión HTML cuidada y legible
+    cuerpo_html = f"""<!DOCTYPE html>
+<html>
+<body style="margin: 0; padding: 24px; background-color: #f8fafc; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #1e293b;">
+  <div style="max-width: 580px; margin: 0 auto; background: #ffffff; border-radius: 12px; padding: 28px; border: 1px solid #e2e8f0; box-shadow: 0 2px 4px rgba(0,0,0,0.04);">
+    <div style="font-size: 15px; line-height: 1.6; white-space: pre-line; color: #334155;">{cuerpo_texto}</div>
+    <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 24px 0;" />
+    <p style="font-size: 12px; color: #64748b; margin: 0;">
+      📍 Enviado por un equipo local de diseño web en Barcelona / Cataluña.<br>
+      Este correo es una propuesta visual segura sin coste ni compromiso.
+    </p>
+  </div>
+</body>
+</html>"""
+    part_html = MIMEText(cuerpo_html, "html", "utf-8")
+    msg.attach(part_html)
+
+    with smtplib.SMTP(SMTP_HOST, SMTP_PORT, timeout=15) as server:
+        server.ehlo()
+        server.starttls()
+        server.ehlo()
+        server.login(email_user, app_pwd)
+        server.send_message(msg)
+
+    return {"status": "ok", "enviado_a": destinatario}
 
 
 # -------------------------------------------------------------
@@ -163,40 +234,48 @@ Categoría a clasificar: "{termino_usuario}"
 # -------------------------------------------------------------
 # 2. ROL GEMINI: VERIFICAR PERFIL Y REDACTAR PITCH DE VENTA
 # -------------------------------------------------------------
-def verificar_y_redactar_pitch(nombre_negocio: str, datos_ig: str, ciudad: str) -> dict:
+def verificar_y_redactar_pitch(nombre_negocio: str, datos_ig: str, ciudad: str, demo_url: str = "") -> dict:
     """
-    Analiza el perfil de Instagram encontrado y determina si corresponde al negocio local.
-    Si es afirmativo, redacta un DM persuasivo y personalizado (máximo 60 palabras).
+    Analiza el perfil de Instagram encontrado y genera:
+    1. Mensaje DM inicial (cercano, elogiando su trabajo, explicando que somos un equipo local de diseño
+       que busca comercios en su zona para mejorar su tráfico de clientes, con frase de tranquilidad anti-malware).
+    2. Mensaje de seguimiento (para enviar a las 48-72h por Email o WhatsApp si no han contestado).
     """
     cliente = obtener_cliente_gemini()
+    demo_texto = f"la maqueta interactiva segura que te preparé: {demo_url}" if demo_url else "la propuesta visual"
+
     if cliente:
         prompt = f"""
-Actúa como un estratega de prospección comercial B2B para una agencia de diseño y desarrollo web.
-Analiza la correspondencia entre este negocio local y los datos del perfil de Instagram encontrado:
+Actúa como un estratega de prospección comercial local y copywriter de élite para un estudio de diseño web cercano y honesto.
+Analiza este negocio local y los datos de su perfil de Instagram:
 
 Negocio local:
 - Nombre: {nombre_negocio}
-- Localidad / Ciudad: {ciudad}
+- Localidad / Ciudad: {ciudad} (por defecto área de Barcelona / cercanías si aplica)
 
-Datos del perfil de Instagram encontrado:
+Datos del perfil de Instagram:
 {datos_ig}
 
-Tu tarea:
-1. 'es_perfil_correcto': Determina con criterio lógico si este perfil de Instagram parece corresponder a este comercio local (true o false).
-2. 'razon': Una frase corta resumiendo por qué coincide o por qué hay dudas.
-3. 'mensaje_dm_sugerido': Si coincide, redacta un mensaje para enviar por Direct Message (DM) de Instagram que cumpla:
-   - Máximo 60 palabras.
-   - Tono cercano, profesional, respetuoso y persuasivo.
-   - Elogia su trabajo o presencia visual en Instagram.
-   - Hazle notar con delicadeza la oportunidad que pierde al no tener una página web propia o sistema de reservas directo para convertir a sus seguidores en clientes.
-   - Incluye una llamada a la acción sencilla (ej. '¿Te gustaría que te prepare una propuesta visual sin compromiso?').
-   - Si no coincide el perfil, deja este campo como cadena vacía.
+Tu tarea es redactar dos mensajes hiper-personalizados y transparentes:
 
-Devuelve ÚNICAMENTE un JSON con esta estructura exacta:
+1. 'mensaje_dm_sugerido' (Primer contacto por DM):
+   - Máximo 70 palabras. Tono cálido, respetuoso y muy profesional.
+   - Elogia un detalle real de su trabajo en Instagram según su sector específico.
+   - Explica con total honestidad quiénes somos: somos un equipo local de diseño buscando negocios con potencial en su zona para ayudarles a captar más clientes directos desde Google sin depender de intermediarios.
+   - Incorpora el enlace ({demo_url or 'https://...'}) con una frase de total tranquilidad y transparencia para disipar desconfianzas (ej: "Tranquilos, el enlace es una maqueta interactiva 100% segura que os he subido a la web para que podáis navegarla desde el móvil sin descargar nada ni registros").
+   - Llamada a la acción suave y sin presión.
+
+2. 'mensaje_seguimiento' (Paso 2: Seguimiento amable a las 48-72h por Email o WhatsApp):
+   - Máximo 45 palabras.
+   - Recuerda con simpatía que les dejaste un mensaje por Instagram con la demo de su web ({demo_url or 'la maqueta'}).
+   - Pregunta con educación si tuvieron oportunidad de verla desde el móvil y si les gustaría comentar impresiones sin compromiso.
+
+Devuelve ÚNICAMENTE un JSON con esta estructura:
 {{
   "es_perfil_correcto": true,
-  "razon": "Coincide el nombre comercial y la ubicación en la biografía",
-  "mensaje_dm_sugerido": "¡Hola equipo de {nombre_negocio}! Me encanta lo activo que tenéis vuestro perfil y la calidad de vuestro trabajo. Noté que aún no contáis con web propia para centralizar reservas/pedidos y destacar en Google. ¿Os interesaría ver una propuesta rápida y sin compromiso de cómo quedaría vuestra web profesional? ¡Un saludo!"
+  "razon": "Coincide el negocio y ubicación",
+  "mensaje_dm_sugerido": "¡Hola equipo de {nombre_negocio}! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño y estamos contactando con comercios de vuestra zona porque vemos que tenéis un potencial enorme para recibir citas y clientes directos en Google. Os he preparado una maqueta interactiva adaptada a vuestro negocio: {demo_url or 'https://...'}. Es un enlace 100% seguro para verla en el navegador móvil sin registros ni descargas. ¿Qué os parece la idea?",
+  "mensaje_seguimiento": "¡Hola de nuevo! Os escribí hace un par de días por Instagram porque os preparé una web demo interactiva: {demo_url or 'https://...'}. Os lo dejo por aquí por si os resulta más cómodo revisarlo desde el móvil. ¡Un saludo cordial!"
 }}
 """
         try:
@@ -219,21 +298,29 @@ Devuelve ÚNICAMENTE un JSON con esta estructura exacta:
             return {
                 "es_perfil_correcto": bool(data.get("es_perfil_correcto", True)),
                 "razon": str(data.get("razon", "Perfil coincidente")),
-                "mensaje_dm_sugerido": str(data.get("mensaje_dm_sugerido", ""))
+                "mensaje_dm_sugerido": str(data.get("mensaje_dm_sugerido", "")),
+                "mensaje_seguimiento": str(data.get("mensaje_seguimiento", ""))
             }
         except Exception as e:
             print(f"[Error Gemini Pitch] {e}. Usando plantilla fallback...")
 
     # Fallback si no hay API key de Gemini
-    pitch_fallback = (
-        f"¡Hola equipo de {nombre_negocio}! Me encanta vuestro contenido en Instagram y lo bien que cuidáis a vuestra comunidad. "
-        f"Me he fijado en que aún no tenéis una página web propia donde captar clientes en Google y automatizar citas/pedidos. "
-        f"¿Os gustaría que os muestre un diseño previo sin compromiso? ¡Un saludo cordial!"
+    link_texto = f" {demo_url}" if demo_url else ""
+    pitch_dm_fallback = (
+        f"¡Hola equipo de {nombre_negocio}! Me encantan vuestros trabajos en Instagram. "
+        f"Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de {ciudad} para ayudarles a conseguir más clientes desde Google. "
+        f"Os he preparado una maqueta interactiva de cómo luciría vuestra web:{link_texto} "
+        f"(El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!"
+    )
+    seguimiento_fallback = (
+        f"¡Hola de nuevo equipo de {nombre_negocio}! Os escribí hace unos días por Instagram con una propuesta web interactiva para vuestro negocio:{link_texto} "
+        f"Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!"
     )
     return {
         "es_perfil_correcto": True,
-        "razon": "Validación automática heurística (Gemini API key no configurada)",
-        "mensaje_dm_sugerido": pitch_fallback
+        "razon": "Validación automática heurística",
+        "mensaje_dm_sugerido": pitch_dm_fallback,
+        "mensaje_seguimiento": seguimiento_fallback
     }
 
 
@@ -338,6 +425,7 @@ def consultar_overpass(codigo_postal: str, osm_key: str, osm_value: str) -> List
                 ciudad = tags.get("addr:city") or ciudad_default
                 cp = tags.get("addr:postcode") or codigo_postal
                 telefono = tags.get("phone") or tags.get("contact:phone") or tags.get("contact:mobile", "")
+                email = tags.get("email") or tags.get("contact:email", "")
                 
                 # Revisar si OSM ya tenía etiquetado Instagram
                 ig_osm = tags.get("contact:instagram") or tags.get("instagram", "")
@@ -350,6 +438,7 @@ def consultar_overpass(codigo_postal: str, osm_key: str, osm_value: str) -> List
                     "ciudad": ciudad,
                     "codigo_postal": cp,
                     "telefono": telefono,
+                    "email": email,
                     "tiene_web": False,
                     "instagram_tag_osm": ig_osm,
                     "tags": tags
@@ -475,19 +564,43 @@ async def health_check():
     """Estado del servidor y verificación de la API de Gemini."""
     api_key = os.getenv("GEMINI_API_KEY", "").strip()
     configurado = bool(api_key and api_key != "tu_api_key_aqui")
+    smtp_user = os.getenv("SMTP_EMAIL", "").strip()
+    smtp_pwd = os.getenv("SMTP_APP_PASSWORD", "").strip()
+    smtp_ok = bool(smtp_user and smtp_pwd and "tu_correo" not in smtp_user)
     return {
         "status": "ok",
         "gemini_configurado": configurado,
         "modelo": GEMINI_MODEL,
         "duckduckgo_disponible": HAS_DDGS,
-        "google_genai_instalado": HAS_GENAI_LIB
+        "google_genai_instalado": HAS_GENAI_LIB,
+        "smtp_configurado": smtp_ok,
+        "smtp_email": smtp_user if smtp_ok else ""
     }
 
 
 @app.get("/leads")
 async def get_leads():
-    """Devuelve todos los leads guardados en data/leads.json."""
-    return leer_leads_guardados()
+    """Devuelve todos los leads calculando el tiempo transcurrido y alertas de seguimiento temporal."""
+    leads = leer_leads_guardados()
+    now = datetime.now(timezone.utc)
+    for l in leads:
+        fc_str = l.get("fecha_contacto")
+        horas_transcurridas = 0
+        alerta_seguimiento = False
+        if fc_str:
+            try:
+                fc = datetime.fromisoformat(fc_str.replace("Z", "+00:00"))
+                if fc.tzinfo is None:
+                    fc = fc.replace(tzinfo=timezone.utc)
+                horas_transcurridas = round((now - fc).total_seconds() / 3600, 1)
+                # Si el estado es 'DM Enviado' y han pasado 48h o más sin respuesta
+                if l.get("estado") == "DM Enviado" and horas_transcurridas >= 48:
+                    alerta_seguimiento = True
+            except Exception:
+                pass
+        l["horas_transcurridas"] = horas_transcurridas
+        l["alerta_seguimiento"] = alerta_seguimiento
+    return leads
 
 
 @app.delete("/leads")
@@ -566,12 +679,17 @@ async def scan_local_leads(req: ScanRequest):
             "ciudad": ciudad,
             "codigo_postal": com["codigo_postal"],
             "telefono": com["telefono"],
+            "email": com.get("email", ""),
             "tiene_web": False,
             "instagram_url": ig_url,
             "instagram_handle": ig_handle,
             "gemini_verificado": analisis["es_perfil_correcto"],
             "gemini_razon": analisis["razon"],
-            "mensaje_dm": analisis["mensaje_dm_sugerido"]
+            "mensaje_dm": analisis["mensaje_dm_sugerido"],
+            "estado": "Sin Web",
+            "demo_slug": "",
+            "demo_url": "",
+            "demo_vibe": ""
         }
         prospectos_procesados.append(lead)
 
@@ -586,6 +704,186 @@ async def scan_local_leads(req: ScanRequest):
         "nuevos_leads_encontrados": agregados,
         "leads": prospectos_procesados
     }
+
+
+class StatusUpdateRequest(BaseModel):
+    estado: str
+
+
+@app.post("/leads/{osm_id}/generate-web")
+async def generate_lead_web(osm_id: str, request: Request):
+    """
+    Genera la web demo individualizada para un lead usando:
+    1. Extracción de datos de Instagram (Apify o fallback adaptado).
+    2. Design System estilo Stitch (colores, fuentes y formas).
+    3. Estructuración con Gemini.
+    4. Guardado en demos/{slug}/index.html (GitHub Pages ready).
+    5. Actualización del pitch de prospección con el enlace de la demo.
+    """
+    leads = leer_leads_guardados()
+    target_idx = None
+    target_lead = None
+    for idx, l in enumerate(leads):
+        if str(l.get("osm_id")) == str(osm_id):
+            target_idx = idx
+            target_lead = l
+            break
+
+    if target_lead is None:
+        raise HTTPException(status_code=404, detail="Lead no encontrado.")
+
+    cliente_gemini = obtener_cliente_gemini()
+    res = generar_web_comercio(target_lead, cliente_gemini=cliente_gemini)
+
+    base_url = str(request.base_url).rstrip("/")
+    demo_url_absoluta = f"{base_url}/demos/{res['slug']}"
+
+    # Actualizar lead
+    target_lead["demo_slug"] = res["slug"]
+    target_lead["demo_url"] = res["demo_url_local"]
+    target_lead["demo_url_absoluta"] = demo_url_absoluta
+    target_lead["demo_vibe"] = res["design_vibe"]
+    target_lead["estado"] = "Web Generada"
+
+    # Regenerar el pitch comercial incorporando la URL de la demo
+    nuevo_pitch = verificar_y_redactar_pitch(
+        nombre_negocio=target_lead.get("nombre", ""),
+        datos_ig=f"Instagram: {target_lead.get('instagram_url', '')} | Categoría: {target_lead.get('categoria', '')}",
+        ciudad=target_lead.get("ciudad", ""),
+        demo_url=demo_url_absoluta
+    )
+    target_lead["mensaje_dm"] = nuevo_pitch.get("mensaje_dm_sugerido", target_lead.get("mensaje_dm", ""))
+    target_lead["mensaje_seguimiento"] = nuevo_pitch.get("mensaje_seguimiento", target_lead.get("mensaje_seguimiento", ""))
+
+    leads[target_idx] = target_lead
+    with open(LEADS_FILE, "w", encoding="utf-8") as f:
+        json.dump(leads, f, ensure_ascii=False, indent=2)
+
+    return {
+        "status": "ok",
+        "lead": target_lead,
+        "demo": res
+    }
+
+
+class PitchSaveRequest(BaseModel):
+    mensaje_dm: str
+    mensaje_seguimiento: Optional[str] = ""
+
+
+@app.post("/leads/{osm_id}/pitch")
+async def save_lead_pitch(osm_id: str, req: PitchSaveRequest):
+    """Guarda las ediciones personalizadas que el usuario realiza sobre el DM o seguimiento."""
+    leads = leer_leads_guardados()
+    for l in leads:
+        if str(l.get("osm_id")) == str(osm_id):
+            l["mensaje_dm"] = req.mensaje_dm.strip()
+            if req.mensaje_seguimiento:
+                l["mensaje_seguimiento"] = req.mensaje_seguimiento.strip()
+            with open(LEADS_FILE, "w", encoding="utf-8") as f:
+                json.dump(leads, f, ensure_ascii=False, indent=2)
+            return {"status": "ok", "lead": l}
+    raise HTTPException(status_code=404, detail="Lead no encontrado.")
+
+
+@app.post("/leads/{osm_id}/status")
+async def update_lead_status(osm_id: str, req: StatusUpdateRequest):
+    """Actualiza el estado de prospección del lead y registra la fecha de contacto."""
+    leads = leer_leads_guardados()
+    for l in leads:
+        if str(l.get("osm_id")) == str(osm_id):
+            l["estado"] = req.estado
+            if req.estado in ("DM Enviado", "Email Enviado") and not l.get("fecha_contacto"):
+                l["fecha_contacto"] = datetime.now(timezone.utc).isoformat()
+                l["canal_contacto"] = "Instagram DM" if "DM" in req.estado else "Email"
+            with open(LEADS_FILE, "w", encoding="utf-8") as f:
+                json.dump(leads, f, ensure_ascii=False, indent=2)
+            return {"status": "ok", "lead": l}
+    raise HTTPException(status_code=404, detail="Lead no encontrado.")
+
+
+@app.post("/leads/{osm_id}/simulate-time")
+async def simulate_lead_time(osm_id: str):
+    """Simula que han transcurrido 50 horas desde el contacto para comprobar la alerta de seguimiento."""
+    leads = leer_leads_guardados()
+    for l in leads:
+        if str(l.get("osm_id")) == str(osm_id):
+            hace_50h = datetime.now(timezone.utc) - timedelta(hours=50)
+            l["fecha_contacto"] = hace_50h.isoformat()
+            l["estado"] = "DM Enviado"
+            with open(LEADS_FILE, "w", encoding="utf-8") as f:
+                json.dump(leads, f, ensure_ascii=False, indent=2)
+            return {"status": "ok", "mensaje": "Simuladas 50 horas para el lead.", "lead": l}
+    raise HTTPException(status_code=404, detail="Lead no encontrado.")
+
+
+class EmailSendRequest(BaseModel):
+    email_destino: str
+    asunto: Optional[str] = ""
+    mensaje: str
+
+
+@app.post("/leads/{osm_id}/send-email")
+async def send_lead_email(osm_id: str, req: EmailSendRequest):
+    """
+    Envía la propuesta comercial o seguimiento directamente al correo del negocio
+    usando la cuenta Gmail configurada por el usuario.
+    """
+    leads = leer_leads_guardados()
+    target_idx = None
+    target_lead = None
+    for idx, l in enumerate(leads):
+        if str(l.get("osm_id")) == str(osm_id):
+            target_idx = idx
+            target_lead = l
+            break
+
+    if target_lead is None:
+        raise HTTPException(status_code=404, detail="Lead no encontrado.")
+
+    email_limpio = req.email_destino.strip()
+    if not email_limpio or "@" not in email_limpio:
+        raise HTTPException(status_code=400, detail="Debes proporcionar una dirección de email válida.")
+
+    asunto = req.asunto.strip() if req.asunto else f"Propuesta web interactiva para {target_lead.get('nombre', 'vuestro negocio')}"
+
+    try:
+        enviar_email_propuesta(
+            destinatario=email_limpio,
+            asunto=asunto,
+            cuerpo_texto=req.mensaje.strip()
+        )
+    except ValueError as ve:
+        raise HTTPException(status_code=400, detail=str(ve))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error al enviar correo por Gmail SMTP: {str(e)}")
+
+    # Actualizar estado y fecha en el CRM
+    target_lead["email"] = email_limpio
+    target_lead["estado"] = "Email Enviado"
+    if not target_lead.get("fecha_contacto"):
+        target_lead["fecha_contacto"] = datetime.now(timezone.utc).isoformat()
+    target_lead["canal_contacto"] = "Email"
+
+    leads[target_idx] = target_lead
+    with open(LEADS_FILE, "w", encoding="utf-8") as f:
+        json.dump(leads, f, ensure_ascii=False, indent=2)
+
+    return {
+        "status": "ok",
+        "mensaje": f"Correo enviado exitosamente a {email_limpio}",
+        "lead": target_lead
+    }
+
+
+@app.get("/demo/{osm_id}")
+async def redirect_to_demo(osm_id: str):
+    """Redirige directamente a la demo del lead si existe."""
+    leads = leer_leads_guardados()
+    for l in leads:
+        if str(l.get("osm_id")) == str(osm_id) and l.get("demo_slug"):
+            return HTMLResponse(content=f'<script>window.location.href="/demos/{l["demo_slug"]}";</script>')
+    raise HTTPException(status_code=404, detail="Demo aún no generada para este lead.")
 
 
 @app.get("/export-csv")
@@ -607,6 +905,9 @@ async def export_leads_csv():
         "Instagram URL",
         "Verificado por Gemini",
         "Razón de Validación",
+        "Estado",
+        "Web Demo URL",
+        "Vibe de Diseño",
         "Mensaje de Venta DM"
     ])
 
@@ -622,6 +923,9 @@ async def export_leads_csv():
             l.get("instagram_url", ""),
             "Sí" if l.get("gemini_verificado") else "No",
             l.get("gemini_razon", ""),
+            l.get("estado", "Sin Web"),
+            l.get("demo_url_absoluta", l.get("demo_url", "")),
+            l.get("demo_vibe", ""),
             l.get("mensaje_dm", "")
         ])
 
