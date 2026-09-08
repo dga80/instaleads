@@ -12,7 +12,9 @@
     (function() {
       try {
         const savedTheme = localStorage.getItem('instaleads_theme');
-        if (savedTheme === 'light') {
+        const defaultTheme = 'dark';
+        const themeToApply = savedTheme || defaultTheme;
+        if (themeToApply === 'light') {
           document.documentElement.classList.add('light');
           document.documentElement.classList.remove('dark');
         } else {
@@ -24,7 +26,7 @@
   </script>
 
   <!-- Favicon desde avatar de Instagram -->
-  <link rel="icon" type="image/jpeg" href="">
+  <link rel="icon" type="image/jpeg" href="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=300&auto=format&fit=crop&q=80">
 
   <!-- Tipografías de Google Fonts según Stitch Design System -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -214,7 +216,7 @@
       <!-- Identidad y Avatar del Negocio -->
       <a href="#inicio" class="flex items-center space-x-3.5 group">
         <div class="relative">
-          <img src="" alt="Gas Motorrad" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover ring-2 shadow-md" style="ring-color: var(--accent);">
+          <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=300&auto=format&fit=crop&q=80" alt="Gas Motorrad" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover ring-2 shadow-md" style="ring-color: var(--accent);">
           <span class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-emerald-500 border-2 border-slate-950 rounded-full"></span>
         </div>
         <div class="truncate">
@@ -296,12 +298,12 @@
         <div class="flex items-center justify-between pb-4 border-b" style="border-color: var(--border-color);">
           <div class="flex items-center space-x-3">
             <div class="relative">
-              <img src="" alt="Gas Motorrad" class="w-10 h-10 rounded-full object-cover ring-2" style="ring-color: var(--accent);">
+              <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=300&auto=format&fit=crop&q=80" alt="Gas Motorrad" class="w-10 h-10 rounded-full object-cover ring-2" style="ring-color: var(--accent);">
               <span class="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 border-2 border-slate-950 rounded-full"></span>
             </div>
             <div class="truncate">
               <span class="font-headline font-bold text-sm theme-heading block truncate">Gas Motorrad</span>
-              <span class="text-[11px] font-medium block truncate" style="color: var(--accent);">Taller De Motos (Shop</span>
+              <span class="text-[11px] font-medium block truncate" style="color: var(--accent);">Taller De Custom Motos (Shop</span>
             </div>
           </div>
           <button onclick="toggleMobileMenu()" class="p-2 rounded-full glass-pill hover:bg-white/20 transition flex items-center justify-center shrink-0" aria-label="Cerrar Menú">
@@ -467,7 +469,7 @@
 
           <!-- Subtítulo Persuasivo -->
           <p class="text-sm sm:text-base lg:text-lg theme-muted font-normal leading-relaxed max-w-2xl">
-            Calidad, profesionalidad y trato cercano. Descubre nuestros servicios y reserva tu cita en segundos.
+            Especialistas en mecánica de precisión, mantenimiento y diagnosis en Barcelona. Pasión por el motor y servicio de confianza. ¡Pide tu cita!
           </p>
 
           <!-- Botones de Acción Inmediata (Dual CTA) -->
@@ -480,12 +482,6 @@
             </a>
             
 
-            
-            <a href="https://www.instagram.com/gasmotorrad/" target="_blank" 
-              class="glass-pill py-3.5 px-6 font-semibold text-sm text-center flex items-center justify-center space-x-2 hover:opacity-90 transition">
-              <svg class="w-4 h-4 text-pink-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-              <span>Ver en Instagram</span>
-            </a>
             
           </div>
 
@@ -511,7 +507,7 @@
         <div class="lg:col-span-5 relative">
           <div class="relative rounded-3xl overflow-hidden border shadow-2xl group glow-card" style="border-color: var(--border-color);">
             <div class="aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] w-full overflow-hidden bg-slate-950">
-              <img src="https://scontent-lhr11-1.cdninstagram.com/v/t51.82787-15/649698226_18078232040101000_8809995989829598594_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ig_cache_key=MjQ2MTc4NDUzNTI4MTcwODA2Mw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=w3oByr4tGfkQ7kNvwHveDld&_nc_oc=AdrzIe2tAi98H5LVfHViBBbLIwvxfuk69UvfyDKwcRMFbClnR-jmMP0s3unaAVV4lvM&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-lhr11-1.cdninstagram.com&_nc_gid=6PnZ6SDPmFXQ43n5w1XiEw&_nc_ss=7a22e&oh=00_AQIxccPJHjmizmVHX10vxj3xiglAcj4VlA1C3zSnYx03WQ&oe=6AA62204" alt="Gas Motorrad" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+              <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=1000&auto=format&fit=crop&q=80" alt="Gas Motorrad" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-black/20 to-transparent"></div>
             </div>
 
@@ -524,10 +520,10 @@
             <!-- Floating Card Inferior -->
             <div class="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-black/85 border border-white/15 backdrop-blur-xl flex items-center justify-between text-xs shadow-2xl">
               <div class="flex items-center gap-3">
-                <img src="" alt="Gas Motorrad" class="w-10 h-10 rounded-full object-cover ring-2" style="ring-color: var(--accent);">
+                <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=300&auto=format&fit=crop&q=80" alt="Gas Motorrad" class="w-10 h-10 rounded-full object-cover ring-2" style="ring-color: var(--accent);">
                 <div>
                   <span class="font-bold text-white block">Gas Motorrad</span>
-                  <span class="text-slate-300 text-[11px]">Taller De Motos (Shop</span>
+                  <span class="text-slate-300 text-[11px]">Taller De Custom Motos (Shop</span>
                 </div>
               </div>
               <div class="text-amber-400 font-bold text-xs flex items-center gap-1">
@@ -600,7 +596,7 @@
         <div class="theme-card overflow-hidden flex flex-col justify-between group glow-card shadow-xl rounded-2xl" style="border-color: var(--border-color);">
           
           <div class="h-48 sm:h-52 w-full overflow-hidden relative bg-slate-950">
-            <img src="https://scontent-lhr11-1.cdninstagram.com/v/t51.82787-15/649698226_18078232040101000_8809995989829598594_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ig_cache_key=MjQ2MTc4NDUzNTI4MTcwODA2Mw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=w3oByr4tGfkQ7kNvwHveDld&_nc_oc=AdrzIe2tAi98H5LVfHViBBbLIwvxfuk69UvfyDKwcRMFbClnR-jmMP0s3unaAVV4lvM&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-lhr11-1.cdninstagram.com&_nc_gid=6PnZ6SDPmFXQ43n5w1XiEw&_nc_ss=7a22e&oh=00_AQIxccPJHjmizmVHX10vxj3xiglAcj4VlA1C3zSnYx03WQ&oe=6AA62204" alt="Una ruta 66? Nos vemos en Chicago 😀" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=1000&auto=format&fit=crop&q=80" alt="Revisión completa de motor y puesta" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
             
             <!-- Sector Job Pill -->
@@ -617,10 +613,9 @@
           
           <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
             <div>
-              <h3 class="font-bold text-base sm:text-lg theme-heading leading-snug">Una ruta 66? Nos vemos en Chicago 😀</h3>
+              <h3 class="font-bold text-base sm:text-lg theme-heading leading-snug">Revisión completa de motor y puesta</h3>
               <p class="text-xs sm:text-sm theme-muted mt-2 leading-relaxed">
-                Una ruta 66? Nos vemos en Chicago 😀
-#vil1a #gasmotorrad #motorcycle #harleydavid
+                Revisión completa de motor y puesta a punto. Seguridad y potencia en cada trayec
               </p>
             </div>
             
@@ -630,7 +625,7 @@
         <div class="theme-card overflow-hidden flex flex-col justify-between group glow-card shadow-xl rounded-2xl" style="border-color: var(--border-color);">
           
           <div class="h-48 sm:h-52 w-full overflow-hidden relative bg-slate-950">
-            <img src="https://scontent-ams2-1.cdninstagram.com/v/t51.82787-15/623428177_18167273197398736_3720073638005884320_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=104&ig_cache_key=MjUxMjUxNTEzODk0MzY0MzIyMw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=X1MBqI08SY8Q7kNvwFlvjA4&_nc_oc=AdqOTNdUJwfAmfFFsMnSKO4U5xAzNzKI6dW_NDrASHdZm5n3efDTTRCKRYjOg1hO6hFg1awiL2wm7QEx-GzP8MCa&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=1Fp8sAnF4gpc5u2qLsUHgg&_nc_ss=7a22e&oh=00_AQISAjMLfLMQzykzRKTJd6bkMVq3kMlW1cji0nBw9z6usQ&oe=6AA632E9" alt="A cuentagotas, la cuestión es no pa" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=800&auto=format&fit=crop&q=80" alt="Cambio de neumáticos de alto rendim" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
             
             <!-- Sector Job Pill -->
@@ -647,10 +642,9 @@
           
           <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
             <div>
-              <h3 class="font-bold text-base sm:text-lg theme-heading leading-snug">A cuentagotas, la cuestión es no pa</h3>
+              <h3 class="font-bold text-base sm:text-lg theme-heading leading-snug">Cambio de neumáticos de alto rendim</h3>
               <p class="text-xs sm:text-sm theme-muted mt-2 leading-relaxed">
-                A cuentagotas, la cuestión es no parar
-#gasmotorrad #vil1a #suzuki #honda #kymco
+                Cambio de neumáticos de alto rendimiento y equilibrado con tecnología láser.
               </p>
             </div>
             
@@ -660,7 +654,7 @@
         <div class="theme-card overflow-hidden flex flex-col justify-between group glow-card shadow-xl rounded-2xl" style="border-color: var(--border-color);">
           
           <div class="h-48 sm:h-52 w-full overflow-hidden relative bg-slate-950">
-            <img src="https://scontent-mrs2-3.cdninstagram.com/v/t51.71878-15/528017001_1069736438675407_4733022845403282391_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=108&ig_cache_key=MjM0ODE4ODc1NDIyNDg0MjM0NA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuNzIwLnNkci52aWRlb19kZWZhdWx0X2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=l-fiajs_MS0Q7kNvwGVpx24&_nc_oc=AdqEtNce5XsI1XClGsRTnUsJBQKCECOlm5-9kbl3xlijXEnyida_jW1Zu0AnAKd-ByM&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-mrs2-3.cdninstagram.com&_nc_gid=rUGqFVW-Dki-HnQ7VHqIBA&_nc_ss=7a22e&oh=00_AQLpz0lwVsK4Ki8srGklrAlVDhnfFCnOjaOTxZHf-sF8Aw&oe=6AA6405B" alt="Se anima la cosa" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800&auto=format&fit=crop&q=80" alt="Mantenimiento integral de frenos, s" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
             
             <!-- Sector Job Pill -->
@@ -677,10 +671,9 @@
           
           <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
             <div>
-              <h3 class="font-bold text-base sm:text-lg theme-heading leading-snug">Se anima la cosa</h3>
+              <h3 class="font-bold text-base sm:text-lg theme-heading leading-snug">Mantenimiento integral de frenos, s</h3>
               <p class="text-xs sm:text-sm theme-muted mt-2 leading-relaxed">
-                Se anima la cosa
-#gasmotorrad #vil1a #motorcycle #bsa #norton #mvagusta #harleyd
+                Mantenimiento integral de frenos, suspensiones y electrónica oficial.
               </p>
             </div>
             
@@ -700,105 +693,66 @@
           <h2 class="text-2xl sm:text-3xl font-extrabold theme-heading tracking-tight">Galería de Trabajos y Resultados</h2>
         </div>
         
-        <a href="https://www.instagram.com/gasmotorrad/" target="_blank" class="text-xs sm:text-sm font-semibold hover:underline flex items-center gap-1.5" style="color: var(--accent);">
-          <span>Síguenos en Instagram @gasmotorrad</span>
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-        </a>
-        
       </div>
 
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
         
-        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-lhr11-1.cdninstagram.com/v/t51.82787-15/649698226_18078232040101000_8809995989829598594_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ig_cache_key=MjQ2MTc4NDUzNTI4MTcwODA2Mw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=w3oByr4tGfkQ7kNvwHveDld&_nc_oc=AdrzIe2tAi98H5LVfHViBBbLIwvxfuk69UvfyDKwcRMFbClnR-jmMP0s3unaAVV4lvM&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-lhr11-1.cdninstagram.com&_nc_gid=6PnZ6SDPmFXQ43n5w1XiEw&_nc_ss=7a22e&oh=00_AQIxccPJHjmizmVHX10vxj3xiglAcj4VlA1C3zSnYx03WQ&oe=6AA62204', 'Una ruta 66? Nos vemos en Chicago 😀
-#vil1a #gasmotorrad #motorcycle #harleydavidson #barcelona')">
-          <img src="https://scontent-lhr11-1.cdninstagram.com/v/t51.82787-15/649698226_18078232040101000_8809995989829598594_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ig_cache_key=MjQ2MTc4NDUzNTI4MTcwODA2Mw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=w3oByr4tGfkQ7kNvwHveDld&_nc_oc=AdrzIe2tAi98H5LVfHViBBbLIwvxfuk69UvfyDKwcRMFbClnR-jmMP0s3unaAVV4lvM&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-lhr11-1.cdninstagram.com&_nc_gid=6PnZ6SDPmFXQ43n5w1XiEw&_nc_ss=7a22e&oh=00_AQIxccPJHjmizmVHX10vxj3xiglAcj4VlA1C3zSnYx03WQ&oe=6AA62204" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=1000&auto=format&fit=crop&q=80', 'Revisión completa de motor y puesta a punto. Seguridad y potencia en cada trayecto.')">
+          <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=1000&auto=format&fit=crop&q=80" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
           <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
-            <p class="text-[11px] text-white line-clamp-3 leading-tight">Una ruta 66? Nos vemos en Chicago 😀
-#vil1a #gasmotorrad #motorcycle #harleydavidson #barcelona</p>
+            <p class="text-[11px] text-white line-clamp-3 leading-tight">Revisión completa de motor y puesta a punto. Seguridad y potencia en cada trayecto.</p>
             <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
-              ❤️ 16
+              ❤️ 42
             </span>
           </div>
         </div>
         
-        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-ams2-1.cdninstagram.com/v/t51.82787-15/623428177_18167273197398736_3720073638005884320_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=104&ig_cache_key=MjUxMjUxNTEzODk0MzY0MzIyMw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=X1MBqI08SY8Q7kNvwFlvjA4&_nc_oc=AdqOTNdUJwfAmfFFsMnSKO4U5xAzNzKI6dW_NDrASHdZm5n3efDTTRCKRYjOg1hO6hFg1awiL2wm7QEx-GzP8MCa&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=1Fp8sAnF4gpc5u2qLsUHgg&_nc_ss=7a22e&oh=00_AQISAjMLfLMQzykzRKTJd6bkMVq3kMlW1cji0nBw9z6usQ&oe=6AA632E9', 'A cuentagotas, la cuestión es no parar
-#gasmotorrad #vil1a #suzuki #honda #kymco #kawasaki')">
-          <img src="https://scontent-ams2-1.cdninstagram.com/v/t51.82787-15/623428177_18167273197398736_3720073638005884320_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=104&ig_cache_key=MjUxMjUxNTEzODk0MzY0MzIyMw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=X1MBqI08SY8Q7kNvwFlvjA4&_nc_oc=AdqOTNdUJwfAmfFFsMnSKO4U5xAzNzKI6dW_NDrASHdZm5n3efDTTRCKRYjOg1hO6hFg1awiL2wm7QEx-GzP8MCa&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=1Fp8sAnF4gpc5u2qLsUHgg&_nc_ss=7a22e&oh=00_AQISAjMLfLMQzykzRKTJd6bkMVq3kMlW1cji0nBw9z6usQ&oe=6AA632E9" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=800&auto=format&fit=crop&q=80', 'Cambio de neumáticos de alto rendimiento y equilibrado con tecnología láser.')">
+          <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=800&auto=format&fit=crop&q=80" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
           <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
-            <p class="text-[11px] text-white line-clamp-3 leading-tight">A cuentagotas, la cuestión es no parar
-#gasmotorrad #vil1a #suzuki #honda #kymco #kawasaki</p>
+            <p class="text-[11px] text-white line-clamp-3 leading-tight">Cambio de neumáticos de alto rendimiento y equilibrado con tecnología láser.</p>
             <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
-              ❤️ 13
+              ❤️ 60
             </span>
           </div>
         </div>
         
-        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-mrs2-3.cdninstagram.com/v/t51.71878-15/528017001_1069736438675407_4733022845403282391_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=108&ig_cache_key=MjM0ODE4ODc1NDIyNDg0MjM0NA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuNzIwLnNkci52aWRlb19kZWZhdWx0X2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=l-fiajs_MS0Q7kNvwGVpx24&_nc_oc=AdqEtNce5XsI1XClGsRTnUsJBQKCECOlm5-9kbl3xlijXEnyida_jW1Zu0AnAKd-ByM&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-mrs2-3.cdninstagram.com&_nc_gid=rUGqFVW-Dki-HnQ7VHqIBA&_nc_ss=7a22e&oh=00_AQLpz0lwVsK4Ki8srGklrAlVDhnfFCnOjaOTxZHf-sF8Aw&oe=6AA6405B', 'Se anima la cosa
-#gasmotorrad #vil1a #motorcycle #bsa #norton #mvagusta #harleydavidson #kawasaki #zxr750 #motoguzzi')">
-          <img src="https://scontent-mrs2-3.cdninstagram.com/v/t51.71878-15/528017001_1069736438675407_4733022845403282391_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=108&ig_cache_key=MjM0ODE4ODc1NDIyNDg0MjM0NA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuNzIwLnNkci52aWRlb19kZWZhdWx0X2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=l-fiajs_MS0Q7kNvwGVpx24&_nc_oc=AdqEtNce5XsI1XClGsRTnUsJBQKCECOlm5-9kbl3xlijXEnyida_jW1Zu0AnAKd-ByM&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-mrs2-3.cdninstagram.com&_nc_gid=rUGqFVW-Dki-HnQ7VHqIBA&_nc_ss=7a22e&oh=00_AQLpz0lwVsK4Ki8srGklrAlVDhnfFCnOjaOTxZHf-sF8Aw&oe=6AA6405B" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800&auto=format&fit=crop&q=80', 'Mantenimiento integral de frenos, suspensiones y electrónica oficial.')">
+          <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800&auto=format&fit=crop&q=80" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
           <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
-            <p class="text-[11px] text-white line-clamp-3 leading-tight">Se anima la cosa
-#gasmotorrad #vil1a #motorcycle #bsa #norton #mvagusta #harleydavidson #kawasaki #zxr750 #motoguzzi</p>
+            <p class="text-[11px] text-white line-clamp-3 leading-tight">Mantenimiento integral de frenos, suspensiones y electrónica oficial.</p>
             <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
-              ❤️ 9
+              ❤️ 78
             </span>
           </div>
         </div>
         
-        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-fra3-1.cdninstagram.com/v/t51.82787-15/622253479_18101353651865871_3999056049208430767_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&ig_cache_key=MjM3MDEwNDIxODEyNTgzMDAzOA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=YysYwfHH_msQ7kNvwF7ySht&_nc_oc=AdoHzOi6956tIIMdg2W8rcBWSAqE0fx9GtmMAIAwW5RPj3NtShHwAlbqppUR7o57LeA&_nc_ad=z-m&_nc_cid=1005&_nc_zt=23&_nc_ht=scontent-fra3-1.cdninstagram.com&_nc_gid=MFRj5s90HhNYKJ4dZUAB2g&_nc_ss=7a22e&oh=00_AQLJw9zh2ubzS42DoFDaBRAiCRsmRQJDcxIKbyhXbuKO4Q&oe=6AA62D7B', 'Mi nueva ayudante 😉😁')">
-          <img src="https://scontent-fra3-1.cdninstagram.com/v/t51.82787-15/622253479_18101353651865871_3999056049208430767_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&ig_cache_key=MjM3MDEwNDIxODEyNTgzMDAzOA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=YysYwfHH_msQ7kNvwF7ySht&_nc_oc=AdoHzOi6956tIIMdg2W8rcBWSAqE0fx9GtmMAIAwW5RPj3NtShHwAlbqppUR7o57LeA&_nc_ad=z-m&_nc_cid=1005&_nc_zt=23&_nc_ht=scontent-fra3-1.cdninstagram.com&_nc_gid=MFRj5s90HhNYKJ4dZUAB2g&_nc_ss=7a22e&oh=00_AQLJw9zh2ubzS42DoFDaBRAiCRsmRQJDcxIKbyhXbuKO4Q&oe=6AA62D7B" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://images.unsplash.com/photo-1558980394-4c7c9299fe96?w=800&auto=format&fit=crop&q=80', 'Diagnóstico computerizado y resolución de averías complejas.')">
+          <img src="https://images.unsplash.com/photo-1558980394-4c7c9299fe96?w=800&auto=format&fit=crop&q=80" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
           <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
-            <p class="text-[11px] text-white line-clamp-3 leading-tight">Mi nueva ayudante 😉😁</p>
+            <p class="text-[11px] text-white line-clamp-3 leading-tight">Diagnóstico computerizado y resolución de averías complejas.</p>
             <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
-              ❤️ 15
+              ❤️ 96
             </span>
           </div>
         </div>
         
-        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-waw2-1.cdninstagram.com/v/t51.82787-15/649237240_18063163748658871_8778009212599966601_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&ig_cache_key=Mjc0MDI0NjEwOTY0NjYyOTkyOA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=75hUR46oMyMQ7kNvwF01qin&_nc_oc=Ado-BXnZCETn36g4UeU5snth2YcmPt5h-gHSVq9r0u90tJNI1visbmdFTj8eFy--gUg&_nc_ad=z-m&_nc_cid=1479&_nc_zt=23&_nc_ht=scontent-waw2-1.cdninstagram.com&_nc_gid=tMX595y7p7uwZYbTEPswWw&_nc_ss=7a22e&oh=00_AQLs1YYh4wIVZEHIKwPM0M2z1S5EsgutpkXSDPJlSXM5Aw&oe=6AA62FBA', 'Lista para su entrega
-#vil1a #gasmotorrad #motorcycle #kawasaki #z1000 #barcelona')">
-          <img src="https://scontent-waw2-1.cdninstagram.com/v/t51.82787-15/649237240_18063163748658871_8778009212599966601_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&ig_cache_key=Mjc0MDI0NjEwOTY0NjYyOTkyOA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=75hUR46oMyMQ7kNvwF01qin&_nc_oc=Ado-BXnZCETn36g4UeU5snth2YcmPt5h-gHSVq9r0u90tJNI1visbmdFTj8eFy--gUg&_nc_ad=z-m&_nc_cid=1479&_nc_zt=23&_nc_ht=scontent-waw2-1.cdninstagram.com&_nc_gid=tMX595y7p7uwZYbTEPswWw&_nc_ss=7a22e&oh=00_AQLs1YYh4wIVZEHIKwPM0M2z1S5EsgutpkXSDPJlSXM5Aw&oe=6AA62FBA" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://images.unsplash.com/photo-1508974239320-0a029497e820?w=800&auto=format&fit=crop&q=80', 'Instalación de accesorios homologados y recambios originales.')">
+          <img src="https://images.unsplash.com/photo-1508974239320-0a029497e820?w=800&auto=format&fit=crop&q=80" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
           <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
-            <p class="text-[11px] text-white line-clamp-3 leading-tight">Lista para su entrega
-#vil1a #gasmotorrad #motorcycle #kawasaki #z1000 #barcelona</p>
+            <p class="text-[11px] text-white line-clamp-3 leading-tight">Instalación de accesorios homologados y recambios originales.</p>
             <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
-              ❤️ 28
+              ❤️ 114
             </span>
           </div>
         </div>
         
-        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-cdg4-3.cdninstagram.com/v/t51.82787-15/623473374_18119017240580127_1771945865387763879_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ig_cache_key=MjQ0OTY1NTE0MzgxODc4ODUwMQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=F78-OlzJrvQQ7kNvwHGanlW&_nc_oc=AdqJ24qWan9U_Y3TyRP7zxEE7AqJ-FH03QQNO23iwDuHAkHaK2uKyD1MiLioABli51z7mUqgFj8zW7zlg76xVPKB&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-cdg4-3.cdninstagram.com&_nc_gid=9DPlIh0dJVPIFvs9BUO5dA&_nc_ss=7a22e&oh=00_AQLrT5qjpSiuFnScrP-noZkUQM8w1p5MXBwiRqK-vRNFyQ&oe=6AA63E36', 'Que no dejen circular estas preciosidades...
-#vil1a #clasicas #clasics #gasmotorrad #honda #kawasaki')">
-          <img src="https://scontent-cdg4-3.cdninstagram.com/v/t51.82787-15/623473374_18119017240580127_1771945865387763879_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ig_cache_key=MjQ0OTY1NTE0MzgxODc4ODUwMQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=F78-OlzJrvQQ7kNvwHGanlW&_nc_oc=AdqJ24qWan9U_Y3TyRP7zxEE7AqJ-FH03QQNO23iwDuHAkHaK2uKyD1MiLioABli51z7mUqgFj8zW7zlg76xVPKB&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-cdg4-3.cdninstagram.com&_nc_gid=9DPlIh0dJVPIFvs9BUO5dA&_nc_ss=7a22e&oh=00_AQLrT5qjpSiuFnScrP-noZkUQM8w1p5MXBwiRqK-vRNFyQ&oe=6AA63E36" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=800&auto=format&fit=crop&q=80', 'Cuidamos de tu vehículo con la máxima garantía y rapidez en {ciudad}.')">
+          <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=800&auto=format&fit=crop&q=80" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
           <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
-            <p class="text-[11px] text-white line-clamp-3 leading-tight">Que no dejen circular estas preciosidades...
-#vil1a #clasicas #clasics #gasmotorrad #honda #kawasaki</p>
+            <p class="text-[11px] text-white line-clamp-3 leading-tight">Cuidamos de tu vehículo con la máxima garantía y rapidez en {ciudad}.</p>
             <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
-              ❤️ 13
-            </span>
-          </div>
-        </div>
-        
-        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-icn2-1.cdninstagram.com/v/t51.82787-15/618668279_18088618340016100_4952421723565863274_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=MjM1NzM5Mjc0NjI4ODgxMTY3MQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=TXD_Dx5DV2MQ7kNvwGf94Sl&_nc_oc=AdqeYRm1NHT6bVCiHMQ_v9Rh3x5rH3WpH4yfgZ6Mj4h3gYu3vTnjHvYb7A9Stew-lpY&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.cdninstagram.com&_nc_gid=hYPimDDen4rJbPdM6V1z-g&_nc_ss=7a22e&oh=00_AQI71oGiMxnBKQ2XYLLg8Cxs5RLd6WBUsoAQ8bMoH0Q5hQ&oe=6AA627A5', 'Hoy va de clásicos
-#vil1a #caferacer #nuevosproyectos #barcelona #catalonia #norton')">
-          <img src="https://scontent-icn2-1.cdninstagram.com/v/t51.82787-15/618668279_18088618340016100_4952421723565863274_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=MjM1NzM5Mjc0NjI4ODgxMTY3MQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=TXD_Dx5DV2MQ7kNvwGf94Sl&_nc_oc=AdqeYRm1NHT6bVCiHMQ_v9Rh3x5rH3WpH4yfgZ6Mj4h3gYu3vTnjHvYb7A9Stew-lpY&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.cdninstagram.com&_nc_gid=hYPimDDen4rJbPdM6V1z-g&_nc_ss=7a22e&oh=00_AQI71oGiMxnBKQ2XYLLg8Cxs5RLd6WBUsoAQ8bMoH0Q5hQ&oe=6AA627A5" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-          <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
-            <p class="text-[11px] text-white line-clamp-3 leading-tight">Hoy va de clásicos
-#vil1a #caferacer #nuevosproyectos #barcelona #catalonia #norton</p>
-            <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
-              ❤️ 29
-            </span>
-          </div>
-        </div>
-        
-        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-nrt1-2.cdninstagram.com/v/t51.82787-15/647425243_18072611693191147_3355918653955468967_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=MjM1OTA1NzQ4Njg2MTg0NzExOA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=M_mWoYh6ss8Q7kNvwGrKXLH&_nc_oc=Adq5bDpC4uAzR1knPSdHYsYywQtTiOgZA0fu8_GR76vYjJK2arzyGHhveF0Oyf8O8zw&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-nrt1-2.cdninstagram.com&_nc_gid=Xe5f5kBhu9ocVbCNvV_SLg&_nc_ss=7a22e&oh=00_AQIvJxEATFU078f4SbPUdPArqyJcVYOKrjFVS3kKwGe5hQ&oe=6AA63BB4', 'Solo cambia el aceite que la moto va perfecta, hasta que deja de ir perfecta. Válvulas admisión dobladas
-#vil1a #revisiones #bmw')">
-          <img src="https://scontent-nrt1-2.cdninstagram.com/v/t51.82787-15/647425243_18072611693191147_3355918653955468967_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=MjM1OTA1NzQ4Njg2MTg0NzExOA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=M_mWoYh6ss8Q7kNvwGrKXLH&_nc_oc=Adq5bDpC4uAzR1knPSdHYsYywQtTiOgZA0fu8_GR76vYjJK2arzyGHhveF0Oyf8O8zw&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-nrt1-2.cdninstagram.com&_nc_gid=Xe5f5kBhu9ocVbCNvV_SLg&_nc_ss=7a22e&oh=00_AQIvJxEATFU078f4SbPUdPArqyJcVYOKrjFVS3kKwGe5hQ&oe=6AA63BB4" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-          <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
-            <p class="text-[11px] text-white line-clamp-3 leading-tight">Solo cambia el aceite que la moto va perfecta, hasta que deja de ir perfecta. Válvulas admisión dobladas
-#vil1a #revisiones #bmw</p>
-            <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
-              ❤️ 12
+              ❤️ 132
             </span>
           </div>
         </div>
@@ -946,7 +900,7 @@
             <span class="text-xs font-bold uppercase tracking-widest block" style="color: var(--accent);">Trayectoria & Filosofía</span>
             <h3 class="text-lg sm:text-xl font-bold theme-heading tracking-tight">Compromiso, Calidad y Cercanía</h3>
             <p class="text-xs sm:text-sm theme-muted leading-relaxed">
-              En Gas Motorrad nos dedicamos con pasión a ofrecer la mejor experiencia a nuestros clientes en Barcelona. Cuidamos cada detalle para garantizar los mejores resultados.
+              Especialistas en mecánica de precisión, mantenimiento y diagnosis en Barcelona. Pasión por el motor y servicio de confianza. ¡Pide tu cita!
             </p>
             
             <div class="pt-4 border-t space-y-2 text-xs" style="border-color: var(--border-color);">
@@ -1019,7 +973,7 @@
         <!-- Col 1: Identidad -->
         <div class="space-y-3 md:col-span-2">
           <div class="flex items-center space-x-3">
-            <img src="" alt="Gas Motorrad" class="w-9 h-9 rounded-full object-cover">
+            <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=300&auto=format&fit=crop&q=80" alt="Gas Motorrad" class="w-9 h-9 rounded-full object-cover">
             <span class="font-headline font-bold text-base theme-heading">Gas Motorrad</span>
           </div>
           <p class="text-xs theme-muted max-w-sm leading-relaxed">
@@ -1065,7 +1019,7 @@
       
 
       
-      <a href="https://www.instagram.com/gasmotorrad/" target="_blank" class="py-2.5 px-3 rounded-full text-xs font-bold text-center glass-pill flex items-center justify-center space-x-1.5" style="border-color: var(--border-color);">
+      <a href="" target="_blank" class="py-2.5 px-3 rounded-full text-xs font-bold text-center glass-pill flex items-center justify-center space-x-1.5" style="border-color: var(--border-color);">
         <span>Ver Instagram</span>
       </a>
       
