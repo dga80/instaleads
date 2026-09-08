@@ -22,7 +22,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
 
-from web_generator import generar_web_comercio, DEMOS_DIR, slugify
+from web_generator import generar_web_comercio, slugify
 
 # Cargar variables de entorno desde .env
 load_dotenv()
@@ -84,7 +84,175 @@ app = FastAPI(
 )
 
 templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
-app.mount("/demos", StaticFiles(directory=str(DEMOS_DIR), html=True), name="demos")
+
+ghpages_lock = threading.Lock()
+
+def obtener_base_github_pages() -> str:
+    """Detecta la URL base pública de GitHub Pages para este repositorio."""
+    try:
+        remote_proc = subprocess.run(
+            ["git", "remote", "get-url", "origin"],
+            cwd=str(BASE_DIR),
+            capture_output=True,
+            text=True,
+            check=True
+        )
+        remote_url = remote_proc.stdout.strip()
+        m = re.search(r"github\.com[:/]([^/]+)/([^/.]+)(?:\.git)?", remote_url)
+        if m:
+            return f"https://{m.group(1)}.github.io/{m.group(2)}".rstrip("/")
+    except Exception:
+        pass
+    return os.getenv("GITHUB_PAGES_BASE_URL", "https://dga80.github.io/instaleads").rstrip("/")
+
+
+def sincronizar_gh_pages(
+    slug: Optional[str] = None,
+    html_content: Optional[str] = None,
+    accion: str = "guardar"
+) -> Dict[str, Any]:
+    """
+    Sincroniza directamente la rama 'gh-pages' en GitHub usando un worktree temporal aislado en /tmp.
+    - No deja archivos ni carpetas en el espacio de trabajo local (0 MB ocupados en local).
+    - Publica o elimina instantáneamente en https://dga80.github.io/instaleads/{slug}/
+    - Actualiza el showcase index.html en la raíz de gh-pages.
+    """
+    gh_pages_base = obtener_base_github_pages()
+    tmp_worktree = Path(f"/tmp/instaleads_ghpages_{os.getpid()}_{int(time.time()*1000)}")
+
+    with ghpages_lock:
+        try:
+            # 1. Asegurar fetch de la rama gh-pages
+            subprocess.run(
+                ["git", "fetch", "origin", "gh-pages"],
+                cwd=str(BASE_DIR),
+                check=True,
+                capture_output=True,
+                text=True
+            )
+
+            # 2. Crear worktree temporal
+            subprocess.run(
+                ["git", "worktree", "add", str(tmp_worktree), "origin/gh-pages"],
+                cwd=str(BASE_DIR),
+                check=True,
+                capture_output=True,
+                text=True
+            )
+
+            # 3. Aplicar acción solicitada
+            if accion == "guardar" and slug and html_content:
+                demo_folder = tmp_worktree / slug
+                demo_folder.mkdir(parents=True, exist_ok=True)
+                (demo_folder / "index.html").write_text(html_content, encoding="utf-8")
+                commit_msg = f"feat(demo): publicar demo {slug} en GitHub Pages"
+            elif accion == "borrar" and slug:
+                demo_folder = tmp_worktree / slug
+                if demo_folder.exists():
+                    shutil.rmtree(demo_folder)
+                commit_msg = f"chore(demo): eliminar demo {slug} de GitHub Pages"
+            elif accion == "cleanup_all":
+                for item in list(tmp_worktree.iterdir()):
+                    if item.is_dir() and not item.name.startswith("."):
+                        shutil.rmtree(item)
+                commit_msg = "chore(demos): limpiar todas las demos de GitHub Pages"
+            else:
+                commit_msg = "chore(demos): sincronizar índice showcase de GitHub Pages"
+
+            # 4. Asegurar .nojekyll
+            (tmp_worktree / ".nojekyll").touch()
+
+            # 5. Generar index.html centralizado para Showcase en GitHub Pages
+            leads = leer_leads_guardados()
+            leads_dict = {l.get("demo_slug"): l for l in leads if l.get("demo_slug")}
+            
+            # Encontrar todas las carpetas con index.html presentes en el worktree
+            demos_presentes = []
+            for item in sorted(tmp_worktree.iterdir(), key=lambda x: x.name):
+                if item.is_dir() and (item / "index.html").exists() and not item.name.startswith("."):
+                    lead_info = leads_dict.get(item.name, {})
+                    demos_presentes.append({
+                        "slug": item.name,
+                        "nombre": lead_info.get("nombre", item.name.replace("-", " ").title()),
+                        "categoria": lead_info.get("categoria", ""),
+                        "ciudad": lead_info.get("ciudad", "")
+                    })
+
+            items_html = ""
+            for dp in demos_presentes:
+                items_html += f"""
+        <li style="margin-bottom: 12px; padding: 16px; background: #1e293b; border-radius: 12px; border: 1px solid #334155; display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <div style="font-weight: bold; font-size: 16px; color: #f8fafc;">{dp['nombre']}</div>
+            <div style="color: #94a3b8; font-size: 13px; margin-top: 2px;">{dp['categoria']} {('· ' + dp['ciudad']) if dp['ciudad'] else ''}</div>
+          </div>
+          <a href="./{dp['slug']}/" style="background: linear-gradient(135deg, #ec4899, #8b5cf6); color: #ffffff; text-decoration: none; padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 13px;">Ver Demo &rarr;</a>
+        </li>"""
+
+            index_html = f"""<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InstaLeads Demos Showcase</title>
+  <style>
+    body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0b0f19; color: #f8fafc; padding: 40px 16px; margin: 0; }}
+    .container {{ max-width: 620px; margin: 0 auto; }}
+    ul {{ list-style: none; padding: 0; margin-top: 24px; }}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 style="font-size: 26px; margin-bottom: 6px; font-weight: 800;">🚀 Portafolio de Webs Demo</h1>
+    <p style="color: #94a3b8; font-size: 14px; margin-top: 0;">Sitios web interactivos diseñados para comercios locales por nuestro equipo.</p>
+    <ul>{items_html or '<li style="color: #64748b; padding: 16px;">No hay comercios generados aún.</li>'}</ul>
+  </div>
+</body>
+</html>"""
+            with open(tmp_worktree / "index.html", "w", encoding="utf-8") as f:
+                f.write(index_html)
+
+            # 6. Commit y push a origin gh-pages
+            subprocess.run(["git", "add", "."], cwd=str(tmp_worktree), check=True, capture_output=True, text=True)
+            diff_proc = subprocess.run(["git", "diff-index", "--quiet", "HEAD", "--"], cwd=str(tmp_worktree))
+            if diff_proc.returncode != 0:
+                subprocess.run(
+                    ["git", "commit", "-m", commit_msg],
+                    cwd=str(tmp_worktree),
+                    check=True,
+                    capture_output=True,
+                    text=True
+                )
+                subprocess.run(
+                    ["git", "push", "origin", "HEAD:gh-pages"],
+                    cwd=str(tmp_worktree),
+                    check=True,
+                    capture_output=True,
+                    text=True
+                )
+
+            return {
+                "status": "ok",
+                "gh_pages_base": gh_pages_base,
+                "demo_url": f"{gh_pages_base}/{slug}/" if slug else gh_pages_base,
+                "total_demos": len(demos_presentes)
+            }
+
+        finally:
+            if tmp_worktree.exists():
+                subprocess.run(["git", "worktree", "remove", "--force", str(tmp_worktree)], cwd=str(BASE_DIR), capture_output=True)
+                shutil.rmtree(tmp_worktree, ignore_errors=True)
+
+
+@app.get("/demos/{slug:path}")
+def redirect_demos_route(slug: str):
+    """Redirección automática de cualquier ruta /demos/... hacia su URL pública en GitHub Pages."""
+    base = obtener_base_github_pages()
+    clean = slug.strip("/")
+    if clean:
+        return HTMLResponse(content=f'<script>window.location.href="{base}/{clean}/";</script>')
+    return HTMLResponse(content=f'<script>window.location.href="{base}/";</script>')
+
 
 # Servicio centralizado de Gemini con auto-desescalado en cascada
 from gemini_service import (
@@ -1091,7 +1259,7 @@ def leer_leads_guardados() -> List[Dict[str, Any]]:
 
 
 def detectar_demo_existente(nombre: str, ciudad: str = "") -> Optional[str]:
-    """Comprueba si ya existe una demo compilada previamente en disco demos/{slug}/index.html"""
+    """Comprueba si ya existe un slug registrado para este nombre/ciudad en los leads."""
     slugs = []
     nom_limpio = (nombre or "").strip()
     ciu_limpia = (ciudad or "").strip()
@@ -1100,8 +1268,10 @@ def detectar_demo_existente(nombre: str, ciudad: str = "") -> Optional[str]:
     if nom_limpio:
         slugs.append(slugify(nom_limpio))
 
+    leads = leer_leads_guardados()
+    slugs_existentes = {l.get("demo_slug") for l in leads if l.get("demo_slug")}
     for s in slugs:
-        if s and (DEMOS_DIR / s / "index.html").exists():
+        if s and s in slugs_existentes:
             return s
     return None
 
@@ -1109,6 +1279,7 @@ def detectar_demo_existente(nombre: str, ciudad: str = "") -> Optional[str]:
 def guardar_leads_deduplicados(nuevos_leads: List[Dict[str, Any]], campana_id: Optional[str] = None) -> int:
     with leads_lock:
         existentes = leer_leads_guardados()
+        gh_base = obtener_base_github_pages()
         # Claves únicas para deduplicación: (nombre normalizado, ciudad normalizada)
         mapa = {}
         for l in existentes:
@@ -1138,8 +1309,9 @@ def guardar_leads_deduplicados(nuevos_leads: List[Dict[str, Any]], campana_id: O
                 # Preservar demo previa y estado avanzado si ya existían
                 if existente.get("demo_slug"):
                     l["demo_slug"] = existente.get("demo_slug")
-                    l["demo_url"] = existente.get("demo_url", "")
-                    l["demo_url_absoluta"] = existente.get("demo_url_absoluta", "")
+                    l["demo_url"] = existente.get("demo_url") or f"{gh_base}/{existente['demo_slug']}/"
+                    l["demo_url_absoluta"] = existente.get("demo_url_absoluta") or f"{gh_base}/{existente['demo_slug']}/"
+                    l["demo_url_publica"] = existente.get("demo_url_publica") or f"{gh_base}/{existente['demo_slug']}/"
                     l["demo_vibe"] = existente.get("demo_vibe", "")
                     if existente.get("estado") in ["Web Generada", "DM Enviado", "Respuesta Recibida", "Cerrado"]:
                         l["estado"] = existente.get("estado")
@@ -1147,7 +1319,9 @@ def guardar_leads_deduplicados(nuevos_leads: List[Dict[str, Any]], campana_id: O
                     slug_existente = detectar_demo_existente(l.get("nombre", ""), l.get("ciudad", ""))
                     if slug_existente:
                         l["demo_slug"] = slug_existente
-                        l["demo_url"] = f"/demos/{slug_existente}"
+                        l["demo_url"] = f"{gh_base}/{slug_existente}/"
+                        l["demo_url_absoluta"] = f"{gh_base}/{slug_existente}/"
+                        l["demo_url_publica"] = f"{gh_base}/{slug_existente}/"
                         if l.get("estado") in ["Sin Web", "Tiene Web"]:
                             l["estado"] = "Web Generada"
 
@@ -1161,7 +1335,9 @@ def guardar_leads_deduplicados(nuevos_leads: List[Dict[str, Any]], campana_id: O
                 slug_existente = detectar_demo_existente(l.get("nombre", ""), l.get("ciudad", ""))
                 if slug_existente:
                     l["demo_slug"] = slug_existente
-                    l["demo_url"] = f"/demos/{slug_existente}"
+                    l["demo_url"] = f"{gh_base}/{slug_existente}/"
+                    l["demo_url_absoluta"] = f"{gh_base}/{slug_existente}/"
+                    l["demo_url_publica"] = f"{gh_base}/{slug_existente}/"
                     if l.get("estado") in ["Sin Web", "Tiene Web"]:
                         l["estado"] = "Web Generada"
 
@@ -1975,8 +2151,8 @@ def generate_lead_web(osm_id: str, request: Request):
     1. Extracción de datos de Instagram (Apify o fallback adaptado).
     2. Design System estilo Stitch (colores, fuentes y formas).
     3. Estructuración con Gemini.
-    4. Guardado en demos/{slug}/index.html (GitHub Pages ready).
-    5. Actualización del pitch de prospección con el enlace de la demo.
+    4. Guardado directo en la rama gh-pages de GitHub (cero espacio en local).
+    5. Actualización del pitch de prospección con el enlace público de GitHub Pages.
     """
     leads = leer_leads_guardados()
     target_lead = None
@@ -1988,30 +2164,37 @@ def generate_lead_web(osm_id: str, request: Request):
     if target_lead is None:
         raise HTTPException(status_code=404, detail="Lead no encontrado.")
 
-    # Comprobar si la demo ya existía previamente
     slug_existente = target_lead.get("demo_slug") or detectar_demo_existente(target_lead.get("nombre", ""), target_lead.get("ciudad", ""))
-    ya_existia = bool(slug_existente and (DEMOS_DIR / slug_existente / "index.html").exists())
+    ya_existia = bool(slug_existente and target_lead.get("demo_url_publica"))
 
     cliente_gemini = obtener_cliente_gemini()
     res = generar_web_comercio(target_lead, cliente_gemini=cliente_gemini)
+    slug = res["slug"]
+    rendered_html = res["rendered_html"]
 
-    base_url = str(request.base_url).rstrip("/")
-    demo_url_absoluta = f"{base_url}/demos/{res['slug']}/"
+    # Despliegue directo e instantáneo a GitHub Pages
+    try:
+        sync_res = sincronizar_gh_pages(slug=slug, html_content=rendered_html, accion="guardar")
+        demo_url_publica = sync_res.get("demo_url", f"{obtener_base_github_pages()}/{slug}/")
+    except Exception as e:
+        print(f"[GitHub Pages Sync Error] {e}")
+        demo_url_publica = f"{obtener_base_github_pages()}/{slug}/"
 
     # Actualizar lead
-    target_lead["demo_slug"] = res["slug"]
-    target_lead["demo_url"] = res["demo_url_local"]
-    target_lead["demo_url_absoluta"] = demo_url_absoluta
+    target_lead["demo_slug"] = slug
+    target_lead["demo_url"] = demo_url_publica
+    target_lead["demo_url_absoluta"] = demo_url_publica
+    target_lead["demo_url_publica"] = demo_url_publica
     target_lead["demo_vibe"] = res["design_vibe"]
     if target_lead.get("estado") in ["Sin Web", "Tiene Web"]:
         target_lead["estado"] = "Web Generada"
 
-    # Regenerar el pitch comercial incorporando la URL de la demo
+    # Regenerar el pitch comercial incorporando la URL pública de GitHub Pages
     nuevo_pitch = verificar_y_redactar_pitch(
         nombre_negocio=target_lead.get("nombre", ""),
         datos_presencia=f"Instagram: {target_lead.get('instagram_url', '')} | Categoría: {target_lead.get('categoria', '')}",
         ciudad=target_lead.get("ciudad", ""),
-        demo_url=demo_url_absoluta
+        demo_url=demo_url_publica
     )
     target_lead["mensaje_dm"] = nuevo_pitch.get("mensaje_dm_sugerido", target_lead.get("mensaje_dm", ""))
     target_lead["mensaje_seguimiento"] = nuevo_pitch.get("mensaje_seguimiento", target_lead.get("mensaje_seguimiento", ""))
@@ -2034,7 +2217,12 @@ def generate_lead_web(osm_id: str, request: Request):
         "status": "ok",
         "ya_existia": ya_existia,
         "lead": target_lead,
-        "demo": res
+        "demo": {
+            "slug": slug,
+            "demo_url": demo_url_publica,
+            "demo_url_local": demo_url_publica,
+            "design_vibe": res["design_vibe"]
+        }
     }
 
 
@@ -2043,7 +2231,7 @@ def generate_lead_web(osm_id: str, request: Request):
 def delete_lead_demo(osm_id: str):
     """
     Elimina la web demo generada para un lead:
-    1. Borra la carpeta física en demos/{slug} si existe en disco.
+    1. Borra la carpeta de la demo en la rama gh-pages de GitHub.
     2. Resetea los metadatos de demo en el lead (demo_slug, demo_url, demo_vibe, estado).
     3. Regenera el pitch de prospección sin el enlace de la demo.
     4. Guarda los cambios de forma concurrente y atómica.
@@ -2063,28 +2251,29 @@ def delete_lead_demo(osm_id: str):
 
         slug = target_lead.get("demo_slug") or detectar_demo_existente(target_lead.get("nombre", ""), target_lead.get("ciudad", ""))
         
-        # Eliminar carpeta física en disco si existe
+        # Eliminar carpeta en GitHub Pages
         if slug:
-            demo_folder = DEMOS_DIR / slug
-            if demo_folder.exists() and demo_folder.is_dir():
-                try:
-                    shutil.rmtree(demo_folder)
-                    print(f"[Demo Cleaner] ✓ Carpeta eliminada: {demo_folder}")
-                except Exception as e:
-                    print(f"[Demo Cleaner Error] al borrar {slug}: {e}")
+            try:
+                sincronizar_gh_pages(slug=slug, accion="borrar")
+                print(f"[GitHub Pages] ✓ Demo '{slug}' eliminada de gh-pages")
+            except Exception as e:
+                print(f"[GitHub Pages Delete Error] al borrar {slug}: {e}")
 
         # Resetear estado y metadatos de demo
         target_lead["demo_slug"] = ""
         target_lead["demo_url"] = ""
         target_lead["demo_url_absoluta"] = ""
+        target_lead["demo_url_publica"] = ""
         target_lead["demo_vibe"] = ""
         if target_lead.get("estado") == "Web Generada":
             target_lead["estado"] = "Tiene Web" if target_lead.get("tiene_web") else "Sin Web"
 
-        # Limpiar URLs de la demo en los mensajes existentes de forma instantánea
+        # Limpiar URLs de la demo en los mensajes existentes
         if target_lead.get("mensaje_dm"):
+            target_lead["mensaje_dm"] = re.sub(r"https?://[^\s]+/instaleads/[^\s]+", "", target_lead["mensaje_dm"]).replace("  ", " ").strip()
             target_lead["mensaje_dm"] = re.sub(r"https?://[^\s]+/demos/[^\s]+", "", target_lead["mensaje_dm"]).replace("  ", " ").strip()
         if target_lead.get("mensaje_seguimiento"):
+            target_lead["mensaje_seguimiento"] = re.sub(r"https?://[^\s]+/instaleads/[^\s]+", "", target_lead["mensaje_seguimiento"]).replace("  ", " ").strip()
             target_lead["mensaje_seguimiento"] = re.sub(r"https?://[^\s]+/demos/[^\s]+", "", target_lead["mensaje_seguimiento"]).replace("  ", " ").strip()
 
         leads[target_idx] = target_lead
@@ -2093,44 +2282,42 @@ def delete_lead_demo(osm_id: str):
 
         return {
             "status": "ok",
-            "message": f"Web demo de '{target_lead.get('nombre')}' eliminada correctamente.",
+            "message": f"Web demo de '{target_lead.get('nombre')}' eliminada correctamente de GitHub Pages.",
             "lead": target_lead
         }
 
 
 @app.post("/demos/cleanup-all")
 def cleanup_all_demos():
-    """Elimina todas las carpetas de demos en disco y resetea las referencias en los leads."""
+    """Elimina todas las demos en GitHub Pages y resetea las referencias en los leads."""
     with leads_lock:
         leads = leer_leads_guardados()
-        # Eliminar carpetas físicas en demos/ (excepto ocultas o index de galería)
-        eliminadas = 0
-        if DEMOS_DIR.exists():
-            for item in DEMOS_DIR.iterdir():
-                if item.is_dir() and not item.name.startswith("."):
-                    try:
-                        shutil.rmtree(item)
-                        eliminadas += 1
-                    except Exception as e:
-                        print(f"Error borrando {item}: {e}")
-        
+        try:
+            sincronizar_gh_pages(accion="cleanup_all")
+        except Exception as e:
+            print(f"[GitHub Pages Cleanup Error] {e}")
+
         # Resetear leads
         for l in leads:
             l["demo_slug"] = ""
             l["demo_url"] = ""
             l["demo_url_absoluta"] = ""
+            l["demo_url_publica"] = ""
             l["demo_vibe"] = ""
             if l.get("estado") == "Web Generada":
                 l["estado"] = "Tiene Web" if l.get("tiene_web") else "Sin Web"
             if l.get("mensaje_dm"):
+                l["mensaje_dm"] = re.sub(r"https?://[^\s]+/instaleads/[^\s]+", "", l["mensaje_dm"]).replace("  ", " ").strip()
                 l["mensaje_dm"] = re.sub(r"https?://[^\s]+/demos/[^\s]+", "", l["mensaje_dm"]).replace("  ", " ").strip()
             if l.get("mensaje_seguimiento"):
+                l["mensaje_seguimiento"] = re.sub(r"https?://[^\s]+/instaleads/[^\s]+", "", l["mensaje_seguimiento"]).replace("  ", " ").strip()
                 l["mensaje_seguimiento"] = re.sub(r"https?://[^\s]+/demos/[^\s]+", "", l["mensaje_seguimiento"]).replace("  ", " ").strip()
 
         with open(LEADS_FILE, "w", encoding="utf-8") as f:
             json.dump(leads, f, ensure_ascii=False, indent=2)
 
-        return {"status": "ok", "message": f"Se han eliminado {eliminadas} demos correctamente."}
+        return {"status": "ok", "message": "Se han eliminado todas las demos de GitHub Pages correctamente."}
+
 
 
 class PitchSaveRequest(BaseModel):
@@ -2248,117 +2435,22 @@ def send_lead_email(osm_id: str, req: EmailSendRequest):
 
 def ejecutar_despliegue_github_pages() -> dict:
     """
-    Sincroniza y despliega la carpeta demos/ en la rama 'gh-pages' de GitHub.
+    Sincroniza y actualiza la rama 'gh-pages' en GitHub.
     Calcula la URL pública de GitHub Pages y actualiza las demos y pitches.
     """
-    demos_path = BASE_DIR / "demos"
-    if not demos_path.exists() or not any(demos_path.iterdir()):
-        raise HTTPException(
-            status_code=400,
-            detail="No hay demos generadas en la carpeta 'demos/'. Genera al menos una web demo primero."
-        )
-
-    # 1. Crear archivo .nojekyll en demos/
-    nojekyll = demos_path / ".nojekyll"
-    if not nojekyll.exists():
-        nojekyll.touch()
-
-    # 2. Generar index.html centralizado en demos/ para que la raíz de GitHub Pages no dé 404
     leads = leer_leads_guardados()
     demos_leads = [l for l in leads if l.get("demo_slug")]
+    if not demos_leads:
+        raise HTTPException(
+            status_code=400,
+            detail="No hay demos registradas en el sistema. Genera al menos una web demo primero."
+        )
 
-    items_html = ""
-    for dl in demos_leads:
-        items_html += f"""
-        <li style="margin-bottom: 12px; padding: 16px; background: #1e293b; border-radius: 12px; border: 1px solid #334155; display: flex; justify-content: space-between; align-items: center;">
-          <div>
-            <div style="font-weight: bold; font-size: 16px; color: #f8fafc;">{dl.get('nombre', 'Comercio')}</div>
-            <div style="color: #94a3b8; font-size: 13px; margin-top: 2px;">{dl.get('categoria', '')} · {dl.get('ciudad', '')}</div>
-          </div>
-          <a href="./{dl['demo_slug']}/" style="background: linear-gradient(135deg, #ec4899, #8b5cf6); color: #ffffff; text-decoration: none; padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 13px;">Ver Demo &rarr;</a>
-        </li>"""
-
-    index_html = f"""<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>InstaLeads Demos Showcase</title>
-  <style>
-    body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0b0f19; color: #f8fafc; padding: 40px 16px; margin: 0; }}
-    .container {{ max-width: 620px; margin: 0 auto; }}
-    ul {{ list-style: none; padding: 0; margin-top: 24px; }}
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1 style="font-size: 26px; margin-bottom: 6px; font-weight: 800;">🚀 Portafolio de Webs Demo</h1>
-    <p style="color: #94a3b8; font-size: 14px; margin-top: 0;">Sitios web interactivos diseñados para comercios locales por nuestro equipo.</p>
-    <ul>{items_html or '<li style="color: #64748b; padding: 16px;">No hay comercios generados aún.</li>'}</ul>
-  </div>
-</body>
-</html>"""
-    with open(demos_path / "index.html", "w", encoding="utf-8") as f:
-        f.write(index_html)
-
-    # 3. Detectar remote URL de origin
     try:
-        remote_proc = subprocess.run(
-            ["git", "remote", "get-url", "origin"],
-            cwd=str(BASE_DIR),
-            check=True,
-            capture_output=True,
-            text=True
-        )
-        remote_url = remote_proc.stdout.strip()
-    except Exception:
-        remote_url = "https://github.com/dga80/instaleads.git"
+        sync_res = sincronizar_gh_pages(accion="resync")
+        gh_pages_base = sync_res.get("gh_pages_base", obtener_base_github_pages())
 
-    # Calcular base pública de GitHub Pages
-    gh_pages_base = ""
-    m = re.search(r"github\.com[:/]([^/]+)/([^/.]+)(?:\.git)?", remote_url)
-    if m:
-        user = m.group(1)
-        repo = m.group(2)
-        gh_pages_base = f"https://{user}.github.io/{repo}"
-    else:
-        gh_pages_base = os.getenv("GITHUB_PAGES_BASE_URL", "https://dga80.github.io/instaleads")
-    
-    gh_pages_base = gh_pages_base.rstrip("/")
-
-    # 4. Git add & commit de demos/
-    try:
-        subprocess.run(["git", "add", "demos/"], cwd=str(BASE_DIR), check=True, capture_output=True, text=True)
-        diff_proc = subprocess.run(["git", "diff-index", "--quiet", "HEAD", "--", "demos"], cwd=str(BASE_DIR))
-        if diff_proc.returncode != 0:
-            subprocess.run(
-                ["git", "commit", "-m", "chore(demos): actualizar webs demo para GitHub Pages"],
-                cwd=str(BASE_DIR),
-                check=True,
-                capture_output=True,
-                text=True
-            )
-
-        # 5. Obtener hash del commit de demos/ con git subtree split
-        split_proc = subprocess.run(
-            ["git", "subtree", "split", "--prefix", "demos", "HEAD"],
-            cwd=str(BASE_DIR),
-            check=True,
-            capture_output=True,
-            text=True
-        )
-        commit_hash = split_proc.stdout.strip().splitlines()[-1]
-
-        # 6. Push a la rama gh-pages de origin
-        push_proc = subprocess.run(
-            ["git", "push", "origin", f"{commit_hash}:refs/heads/gh-pages", "--force"],
-            cwd=str(BASE_DIR),
-            check=True,
-            capture_output=True,
-            text=True
-        )
-
-        # 7. Actualizar leads en data/leads.json con la URL pública activa
+        # Asegurar leads actualizados con la URL pública activa
         leads_actualizados = 0
         for l in leads:
             slug = l.get("demo_slug")
@@ -2367,17 +2459,18 @@ def ejecutar_despliegue_github_pages() -> dict:
                 old_demo_url = l.get("demo_url_absoluta", "")
                 l["demo_url_absoluta"] = public_demo_url
                 l["demo_url_publica"] = public_demo_url
+                l["demo_url"] = public_demo_url
 
-                # Actualizar DM y Seguimiento sustituyendo la URL local por la URL pública
+                # Actualizar DM y Seguimiento
                 if old_demo_url and old_demo_url in l.get("mensaje_dm", ""):
                     l["mensaje_dm"] = l["mensaje_dm"].replace(old_demo_url, public_demo_url)
                 else:
-                    l["mensaje_dm"] = re.sub(r"http://[^/]+/demos/[a-zA-Z0-9_-]+", public_demo_url, l.get("mensaje_dm", ""))
+                    l["mensaje_dm"] = re.sub(r"https?://[^/\s]+(:[0-9]+)?/demos/[a-zA-Z0-9_-]+/?", public_demo_url, l.get("mensaje_dm", ""))
 
                 if old_demo_url and old_demo_url in l.get("mensaje_seguimiento", ""):
                     l["mensaje_seguimiento"] = l["mensaje_seguimiento"].replace(old_demo_url, public_demo_url)
                 else:
-                    l["mensaje_seguimiento"] = re.sub(r"http://[^/]+/demos/[a-zA-Z0-9_-]+", public_demo_url, l.get("mensaje_seguimiento", ""))
+                    l["mensaje_seguimiento"] = re.sub(r"https?://[^/\s]+(:[0-9]+)?/demos/[a-zA-Z0-9_-]+/?", public_demo_url, l.get("mensaje_seguimiento", ""))
 
                 leads_actualizados += 1
 
@@ -2388,24 +2481,17 @@ def ejecutar_despliegue_github_pages() -> dict:
             "status": "ok",
             "mensaje": "¡Demos publicadas con éxito en GitHub Pages!",
             "github_pages_url": gh_pages_base,
-            "demos_actualizadas": leads_actualizados,
-            "commit": commit_hash[:7]
+            "demos_actualizadas": leads_actualizados
         }
 
-    except subprocess.CalledProcessError as err:
-        err_msg = err.stderr or err.stdout or str(err)
-        print(f"[Error Deploy GitHub Pages] {err_msg}")
-        raise HTTPException(
-            status_code=500,
-            detail=f"Error al desplegar en GitHub Pages: {err_msg.strip()}"
-        )
     except Exception as ex:
-        raise HTTPException(status_code=500, detail=f"Error inesperado durante el despliegue: {str(ex)}")
+        print(f"[Error Deploy GitHub Pages] {ex}")
+        raise HTTPException(status_code=500, detail=f"Error durante el despliegue en GitHub Pages: {str(ex)}")
 
 
 @app.post("/deploy-github-pages")
 def deploy_github_pages_endpoint():
-    """Endpoint llamado desde el botón de la UI para publicar las demos en GitHub Pages."""
+    """Endpoint llamado desde el botón de la UI para sincronizar el portafolio en GitHub Pages."""
     return ejecutar_despliegue_github_pages()
 
 
@@ -2415,8 +2501,10 @@ def redirect_to_demo(osm_id: str):
     leads = leer_leads_guardados()
     for l in leads:
         if str(l.get("osm_id")) == str(osm_id) and l.get("demo_slug"):
-            return HTMLResponse(content=f'<script>window.location.href="/demos/{l["demo_slug"]}";</script>')
+            demo_url = l.get("demo_url_publica") or l.get("demo_url_absoluta") or f"{obtener_base_github_pages()}/{l['demo_slug']}/"
+            return HTMLResponse(content=f'<script>window.location.href="{demo_url}";</script>')
     raise HTTPException(status_code=404, detail="Demo aún no generada para este lead.")
+
 
 
 @app.get("/export-csv")

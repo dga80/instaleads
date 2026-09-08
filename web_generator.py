@@ -11,8 +11,7 @@ from instagram_extractor import obtener_datos_completos_instagram
 from stitch_designer import sintetizar_design_system
 
 BASE_DIR = Path(__file__).resolve().parent
-DEMOS_DIR = BASE_DIR / "demos"
-DEMOS_DIR.mkdir(exist_ok=True)
+
 
 env = Environment(loader=FileSystemLoader(str(BASE_DIR / "templates")))
 
@@ -138,9 +137,6 @@ def generar_web_comercio(lead: Dict[str, Any], cliente_gemini=None) -> Dict[str,
         whatsapp_url = f"https://api.whatsapp.com/send?phone={clean_phone}&text={msg_prefilled.replace(' ', '%20')}"
 
     slug = slugify(f"{nombre}-{ciudad}")
-    demo_folder = DEMOS_DIR / slug
-    demo_folder.mkdir(exist_ok=True)
-    demo_file = demo_folder / "index.html"
 
     # Preparar datos para la plantilla Jinja2
     template = env.get_template("landing_template.html")
@@ -163,17 +159,12 @@ def generar_web_comercio(lead: Dict[str, Any], cliente_gemini=None) -> Dict[str,
         web=web_content
     )
 
-    # Guardar archivo estático autocontenido
-    with open(demo_file, "w", encoding="utf-8") as f:
-        f.write(rendered_html)
-
-    print(f"[Web Generator] ✓ Demo generada con éxito para '{nombre}' en: {demo_file}")
+    print(f"[Web Generator] ✓ Demo generada en memoria para '{nombre}' (slug: {slug})")
 
     return {
         "slug": slug,
-        "demo_file": str(demo_file),
-        "demo_rel_path": f"/demos/{slug}/index.html",
-        "demo_url_local": f"/demos/{slug}/",
+        "rendered_html": rendered_html,
         "design_vibe": design_tokens.get("vibe_name"),
         "servicios_count": len(web_content.get("servicios", []))
     }
+

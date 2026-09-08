@@ -265,17 +265,18 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Dental+Nu%C3%B1ez+Barcelona",
     "gemini_verificado": true,
     "gemini_razon": "Clínica dental local independiente verificada en Barcelona.",
-    "mensaje_dm": "¡Hola equipo de Dental Nuñez! Me alegra contactaros. Somos un equipo local de diseño web en Barcelona y vemos que tenéis un gran potencial para recibir más clientes directos en Google y móvil. Os hemos preparado una maqueta interactiva adaptada a vuestro negocio: http://127.0.0.1:8085/demos/dental-nunez-barcelona/. Es un enlace 100% seguro para verla en el navegador sin descargas. ¿Qué os parece?",
-    "mensaje_seguimiento": "¡Hola de nuevo! Os escribí hace un par de días con una maqueta web interactiva para vuestro negocio: http://127.0.0.1:8085/demos/dental-nunez-barcelona/. Os lo comparto por aquí por si os resulta cómodo revisarlo desde el móvil. ¡Un saludo cordial!",
+    "mensaje_dm": "¡Hola equipo de Dental Nuñez! Me alegra contactaros. Somos un equipo local de diseño web en Barcelona y vemos que tenéis un gran potencial para recibir más clientes directos en Google y móvil. Os hemos preparado una maqueta interactiva adaptada a vuestro negocio: https://dga80.github.io/instaleads/dental-nunez-barcelona/. Es un enlace 100% seguro para verla en el navegador sin descargas. ¿Qué os parece?",
+    "mensaje_seguimiento": "¡Hola de nuevo! Os escribí hace un par de días con una maqueta web interactiva para vuestro negocio: https://dga80.github.io/instaleads/dental-nunez-barcelona/. Os lo comparto por aquí por si os resulta cómodo revisarlo desde el móvil. ¡Un saludo cordial!",
     "estado": "Web Generada",
     "demo_slug": "dental-nunez-barcelona",
-    "demo_url": "/demos/dental-nunez-barcelona/",
+    "demo_url": "https://dga80.github.io/instaleads/dental-nunez-barcelona/",
     "demo_vibe": "Fresh Clinical (Limpio, Confiable & Salud)",
-    "demo_url_absoluta": "http://127.0.0.1:8085/demos/dental-nunez-barcelona/",
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/dental-nunez-barcelona/",
     "campana_id": "camp_init_1_1788888949",
     "campana_ids": [
       "camp_init_1_1788888949"
-    ]
+    ],
+    "demo_url_publica": "https://dga80.github.io/instaleads/dental-nunez-barcelona/"
   },
   {
     "osm_id": "1889913533",
@@ -858,16 +859,18 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Gas+Motorrad+Barcelona",
     "gemini_verificado": true,
     "gemini_razon": "Validación automática heurística",
-    "mensaje_dm": "¡Hola equipo de Gas Motorrad! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de Barcelona para ayudarles a conseguir más clientes desde Google. Os he preparado una maqueta interactiva de cómo luciría vuestra web: (El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Gas Motorrad! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
-    "estado": "Sin Web",
-    "demo_slug": "",
-    "demo_url": "",
-    "demo_vibe": "",
+    "mensaje_dm": "¡Hola equipo de Gas Motorrad! Somos un equipo local de diseño web en Barcelona. Al ver vuestro trabajo en el taller, os hemos preparado una maqueta web personalizada para captar clientes en Google: https://dga80.github.io/instaleads/gas-motorrad-barcelona/. Es un enlace seguro para verla online sin registros ni descargas. ¿Qué os parece la idea?",
+    "mensaje_seguimiento": "¡Hola! Os contactamos hace unos días con la propuesta de web para Gas Motorrad: https://dga80.github.io/instaleads/gas-motorrad-barcelona/. Podéis abrirla directamente en el móvil para ver cómo quedaría. Estaremos encantados de conocer vuestra opinión si os interesa. ¡Un saludo!",
+    "estado": "Web Generada",
+    "demo_slug": "gas-motorrad-barcelona",
+    "demo_url": "https://dga80.github.io/instaleads/gas-motorrad-barcelona/",
+    "demo_vibe": "Technical Bold (Potencia, Precisión & Mecánica)",
     "campana_id": "camp_init_2_1788888949",
     "campana_ids": [
       "camp_init_2_1788888949"
-    ]
+    ],
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/gas-motorrad-barcelona/",
+    "demo_url_publica": "https://dga80.github.io/instaleads/gas-motorrad-barcelona/"
   },
   {
     "osm_id": "6133245829",
@@ -937,16 +940,18 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Jovani+%26+System+Bike+Barcelona",
     "gemini_verificado": true,
     "gemini_razon": "Validación automática heurística",
-    "mensaje_dm": "¡Hola equipo de Jovani & System Bike! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de Barcelona para ayudarles a conseguir más clientes desde Google. Os he preparado una maqueta interactiva de cómo luciría vuestra web: (El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Jovani & System Bike! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
-    "estado": "Sin Web",
-    "demo_slug": "",
-    "demo_url": "",
-    "demo_vibe": "",
+    "mensaje_dm": "¡Hola equipo de Jovani & System Bike! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de Barcelona para ayudarles a conseguir más clientes desde Google. Os he preparado una maqueta interactiva de cómo luciría vuestra web: https://dga80.github.io/instaleads/jovani-system-bike-barcelona/ (El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Jovani & System Bike! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: https://dga80.github.io/instaleads/jovani-system-bike-barcelona/ Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
+    "estado": "Web Generada",
+    "demo_slug": "jovani-system-bike-barcelona",
+    "demo_url": "https://dga80.github.io/instaleads/jovani-system-bike-barcelona/",
+    "demo_vibe": "Technical Bold (Potencia, Precisión & Mecánica)",
     "campana_id": "camp_init_2_1788888949",
     "campana_ids": [
       "camp_init_2_1788888949"
-    ]
+    ],
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/jovani-system-bike-barcelona/",
+    "demo_url_publica": "https://dga80.github.io/instaleads/jovani-system-bike-barcelona/"
   },
   {
     "osm_id": "6152363420",

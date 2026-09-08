@@ -22,3 +22,7 @@ Desktop.ini
 .idea/
 .vscode/
 *.swp
+
+# Demos locales (almacenadas directamente en rama gh-pages)
+demos/
+

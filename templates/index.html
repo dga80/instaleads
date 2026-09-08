@@ -1298,8 +1298,8 @@
           </select>
         `;
 
-        // Columna Web Demo (Stitch)
-        const demoUrl = lead.demo_url_absoluta || (lead.demo_slug ? `/demos/${lead.demo_slug}` : "");
+        // Columna Web Demo (GitHub Pages / Stitch)
+        const demoUrl = lead.demo_url_publica || lead.demo_url_absoluta || (lead.demo_slug ? `/demos/${lead.demo_slug}` : "");
         const activeJob = activeWebGenerations.get(String(lead.osm_id));
         const isGenerating = activeJob && activeJob.status === 'running';
 
@@ -1447,7 +1447,7 @@
           job.currentPct = 100;
           job.stepText = '¡Lista! ✨';
           const slug = data.lead?.demo_slug || data.demo?.slug;
-          job.demoUrl = data.lead?.demo_url_absoluta || (slug ? `/demos/${slug}/` : '');
+          job.demoUrl = data.lead?.demo_url_publica || data.lead?.demo_url_absoluta || data.demo?.demo_url || (slug ? `/demos/${slug}/` : '');
           
           mostrarToast(`¡Web Demo creada para ${nombre}! 📱 Lista para ver.`);
           
@@ -1777,7 +1777,7 @@
         }
 
         el.innerHTML = col.items.map(({ lead, originalIdx }) => {
-          const demoUrl = lead.demo_url_absoluta || (lead.demo_slug ? `/demos/${lead.demo_slug}` : "");
+          const demoUrl = lead.demo_url_publica || lead.demo_url_absoluta || (lead.demo_slug ? `/demos/${lead.demo_slug}` : "");
           const activeJob = activeWebGenerations.get(String(lead.osm_id));
           const isGenerating = activeJob && activeJob.status === 'running';
 
@@ -2072,10 +2072,11 @@
       const demoBox = document.getElementById('modal-demo-box');
       const demoUrlEl = document.getElementById('modal-demo-url');
       if (lead.demo_slug) {
-        urlDemoActual = lead.demo_url_absoluta || `/demos/${lead.demo_slug}`;
+        urlDemoActual = lead.demo_url_publica || lead.demo_url_absoluta || `/demos/${lead.demo_slug}`;
         demoUrlEl.innerText = urlDemoActual;
         demoBox.classList.remove('hidden');
       } else {
+
         demoBox.classList.add('hidden');
         urlDemoActual = "";
       }
@@ -2328,9 +2329,13 @@
 
     async function borrarDemoDesdeSimulador() {
       if (!urlActualSimulador) return;
-      // Buscar el lead por slug
-      const slugMatch = urlActualSimulador.split('/demos/')[1]?.split('?')[0]?.replace(/\/$/, '');
-      const lead = todosLosLeads.find(l => l.demo_slug === slugMatch || (l.demo_url && l.demo_url.includes(slugMatch)));
+      // Buscar el lead por slug o URL
+      const cleanUrl = urlActualSimulador.replace(/\/$/, '');
+      const slugMatch = urlActualSimulador.includes('/demos/') 
+        ? urlActualSimulador.split('/demos/')[1]?.split('?')[0]?.replace(/\/$/, '')
+        : cleanUrl.split('/').pop()?.split('?')[0];
+      const lead = todosLosLeads.find(l => (slugMatch && l.demo_slug === slugMatch) || (l.demo_url_publica && l.demo_url_publica.includes(cleanUrl)) || (l.demo_url && l.demo_url.includes(cleanUrl)));
+
       
       const leadName = lead ? lead.nombre : "esta web demo";
       const osmId = lead ? lead.osm_id : null;

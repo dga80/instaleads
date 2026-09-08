@@ -9,8 +9,22 @@ echo "  FastAPI + OpenStreetMap + Agente Google Gemini 2.5     "
 echo "=========================================================="
 echo ""
 
+# 1. Liberar puerto 8085 si quedó ocupado por un proceso previo colgado
+OLD_PID=$(lsof -ti :8085 2>/dev/null)
+if [ -n "$OLD_PID" ]; then
+    echo "⚠️  Liberando puerto 8085 ocupado por proceso anterior (PID: $OLD_PID)..."
+    kill -9 $OLD_PID 2>/dev/null || true
+    sleep 1
+fi
+
 # Detectar comando de Python disponible (python3 o python)
-if command -v python3 &>/dev/null; then
+if [ -f "./venv/bin/python" ]; then
+    PY_CMD="./venv/bin/python"
+    source venv/bin/activate
+elif [ -f "./.venv/bin/python" ]; then
+    PY_CMD="./.venv/bin/python"
+    source .venv/bin/activate
+elif command -v python3 &>/dev/null; then
     PY_CMD="python3"
 elif command -v python &>/dev/null; then
     PY_CMD="python"
@@ -22,15 +36,6 @@ else
 fi
 
 echo "✓ Python detectado: $($PY_CMD --version)"
-
-# Comprobar si existe entorno virtual y activarlo si existe
-if [ -d "venv" ]; then
-    echo "✓ Activando entorno virtual venv..."
-    source venv/bin/activate
-elif [ -d ".venv" ]; then
-    echo "✓ Activando entorno virtual .venv..."
-    source .venv/bin/activate
-fi
 
 # Instalar o verificar dependencias si faltan
 if ! $PY_CMD -c "import fastapi, uvicorn, requests, google.genai" &>/dev/null; then
@@ -56,3 +61,9 @@ echo "----------------------------------------------------------"
 
 # Iniciar la aplicación
 $PY_CMD app.py
+
+if [ $? -ne 0 ]; then
+    echo ""
+    echo "⚠️ El servidor se detuvo."
+    read -p "Presiona Enter para salir..."
+fi
