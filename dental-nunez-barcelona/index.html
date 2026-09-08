@@ -12,7 +12,9 @@
     (function() {
       try {
         const savedTheme = localStorage.getItem('instaleads_theme');
-        if (savedTheme === 'light') {
+        const defaultTheme = 'light';
+        const themeToApply = savedTheme || defaultTheme;
+        if (themeToApply === 'light') {
           document.documentElement.classList.add('light');
           document.documentElement.classList.remove('dark');
         } else {
@@ -511,7 +513,7 @@
         <div class="lg:col-span-5 relative">
           <div class="relative rounded-3xl overflow-hidden border shadow-2xl group glow-card" style="border-color: var(--border-color);">
             <div class="aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] w-full overflow-hidden bg-slate-950">
-              <img src="https://instagram.fncl3-1.fna.fbcdn.net/v/t51.82787-15/625387724_18108281674673083_4439850260084505194_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&ig_cache_key=Mjk2NjMzMTMzNjI3MzAzMTIwMw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTA4MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=SQOa9FkLul8Q7kNvwGlEIWW&_nc_oc=AdqeY1hsGkSKx5KesLKQQME49kiwQ2irUXqYe4ORbcxy5LpI6tMr3xg5dcS7hAEjwpu5jv7xbnnwwg_PRBo9L6yt&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fncl3-1.fna&_nc_gid=F-LL30pehsWwQBHh_UX_YA&_nc_ss=7a22e&oh=00_AQIkcFOsQaD1RqT67FzkhKLxkKwaYLPi2n-TA1iQBxpl4A&oe=6AA63C0F" alt="Dental Nuñez" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+              <img src="https://scontent-atl3-1.cdninstagram.com/v/t51.82787-15/775523720_18119984774488741_8047217869801124763_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=103&ig_cache_key=Mzk2Nzc1Mzg0ODc3OTE3Mzg1MjE4MTE5OTg0NzU5NDg4NzQx.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEyOTAuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=RLGEMJEcyhwQ7kNvwHxigro&_nc_oc=AdodTmSDW4VigBBHB-oboyQBftUF2dn6pyItbL2th_XdI8HNI6mbrXGCV9_Zw9cD-gw1G9sDwvj-2m4-5WIjRF3O&_nc_ad=z-m&_nc_cid=1087&_nc_zt=23&_nc_ht=scontent-atl3-1.cdninstagram.com&_nc_gid=ytj-IEBQGBH26-Uk74DCiw&_nc_ss=7a22e&oh=00_AQIYvYV9h_DdzpGKppLBtGbPkzICHgjD3KzljZjrFnamfw&oe=6AA626D4" alt="Dental Nuñez" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-black/20 to-transparent"></div>
             </div>
 
@@ -600,41 +602,12 @@
         <div class="theme-card overflow-hidden flex flex-col justify-between group glow-card shadow-xl rounded-2xl" style="border-color: var(--border-color);">
           
           <div class="h-48 sm:h-52 w-full overflow-hidden relative bg-slate-950">
-            <img src="https://instagram.fncl3-1.fna.fbcdn.net/v/t51.82787-15/625387724_18108281674673083_4439850260084505194_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&ig_cache_key=Mjk2NjMzMTMzNjI3MzAzMTIwMw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTA4MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=SQOa9FkLul8Q7kNvwGlEIWW&_nc_oc=AdqeY1hsGkSKx5KesLKQQME49kiwQ2irUXqYe4ORbcxy5LpI6tMr3xg5dcS7hAEjwpu5jv7xbnnwwg_PRBo9L6yt&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fncl3-1.fna&_nc_gid=F-LL30pehsWwQBHh_UX_YA&_nc_ss=7a22e&oh=00_AQIkcFOsQaD1RqT67FzkhKLxkKwaYLPi2n-TA1iQBxpl4A&oe=6AA63C0F" alt="En nuestra clínica somos especialis" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <img src="https://scontent-atl3-1.cdninstagram.com/v/t51.82787-15/775523720_18119984774488741_8047217869801124763_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=103&ig_cache_key=Mzk2Nzc1Mzg0ODc3OTE3Mzg1MjE4MTE5OTg0NzU5NDg4NzQx.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEyOTAuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=RLGEMJEcyhwQ7kNvwHxigro&_nc_oc=AdodTmSDW4VigBBHB-oboyQBftUF2dn6pyItbL2th_XdI8HNI6mbrXGCV9_Zw9cD-gw1G9sDwvj-2m4-5WIjRF3O&_nc_ad=z-m&_nc_cid=1087&_nc_zt=23&_nc_ht=scontent-atl3-1.cdninstagram.com&_nc_gid=ytj-IEBQGBH26-Uk74DCiw&_nc_ss=7a22e&oh=00_AQIYvYV9h_DdzpGKppLBtGbPkzICHgjD3KzljZjrFnamfw&oe=6AA626D4" alt="La ortodoncia no empieza colocando " class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
             
             <!-- Sector Job Pill -->
             <span class="absolute top-3 left-3 text-[10px] font-extrabold px-2.5 py-1 rounded-md bg-black/80 text-white border border-white/20 uppercase tracking-wider backdrop-blur-md">
               MED-01 • TRATAMIENTO
-            </span>
-
-            
-            <span class="absolute bottom-3 right-3 text-xs font-bold px-3 py-1 rounded-full bg-black/85 text-white border border-white/20 backdrop-blur-md shadow-md">
-              Cita previa
-            </span>
-            
-          </div>
-          
-          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
-            <div>
-              <h3 class="font-bold text-base sm:text-lg theme-heading leading-snug">En nuestra clínica somos especialis</h3>
-              <p class="text-xs sm:text-sm theme-muted mt-2 leading-relaxed">
-                En nuestra clínica somos especialistas en implantes y estética dental ya sea ort
-              </p>
-            </div>
-            
-          </div>
-        </div>
-        
-        <div class="theme-card overflow-hidden flex flex-col justify-between group glow-card shadow-xl rounded-2xl" style="border-color: var(--border-color);">
-          
-          <div class="h-48 sm:h-52 w-full overflow-hidden relative bg-slate-950">
-            <img src="https://instagram.frtm1-2.fna.fbcdn.net/v/t51.82787-15/775523720_18119984774488741_8047217869801124763_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=103&ig_cache_key=Mzk2Nzc1Mzg0ODc3OTE3Mzg1MjE4MTE5OTg0NzU5NDg4NzQx.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEyOTAuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=RLGEMJEcyhwQ7kNvwGbGnej&_nc_oc=AdqNuNNlXtsZR2P1Y0RV0GzAA5kOfkKDZuMKiOCpNQqD2xIwdrb1Wjzd8vSC9qOzFnU&_nc_ad=z-m&_nc_cid=1207&_nc_zt=23&_nc_ht=instagram.frtm1-2.fna&_nc_gid=BbemvPn6scR4UdDlsQ8_Hg&_nc_ss=7a22e&oh=00_AQIj9E8yizc3pLxVTdjYTnGbdipxZMJIdDtTwx9W1QeSLA&oe=6AA626D4" alt="La ortodoncia no empieza colocando " class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
-            
-            <!-- Sector Job Pill -->
-            <span class="absolute top-3 left-3 text-[10px] font-extrabold px-2.5 py-1 rounded-md bg-black/80 text-white border border-white/20 uppercase tracking-wider backdrop-blur-md">
-              MED-02 • TRATAMIENTO
             </span>
 
             
@@ -660,7 +633,36 @@ Primero necesitamos
         <div class="theme-card overflow-hidden flex flex-col justify-between group glow-card shadow-xl rounded-2xl" style="border-color: var(--border-color);">
           
           <div class="h-48 sm:h-52 w-full overflow-hidden relative bg-slate-950">
-            <img src="https://instagram.fvll1-1.fna.fbcdn.net/v/t51.82787-15/778139452_18119965094488741_505630565814553358_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=107&ig_cache_key=Mzk2Nzc1MTk2MDU4NzE5NDYyOTE4MTE5OTY1MDg4NDg4NzQx.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEyOTAuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=zKthQJcs50UQ7kNvwFSUw2M&_nc_oc=AdoKYtXeqctHNoTAHUQ03QJsvK-zV8d0899n_kz0qUdc2_JmcI44UxR3TS_LQKX3Pfo&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fvll1-1.fna&_nc_gid=PoWgIAuAhUHqKWksahKsXg&_nc_ss=7a22e&oh=00_AQKZ1um0O2E1zhhgyGZv4rIHmBp2NfJHyxTKH9tMHa8ogA&oe=6AA63EF8" alt="¿Sabes qué es una cefalometría y po" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <img src="https://instagram.frex1-1.fna.fbcdn.net/v/t51.82787-15/799346336_18122282012488741_5384338049223583797_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=106&ig_cache_key=Mzk4MDgzMzI5MTA4NDk5NTE1OTE4MTIyMjgyMDA5NDg4NzQx.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEyOTAuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=IbIyibatZ4MQ7kNvwEyexBV&_nc_oc=AdpieCWQUWIFMw041J3Rc_tQ7xdXT59kamntSLN8flV3aE0_OvXQfIY1RsT7MNKdfmU&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.frex1-1.fna&_nc_gid=-qfLGpxjHJ-lW7oSaDKJOw&_nc_ss=7a22e&oh=00_AQLdTDyX5NU3vNu99V1Q6mykDuPHsSj2UCVAs98pLg8KIw&oe=6AA6521D" alt="🦷 Muchas caries en niños no duelen " class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+            
+            <!-- Sector Job Pill -->
+            <span class="absolute top-3 left-3 text-[10px] font-extrabold px-2.5 py-1 rounded-md bg-black/80 text-white border border-white/20 uppercase tracking-wider backdrop-blur-md">
+              MED-02 • TRATAMIENTO
+            </span>
+
+            
+            <span class="absolute bottom-3 right-3 text-xs font-bold px-3 py-1 rounded-full bg-black/85 text-white border border-white/20 backdrop-blur-md shadow-md">
+              Cita previa
+            </span>
+            
+          </div>
+          
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-bold text-base sm:text-lg theme-heading leading-snug">🦷 Muchas caries en niños no duelen </h3>
+              <p class="text-xs sm:text-sm theme-muted mt-2 leading-relaxed">
+                🦷 Muchas caries en niños no duelen al principio... y por eso pasan desapercibida
+              </p>
+            </div>
+            
+          </div>
+        </div>
+        
+        <div class="theme-card overflow-hidden flex flex-col justify-between group glow-card shadow-xl rounded-2xl" style="border-color: var(--border-color);">
+          
+          <div class="h-48 sm:h-52 w-full overflow-hidden relative bg-slate-950">
+            <img src="https://instagram.fcdg2-1.fna.fbcdn.net/v/t51.82787-15/786213242_18120568205488741_1341302369290001567_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=101&ig_cache_key=Mzk3MTMyNDc5Mjg3NzUzNzMxNjE4MTIwNTY4MTk5NDg4NzQx.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEyOTAuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=lE7TRKPcns0Q7kNvwFZ5_Di&_nc_oc=AdpS0kE6q4FtWC6-FG5GXtEGPwVwQUJmWeRiz1Pp3fod5cZjPwnMeC69OEN4QWPPe79F9D2roFypFMd9mT77tKmm&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fcdg2-1.fna&_nc_gid=Ubjzx5Db6tan6XoqyUXAyg&_nc_ss=7a22e&oh=00_AQIFFBAc6JsgRSWXemrc5LP8uE809ubd0-MjbXFltaYTVQ&oe=6AA63FD7" alt="¿Cómo hacemos una férula de descarg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
             
             <!-- Sector Job Pill -->
@@ -677,11 +679,11 @@ Primero necesitamos
           
           <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
             <div>
-              <h3 class="font-bold text-base sm:text-lg theme-heading leading-snug">¿Sabes qué es una cefalometría y po</h3>
+              <h3 class="font-bold text-base sm:text-lg theme-heading leading-snug">¿Cómo hacemos una férula de descarg</h3>
               <p class="text-xs sm:text-sm theme-muted mt-2 leading-relaxed">
-                ¿Sabes qué es una cefalometría y por qué puede ser importante en ortodoncia?
+                ¿Cómo hacemos una férula de descarga 100 % digital?
 
-Es
+¿Rechinas los dientes o not
               </p>
             </div>
             
@@ -710,26 +712,12 @@ Es
 
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
         
-        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://instagram.fncl3-1.fna.fbcdn.net/v/t51.82787-15/625387724_18108281674673083_4439850260084505194_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&ig_cache_key=Mjk2NjMzMTMzNjI3MzAzMTIwMw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTA4MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=SQOa9FkLul8Q7kNvwGlEIWW&_nc_oc=AdqeY1hsGkSKx5KesLKQQME49kiwQ2irUXqYe4ORbcxy5LpI6tMr3xg5dcS7hAEjwpu5jv7xbnnwwg_PRBo9L6yt&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fncl3-1.fna&_nc_gid=F-LL30pehsWwQBHh_UX_YA&_nc_ss=7a22e&oh=00_AQIkcFOsQaD1RqT67FzkhKLxkKwaYLPi2n-TA1iQBxpl4A&oe=6AA63C0F', 'En nuestra clínica somos especialistas en implantes y estética dental ya sea ortodoncia convencional, lingual y/o alineadores transparentes.
-
-Ponemos a tu disposición una de las mejores tecnologías 3D, para un tratamiento 100% planificado, exacto y n')">
-          <img src="https://instagram.fncl3-1.fna.fbcdn.net/v/t51.82787-15/625387724_18108281674673083_4439850260084505194_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&ig_cache_key=Mjk2NjMzMTMzNjI3MzAzMTIwMw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTA4MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=SQOa9FkLul8Q7kNvwGlEIWW&_nc_oc=AdqeY1hsGkSKx5KesLKQQME49kiwQ2irUXqYe4ORbcxy5LpI6tMr3xg5dcS7hAEjwpu5jv7xbnnwwg_PRBo9L6yt&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fncl3-1.fna&_nc_gid=F-LL30pehsWwQBHh_UX_YA&_nc_ss=7a22e&oh=00_AQIkcFOsQaD1RqT67FzkhKLxkKwaYLPi2n-TA1iQBxpl4A&oe=6AA63C0F" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-          <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
-            <p class="text-[11px] text-white line-clamp-3 leading-tight">En nuestra clínica somos especialistas en implantes y estética dental ya sea ortodoncia convencional, lingual y/o alineadores transparentes.
-
-Ponemos a tu disposición una de las mejores tecnologías 3D, para un tratamiento 100% planificado, exacto y n</p>
-            <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
-              ❤️ 137
-            </span>
-          </div>
-        </div>
-        
-        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://instagram.frtm1-2.fna.fbcdn.net/v/t51.82787-15/775523720_18119984774488741_8047217869801124763_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=103&ig_cache_key=Mzk2Nzc1Mzg0ODc3OTE3Mzg1MjE4MTE5OTg0NzU5NDg4NzQx.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEyOTAuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=RLGEMJEcyhwQ7kNvwGbGnej&_nc_oc=AdqNuNNlXtsZR2P1Y0RV0GzAA5kOfkKDZuMKiOCpNQqD2xIwdrb1Wjzd8vSC9qOzFnU&_nc_ad=z-m&_nc_cid=1207&_nc_zt=23&_nc_ht=instagram.frtm1-2.fna&_nc_gid=BbemvPn6scR4UdDlsQ8_Hg&_nc_ss=7a22e&oh=00_AQIj9E8yizc3pLxVTdjYTnGbdipxZMJIdDtTwx9W1QeSLA&oe=6AA626D4', 'La ortodoncia no empieza colocando brackets o alineadores.
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-atl3-1.cdninstagram.com/v/t51.82787-15/775523720_18119984774488741_8047217869801124763_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=103&ig_cache_key=Mzk2Nzc1Mzg0ODc3OTE3Mzg1MjE4MTE5OTg0NzU5NDg4NzQx.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEyOTAuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=RLGEMJEcyhwQ7kNvwHxigro&_nc_oc=AdodTmSDW4VigBBHB-oboyQBftUF2dn6pyItbL2th_XdI8HNI6mbrXGCV9_Zw9cD-gw1G9sDwvj-2m4-5WIjRF3O&_nc_ad=z-m&_nc_cid=1087&_nc_zt=23&_nc_ht=scontent-atl3-1.cdninstagram.com&_nc_gid=ytj-IEBQGBH26-Uk74DCiw&_nc_ss=7a22e&oh=00_AQIYvYV9h_DdzpGKppLBtGbPkzICHgjD3KzljZjrFnamfw&oe=6AA626D4', 'La ortodoncia no empieza colocando brackets o alineadores.
 
 Primero necesitamos conocer cómo están tus dientes y cómo se relacionan con tus estructuras óseas.
 
 Por eso realizamos un estudio digital completo, con las radiografías necesarias y cefalome')">
-          <img src="https://instagram.frtm1-2.fna.fbcdn.net/v/t51.82787-15/775523720_18119984774488741_8047217869801124763_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=103&ig_cache_key=Mzk2Nzc1Mzg0ODc3OTE3Mzg1MjE4MTE5OTg0NzU5NDg4NzQx.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEyOTAuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=RLGEMJEcyhwQ7kNvwGbGnej&_nc_oc=AdqNuNNlXtsZR2P1Y0RV0GzAA5kOfkKDZuMKiOCpNQqD2xIwdrb1Wjzd8vSC9qOzFnU&_nc_ad=z-m&_nc_cid=1207&_nc_zt=23&_nc_ht=instagram.frtm1-2.fna&_nc_gid=BbemvPn6scR4UdDlsQ8_Hg&_nc_ss=7a22e&oh=00_AQIj9E8yizc3pLxVTdjYTnGbdipxZMJIdDtTwx9W1QeSLA&oe=6AA626D4" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <img src="https://scontent-atl3-1.cdninstagram.com/v/t51.82787-15/775523720_18119984774488741_8047217869801124763_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=103&ig_cache_key=Mzk2Nzc1Mzg0ODc3OTE3Mzg1MjE4MTE5OTg0NzU5NDg4NzQx.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEyOTAuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=RLGEMJEcyhwQ7kNvwHxigro&_nc_oc=AdodTmSDW4VigBBHB-oboyQBftUF2dn6pyItbL2th_XdI8HNI6mbrXGCV9_Zw9cD-gw1G9sDwvj-2m4-5WIjRF3O&_nc_ad=z-m&_nc_cid=1087&_nc_zt=23&_nc_ht=scontent-atl3-1.cdninstagram.com&_nc_gid=ytj-IEBQGBH26-Uk74DCiw&_nc_ss=7a22e&oh=00_AQIYvYV9h_DdzpGKppLBtGbPkzICHgjD3KzljZjrFnamfw&oe=6AA626D4" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
           <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
             <p class="text-[11px] text-white line-clamp-3 leading-tight">La ortodoncia no empieza colocando brackets o alineadores.
 
@@ -742,32 +730,32 @@ Por eso realizamos un estudio digital completo, con las radiografías necesarias
           </div>
         </div>
         
-        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://instagram.fvll1-1.fna.fbcdn.net/v/t51.82787-15/778139452_18119965094488741_505630565814553358_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=107&ig_cache_key=Mzk2Nzc1MTk2MDU4NzE5NDYyOTE4MTE5OTY1MDg4NDg4NzQx.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEyOTAuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=zKthQJcs50UQ7kNvwFSUw2M&_nc_oc=AdoKYtXeqctHNoTAHUQ03QJsvK-zV8d0899n_kz0qUdc2_JmcI44UxR3TS_LQKX3Pfo&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fvll1-1.fna&_nc_gid=PoWgIAuAhUHqKWksahKsXg&_nc_ss=7a22e&oh=00_AQKZ1um0O2E1zhhgyGZv4rIHmBp2NfJHyxTKH9tMHa8ogA&oe=6AA63EF8', '¿Sabes qué es una cefalometría y por qué puede ser importante en ortodoncia?
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://instagram.frex1-1.fna.fbcdn.net/v/t51.82787-15/799346336_18122282012488741_5384338049223583797_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=106&ig_cache_key=Mzk4MDgzMzI5MTA4NDk5NTE1OTE4MTIyMjgyMDA5NDg4NzQx.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEyOTAuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=IbIyibatZ4MQ7kNvwEyexBV&_nc_oc=AdpieCWQUWIFMw041J3Rc_tQ7xdXT59kamntSLN8flV3aE0_OvXQfIY1RsT7MNKdfmU&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.frex1-1.fna&_nc_gid=-qfLGpxjHJ-lW7oSaDKJOw&_nc_ss=7a22e&oh=00_AQLdTDyX5NU3vNu99V1Q6mykDuPHsSj2UCVAs98pLg8KIw&oe=6AA6521D', '🦷 Muchas caries en niños no duelen al principio... y por eso pasan desapercibidas.
 
-Es un estudio que nos ayuda a analizar la relación entre los dientes, los huesos y las estructuras de tu cara para planificar mejor el tratamiento.
+Con la vuelta al cole es el momento ideal para revisar su boca y recuperar buenos hábitos de higiene.
 
-En Clínica Dental Nuñez')">
-          <img src="https://instagram.fvll1-1.fna.fbcdn.net/v/t51.82787-15/778139452_18119965094488741_505630565814553358_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=107&ig_cache_key=Mzk2Nzc1MTk2MDU4NzE5NDYyOTE4MTE5OTY1MDg4NDg4NzQx.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEyOTAuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=zKthQJcs50UQ7kNvwFSUw2M&_nc_oc=AdoKYtXeqctHNoTAHUQ03QJsvK-zV8d0899n_kz0qUdc2_JmcI44UxR3TS_LQKX3Pfo&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fvll1-1.fna&_nc_gid=PoWgIAuAhUHqKWksahKsXg&_nc_ss=7a22e&oh=00_AQKZ1um0O2E1zhhgyGZv4rIHmBp2NfJHyxTKH9tMHa8ogA&oe=6AA63EF8" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+En Dental Núñez hacemos revisiones adaptadas a cada edad, y usa')">
+          <img src="https://instagram.frex1-1.fna.fbcdn.net/v/t51.82787-15/799346336_18122282012488741_5384338049223583797_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=106&ig_cache_key=Mzk4MDgzMzI5MTA4NDk5NTE1OTE4MTIyMjgyMDA5NDg4NzQx.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEyOTAuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=IbIyibatZ4MQ7kNvwEyexBV&_nc_oc=AdpieCWQUWIFMw041J3Rc_tQ7xdXT59kamntSLN8flV3aE0_OvXQfIY1RsT7MNKdfmU&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.frex1-1.fna&_nc_gid=-qfLGpxjHJ-lW7oSaDKJOw&_nc_ss=7a22e&oh=00_AQLdTDyX5NU3vNu99V1Q6mykDuPHsSj2UCVAs98pLg8KIw&oe=6AA6521D" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
           <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
-            <p class="text-[11px] text-white line-clamp-3 leading-tight">¿Sabes qué es una cefalometría y por qué puede ser importante en ortodoncia?
+            <p class="text-[11px] text-white line-clamp-3 leading-tight">🦷 Muchas caries en niños no duelen al principio... y por eso pasan desapercibidas.
 
-Es un estudio que nos ayuda a analizar la relación entre los dientes, los huesos y las estructuras de tu cara para planificar mejor el tratamiento.
+Con la vuelta al cole es el momento ideal para revisar su boca y recuperar buenos hábitos de higiene.
 
-En Clínica Dental Nuñez</p>
+En Dental Núñez hacemos revisiones adaptadas a cada edad, y usa</p>
             <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
-              ❤️ 3
+              ❤️ 4
             </span>
           </div>
         </div>
         
-        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-fra3-1.cdninstagram.com/v/t51.82787-15/786213242_18120568205488741_1341302369290001567_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=101&ig_cache_key=Mzk3MTMyNDc5Mjg3NzUzNzMxNjE4MTIwNTY4MTk5NDg4NzQx.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEyOTAuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=lE7TRKPcns0Q7kNvwFE0lyj&_nc_oc=AdrkicxnBppVBnLJ8GbBI2dax9Nt9tURRhnOXinZs2V35pPwQkoyWulLdhJHktD5HwSgrdmUZuFI8BiDDvs77wQt&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-fra3-1.cdninstagram.com&_nc_gid=IPlA182IC8Ko4uSWs9mb_w&_nc_ss=7a22e&oh=00_AQIERNyj9Vhcnoyym5PHQuL5EI267wTFPH_If64oFDNZnA&oe=6AA63FD7', '¿Cómo hacemos una férula de descarga 100 % digital?
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://instagram.fcdg2-1.fna.fbcdn.net/v/t51.82787-15/786213242_18120568205488741_1341302369290001567_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=101&ig_cache_key=Mzk3MTMyNDc5Mjg3NzUzNzMxNjE4MTIwNTY4MTk5NDg4NzQx.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEyOTAuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=lE7TRKPcns0Q7kNvwFZ5_Di&_nc_oc=AdpS0kE6q4FtWC6-FG5GXtEGPwVwQUJmWeRiz1Pp3fod5cZjPwnMeC69OEN4QWPPe79F9D2roFypFMd9mT77tKmm&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fcdg2-1.fna&_nc_gid=Ubjzx5Db6tan6XoqyUXAyg&_nc_ss=7a22e&oh=00_AQIFFBAc6JsgRSWXemrc5LP8uE809ubd0-MjbXFltaYTVQ&oe=6AA63FD7', '¿Cómo hacemos una férula de descarga 100 % digital?
 
 ¿Rechinas los dientes o notas desgaste?
 
 En Clínica Dental Nuñez Barcelona utilizamos un flujo digital para crear tu férula de descarga personalizada.
 
 Primero escaneamos tus dientes con nuestro es')">
-          <img src="https://scontent-fra3-1.cdninstagram.com/v/t51.82787-15/786213242_18120568205488741_1341302369290001567_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=101&ig_cache_key=Mzk3MTMyNDc5Mjg3NzUzNzMxNjE4MTIwNTY4MTk5NDg4NzQx.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEyOTAuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=lE7TRKPcns0Q7kNvwFE0lyj&_nc_oc=AdrkicxnBppVBnLJ8GbBI2dax9Nt9tURRhnOXinZs2V35pPwQkoyWulLdhJHktD5HwSgrdmUZuFI8BiDDvs77wQt&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-fra3-1.cdninstagram.com&_nc_gid=IPlA182IC8Ko4uSWs9mb_w&_nc_ss=7a22e&oh=00_AQIERNyj9Vhcnoyym5PHQuL5EI267wTFPH_If64oFDNZnA&oe=6AA63FD7" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <img src="https://instagram.fcdg2-1.fna.fbcdn.net/v/t51.82787-15/786213242_18120568205488741_1341302369290001567_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=101&ig_cache_key=Mzk3MTMyNDc5Mjg3NzUzNzMxNjE4MTIwNTY4MTk5NDg4NzQx.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEyOTAuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=lE7TRKPcns0Q7kNvwFZ5_Di&_nc_oc=AdpS0kE6q4FtWC6-FG5GXtEGPwVwQUJmWeRiz1Pp3fod5cZjPwnMeC69OEN4QWPPe79F9D2roFypFMd9mT77tKmm&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fcdg2-1.fna&_nc_gid=Ubjzx5Db6tan6XoqyUXAyg&_nc_ss=7a22e&oh=00_AQIFFBAc6JsgRSWXemrc5LP8uE809ubd0-MjbXFltaYTVQ&oe=6AA63FD7" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
           <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
             <p class="text-[11px] text-white line-clamp-3 leading-tight">¿Cómo hacemos una férula de descarga 100 % digital?
 
@@ -782,46 +770,24 @@ Primero escaneamos tus dientes con nuestro es</p>
           </div>
         </div>
         
-        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-yyz1-1.cdninstagram.com/v/t51.82787-15/799782338_18122358917488741_5399621739250051794_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=105&ig_cache_key=Mzk4MTI0MTM5MDkzMzM3NjMzNjE4MTIyMzU4OTE0NDg4NzQx.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEyOTAuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=N9_sTr40PnwQ7kNvwHUmLUn&_nc_oc=Adp0gyb0tXtkKYTx1P5_we3SrxNOh7vsqlT757eMlTG-QtymoGBeoUD1FpMoXkQK7tQ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-yyz1-1.cdninstagram.com&_nc_gid=klXTB5v1fvRrJ_H6m9ci1g&_nc_ss=7a22e&oh=00_AQLAS_V5lgWV2wqG705J5UdF40DhJtWm9XZ52pgVkSbObA&oe=6AA62D41', 'En Dental Núñez usamos aeropulidor, una técnica que adapta el polvo a cada paciente:
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-nrt1-1.cdninstagram.com/v/t51.82787-15/625387724_18108281674673083_4439850260084505194_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&ig_cache_key=Mjk2NjMzMTMzNjI3MzAzMTIwMw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTA4MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=SQOa9FkLul8Q7kNvwG5Rywx&_nc_oc=Adoi4p27nyFxWGGQwVgglrdwNblEb5ekrBQ2EdLjijmcrgDpAwWq4ip09EgealVgYm9C5rWKrHKBrZvy2imGpF_y&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-nrt1-1.cdninstagram.com&_nc_gid=vMSNB3p4HA_8ewONLldi2g&_nc_ss=7a22e&oh=00_AQJ6OPgnZzAh6kTu3TFiXS_NRXBPS-n4U-2E43uJMavNtg&oe=6AA63C0F', 'En nuestra clínica somos especialistas en implantes y estética dental ya sea ortodoncia convencional, lingual y/o alineadores transparentes.
 
-🟡 Bicarbonato de sodio, para eliminar manchas y pigmentaciones más resistentes.
-
-🔵 Glicina, un polvo mucho más fino y suave, ideal para zonas delicadas, mantenimien')">
-          <img src="https://scontent-yyz1-1.cdninstagram.com/v/t51.82787-15/799782338_18122358917488741_5399621739250051794_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=105&ig_cache_key=Mzk4MTI0MTM5MDkzMzM3NjMzNjE4MTIyMzU4OTE0NDg4NzQx.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEyOTAuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=N9_sTr40PnwQ7kNvwHUmLUn&_nc_oc=Adp0gyb0tXtkKYTx1P5_we3SrxNOh7vsqlT757eMlTG-QtymoGBeoUD1FpMoXkQK7tQ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-yyz1-1.cdninstagram.com&_nc_gid=klXTB5v1fvRrJ_H6m9ci1g&_nc_ss=7a22e&oh=00_AQLAS_V5lgWV2wqG705J5UdF40DhJtWm9XZ52pgVkSbObA&oe=6AA62D41" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+Ponemos a tu disposición una de las mejores tecnologías 3D, para un tratamiento 100% planificado, exacto y n')">
+          <img src="https://scontent-nrt1-1.cdninstagram.com/v/t51.82787-15/625387724_18108281674673083_4439850260084505194_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&ig_cache_key=Mjk2NjMzMTMzNjI3MzAzMTIwMw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTA4MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=SQOa9FkLul8Q7kNvwG5Rywx&_nc_oc=Adoi4p27nyFxWGGQwVgglrdwNblEb5ekrBQ2EdLjijmcrgDpAwWq4ip09EgealVgYm9C5rWKrHKBrZvy2imGpF_y&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-nrt1-1.cdninstagram.com&_nc_gid=vMSNB3p4HA_8ewONLldi2g&_nc_ss=7a22e&oh=00_AQJ6OPgnZzAh6kTu3TFiXS_NRXBPS-n4U-2E43uJMavNtg&oe=6AA63C0F" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
           <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
-            <p class="text-[11px] text-white line-clamp-3 leading-tight">En Dental Núñez usamos aeropulidor, una técnica que adapta el polvo a cada paciente:
+            <p class="text-[11px] text-white line-clamp-3 leading-tight">En nuestra clínica somos especialistas en implantes y estética dental ya sea ortodoncia convencional, lingual y/o alineadores transparentes.
 
-🟡 Bicarbonato de sodio, para eliminar manchas y pigmentaciones más resistentes.
-
-🔵 Glicina, un polvo mucho más fino y suave, ideal para zonas delicadas, mantenimien</p>
+Ponemos a tu disposición una de las mejores tecnologías 3D, para un tratamiento 100% planificado, exacto y n</p>
             <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
-              ❤️ 10
+              ❤️ 137
             </span>
           </div>
         </div>
         
-        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-ssn1-1.cdninstagram.com/v/t51.82787-15/799346336_18122282012488741_5384338049223583797_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=106&ig_cache_key=Mzk4MDgzMzI5MTA4NDk5NTE1OTE4MTIyMjgyMDA5NDg4NzQx.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEyOTAuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=IbIyibatZ4MQ7kNvwGinULP&_nc_oc=AdoMjrnSBPIJ4_STbmIkZYaqApHe48bNY4Nt1mN7waZ29upNXgRRMixunN_BY8M_rNUtDn8PEgfzSblc4kWt_B-f&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-ssn1-1.cdninstagram.com&_nc_gid=iEhFbDJ65Utwhe01sdE0dQ&_nc_ss=7a22e&oh=00_AQKCQu0VT02miYN1a10URhbHsG3yQB7FSzcMxRRGklB7yA&oe=6AA6521D', '🦷 Muchas caries en niños no duelen al principio... y por eso pasan desapercibidas.
-
-Con la vuelta al cole es el momento ideal para revisar su boca y recuperar buenos hábitos de higiene.
-
-En Dental Núñez hacemos revisiones adaptadas a cada edad, y usa')">
-          <img src="https://scontent-ssn1-1.cdninstagram.com/v/t51.82787-15/799346336_18122282012488741_5384338049223583797_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=106&ig_cache_key=Mzk4MDgzMzI5MTA4NDk5NTE1OTE4MTIyMjgyMDA5NDg4NzQx.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEyOTAuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=IbIyibatZ4MQ7kNvwGinULP&_nc_oc=AdoMjrnSBPIJ4_STbmIkZYaqApHe48bNY4Nt1mN7waZ29upNXgRRMixunN_BY8M_rNUtDn8PEgfzSblc4kWt_B-f&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-ssn1-1.cdninstagram.com&_nc_gid=iEhFbDJ65Utwhe01sdE0dQ&_nc_ss=7a22e&oh=00_AQKCQu0VT02miYN1a10URhbHsG3yQB7FSzcMxRRGklB7yA&oe=6AA6521D" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-          <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
-            <p class="text-[11px] text-white line-clamp-3 leading-tight">🦷 Muchas caries en niños no duelen al principio... y por eso pasan desapercibidas.
-
-Con la vuelta al cole es el momento ideal para revisar su boca y recuperar buenos hábitos de higiene.
-
-En Dental Núñez hacemos revisiones adaptadas a cada edad, y usa</p>
-            <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
-              ❤️ 4
-            </span>
-          </div>
-        </div>
-        
-        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://instagram.fbio3-2.fna.fbcdn.net/v/t51.82787-15/787567269_18491085091100912_733608662617628287_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=101&ig_cache_key=Mzk3MjQwNzAzMjkwNjcxOTU4MTE4NDkxMDg1MDgyMTAwOTEy.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjExNzAuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=wMIRqZ2q4kAQ7kNvwHXT8Y2&_nc_oc=AdqpA5i7_1-1pIOTtb1vP4mPUQVRaT9J2ZPc3vN7DWNZl_8J2QK3zouP2Z2pdY4ORNE&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fbio3-2.fna&_nc_gid=l-Ygkd4W19-nUYd9L3pGOg&_nc_ss=7a22e&oh=00_AQJ_oMpGr3BY62aCH0Xn15TaTXZ2z0PAHwtHOHFvABm5nQ&oe=6AA642A1', 'Clínica Dental Núñez
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://instagram.fplu18-1.fna.fbcdn.net/v/t51.82787-15/787567269_18491085091100912_733608662617628287_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=101&ig_cache_key=Mzk3MjQwNzAzMjkwNjcxOTU4MTE4NDkxMDg1MDgyMTAwOTEy.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjExNzAuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=wMIRqZ2q4kAQ7kNvwH2P37F&_nc_oc=AdosI2nxdQPaB8UWhiU1fyaSBnwE5n_f8nx10K52MooOqWwoVS6XdeuXlKU7Vv-DPBs&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fplu18-1.fna&_nc_gid=sxSRJ63Ex_W2CE04hjYRTw&_nc_ss=7a22e&oh=00_AQIJtaDQKbgeg0f4Fm_MuCqlwzjivIAECJiqXSW7xF9k_A&oe=6AA642A1', 'Clínica Dental Núñez
 
 En la Clínica Dental Núñez cuidamos de tu sonrisa con un trato cercano, profesional y personalizado. Nuestro objetivo es ofrecerte una atención dental de calidad, adaptada a tus necesidades y pensada para que te sientas cómodo y')">
-          <img src="https://instagram.fbio3-2.fna.fbcdn.net/v/t51.82787-15/787567269_18491085091100912_733608662617628287_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=101&ig_cache_key=Mzk3MjQwNzAzMjkwNjcxOTU4MTE4NDkxMDg1MDgyMTAwOTEy.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjExNzAuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=wMIRqZ2q4kAQ7kNvwHXT8Y2&_nc_oc=AdqpA5i7_1-1pIOTtb1vP4mPUQVRaT9J2ZPc3vN7DWNZl_8J2QK3zouP2Z2pdY4ORNE&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fbio3-2.fna&_nc_gid=l-Ygkd4W19-nUYd9L3pGOg&_nc_ss=7a22e&oh=00_AQJ_oMpGr3BY62aCH0Xn15TaTXZ2z0PAHwtHOHFvABm5nQ&oe=6AA642A1" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <img src="https://instagram.fplu18-1.fna.fbcdn.net/v/t51.82787-15/787567269_18491085091100912_733608662617628287_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=101&ig_cache_key=Mzk3MjQwNzAzMjkwNjcxOTU4MTE4NDkxMDg1MDgyMTAwOTEy.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjExNzAuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=wMIRqZ2q4kAQ7kNvwH2P37F&_nc_oc=AdosI2nxdQPaB8UWhiU1fyaSBnwE5n_f8nx10K52MooOqWwoVS6XdeuXlKU7Vv-DPBs&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fplu18-1.fna&_nc_gid=sxSRJ63Ex_W2CE04hjYRTw&_nc_ss=7a22e&oh=00_AQIJtaDQKbgeg0f4Fm_MuCqlwzjivIAECJiqXSW7xF9k_A&oe=6AA642A1" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
           <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
             <p class="text-[11px] text-white line-clamp-3 leading-tight">Clínica Dental Núñez
 
@@ -832,12 +798,48 @@ En la Clínica Dental Núñez cuidamos de tu sonrisa con un trato cercano, profe
           </div>
         </div>
         
-        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-gig4-1.cdninstagram.com/v/t51.71878-15/502953243_700225862588929_2269561035889787651_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=110&ig_cache_key=MzM0MTEwODk0NzMwODc0MzE2OQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjU3Ni5zZHIudmlkZW9fZGVmYXVsdF9jb3Zlcl9mcmFtZS5DMyJ9&_nc_ohc=gamgs2CEzhEQ7kNvwF-VN5k&_nc_oc=AdruuhhwLNfBFnMemSvUxrHBJBekqxk6Q5aF5yiNhuxAMFIokYDfEhFKuhMr2Fgl3NO882SEyRMmEhV1aHcr2q-q&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-gig4-1.cdninstagram.com&_nc_gid=0W4e9enzlpLacAQWPQWA6w&_nc_ss=7a22e&oh=00_AQLgtCyl61dkvMwX1UeymjYjH0PUOfxEBH0oxKBR9Ly2oQ&oe=6AA62FC4', '“Experimenta una primera visita excepcional en Dental Nuñez con la Dra. Alba Rovira, líder en ortodoncia invisible. Con un enfoque integral, la Dra. Rovira ofrece un servicio de primera categoría, respaldado por tecnología de vanguardia. Durante tu v')">
-          <img src="https://scontent-gig4-1.cdninstagram.com/v/t51.71878-15/502953243_700225862588929_2269561035889787651_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=110&ig_cache_key=MzM0MTEwODk0NzMwODc0MzE2OQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjU3Ni5zZHIudmlkZW9fZGVmYXVsdF9jb3Zlcl9mcmFtZS5DMyJ9&_nc_ohc=gamgs2CEzhEQ7kNvwF-VN5k&_nc_oc=AdruuhhwLNfBFnMemSvUxrHBJBekqxk6Q5aF5yiNhuxAMFIokYDfEhFKuhMr2Fgl3NO882SEyRMmEhV1aHcr2q-q&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-gig4-1.cdninstagram.com&_nc_gid=0W4e9enzlpLacAQWPQWA6w&_nc_ss=7a22e&oh=00_AQLgtCyl61dkvMwX1UeymjYjH0PUOfxEBH0oxKBR9Ly2oQ&oe=6AA62FC4" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-fra5-1.cdninstagram.com/v/t51.71878-15/502953243_700225862588929_2269561035889787651_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=110&ig_cache_key=MzM0MTEwODk0NzMwODc0MzE2OQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjU3Ni5zZHIudmlkZW9fZGVmYXVsdF9jb3Zlcl9mcmFtZS5DMyJ9&_nc_ohc=gamgs2CEzhEQ7kNvwFab-ff&_nc_oc=Adqr3RU0hYcg45JxRCltaWoDu3jJV5I24G6pNZoxK0hhtf7VJNz1njZc3ysCUhvaJuw&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-fra5-1.cdninstagram.com&_nc_gid=NpKw3Ue6mme4-M2dutkq-g&_nc_ss=7a22e&oh=00_AQIqyUejvYk6tjzEEgucjqOPZFEBq4aqpliIse0JGST08w&oe=6AA62FC4', '“Experimenta una primera visita excepcional en Dental Nuñez con la Dra. Alba Rovira, líder en ortodoncia invisible. Con un enfoque integral, la Dra. Rovira ofrece un servicio de primera categoría, respaldado por tecnología de vanguardia. Durante tu v')">
+          <img src="https://scontent-fra5-1.cdninstagram.com/v/t51.71878-15/502953243_700225862588929_2269561035889787651_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=110&ig_cache_key=MzM0MTEwODk0NzMwODc0MzE2OQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjU3Ni5zZHIudmlkZW9fZGVmYXVsdF9jb3Zlcl9mcmFtZS5DMyJ9&_nc_ohc=gamgs2CEzhEQ7kNvwFab-ff&_nc_oc=Adqr3RU0hYcg45JxRCltaWoDu3jJV5I24G6pNZoxK0hhtf7VJNz1njZc3ysCUhvaJuw&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-fra5-1.cdninstagram.com&_nc_gid=NpKw3Ue6mme4-M2dutkq-g&_nc_ss=7a22e&oh=00_AQIqyUejvYk6tjzEEgucjqOPZFEBq4aqpliIse0JGST08w&oe=6AA62FC4" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
           <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
             <p class="text-[11px] text-white line-clamp-3 leading-tight">“Experimenta una primera visita excepcional en Dental Nuñez con la Dra. Alba Rovira, líder en ortodoncia invisible. Con un enfoque integral, la Dra. Rovira ofrece un servicio de primera categoría, respaldado por tecnología de vanguardia. Durante tu v</p>
             <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
               ❤️ 16
+            </span>
+          </div>
+        </div>
+        
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://instagram.ftpq3-1.fna.fbcdn.net/v/t51.82787-15/778139452_18119965094488741_505630565814553358_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=107&ig_cache_key=Mzk2Nzc1MTk2MDU4NzE5NDYyOTE4MTE5OTY1MDg4NDg4NzQx.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEyOTAuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=zKthQJcs50UQ7kNvwGtHMO0&_nc_oc=Adrog2saOA2eFgyG6kCYYlGV6RRxtulwnbZjvkcpkcF0I7Tot-d8Na6LB39Wn91KA_C9Kw6Tz8Q85OLrxtdqhBB_&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.ftpq3-1.fna&_nc_gid=W7OyaoVCJt5Vwng2RZ55sw&_nc_ss=7a22e&oh=00_AQLDc_TaqBGSdkjkgv3mIEQvXZDuigFxNSXuhFAbBVlwCQ&oe=6AA63EF8', '¿Sabes qué es una cefalometría y por qué puede ser importante en ortodoncia?
+
+Es un estudio que nos ayuda a analizar la relación entre los dientes, los huesos y las estructuras de tu cara para planificar mejor el tratamiento.
+
+En Clínica Dental Nuñez')">
+          <img src="https://instagram.ftpq3-1.fna.fbcdn.net/v/t51.82787-15/778139452_18119965094488741_505630565814553358_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=107&ig_cache_key=Mzk2Nzc1MTk2MDU4NzE5NDYyOTE4MTE5OTY1MDg4NDg4NzQx.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEyOTAuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=zKthQJcs50UQ7kNvwGtHMO0&_nc_oc=Adrog2saOA2eFgyG6kCYYlGV6RRxtulwnbZjvkcpkcF0I7Tot-d8Na6LB39Wn91KA_C9Kw6Tz8Q85OLrxtdqhBB_&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.ftpq3-1.fna&_nc_gid=W7OyaoVCJt5Vwng2RZ55sw&_nc_ss=7a22e&oh=00_AQLDc_TaqBGSdkjkgv3mIEQvXZDuigFxNSXuhFAbBVlwCQ&oe=6AA63EF8" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
+            <p class="text-[11px] text-white line-clamp-3 leading-tight">¿Sabes qué es una cefalometría y por qué puede ser importante en ortodoncia?
+
+Es un estudio que nos ayuda a analizar la relación entre los dientes, los huesos y las estructuras de tu cara para planificar mejor el tratamiento.
+
+En Clínica Dental Nuñez</p>
+            <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
+              ❤️ 3
+            </span>
+          </div>
+        </div>
+        
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-mrs2-1.cdninstagram.com/v/t51.82787-15/799782338_18122358917488741_5399621739250051794_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=105&ig_cache_key=Mzk4MTI0MTM5MDkzMzM3NjMzNjE4MTIyMzU4OTE0NDg4NzQx.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEyOTAuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=N9_sTr40PnwQ7kNvwHojmVI&_nc_oc=AdqAdUcjb0z5LCEjT3sxo3F2zcyO5NFohciiL3N9YJSlds47TjKhkBRQYQhiFQbRtNCka9VzMLpUSOCf3oA3y47w&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-mrs2-1.cdninstagram.com&_nc_gid=afkQeWFDvYKQdsmULlem8w&_nc_ss=7a22e&oh=00_AQLpYXPD_5B59OM7KaPdb9O0HawJW1NvF5Vx40DmkpXBhA&oe=6AA62D41', 'En Dental Núñez usamos aeropulidor, una técnica que adapta el polvo a cada paciente:
+
+🟡 Bicarbonato de sodio, para eliminar manchas y pigmentaciones más resistentes.
+
+🔵 Glicina, un polvo mucho más fino y suave, ideal para zonas delicadas, mantenimien')">
+          <img src="https://scontent-mrs2-1.cdninstagram.com/v/t51.82787-15/799782338_18122358917488741_5399621739250051794_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=105&ig_cache_key=Mzk4MTI0MTM5MDkzMzM3NjMzNjE4MTIyMzU4OTE0NDg4NzQx.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEyOTAuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=N9_sTr40PnwQ7kNvwHojmVI&_nc_oc=AdqAdUcjb0z5LCEjT3sxo3F2zcyO5NFohciiL3N9YJSlds47TjKhkBRQYQhiFQbRtNCka9VzMLpUSOCf3oA3y47w&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-mrs2-1.cdninstagram.com&_nc_gid=afkQeWFDvYKQdsmULlem8w&_nc_ss=7a22e&oh=00_AQLpYXPD_5B59OM7KaPdb9O0HawJW1NvF5Vx40DmkpXBhA&oe=6AA62D41" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
+            <p class="text-[11px] text-white line-clamp-3 leading-tight">En Dental Núñez usamos aeropulidor, una técnica que adapta el polvo a cada paciente:
+
+🟡 Bicarbonato de sodio, para eliminar manchas y pigmentaciones más resistentes.
+
+🔵 Glicina, un polvo mucho más fino y suave, ideal para zonas delicadas, mantenimien</p>
+            <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
+              ❤️ 10
             </span>
           </div>
         </div>
