@@ -177,13 +177,20 @@
     </div>
 
     <!-- SCANNER PROGRESS FEEDBACK -->
-    <div id="progress-box" class="hidden glass-card rounded-xl p-4 border border-indigo-500/30 bg-indigo-950/20">
+    <div id="progress-box" class="hidden glass-card rounded-xl p-4 border border-indigo-500/30 bg-indigo-950/20 space-y-2.5">
       <div class="flex items-center justify-between">
         <div class="flex items-center space-x-3">
           <div class="w-3 h-3 rounded-full bg-pink-500 animate-ping"></div>
-          <span id="progress-msg" class="text-sm font-medium text-slate-200">Ejecutando pipeline de prospección...</span>
+          <span id="progress-msg" class="text-sm font-medium text-slate-200">Ejecutando prospección en tiempo real...</span>
         </div>
         <span id="progress-sub" class="text-xs text-indigo-300 font-mono">Paso 1/4</span>
+      </div>
+      <div class="w-full bg-slate-800/80 rounded-full h-1.5 overflow-hidden">
+        <div id="progress-bar-fill" class="bg-gradient-to-r from-pink-500 to-indigo-500 h-1.5 rounded-full transition-all duration-300" style="width: 5%"></div>
+      </div>
+      <div class="text-xs text-slate-400 flex items-center justify-between">
+        <span id="progress-detail" class="truncate pr-2">Iniciando análisis inteligente...</span>
+        <span id="progress-counter" class="font-mono text-pink-400 font-semibold whitespace-nowrap">0 leads</span>
       </div>
     </div>
 
@@ -2205,33 +2212,24 @@
       const progressBox = document.getElementById('progress-box');
       const progressMsg = document.getElementById('progress-msg');
       const progressSub = document.getElementById('progress-sub');
+      const progressFill = document.getElementById('progress-bar-fill');
+      const progressDetail = document.getElementById('progress-detail');
+      const progressCounter = document.getElementById('progress-counter');
 
       btn.disabled = true;
       btn.classList.add('opacity-75', 'cursor-not-allowed');
       icon.classList.add('hidden');
       spinner.classList.remove('hidden');
-      btnText.innerText = "Escaneando...";
+      btnText.innerText = "Escaneando en vivo...";
 
+      if (progressFill) progressFill.style.width = "5%";
+      if (progressDetail) progressDetail.innerText = "Conectando con Gemini 3.8 Flash...";
+      if (progressCounter) progressCounter.innerText = "0 encontrados";
       progressBox.classList.remove('hidden');
-      progressMsg.innerText = `Consultando con Gemini 3.8 Flash y mapeando "${categoria}"...`;
+      progressMsg.innerText = `Mapeando categoría "${categoria}"...`;
       progressSub.innerText = "Paso 1/4";
 
       try {
-        const timer1 = setTimeout(() => {
-          progressMsg.innerText = `Buscando comercios en OSM para ${ubicacionTexto}...`;
-          progressSub.innerText = "Paso 2/4";
-        }, 1200);
-
-        const timer2 = setTimeout(() => {
-          progressMsg.innerText = "Filtrando comercios sin web e investigando perfiles de Instagram...";
-          progressSub.innerText = "Paso 3/4";
-        }, 3500);
-
-        const timer3 = setTimeout(() => {
-          progressMsg.innerText = "Gemini validando autenticidad y redactando pitches comerciales...";
-          progressSub.innerText = "Paso 4/4";
-        }, 6500);
-
         const payload = {
           categoria: categoria,
           localidad: modoBusquedaActual === 'localidad' ? localidad : '',
@@ -2239,29 +2237,103 @@
           codigo_postal: modoBusquedaActual === 'cp' ? cp : ''
         };
 
-        const res = await fetch('/scan', {
+        const res = await fetch('/scan-stream', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
         });
 
-        clearTimeout(timer1);
-        clearTimeout(timer2);
-        clearTimeout(timer3);
+        if (!res.ok) {
+          const errData = await res.json().catch(() => ({}));
+          throw new Error(errData.detail || 'Error al iniciar el escaneo');
+        }
 
-        const data = await res.json();
+        const reader = res.body.getReader();
+        const decoder = new TextDecoder('utf-8');
+        let buffer = '';
+        let nuevosLeadsEncontrados = 0;
+        let totalComercios = 0;
 
-        if (res.ok) {
-          mostrarToast(`¡Escaneo completado! Se han procesado ${data.nuevos_leads_encontrados || 0} oportunidades en ${ubicacionTexto}.`);
-          await cargarLeads();
-        } else {
-          mostrarToast(data.detail || 'Error al procesar la solicitud', true);
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          buffer += decoder.decode(value, { stream: true });
+          const lines = buffer.split('\n');
+          buffer = lines.pop() || '';
+
+          for (const line of lines) {
+            const trimmed = line.trim();
+            if (!trimmed || !trimmed.startsWith('data:')) continue;
+            try {
+              const jsonStr = trimmed.slice(5).trim();
+              if (!jsonStr) continue;
+              const evt = JSON.parse(jsonStr);
+
+              if (evt.type === 'step') {
+                progressMsg.innerText = evt.message;
+                progressSub.innerText = `Paso ${evt.step}/${evt.total_steps || 4}`;
+                if (evt.step === 1 && progressFill) progressFill.style.width = '15%';
+                if (evt.step === 2 && progressFill) progressFill.style.width = '35%';
+                if (evt.step === 3 && progressFill) {
+                  progressFill.style.width = '45%';
+                  totalComercios = evt.total_a_procesar || 0;
+                }
+              } else if (evt.type === 'progress') {
+                const total = evt.total || totalComercios || 1;
+                const pct = 45 + Math.round((evt.index / total) * 50);
+                if (progressFill) progressFill.style.width = `${pct}%`;
+                progressMsg.innerText = evt.message;
+                progressSub.innerText = `Lead ${evt.index}/${evt.total}`;
+                if (progressDetail) progressDetail.innerText = `Investigando: ${evt.nombre} (${evt.ciudad || ''})`;
+              } else if (evt.type === 'lead') {
+                nuevosLeadsEncontrados++;
+                if (progressCounter) progressCounter.innerText = `${nuevosLeadsEncontrados} lead${nuevosLeadsEncontrados > 1 ? 's' : ''}`;
+                if (progressDetail) progressDetail.innerText = `✅ Lead verificado: ${evt.lead.nombre}`;
+                
+                const lead = evt.lead;
+                const idxExistente = todosLosLeads.findIndex(l => 
+                  (l.osm_id && lead.osm_id && String(l.osm_id) === String(lead.osm_id)) ||
+                  (l.nombre && lead.nombre && l.nombre.toLowerCase().trim() === lead.nombre.toLowerCase().trim() && 
+                   (l.ciudad || '').toLowerCase().trim() === (lead.ciudad || '').toLowerCase().trim())
+                );
+
+                if (idxExistente >= 0) {
+                  todosLosLeads[idxExistente] = Object.assign({}, todosLosLeads[idxExistente], lead);
+                } else {
+                  todosLosLeads.unshift(lead);
+                }
+
+                // Actualizar inmediatamente las estadísticas y la tabla
+                actualizarEstadisticas(todosLosLeads);
+                if (pestanaActual === 'progreso') {
+                  renderizarVistaProgreso();
+                } else {
+                  aplicarFiltrosYRenderizar();
+                }
+              } else if (evt.type === 'skipped') {
+                if (progressDetail) progressDetail.innerText = `Omitido (${evt.nombre}): ${evt.razon}`;
+              } else if (evt.type === 'complete') {
+                if (progressFill) progressFill.style.width = '100%';
+                progressMsg.innerText = evt.message || 'Escaneo completado con éxito';
+                progressSub.innerText = 'Completado';
+                mostrarToast(`¡Escaneo completado! Se han procesado ${evt.nuevos_leads_encontrados !== undefined ? evt.nuevos_leads_encontrados : nuevosLeadsEncontrados} oportunidades en ${ubicacionTexto}.`);
+                // Asegurar sincronización final de leads
+                await cargarLeads();
+              } else if (evt.type === 'error') {
+                mostrarToast(evt.message || 'Error durante el escaneo', true);
+              }
+            } catch (jsonErr) {
+              console.warn('Error parseando evento SSE:', jsonErr, trimmed);
+            }
+          }
         }
       } catch (err) {
-        console.error(err);
-        mostrarToast('Error de conexión con el servidor', true);
+        console.error('Error en escaneo en vivo:', err);
+        mostrarToast(err.message || 'Error de conexión con el servidor', true);
       } finally {
-        progressBox.classList.add('hidden');
+        setTimeout(() => {
+          progressBox.classList.add('hidden');
+        }, 3000);
         btn.disabled = false;
         btn.classList.remove('opacity-75', 'cursor-not-allowed');
         icon.classList.remove('hidden');

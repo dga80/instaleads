@@ -1252,6 +1252,248 @@ def scan_local_leads(req: ScanRequest):
     }
 
 
+@app.post("/scan-stream")
+async def scan_local_leads_stream(req: ScanRequest):
+    """
+    Streaming en tiempo real vía Server-Sent Events (SSE) del pipeline de prospección:
+    Emite eventos conforme se mapea la categoría, se descubren comercios en OSM y
+    se evalúa / persiste cada lead de forma incremental sin esperar al lote completo.
+    """
+    cp = (req.codigo_postal or "").strip()
+    loc = (req.localidad or "").strip()
+    prov = (req.provincia or "").strip()
+    cat_usuario = req.categoria.strip()
+
+    if not cat_usuario:
+        raise HTTPException(status_code=400, detail="La categoría de negocio es obligatoria.")
+
+    if not cp and not loc and not prov:
+        raise HTTPException(
+            status_code=400,
+            detail="Debes especificar al menos un dato de ubicación: Localidad / Municipio, Provincia o Código Postal."
+        )
+
+    ubicacion_texto = ", ".join([p for p in [loc, prov, f"CP {cp}" if cp else ""] if p])
+
+    async def stream_events():
+        def sse(payload: dict) -> str:
+            return f"data: {json.dumps(payload, ensure_ascii=False)}\n\n"
+
+        yield sse({
+            "type": "step",
+            "step": 1,
+            "total_steps": 4,
+            "message": f"Mapeando categoría '{cat_usuario}' con Gemini..."
+        })
+
+        try:
+            osm_tag = await asyncio.to_thread(mapear_categoria_osm, cat_usuario)
+        except Exception as e:
+            osm_tag = {"key": "amenity", "value": "restaurant", "label": cat_usuario}
+
+        osm_key = osm_tag.get("key", "amenity")
+        osm_value = osm_tag.get("value", "restaurant")
+
+        yield sse({
+            "type": "step",
+            "step": 2,
+            "total_steps": 4,
+            "categoria_osm": osm_tag,
+            "message": f"Buscando comercios en OpenStreetMap ({ubicacion_texto}, {osm_key}={osm_value})..."
+        })
+
+        try:
+            comercios = await asyncio.to_thread(
+                consultar_overpass,
+                codigo_postal=cp,
+                osm_key=osm_key,
+                osm_value=osm_value,
+                localidad=loc,
+                provincia=prov,
+                max_resultados=50
+            )
+        except Exception as e:
+            yield sse({
+                "type": "error",
+                "message": f"Error al consultar OpenStreetMap: {str(e)}"
+            })
+            return
+
+        if not comercios:
+            yield sse({
+                "type": "complete",
+                "status": "ok",
+                "categoria_osm": osm_tag,
+                "nuevos_leads_encontrados": 0,
+                "total_procesados": 0,
+                "message": f"No se encontraron comercios sin página web con la etiqueta OSM '{osm_key}={osm_value}' en {ubicacion_texto}."
+            })
+            return
+
+        comercios_a_procesar = comercios[:req.max_comercios]
+        total_a_procesar = len(comercios_a_procesar)
+
+        yield sse({
+            "type": "step",
+            "step": 3,
+            "total_steps": 4,
+            "total_encontrados_osm": len(comercios),
+            "total_a_procesar": total_a_procesar,
+            "message": f"Encontrados {len(comercios)} comercios en OSM. Analizando presencia digital ({total_a_procesar} a evaluar)..."
+        })
+
+        total_agregados = 0
+        prospectos_procesados = []
+
+        for idx, com in enumerate(comercios_a_procesar, start=1):
+            nombre = com["nombre"]
+            ciudad = com.get("ciudad") or loc or "Local"
+            prov_lead = com.get("provincia") or prov or ""
+            ig_osm = com.get("instagram_tag_osm", "")
+            calle = com.get("direccion", "")
+
+            yield sse({
+                "type": "progress",
+                "step": 4,
+                "index": idx,
+                "total": total_a_procesar,
+                "nombre": nombre,
+                "ciudad": ciudad,
+                "message": f"[{idx}/{total_a_procesar}] Analizando presencia online de '{nombre}'..."
+            })
+
+            def procesar_un_comercio():
+                nombre_para_buscar = f"{nombre} {calle}".strip() if nombre.lower().strip() in ["clínica dental", "clinica dental", "dentista", "peluqueria", "taller"] and calle else nombre
+                presencia = investigar_presencia_negocio(nombre_para_buscar, ciudad, ig_osm)
+                ig_info = presencia["instagram"]
+                enlaces_internet = presencia["enlaces_internet"]
+                web_detectada = presencia["web_detectada"]
+                google_search_url = presencia["google_search_url"]
+                google_maps_url = presencia["google_maps_url"]
+
+                if ig_info["encontrado"]:
+                    analisis = verificar_y_redactar_pitch(nombre, ig_info["datos_crudos"], ciudad, tiene_ig=True)
+                elif enlaces_internet:
+                    resumen_enlaces = "\n".join([f"- {e['label']}: {e['url']} | {e.get('titulo', '')} {e.get('snippet', '')}" for e in enlaces_internet])
+                    analisis = verificar_y_redactar_pitch(nombre, resumen_enlaces, ciudad, tiene_ig=False)
+                else:
+                    analisis = {
+                        "es_gran_cadena": False,
+                        "es_perfil_correcto": False,
+                        "razon": "No se detectó perfil de Instagram ni presencia web directa en el rastreo inicial",
+                        "mensaje_dm_sugerido": "",
+                        "mensaje_seguimiento": ""
+                    }
+
+                if analisis.get("es_gran_cadena") or es_cadena_o_franquicia(nombre, com.get("tags")):
+                    return None, "Gran cadena o franquicia detectada"
+
+                if ig_info["encontrado"] and not analisis.get("es_perfil_correcto"):
+                    ig_url = ""
+                    ig_handle = ""
+                    mensaje_dm = ""
+                    mensaje_seguimiento = ""
+                    razon = analisis.get("razon", "Perfil de Instagram no coincidente")
+                elif ig_info["encontrado"] and analisis.get("es_perfil_correcto"):
+                    ig_url = ig_info["url"]
+                    ig_handle = ig_info["handle"]
+                    mensaje_dm = analisis.get("mensaje_dm_sugerido", "")
+                    mensaje_seguimiento = analisis.get("mensaje_seguimiento", "")
+                    razon = analisis.get("razon", "Perfil de Instagram verificado y coincidente")
+                elif enlaces_internet:
+                    ig_url = ""
+                    ig_handle = ""
+                    mensaje_dm = analisis.get("mensaje_dm_sugerido", "")
+                    mensaje_seguimiento = analisis.get("mensaje_seguimiento", "")
+                    nombres_fuentes = ", ".join(list(dict.fromkeys([e['label'] for e in enlaces_internet])))
+                    razon = f"Sin Instagram. Presencia online detectada ({len(enlaces_internet)} fuentes: {nombres_fuentes})"
+                else:
+                    ig_url = ""
+                    ig_handle = ""
+                    mensaje_dm = ""
+                    mensaje_seguimiento = ""
+                    razon = "Sin Instagram ni presencia web detectada"
+
+                if analisis.get("tiene_web_oficial") and analisis.get("web_oficial_url"):
+                    web_detectada = analisis["web_oficial_url"]
+
+                tiene_web_real = bool(web_detectada or analisis.get("tiene_web_oficial"))
+
+                lead = {
+                    "osm_id": com["osm_id"],
+                    "nombre": nombre,
+                    "categoria": f"{cat_usuario} ({osm_key}:{osm_value})",
+                    "direccion": com["direccion"],
+                    "ciudad": ciudad,
+                    "provincia": prov_lead,
+                    "codigo_postal": com["codigo_postal"],
+                    "telefono": com["telefono"],
+                    "email": com.get("email", ""),
+                    "tiene_web": tiene_web_real,
+                    "instagram_url": ig_url,
+                    "instagram_handle": ig_handle,
+                    "enlaces_internet": enlaces_internet,
+                    "web_detectada": web_detectada,
+                    "google_search_url": google_search_url,
+                    "google_maps_url": google_maps_url,
+                    "gemini_verificado": bool(analisis.get("es_perfil_correcto")),
+                    "gemini_razon": razon,
+                    "mensaje_dm": mensaje_dm,
+                    "mensaje_seguimiento": mensaje_seguimiento,
+                    "estado": "Tiene Web" if tiene_web_real else "Sin Web",
+                    "demo_slug": "",
+                    "demo_url": "",
+                    "demo_vibe": ""
+                }
+                return lead, None
+
+            lead_res, motivo_descarte = await asyncio.to_thread(procesar_un_comercio)
+
+            if lead_res is None:
+                yield sse({
+                    "type": "skipped",
+                    "index": idx,
+                    "total": total_a_procesar,
+                    "nombre": nombre,
+                    "razon": motivo_descarte or "Omitido"
+                })
+            else:
+                agregado = await asyncio.to_thread(guardar_leads_deduplicados, [lead_res])
+                total_agregados += agregado
+                prospectos_procesados.append(lead_res)
+
+                # Leer lead con datos persistidos
+                yield sse({
+                    "type": "lead",
+                    "index": idx,
+                    "total": total_a_procesar,
+                    "lead": lead_res,
+                    "agregado_nuevo": bool(agregado > 0),
+                    "message": f"Lead procesado: {nombre}"
+                })
+
+            await asyncio.sleep(0.05)
+
+        yield sse({
+            "type": "complete",
+            "status": "ok",
+            "categoria_osm": osm_tag,
+            "total_procesados": len(prospectos_procesados),
+            "nuevos_leads_encontrados": total_agregados,
+            "message": f"¡Escaneo finalizado con éxito! {total_agregados} nuevas oportunidades agregadas."
+        })
+
+    return StreamingResponse(
+        stream_events(),
+        media_type="text/event-stream",
+        headers={
+            "Cache-Control": "no-cache",
+            "Connection": "keep-alive",
+            "X-Accel-Buffering": "no"
+        }
+    )
+
+
 class StatusUpdateRequest(BaseModel):
     estado: str
 
