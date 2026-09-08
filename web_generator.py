@@ -155,8 +155,8 @@ def generar_web_comercio(lead: Dict[str, Any], cliente_gemini=None) -> Dict[str,
             "telefono": telefono,
             "whatsapp_url": whatsapp_url,
             "instagram_url": lead.get("instagram_url", f"https://www.instagram.com/{ig_data.get('username')}"),
-            "lat": 40.4168, # Coordenada por defecto o extraíble de OSM
-            "lon": -3.7038
+            "lat": float(lead.get("lat") or 41.3851), # Coordenada real del negocio o fallback Barcelona/Madrid
+            "lon": float(lead.get("lon") or 2.1734)
         },
         ig=ig_data,
         design=design_tokens,
@@ -173,7 +173,7 @@ def generar_web_comercio(lead: Dict[str, Any], cliente_gemini=None) -> Dict[str,
         "slug": slug,
         "demo_file": str(demo_file),
         "demo_rel_path": f"/demos/{slug}/index.html",
-        "demo_url_local": f"/demos/{slug}",
+        "demo_url_local": f"/demos/{slug}/",
         "design_vibe": design_tokens.get("vibe_name"),
         "servicios_count": len(web_content.get("servicios", []))
     }

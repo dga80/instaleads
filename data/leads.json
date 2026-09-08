@@ -67,12 +67,13 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Gesclident+Barcelona",
     "gemini_verificado": true,
     "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Sitio Web, Doctoralia, Directorio Local)",
-    "mensaje_dm": "¡Hola equipo de Gesclident! Os contactamos desde un equipo local de diseño web en Barcelona. Hemos estado revisando negocios con buenas referencias en vuestra zona y os hemos preparado una maqueta interactiva móvil para vuestra clínica: (Es un enlace 100% seguro sin registros para verlo en el navegador). ¿Os gustaría que conversemos 2 minutos sin compromiso? ¡Un saludo!",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Gesclident! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
+    "mensaje_dm": "¡Hola equipo de Gesclident! Somos un equipo de diseño web en Barcelona. Al ver vuestra clínica dental, os preparamos una propuesta digital interactiva para atraer nuevos pacientes: Es un enlace seguro para visualizarla directamente en el navegador, sin descargas ni registros. ¿Qué os parece?",
+    "mensaje_seguimiento": "¡Hola de nuevo! Os escribí hace unos días compartiendo la maqueta web que diseñamos para Gesclident: Podéis revisarla cómodamente desde el móvil cuando tengáis un hueco. ¡Un saludo cordial!",
     "estado": "Sin Web",
     "demo_slug": "",
     "demo_url": "",
-    "demo_vibe": ""
+    "demo_vibe": "",
+    "demo_url_absoluta": ""
   },
   {
     "osm_id": "4728093794",
@@ -159,7 +160,7 @@
     "codigo_postal": "08026",
     "telefono": "",
     "email": "",
-    "tiene_web": false,
+    "tiene_web": true,
     "instagram_url": "https://www.instagram.com/cdentalbarcelona/",
     "instagram_handle": "@cdentalbarcelona",
     "enlaces_internet": [
@@ -212,14 +213,14 @@
         "snippet": "Las Mejores Clínicas Dentales cerca de Barcelona basado en las opiniones, premios, menciones y calidad del servicio dent"
       }
     ],
-    "web_detectada": "",
+    "web_detectada": "https://www.clinicadentalbarcelona.com/",
     "google_search_url": "https://www.google.com/search?q=Cl%C3%ADnica+dental+Barcelona",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Cl%C3%ADnica+dental+Barcelona",
     "gemini_verificado": true,
-    "gemini_razon": "Coincide clínica local en Barcelona, sin indicios de ser una gran cadena o franquicia.",
+    "gemini_razon": "Coincide clínica local en Barcelona con web oficial y perfil de Instagram detectados.",
     "mensaje_dm": "¡Hola equipo de Clínica Dental Barcelona! Me alegra contactaros. Somos un equipo local de diseño web en Barcelona y vemos que tenéis un gran potencial para recibir más pacientes directos. Os hemos preparado una maqueta interactiva adaptada a vuestro negocio: https://[enlace_a_maqueta]. Es un enlace 100% seguro para verla en el navegador sin descargas. ¿Qué os parece?",
     "mensaje_seguimiento": "¡Hola de nuevo! Os escribí hace un par de días con una maqueta web interactiva para vuestro negocio: https://[enlace_a_maqueta]. Os lo comparto por aquí por si os resulta cómodo revisarlo desde el móvil. ¡Un saludo cordial!",
-    "estado": "Sin Web",
+    "estado": "Tiene Web",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": ""
@@ -252,11 +253,12 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Dental+Nu%C3%B1ez+Barcelona",
     "gemini_verificado": true,
     "gemini_razon": "Clínica dental local independiente verificada en Barcelona.",
-    "mensaje_dm": "¡Hola equipo de Dental Nuñez! Somos un equipo local de diseño web en Barcelona. Admiramos vuestro enfoque en odontología digital 3D y os hemos preparado una propuesta interactiva para potenciar vuestras reservas online: https://.... Es un enlace seguro para explorarla directamente en el navegador, sin registros ni descargas. ¿Qué os parece?",
-    "mensaje_seguimiento": "¡Hola! Os contacté hace unos días por si no pudisteis verlo. Os preparé una maqueta web interactiva pensada para Dental Nuñez: https://.... Se abre directamente desde el móvil sin descargas ni registros. ¡Quedo a vuestra disposición si os apetece comentarla!",
-    "estado": "Sin Web",
-    "demo_slug": "",
-    "demo_url": "",
-    "demo_vibe": ""
+    "mensaje_dm": "¡Hola equipo de Dental Nuñez! Me alegra contactaros. Somos un equipo local de diseño web en Barcelona y vemos que tenéis un gran potencial para recibir más clientes directos en Google y móvil. Os hemos preparado una maqueta interactiva adaptada a vuestro negocio: http://127.0.0.1:8085/demos/dental-nunez-barcelona/. Es un enlace 100% seguro para verla en el navegador sin descargas. ¿Qué os parece?",
+    "mensaje_seguimiento": "¡Hola de nuevo! Os escribí hace un par de días con una maqueta web interactiva para vuestro negocio: http://127.0.0.1:8085/demos/dental-nunez-barcelona/. Os lo comparto por aquí por si os resulta cómodo revisarlo desde el móvil. ¡Un saludo cordial!",
+    "estado": "Web Generada",
+    "demo_slug": "dental-nunez-barcelona",
+    "demo_url": "/demos/dental-nunez-barcelona/",
+    "demo_vibe": "Fresh Clinical (Limpio, Confiable & Salud)",
+    "demo_url_absoluta": "http://127.0.0.1:8085/demos/dental-nunez-barcelona/"
   }
 ]

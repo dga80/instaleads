@@ -18,6 +18,10 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+    .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.6); border-radius: 8px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(71, 85, 105, 0.8); border-radius: 8px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(100, 116, 139, 1); }
   </style>
 </head>
 <body class="min-h-full flex flex-col bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 text-slate-200">
@@ -39,7 +43,16 @@
         </div>
       </div>
 
-      <div class="flex items-center space-x-4">
+      <div class="flex items-center space-x-3 sm:space-x-4">
+        <!-- Active Background Jobs Indicator -->
+        <div id="header-jobs-badge" onclick="cambiarPestana('progreso')" class="hidden items-center gap-2 text-xs px-3 py-1.5 rounded-full bg-gradient-to-r from-pink-950/90 via-purple-950/90 to-indigo-950/90 border border-pink-500/50 text-pink-300 font-semibold shadow-lg shadow-pink-500/20 cursor-pointer hover:scale-105 active:scale-95 transition">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-pink-500"></span>
+          </span>
+          <span id="header-jobs-text">⚡ 0 en curso</span>
+        </div>
+
         <!-- API Status Indicator -->
         <div id="gemini-badge" class="flex items-center space-x-2 text-xs px-3 py-1.5 rounded-full bg-slate-800/80 border border-slate-700">
           <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse" id="status-dot"></span>
@@ -181,7 +194,10 @@
         <div id="stat-total" class="text-2xl font-bold text-white mt-1">0</div>
       </div>
       <div class="glass-card p-4 rounded-xl border border-slate-800">
-        <div class="text-xs text-slate-400 font-medium">Con Instagram Detectado</div>
+        <div class="text-xs text-pink-300 font-semibold flex items-center justify-between">
+          <span>🔥 Con IG y Sin Web</span>
+          <span class="text-[9px] px-1.5 py-0.5 rounded-full bg-pink-950/80 text-pink-400 border border-pink-500/30 font-bold uppercase">Prioridad 1</span>
+        </div>
         <div id="stat-ig" class="text-2xl font-bold text-pink-400 mt-1">0</div>
       </div>
       <div class="glass-card p-4 rounded-xl border border-slate-800">
@@ -199,16 +215,74 @@
       </div>
     </div>
 
-    <!-- LEADS TABLE SECTION -->
+    <!-- LEADS PIPELINE CONTAINER WITH TABS -->
     <div class="glass-card rounded-2xl shadow-xl overflow-hidden border border-slate-800">
-      <div class="px-6 py-4 border-b border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      
+      <!-- BARRA DE PESTAÑAS Y ACCIONES EN LOTE -->
+      <div class="px-4 sm:px-6 pt-3 border-b border-slate-800 bg-slate-950/60 flex flex-wrap items-center justify-between gap-3">
+        <!-- Pestañas Principales -->
+        <div class="flex items-center space-x-1 sm:space-x-2 text-xs overflow-x-auto custom-scrollbar pb-2 sm:pb-0">
+          <button type="button" id="tab-todos" onclick="cambiarPestana('todos')" 
+            class="px-3.5 py-2.5 rounded-t-xl font-bold flex items-center gap-2 border-b-2 border-indigo-500 text-indigo-300 bg-slate-900/90 transition shadow-sm">
+            <span>📋 Todos los Leads</span>
+            <span id="tab-count-todos" class="px-2 py-0.5 rounded-full text-[10px] bg-indigo-950 text-indigo-300 border border-indigo-800/60 font-semibold">0</span>
+          </button>
+          
+          <button type="button" id="tab-prioridad" onclick="cambiarPestana('prioridad')" 
+            class="px-3.5 py-2.5 rounded-t-xl font-medium flex items-center gap-2 border-b-2 border-transparent text-slate-400 hover:text-pink-300 hover:bg-slate-900/40 transition">
+            <span class="flex items-center gap-1.5">🔥 Prioridad Alta</span>
+            <span id="tab-count-prioridad" class="px-2 py-0.5 rounded-full text-[10px] bg-pink-950/80 text-pink-300 border border-pink-700/50 font-semibold">0</span>
+          </button>
+
+          <button type="button" id="tab-progreso" onclick="cambiarPestana('progreso')" 
+            class="px-3.5 py-2.5 rounded-t-xl font-medium flex items-center gap-2 border-b-2 border-transparent text-slate-400 hover:text-purple-300 hover:bg-slate-900/40 transition relative">
+            <span class="flex items-center gap-1.5">
+              <span id="progreso-tab-dot" class="w-2 h-2 rounded-full bg-pink-400 animate-ping hidden"></span>
+              <span>⚡ En Progreso</span>
+            </span>
+            <span id="tab-count-progreso" class="px-2 py-0.5 rounded-full text-[10px] bg-purple-950 text-purple-300 border border-purple-700/50 font-bold">0</span>
+          </button>
+
+          <button type="button" id="tab-demos" onclick="cambiarPestana('demos')" 
+            class="px-3.5 py-2.5 rounded-t-xl font-medium flex items-center gap-2 border-b-2 border-transparent text-slate-400 hover:text-emerald-300 hover:bg-slate-900/40 transition">
+            <span class="flex items-center gap-1.5">📱 Webs Generadas</span>
+            <span id="tab-count-demos" class="px-2 py-0.5 rounded-full text-[10px] bg-emerald-950/80 text-emerald-300 border border-emerald-700/50 font-semibold">0</span>
+          </button>
+
+          <button type="button" id="tab-contactados" onclick="cambiarPestana('contactados')" 
+            class="px-3.5 py-2.5 rounded-t-xl font-medium flex items-center gap-2 border-b-2 border-transparent text-slate-400 hover:text-amber-300 hover:bg-slate-900/40 transition">
+            <span class="flex items-center gap-1.5">✉️ Contactados / CRM</span>
+            <span id="tab-count-contactados" class="px-2 py-0.5 rounded-full text-[10px] bg-amber-950/80 text-amber-300 border border-amber-700/50 font-semibold">0</span>
+          </button>
+        </div>
+
+        <!-- Botón de Acción en Lote & Limpieza de Demos -->
+        <div class="flex items-center gap-2 pb-2 sm:pb-1">
+          <button type="button" id="btn-batch-gen" onclick="generarLotePrioritarios(3)" 
+            class="text-xs px-3 py-1.5 rounded-xl bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 hover:from-pink-500 hover:to-indigo-500 text-white font-semibold shadow-md shadow-pink-500/20 active:scale-95 transition flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            <span>Generar Top 3 en Lote</span>
+          </button>
+          <button type="button" id="btn-purge-demos" onclick="confirmarBorrarTodasLasDemos()" 
+            class="hidden text-xs px-3 py-1.5 rounded-xl bg-rose-950/80 hover:bg-rose-900 border border-rose-800/60 text-rose-300 font-semibold shadow-md active:scale-95 transition flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+            <span>Eliminar Todas las Demos</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- HEADER DE CONTROL Y FILTROS -->
+      <div id="subnav-header" class="px-6 py-3.5 border-b border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h2 class="text-lg font-bold text-white">Pipeline de Oportunidades Comerciales</h2>
-          <p class="text-xs text-slate-400">Cadencia inteligente: DM inicial, alertas de seguimiento a las 48h y webs personalizadas</p>
+          <h2 id="pipeline-title" class="text-base font-bold text-white flex items-center gap-2">
+            <span>Pipeline de Oportunidades Comerciales</span>
+            <span id="pipeline-subtitle-badge" class="text-xs font-normal text-slate-400"></span>
+          </h2>
+          <p id="pipeline-desc" class="text-xs text-slate-400">Cadencia inteligente: DM inicial, alertas de seguimiento a las 48h y webs personalizadas</p>
         </div>
         <div class="flex items-center space-x-3">
-          <!-- Selector de Vista -->
-          <div class="inline-flex rounded-xl bg-slate-900 border border-slate-700 p-1 text-xs font-semibold">
+          <!-- Selector de Vista (Tabla vs Kanban) -->
+          <div id="vista-selector-wrapper" class="inline-flex rounded-xl bg-slate-900 border border-slate-700 p-1 text-xs font-semibold">
             <button type="button" id="btn-view-table" onclick="cambiarVista('table')" class="px-3 py-1 rounded-lg bg-indigo-600 text-white shadow-sm transition">
               📋 Tabla
             </button>
@@ -220,6 +294,11 @@
           <input type="text" id="filtro-tabla" oninput="filtrarTabla()" placeholder="Filtrar comercios..." 
             class="bg-slate-900/90 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">
         </div>
+      </div>
+
+      <!-- EN PROGRESO WRAPPER (DASHBOARD EN VIVO DE WEBS SIMULTÁNEAS) -->
+      <div id="progreso-wrapper" class="hidden p-6 bg-slate-950/40">
+        <div id="progreso-content"></div>
       </div>
 
       <!-- KANBAN WRAPPER -->
@@ -307,46 +386,59 @@
   </main>
 
   <!-- PITCH MODAL -->
-  <div id="pitch-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm hidden">
-    <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-lg w-full p-6 shadow-2xl relative">
-      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-        <div class="flex items-center space-x-2">
-          <div class="w-7 h-7 rounded-lg ig-gradient flex items-center justify-center text-white">
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+  <div id="pitch-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/75 backdrop-blur-sm hidden overflow-y-auto">
+    <div class="bg-slate-900 border border-slate-700/80 rounded-2xl max-w-2xl w-full p-5 sm:p-6 shadow-2xl relative my-auto max-h-[92vh] flex flex-col">
+      <!-- Modal Header (Sticky/Fixed) -->
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3.5 shrink-0">
+        <div class="flex items-center space-x-2.5">
+          <div class="w-8 h-8 rounded-xl ig-gradient flex items-center justify-center text-white shadow-md shadow-pink-500/20">
+            <svg class="w-4.5 h-4.5" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/>
             </svg>
           </div>
-          <h3 id="modal-title" class="text-base font-bold text-white">Pitch para Negocio</h3>
+          <div>
+            <h3 id="modal-title" class="text-base font-bold text-white leading-tight">Pitch para Negocio</h3>
+            <span class="text-[11px] text-slate-400">Personalización y prospección omnicanal</span>
+          </div>
         </div>
-        <button onclick="cerrarModal()" class="text-slate-400 hover:text-white p-1">
+        <button onclick="cerrarModal()" class="text-slate-400 hover:text-white p-1.5 rounded-lg hover:bg-slate-800 transition">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
           </svg>
         </button>
       </div>
 
-      <div class="mt-4 space-y-4">
+      <!-- Modal Body (Scrollable) -->
+      <div class="mt-4 space-y-4 flex-1 overflow-y-auto pr-1 sm:pr-2 custom-scrollbar">
         <!-- Razón de validación -->
-        <div class="bg-slate-800/60 rounded-xl p-3 border border-slate-700/60 text-xs flex items-center justify-between">
-          <div>
+        <div class="bg-slate-800/60 rounded-xl p-3 border border-slate-700/60 text-xs flex items-center justify-between gap-3">
+          <div class="flex-1">
             <span class="text-slate-400 font-semibold uppercase tracking-wider block mb-0.5">Verificación del Perfil por Gemini:</span>
             <p id="modal-razon" class="text-slate-300 italic">Coincidencia de datos comprobada.</p>
           </div>
-          <button onclick="simularTiempoLeadModal()" title="Simula que han pasado 50 horas para ver el aviso de seguimiento" class="text-[10px] px-2 py-1 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30 hover:bg-amber-500/30 transition">
+          <button onclick="simularTiempoLeadModal()" title="Simula que han pasado 50 horas para ver el aviso de seguimiento" class="text-[10px] px-2.5 py-1.5 rounded-lg bg-amber-500/20 text-amber-300 border border-amber-500/30 hover:bg-amber-500/30 transition shrink-0">
             ⏰ Simular +50h
           </button>
         </div>
 
         <!-- Web Demo Asociada -->
         <div id="modal-demo-box" class="bg-indigo-950/30 rounded-xl p-3 border border-indigo-500/30 text-xs hidden">
-          <div class="flex items-center justify-between">
-            <div>
+          <div class="flex items-center justify-between gap-2">
+            <div class="truncate">
               <span class="text-indigo-400 font-semibold uppercase tracking-wider block">Web Demo Generada:</span>
-              <span id="modal-demo-url" class="text-slate-300 font-mono text-[11px] truncate max-w-xs block mt-0.5"></span>
+              <span id="modal-demo-url" class="text-slate-300 font-mono text-[11px] truncate max-w-sm block mt-0.5"></span>
             </div>
-            <button id="modal-ver-demo-btn" onclick="abrirSimuladorDesdeModal()" class="px-3 py-1.5 rounded-lg bg-indigo-600/40 hover:bg-indigo-600/60 text-indigo-200 border border-indigo-500/40 text-xs font-semibold transition flex items-center gap-1">
-              <span>📱 Probar Web</span>
-            </button>
+            <div class="flex items-center space-x-1.5 shrink-0">
+              <button id="modal-ver-demo-btn" onclick="abrirSimuladorDesdeModal()" class="px-3 py-1.5 rounded-lg bg-indigo-600/60 hover:bg-indigo-600 text-white border border-indigo-500/40 text-xs font-semibold transition flex items-center gap-1.5">
+                <span>📱 Probar Web</span>
+              </button>
+              <button onclick="copiarEnlaceDemo(urlDemoActual, this)" class="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition" title="Copiar enlace">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+              </button>
+              <button onclick="borrarDemoDesdeModal()" class="p-1.5 rounded-lg bg-rose-950/40 hover:bg-rose-900/60 text-rose-300 border border-rose-800/50 transition" title="Borrar y resetear esta web demo">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -363,7 +455,7 @@
               </a>
             </div>
           </div>
-          <div id="modal-internet-links" class="space-y-1.5 pt-0.5"></div>
+          <div id="modal-internet-links" class="max-h-44 overflow-y-auto space-y-1.5 pt-0.5 custom-scrollbar"></div>
         </div>
 
         <!-- Pestañas de Cadencia: Paso 1 (DM) vs Paso 2 (Seguimiento) -->
@@ -389,7 +481,7 @@
             <span class="text-[10px] text-slate-500">Puedes editar el texto libremente</span>
           </div>
           <div class="relative">
-            <textarea id="modal-pitch-text" rows="5" 
+            <textarea id="modal-pitch-text" rows="4" 
               class="w-full bg-slate-950/90 border border-slate-700/80 rounded-xl p-3.5 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-pink-500/50 font-sans leading-relaxed"></textarea>
           </div>
         </div>
@@ -426,7 +518,8 @@
         </div>
       </div>
 
-      <div class="mt-6 flex items-center justify-between">
+      <!-- Modal Footer (Sticky/Fixed) -->
+      <div class="mt-4 pt-3.5 border-t border-slate-800 flex items-center justify-between shrink-0">
         <a id="modal-ig-link" href="#" target="_blank" rel="noopener noreferrer" 
           class="text-xs text-pink-400 hover:text-pink-300 font-medium inline-flex items-center gap-1.5">
           <span>Abrir Instagram</span>
@@ -449,42 +542,147 @@
     </div>
   </div>
 
-  <!-- SIMULADOR SMARTPHONE (MOCKUP IPHONE) -->
-  <div id="simulator-modal" class="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80 backdrop-blur-md hidden">
-    <div class="flex flex-col items-center max-w-sm sm:max-w-md w-full relative">
-      <!-- Acciones Superiores del Simulador -->
-      <div class="w-full flex items-center justify-between mb-3 px-2">
-        <div class="flex items-center space-x-2">
-          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span id="simulator-title" class="text-xs font-bold text-white truncate max-w-[180px]">Simulador Móvil</span>
+  <!-- SIMULADOR SMARTPHONE (TITANIUM IPHONE 16 PRO / PRO MAX) -->
+  <div id="simulator-modal" class="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-black/90 backdrop-blur-2xl hidden overflow-y-auto">
+    <div class="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-6 relative my-auto max-w-full">
+      
+      <!-- Barra Lateral de Control del Simulador (Docked to the side) -->
+      <div class="w-full max-w-[393px] lg:w-60 p-3.5 bg-slate-900/95 border border-slate-700/80 rounded-3xl backdrop-blur-2xl shadow-2xl flex flex-col gap-3 text-xs z-50 shrink-0">
+        
+        <!-- Info del Comercio & Live Indicator -->
+        <div class="flex items-center justify-between pb-2.5 border-b border-slate-800">
+          <div class="flex items-center space-x-2 min-w-0">
+            <span class="relative flex h-2.5 w-2.5 shrink-0">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+            </span>
+            <div class="truncate">
+              <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Vista Previa Móvil</span>
+              <span id="simulator-title" class="font-bold text-white text-xs truncate block">Dental Nuñez</span>
+            </div>
+          </div>
+          <button onclick="cerrarSimulador()" title="Cerrar (Esc)" class="p-1 rounded-lg bg-slate-800 hover:bg-red-500/20 text-slate-400 hover:text-red-400 transition lg:hidden">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
         </div>
-        <div class="flex items-center space-x-2">
-          <button id="simulator-open-tab" onclick="abrirTabExterna()" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition flex items-center gap-1.5 font-medium">
-            <span>Nueva Pestaña</span>
+
+        <!-- Selector de Modelo iPhone -->
+        <div>
+          <label class="block text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-1">Dispositivo</label>
+          <div class="grid grid-cols-2 rounded-xl bg-slate-950 p-1 border border-slate-800 text-[11px] font-medium text-slate-300 gap-1">
+            <button id="sim-btn-16pro" onclick="cambiarDispositivoSimulador('iphone16pro')" class="px-2 py-1.5 rounded-lg bg-indigo-600 text-white font-semibold transition shadow-sm text-center">
+              iPhone 16 Pro
+            </button>
+            <button id="sim-btn-16promax" onclick="cambiarDispositivoSimulador('iphone16promax')" class="px-2 py-1.5 rounded-lg text-slate-400 hover:text-white transition text-center">
+              Pro Max
+            </button>
+          </div>
+        </div>
+
+        <!-- Zoom Selector -->
+        <div>
+          <label class="block text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-1">Escala / Zoom</label>
+          <select id="sim-zoom-select" onchange="ajustarZoomSimulador(this.value)" class="w-full bg-slate-950 border border-slate-800 text-slate-200 text-[11px] rounded-xl px-2.5 py-1.5 focus:ring-1 focus:ring-indigo-500 font-medium">
+            <option value="auto">Auto-Ajustar (Alto Máximo)</option>
+            <option value="1">100% (1:1 Nativo)</option>
+            <option value="0.95">95%</option>
+            <option value="0.9">90%</option>
+            <option value="0.85">85%</option>
+            <option value="0.8">80%</option>
+          </select>
+        </div>
+
+        <!-- Botones de Acción Rápida -->
+        <div class="space-y-1.5 pt-1 border-t border-slate-800">
+          <label class="block text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-1">Acciones</label>
+          
+          <div class="grid grid-cols-2 gap-1.5">
+            <button onclick="recargarSimulador()" title="Recargar Demo" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition border border-slate-700/60 flex items-center justify-center gap-1.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+              <span class="text-[11px] font-medium">Recargar</span>
+            </button>
+
+            <button onclick="copiarUrlActualSimulador(this)" title="Copiar enlace" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition border border-slate-700/60 flex items-center justify-center gap-1.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+              <span class="text-[11px] font-medium">Copiar</span>
+            </button>
+          </div>
+
+          <button onclick="abrirTabExterna()" class="w-full py-2 px-3 rounded-xl bg-indigo-950/60 hover:bg-indigo-900/80 text-indigo-300 hover:text-white transition border border-indigo-700/50 flex items-center justify-center gap-1.5 font-medium">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            <span>Abrir Pestaña Completa</span>
           </button>
-          <button onclick="cerrarSimulador()" class="p-1.5 rounded-lg bg-slate-800 text-slate-400 hover:text-white transition">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+
+          <button onclick="borrarDemoDesdeSimulador()" class="w-full py-2 px-3 rounded-xl bg-rose-950/40 hover:bg-rose-900/60 text-rose-300 hover:text-rose-200 transition border border-rose-800/50 flex items-center justify-center gap-1.5 font-medium">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+            <span>Eliminar esta Demo</span>
           </button>
         </div>
+
+        <!-- Botón Cerrar Desktop -->
+        <button onclick="cerrarSimulador()" class="hidden lg:flex w-full py-2.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition border border-slate-700 font-semibold items-center justify-center gap-1.5 mt-1">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          <span>Cerrar Simulador (Esc)</span>
+        </button>
+
       </div>
 
-      <!-- Carcasa del Teléfono (Bezel Mockup) -->
-      <div class="w-[340px] sm:w-[375px] h-[670px] bg-slate-950 rounded-[50px] p-3 shadow-2xl border-[6px] border-slate-700/80 relative flex flex-col items-center">
-        <!-- Dynamic Island -->
-        <div class="w-24 h-4 bg-black rounded-full absolute top-4 z-20 flex items-center justify-center">
-          <div class="w-2 h-2 rounded-full bg-slate-800 mr-2"></div>
-          <div class="w-1.5 h-1.5 rounded-full bg-indigo-950"></div>
+      <!-- Wrapper con Escala para Pantallas de Cualquier Resolución -->
+      <div id="sim-scale-container" class="transition-transform duration-200 origin-center flex items-center justify-center shrink-0">
+        
+        <!-- Carcasa de Titanio iPhone 16 Pro (Bezel ultra-fino de 4px) -->
+        <div id="iphone-chassis" class="w-[393px] h-[852px] bg-neutral-950 rounded-[54px] p-[10px] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.95)] ring-1 ring-white/20 border-[3px] border-slate-700/80 relative flex flex-col items-center select-none">
+          
+          <!-- Botones laterales decorativos de titanio -->
+          <div class="absolute -left-[5px] top-[115px] w-[3px] h-[28px] bg-slate-600 rounded-l-sm"></div> <!-- Action Button -->
+          <div class="absolute -left-[5px] top-[160px] w-[3px] h-[50px] bg-slate-600 rounded-l-sm"></div> <!-- Volume Up -->
+          <div class="absolute -left-[5px] top-[220px] w-[3px] h-[50px] bg-slate-600 rounded-l-sm"></div> <!-- Volume Down -->
+          <div class="absolute -right-[5px] top-[170px] w-[3px] h-[75px] bg-slate-600 rounded-r-sm"></div> <!-- Power Button -->
+
+          <!-- Pantalla Interior OLED con Esquinas Redondeadas iOS -->
+          <div class="w-full h-full rounded-[44px] overflow-hidden bg-black relative flex flex-col">
+            
+            <!-- Barra de Estado Superior de iOS (Status Bar) -->
+            <div class="w-full h-11 px-7 flex items-center justify-between text-white text-[12px] font-semibold tracking-tight absolute top-0 left-0 right-0 z-40 pointer-events-none select-none bg-gradient-to-b from-black/70 to-transparent">
+              <!-- Hora en vivo -->
+              <span id="sim-clock" class="font-semibold text-[13px] tracking-tight">9:41</span>
+              
+              <!-- Iconos iOS (5G, WiFi, Batería) -->
+              <div class="flex items-center space-x-1.5 text-white">
+                <!-- 5G -->
+                <span class="text-[10px] font-bold tracking-tighter">5G</span>
+                <!-- WiFi icon -->
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98A16.88 16.88 0 0012 4zm0 2.22c3.9 0 7.46 1.5 10.15 3.96L12 18.3 1.85 10.18C4.54 7.72 8.1 6.22 12 6.22z"/></svg>
+                <!-- Battery Icon with fill -->
+                <div class="w-5 h-2.5 border border-white/80 rounded-[3px] p-[1px] flex items-center">
+                  <div class="h-full w-[85%] bg-emerald-400 rounded-[1.5px]"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dynamic Island Ultra-Realista -->
+            <div class="w-[124px] h-[34px] bg-black rounded-full absolute top-2.5 left-1/2 transform -translate-x-1/2 z-40 flex items-center justify-between px-3 shadow-[0_0_8px_rgba(0,0,0,0.8)] pointer-events-none select-none ring-1 ring-white/5">
+              <!-- Lente de Cámara Frontal con reflejo de zafiro -->
+              <div class="w-3 h-3 rounded-full bg-slate-900 border border-indigo-950 flex items-center justify-center">
+                <div class="w-1.5 h-1.5 rounded-full bg-indigo-700/60"></div>
+              </div>
+              <!-- Sensor de Luz Ambiental / FaceID -->
+              <div class="w-2.5 h-2.5 rounded-full bg-slate-950/80"></div>
+            </div>
+
+            <!-- Iframe de la Landing Page Mobile (Full screen edge-to-edge) -->
+            <iframe id="simulator-iframe" src="about:blank" class="w-full h-full border-0 bg-slate-950 block" loading="eager"></iframe>
+
+            <!-- Barra Inferior iOS Home Indicator -->
+            <div class="w-full h-5 absolute bottom-0 left-0 right-0 z-40 pointer-events-none flex items-center justify-center">
+              <div class="w-32 h-1 bg-white/40 rounded-full shadow-sm"></div>
+            </div>
+
+          </div>
         </div>
 
-        <!-- Pantalla Iframe -->
-        <div class="w-full h-full rounded-[40px] overflow-hidden bg-black relative">
-          <iframe id="simulator-iframe" src="about:blank" class="w-full h-full border-0"></iframe>
-        </div>
-
-        <!-- Barra Inferior Home -->
-        <div class="w-28 h-1 bg-slate-500 rounded-full absolute bottom-4 z-20 opacity-50"></div>
       </div>
+
     </div>
   </div>
 
@@ -528,29 +726,187 @@
       }
     }
 
+    let pestanaActual = 'todos'; // 'todos' | 'prioridad' | 'progreso' | 'demos' | 'contactados'
+    let vistaActual = 'table'; // 'table' | 'kanban'
+    const activeWebGenerations = new Map(); // osmId -> JobObject
+
     function setPreset(categoria) {
       document.getElementById('categoria').value = categoria;
     }
 
-    async function cargarLeads() {
+    async function cargarLeads(shouldRerender = true) {
       try {
         const res = await fetch('/leads');
         todosLosLeads = await res.json();
-        if (vistaActual === 'kanban') {
-          renderizarKanban(todosLosLeads);
-        } else {
-          renderizarTabla(todosLosLeads);
-        }
         actualizarEstadisticas(todosLosLeads);
+        if (shouldRerender) {
+          if (pestanaActual === 'progreso') {
+            renderizarVistaProgreso();
+          } else {
+            aplicarFiltrosYRenderizar();
+          }
+        }
       } catch (err) {
         console.error('Error al cargar leads:', err);
       }
     }
 
     function actualizarEstadisticas(leads) {
-      document.getElementById('stat-total').innerText = leads.length;
-      document.getElementById('stat-ig').innerText = leads.filter(l => l.instagram_url).length;
-      document.getElementById('stat-demos').innerText = leads.filter(l => l.demo_slug).length;
+      const total = leads.length;
+      const altaPrioridad = leads.filter(l => (l.instagram_url || l.instagram_handle) && !l.tiene_web && l.estado !== 'Tiene Web').length;
+      const demos = leads.filter(l => l.demo_slug).length;
+      const contactados = leads.filter(l => ['DM Enviado', 'Email Enviado', 'Respuesta Recibida', 'Cerrado'].includes(l.estado)).length;
+      
+      let runningCount = 0;
+      activeWebGenerations.forEach(job => {
+        if (job.status === 'running') runningCount++;
+      });
+
+      // Stats superiores
+      const statTotal = document.getElementById('stat-total');
+      const statIg = document.getElementById('stat-ig');
+      const statDemos = document.getElementById('stat-demos');
+      if (statTotal) statTotal.innerText = total;
+      if (statIg) statIg.innerText = altaPrioridad;
+      if (statDemos) statDemos.innerText = demos;
+
+      // Badges de Pestañas
+      const tTodos = document.getElementById('tab-count-todos');
+      const tPrioridad = document.getElementById('tab-count-prioridad');
+      const tProgreso = document.getElementById('tab-count-progreso');
+      const tDemos = document.getElementById('tab-count-demos');
+      const tContactados = document.getElementById('tab-count-contactados');
+      const progDot = document.getElementById('progreso-tab-dot');
+
+      if (tTodos) tTodos.innerText = total;
+      if (tPrioridad) tPrioridad.innerText = altaPrioridad;
+      if (tProgreso) tProgreso.innerText = runningCount;
+      if (tDemos) tDemos.innerText = demos;
+      if (tContactados) tContactados.innerText = contactados;
+
+      if (progDot) {
+        if (runningCount > 0) progDot.classList.remove('hidden');
+        else progDot.classList.add('hidden');
+      }
+
+      // Header Jobs Badge
+      const headerJobs = document.getElementById('header-jobs-badge');
+      const headerJobsText = document.getElementById('header-jobs-text');
+      if (headerJobs && headerJobsText) {
+        if (runningCount > 0) {
+          headerJobs.classList.remove('hidden');
+          headerJobs.classList.add('flex');
+          headerJobsText.innerText = `⚡ ${runningCount} web${runningCount > 1 ? 's' : ''} en curso`;
+        } else {
+          headerJobs.classList.add('hidden');
+          headerJobs.classList.remove('flex');
+        }
+      }
+    }
+
+    // GESTOR DE PESTAÑAS
+    function cambiarPestana(tipo) {
+      pestanaActual = tipo;
+      const tabs = ['todos', 'prioridad', 'progreso', 'demos', 'contactados'];
+      tabs.forEach(t => {
+        const btn = document.getElementById(`tab-${t}`);
+        if (!btn) return;
+        if (t === tipo) {
+          btn.className = "px-3.5 py-2.5 rounded-t-xl font-bold flex items-center gap-2 border-b-2 border-indigo-500 text-indigo-300 bg-slate-900/90 transition shadow-sm";
+        } else {
+          btn.className = "px-3.5 py-2.5 rounded-t-xl font-medium flex items-center gap-2 border-b-2 border-transparent text-slate-400 hover:text-slate-200 hover:bg-slate-900/40 transition";
+        }
+      });
+
+      const progresoWrapper = document.getElementById('progreso-wrapper');
+      const tableWrapper = document.getElementById('table-wrapper');
+      const kanbanWrapper = document.getElementById('kanban-wrapper');
+      const vistaSelector = document.getElementById('vista-selector-wrapper');
+      const titleEl = document.getElementById('pipeline-title');
+      const subtitleEl = document.getElementById('pipeline-subtitle-badge');
+      const purgeBtn = document.getElementById('btn-purge-demos');
+      const batchBtn = document.getElementById('btn-batch-gen');
+
+      if (purgeBtn) {
+        if (tipo === 'demos') {
+          purgeBtn.classList.remove('hidden');
+        } else {
+          purgeBtn.classList.add('hidden');
+        }
+      }
+
+      if (tipo === 'progreso') {
+        progresoWrapper.classList.remove('hidden');
+        tableWrapper.classList.add('hidden');
+        kanbanWrapper.classList.add('hidden');
+        if (vistaSelector) vistaSelector.classList.add('hidden');
+        if (titleEl) titleEl.innerHTML = `<span>⚡ Generador Concurrente de Webs en Tiempo Real</span>`;
+        if (subtitleEl) subtitleEl.innerText = `${activeWebGenerations.size} webs procesadas/en curso`;
+        renderizarVistaProgreso();
+      } else {
+        progresoWrapper.classList.add('hidden');
+        if (vistaSelector) vistaSelector.classList.remove('hidden');
+        if (titleEl) {
+          if (tipo === 'prioridad') {
+            titleEl.innerHTML = `<span>🔥 Prospectos de Alta Prioridad</span> <span class="text-xs font-normal text-pink-400">(Con Instagram y Sin Web)</span>`;
+          } else if (tipo === 'demos') {
+            titleEl.innerHTML = `<span>📱 Webs Demos Generadas</span> <span class="text-xs font-normal text-emerald-400">(Listas para enviar)</span>`;
+          } else if (tipo === 'contactados') {
+            titleEl.innerHTML = `<span>✉️ Leads Contactados y Seguimiento</span> <span class="text-xs font-normal text-amber-400">(CRM Cadencia)</span>`;
+          } else {
+            titleEl.innerHTML = `<span>Pipeline de Oportunidades Comerciales</span>`;
+          }
+        }
+        if (subtitleEl) subtitleEl.innerText = "";
+        
+        if (vistaActual === 'table') {
+          tableWrapper.classList.remove('hidden');
+          kanbanWrapper.classList.add('hidden');
+        } else {
+          tableWrapper.classList.add('hidden');
+          kanbanWrapper.classList.remove('hidden');
+        }
+        aplicarFiltrosYRenderizar();
+      }
+    }
+
+    function getLeadsFiltrados() {
+      let list = [...todosLosLeads];
+      if (pestanaActual === 'prioridad') {
+        list = list.filter(l => (l.instagram_url || l.instagram_handle) && !l.tiene_web && l.estado !== 'Tiene Web');
+      } else if (pestanaActual === 'demos') {
+        list = list.filter(l => l.demo_slug);
+      } else if (pestanaActual === 'contactados') {
+        list = list.filter(l => ['DM Enviado', 'Email Enviado', 'Respuesta Recibida', 'Cerrado'].includes(l.estado));
+      }
+
+      const filtroTexto = (document.getElementById('filtro-tabla')?.value || '').toLowerCase().trim();
+      if (filtroTexto) {
+        list = list.filter(l => 
+          (l.nombre && l.nombre.toLowerCase().includes(filtroTexto)) ||
+          (l.categoria && l.categoria.toLowerCase().includes(filtroTexto)) ||
+          (l.ciudad && l.ciudad.toLowerCase().includes(filtroTexto)) ||
+          (l.provincia && l.provincia.toLowerCase().includes(filtroTexto))
+        );
+      }
+      return list;
+    }
+
+    function aplicarFiltrosYRenderizar() {
+      const filtrados = getLeadsFiltrados();
+      if (vistaActual === 'kanban') {
+        renderizarKanban(filtrados);
+      } else {
+        renderizarTabla(filtrados);
+      }
+    }
+
+    function filtrarTabla() {
+      if (pestanaActual === 'progreso') {
+        renderizarVistaProgreso();
+      } else {
+        aplicarFiltrosYRenderizar();
+      }
     }
 
     let urlDemoActual = "";
@@ -567,8 +923,8 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
                   </svg>
                 </div>
-                <p class="text-sm font-medium text-slate-400">No hay prospectos en la base de datos.</p>
-                <p class="text-xs text-slate-500">Ingresa un Código Postal y categoría para buscar con el agente inteligente.</p>
+                <p class="text-sm font-medium text-slate-400">No hay prospectos en esta vista.</p>
+                <p class="text-xs text-slate-500">Prueba cambiando de pestaña o realizando un nuevo escaneo.</p>
               </div>
             </td>
           </tr>
@@ -576,9 +932,30 @@
         return;
       }
 
-      tbody.innerHTML = leads.map((lead, idx) => {
+      // Ordenar por prioridad de testeo
+      const leadsOrdenados = [...leads].sort((a, b) => {
+        const scoreA = a.prioridad_score !== undefined ? a.prioridad_score : ((a.instagram_url && !a.tiene_web && a.estado !== 'Tiene Web') ? 100 : (a.tiene_web || a.estado === 'Tiene Web' ? 10 : 50));
+        const scoreB = b.prioridad_score !== undefined ? b.prioridad_score : ((b.instagram_url && !b.tiene_web && b.estado !== 'Tiene Web') ? 100 : (b.tiene_web || b.estado === 'Tiene Web' ? 10 : 50));
+        return scoreB - scoreA;
+      });
+
+      tbody.innerHTML = leadsOrdenados.map((lead, idx) => {
         const googleSearchUrl = lead.google_search_url || `https://www.google.com/search?q=${encodeURIComponent(lead.nombre + ' ' + (lead.ciudad || ''))}`;
         const googleMapsUrl = lead.google_maps_url || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(lead.nombre + ' ' + (lead.ciudad || ''))}`;
+
+        const tieneWeb = lead.tiene_web || lead.web_detectada || lead.estado === "Tiene Web";
+        const tieneIG = Boolean(lead.instagram_url || lead.instagram_handle);
+
+        let prioridadBadge = '';
+        if (tieneIG && !tieneWeb) {
+          prioridadBadge = `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-pink-950/90 text-pink-300 border border-pink-500/40 shadow-sm shadow-pink-500/20">🔥 Prioridad Alta (IG · Sin Web)</span>`;
+        } else if (tieneWeb) {
+          prioridadBadge = `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-slate-800/80 text-slate-400 border border-slate-700">🌐 Ya Tiene Web</span>`;
+        } else if (lead.enlaces_internet && lead.enlaces_internet.length > 0) {
+          prioridadBadge = `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-indigo-950/60 text-indigo-300 border border-indigo-700/40">⚡ Sin Web · Con Fuentes</span>`;
+        } else {
+          prioridadBadge = `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-slate-900 text-slate-500 border border-slate-800">⚪ Sin Web</span>`;
+        }
 
         let presenciaHtml = '';
         if (lead.instagram_url) {
@@ -634,9 +1011,10 @@
         }
 
         // Selector de estado
-        const estadoActual = lead.estado || "Sin Web";
+        const estadoActual = lead.estado || (lead.tiene_web ? "Tiene Web" : "Sin Web");
         const estadoColors = {
           "Sin Web": "bg-slate-800 text-slate-300 border-slate-700",
+          "Tiene Web": "bg-sky-950/80 text-sky-400 border-sky-700/60",
           "Web Generada": "bg-indigo-900/40 text-indigo-300 border-indigo-700/50",
           "DM Enviado": "bg-amber-900/40 text-amber-300 border-amber-700/50",
           "Respuesta Recibida": "bg-sky-900/40 text-sky-300 border-sky-700/50",
@@ -646,6 +1024,7 @@
         const estadoSelect = `
           <select onchange="cambiarEstado('${lead.osm_id}', this.value)" class="text-[11px] font-semibold rounded-lg px-2 py-1 bg-slate-900 border ${estadoColors[estadoActual] || 'border-slate-700 text-slate-300'} focus:outline-none cursor-pointer">
             <option value="Sin Web" ${estadoActual === "Sin Web" ? "selected" : ""}>⚪ Sin Web</option>
+            <option value="Tiene Web" ${estadoActual === "Tiene Web" ? "selected" : ""}>🌐 Ya Tiene Web</option>
             <option value="Web Generada" ${estadoActual === "Web Generada" ? "selected" : ""}>🟣 Web Lista</option>
             <option value="DM Enviado" ${estadoActual === "DM Enviado" ? "selected" : ""}>🟡 DM Enviado</option>
             <option value="Respuesta Recibida" ${estadoActual === "Respuesta Recibida" ? "selected" : ""}>🔵 Respondido</option>
@@ -655,32 +1034,61 @@
 
         // Columna Web Demo (Stitch)
         const demoUrl = lead.demo_url_absoluta || (lead.demo_slug ? `/demos/${lead.demo_slug}` : "");
-        const webDemoCol = lead.demo_slug ? `
-          <div class="flex flex-col items-center space-y-1">
-            <div class="flex items-center space-x-1.5">
-              <button onclick="abrirSimulador('${demoUrl}', '${lead.nombre}')" class="text-xs px-2.5 py-1.5 rounded-lg bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 hover:bg-indigo-500/30 transition flex items-center gap-1 font-semibold">
-                <span>📱 Ver Web</span>
-              </button>
-              <button onclick="copiarEnlaceDemo('${demoUrl}', this)" class="text-xs p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition" title="Copiar enlace de la demo">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
-              </button>
+        const activeJob = activeWebGenerations.get(String(lead.osm_id));
+        const isGenerating = activeJob && activeJob.status === 'running';
+
+        let webDemoCol = '';
+        if (isGenerating) {
+          webDemoCol = `
+            <div class="flex flex-col items-center justify-center min-w-[124px] max-w-[140px] space-y-1 px-1 py-0.5 mx-auto pointer-events-none">
+              <div class="flex items-center justify-between w-full text-[10px] font-semibold text-indigo-200">
+                <span class="flex items-center gap-1 overflow-hidden">
+                  <svg class="w-2.5 h-2.5 shrink-0 animate-spin text-pink-400" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  <span id="gen-step-${lead.osm_id}" class="truncate text-[9.5px]">${activeJob.stepText || 'Iniciando...'}</span>
+                </span>
+                <span id="gen-pct-${lead.osm_id}" class="font-mono text-[9px] text-pink-300 font-bold ml-1 shrink-0">${activeJob.currentPct || 0}%</span>
+              </div>
+              <div class="w-full h-1.5 bg-slate-950/80 rounded-full overflow-hidden border border-indigo-500/30">
+                <div id="gen-bar-${lead.osm_id}" class="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full transition-all duration-100 ease-out" style="width: ${activeJob.currentPct || 0}%;"></div>
+              </div>
             </div>
-            ${lead.demo_vibe ? `<span class="text-[10px] text-slate-400 truncate max-w-[140px]" title="${lead.demo_vibe}">${lead.demo_vibe.split(' ')[0]}</span>` : ''}
-          </div>
-        ` : `
-          <button onclick="generarWebLead('${lead.osm_id}', this)" class="text-xs px-3 py-1.5 rounded-lg bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-semibold shadow-md shadow-indigo-500/20 active:scale-95 transition flex items-center space-x-1.5 mx-auto">
-            <span>⚡ Generar Web</span>
-          </button>
-        `;
+          `;
+        } else if (lead.demo_slug) {
+          webDemoCol = `
+            <div class="flex flex-col items-center space-y-1">
+              <div class="flex items-center space-x-1.5">
+                <button onclick="abrirSimulador('${demoUrl}', '${lead.nombre.replace(/'/g, "\\'")}')" class="text-xs px-3 py-1.5 rounded-xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-500 hover:to-pink-500 text-white font-bold shadow-md shadow-indigo-500/20 hover:scale-105 active:scale-95 transition flex items-center gap-1.5">
+                  <span>📱 Probar en Móvil</span>
+                </button>
+                <button onclick="copiarEnlaceDemo('${demoUrl}', this)" class="text-xs p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition" title="Copiar enlace de la web demo">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+                </button>
+                <button onclick="confirmarBorrarDemo('${lead.osm_id}', '${lead.nombre.replace(/'/g, "\\'")}')" class="text-xs p-1.5 rounded-lg bg-slate-800 hover:bg-rose-950/80 text-slate-400 hover:text-rose-400 border border-slate-700 hover:border-rose-800/50 transition" title="Borrar y resetear esta web demo">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                </button>
+              </div>
+              ${lead.demo_vibe ? `<span class="text-[10px] text-slate-400 truncate max-w-[140px]" title="${lead.demo_vibe}">${lead.demo_vibe.split(' ')[0]}</span>` : ''}
+            </div>
+          `;
+        } else {
+          webDemoCol = `
+            <button onclick="iniciarGeneracionWeb('${lead.osm_id}')" class="text-xs px-3 py-1.5 rounded-lg bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-semibold shadow-md shadow-indigo-500/20 active:scale-95 transition flex items-center space-x-1.5 mx-auto">
+              <span>⚡ Generar Web</span>
+            </button>
+          `;
+        }
 
         const pitchBtn = lead.mensaje_dm ? `
           <div class="flex items-center justify-end space-x-2">
             <button onclick="abrirModal(${idx})" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition" title="Ver análisis y pitch">
               Ver Pitch
             </button>
-            <button onclick="copiarPitch(${idx}, this)" class="text-xs px-3 py-1.5 rounded-lg ig-gradient text-white font-medium shadow-sm hover:opacity-90 active:scale-95 transition flex items-center space-x-1.5">
+            <button onclick="copiarPitch(${idx}, this)" class="text-xs px-3 py-1.5 rounded-lg ${lead.instagram_url ? 'ig-gradient shadow-pink-500/10' : 'bg-indigo-600 hover:bg-indigo-500 shadow-indigo-500/10'} text-white font-medium shadow-sm active:scale-95 transition flex items-center space-x-1.5">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-              <span>Copiar DM</span>
+              <span>${lead.instagram_url ? 'Copiar DM' : 'Copiar Propuesta'}</span>
             </button>
           </div>
         ` : `<span class="text-xs text-slate-500 italic">Sin pitch</span>`;
@@ -689,7 +1097,10 @@
           <tr class="hover:bg-slate-800/40 transition">
             <!-- Negocio / Contacto -->
             <td class="px-6 py-4">
-              <div class="font-bold text-white text-sm leading-snug">${lead.nombre}</div>
+              <div class="flex items-center gap-2 flex-wrap mb-1">
+                <span class="font-bold text-white text-sm leading-snug">${lead.nombre}</span>
+                ${prioridadBadge}
+              </div>
               <div class="text-xs text-indigo-400 mt-0.5">${lead.categoria || 'Comercio local'}</div>
               ${lead.telefono ? `<div class="text-[11px] text-slate-400 mt-1">📞 ${lead.telefono}</div>` : ''}
             </td>
@@ -719,43 +1130,332 @@
       }).join('');
     }
 
-    async function generarWebLead(osmId, btnElement) {
-      const origHtml = btnElement.innerHTML;
-      btnElement.disabled = true;
-      btnElement.innerHTML = `
-        <svg class="w-3.5 h-3.5 animate-spin text-white" fill="none" viewBox="0 0 24 24">
-          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-        </svg>
-        <span>Creando...</span>
-      `;
+    // -------------------------------------------------------------
+    // GESTOR DE GENERACIÓN CONCURRENTE EN SEGUNDO PLANO
+    // -------------------------------------------------------------
+    async function iniciarGeneracionWeb(osmId, customNombre, customCiudad, customCat) {
+      const osmIdStr = String(osmId);
+      let lead = todosLosLeads.find(l => String(l.osm_id) === osmIdStr);
+      const nombre = customNombre || (lead ? lead.nombre : 'Comercio Local');
+      const ciudad = customCiudad || (lead ? lead.ciudad : '');
+      const categoria = customCat || (lead ? lead.categoria : '');
+      const instagramUrl = lead ? (lead.instagram_url || '') : '';
+
+      const existingJob = activeWebGenerations.get(osmIdStr);
+      if (existingJob && existingJob.status === 'running') {
+        mostrarToast(`La web para ${nombre} ya se está generando.`);
+        return;
+      }
+
+      const job = {
+        osmId: osmIdStr,
+        nombre: nombre,
+        ciudad: ciudad,
+        categoria: categoria,
+        instagramUrl: instagramUrl,
+        startTime: Date.now(),
+        currentPct: 0,
+        stepText: 'Iniciando...',
+        status: 'running',
+        demoUrl: '',
+        errorMsg: ''
+      };
+
+      activeWebGenerations.set(osmIdStr, job);
+      actualizarEstadisticas(todosLosLeads);
+
+      if (pestanaActual === 'progreso') {
+        renderizarVistaProgreso();
+      } else {
+        aplicarFiltrosYRenderizar();
+      }
+
+      mostrarToast(`⚡ Generando web para ${nombre} en segundo plano...`);
 
       try {
-        const res = await fetch(`/leads/${osmId}/generate-web`, { method: 'POST' });
+        const res = await fetch(`/leads/${osmIdStr}/generate-web`, { method: 'POST' });
         const data = await res.json();
+
         if (res.ok) {
-          mostrarToast(`¡Web Demo creada con éxito! Lista para ver.`);
-          await cargarLeads();
-          // Abrir simulador inmediatamente
-          if (data.lead && data.lead.demo_slug) {
-            abrirSimulador(`/demos/${data.lead.demo_slug}`, data.lead.nombre);
+          job.status = 'completed';
+          job.currentPct = 100;
+          job.stepText = '¡Lista! ✨';
+          const slug = data.lead?.demo_slug || data.demo?.slug;
+          job.demoUrl = data.lead?.demo_url_absoluta || (slug ? `/demos/${slug}/` : '');
+          
+          mostrarToast(`¡Web Demo creada para ${nombre}! 📱 Lista para ver.`);
+          
+          // Sincronizar lead en memoria inmediatamente
+          const lIdx = todosLosLeads.findIndex(l => String(l.osm_id) === osmIdStr);
+          if (lIdx !== -1 && data.lead) {
+            todosLosLeads[lIdx] = data.lead;
+          }
+          
+          await cargarLeads(false);
+          actualizarEstadisticas(todosLosLeads);
+          
+          if (pestanaActual === 'progreso') {
+            renderizarVistaProgreso();
+          } else {
+            aplicarFiltrosYRenderizar();
           }
         } else {
-          mostrarToast(data.detail || 'Error al generar la web', true);
-          btnElement.disabled = false;
-          btnElement.innerHTML = origHtml;
+          job.status = 'error';
+          job.errorMsg = data.detail || 'Error al generar la web';
+          mostrarToast(`Error al generar web para ${nombre}: ${job.errorMsg}`, true);
+          if (pestanaActual === 'progreso') {
+            renderizarVistaProgreso();
+          } else {
+            aplicarFiltrosYRenderizar();
+          }
         }
       } catch (err) {
         console.error(err);
-        mostrarToast('Error de conexión al generar la web', true);
-        btnElement.disabled = false;
-        btnElement.innerHTML = origHtml;
+        job.status = 'error';
+        job.errorMsg = 'Error de conexión';
+        mostrarToast(`Error de conexión al generar web para ${nombre}`, true);
+        if (pestanaActual === 'progreso') {
+          renderizarVistaProgreso();
+        } else {
+          aplicarFiltrosYRenderizar();
+        }
       }
     }
 
-    let vistaActual = 'table';
-    let leadSeleccionadoIdx = null;
-    let tabPitchPaso = 1;
+    // GENERAR EN LOTE MÚLTIPLES WEBS CONCURRENTEMENTE
+    function generarLotePrioritarios(cantidad = 3) {
+      let candidatos = todosLosLeads.filter(l => {
+        const tieneIg = Boolean(l.instagram_url || l.instagram_handle);
+        const sinWeb = !l.tiene_web && l.estado !== 'Tiene Web';
+        const sinDemo = !l.demo_slug;
+        const noGenerando = !activeWebGenerations.has(String(l.osm_id)) || activeWebGenerations.get(String(l.osm_id)).status !== 'running';
+        return tieneIg && sinWeb && sinDemo && noGenerando;
+      });
+
+      if (candidatos.length === 0) {
+        candidatos = todosLosLeads.filter(l => {
+          const sinWeb = !l.tiene_web && l.estado !== 'Tiene Web';
+          const sinDemo = !l.demo_slug;
+          const noGenerando = !activeWebGenerations.has(String(l.osm_id)) || activeWebGenerations.get(String(l.osm_id)).status !== 'running';
+          return sinWeb && sinDemo && noGenerando;
+        });
+      }
+
+      if (candidatos.length === 0) {
+        mostrarToast('Todos los prospectos ya tienen web generada o están en proceso.', true);
+        return;
+      }
+
+      const seleccionados = candidatos.slice(0, cantidad);
+      mostrarToast(`🚀 Iniciando generación simultánea de ${seleccionados.length} webs...`);
+      
+      // Lanzar concurrentemente
+      seleccionados.forEach(lead => {
+        iniciarGeneracionWeb(lead.osm_id, lead.nombre, lead.ciudad, lead.categoria);
+      });
+
+      // Cambiar a pestaña en progreso
+      cambiarPestana('progreso');
+    }
+
+    // RENDERIZADO DEL DASHBOARD "EN PROGRESO"
+    function renderizarVistaProgreso() {
+      const container = document.getElementById('progreso-content');
+      if (!container) return;
+
+      const jobs = Array.from(activeWebGenerations.values()).reverse();
+
+      if (jobs.length === 0) {
+        container.innerHTML = `
+          <div class="py-12 px-4 text-center max-w-lg mx-auto space-y-4">
+            <div class="w-16 h-16 rounded-2xl bg-indigo-950/80 border border-indigo-500/30 flex items-center justify-center text-2xl mx-auto shadow-xl shadow-indigo-500/10">
+              ⚡
+            </div>
+            <h3 class="text-base font-bold text-white">No hay webs generándose en este momento</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Puedes generar varias webs a la vez. Mientras la IA trabaja en segundo plano, puedes seguir buscando otros códigos postales o navegando libremente por el pipeline.
+            </p>
+            <div class="pt-2">
+              <button onclick="generarLotePrioritarios(3)" class="px-4 py-2 rounded-xl bg-gradient-to-r from-pink-600 to-indigo-600 hover:from-pink-500 hover:to-indigo-500 text-white text-xs font-bold shadow-lg shadow-pink-500/20 active:scale-95 transition">
+                🚀 Generar Top 3 de Alta Prioridad en Lote
+              </button>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = `
+        <div class="mb-4 flex items-center justify-between">
+          <div class="flex items-center gap-2 text-xs text-slate-400">
+            <span>Mostrando <strong>${jobs.length}</strong> tareas de generación</span>
+            <span class="text-slate-600">·</span>
+            <span class="text-emerald-400 font-medium">${jobs.filter(j => j.status === 'completed').length} listas</span>
+            <span class="text-slate-600">·</span>
+            <span class="text-pink-400 font-medium">${jobs.filter(j => j.status === 'running').length} en curso</span>
+          </div>
+          <button onclick="generarLotePrioritarios(3)" class="text-xs px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition flex items-center gap-1.5 font-medium">
+            <span>+ Generar otras 3</span>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          ${jobs.map(job => {
+            const isRunning = job.status === 'running';
+            const isCompleted = job.status === 'completed';
+            const isError = job.status === 'error';
+
+            return `
+              <div class="bg-slate-900/90 rounded-2xl p-4 border ${isRunning ? 'border-indigo-500/50 shadow-lg shadow-indigo-500/10' : (isCompleted ? 'border-emerald-500/40 bg-emerald-950/10' : 'border-rose-500/40')} flex flex-col justify-between space-y-3 transition">
+                <div>
+                  <div class="flex items-start justify-between gap-2 mb-1.5">
+                    <div class="truncate">
+                      <h4 class="font-bold text-white text-sm truncate" title="${job.nombre}">${job.nombre}</h4>
+                      <span class="text-[11px] text-indigo-400 block truncate">${job.categoria || 'Comercio local'} · ${job.ciudad || 'Local'}</span>
+                    </div>
+                    ${isRunning ? `
+                      <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-pink-950 text-pink-300 border border-pink-500/40 animate-pulse flex items-center gap-1 shrink-0">
+                        <span class="w-1.5 h-1.5 rounded-full bg-pink-400 animate-ping"></span>
+                        En curso
+                      </span>
+                    ` : (isCompleted ? `
+                      <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-500/40 flex items-center gap-1 shrink-0">
+                        ✓ ¡Lista!
+                      </span>
+                    ` : `
+                      <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-950 text-rose-300 border border-rose-500/40 shrink-0">
+                        ⚠️ Error
+                      </span>
+                    `)}
+                  </div>
+
+                  <!-- Barra de Progreso de la Tarjeta -->
+                  <div class="space-y-1.5 pt-1">
+                    <div class="flex items-center justify-between text-xs">
+                      <span id="card-step-${job.osmId}" class="text-[11px] font-medium text-slate-300 flex items-center gap-1">
+                        ${isRunning ? `
+                          <svg class="w-3 h-3 animate-spin text-pink-400" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                        ` : (isCompleted ? '✨' : '⚠️')}
+                        <span>${job.stepText || (isCompleted ? 'Web generada con éxito' : 'Falló')}</span>
+                      </span>
+                      <span id="card-pct-${job.osmId}" class="font-mono text-xs font-bold ${isCompleted ? 'text-emerald-400' : 'text-pink-400'}">
+                        ${job.currentPct || (isCompleted ? 100 : 0)}%
+                      </span>
+                    </div>
+
+                    <div class="w-full h-2 bg-slate-950 rounded-full overflow-hidden border border-slate-800">
+                      <div id="card-bar-${job.osmId}" class="h-full bg-gradient-to-r ${isCompleted ? 'from-emerald-500 to-teal-400' : 'from-pink-500 via-purple-500 to-indigo-500'} rounded-full transition-all duration-100 ease-out" style="width: ${job.currentPct || (isCompleted ? 100 : 0)}%;"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Acciones de la Tarjeta -->
+                <div class="pt-2 border-t border-slate-800/80 flex items-center justify-between text-xs">
+                  <span class="text-[10px] text-slate-500 flex items-center gap-1">
+                    <span>⏱️</span>
+                    <span id="card-time-${job.osmId}">${((Date.now() - job.startTime) / 1000).toFixed(1)}s</span>
+                  </span>
+
+                  <div class="flex items-center gap-2">
+                    ${isCompleted ? `
+                      <button onclick="abrirSimulador('${job.demoUrl}', '${job.nombre.replace(/'/g, "\\'")}')" class="px-3 py-1.5 rounded-lg bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs shadow-md shadow-emerald-600/20 active:scale-95 transition flex items-center gap-1">
+                        <span>📱 Probar Web</span>
+                      </button>
+                    ` : (isError ? `
+                      <button onclick="iniciarGeneracionWeb('${job.osmId}')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs transition">
+                        Reintentar
+                      </button>
+                    ` : `
+                      <span class="text-[11px] text-indigo-300 italic animate-pulse">Procesando con Gemini...</span>
+                    `)}
+                  </div>
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      `;
+    }
+
+    // TICKER GLOBAL DE PROGRESO DE TAREAS EN SEGUNDO PLANO (70ms)
+    setInterval(() => {
+      let runningCount = 0;
+      activeWebGenerations.forEach((job, osmId) => {
+        if (job.status !== 'running') return;
+        runningCount++;
+        const elapsed = Date.now() - job.startTime;
+        let targetPct = 0;
+        let stepText = "Iniciando...";
+
+        if (elapsed < 1200) {
+          targetPct = Math.floor((elapsed / 1200) * 28);
+          stepText = "Analizando IG...";
+        } else if (elapsed < 2800) {
+          targetPct = 28 + Math.floor(((elapsed - 1200) / 1600) * 37);
+          stepText = "Copy IA...";
+        } else if (elapsed < 4200) {
+          targetPct = 65 + Math.floor(((elapsed - 2800) / 1400) * 23);
+          stepText = "Diseñando UI...";
+        } else {
+          const extra = Math.floor((1 - Math.exp(-(elapsed - 4200) / 3000)) * 9);
+          targetPct = Math.min(97, 88 + extra);
+          stepText = "Finalizando...";
+        }
+
+        if (targetPct > job.currentPct) {
+          job.currentPct = targetPct;
+        }
+        job.stepText = stepText;
+
+        // Actualizar elementos en tabla o kanban si están visibles
+        const pctEl = document.getElementById(`gen-pct-${osmId}`);
+        const barEl = document.getElementById(`gen-bar-${osmId}`);
+        const stepEl = document.getElementById(`gen-step-${osmId}`);
+        if (pctEl) pctEl.innerText = `${job.currentPct}%`;
+        if (barEl) barEl.style.width = `${job.currentPct}%`;
+        if (stepEl && stepEl.innerText !== stepText) stepEl.innerText = stepText;
+
+        // Actualizar elementos en la pestaña "En Progreso"
+        const cardPct = document.getElementById(`card-pct-${osmId}`);
+        const cardBar = document.getElementById(`card-bar-${osmId}`);
+        const cardStep = document.getElementById(`card-step-${osmId}`);
+        const cardTime = document.getElementById(`card-time-${osmId}`);
+        if (cardPct) cardPct.innerText = `${job.currentPct}%`;
+        if (cardBar) cardBar.style.width = `${job.currentPct}%`;
+        if (cardStep) cardStep.innerText = stepText;
+        if (cardTime) cardTime.innerText = `${(elapsed / 1000).toFixed(1)}s`;
+      });
+
+      // Actualizar contadores
+      const tabCountProgreso = document.getElementById('tab-count-progreso');
+      const progresoTabDot = document.getElementById('progreso-tab-dot');
+      if (tabCountProgreso) tabCountProgreso.innerText = runningCount;
+      if (progresoTabDot) {
+        if (runningCount > 0) progresoTabDot.classList.remove('hidden');
+        else progresoTabDot.classList.add('hidden');
+      }
+
+      const headerJobs = document.getElementById('header-jobs-badge');
+      const headerJobsText = document.getElementById('header-jobs-text');
+      if (headerJobs && headerJobsText) {
+        if (runningCount > 0) {
+          headerJobs.classList.remove('hidden');
+          headerJobs.classList.add('flex');
+          headerJobsText.innerText = `⚡ ${runningCount} web${runningCount > 1 ? 's' : ''} en curso`;
+        } else {
+          headerJobs.classList.add('hidden');
+          headerJobs.classList.remove('flex');
+        }
+      }
+    }, 70);
+
+    // Compatibilidad con llamadas previas
+    async function generarWebLead(osmId, btnElement) {
+      await iniciarGeneracionWeb(osmId);
+    }
 
     function cambiarVista(tipo) {
       vistaActual = tipo;
@@ -769,14 +1469,13 @@
         btnKanban.className = "px-3 py-1 rounded-lg text-slate-400 hover:text-white transition";
         tableWrapper.classList.remove('hidden');
         kanbanWrapper.classList.add('hidden');
-        renderizarTabla(todosLosLeads);
       } else {
         btnKanban.className = "px-3 py-1 rounded-lg bg-indigo-600 text-white shadow-sm transition";
         btnTable.className = "px-3 py-1 rounded-lg text-slate-400 hover:text-white transition";
         tableWrapper.classList.add('hidden');
         kanbanWrapper.classList.remove('hidden');
-        renderizarKanban(todosLosLeads);
       }
+      aplicarFiltrosYRenderizar();
     }
 
     function renderizarKanban(leads) {
@@ -813,6 +1512,8 @@
 
         el.innerHTML = col.items.map(({ lead, originalIdx }) => {
           const demoUrl = lead.demo_url_absoluta || (lead.demo_slug ? `/demos/${lead.demo_slug}` : "");
+          const activeJob = activeWebGenerations.get(String(lead.osm_id));
+          const isGenerating = activeJob && activeJob.status === 'running';
 
           // Alerta temporal de cadencia
           const alertaBadge = lead.alerta_seguimiento ? `
@@ -857,15 +1558,30 @@
 
               <!-- Botones de Acción -->
               <div class="pt-2 border-t border-slate-800 flex items-center justify-between gap-2">
-                ${lead.demo_slug ? `
-                  <button onclick="abrirSimulador('${demoUrl}', '${lead.nombre}')" class="text-[11px] px-2.5 py-1 rounded-lg bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 hover:bg-indigo-500/30 transition flex items-center gap-1 font-semibold">
-                    <span>📱 Web</span>
-                  </button>
+                ${isGenerating ? `
+                  <div class="flex flex-col items-center justify-center min-w-[90px] max-w-[105px] space-y-0.5 pointer-events-none">
+                    <div class="flex items-center justify-between w-full text-[9px] font-semibold text-indigo-200">
+                      <span id="gen-step-${lead.osm_id}" class="truncate text-[8.5px]">${activeJob.stepText || 'Iniciando...'}</span>
+                      <span id="gen-pct-${lead.osm_id}" class="font-mono text-[8.5px] text-pink-300 font-bold ml-1">${activeJob.currentPct || 0}%</span>
+                    </div>
+                    <div class="w-full h-1 bg-slate-950/80 rounded-full overflow-hidden border border-indigo-500/30">
+                      <div id="gen-bar-${lead.osm_id}" class="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full transition-all duration-100 ease-out" style="width: ${activeJob.currentPct || 0}%;"></div>
+                    </div>
+                  </div>
+                ` : (lead.demo_slug ? `
+                  <div class="flex items-center space-x-1">
+                    <button onclick="abrirSimulador('${demoUrl}', '${lead.nombre.replace(/'/g, "\\'")}')" class="text-[11px] px-2 py-1 rounded-lg bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 hover:bg-indigo-500/30 transition flex items-center gap-1 font-semibold">
+                      <span>📱 Web</span>
+                    </button>
+                    <button onclick="confirmarBorrarDemo('${lead.osm_id}', '${lead.nombre.replace(/'/g, "\\'")}')" class="text-[11px] p-1 rounded-lg bg-slate-800 hover:bg-rose-950/80 text-slate-400 hover:text-rose-400 border border-slate-700 transition" title="Borrar demo">
+                      <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                    </button>
+                  </div>
                 ` : `
-                  <button onclick="generarWebLead('${lead.osm_id}', this)" class="text-[11px] px-2.5 py-1 rounded-lg bg-indigo-600/40 hover:bg-indigo-600/60 text-indigo-200 border border-indigo-500/40 transition font-semibold">
+                  <button onclick="iniciarGeneracionWeb('${lead.osm_id}')" class="text-[11px] px-2.5 py-1 rounded-lg bg-indigo-600/40 hover:bg-indigo-600/60 text-indigo-200 border border-indigo-500/40 transition font-semibold">
                     <span>⚡ Crear Web</span>
                   </button>
-                `}
+                `)}
 
                 <button onclick="abrirModal(${originalIdx})" class="text-[11px] px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
                   ✉️ Pitch
@@ -1138,6 +1854,267 @@
       });
     }
 
+    // -------------------------------------------------------------
+    // FUNCIONES DEL SIMULADOR DE SMARTPHONE (TITANIUM IPHONE 16 PRO)
+    // -------------------------------------------------------------
+    let urlActualSimulador = "";
+    let dispositivoActualSimulador = "iphone16pro";
+    let zoomActualSimulador = "auto";
+    let relojSimuladorInterval = null;
+
+    function abrirSimulador(url, title = "Simulador Móvil") {
+      if (!url) {
+        mostrarToast('La URL de la web demo no está disponible.', true);
+        return;
+      }
+      
+      // Normalizar URL asegurando que termina con / para static files
+      let finalUrl = url;
+      if (!finalUrl.includes('?') && !finalUrl.endsWith('/') && !finalUrl.endsWith('.html')) {
+        finalUrl += '/';
+      }
+
+      urlActualSimulador = finalUrl;
+      document.getElementById('simulator-title').innerText = title || "Simulador Móvil";
+      const iframe = document.getElementById('simulator-iframe');
+      
+      // Forzar carga limpia
+      iframe.src = finalUrl;
+      
+      const modal = document.getElementById('simulator-modal');
+      modal.classList.remove('hidden');
+      
+      actualizarRelojSimulador();
+      if (!relojSimuladorInterval) {
+        relojSimuladorInterval = setInterval(actualizarRelojSimulador, 20000);
+      }
+
+      ajustarZoomSimulador(zoomActualSimulador);
+    }
+
+    function cerrarSimulador() {
+      const modal = document.getElementById('simulator-modal');
+      modal.classList.add('hidden');
+      const iframe = document.getElementById('simulator-iframe');
+      iframe.src = "about:blank";
+      if (relojSimuladorInterval) {
+        clearInterval(relojSimuladorInterval);
+        relojSimuladorInterval = null;
+      }
+    }
+
+    function recargarSimulador() {
+      const iframe = document.getElementById('simulator-iframe');
+      if (iframe && urlActualSimulador) {
+        iframe.src = urlActualSimulador;
+        mostrarToast('Recargando vista móvil...');
+      }
+    }
+
+    function cambiarDispositivoSimulador(dispositivo) {
+      dispositivoActualSimulador = dispositivo;
+      const chassis = document.getElementById('iphone-chassis');
+      const btn16Pro = document.getElementById('sim-btn-16pro');
+      const btn16ProMax = document.getElementById('sim-btn-16promax');
+
+      if (dispositivo === 'iphone16promax') {
+        chassis.style.width = '430px';
+        chassis.style.height = '932px';
+        btn16ProMax.className = "px-2.5 py-1.5 rounded-lg bg-indigo-600 text-white font-semibold transition shadow-sm text-center";
+        btn16Pro.className = "px-2.5 py-1.5 rounded-lg text-slate-400 hover:text-white transition text-center";
+      } else {
+        chassis.style.width = '393px';
+        chassis.style.height = '852px';
+        btn16Pro.className = "px-2.5 py-1.5 rounded-lg bg-indigo-600 text-white font-semibold transition shadow-sm text-center";
+        btn16ProMax.className = "px-2.5 py-1.5 rounded-lg text-slate-400 hover:text-white transition text-center";
+      }
+
+      ajustarZoomSimulador(zoomActualSimulador);
+    }
+
+    function ajustarZoomSimulador(val) {
+      zoomActualSimulador = val;
+      const select = document.getElementById('sim-zoom-select');
+      if (select && select.value !== val) {
+        select.value = val;
+      }
+      
+      const container = document.getElementById('sim-scale-container');
+      const chassis = document.getElementById('iphone-chassis');
+      if (!container || !chassis) return;
+
+      const chassisH = dispositivoActualSimulador === 'iphone16promax' ? 932 : 852;
+      const chassisW = dispositivoActualSimulador === 'iphone16promax' ? 430 : 393;
+
+      if (val === 'auto') {
+        const isDesktop = window.innerWidth >= 1024;
+        const availableH = window.innerHeight - (isDesktop ? 30 : 180);
+        const availableW = isDesktop ? window.innerWidth - 300 : window.innerWidth - 20;
+        const scale = Math.min(1.0, Math.max(0.55, Math.min(availableH / chassisH, availableW / chassisW)));
+        container.style.transform = `scale(${scale.toFixed(2)})`;
+        container.style.marginBottom = scale < 1.0 ? `${-(chassisH * (1 - scale))}px` : '0px';
+      } else {
+        const scale = parseFloat(val) || 1.0;
+        container.style.transform = `scale(${scale})`;
+        container.style.marginBottom = scale < 1.0 ? `${-(chassisH * (1 - scale))}px` : '0px';
+      }
+    }
+
+    function actualizarRelojSimulador() {
+      const clockEl = document.getElementById('sim-clock');
+      if (!clockEl) return;
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const mins = String(now.getMinutes()).padStart(2, '0');
+      clockEl.innerText = `${hours}:${mins}`;
+    }
+
+    function copiarUrlActualSimulador(btnElement) {
+      if (!urlActualSimulador) return;
+      copiarEnlaceDemo(urlActualSimulador, btnElement);
+    }
+
+    function abrirTabExterna() {
+      if (urlActualSimulador) {
+        window.open(urlActualSimulador, '_blank');
+      }
+    }
+
+    function abrirSimuladorDesdeModal() {
+      const lead = todosLosLeads[leadSeleccionadoIdx];
+      if (urlDemoActual && lead) {
+        abrirSimulador(urlDemoActual, lead.nombre);
+      }
+    }
+
+    function copiarEnlaceDemo(url, btnElement) {
+      if (!url) return;
+      const fullUrl = url.startsWith('http') ? url : window.location.origin + url;
+      navigator.clipboard.writeText(fullUrl).then(() => {
+        mostrarToast('¡Enlace de demo interactiva copiado!');
+        if (btnElement) {
+          const orig = btnElement.innerHTML;
+          btnElement.innerHTML = `✓`;
+          setTimeout(() => { btnElement.innerHTML = orig; }, 1800);
+        }
+      });
+    }
+
+    // Escuchar teclas y redimensionamiento de ventana
+    window.addEventListener('resize', () => {
+      const modal = document.getElementById('simulator-modal');
+      if (modal && !modal.classList.contains('hidden') && zoomActualSimulador === 'auto') {
+        ajustarZoomSimulador('auto');
+      }
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const modal = document.getElementById('simulator-modal');
+        if (modal && !modal.classList.contains('hidden')) {
+          cerrarSimulador();
+        }
+      }
+    });
+
+    // -------------------------------------------------------------
+    // FUNCIONES DE ELIMINACIÓN Y PURGA DE WEBS DEMO
+    // -------------------------------------------------------------
+    async function confirmarBorrarDemo(osmId, nombre) {
+      if (!osmId) return;
+      const ok = confirm(`¿Estás seguro de que deseas eliminar la web demo generada para "${nombre}"?\n\nEsta acción borrará la carpeta física de la maqueta y reseteará el estado del comercio.`);
+      if (!ok) return;
+
+      try {
+        mostrarToast(`Eliminando web demo de ${nombre}...`);
+        const res = await fetch(`/leads/${osmId}/demo`, { method: 'DELETE' });
+        const data = await res.json();
+        if (res.ok) {
+          mostrarToast(`✓ Demo de "${nombre}" eliminada con éxito.`);
+          await cargarLeads();
+        } else {
+          mostrarToast(data.detail || 'Error al eliminar demo', true);
+        }
+      } catch (err) {
+        console.error(err);
+        mostrarToast('Error de conexión al eliminar demo', true);
+      }
+    }
+
+    async function borrarDemoDesdeModal() {
+      const lead = todosLosLeads[leadSeleccionadoIdx];
+      if (!lead) return;
+      const ok = confirm(`¿Deseas eliminar la web demo de "${lead.nombre}"?`);
+      if (!ok) return;
+
+      try {
+        mostrarToast(`Eliminando demo...`);
+        const res = await fetch(`/leads/${lead.osm_id}/demo`, { method: 'DELETE' });
+        if (res.ok) {
+          mostrarToast(`✓ Web demo eliminada correctamente.`);
+          cerrarModal();
+          await cargarLeads();
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    async function borrarDemoDesdeSimulador() {
+      if (!urlActualSimulador) return;
+      // Buscar el lead por slug
+      const slugMatch = urlActualSimulador.split('/demos/')[1]?.split('?')[0]?.replace(/\/$/, '');
+      const lead = todosLosLeads.find(l => l.demo_slug === slugMatch || (l.demo_url && l.demo_url.includes(slugMatch)));
+      
+      const leadName = lead ? lead.nombre : "esta web demo";
+      const osmId = lead ? lead.osm_id : null;
+
+      if (!osmId) {
+        mostrarToast('No se encontró el ID del comercio para eliminar', true);
+        return;
+      }
+
+      const ok = confirm(`¿Deseas eliminar la web demo de "${leadName}" y cerrar el simulador?`);
+      if (!ok) return;
+
+      try {
+        mostrarToast(`Eliminando demo...`);
+        const res = await fetch(`/leads/${osmId}/demo`, { method: 'DELETE' });
+        if (res.ok) {
+          cerrarSimulador();
+          mostrarToast(`✓ Demo de "${leadName}" eliminada.`);
+          await cargarLeads();
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    async function confirmarBorrarTodasLasDemos() {
+      const demosCount = todosLosLeads.filter(l => l.demo_slug).length;
+      if (demosCount === 0) {
+        mostrarToast('No hay ninguna web demo para eliminar.');
+        return;
+      }
+      const ok = confirm(`⚠️ ATENCIÓN:\n\n¿Estás seguro de que deseas eliminar TODAS las (${demosCount}) webs demos generadas?\n\nEsta acción borrará todas las carpetas en disco y reseteará el estado de los comercios.`);
+      if (!ok) return;
+
+      try {
+        mostrarToast('Eliminando todas las demos...');
+        const res = await fetch('/demos/cleanup-all', { method: 'POST' });
+        const data = await res.json();
+        if (res.ok) {
+          mostrarToast(data.message || 'Todas las demos han sido eliminadas.');
+          await cargarLeads();
+        } else {
+          mostrarToast(data.detail || 'Error al limpiar demos', true);
+        }
+      } catch (err) {
+        console.error(err);
+        mostrarToast('Error de conexión al eliminar demos', true);
+      }
+    }
+
     let modoBusquedaActual = 'localidad';
 
     function cambiarModoBusqueda(modo) {
@@ -1284,6 +2261,7 @@
         console.error(err);
         mostrarToast('Error de conexión con el servidor', true);
       } finally {
+        progressBox.classList.add('hidden');
         btn.disabled = false;
         btn.classList.remove('opacity-75', 'cursor-not-allowed');
         icon.classList.remove('hidden');

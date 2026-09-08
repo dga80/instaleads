@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>{{ negocio.nombre }} | Web Oficial & Citas</title>
-  <meta name="description" content="{{ negocio.meta_description or 'Sitio web oficial y reservas para ' ~ negocio.nombre ~ ' en ' ~ negocio.ciudad }}">
+  <title>Dental Nuñez | Web Oficial & Citas</title>
+  <meta name="description" content="Sitio web oficial y reservas para Dental Nuñez en Barcelona">
   
   <!-- Anti-FOUC Theme Script -->
   <script>
@@ -23,12 +23,12 @@
   </script>
 
   <!-- Favicon desde avatar de Instagram -->
-  <link rel="icon" type="image/jpeg" href="{{ ig.avatar_url }}">
+  <link rel="icon" type="image/jpeg" href="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=300&auto=format&fit=crop&q=80">
 
   <!-- Tipografías de Google Fonts según Stitch Design System -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="{{ design.google_fonts_url }}" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -39,45 +39,45 @@
 
   <style>
     :root, html.dark {
-      --primary: {{ design.primary }};
-      --primary-container: {{ design.primary_container }};
-      --on-primary: {{ design.on_primary }};
-      --accent: {{ design.accent }};
-      --bg-surface: {{ design.bg_surface }};
-      --card-surface: {{ design.card_surface }};
-      --border-color: {{ design.border_color }};
-      --header-bg: {{ design.header_bg or 'rgba(10, 10, 12, 0.88)' }};
-      --text-primary: {{ design.text_primary }};
-      --text-secondary: {{ design.text_secondary }};
-      --badge-bg: {{ design.badge_bg }};
-      --badge-text: {{ design.badge_text }};
+      --primary: #0ea5e9;
+      --primary-container: rgba(14, 165, 233, 0.15);
+      --on-primary: #ffffff;
+      --accent: #38bdf8;
+      --bg-surface: #081b26;
+      --card-surface: rgba(12, 36, 50, 0.82);
+      --border-color: rgba(14, 165, 233, 0.25);
+      --header-bg: rgba(8, 27, 38, 0.88);
+      --text-primary: #f0f9ff;
+      --text-secondary: #94a3b8;
+      --badge-bg: rgba(14, 165, 233, 0.15);
+      --badge-text: #7dd3fc;
       --pill-bg: rgba(255, 255, 255, 0.05);
       --pill-border: rgba(255, 255, 255, 0.12);
       --pill-text: #ffffff;
-      --drawer-bg: {{ design.drawer_bg or 'rgba(10, 10, 15, 0.98)' }};
+      --drawer-bg: rgba(8, 27, 38, 0.98);
       --nav-link: #cbd5e1;
       --nav-link-hover: #ffffff;
       --floating-bar-bg: rgba(10, 10, 12, 0.94);
       --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-      --font-headline: {{ design.headline_font }};
-      --font-body: {{ design.body_font }};
-      --radius: {{ design.roundness }};
-      --radius-btn: {{ design.roundness_button }};
+      --font-headline: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --radius: 0.875rem;
+      --radius-btn: 9999px;
     }
 
     html.light {
-      --bg-surface: {{ design.light_bg_surface or '#f8fafc' }};
-      --card-surface: {{ design.light_card_surface or '#ffffff' }};
-      --border-color: {{ design.light_border_color or 'rgba(0,0,0,0.1)' }};
-      --header-bg: {{ design.light_header_bg or 'rgba(255, 255, 255, 0.92)' }};
-      --text-primary: {{ design.light_text_primary or '#0f172a' }};
-      --text-secondary: {{ design.light_text_secondary or '#64748b' }};
-      --badge-bg: {{ design.light_badge_bg or 'rgba(0,0,0,0.06)' }};
-      --badge-text: {{ design.light_badge_text or design.primary }};
-      --pill-bg: {{ design.light_pill_bg or 'rgba(0, 0, 0, 0.04)' }};
-      --pill-border: {{ design.light_pill_border or design.light_border_color }};
-      --pill-text: {{ design.light_text_primary or '#0f172a' }};
-      --drawer-bg: {{ design.light_drawer_bg or 'rgba(255, 255, 255, 0.98)' }};
+      --bg-surface: #f0f9ff;
+      --card-surface: rgba(255, 255, 255, 0.96);
+      --border-color: rgba(14, 165, 233, 0.28);
+      --header-bg: rgba(240, 249, 255, 0.92);
+      --text-primary: #082f49;
+      --text-secondary: #334155;
+      --badge-bg: rgba(14, 165, 233, 0.14);
+      --badge-text: #0284c7;
+      --pill-bg: rgba(14, 165, 233, 0.08);
+      --pill-border: rgba(14, 165, 233, 0.24);
+      --pill-text: #082f49;
+      --drawer-bg: rgba(255, 255, 255, 0.98);
       --nav-link: #475569;
       --nav-link-hover: #0f172a;
       --floating-bar-bg: rgba(255, 255, 255, 0.95);
@@ -116,7 +116,7 @@
     }
 
     .btn-primary {
-      background: {{ design.cta_gradient }};
+      background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
       color: var(--on-primary);
       border-radius: var(--radius-btn);
       box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.35), 0 0 20px -5px var(--primary);
@@ -181,20 +181,20 @@
       <!-- Identidad y Avatar del Negocio -->
       <a href="#inicio" class="flex items-center space-x-3.5 group">
         <div class="relative">
-          <img src="{{ ig.avatar_url }}" alt="{{ negocio.nombre }}" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover ring-2 shadow-md" style="ring-color: var(--accent);">
+          <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=300&auto=format&fit=crop&q=80" alt="Dental Nuñez" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover ring-2 shadow-md" style="ring-color: var(--accent);">
           <span class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-emerald-500 border-2 border-slate-950 rounded-full"></span>
         </div>
         <div class="truncate">
           <div class="flex items-center gap-1.5">
             <span class="font-headline font-bold text-sm sm:text-lg theme-heading tracking-tight truncate max-w-[160px] sm:max-w-[320px]">
-              {{ negocio.nombre }}
+              Dental Nuñez
             </span>
             <svg class="w-4 h-4 text-sky-400 shrink-0" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
             </svg>
           </div>
           <span class="text-[11px] sm:text-xs font-medium block truncate" style="color: var(--accent);">
-            {{ negocio.ciudad }} · Cita previa disponible
+            Barcelona · Cita previa disponible
           </span>
         </div>
       </a>
@@ -223,26 +223,14 @@
           <span id="theme-text-label" class="text-[11px] font-medium">Claro</span>
         </button>
 
-        {% if negocio.telefono %}
-        <a href="tel:{{ negocio.telefono }}" 
-          class="hidden lg:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold glass-pill hover:bg-white/10 transition">
-          <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-          <span>{{ negocio.telefono }}</span>
-        </a>
-        {% endif %}
+        
 
-        {% if negocio.whatsapp_url %}
-        <a href="{{ negocio.whatsapp_url }}" target="_blank" 
-          class="px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold btn-primary flex items-center gap-2 shrink-0 shadow-lg">
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-          <span>Pedir Cita</span>
-        </a>
-        {% else %}
+        
         <a href="#contacto" 
           class="px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold btn-primary flex items-center gap-2 shrink-0 shadow-lg">
           <span>Pedir Cita</span>
         </a>
-        {% endif %}
+        
 
         <!-- BOTÓN HAMBURGUESA (MÓVIL) -->
         <button id="hamburger-btn" onclick="toggleMobileMenu()" 
@@ -275,12 +263,12 @@
         <div class="flex items-center justify-between pb-4 border-b" style="border-color: var(--border-color);">
           <div class="flex items-center space-x-3">
             <div class="relative">
-              <img src="{{ ig.avatar_url }}" alt="{{ negocio.nombre }}" class="w-10 h-10 rounded-full object-cover ring-2" style="ring-color: var(--accent);">
+              <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=300&auto=format&fit=crop&q=80" alt="Dental Nuñez" class="w-10 h-10 rounded-full object-cover ring-2" style="ring-color: var(--accent);">
               <span class="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 border-2 border-slate-950 rounded-full"></span>
             </div>
             <div class="truncate">
-              <span class="font-headline font-bold text-sm theme-heading block truncate">{{ negocio.nombre }}</span>
-              <span class="text-[11px] font-medium block truncate" style="color: var(--accent);">{{ negocio.categoria_clean or negocio.ciudad }}</span>
+              <span class="font-headline font-bold text-sm theme-heading block truncate">Dental Nuñez</span>
+              <span class="text-[11px] font-medium block truncate" style="color: var(--accent);">Clínica Dental</span>
             </div>
           </div>
           <button onclick="toggleMobileMenu()" class="p-2 rounded-full glass-pill hover:bg-white/20 transition flex items-center justify-center shrink-0" aria-label="Cerrar Menú">
@@ -385,7 +373,7 @@
               </div>
               <div>
                 <span class="font-bold text-xs theme-heading block group-hover:text-rose-300 transition">Ubicación & Contacto</span>
-                <span class="text-[10px] theme-muted block">{{ negocio.ciudad }} · Mapa y horario</span>
+                <span class="text-[10px] theme-muted block">Barcelona · Mapa y horario</span>
               </div>
             </div>
             <svg class="w-3.5 h-3.5 text-slate-500 group-hover:text-white group-hover:translate-x-0.5 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
@@ -395,19 +383,9 @@
 
       <!-- Pie del Menú con Acciones Rápidas Profesionales -->
       <div class="pt-4 border-t space-y-2.5" style="border-color: var(--border-color);">
-        {% if negocio.whatsapp_url %}
-        <a href="{{ negocio.whatsapp_url }}" target="_blank" class="w-full py-2.5 px-4 btn-primary text-xs font-bold text-center flex items-center justify-center space-x-2 shadow-lg">
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-          <span>Pedir Cita por WhatsApp</span>
-        </a>
-        {% endif %}
+        
 
-        {% if negocio.telefono %}
-        <a href="tel:{{ negocio.telefono }}" class="w-full py-2.5 px-4 rounded-xl glass-pill text-xs font-semibold text-center text-slate-200 hover:text-white flex items-center justify-center space-x-2 transition">
-          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-          <span>Llamar: {{ negocio.telefono }}</span>
-        </a>
-        {% endif %}
+        
 
         <div class="p-3 rounded-xl bg-black/40 text-[11px] text-slate-400 space-y-1">
           <div class="flex items-center gap-1.5 text-slate-300 font-semibold">
@@ -446,54 +424,38 @@
           <!-- Category Pill -->
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold w-fit glass-pill" style="color: var(--accent); border-color: var(--border-color);">
             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-            <span>{{ negocio.categoria_clean or 'Servicios Profesionales' }}</span>
+            <span>Clínica Dental</span>
             <span class="opacity-40">·</span>
-            <span class="font-medium">📍 {{ negocio.ciudad }}</span>
+            <span class="font-medium">📍 Barcelona</span>
           </div>
 
           <!-- Titular Principal -->
           <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight theme-heading leading-[1.15]">
-            {{ web.titular or ('Tu ' ~ negocio.categoria ~ ' de confianza en ' ~ negocio.ciudad) }}
+            Sonrisas Sanas y Radiantes con Tecnología Dental Avanzada.
           </h1>
 
           <!-- Subtítulo -->
           <p class="text-sm sm:text-base lg:text-lg theme-muted font-normal leading-relaxed max-w-2xl">
-            {{ web.subtitulo or ig.biografia }}
+            Experimenta la odontología de vanguardia con un equipo cercano. Pide tu primera revisión y diagnóstico sin compromiso.
           </p>
 
           <!-- Botones de Acción Inmediata (Dual CTA) -->
           <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
-            {% if negocio.whatsapp_url %}
-            <a href="{{ negocio.whatsapp_url }}" target="_blank" 
-              class="btn-primary py-3.5 px-7 font-bold text-sm text-center flex items-center justify-center space-x-2.5 shadow-xl">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
-              </svg>
-              <span>Reservar Cita por WhatsApp</span>
-            </a>
-            {% else %}
+            
             <a href="#contacto" 
               class="btn-primary py-3.5 px-7 font-bold text-sm text-center flex items-center justify-center space-x-2 shadow-xl">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
               <span>Pedir Cita / Información</span>
             </a>
-            {% endif %}
+            
 
-            {% if negocio.telefono %}
-            <a href="tel:{{ negocio.telefono }}" 
-              class="glass-pill py-3.5 px-6 font-semibold text-sm text-center flex items-center justify-center space-x-2 hover:opacity-90 transition">
-              <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-              </svg>
-              <span>Llamar: {{ negocio.telefono }}</span>
-            </a>
-            {% elif negocio.instagram_url %}
-            <a href="{{ negocio.instagram_url }}" target="_blank" 
+            
+            <a href="https://www.instagram.com/dentalnunez.barcelona/" target="_blank" 
               class="glass-pill py-3.5 px-6 font-semibold text-sm text-center flex items-center justify-center space-x-2 hover:opacity-90 transition">
               <svg class="w-4 h-4 text-pink-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
               <span>Ver en Instagram</span>
             </a>
-            {% endif %}
+            
           </div>
 
           <!-- Trust highlights en Desktop -->
@@ -508,7 +470,7 @@
             </div>
             <div>
               <span class="text-sky-400 font-bold text-sm sm:text-base block">📍 Local</span>
-              <span class="text-[11px] theme-muted">{{ negocio.ciudad }}</span>
+              <span class="text-[11px] theme-muted">Barcelona</span>
             </div>
           </div>
 
@@ -518,7 +480,7 @@
         <div class="lg:col-span-5 relative">
           <div class="relative rounded-3xl overflow-hidden border shadow-2xl group" style="border-color: var(--border-color);">
             <div class="aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] w-full overflow-hidden bg-slate-950">
-              <img src="{{ web.hero_image or ig.posts[0].image_url }}" alt="{{ negocio.nombre }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+              <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1000&auto=format&fit=crop&q=80" alt="Dental Nuñez" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
             </div>
 
@@ -531,9 +493,9 @@
             <!-- Floating Card Inferior -->
             <div class="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-black/80 border border-white/10 backdrop-blur-xl flex items-center justify-between text-xs">
               <div class="flex items-center gap-3">
-                <img src="{{ ig.avatar_url }}" alt="{{ negocio.nombre }}" class="w-10 h-10 rounded-full object-cover ring-2 ring-sky-400">
+                <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=300&auto=format&fit=crop&q=80" alt="Dental Nuñez" class="w-10 h-10 rounded-full object-cover ring-2 ring-sky-400">
                 <div>
-                  <span class="font-bold text-white block">{{ negocio.nombre }}</span>
+                  <span class="font-bold text-white block">Dental Nuñez</span>
                   <span class="text-slate-300 text-[11px]">Tratamientos y Citas Online</span>
                 </div>
               </div>
@@ -562,38 +524,99 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {% for s in web.servicios %}
+        
         <div class="theme-card overflow-hidden flex flex-col justify-between group transition duration-300 shadow-xl">
-          {% if s.imagen %}
+          
           <div class="h-48 sm:h-52 w-full overflow-hidden relative">
-            <img src="{{ s.imagen }}" alt="{{ s.nombre }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1000&auto=format&fit=crop&q=80" alt="Implantes Dentales" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-            {% if s.precio_o_duracion %}
+            
             <span class="absolute bottom-3 right-3 text-xs font-bold px-3 py-1 rounded-full bg-black/85 text-white border border-white/20 backdrop-blur-md shadow-md">
-              {{ s.precio_o_duracion }}
+              Consultar
             </span>
-            {% endif %}
+            
           </div>
-          {% endif %}
+          
           <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
             <div>
-              <h3 class="font-bold text-base sm:text-lg theme-heading leading-snug">{{ s.nombre }}</h3>
+              <h3 class="font-bold text-base sm:text-lg theme-heading leading-snug">Implantes Dentales</h3>
               <p class="text-xs sm:text-sm theme-muted mt-2 leading-relaxed">
-                {{ s.descripcion }}
+                Recupera tu sonrisa con implantes de máxima durabilidad y precisión guiada.
               </p>
             </div>
-            {% if negocio.whatsapp_url %}
-            <div class="pt-3 border-t" style="border-color: var(--border-color);">
-              <a href="{{ negocio.whatsapp_url }}&text={{ ('Hola, me gustaría reservar o pedir información sobre: ' ~ s.nombre)|urlencode }}" target="_blank" 
-                class="text-xs sm:text-sm font-bold inline-flex items-center gap-1.5 hover:underline" style="color: var(--accent);">
-                <span>Consultar o pedir cita</span>
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-              </a>
-            </div>
-            {% endif %}
+            
           </div>
         </div>
-        {% endfor %}
+        
+        <div class="theme-card overflow-hidden flex flex-col justify-between group transition duration-300 shadow-xl">
+          
+          <div class="h-48 sm:h-52 w-full overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&auto=format&fit=crop&q=80" alt="Estética Dental" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+            
+            <span class="absolute bottom-3 right-3 text-xs font-bold px-3 py-1 rounded-full bg-black/85 text-white border border-white/20 backdrop-blur-md shadow-md">
+              Cita Previa
+            </span>
+            
+          </div>
+          
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-bold text-base sm:text-lg theme-heading leading-snug">Estética Dental</h3>
+              <p class="text-xs sm:text-sm theme-muted mt-2 leading-relaxed">
+                Diseño de sonrisas y blanqueamiento avanzado para resultados naturales e inmediatos.
+              </p>
+            </div>
+            
+          </div>
+        </div>
+        
+        <div class="theme-card overflow-hidden flex flex-col justify-between group transition duration-300 shadow-xl">
+          
+          <div class="h-48 sm:h-52 w-full overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=800&auto=format&fit=crop&q=80" alt="Ortodoncia Invisible" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+            
+            <span class="absolute bottom-3 right-3 text-xs font-bold px-3 py-1 rounded-full bg-black/85 text-white border border-white/20 backdrop-blur-md shadow-md">
+              Diagnóstico Gratuito
+            </span>
+            
+          </div>
+          
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-bold text-base sm:text-lg theme-heading leading-snug">Ortodoncia Invisible</h3>
+              <p class="text-xs sm:text-sm theme-muted mt-2 leading-relaxed">
+                Alinea tus dientes discretamente con tratamientos personalizados para todas las edades.
+              </p>
+            </div>
+            
+          </div>
+        </div>
+        
+        <div class="theme-card overflow-hidden flex flex-col justify-between group transition duration-300 shadow-xl">
+          
+          <div class="h-48 sm:h-52 w-full overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=800&auto=format&fit=crop&q=80" alt="Diagnóstico 3D y Prevención" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+            
+            <span class="absolute bottom-3 right-3 text-xs font-bold px-3 py-1 rounded-full bg-black/85 text-white border border-white/20 backdrop-blur-md shadow-md">
+              Primera Revisión Gratis
+            </span>
+            
+          </div>
+          
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-bold text-base sm:text-lg theme-heading leading-snug">Diagnóstico 3D y Prevención</h3>
+              <p class="text-xs sm:text-sm theme-muted mt-2 leading-relaxed">
+                Tecnología avanzada para un diagnóstico preciso y odontología mínimamente invasiva.
+              </p>
+            </div>
+            
+          </div>
+        </div>
+        
       </div>
     </section>
 
@@ -606,26 +629,76 @@
           <span class="text-xs font-bold uppercase tracking-widest block" style="color: var(--accent);">Portafolio</span>
           <h2 class="text-2xl sm:text-3xl font-extrabold theme-heading tracking-tight">Galería de Trabajos y Resultados</h2>
         </div>
-        {% if negocio.instagram_url %}
-        <a href="{{ negocio.instagram_url }}" target="_blank" class="text-xs sm:text-sm font-semibold hover:underline flex items-center gap-1.5" style="color: var(--accent);">
-          <span>Síguenos en Instagram @{{ ig.username }}</span>
+        
+        <a href="https://www.instagram.com/dentalnunez.barcelona/" target="_blank" class="text-xs sm:text-sm font-semibold hover:underline flex items-center gap-1.5" style="color: var(--accent);">
+          <span>Síguenos en Instagram @dentalnunez.barcelona</span>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
         </a>
-        {% endif %}
+        
       </div>
 
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
-        {% for p in ig.posts %}
-        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('{{ p.image_url }}', '{{ p.caption|replace("'", "") }}')">
-          <img src="{{ p.image_url }}" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+        
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1000&auto=format&fit=crop&q=80', 'Tecnología de diagnóstico 3D y odontología mínimamente invasiva. Tu salud dental en las mejores manos.')">
+          <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1000&auto=format&fit=crop&q=80" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
           <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
-            <p class="text-[11px] text-white line-clamp-3 leading-tight">{{ p.caption }}</p>
+            <p class="text-[11px] text-white line-clamp-3 leading-tight">Tecnología de diagnóstico 3D y odontología mínimamente invasiva. Tu salud dental en las mejores manos.</p>
             <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
-              ❤️ {{ p.likes or 'Me gusta' }}
+              ❤️ 42
             </span>
           </div>
         </div>
-        {% endfor %}
+        
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&auto=format&fit=crop&q=80', 'Diseño de sonrisas y blanqueamiento dental avanzado con resultados inmediatos y naturales.')">
+          <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&auto=format&fit=crop&q=80" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
+            <p class="text-[11px] text-white line-clamp-3 leading-tight">Diseño de sonrisas y blanqueamiento dental avanzado con resultados inmediatos y naturales.</p>
+            <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
+              ❤️ 60
+            </span>
+          </div>
+        </div>
+        
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=800&auto=format&fit=crop&q=80', 'Ortodoncia invisible (alineadores transparentes) y tratamientos personalizados para adultos y niños.')">
+          <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=800&auto=format&fit=crop&q=80" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
+            <p class="text-[11px] text-white line-clamp-3 leading-tight">Ortodoncia invisible (alineadores transparentes) y tratamientos personalizados para adultos y niños.</p>
+            <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
+              ❤️ 78
+            </span>
+          </div>
+        </div>
+        
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=800&auto=format&fit=crop&q=80', 'Implantología guiada por ordenador y rehabilitación oral de máxima durabilidad.')">
+          <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=800&auto=format&fit=crop&q=80" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
+            <p class="text-[11px] text-white line-clamp-3 leading-tight">Implantología guiada por ordenador y rehabilitación oral de máxima durabilidad.</p>
+            <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
+              ❤️ 96
+            </span>
+          </div>
+        </div>
+        
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&auto=format&fit=crop&q=80', 'Instalaciones de máxima higiene y confort para que tu visita sea relajante y segura.')">
+          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&auto=format&fit=crop&q=80" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
+            <p class="text-[11px] text-white line-clamp-3 leading-tight">Instalaciones de máxima higiene y confort para que tu visita sea relajante y segura.</p>
+            <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
+              ❤️ 114
+            </span>
+          </div>
+        </div>
+        
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://images.unsplash.com/photo-1516549655169-df83a0774514?w=800&auto=format&fit=crop&q=80', 'Equipo médico cercano y profesional. Pide tu primera revisión y diagnóstico sin compromiso.')">
+          <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=800&auto=format&fit=crop&q=80" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
+            <p class="text-[11px] text-white line-clamp-3 leading-tight">Equipo médico cercano y profesional. Pide tu primera revisión y diagnóstico sin compromiso.</p>
+            <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
+              ❤️ 132
+            </span>
+          </div>
+        </div>
+        
       </div>
     </section>
 
@@ -662,7 +735,7 @@
               <div class="text-amber-400 text-xs">★★★★★</div>
             </div>
             <p class="text-xs sm:text-sm theme-muted leading-relaxed">
-              "Excelente trato y profesionalidad inmejorable. El equipo de {{ negocio.nombre }} te hace sentir en total confianza desde el primer minuto. ¡Totalmente recomendado!"
+              "Excelente trato y profesionalidad inmejorable. El equipo de Dental Nuñez te hace sentir en total confianza desde el primer minuto. ¡Totalmente recomendado!"
             </p>
           </div>
           <span class="text-[10px] opacity-60 block">Hace 2 semanas</span>
@@ -678,13 +751,13 @@
                 </div>
                 <div>
                   <span class="font-bold text-sm theme-heading block">Javier Ramos</span>
-                  <span class="text-[11px] theme-muted block">Cliente Local en {{ negocio.ciudad }}</span>
+                  <span class="text-[11px] theme-muted block">Cliente Local en Barcelona</span>
                 </div>
               </div>
               <div class="text-amber-400 text-xs">★★★★★</div>
             </div>
             <p class="text-xs sm:text-sm theme-muted leading-relaxed">
-              "Puntualidad de 10, instalaciones impecables y un servicio muy atento y rápido. Da gusto encontrar profesionales así en {{ negocio.ciudad }}."
+              "Puntualidad de 10, instalaciones impecables y un servicio muy atento y rápido. Da gusto encontrar profesionales así en Barcelona."
             </p>
           </div>
           <span class="text-[10px] opacity-60 block">Hace 1 mes</span>
@@ -769,7 +842,7 @@
             <span class="text-xs font-bold uppercase tracking-widest block" style="color: var(--accent);">Trayectoria & Filosofía</span>
             <h3 class="text-lg sm:text-xl font-bold theme-heading tracking-tight">Compromiso, Calidad y Cercanía</h3>
             <p class="text-xs sm:text-sm theme-muted leading-relaxed">
-              {{ web.sobre_nosotros or ig.biografia }}
+              En Dental Nuñez, somos tu clínica de referencia en Barcelona. Con pasión y tecnología de vanguardia, cuidamos de tu salud bucal y diseñamos sonrisas radiantes. Nuestro equipo cercano y profesional te espera en un ambiente de máximo confort.
             </p>
             
             <div class="pt-4 border-t space-y-2 text-xs" style="border-color: var(--border-color);">
@@ -804,25 +877,20 @@
           <div class="space-y-4">
             <div>
               <span class="text-xs font-bold uppercase tracking-widest block" style="color: var(--accent);">Localización</span>
-              <h2 class="text-2xl font-extrabold theme-heading tracking-tight mt-1">Visítanos en {{ negocio.ciudad }}</h2>
+              <h2 class="text-2xl font-extrabold theme-heading tracking-tight mt-1">Visítanos en Barcelona</h2>
             </div>
             
             <div class="text-xs sm:text-sm theme-muted space-y-3 pt-2">
               <p class="flex items-start gap-3">
                 <svg class="w-5 h-5 text-rose-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                <span><strong>Dirección:</strong> {{ negocio.direccion or 'Calle principal' }}, {{ negocio.ciudad }} (CP {{ negocio.codigo_postal }})</span>
+                <span><strong>Dirección:</strong> Calle principal, Barcelona (CP 08026)</span>
               </p>
-              {% if negocio.telefono %}
-              <p class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                <span><strong>Teléfono:</strong> <a href="tel:{{ negocio.telefono }}" class="theme-heading hover:underline font-semibold">{{ negocio.telefono }}</a></span>
-              </p>
-              {% endif %}
+              
             </div>
           </div>
 
           <div class="pt-4 border-t space-y-3" style="border-color: var(--border-color);">
-            <a href="https://www.google.com/maps/search/?api=1&query={{ (negocio.nombre ~ ' ' ~ negocio.direccion ~ ' ' ~ negocio.ciudad)|urlencode }}" target="_blank" 
+            <a href="https://www.google.com/maps/search/?api=1&query=Dental%20Nu%C3%B1ez%20%20Barcelona" target="_blank" 
               class="w-full py-3 px-4 rounded-xl glass-pill font-bold text-xs sm:text-sm flex items-center justify-center gap-2 hover:opacity-90 transition shadow-md">
               <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
               <span>Abrir Ruta en Google Maps</span>
@@ -847,11 +915,11 @@
         <!-- Col 1: Identidad -->
         <div class="space-y-3 md:col-span-2">
           <div class="flex items-center space-x-3">
-            <img src="{{ ig.avatar_url }}" alt="{{ negocio.nombre }}" class="w-9 h-9 rounded-full object-cover">
-            <span class="font-headline font-bold text-base theme-heading">{{ negocio.nombre }}</span>
+            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=300&auto=format&fit=crop&q=80" alt="Dental Nuñez" class="w-9 h-9 rounded-full object-cover">
+            <span class="font-headline font-bold text-base theme-heading">Dental Nuñez</span>
           </div>
           <p class="text-xs theme-muted max-w-sm leading-relaxed">
-            Página web oficial y canal de reservas directas para {{ negocio.nombre }} en {{ negocio.ciudad }}.
+            Página web oficial y canal de reservas directas para Dental Nuñez en Barcelona.
           </p>
         </div>
 
@@ -870,17 +938,15 @@
         <!-- Col 3: Contacto -->
         <div class="space-y-2 text-xs">
           <span class="font-bold theme-heading block uppercase tracking-wider text-[11px]">Contacto</span>
-          <p>{{ negocio.direccion or 'Calle principal' }}</p>
-          <p>{{ negocio.ciudad }} (CP {{ negocio.codigo_postal }})</p>
-          {% if negocio.telefono %}
-          <p class="theme-heading font-semibold pt-1">{{ negocio.telefono }}</p>
-          {% endif %}
+          <p>Calle principal</p>
+          <p>Barcelona (CP 08026)</p>
+          
         </div>
 
       </div>
 
       <div class="pt-6 border-t flex flex-col sm:flex-row items-center justify-between gap-4 text-xs opacity-70" style="border-color: var(--border-color);">
-        <p>© {{ negocio.nombre }} · {{ negocio.ciudad }}. Todos los derechos reservados.</p>
+        <p>© Dental Nuñez · Barcelona. Todos los derechos reservados.</p>
         <a href="#inicio" class="nav-link font-medium">Volver arriba ↑</a>
       </div>
     </footer>
@@ -892,23 +958,13 @@
   <!-- ============================================================ -->
   <div class="fixed bottom-0 left-0 right-0 z-50 p-2.5 backdrop-blur-2xl border-t md:hidden" style="background-color: var(--floating-bar-bg); border-color: var(--border-color);">
     <div class="grid grid-cols-2 gap-2 max-w-sm mx-auto">
-      {% if negocio.whatsapp_url %}
-      <a href="{{ negocio.whatsapp_url }}" target="_blank" class="btn-primary py-2.5 px-3 text-xs font-bold text-center flex items-center justify-center space-x-1.5 shadow-lg">
-        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-        <span>Pedir Cita WhatsApp</span>
-      </a>
-      {% endif %}
+      
 
-      {% if negocio.telefono %}
-      <a href="tel:{{ negocio.telefono }}" class="py-2.5 px-3 rounded-full text-xs font-bold text-center glass-pill flex items-center justify-center space-x-1.5" style="border-color: var(--border-color);">
-        <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-        <span>Llamar</span>
-      </a>
-      {% else %}
-      <a href="{{ negocio.instagram_url }}" target="_blank" class="py-2.5 px-3 rounded-full text-xs font-bold text-center glass-pill flex items-center justify-center space-x-1.5" style="border-color: var(--border-color);">
+      
+      <a href="https://www.instagram.com/dentalnunez.barcelona/" target="_blank" class="py-2.5 px-3 rounded-full text-xs font-bold text-center glass-pill flex items-center justify-center space-x-1.5" style="border-color: var(--border-color);">
         <span>Ver Instagram</span>
       </a>
-      {% endif %}
+      
     </div>
   </div>
 
@@ -971,8 +1027,8 @@
 
     // Leaflet Maps Init
     document.addEventListener('DOMContentLoaded', () => {
-      const lat = {{ negocio.lat or 40.4168 }};
-      const lon = {{ negocio.lon or -3.7038 }};
+      const lat = 41.3851;
+      const lon = 2.1734;
 
       try {
         const map = L.map('map', {
@@ -987,7 +1043,7 @@
         }).addTo(map);
 
         L.marker([lat, lon]).addTo(map)
-          .bindPopup("<b>{{ negocio.nombre }}</b><br>{{ negocio.direccion }}");
+          .bindPopup("<b>Dental Nuñez</b><br>");
       } catch (e) {
         console.warn('Leaflet map error', e);
       }
@@ -1049,5 +1105,4 @@
   </script>
 </body>
 </html>
-
 

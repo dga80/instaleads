@@ -1,4 +1,6 @@
 import os
+import shutil
+import asyncio
 import json
 import re
 import csv
@@ -20,7 +22,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
 
-from web_generator import generar_web_comercio, DEMOS_DIR
+from web_generator import generar_web_comercio, DEMOS_DIR, slugify
 
 # Cargar variables de entorno desde .env
 load_dotenv()
@@ -51,6 +53,8 @@ BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "data"
 DATA_DIR.mkdir(exist_ok=True)
 LEADS_FILE = DATA_DIR / "leads.json"
+import threading
+leads_lock = threading.Lock()
 
 if not LEADS_FILE.exists():
     with open(LEADS_FILE, "w", encoding="utf-8") as f:
@@ -325,14 +329,18 @@ Datos de presencia encontrados en internet:
 Debes evaluar y responder:
 1. 'es_gran_cadena': true si es una gran cadena corporativa, franquicia nacional/multinacional, aseguradora o gran empresa (ejemplos: Vitaldent, Sanitas, Adeslas, Vivanta, Dentix, Dorsia, McDonald's, Midas, etc.). False si es un comercio o clínica local independiente.
 2. 'es_perfil_correcto': true si los datos corresponden CLARAMENTE a este negocio ({nombre_negocio} en {ciudad}). Si los datos son de una marca ajena o negocio sin relación de otra localidad lejana, devuelve false.
-3. 'razon': Justificación breve y directa de tu decisión (ej: 'Coincide clínica local en {ciudad}', 'Descartado por ser gran franquicia nacional', o 'Comercio local verificado con presencia en directorios y redes').
-4. 'mensaje_dm_sugerido': Si 'es_perfil_correcto' es true Y 'es_gran_cadena' es false, redacta la propuesta de primer contacto para {canal_contacto} (máximo 60 palabras, tono cercano, profesional, equipo local de diseño en su zona, enlace seguro a la maqueta {demo_url or 'https://...'} sin registros ni descargas). En caso contrario, devuelve cadena vacía "".
-5. 'mensaje_seguimiento': Si 'es_perfil_correcto' es true Y 'es_gran_cadena' es false, redacta el seguimiento educado a las 48-72h. En caso contrario, devuelve cadena vacía "".
+3. 'tiene_web_oficial': true si entre los datos/enlaces detectas que el negocio YA tiene una página web propia activa oficial (ej: clinicadentalbarcelona.com, gesclident.com). False si NO tiene web propia (solo directorios genéricos, páginas amarillas o redes sociales).
+4. 'web_oficial_url': La URL de su página web oficial si 'tiene_web_oficial' es true, o cadena vacía "" si no tiene.
+5. 'razon': Justificación breve y directa de tu decisión (ej: 'Coincide clínica local en {ciudad}', 'Descartado por ser gran franquicia nacional', 'Comercio local verificado sin web propia', o 'Tiene página web oficial activa').
+6. 'mensaje_dm_sugerido': Si 'es_perfil_correcto' es true Y 'es_gran_cadena' es false, redacta la propuesta de primer contacto para {canal_contacto} (máximo 60 palabras, tono cercano, profesional, equipo local de diseño en su zona, enlace seguro a la maqueta {demo_url or 'https://...'} sin registros ni descargas). En caso contrario, devuelve cadena vacía "".
+7. 'mensaje_seguimiento': Si 'es_perfil_correcto' es true Y 'es_gran_cadena' es false, redacta el seguimiento educado a las 48-72h. En caso contrario, devuelve cadena vacía "".
 
 Devuelve ÚNICAMENTE un JSON con esta estructura:
 {{
   "es_gran_cadena": false,
   "es_perfil_correcto": true,
+  "tiene_web_oficial": false,
+  "web_oficial_url": "",
   "razon": "Coincide el negocio y ubicación",
   "mensaje_dm_sugerido": "¡Hola equipo de {nombre_negocio}! Me alegra contactaros. Somos un equipo local de diseño web en {ciudad} y vemos que tenéis un gran potencial para recibir más clientes directos en Google y móvil. Os hemos preparado una maqueta interactiva adaptada a vuestro negocio: {demo_url or 'https://...'}. Es un enlace 100% seguro para verla en el navegador sin descargas. ¿Qué os parece?",
   "mensaje_seguimiento": "¡Hola de nuevo! Os escribí hace un par de días con una maqueta web interactiva para vuestro negocio: {demo_url or 'https://...'}. Os lo comparto por aquí por si os resulta cómodo revisarlo desde el móvil. ¡Un saludo cordial!"
@@ -347,6 +355,8 @@ Devuelve ÚNICAMENTE un JSON con esta estructura:
                 return {
                     "es_gran_cadena": bool(data.get("es_gran_cadena", False)),
                     "es_perfil_correcto": bool(data.get("es_perfil_correcto", True)),
+                    "tiene_web_oficial": bool(data.get("tiene_web_oficial", False)),
+                    "web_oficial_url": str(data.get("web_oficial_url", "")).strip(),
                     "razon": str(data.get("razon", "Evaluación completada")),
                     "mensaje_dm_sugerido": str(data.get("mensaje_dm_sugerido", "")),
                     "mensaje_seguimiento": str(data.get("mensaje_seguimiento", "")),
@@ -757,14 +767,14 @@ def investigar_presencia_negocio(nombre: str, ciudad: str, ig_osm: str = "") -> 
         }
 
     # Tokens clave del negocio para validación
-    tokens_negocio = [
-        t for t in re.sub(r"[^a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]", " ", nom_limpio.lower()).split()
-        if len(t) > 2 and t not in (
-            "dr", "dra", "carrer", "calle", "avenida", "avda", "del", "los", "las", "les", "dels",
-            "clinic", "clinica", "dent", "dental", "taller", "peluqueria", "bar", "restaurant",
-            "restaurante", "centro", "centre"
-        )
-    ]
+    todos_tokens = [t for t in re.sub(r"[^a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]", " ", nom_limpio.lower()).split() if len(t) >= 3]
+    stopwords = {
+        "dr", "dra", "carrer", "calle", "avenida", "avda", "del", "los", "las", "les", "dels",
+        "taller", "peluqueria", "bar", "restaurant", "restaurante", "centro", "centre"
+    }
+    tokens_negocio = [t for t in todos_tokens if t not in stopwords]
+    if not tokens_negocio:
+        tokens_negocio = todos_tokens
 
     try:
         with DDGS() as ddgs:
@@ -854,10 +864,11 @@ def investigar_presencia_negocio(nombre: str, ciudad: str, ig_osm: str = "") -> 
                     fuente = clasificar_fuente_web(href, title)
                     fuente["snippet"] = body[:120] if body else ""
 
-                    # Si parece ser su propia web oficial (ej. www.garzondental.com)
+                    # Si parece ser su propia web oficial (ej. www.clinicadentalbarcelona.com)
                     if fuente["tipo"] == "web" and not web_detectada:
-                        domain = urllib.parse.urlparse(href).netloc.lower()
-                        if any(tok in domain for tok in tokens_negocio if len(tok) >= 3):
+                        domain = urllib.parse.urlparse(href).netloc.lower().replace("www.", "")
+                        nom_compacto = re.sub(r"[^a-z0-9]", "", nom_limpio.lower())
+                        if any(tok in domain for tok in tokens_negocio if len(tok) >= 3) or (nom_compacto and nom_compacto in domain):
                             web_detectada = href
                             fuente["label"] = "Sitio Web Detectado"
 
@@ -894,29 +905,71 @@ def leer_leads_guardados() -> List[Dict[str, Any]]:
         return []
 
 
+def detectar_demo_existente(nombre: str, ciudad: str = "") -> Optional[str]:
+    """Comprueba si ya existe una demo compilada previamente en disco demos/{slug}/index.html"""
+    slugs = []
+    nom_limpio = (nombre or "").strip()
+    ciu_limpia = (ciudad or "").strip()
+    if nom_limpio and ciu_limpia:
+        slugs.append(slugify(f"{nom_limpio}-{ciu_limpia}"))
+    if nom_limpio:
+        slugs.append(slugify(nom_limpio))
+
+    for s in slugs:
+        if s and (DEMOS_DIR / s / "index.html").exists():
+            return s
+    return None
+
+
 def guardar_leads_deduplicados(nuevos_leads: List[Dict[str, Any]]) -> int:
-    existentes = leer_leads_guardados()
-    # Claves únicas para deduplicación: (nombre normalizado, ciudad normalizada) o instagram_url
-    mapa = {}
-    for l in existentes:
-        k = (l.get("nombre", "").lower().strip(), l.get("ciudad", "").lower().strip())
-        mapa[k] = l
-
-    agregados = 0
-    for l in nuevos_leads:
-        k = (l.get("nombre", "").lower().strip(), l.get("ciudad", "").lower().strip())
-        if k in mapa:
-            # Actualizar datos si el nuevo tiene pitch o instagram verificado
-            mapa[k].update(l)
-        else:
+    with leads_lock:
+        existentes = leer_leads_guardados()
+        # Claves únicas para deduplicación: (nombre normalizado, ciudad normalizada)
+        mapa = {}
+        for l in existentes:
+            k = (l.get("nombre", "").lower().strip(), l.get("ciudad", "").lower().strip())
             mapa[k] = l
-            agregados += 1
 
-    lista_final = list(mapa.values())
-    with open(LEADS_FILE, "w", encoding="utf-8") as f:
-        json.dump(lista_final, f, ensure_ascii=False, indent=2)
+        agregados = 0
+        for l in nuevos_leads:
+            k = (l.get("nombre", "").lower().strip(), l.get("ciudad", "").lower().strip())
+            if k in mapa:
+                existente = mapa[k]
+                # Preservar demo previa y estado avanzado si ya existían
+                if existente.get("demo_slug"):
+                    l["demo_slug"] = existente.get("demo_slug")
+                    l["demo_url"] = existente.get("demo_url", "")
+                    l["demo_url_absoluta"] = existente.get("demo_url_absoluta", "")
+                    l["demo_vibe"] = existente.get("demo_vibe", "")
+                    if existente.get("estado") in ["Web Generada", "DM Enviado", "Respuesta Recibida", "Cerrado"]:
+                        l["estado"] = existente.get("estado")
+                else:
+                    # Comprobar si existe demo en disco
+                    slug_existente = detectar_demo_existente(l.get("nombre", ""), l.get("ciudad", ""))
+                    if slug_existente:
+                        l["demo_slug"] = slug_existente
+                        l["demo_url"] = f"/demos/{slug_existente}"
+                        if l.get("estado") in ["Sin Web", "Tiene Web"]:
+                            l["estado"] = "Web Generada"
 
-    return agregados
+                mapa[k].update(l)
+            else:
+                # Comprobar si existe demo en disco para nuevo lead
+                slug_existente = detectar_demo_existente(l.get("nombre", ""), l.get("ciudad", ""))
+                if slug_existente:
+                    l["demo_slug"] = slug_existente
+                    l["demo_url"] = f"/demos/{slug_existente}"
+                    if l.get("estado") in ["Sin Web", "Tiene Web"]:
+                        l["estado"] = "Web Generada"
+
+                mapa[k] = l
+                agregados += 1
+
+        lista_final = list(mapa.values())
+        with open(LEADS_FILE, "w", encoding="utf-8") as f:
+            json.dump(lista_final, f, ensure_ascii=False, indent=2)
+
+        return agregados
 
 
 # -------------------------------------------------------------
@@ -956,12 +1009,31 @@ async def health_check():
     }
 
 
+def calcular_prioridad_lead(lead: dict) -> tuple:
+    tiene_web = bool(lead.get("tiene_web") or lead.get("web_detectada") or lead.get("estado") == "Tiene Web")
+    tiene_ig = bool(lead.get("instagram_url") or lead.get("instagram_handle"))
+    tiene_enlaces = bool(lead.get("enlaces_internet") and len(lead["enlaces_internet"]) > 0)
+    
+    if tiene_ig and not tiene_web:
+        return (100, "🔥 Alta Prioridad")
+    elif not tiene_web and tiene_enlaces:
+        return (60, "⚡ Prioridad Media")
+    elif not tiene_web:
+        return (30, "⚪ Sin Web")
+    else:
+        return (10, "🌐 Ya Tiene Web")
+
+
 @app.get("/leads")
-async def get_leads():
-    """Devuelve todos los leads calculando el tiempo transcurrido y alertas de seguimiento temporal."""
+def get_leads():
+    """Devuelve todos los leads calculando el tiempo transcurrido, alertas de seguimiento temporal y ordenados por prioridad de prospección."""
     leads = leer_leads_guardados()
     now = datetime.now(timezone.utc)
     for l in leads:
+        score, label = calcular_prioridad_lead(l)
+        l["prioridad_score"] = score
+        l["prioridad_label"] = label
+
         fc_str = l.get("fecha_contacto")
         horas_transcurridas = 0
         alerta_seguimiento = False
@@ -979,6 +1051,15 @@ async def get_leads():
         l["horas_transcurridas"] = horas_transcurridas
         l["alerta_seguimiento"] = alerta_seguimiento
 
+        # Auto-detectar demo previamente existente en disco
+        if not l.get("demo_slug"):
+            slug_existente = detectar_demo_existente(l.get("nombre", ""), l.get("ciudad", ""))
+            if slug_existente:
+                l["demo_slug"] = slug_existente
+                l["demo_url"] = f"/demos/{slug_existente}"
+                if l.get("estado") in ["Sin Web", "Tiene Web"]:
+                    l["estado"] = "Web Generada"
+
         # Compatibilidad: asegurar URLs de búsqueda directa y enlaces_internet
         if not l.get("google_search_url") and l.get("nombre"):
             q_enc = urllib.parse.quote_plus(f"{l['nombre']} {l.get('ciudad', '')}")
@@ -988,19 +1069,23 @@ async def get_leads():
             l["google_maps_url"] = f"https://www.google.com/maps/search/?api=1&query={q_enc}"
         if "enlaces_internet" not in l:
             l["enlaces_internet"] = []
+
+    # Ordenar por prioridad descendente: Con IG y Sin Web primero (100 -> 60 -> 30 -> 10)
+    leads.sort(key=lambda x: x.get("prioridad_score", 0), reverse=True)
     return leads
 
 
 @app.delete("/leads")
-async def clear_leads():
+def clear_leads():
     """Vacía la lista de leads guardados."""
-    with open(LEADS_FILE, "w", encoding="utf-8") as f:
-        json.dump([], f)
+    with leads_lock:
+        with open(LEADS_FILE, "w", encoding="utf-8") as f:
+            json.dump([], f)
     return {"status": "ok", "mensaje": "Base de datos de leads reiniciada."}
 
 
 @app.post("/scan")
-async def scan_local_leads(req: ScanRequest):
+def scan_local_leads(req: ScanRequest):
     """
     Orquesta el pipeline completo de prospección:
     1. Normaliza la categoría a etiquetas OSM con Gemini (con auto-desescalado desde gemini-3.8-flash).
@@ -1120,6 +1205,12 @@ async def scan_local_leads(req: ScanRequest):
             mensaje_seguimiento = ""
             razon = "Sin Instagram ni presencia web detectada"
 
+        # Si Gemini o DuckDuckGo detectaron una web oficial
+        if analisis.get("tiene_web_oficial") and analisis.get("web_oficial_url"):
+            web_detectada = analisis["web_oficial_url"]
+
+        tiene_web_real = bool(web_detectada or analisis.get("tiene_web_oficial"))
+
         lead = {
             "osm_id": com["osm_id"],
             "nombre": nombre,
@@ -1130,7 +1221,7 @@ async def scan_local_leads(req: ScanRequest):
             "codigo_postal": com["codigo_postal"],
             "telefono": com["telefono"],
             "email": com.get("email", ""),
-            "tiene_web": False,
+            "tiene_web": tiene_web_real,
             "instagram_url": ig_url,
             "instagram_handle": ig_handle,
             "enlaces_internet": enlaces_internet,
@@ -1141,7 +1232,7 @@ async def scan_local_leads(req: ScanRequest):
             "gemini_razon": razon,
             "mensaje_dm": mensaje_dm,
             "mensaje_seguimiento": mensaje_seguimiento,
-            "estado": "Sin Web",
+            "estado": "Tiene Web" if tiene_web_real else "Sin Web",
             "demo_slug": "",
             "demo_url": "",
             "demo_vibe": ""
@@ -1166,7 +1257,7 @@ class StatusUpdateRequest(BaseModel):
 
 
 @app.post("/leads/{osm_id}/generate-web")
-async def generate_lead_web(osm_id: str, request: Request):
+def generate_lead_web(osm_id: str, request: Request):
     """
     Genera la web demo individualizada para un lead usando:
     1. Extracción de datos de Instagram (Apify o fallback adaptado).
@@ -1176,49 +1267,158 @@ async def generate_lead_web(osm_id: str, request: Request):
     5. Actualización del pitch de prospección con el enlace de la demo.
     """
     leads = leer_leads_guardados()
-    target_idx = None
     target_lead = None
-    for idx, l in enumerate(leads):
+    for l in leads:
         if str(l.get("osm_id")) == str(osm_id):
-            target_idx = idx
-            target_lead = l
+            target_lead = dict(l)
             break
 
     if target_lead is None:
         raise HTTPException(status_code=404, detail="Lead no encontrado.")
 
+    # Comprobar si la demo ya existía previamente
+    slug_existente = target_lead.get("demo_slug") or detectar_demo_existente(target_lead.get("nombre", ""), target_lead.get("ciudad", ""))
+    ya_existia = bool(slug_existente and (DEMOS_DIR / slug_existente / "index.html").exists())
+
     cliente_gemini = obtener_cliente_gemini()
     res = generar_web_comercio(target_lead, cliente_gemini=cliente_gemini)
 
     base_url = str(request.base_url).rstrip("/")
-    demo_url_absoluta = f"{base_url}/demos/{res['slug']}"
+    demo_url_absoluta = f"{base_url}/demos/{res['slug']}/"
 
     # Actualizar lead
     target_lead["demo_slug"] = res["slug"]
     target_lead["demo_url"] = res["demo_url_local"]
     target_lead["demo_url_absoluta"] = demo_url_absoluta
     target_lead["demo_vibe"] = res["design_vibe"]
-    target_lead["estado"] = "Web Generada"
+    if target_lead.get("estado") in ["Sin Web", "Tiene Web"]:
+        target_lead["estado"] = "Web Generada"
 
     # Regenerar el pitch comercial incorporando la URL de la demo
     nuevo_pitch = verificar_y_redactar_pitch(
         nombre_negocio=target_lead.get("nombre", ""),
-        datos_ig=f"Instagram: {target_lead.get('instagram_url', '')} | Categoría: {target_lead.get('categoria', '')}",
+        datos_presencia=f"Instagram: {target_lead.get('instagram_url', '')} | Categoría: {target_lead.get('categoria', '')}",
         ciudad=target_lead.get("ciudad", ""),
         demo_url=demo_url_absoluta
     )
     target_lead["mensaje_dm"] = nuevo_pitch.get("mensaje_dm_sugerido", target_lead.get("mensaje_dm", ""))
     target_lead["mensaje_seguimiento"] = nuevo_pitch.get("mensaje_seguimiento", target_lead.get("mensaje_seguimiento", ""))
 
-    leads[target_idx] = target_lead
-    with open(LEADS_FILE, "w", encoding="utf-8") as f:
-        json.dump(leads, f, ensure_ascii=False, indent=2)
+    with leads_lock:
+        fresh_leads = leer_leads_guardados()
+        target_idx = None
+        for idx, l in enumerate(fresh_leads):
+            if str(l.get("osm_id")) == str(osm_id):
+                target_idx = idx
+                break
+        if target_idx is not None:
+            fresh_leads[target_idx] = target_lead
+        else:
+            fresh_leads.append(target_lead)
+        with open(LEADS_FILE, "w", encoding="utf-8") as f:
+            json.dump(fresh_leads, f, ensure_ascii=False, indent=2)
 
     return {
         "status": "ok",
+        "ya_existia": ya_existia,
         "lead": target_lead,
         "demo": res
     }
+
+
+@app.delete("/leads/{osm_id}/demo")
+@app.post("/leads/{osm_id}/delete-demo")
+def delete_lead_demo(osm_id: str):
+    """
+    Elimina la web demo generada para un lead:
+    1. Borra la carpeta física en demos/{slug} si existe en disco.
+    2. Resetea los metadatos de demo en el lead (demo_slug, demo_url, demo_vibe, estado).
+    3. Regenera el pitch de prospección sin el enlace de la demo.
+    4. Guarda los cambios de forma concurrente y atómica.
+    """
+    with leads_lock:
+        leads = leer_leads_guardados()
+        target_idx = None
+        target_lead = None
+        for idx, l in enumerate(leads):
+            if str(l.get("osm_id")) == str(osm_id):
+                target_idx = idx
+                target_lead = l
+                break
+
+        if target_lead is None:
+            raise HTTPException(status_code=404, detail="Lead no encontrado.")
+
+        slug = target_lead.get("demo_slug") or detectar_demo_existente(target_lead.get("nombre", ""), target_lead.get("ciudad", ""))
+        
+        # Eliminar carpeta física en disco si existe
+        if slug:
+            demo_folder = DEMOS_DIR / slug
+            if demo_folder.exists() and demo_folder.is_dir():
+                try:
+                    shutil.rmtree(demo_folder)
+                    print(f"[Demo Cleaner] ✓ Carpeta eliminada: {demo_folder}")
+                except Exception as e:
+                    print(f"[Demo Cleaner Error] al borrar {slug}: {e}")
+
+        # Resetear estado y metadatos de demo
+        target_lead["demo_slug"] = ""
+        target_lead["demo_url"] = ""
+        target_lead["demo_url_absoluta"] = ""
+        target_lead["demo_vibe"] = ""
+        if target_lead.get("estado") == "Web Generada":
+            target_lead["estado"] = "Tiene Web" if target_lead.get("tiene_web") else "Sin Web"
+
+        # Limpiar URLs de la demo en los mensajes existentes de forma instantánea
+        if target_lead.get("mensaje_dm"):
+            target_lead["mensaje_dm"] = re.sub(r"https?://[^\s]+/demos/[^\s]+", "", target_lead["mensaje_dm"]).replace("  ", " ").strip()
+        if target_lead.get("mensaje_seguimiento"):
+            target_lead["mensaje_seguimiento"] = re.sub(r"https?://[^\s]+/demos/[^\s]+", "", target_lead["mensaje_seguimiento"]).replace("  ", " ").strip()
+
+        leads[target_idx] = target_lead
+        with open(LEADS_FILE, "w", encoding="utf-8") as f:
+            json.dump(leads, f, ensure_ascii=False, indent=2)
+
+        return {
+            "status": "ok",
+            "message": f"Web demo de '{target_lead.get('nombre')}' eliminada correctamente.",
+            "lead": target_lead
+        }
+
+
+@app.post("/demos/cleanup-all")
+def cleanup_all_demos():
+    """Elimina todas las carpetas de demos en disco y resetea las referencias en los leads."""
+    with leads_lock:
+        leads = leer_leads_guardados()
+        # Eliminar carpetas físicas en demos/ (excepto ocultas o index de galería)
+        eliminadas = 0
+        if DEMOS_DIR.exists():
+            for item in DEMOS_DIR.iterdir():
+                if item.is_dir() and not item.name.startswith("."):
+                    try:
+                        shutil.rmtree(item)
+                        eliminadas += 1
+                    except Exception as e:
+                        print(f"Error borrando {item}: {e}")
+        
+        # Resetear leads
+        for l in leads:
+            l["demo_slug"] = ""
+            l["demo_url"] = ""
+            l["demo_url_absoluta"] = ""
+            l["demo_vibe"] = ""
+            if l.get("estado") == "Web Generada":
+                l["estado"] = "Tiene Web" if l.get("tiene_web") else "Sin Web"
+            if l.get("mensaje_dm"):
+                l["mensaje_dm"] = re.sub(r"https?://[^\s]+/demos/[^\s]+", "", l["mensaje_dm"]).replace("  ", " ").strip()
+            if l.get("mensaje_seguimiento"):
+                l["mensaje_seguimiento"] = re.sub(r"https?://[^\s]+/demos/[^\s]+", "", l["mensaje_seguimiento"]).replace("  ", " ").strip()
+
+        with open(LEADS_FILE, "w", encoding="utf-8") as f:
+            json.dump(leads, f, ensure_ascii=False, indent=2)
+
+        return {"status": "ok", "message": f"Se han eliminado {eliminadas} demos correctamente."}
 
 
 class PitchSaveRequest(BaseModel):
@@ -1227,48 +1427,51 @@ class PitchSaveRequest(BaseModel):
 
 
 @app.post("/leads/{osm_id}/pitch")
-async def save_lead_pitch(osm_id: str, req: PitchSaveRequest):
+def save_lead_pitch(osm_id: str, req: PitchSaveRequest):
     """Guarda las ediciones personalizadas que el usuario realiza sobre el DM o seguimiento."""
-    leads = leer_leads_guardados()
-    for l in leads:
-        if str(l.get("osm_id")) == str(osm_id):
-            l["mensaje_dm"] = req.mensaje_dm.strip()
-            if req.mensaje_seguimiento:
-                l["mensaje_seguimiento"] = req.mensaje_seguimiento.strip()
-            with open(LEADS_FILE, "w", encoding="utf-8") as f:
-                json.dump(leads, f, ensure_ascii=False, indent=2)
-            return {"status": "ok", "lead": l}
+    with leads_lock:
+        leads = leer_leads_guardados()
+        for l in leads:
+            if str(l.get("osm_id")) == str(osm_id):
+                l["mensaje_dm"] = req.mensaje_dm.strip()
+                if req.mensaje_seguimiento:
+                    l["mensaje_seguimiento"] = req.mensaje_seguimiento.strip()
+                with open(LEADS_FILE, "w", encoding="utf-8") as f:
+                    json.dump(leads, f, ensure_ascii=False, indent=2)
+                return {"status": "ok", "lead": l}
     raise HTTPException(status_code=404, detail="Lead no encontrado.")
 
 
 @app.post("/leads/{osm_id}/status")
-async def update_lead_status(osm_id: str, req: StatusUpdateRequest):
+def update_lead_status(osm_id: str, req: StatusUpdateRequest):
     """Actualiza el estado de prospección del lead y registra la fecha de contacto."""
-    leads = leer_leads_guardados()
-    for l in leads:
-        if str(l.get("osm_id")) == str(osm_id):
-            l["estado"] = req.estado
-            if req.estado in ("DM Enviado", "Email Enviado") and not l.get("fecha_contacto"):
-                l["fecha_contacto"] = datetime.now(timezone.utc).isoformat()
-                l["canal_contacto"] = "Instagram DM" if "DM" in req.estado else "Email"
-            with open(LEADS_FILE, "w", encoding="utf-8") as f:
-                json.dump(leads, f, ensure_ascii=False, indent=2)
-            return {"status": "ok", "lead": l}
+    with leads_lock:
+        leads = leer_leads_guardados()
+        for l in leads:
+            if str(l.get("osm_id")) == str(osm_id):
+                l["estado"] = req.estado
+                if req.estado in ("DM Enviado", "Email Enviado") and not l.get("fecha_contacto"):
+                    l["fecha_contacto"] = datetime.now(timezone.utc).isoformat()
+                    l["canal_contacto"] = "Instagram DM" if "DM" in req.estado else "Email"
+                with open(LEADS_FILE, "w", encoding="utf-8") as f:
+                    json.dump(leads, f, ensure_ascii=False, indent=2)
+                return {"status": "ok", "lead": l}
     raise HTTPException(status_code=404, detail="Lead no encontrado.")
 
 
 @app.post("/leads/{osm_id}/simulate-time")
-async def simulate_lead_time(osm_id: str):
+def simulate_lead_time(osm_id: str):
     """Simula que han transcurrido 50 horas desde el contacto para comprobar la alerta de seguimiento."""
-    leads = leer_leads_guardados()
-    for l in leads:
-        if str(l.get("osm_id")) == str(osm_id):
-            hace_50h = datetime.now(timezone.utc) - timedelta(hours=50)
-            l["fecha_contacto"] = hace_50h.isoformat()
-            l["estado"] = "DM Enviado"
-            with open(LEADS_FILE, "w", encoding="utf-8") as f:
-                json.dump(leads, f, ensure_ascii=False, indent=2)
-            return {"status": "ok", "mensaje": "Simuladas 50 horas para el lead.", "lead": l}
+    with leads_lock:
+        leads = leer_leads_guardados()
+        for l in leads:
+            if str(l.get("osm_id")) == str(osm_id):
+                hace_50h = datetime.now(timezone.utc) - timedelta(hours=50)
+                l["fecha_contacto"] = hace_50h.isoformat()
+                l["estado"] = "DM Enviado"
+                with open(LEADS_FILE, "w", encoding="utf-8") as f:
+                    json.dump(leads, f, ensure_ascii=False, indent=2)
+                return {"status": "ok", "mensaje": "Simuladas 50 horas para el lead.", "lead": l}
     raise HTTPException(status_code=404, detail="Lead no encontrado.")
 
 
@@ -1279,7 +1482,7 @@ class EmailSendRequest(BaseModel):
 
 
 @app.post("/leads/{osm_id}/send-email")
-async def send_lead_email(osm_id: str, req: EmailSendRequest):
+def send_lead_email(osm_id: str, req: EmailSendRequest):
     """
     Envía la propuesta comercial o seguimiento directamente al correo del negocio
     usando la cuenta Gmail configurada por el usuario.
@@ -1489,13 +1692,13 @@ def ejecutar_despliegue_github_pages() -> dict:
 
 
 @app.post("/deploy-github-pages")
-async def deploy_github_pages_endpoint():
+def deploy_github_pages_endpoint():
     """Endpoint llamado desde el botón de la UI para publicar las demos en GitHub Pages."""
     return ejecutar_despliegue_github_pages()
 
 
 @app.get("/demo/{osm_id}")
-async def redirect_to_demo(osm_id: str):
+def redirect_to_demo(osm_id: str):
     """Redirige directamente a la demo del lead si existe."""
     leads = leer_leads_guardados()
     for l in leads:
@@ -1505,7 +1708,7 @@ async def redirect_to_demo(osm_id: str):
 
 
 @app.get("/export-csv")
-async def export_leads_csv():
+def export_leads_csv():
     """Genera y descarga un archivo CSV con todos los leads registrados."""
     leads = leer_leads_guardados()
     output = io.StringIO()
@@ -1558,6 +1761,6 @@ async def export_leads_csv():
 if __name__ == "__main__":
     import uvicorn
     port = int(os.getenv("PORT", 8085))
-    host = os.getenv("HOST", "127.0.0.1")
+    host = os.getenv("HOST", "0.0.0.0")
     print(f"Iniciando InstaLeads AI en http://{host}:{port}")
     uvicorn.run("app:app", host=host, port=port, reload=True)
