@@ -2,7 +2,12 @@ import os
 import re
 import json
 import requests
+from pathlib import Path
 from typing import Dict, Any, List, Optional
+from dotenv import load_dotenv
+
+BASE_DIR = Path(__file__).resolve().parent
+load_dotenv(BASE_DIR / ".env")
 
 def normalizar_handle(handle_or_url: str) -> str:
     """Extrae el nombre de usuario limpio sin @ ni URLs."""

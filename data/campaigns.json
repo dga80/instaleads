@@ -1,5 +1,33 @@
 [
   {
+    "id": "camp_1788897477",
+    "nombre": "Taller De Custom Motos · barcelona",
+    "categoria": "taller de custom motos",
+    "ubicacion": "barcelona",
+    "created_at": "2026-09-08T19:57:57.580379+00:00",
+    "leads_count": 18,
+    "lead_ids": [
+      "1889913533",
+      "2468845809",
+      "3493224869",
+      "5040657021",
+      "5040657121",
+      "5118124302",
+      "5448091735",
+      "6125602217",
+      "6133245829",
+      "6152363420",
+      "6488829196",
+      "7002869604",
+      "7107839692",
+      "9235057511",
+      "9608262963",
+      "9768940617",
+      "9823542619",
+      "9886744281"
+    ]
+  },
+  {
     "id": "camp_1788888958",
     "nombre": "Luthier De Guitarras · Barcelona, Barcelona",
     "categoria": "luthier de guitarras",

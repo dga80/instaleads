@@ -38,8 +38,8 @@ def estructurar_contenido_con_gemini(
         from gemini_service import generar_con_gemini_cascade
         posts_text = "\n".join([f"- Post {i+1}: {p.get('caption', '')[:100]}" for i, p in enumerate(ig_posts[:6])])
         prompt = f"""
-Actúa como Director Creativo y Copywriter Web de élite para comercios locales.
-Vamos a convertir el perfil de Instagram de este negocio en una página web mobile-first de alta conversión.
+Actúa como Diseñador Principal UX/UI y Director Creativo de élite para comercios locales.
+Tu objetivo es diseñar la identidad visual, el modo cromático y la arquitectura de contenidos de una landing page mobile-first de máxima conversión para este negocio.
 
 Datos del negocio:
 - Nombre: {nombre}
@@ -50,15 +50,25 @@ Datos del negocio:
 Publicaciones recientes en Instagram:
 {posts_text}
 
-Tu misión es extraer y estructurar el contenido de la web en formato JSON:
-1. 'titular': Un título potente y persuasivo para el Hero (máx 8 palabras).
-2. 'subtitulo': Una frase que explique el valor diferencial y anime a contactar (máx 20 palabras).
-3. 'servicios': Una lista de entre 2 y 4 servicios o especialidades clave detectadas en sus posts. Para cada servicio:
-   - 'nombre': Nombre del servicio (ej. "Manicura Rusa con Nivelación", "Revisión Oficial y Frenos", "Desayunos Artesanos").
+Tu misión como Director de Diseño y Copywriting es decidir y estructurar el contenido en JSON:
+1. 'tema_predeterminado': Modo visual inicial ideal para este negocio. Elige estrictamente entre "light" o "dark".
+   - Regla de diseño UX: Negocios de salud, clínicas dentales, centros médicos, spas, panaderías, cafeterías, boutiques de moda o belleza transmiten mucha mayor higiene, luminosidad, confianza y frescura con "light".
+   - Talleres de motos/coches, estudios de tatuaje, discotecas, barberías oscuras o negocios técnicos transmiten más potencia e identidad industrial con "dark".
+2. 'arquetipo_diseno': Arquetipo visual más idóneo. Elige estrictamente uno entre:
+   - "fresh_clinical" (clínicas dentales, medicina, fisioterapia, estética limpia)
+   - "technical_dark" (talleres de motos, coches, mecánica, diagnosis)
+   - "editorial_luxury" (centros de uñas de autor, alta cosmética, joyería, moda)
+   - "warm_artisan" (cafeterías de especialidad, panaderías artesanas, restaurantes)
+   - "modern_lifestyle" (fitness, gimnasios, barberías urbanas, estudios)
+3. 'badge_status': Una frase de estado con emoji para el header (ej. "🩺 1ª CITA & REVISIÓN DIGITAL DISPONIBLE", "⚡ BOX DE TALLER ACTIVO • CITA RÁPIDA", "✨ CITAS ABIERTAS • AGENDA ONLINE").
+4. 'titular': Un título potente y persuasivo para el Hero (máx 8 palabras).
+5. 'subtitulo': Una frase que explique el valor diferencial y anime a contactar (máx 20 palabras).
+6. 'servicios': Lista de entre 2 y 4 servicios o especialidades clave detectadas. Para cada uno:
+   - 'nombre': Nombre del servicio (ej. "Ortodoncia Invisible & Carillas", "Revisión Oficial y Neumáticos", "Manicura Rusa con Nivelación").
    - 'descripcion': Breve explicación atractiva (máx 15 palabras).
-   - 'precio_o_duracion': Estimación sugerida (ej. "Desde 25€", "Cita Previa", "Consultar", etc.).
-4. 'sobre_nosotros': Párrafo cercano y profesional resumiendo su pasión y trayectoria (máx 40 palabras).
-5. 'categoria_clean': Nombre corto de la categoría para una etiqueta (ej. "Studio de Uñas", "Taller Especializado", "Café de Especialidad").
+   - 'precio_o_duracion': Estimación sugerida (ej. "1ª Visita Gratuita", "Presupuesto sin compromiso", "Desde 25€", etc.).
+7. 'sobre_nosotros': Párrafo cercano y profesional resumiendo su propuesta de valor (máx 40 palabras).
+8. 'categoria_clean': Nombre corto y limpio de la categoría para la etiqueta (ej. "Clínica Dental", "Taller Especializado", "Studio de Uñas").
 
 Responde ÚNICAMENTE con el objeto JSON válido:
 """
@@ -67,7 +77,7 @@ Responde ÚNICAMENTE con el objeto JSON válido:
             texto = re.sub(r"^```(json)?", "", texto, flags=re.MULTILINE).strip("` \n")
             data = json.loads(texto)
             if "titular" in data and "servicios" in data:
-                print(f"[Gemini Web Structuring] Contenido web generado exitosamente con modelo {modelo_usado}")
+                print(f"[Gemini Web Structuring] Contenido y diseño UX/UI generados con modelo {modelo_usado} (Tema: {data.get('tema_predeterminado')}, Arquetipo: {data.get('arquetipo_diseno')})")
                 for i, s in enumerate(data.get("servicios", [])):
                     if i < len(ig_posts):
                         s["imagen"] = ig_posts[i].get("image_url")
@@ -88,7 +98,11 @@ Responde ÚNICAMENTE con el objeto JSON válido:
             "imagen": p.get("image_url")
         })
 
+    cat_low = (categoria + " " + nombre).lower()
+    default_theme = "light" if any(k in cat_low for k in ["dental", "dentist", "clinic", "salud", "fisioterap", "uña", "belleza", "spa", "cafe", "panader"]) else "dark"
+
     return {
+        "tema_predeterminado": default_theme,
         "titular": f"{nombre} en {ciudad}",
         "subtitulo": ig_bio or f"Calidad, profesionalidad y trato cercano. Descubre nuestros servicios y reserva tu cita en segundos.",
         "servicios": servicios_base,
@@ -100,9 +114,9 @@ def generar_web_comercio(lead: Dict[str, Any], cliente_gemini=None) -> Dict[str,
     """
     Ejecuta el pipeline completo de replicación Instagram -> Web Demo:
     1. Extrae fotos, bio y datos de Instagram (Apify / Curated).
-    2. Sintetiza el Design System estilo Stitch (colores, fuentes tipográficas y formas).
-    3. Estructura el contenido persuasivo con Gemini.
-    4. Compila el index.html y lo guarda en demos/{slug}/index.html (GitHub Pages ready).
+    2. Estructura el contenido persuasivo y decisiones UX/UI con Gemini.
+    3. Sintetiza el Design System estilo Stitch con tokens cromáticos y tipográficos.
+    4. Compila el index.html y lo prepara para despliegue en GitHub Pages.
     """
     nombre = lead.get("nombre", "Comercio Local")
     categoria = lead.get("categoria", "Comercio")
@@ -113,10 +127,7 @@ def generar_web_comercio(lead: Dict[str, Any], cliente_gemini=None) -> Dict[str,
     # 1. Extraer datos del perfil de Instagram
     ig_data = obtener_datos_completos_instagram(handle, nombre, categoria, ciudad)
 
-    # 2. Sintetizar tokens de diseño (Google Stitch)
-    design_tokens = sintetizar_design_system(categoria, nombre)
-
-    # 3. Estructurar contenidos y servicios con Gemini
+    # 2. Estructurar contenidos, copy persuasivo y decisiones de diseño con Gemini
     web_content = estructurar_contenido_con_gemini(
         nombre=nombre,
         categoria=categoria,
@@ -125,6 +136,9 @@ def generar_web_comercio(lead: Dict[str, Any], cliente_gemini=None) -> Dict[str,
         ig_posts=ig_data.get("posts", []),
         cliente_gemini=cliente_gemini
     )
+
+    # 3. Sintetizar tokens de diseño (Google Stitch) aplicando las decisiones del Agente Diseñador
+    design_tokens = sintetizar_design_system(categoria, nombre, sugerencia_gemini=web_content)
 
     # 4. Generar enlaces de acción rápida
     clean_phone = re.sub(r"[^\d]", "", telefono)

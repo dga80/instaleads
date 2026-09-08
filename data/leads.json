@@ -270,7 +270,7 @@
     "estado": "Web Generada",
     "demo_slug": "dental-nunez-barcelona",
     "demo_url": "https://dga80.github.io/instaleads/dental-nunez-barcelona/",
-    "demo_vibe": "Fresh Clinical (Limpio, Confiable & Salud)",
+    "demo_vibe": "Bento Medical (Tecnología Clínica, Confianza & Salud)",
     "demo_url_absoluta": "https://dga80.github.io/instaleads/dental-nunez-barcelona/",
     "campana_id": "camp_init_1_1788888949",
     "campana_ids": [
@@ -281,7 +281,7 @@
   {
     "osm_id": "1889913533",
     "nombre": "Polo",
-    "categoria": "taller de motos (shop:motorcycle)",
+    "categoria": "taller de custom motos (shop:motorcycle)",
     "direccion": "",
     "ciudad": "Barcelona",
     "provincia": "Barcelona",
@@ -312,25 +312,9 @@
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://www.bing.com/aclick?ld=e8Q1hxRNP2gAd_Lb6pj0icmzVUCUwx4JGlzt1z-RAimAn1QxLsl9VPtrXFvZkl1-8tru4omKV96fjl5MGl-251KPCL421ESOsqDIYdf7c7HzK_IuKXC9s80ba4wog73-SccGcs7o31IhEor0b7QUNs7MSuLKdA-OuFd3fkk83v5AbqgalciZBKLYTO5_0IkZhPEI174A&u=aHR0cHMlM2ElMmYlMmZhZC5kb3VibGVjbGljay5uZXQlMmZzZWFyY2hhZHMlMmZsaW5rJTJmY2xpY2slM2ZsaWQlM2Q0MzcwMDA4Mzc1NjAxMDgwNSUyNmRzX3Nfa3dnaWQlM2Q1ODcwMDAwOTA2Mzk5OTQ2NCUyNmRzX2FfY2lkJTNkNjc3MTE3NzczMyUyNmRzX2FfY2FpZCUzZDIxODA2MDU5MTM3JTI2ZHNfYV9hZ2lkJTNkMTk2OTY2MjA1NjYwJTI2ZHNfYV9saWQlM2Rrd2QtMzYyNjI0NTU1OTg2JTI2JTI2ZHNfZV9hZGlkJTNkNzg5NTg5MDAzNDMyMDMlMjZkc19lX3RhcmdldF9pZCUzZGt3ZC03ODk1OTMwODUzNDc2NSUzYWxvYy0xNzAlMjYlMjZkc19lX25ldHdvcmslM2RvJTI2ZHNfdXJsX3YlM2QyJTI2ZHNfZGVzdF91cmwlM2RodHRwcyUzYSUyZiUyZnd3dy5yYWxwaGxhdXJlbi5lcyUzZmdjbGlkJTNkYjI4NDhkZjBhMDJmMWM5MzNiZmNlNzUwZTRkYmU5ZmElMjZnY2xzcmMlM2QzcC5kcyUyNiUyNnV0bV9zdWJjaGFubmVsJTNkYnJhbmRzZWFyY2glMjZ1dG1fc291cmNlJTNkYmluZyUyNnV0bV9tZWRpdW0lM2RwYWlkc2VhcmNoJTI2dXRtX2NhbXBhaWduJTNkYnJhbmQlMjZ1dG1fdGVybSUzZGJyYW5kX3BsdXMlMjZ1dG1fY29udGVudCUzZGNpZDUwNjExMjI2OV9jcmlkX2t3cG9sbyUyNTIwcmFscGglMjUyMGxhdXJlbiUyNTIwYmFyY2Vsb25hX3RpZGt3ZC03ODk1OTMwODUzNDc2NSUzYWxvYy0xNzBfcGlkX2FkZ3JvdXBpZCUzZDEyNjMzNDA2MjU2OTEwOTElMjZzX2t3Y2lkJTNkQUwhNjMxNiEzISFlISFvISFwb2xvJTI1MjByYWxwaCUyNTIwbGF1cmVuJTI1MjBiYXJjZWxvbmElMjZtc2Nsa2lkJTNkYjI4NDhkZjBhMDJmMWM5MzNiZmNlNzUwZTRkYmU5ZmE&rlid=b2848df0a02f1c933bfce750e4dbe9fa",
-        "titulo": "Polo Ralph Lauren® oficial - Polo Ralph Lauren® España",
-        "snippet": "Renueva tu armario con ropa Polo Ralph Lauren®. Explora la colección. Clásicos modernos para hombre, mujer y niños. Renu"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://www.bing.com/aclick?ld=e859FnM7gvICWMLL9ZRStlgzVUCUyfzjPFwN1NlFglmhOgDiFKRxTfiFOXNrDQbzxSbfavTyEhjiunUfV0Np_oDg6ppzs6UVam4T4AEV__C2985ciHZpBkhyJox0T8-8TILeVB-p8jgvKg_TILlZXrz_iiv1BiUJOMcQcjecmxaz5aRIxwOjaXP5vHdLE8QfF0wwEIMQ&u=aHR0cHMlM2ElMmYlMmZhZC5kb3VibGVjbGljay5uZXQlMmZzZWFyY2hhZHMlMmZsaW5rJTJmY2xpY2slM2ZsaWQlM2Q0MzcwMDA1NjE5MjYyNTEwNyUyNmRzX3Nfa3dnaWQlM2Q1ODcwMDAwNjIxNzc1NDk2MiUyNmRzX2FfY2lkJTNkNTA5MzA0NDc2JTI2ZHNfYV9jYWlkJTNkMTA3NDg0MjI0NzIlMjZkc19hX2FnaWQlM2QxMDUyNjA4MzU1MTklMjZkc19hX2xpZCUzZGt3ZC0yMDA3NjY2NTcwNjAxJTI2JTI2ZHNfZV9hZGlkJTNkNzM4MDQ5OTQ2NjczNDIlMjZkc19lX3RhcmdldF9pZCUzZGt3ZC03MzgwNDg5OTAwMDcwNSUzYWxvYy0xNzAlMjYlMjZkc19lX25ldHdvcmslM2RvJTI2ZHNfdXJsX3YlM2QyJTI2ZHNfZGVzdF91cmwlM2RodHRwcyUzYSUyZiUyZnd3dy5uaWtlLmNvbSUyZmVzJTJmdyUyZmZjLWJhcmNlbG9uYS01eTE3NCUzZmNwJTNkMTAxMjkyMjkyOTRfc2VhcmNoXyUyNk1hY3JvJTNkLSUyNTJCZmNiJTI1MjAlMjUyQnNoaXJ0LW8tMzYxNTE0MzUzLTExODA4NzYzNzUzMTM0MDAtcC1jLUVOLXNwb3J0cy0ta3dkLTczODA0ODk5MDAwNzA1JTNhbG9jLTE3MC0xNjQ0ODYlMjZnY2xpZCUzZDcwMGE3NDY5N2FlOTE1MDJjNTA1MWVjOTNlMWRiZjgzJTI2Z2Nsc3JjJTNkM3AuZHMlMjZkc19ybCUzZDEyNTIyNDklMjZtc2Nsa2lkJTNkNzAwYTc0Njk3YWU5MTUwMmM1MDUxZWM5M2UxZGJmODM&rlid=700a74697ae91502c5051ec93e1dbf83",
-        "titulo": "Nike Barcelona Shirts 26/27 - Gear Up For Football",
-        "snippet": "Victory For Barcelona. Explore The Nike Barcelona Range & Have Your Share Of The Glory. Every Match Is A Chance To Be A "
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://store.fcbarcelona.com/en-us/collections/mens-polos",
-        "titulo": "Mens Polos – Barça Official Store",
-        "snippet": "Visit the official online store of FC Barcelona. Get the latest kits, merchandising and gifts for the blaugrana fans."
+        "url": "https://en.wikipedia.org/wiki/Real_Club_de_Polo_de_Barcelona",
+        "titulo": "Real Club de Polo de Barcelona - Wikipedia",
+        "snippet": "August 16, 2025 - Real Club de Polo de Barcelona (English: Barcelona Royal Polo Club) is a country club in Barcelona, Sp"
       },
       {
         "tipo": "web",
@@ -339,6 +323,22 @@
         "url": "https://rcpolo.com/",
         "titulo": "Real Club de Polo de Barcelona",
         "snippet": "El Real Club de Polo de Barcelona es una Asociación sin ánimo de lucro fundada el año 1897 con personalidad jurídica y c"
+      },
+      {
+        "tipo": "instagram",
+        "label": "Instagram",
+        "icono": "📸",
+        "url": "https://www.instagram.com/rcpolobarcelona/?hl=es",
+        "titulo": "Real Club de Polo de Barcelona (@rcpolobarcelona)",
+        "snippet": "21K followers, 238 following, 2,523 posts – Real Club de Polo de Barcelona (@rcpolobarcelona) on Instagram: \"Perfil Ofic"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://store.fcbarcelona.com/es/collections/men-t-shirts-polos",
+        "titulo": "Camisetas y polos para hombre – Barça Official Store",
+        "snippet": "Visita la tienda online oficial del FC Barcelona. Consigue las nuevas equipaciones, ropa, regalos y mucho más para los f"
       }
     ],
     "web_detectada": "https://rcpolo.com/",
@@ -352,25 +352,35 @@
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
-    "campana_id": "camp_init_2_1788888949",
+    "campana_id": "camp_1788897477",
     "campana_ids": [
-      "camp_init_2_1788888949"
-    ]
+      "camp_init_2_1788888949",
+      "camp_1788897477"
+    ],
+    "campana_nombre": "Taller De Custom Motos · barcelona"
   },
   {
     "osm_id": "2468845809",
     "nombre": "A SAC!!!",
-    "categoria": "taller de motos (shop:motorcycle)",
+    "categoria": "taller de custom motos (shop:motorcycle)",
     "direccion": "Carrer del Rosselló 60",
     "ciudad": "Barcelona",
     "provincia": "Barcelona",
     "codigo_postal": "08029",
     "telefono": "",
     "email": "",
-    "tiene_web": false,
-    "instagram_url": "",
-    "instagram_handle": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/sacsbarcelona/",
+    "instagram_handle": "@sacsbarcelona",
     "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@sacsbarcelona)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/sacsbarcelona/",
+        "titulo": "Sacs Barcelona (@sacsbarcelona)",
+        "snippet": "Ver las fotos y vídeos en Instragram de Sacs Barcelona (@sacsbarcelona)"
+      },
       {
         "tipo": "web",
         "label": "Sitio Web",
@@ -378,23 +388,57 @@
         "url": "https://es.wikipedia.org/wiki/Axa_fc_barcelona",
         "titulo": "Axa fc barcelona",
         "snippet": "La sección de baloncesto del Fútbol Club Barcelona fue creada el 25 de octubre de 1926, lo que la convierte en el equipo"
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/asacmotos/",
+        "titulo": "A SAC | Barcelona - Facebook",
+        "snippet": "Aug 1, 2022 · Desde A SAC !!! Volem comunicar que degut al que esta passant amb el covid-19 no obrirem els propers dies,"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://tallerespinera.es/barcelona/barcelona/a-sac/",
+        "titulo": "A Sac!!! - Concesionario de motos en Barcelona",
+        "snippet": "Información sobre A Sac!!! en Barcelona, en la provincia de Barcelona. Concesionario de motos, Taller de reparación de m"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://esopiniones.com/catalonia/a-sac-155169",
+        "titulo": "A SAC !!!, Carrer del Rosselló, 60, Eixample, Barcelona ...A Sac!!! - Barcelona, Barcelona - Auto SpezialA SAC!!! GUSI Y MARTÍNEZ S.C.PA SAC !!! | Concesionarios de Motos, BarcelonaA SAC!!! MOTOS - en Barcelona: ☎️ 933 21 30 ...",
+        "snippet": "A SAC !!!, Catalunya, Comentarios de clientes, mapa de ubicación, números de teléfono, horas de trabajo A Sac es una des"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://autospezial.es/a-sac/",
+        "titulo": "A Sac!!! - Barcelona, Barcelona - Auto Spezial",
+        "snippet": "A Sac es una destacada empresa ubicada en la ciudad de Barcelona, España, con una sólida reputación en el ámbito de los "
       }
     ],
-    "web_detectada": "",
+    "web_detectada": "https://asacmotos.es/contacto",
     "google_search_url": "https://www.google.com/search?q=A+SAC%21%21%21+Barcelona",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=A+SAC%21%21%21+Barcelona",
     "gemini_verificado": true,
-    "gemini_razon": "Sin Instagram. Presencia online detectada (1 fuentes: Sitio Web)",
-    "mensaje_dm": "¡Hola equipo de A SAC!!!! Os contactamos desde un equipo local de diseño web en Barcelona. Hemos estado revisando negocios con buenas referencias en vuestra zona y os hemos preparado una maqueta interactiva móvil para vuestra clínica: (Es un enlace 100% seguro sin registros para verlo en el navegador). ¿Os gustaría que conversemos 2 minutos sin compromiso? ¡Un saludo!",
+    "gemini_razon": "Validación automática heurística",
+    "mensaje_dm": "¡Hola equipo de A SAC!!!! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de Barcelona para ayudarles a conseguir más clientes desde Google. Os he preparado una maqueta interactiva de cómo luciría vuestra web: (El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!",
     "mensaje_seguimiento": "¡Hola de nuevo equipo de A SAC!!!! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
-    "estado": "Sin Web",
+    "estado": "Tiene Web",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
-    "campana_id": "camp_init_2_1788888949",
+    "campana_id": "camp_1788897477",
     "campana_ids": [
-      "camp_init_2_1788888949"
-    ]
+      "camp_init_2_1788888949",
+      "camp_1788897477"
+    ],
+    "campana_nombre": "Taller De Custom Motos · barcelona"
   },
   {
     "osm_id": "4566036825",
@@ -478,86 +522,88 @@
   {
     "osm_id": "5040657021",
     "nombre": "Motocard",
-    "categoria": "taller de motos (shop:motorcycle)",
+    "categoria": "taller de custom motos (shop:motorcycle)",
     "direccion": "Carrer de Tuset 14",
     "ciudad": "Barcelona",
     "provincia": "Barcelona",
     "codigo_postal": "08006",
     "telefono": "",
     "email": "",
-    "tiene_web": true,
-    "instagram_url": "https://www.instagram.com/motocardstore/",
-    "instagram_handle": "@motocardstore",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
     "enlaces_internet": [
       {
-        "tipo": "instagram",
-        "label": "Instagram (@motocardstore)",
-        "icono": "📸",
-        "url": "https://www.instagram.com/motocardstore/",
-        "titulo": "Motocard (@motocardstore) • Instagram photos and videos",
-        "snippet": "251K Followers, 669 Following, 3,309 Posts - Motocard (@motocardstore) on Instagram: \"Desde 1982, líderes en equipación "
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://www.qdq.com/motocard-570099",
+        "titulo": "MOTOCARD, Motos en Barcelona, Eixample - Grupo qdq",
+        "snippet": "MOTOCARD. MotosCalle València 511-515, 08013, Eixample, Barcelona, Barcelona. Abierto. Visitar web · Visitar web · Cómo "
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://www.einforma.com/sucursales/motocard-bike/barcelona/",
+        "titulo": "Motocard Bike Sl en Barcelona - Ubicaciones y Teléfonos",
+        "snippet": "Consulta todos los datos de contacto de MOTOCARD BIKE SL en Barcelona. Obtén información detallada, como teléfonos, dire"
       },
       {
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://www.bing.com/aclick?ld=e81xCAbwNw6TKSJDECPtUd7DVUCUwUUcVqTRbpWGGSBSZxL6JqF-SM8TigeNCpOOu4q_S1GCd8fjhbCS9chusn1yW9LsVOfiM9x5jncToBQHJWaqVyXlIb0CkjqOwi-4Kb_jqa7hmYDp18ejWTYZj9w18X55jeSpMy6sMJGfzZgyBQJ5pP9Hba7WPO0K9xdLWH1kEA6g&u=aHR0cHMlM2ElMmYlMmZ3d3cubW90b2NhcmQuY29tJTNmdXRtX3NvdXJjZSUzZGJpbmclMjZ1dG1fbWVkaXVtJTNkY3BjJTI2dXRtX2NhbXBhaWduJTNkQmluZ19FU19CcmFuZCUyNnV0bV9pZCUzZEJpbmdfRVNfQnJhbmQlMjZtc2Nsa2lkJTNkYTQ1YjZhOWJhMWM1MTQ0NzJmNzEwMDNiZTRkNGFlZDMlMjZ1dG1fdGVybSUzZG1vdG9jYXJkJTI2dXRtX2NvbnRlbnQlM2RQYWxhYnJhJTI1M0ElMjUyME1vdG9jYXJk&rlid=a45b6a9ba1c514472f71003be4d4aed3",
-        "titulo": "Motocard Barcelona - Motocard® - Tienda Online",
-        "snippet": "Aprovecha nuestras Ofertas y Ahorra en tus Marcas favoritas. Garantía Motocard. Disfruta de los Mejores Descuentos en Ro"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web Detectado",
-        "icono": "🌐",
-        "url": "https://www.motocard.com/tiendas/barcelona",
-        "titulo": "Tienda de accesorios y ropa de moto en Barcelona ... - Motocard",
-        "snippet": "Últimos días de rebajas: llega la Traca Final en Motocard. Llévate cascos, chaquetas, botas, guantes, pantalones y mucho"
+        "url": "https://nicanora.es/tienda-ropa/motocard-2/",
+        "titulo": "Motocard - Tienda de ropa en Barcelona, Catalunya",
+        "snippet": "Motocard, ubicada en el Carrer de València 511 en Barcelona, se ha consolidado como uno de los referentes para los entus"
       },
       {
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://www.motocard.com/en/stores/barcelona",
-        "titulo": "Motorcycle clothing and accessories store in Barcelona (C ...Cycling accessories and clothes shop in Barcelona ... - MotocardMotocard | Barcelona - FacebookMotocard - Barcelona in Barcelona, Spain - Apple MapsMotocard Barcelona (08001) Carrer De Tuset, 14Cycling accessories and clothes shop in Barcelona (C. Tuset ...Motocard Barcelona - Motocard® - Tienda Online",
-        "snippet": "Motorcycle clothing and accessories store in Barcelona (C ... ... Motocard Últimos días para aprovechar las rebajas en M"
+        "url": "https://www.motociclismo.es/noticias/crece-familia-motocard-barcelona-3669_163600_102.html",
+        "titulo": "Crece la familia Motocard en Barcelona - Motociclismo",
+        "snippet": "3 ene 2008 · La nueva tienda Motocard de Barcelona se une a la ya existente en la capital catalana, en la calle Valencia"
       },
       {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://bike.motocard.com/en/stores/barcelona",
-        "titulo": "Cycling accessories and clothes shop in Barcelona ... - MotocardMotocard | Barcelona - FacebookMotocard - Barcelona in Barcelona, Spain - Apple MapsMotocard Barcelona (08001) Carrer De Tuset, 14Cycling accessories and clothes shop in Barcelona (C. Tuset ...Motocard Barcelona - Motocard® - Tienda Online",
-        "snippet": "Últimos días para aprovechar las rebajas en Motocard: cascos, chaquetas, botas, guantes, pantalones y mucho más de las m"
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://metropoliabierta.elespanol.com/guia/p/motocard-barcelona-7223042/",
+        "titulo": "Motocard, en Barcelona (Barcelona) - Metrópoli Abierta",
+        "snippet": "Motocard. Motocicletas: recambios y accesorios. València, 511-515. Barcelona (Barcelona) 08013. 93 265 02 24. Llamar ¿Al"
       },
       {
-        "tipo": "facebook",
-        "label": "Facebook",
-        "icono": "👥",
-        "url": "https://www.facebook.com/MotocardBarcelona/",
-        "titulo": "Motocard | Barcelona - FacebookMotocard - Barcelona in Barcelona, Spain - Apple MapsMotocard Barcelona (08001) Carrer De Tuset, 14Cycling accessories and clothes shop in Barcelona (C. Tuset ...",
-        "snippet": "Motocard, Barcelona. 517 likes · 103 were here. Accessories View details about Motocard - Barcelona in Barcelona, Spain "
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://empresite.eleconomista.es/MOTOCARD-BIKE.html",
+        "titulo": "Motocard Bike Sl - Teléfono y dirección - Empresite",
+        "snippet": "Para ponerse en contacto con sus oficinas, la empresa facilita el número de teléfono 932650224 y la dirección de correo "
       }
     ],
-    "web_detectada": "https://www.motocard.com/tiendas/barcelona",
+    "web_detectada": "",
     "google_search_url": "https://www.google.com/search?q=Motocard+Barcelona",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Motocard+Barcelona",
     "gemini_verificado": true,
-    "gemini_razon": "Validación automática heurística",
-    "mensaje_dm": "¡Hola equipo de Motocard! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de Barcelona para ayudarles a conseguir más clientes desde Google. Os he preparado una maqueta interactiva de cómo luciría vuestra web: (El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!",
+    "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Directorio Local, Sitio Web)",
+    "mensaje_dm": "¡Hola equipo de Motocard! Os contactamos desde un equipo local de diseño web en Barcelona. Hemos estado revisando negocios con buenas referencias en vuestra zona y os hemos preparado una maqueta interactiva móvil para vuestra clínica: (Es un enlace 100% seguro sin registros para verlo en el navegador). ¿Os gustaría que conversemos 2 minutos sin compromiso? ¡Un saludo!",
     "mensaje_seguimiento": "¡Hola de nuevo equipo de Motocard! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
-    "estado": "Tiene Web",
+    "estado": "Sin Web",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
-    "campana_id": "camp_init_2_1788888949",
+    "campana_id": "camp_1788897477",
     "campana_ids": [
-      "camp_init_2_1788888949"
-    ]
+      "camp_init_2_1788888949",
+      "camp_1788897477"
+    ],
+    "campana_nombre": "Taller De Custom Motos · barcelona"
   },
   {
     "osm_id": "5040657121",
     "nombre": "Müving",
-    "categoria": "taller de motos (shop:motorcycle)",
+    "categoria": "taller de custom motos (shop:motorcycle)",
     "direccion": "",
     "ciudad": "Barcelona",
     "provincia": "Barcelona",
@@ -612,9 +658,9 @@
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://passermoving.com/",
-        "titulo": "Mudanzas en Barcelona | Passer Moving",
-        "snippet": "Empresa de mudanzas en Barcelona especializada en mudanzas internacionales, nacionales, corporativas y guardamuebles. Pr"
+        "url": "https://settleinbarcelona.com/guides/best-moving-companies-barcelona",
+        "titulo": "Best Moving Companies for Barcelona: Costs & Reviews [2026]",
+        "snippet": "Apr 3, 2026 · Comparing international and local moving companies for your Barcelona relocation. Real costs, red flags to"
       }
     ],
     "web_detectada": "https://servimoving.com/",
@@ -628,22 +674,24 @@
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
-    "campana_id": "camp_init_2_1788888949",
+    "campana_id": "camp_1788897477",
     "campana_ids": [
-      "camp_init_2_1788888949"
-    ]
+      "camp_init_2_1788888949",
+      "camp_1788897477"
+    ],
+    "campana_nombre": "Taller De Custom Motos · barcelona"
   },
   {
     "osm_id": "5118124302",
     "nombre": "Vademotos",
-    "categoria": "taller de motos (shop:motorcycle)",
+    "categoria": "taller de custom motos (shop:motorcycle)",
     "direccion": "",
     "ciudad": "Barcelona",
     "provincia": "Barcelona",
     "codigo_postal": "",
     "telefono": "+34934605659",
     "email": "",
-    "tiene_web": true,
+    "tiene_web": false,
     "instagram_url": "https://www.instagram.com/vademotos/",
     "instagram_handle": "@vademotos",
     "enlaces_internet": [
@@ -657,65 +705,67 @@
       },
       {
         "tipo": "web",
-        "label": "Sitio Web Detectado",
+        "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://www.vademotos.com/es/inicio",
-        "titulo": "Tienda de Motos Barcelona | VADEMOTOS",
-        "snippet": "En VADEMOTOS, entendemos la importancia de encontrar la moto perfecta para cada cliente. Por eso, ofrecemos una amplia g"
+        "url": "https://servicios.motor.elpais.com/serv/vademotos-badalona-4895758/",
+        "titulo": "Vademotos, Badalona - Barcelona - Servicios El Motor",
+        "snippet": "Vademotos. Talleres de motos. Calle Paris 5. Badalona (Barcelona) 08913. 93 46 0 56 59. Llamar. ¿Eres el propietario? Id"
       },
       {
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://www.vademotos.com/es/venta-de-motos",
-        "titulo": "Venta y Reparaciones de Motos en Barcelona | VADEMOTOSMotos de Segunda Mano con Garantía y entrega en Barcelona5.496 Motos de segunda mano y ocasión en BarcelonaVADEMOTOS (@vademotos) • Instagram photos and videosVADEMOTOS - Barcelona - AiYellowVO Motos – Motos nuevas y de ocasión en Barcelona – Servicio ...",
-        "snippet": "Encuentra la moto de tus sueños en VADEMOTOS, tu tienda de venta y reparaciones de motos en Barcelona. Calidad, rapidez "
+        "url": "https://mototaller.es/taller/vademotos-badalona-08913",
+        "titulo": "Vademotos – Taller de Motos en BADALONA, Barcelona | mototaller ...",
+        "snippet": "Dirección. C/ Paris 5 ; Código Postal. 08913 ; Ciudad. BADALONA ; Provincia. Barcelona ; Teléfono. 934605659."
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://metropoliabierta.elespanol.com/guia/p/vademotos-badalona-7205496/",
+        "titulo": "Vademotos, en Badalona (Barcelona) - Metrópoli Abierta",
+        "snippet": "Vademotos. Taller de motos. Calle Paris 5. Badalona (Barcelona) 08913. 93 460 56 59. Llamar ¿Algún dato erróneo? ¿Eres e"
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://www.qdq.com/vademotos-309084",
+        "titulo": "VADEMOTOS, Motos en Badalona, Barcelona - QDQ",
+        "snippet": "VADEMOTOS. MotosPassatge Sant Pere 6, 08913, Badalona, Barcelona. Abierto. Cómo llegar. Ver teléfono. Llamar ahora. Publ"
       },
       {
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://motos.coches.net/segunda-mano/barcelona/",
-        "titulo": "5.496 Motos de segunda mano y ocasión en BarcelonaVADEMOTOS (@vademotos) • Instagram photos and videosVADEMOTOS - Barcelona - AiYellowVO Motos – Motos nuevas y de ocasión en Barcelona – Servicio ...",
-        "snippet": "5.496 Motos de particulares y concesionarios de segunda mano y ocasión en Barcelona. ¡Encuentra al mejor precio en Barce"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://www.aiyellow.com/vademotos/",
-        "titulo": "VADEMOTOS - Barcelona - AiYellow",
-        "snippet": "Pasate por VADEMOTOS, encontraras todo lo relacionado al mundo de la moto. Tenemos motos nuevas, de ocasión, Ciclomotore"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://mundimoto.com/es/motos-segunda-mano-ocasion/barcelona",
-        "titulo": "Motos de Segunda Mano con Garantía y entrega en Barcelona",
-        "snippet": "Motos de ocasión con garantía y revisión profesional. Más de 2000 opciones con financiación y entrega a domicilio."
+        "url": "https://barcelona.infoisinfo.es/ficha/vademotos_s_l/3018615",
+        "titulo": "Vademotos S.L. - Barcelona - Infoisinfo",
+        "snippet": "Vademotos S.L. tiene como actividad Empresas de mensajería,Mensajería urgente,Mensajería,... y está localizada C/ Bac De"
       }
     ],
-    "web_detectada": "https://www.vademotos.com/es/inicio",
+    "web_detectada": "",
     "google_search_url": "https://www.google.com/search?q=Vademotos+Barcelona",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Vademotos+Barcelona",
     "gemini_verificado": true,
     "gemini_razon": "Validación automática heurística",
     "mensaje_dm": "¡Hola equipo de Vademotos! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de Barcelona para ayudarles a conseguir más clientes desde Google. Os he preparado una maqueta interactiva de cómo luciría vuestra web: (El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!",
     "mensaje_seguimiento": "¡Hola de nuevo equipo de Vademotos! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
-    "estado": "Tiene Web",
+    "estado": "Sin Web",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
-    "campana_id": "camp_init_2_1788888949",
+    "campana_id": "camp_1788897477",
     "campana_ids": [
-      "camp_init_2_1788888949"
-    ]
+      "camp_init_2_1788888949",
+      "camp_1788897477"
+    ],
+    "campana_nombre": "Taller De Custom Motos · barcelona"
   },
   {
     "osm_id": "5448091735",
     "nombre": "The Garage Moto",
-    "categoria": "taller de motos (shop:motorcycle)",
+    "categoria": "taller de custom motos (shop:motorcycle)",
     "direccion": "Carrer Balears 11",
     "ciudad": "Santa Coloma de Gramenet",
     "provincia": "Barcelona",
@@ -731,7 +781,7 @@
         "label": "Instagram (@thegaragemoto)",
         "icono": "📸",
         "url": "https://www.instagram.com/thegaragemoto/",
-        "titulo": "The Garage Moto (@thegaragemoto) • Instagram photos and videosThe Garage Moto (@thegaragemoto) • Instagram photos and videosGarage Motos [taller mecánico] (@_garagemotos_) - InstagramLe Garage Moto & Friends (@legaragemoto) - InstagramGARAGEMOTOS (@garage.motos.13) • Instagram photos and videos(@el_garage_de_la_moto) • Instagram photos and videosEl Garage Motos (@elgaragemotos) • Instagram photos and videos",
+        "titulo": "The Garage Moto (@thegaragemoto) • Instagram photos and videosThe Garage Moto (@thegaragemoto) • Instagram photos and videosGarage Motos [taller mecánico] (@_garagemotos_) - InstagramLe Garage Moto & Friends (@legaragemoto) - Instagram(@el_garage_de_la_moto) • Instagram photos and videosGARAGEMOTOS (@garage.motos.13) • Instagram photos and videosEl Garage Motos (@elgaragemotos) • Instagram photos and videos",
         "snippet": "1,593 Followers, 1,512 Following, 585 Posts - The Garage Moto (@thegaragemoto) on Instagram: \"🛠️Taller de motos & venta "
       },
       {
@@ -743,36 +793,36 @@
         "snippet": "Nos dedicamos a la venta y reparación de motocicletas en Santa Coloma de Gramenet (Barcelona). Ofrecemos un servicio ráp"
       },
       {
-        "tipo": "facebook",
-        "label": "Facebook",
-        "icono": "👥",
-        "url": "https://www.facebook.com/thegaragemotostc/",
-        "titulo": "The Garage Moto | Santa Coloma de Gramenet - FacebookThe Garage Moto en Santa Coloma de Gramenet | Guía TalleresThe Garage Moto - Taller de reparación de motos en Santa ...The Garage Moto - Santa Coloma de Gramenet - Balears, 11 ...The Garage Moto, Sta Coloma De Gramanet - BarcelonaTaller de Motos en Santa Coloma | Reparación Rápida y Calidad",
-        "snippet": "Dec 31, 2025 · The Garage Moto, Santa Coloma de Gramenet. 870 likes · 5 talking about this · 240 were here. The Garage M"
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.thegaragemoto.es/motos",
+        "titulo": "Tu taller en Santa Coloma de Gramenet - The Garage Moto",
+        "snippet": "En The Garage Moto encontrarás tu moto nueva al mismo precio que el concesionario oficial. Los últimos modelos de Yamaha"
       },
       {
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://guiatalleres.com/talleres/the-garage-moto/",
-        "titulo": "The Garage Moto en Santa Coloma de Gramenet | Guía Talleres",
-        "snippet": "The Garage Moto en Santa Coloma de Gramenet: teléfono, dirección, horario y opiniones reales de clientes. Consulta valor"
+        "url": "https://mototaller.es/taller/the-garage-moto-santa-coloma-de-gramanet-08924",
+        "titulo": "Taller de Motos en SANTA COLOMA DE GRAMANET, Barcelona",
+        "snippet": "The Garage Moto ; Dirección. C/ Baleares 11 ; Código Postal. 08924 ; Ciudad. SANTA COLOMA DE GRAMANET ; Provincia. Barce"
       },
       {
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://tallerespinera.es/barcelona/santa-coloma-de-gramenet/the-garage-moto/",
-        "titulo": "The Garage Moto - Taller de reparación de motos en Santa ...",
-        "snippet": "Información sobre The Garage Moto en Santa Coloma de Gramenet, en la provincia de Barcelona. Taller de reparación de mot"
+        "url": "https://www.thegaragemoto.es/contacto",
+        "titulo": "Tu taller en Santa Coloma de Gramenet - The Garage Moto",
+        "snippet": "En The Garage Moto nos dedicamos a la venta y reparación de motocicletas en Santa Coloma de Gramenet (Barcelona). Ofrece"
       },
       {
-        "tipo": "directorio",
-        "label": "Directorio Local",
-        "icono": "📁",
-        "url": "https://www.paginasamarillas.es/f/santa-coloma-de-gramenet/the-garage-moto_234228146_000000001.html",
-        "titulo": "The Garage Moto - Santa Coloma de Gramenet - Balears, 11 ...",
-        "snippet": "TALLERES PARA MOTOCICLETAS The Garage Moto Santa Coloma de Gramenet, Calle Balears, en Páginas Amarillas. Consulta su te"
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.serveisactius.cat/index.php/es/barcelones/taller-motos-en-santa-coloma-gramenet",
+        "titulo": "Taller motos en Santa Coloma de Gramenet - Serveis Actius",
+        "snippet": "Taller motos en Santa Coloma de Gramenet, The Garage Moto, nos dedicamos a la venta y reparación de motocicletas en Sant"
       }
     ],
     "web_detectada": "https://www.thegaragemoto.es/",
@@ -786,15 +836,17 @@
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
-    "campana_id": "camp_init_3_1788888949",
+    "campana_id": "camp_1788897477",
     "campana_ids": [
-      "camp_init_3_1788888949"
-    ]
+      "camp_init_3_1788888949",
+      "camp_1788897477"
+    ],
+    "campana_nombre": "Taller De Custom Motos · barcelona"
   },
   {
     "osm_id": "6125602217",
     "nombre": "Gas Motorrad",
-    "categoria": "taller de motos (shop:motorcycle)",
+    "categoria": "taller de custom motos (shop:motorcycle)",
     "direccion": "",
     "ciudad": "Barcelona",
     "provincia": "Barcelona",
@@ -802,80 +854,82 @@
     "telefono": "",
     "email": "",
     "tiene_web": false,
-    "instagram_url": "https://www.instagram.com/gasmotorrad/",
-    "instagram_handle": "@gasmotorrad",
+    "instagram_url": "",
+    "instagram_handle": "",
     "enlaces_internet": [
-      {
-        "tipo": "instagram",
-        "label": "Instagram (@gasmotorrad)",
-        "icono": "📸",
-        "url": "https://www.instagram.com/gasmotorrad/",
-        "titulo": "GAS MOTORRAD S.L (@gasmotorrad) • Instagram photos and videos",
-        "snippet": "225 Followers, 204 Following, 170 Posts - GAS MOTORRAD S.L (@gasmotorrad) on Instagram: \"Tu taller de motos en Barcelona"
-      },
-      {
-        "tipo": "facebook",
-        "label": "Facebook",
-        "icono": "👥",
-        "url": "https://www.facebook.com/100069290112088/",
-        "titulo": "Gas Motorrad | Barcelona - Facebook",
-        "snippet": "Nov 22, 2018 · Gas Motorrad, Barcelona. 131 likes. Gas Motorrad c/ Llull nº70, telf: 93-5129166 Horarios:8:30-14h y 15:3"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://www.autoyas.com/ES/Barcelona/1615354178700933/Gas-Motorrad",
-        "titulo": "Gas Motorrad, Carrer de Llull, 70, Barcelona (2025)",
-        "snippet": "Sé el primero en enterarse y déjanos enviarle un correo electrónico cuando Gas Motorrad publique noticias y promociones."
-      },
-      {
-        "tipo": "facebook",
-        "label": "Facebook",
-        "icono": "👥",
-        "url": "https://www.facebook.com/gasmotorrad/",
-        "titulo": "Gas Motorrad | Barcelona - FacebookGAS MOTORRAD BARCELONA, Motos en BARCELONA, SANT MARTÍ ... - QDQGAS MOTORRAD S.L (@gasmotorrad) • Instagram photos and videosGas Motorrad, Carrer de Llull, 70, Barcelona (2025)Gas Motorrad S.L., Barcelona - Cylex búsqueda local España",
-        "snippet": "Feb 24, 2018 · Gas Motorrad, Barcelona. 227 likes · 13 were here. Hemos creado el taller donde nosotros llevaríamos nues"
-      },
       {
         "tipo": "directorio",
         "label": "Directorio Local",
         "icono": "📁",
         "url": "https://www.qdq.com/gas-motorrad-barcelona-123505",
-        "titulo": "GAS MOTORRAD BARCELONA, Motos en BARCELONA, SANT MARTÍ ... - QDQ",
-        "snippet": "Sobre GAS MOTORRAD BARCELONA Taller de reparación de motos con más de 40 años de experiencia, antes Electric Moto Andrés"
+        "titulo": "gas motorrad barcelona - Grupo qdq",
+        "snippet": "Sobre GAS MOTORRAD BARCELONA. Taller de reparación de motos con más de 40 años de experiencia, antes Electric Moto André"
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://www.einforma.com/informacion-empresa/gas-motorrad",
+        "titulo": "Gas Motorrad SL (extinguida): teléfono, CIF y dirección - eInforma",
+        "snippet": "Datos Generales de GAS MOTORRAD SL. (EXTINGUIDA) ; 935129166 · CALLE LLULL, 70 - LOC Ver Mapa · 8005 · BARCELONA."
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://empresite.eleconomista.es/GAS-MOTORRAD.html",
+        "titulo": "Gas Motorrad Sl. (extinguida) - Teléfono y dirección | Empresite",
+        "snippet": "REPARACION DE CUALQUIER TIPO DE VEHICULOS.COMPRAVENTA REPARACION Y COMERCIO AL POR MENOR DE MAQUINARIA DE CUALQUIER TIPO"
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://www.axesor.es/Informes-Empresas/8149379/GAS_MOTORRAD_SL.html",
+        "titulo": "Gas Motorrad sl: Teléfono, CIF y Dirección | Axesor",
+        "snippet": "Gas Motorrad sl es una empresa constituida hace 11 años, 5 meses y 22 dias en Barcelona, Barcelona. Su número de teléfon"
       },
       {
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://www.findglocal.com/ES/Barcelona/1615354178700933/Gas-Motorrad",
-        "titulo": "Gas Motorrad, Carrer de Llull, 70, Barcelona (2025)",
-        "snippet": "¿Quieres que tu empresa sea el Empresa De Automóviles mas cotizado en Barcelona? Haga clic aquí para reclamar su Entrada"
+        "url": "https://www.tugarajevirtual.com/public/talleres/barcelona/barcelona/gas-motorrad",
+        "titulo": "Gas Motorrad - Taller en Barcelona | Opiniones y presupuesto",
+        "snippet": "Parte de la información procede de fuentes públicas y de las opiniones de sus clientes. Dirección completa Carrer de Llu"
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://www.paginasamarillas.es/f/barcelona/gas-motorrad-s-l-_224133470_000000001.html",
+        "titulo": "GAS MOTORRAD S.L. - Barcelona - Llull, S/N | TALLERES ...",
+        "snippet": "Talleres mecanicos para vehiculos. ¿Tu vehículo ha sufrido una avería? ¿Necesitas una revisión de tu coche, cambiar neum"
       }
     ],
     "web_detectada": "",
     "google_search_url": "https://www.google.com/search?q=Gas+Motorrad+Barcelona",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Gas+Motorrad+Barcelona",
     "gemini_verificado": true,
-    "gemini_razon": "Validación automática heurística",
-    "mensaje_dm": "¡Hola equipo de Gas Motorrad! Somos un equipo local de diseño web en Barcelona. Al ver vuestro trabajo en el taller, os hemos preparado una maqueta web personalizada para captar clientes en Google: https://dga80.github.io/instaleads/gas-motorrad-barcelona/. Es un enlace seguro para verla online sin registros ni descargas. ¿Qué os parece la idea?",
-    "mensaje_seguimiento": "¡Hola! Os contactamos hace unos días con la propuesta de web para Gas Motorrad: https://dga80.github.io/instaleads/gas-motorrad-barcelona/. Podéis abrirla directamente en el móvil para ver cómo quedaría. Estaremos encantados de conocer vuestra opinión si os interesa. ¡Un saludo!",
+    "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Directorio Local, Sitio Web)",
+    "mensaje_dm": "¡Hola equipo de Gas Motorrad! Os contactamos desde un equipo local de diseño web en Barcelona. Hemos estado revisando negocios con buenas referencias en vuestra zona y os hemos preparado una maqueta interactiva móvil para vuestra clínica: (Es un enlace 100% seguro sin registros para verlo en el navegador). ¿Os gustaría que conversemos 2 minutos sin compromiso? ¡Un saludo!",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Gas Motorrad! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
     "estado": "Web Generada",
     "demo_slug": "gas-motorrad-barcelona",
     "demo_url": "https://dga80.github.io/instaleads/gas-motorrad-barcelona/",
-    "demo_vibe": "Technical Bold (Potencia, Precisión & Mecánica)",
-    "campana_id": "camp_init_2_1788888949",
+    "demo_vibe": "Technical Industrial (Potencia, Precisión & Box de Taller)",
+    "campana_id": "camp_1788897477",
     "campana_ids": [
-      "camp_init_2_1788888949"
+      "camp_init_2_1788888949",
+      "camp_1788897477"
     ],
     "demo_url_absoluta": "https://dga80.github.io/instaleads/gas-motorrad-barcelona/",
-    "demo_url_publica": "https://dga80.github.io/instaleads/gas-motorrad-barcelona/"
+    "demo_url_publica": "https://dga80.github.io/instaleads/gas-motorrad-barcelona/",
+    "campana_nombre": "Taller De Custom Motos · barcelona"
   },
   {
     "osm_id": "6133245829",
     "nombre": "Jovani & System Bike",
-    "categoria": "taller de motos (shop:motorcycle)",
+    "categoria": "taller de custom motos (shop:motorcycle)",
     "direccion": "",
     "ciudad": "Barcelona",
     "provincia": "Barcelona",
@@ -895,44 +949,44 @@
         "snippet": "205 Followers, 367 Following, 21 Posts - Jovani System Bike (@jovanisystem) on Instagram: \"Taller de motos 👊 🏍️ Reparaci"
       },
       {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://www.talleresmecanicos.net/taller/jovani-system-bike-barcelona-7117705/",
-        "titulo": "Jovani & System Bike, Barcelona (Barcelona)",
-        "snippet": "En Jovani & System Bike ofrecemos el mejor servicio. Somos especialistas en reparación, recambios y compraventa de motoc"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://www.autoyas.com/ES/Barcelona/480708568756138/Jovani-&-System-Bike",
-        "titulo": "Jovani & System Bike, Barcelona (2026) - autoyas.com",
-        "snippet": "En Motos Jovani con mas de 52 años de experiencia, podemos ofrecerles el mejor servicio posible, somos especialistas en "
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://www.findglocal.com/ES/Barcelona/480708568756138/Jovani-&-System-Bike",
-        "titulo": "Jovani & System Bike, Barcelona (2025) - Find Local Businesses",
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/jaumejovani/?locale=es_ES",
+        "titulo": "Jovani & System Bike | Barcelona - Facebook",
         "snippet": "Motos Jovani somos especialistas en reparacion, recambios y compraventa de motocicletas o ciclomotores. Servicios inmedi"
       },
       {
-        "tipo": "directorio",
-        "label": "Directorio Local",
-        "icono": "📁",
-        "url": "https://www.cylex.es/barcelona/jovani---system-bike-13199236.html",
-        "titulo": "Jovani & System Bike | Talleres Mecánicos, Barcelona",
-        "snippet": "Ver Jovani & System Bike en Barcelona, Almogavares 188 en Cylex y encuentre ☎ 933 09 08..., datos de contacto, ⌚ horario"
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://cincodias.elpais.com/directorio-empresas/empresa/7208808/jovani-&-system-bike",
+        "titulo": "JOVANI & SYSTEM BIKE SL | Datos de Empresa | Cinco Días",
+        "snippet": "JOVANI & SYSTEM BIKE SL, es una entidad situada en Calle Almogavers 188P BJ. 08018, Barcelona (Barcelona) JOVANI & SYSTE"
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/groups/507154819376096/posts/4394300163994856/",
+        "titulo": "Buenos dias !!! Algun taller para cambiar neumaticos por Barcelona ...",
+        "snippet": "4 Oct 2021 ... 4y. Hakuna Matata. 3 vez que cambio neumáticos y todo, genial!!! 4y · 1 like. Tony Díaz Plaza. Jovani & S"
       },
       {
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://www.conductordeprimera.com/ficha/jovani-system-bike-barcelona-7117704/",
-        "titulo": "Jovani & System Bike, Talleres de motos, Barcelona",
-        "snippet": "Somos especialistas en reparación, recambios y compraventa de motocicletas en Barcelona. Trabajamos con las mejores marc"
+        "url": "https://www.boe.es/borme/dias/2016/08/11/pdfs/BORME-A-2016-153-08.pdf",
+        "titulo": "Actos de BARCELONA del BORME núm. 153 de 2016 - BOE.es",
+        "snippet": "11 Aug 2016 ... ... (BARCELONA). Capital: 3.000,00. Euros. Nombramientos. ADM.SOLIDAR.: DUMON ... 333280 - JOVANI & SYST"
+      },
+      {
+        "tipo": "linkedin",
+        "label": "LinkedIn",
+        "icono": "💼",
+        "url": "https://es.linkedin.com/in/sara-iniesta-jovaní-b2957a2b7",
+        "titulo": "Sara Iniesta Jovaní - PhD candidate at BMW ProMotion Program",
+        "snippet": "PhD candidate at BMW ProMotion Program · Experiencia: BMW Group · Educación: Universitat Politècnica de Catalunya · Ubic"
       }
     ],
     "web_detectada": "",
@@ -940,23 +994,25 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Jovani+%26+System+Bike+Barcelona",
     "gemini_verificado": true,
     "gemini_razon": "Validación automática heurística",
-    "mensaje_dm": "¡Hola equipo de Jovani & System Bike! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de Barcelona para ayudarles a conseguir más clientes desde Google. Os he preparado una maqueta interactiva de cómo luciría vuestra web: https://dga80.github.io/instaleads/jovani-system-bike-barcelona/ (El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Jovani & System Bike! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: https://dga80.github.io/instaleads/jovani-system-bike-barcelona/ Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
-    "estado": "Web Generada",
-    "demo_slug": "jovani-system-bike-barcelona",
-    "demo_url": "https://dga80.github.io/instaleads/jovani-system-bike-barcelona/",
-    "demo_vibe": "Technical Bold (Potencia, Precisión & Mecánica)",
-    "campana_id": "camp_init_2_1788888949",
+    "mensaje_dm": "¡Hola equipo de Jovani & System Bike! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de Barcelona para ayudarles a conseguir más clientes desde Google. Os he preparado una maqueta interactiva de cómo luciría vuestra web: (El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Jovani & System Bike! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1788897477",
     "campana_ids": [
-      "camp_init_2_1788888949"
+      "camp_init_2_1788888949",
+      "camp_1788897477"
     ],
-    "demo_url_absoluta": "https://dga80.github.io/instaleads/jovani-system-bike-barcelona/",
-    "demo_url_publica": "https://dga80.github.io/instaleads/jovani-system-bike-barcelona/"
+    "demo_url_absoluta": "",
+    "demo_url_publica": "",
+    "campana_nombre": "Taller De Custom Motos · barcelona"
   },
   {
     "osm_id": "6152363420",
     "nombre": "SOL2",
-    "categoria": "taller de motos (shop:motorcycle)",
+    "categoria": "taller de custom motos (shop:motorcycle)",
     "direccion": "Avinguda Meridiana 88",
     "ciudad": "Barcelona",
     "provincia": "Barcelona",
@@ -964,16 +1020,16 @@
     "telefono": "+34 932320154",
     "email": "",
     "tiene_web": false,
-    "instagram_url": "https://www.instagram.com/daily.sol2/",
-    "instagram_handle": "@daily.sol2",
+    "instagram_url": "https://www.instagram.com/___sol2___/",
+    "instagram_handle": "@___sol2___",
     "enlaces_internet": [
       {
         "tipo": "instagram",
-        "label": "Instagram (@daily.sol2)",
+        "label": "Instagram (@___sol2___)",
         "icono": "📸",
-        "url": "https://www.instagram.com/daily.sol2/",
-        "titulo": "Sol2 (@daily.sol2) • Instagram photos and videos",
-        "snippet": "1,424 Followers, 966 Following, 137 Posts - Sol2 (@daily.sol2) on Instagram: \"\""
+        "url": "https://www.instagram.com/___sol2___/",
+        "titulo": "(@___sol2___) • Instagram photos and videos",
+        "snippet": "🍀 𝟤𝟢𝟣𝟦.𝟣𝟣.𝟢𝟫 💍 𝟤𝟢𝟤𝟣.𝟣𝟢.𝟣𝟩 👶🏻 𝟤𝟢𝟤𝟥.𝟢𝟫.𝟢𝟥 @p__yijun133 followers · 518 following. See photos and videos from friends on In"
       },
       {
         "tipo": "web",
@@ -987,33 +1043,33 @@
         "tipo": "directorio",
         "label": "Directorio Local",
         "icono": "📁",
-        "url": "https://www.cylex.es/barcelona/sol-2-motos-11752744.html",
-        "titulo": "Sol 2 Motos | Talleres Mecánicos, Barcelona",
-        "snippet": "Ver Sol 2 Motos en Barcelona, AVINGUDA MERIDIANA, 88 en Cylex y encuentre ☎ 932 32 01..., datos de contacto, ⌚ horario d"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://mapcarta.com/es/N6152363420",
-        "titulo": "SOL2 - Mapa - Distrito de San Martín, Barcelona, Cataluña, España",
-        "snippet": "SOL2 es una tienda en Distrito de San Martín, Barcelona, Cataluña ubicado en Avinguda Meridiana. Mapcarta, el mapa abier"
+        "url": "https://www.qdq.com/sol-2-761944",
+        "titulo": "SOL-2, Motos en Barcelona, Sant Martí - Grupo qdq",
+        "snippet": "SOL-2. MotosAvenida Meridiana 88, 08018, Sant Martí, Barcelona, Barcelona. Abierto. Cómo llegar. Ver teléfono. Llamar ah"
       },
       {
         "tipo": "directorio",
         "label": "Directorio Local",
         "icono": "📁",
         "url": "https://www.paginasamarillas.es/f/barcelona/sol-2_008464687_000000002.html",
-        "titulo": "Sol 2 - Barcelona - Av. Meridiana, 88 BAJOS 1º | MOTOCICLETAS ...",
-        "snippet": "MOTOCICLETAS COMPLEMENTOS Y VEHICULOS SIN CARNE Sol 2 Barcelona, Avinguda MERIDIANA, en Páginas Amarillas. Consulta su t"
+        "titulo": "Sol 2 - Barcelona - Av. Meridiana, 88 BAJOS 1º",
+        "snippet": "Meridiana, 88 BAJOS 1º, Barcelona, en el barrio de El Clot del distrito de Sant Marti. Puedes contactar con este negocio"
       },
       {
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://motostaller.es/cataluna/barcelona/sol-2-motos-taller-de-motos-en-barcelona/",
-        "titulo": "Sol-2 Motos | Taller De Motos En Barcelona 《 OPINIONES 》",
-        "snippet": "La ubicación conveniente de Sol-2 Motos, cerca del centro de Barcelona, hace que sea una opción atractiva para los propi"
+        "url": "https://www.infobel.com/es/spain/sol_2_motos/barcelona/ES102241949-542932320/businessdetails.aspx",
+        "titulo": "Sol-2 Motos, Barcelona, ES | Información de la empresa - Infobel",
+        "snippet": "Sol-2 Motos en Barcelona. Sol-2 Motos. Avinguda de Meridiana 88 08018 Barcelona. Mostrar teléfono. Vyc+VIlaOAHlAxOL1bfZf"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.idealista.com/maps/barcelona-barcelona/calle-sol/2/",
+        "titulo": "Calle Sol, 2, Barcelona - Idealista",
+        "snippet": "1 inmuebles en Calle Sol, 2, Barcelona. Descubre las características, precios estimados y datos catastrales de cada uno "
       }
     ],
     "web_detectada": "",
@@ -1027,40 +1083,93 @@
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
-    "campana_id": "camp_init_2_1788888949",
+    "campana_id": "camp_1788897477",
     "campana_ids": [
-      "camp_init_2_1788888949"
-    ]
+      "camp_init_2_1788888949",
+      "camp_1788897477"
+    ],
+    "campana_nombre": "Taller De Custom Motos · barcelona"
   },
   {
     "osm_id": "6488829196",
     "nombre": "Motos.com",
-    "categoria": "taller de motos (shop:motorcycle)",
+    "categoria": "taller de custom motos (shop:motorcycle)",
     "direccion": "",
     "ciudad": "Barcelona",
     "provincia": "Barcelona",
     "codigo_postal": "",
     "telefono": "",
     "email": "",
-    "tiene_web": false,
+    "tiene_web": true,
     "instagram_url": "",
     "instagram_handle": "",
-    "enlaces_internet": [],
-    "web_detectada": "",
+    "enlaces_internet": [
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "http://www.motospuntocom.com/",
+        "titulo": "Inicio | Motospuntocom. Tu tienda y taller de motos en Barcelona",
+        "snippet": "MOTOSPUNTOCOM, tu tienda de motos en Barcelona. Motos de ocasion al mejor precio. Motos de segunda mano de todas las mar"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://motos.coches.net/concesionario/onlymotoscom/",
+        "titulo": "Only Motos.com - Concesionario en Barcelona - Motos.net",
+        "snippet": "Todos los vehículos del concesionario Only Motos.com en Barcelona. Descubre todas las ofertas de este concesionario en m"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "http://www.motospuntocom.com/contactanos.php",
+        "titulo": "Motospuntocom. Tu tienda y taller de motos en Barcelona",
+        "snippet": "MOTOSPUNTOCOM, tu tienda de motos en Barcelona. Motos de ocasion al mejor precio. Motos de segunda mano de todas las mar"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "http://www.motospuntocom.com/taller.php",
+        "titulo": "Taller | Motospuntocom. Tu tienda y taller de motos en Barcelona",
+        "snippet": "Servicios y Taller. Motospuntocom, especialistas en BMW y Honda, con más de 20 años de experiencia avalados en nuestro s"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.bmwmotos.com/foro/threads/informacion-taller-motospuntocom-barcelona.501395/",
+        "titulo": "Informacion taller motospuntocom-barcelona | BMWMOTOS.COM",
+        "snippet": "4 ago 2016 · A ver son motos de segunda mano, alguna peguilla sale, pero nada destacable. En el taller está Cristóbal, u"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.onlymotos.com/motos_ocasion",
+        "titulo": "Motos de ocasión en Barcelona - Only Motos",
+        "snippet": "Motos de ocasión - Only Motos somos un concesionario multimarca expertos en vehiculos de ocasión, le asesoramos en la co"
+      }
+    ],
+    "web_detectada": "http://www.motospuntocom.com/",
     "google_search_url": "https://www.google.com/search?q=Motos.com+Barcelona",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Motos.com+Barcelona",
-    "gemini_verificado": false,
-    "gemini_razon": "Sin Instagram ni presencia web detectada",
-    "mensaje_dm": "",
-    "mensaje_seguimiento": "",
-    "estado": "Sin Web",
+    "gemini_verificado": true,
+    "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Sitio Web Detectado, Sitio Web)",
+    "mensaje_dm": "¡Hola equipo de Motos.com! Os contactamos desde un equipo local de diseño web en Barcelona. Hemos estado revisando negocios con buenas referencias en vuestra zona y os hemos preparado una maqueta interactiva móvil para vuestra clínica: (Es un enlace 100% seguro sin registros para verlo en el navegador). ¿Os gustaría que conversemos 2 minutos sin compromiso? ¡Un saludo!",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Motos.com! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
+    "estado": "Tiene Web",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
-    "campana_id": "camp_init_2_1788888949",
+    "campana_id": "camp_1788897477",
     "campana_ids": [
-      "camp_init_2_1788888949"
-    ]
+      "camp_init_2_1788888949",
+      "camp_1788897477"
+    ],
+    "campana_nombre": "Taller De Custom Motos · barcelona"
   },
   {
     "osm_id": "6772371730",
@@ -1095,7 +1204,7 @@
   {
     "osm_id": "7002869604",
     "nombre": "Elliott Motos",
-    "categoria": "taller de motos (shop:motorcycle)",
+    "categoria": "taller de custom motos (shop:motorcycle)",
     "direccion": "",
     "ciudad": "Barcelona",
     "provincia": "Barcelona",
@@ -1103,78 +1212,80 @@
     "telefono": "",
     "email": "",
     "tiene_web": false,
-    "instagram_url": "https://www.instagram.com/elliotmotors/",
-    "instagram_handle": "@elliotmotors",
+    "instagram_url": "",
+    "instagram_handle": "",
     "enlaces_internet": [
-      {
-        "tipo": "instagram",
-        "label": "Instagram (@elliotmotors)",
-        "icono": "📸",
-        "url": "https://www.instagram.com/elliotmotors/",
-        "titulo": "Elliot Motors (@elliotmotors) • Instagram photos and videos",
-        "snippet": "959 Followers, 1,328 Following, 424 Posts - Elliot Motors (@elliotmotors) on Instagram: \" Concesionario de motos nuevas "
-      },
       {
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
         "url": "https://www.elliotmotorsbcn.com/",
-        "titulo": "Concesionario motos barcelona · Precio Honda, Piaggio, Suzuki ...",
+        "titulo": "Concesionario motos barcelona · Precio Honda, Piaggio ...",
         "snippet": "Concesionario de motos en Barcelona, consulta ofertas y precios de las mejores scooters y motos de todas las marcas. Dis"
       },
       {
-        "tipo": "directorio",
-        "label": "Directorio Local",
-        "icono": "📁",
-        "url": "https://www.paginasamarillas.es/f/barcelona/elliot-motors-motos-barcelona-honda-kymco-piaggio-_234359321_000000001.html",
-        "titulo": "Elliot Motors Motos Barcelona Honda Kymco Piaggio.Elliot Motors - Barcelona, Barcelona - Auto SpezialElliot Motors | Concesionarios de Motos, BarcelonaElliot Motors · Motos Barcelona · Honda, Yamaha, Kymco...Elliot Motors, Barcelona, ES | Información de la empresa",
-        "snippet": "Motocicleta Elliot Motors Motos Barcelona Honda Kymco Piaggio. es un negocio ubicado en Calle Consell de Cent, 85, Barce"
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.boe.es/diario_borme/txt.php",
+        "titulo": "BORME-A-2021-37-08 BARCELONA - BOE.es",
+        "snippet": "Domicilio: CL NAVAS DE TOLOSA NUM.316 P.2 (BARCELONA). Capital: 60.000,00 Euros. Nombramientos. ADM.UNICO: JUNCAL FAJIN "
       },
       {
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://autospezial.es/elliot-motors/",
-        "titulo": "Elliot Motors - Barcelona, Barcelona - Auto Spezial",
-        "snippet": "Si estás en Barcelona y necesitas asistencia con tu motocicleta, o simplemente deseas explorar nuevas opciones en el mer"
-      },
-      {
-        "tipo": "directorio",
-        "label": "Directorio Local",
-        "icono": "📁",
-        "url": "https://www.cylex.es/barcelona/elliot-motors-14303695.html",
-        "titulo": "Elliot Motors | Concesionarios de Motos, Barcelona",
-        "snippet": "Ver Elliot Motors en Barcelona, C.Consell De Cent, 83-85 en Cylex y encuentre ☎ 932 26 34..., datos de contacto, ⌚ horar"
+        "url": "https://www.elliotmotorsbcn.com/contacto/",
+        "titulo": "Contacto - Elliot Motors Barcelona",
+        "snippet": "ELLIOT MOTORS S.L. · CONTACTO · +34 93 226 34 00 · HORARIO · TALLER · ADMINISTRACIÓN Y VENTAS: LUNES a VIERNES de 10:00 "
       },
       {
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://esopiniones.com/catalonia/elliot-motors-motos-barcelona-honda-326966",
-        "titulo": "Elliot Motors · Motos Barcelona · Honda, Yamaha, Kymco...",
-        "snippet": "Nov 1, 2020 · Servicio de taller de lo mejorcito de Barcelona, después de ir a varios sitios por un problema al parecer "
+        "url": "https://www.mundodeportivo.com/futbol/fc-barcelona/20260904/1004223268/elliott-apunta-barca-rioja-mantiene-duda.html",
+        "titulo": "Elliott se apunta al Barça y Rioja mantiene la duda",
+        "snippet": "hace 4 días · El inglés se ejercitó con normalidad y estará disponible para debutar ante el conjunto azulgrana, mientras"
+      },
+      {
+        "tipo": "linkedin",
+        "label": "LinkedIn",
+        "icono": "💼",
+        "url": "https://es.linkedin.com/in/thomasstrudwick",
+        "titulo": "Thomas Strudwick - British motorcycle racer and experienced ...",
+        "snippet": "British motorcycle racer and experienced website developer. · · Experiencia: ThisWebDesign · Educación: University of Ch"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://producciocientifica.uv.es/documentos/5eb09f56299952764113f0c3",
+        "titulo": "El teatro como recurso para afrontar los retos de la adolescencia",
+        "snippet": "Abstract. The present study, using qualitative research methodology, tries to deepen in the implicit beliefs and percept"
       }
     ],
     "web_detectada": "",
     "google_search_url": "https://www.google.com/search?q=Elliott+Motos+Barcelona",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Elliott+Motos+Barcelona",
     "gemini_verificado": true,
-    "gemini_razon": "Validación automática heurística",
-    "mensaje_dm": "¡Hola equipo de Elliott Motos! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de Barcelona para ayudarles a conseguir más clientes desde Google. Os he preparado una maqueta interactiva de cómo luciría vuestra web: (El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!",
+    "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Sitio Web, LinkedIn)",
+    "mensaje_dm": "¡Hola equipo de Elliott Motos! Os contactamos desde un equipo local de diseño web en Barcelona. Hemos estado revisando negocios con buenas referencias en vuestra zona y os hemos preparado una maqueta interactiva móvil para vuestra clínica: (Es un enlace 100% seguro sin registros para verlo en el navegador). ¿Os gustaría que conversemos 2 minutos sin compromiso? ¡Un saludo!",
     "mensaje_seguimiento": "¡Hola de nuevo equipo de Elliott Motos! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
     "estado": "Sin Web",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
-    "campana_id": "camp_init_2_1788888949",
+    "campana_id": "camp_1788897477",
     "campana_ids": [
-      "camp_init_2_1788888949"
-    ]
+      "camp_init_2_1788888949",
+      "camp_1788897477"
+    ],
+    "campana_nombre": "Taller De Custom Motos · barcelona"
   },
   {
     "osm_id": "7107839692",
     "nombre": "Motos Clot",
-    "categoria": "taller de motos (shop:motorcycle)",
+    "categoria": "taller de custom motos (shop:motorcycle)",
     "direccion": "",
     "ciudad": "Barcelona",
     "provincia": "Barcelona",
@@ -1245,45 +1356,98 @@
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
-    "campana_id": "camp_init_2_1788888949",
+    "campana_id": "camp_1788897477",
     "campana_ids": [
-      "camp_init_2_1788888949"
-    ]
+      "camp_init_2_1788888949",
+      "camp_1788897477"
+    ],
+    "campana_nombre": "Taller De Custom Motos · barcelona"
   },
   {
     "osm_id": "9235057511",
     "nombre": "Honda Impala",
-    "categoria": "taller de motos (shop:motorcycle)",
+    "categoria": "taller de custom motos (shop:motorcycle)",
     "direccion": "",
     "ciudad": "Barcelona",
     "provincia": "Barcelona",
     "codigo_postal": "",
     "telefono": "",
     "email": "",
-    "tiene_web": false,
+    "tiene_web": true,
     "instagram_url": "",
     "instagram_handle": "",
-    "enlaces_internet": [],
-    "web_detectada": "",
+    "enlaces_internet": [
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://motosimpala.com/",
+        "titulo": "COMERCIAL IMPALA - Barcelona",
+        "snippet": "Sólo tienes que enviar un email a ventas@impala.es para reservar tu prueba. ¡Te esperamos! Impala Honda | C/ Amigó, 25 ,"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.honda.es/motorcycles/concesionarios/S41231.html",
+        "titulo": "COMERCIAL IMPALA | Página Oficial Motos Nuevas | Honda ES",
+        "snippet": "IMPALA. C/ Amigó, 25 , Barcelona , Barcelona , 08021. IMPALA. Obtener indicaciones · Sitio web. Ventas. 932 406 030 · Co"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://motosimpala.com/contacto/",
+        "titulo": "Contacto - COMERCIAL IMPALA",
+        "snippet": "08021 Barcelona (Barcelona). 932 406 030 (ext. 2). ventas@impala.es · Ver en Google Maps. IMPALA C/AVENIR. C/ Avenir 47."
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://motos.coches.net/concesionario/impala/",
+        "titulo": "Impala - Concesionario en Barcelona - Motos.net",
+        "snippet": "Todos los vehículos del concesionario Impala en Barcelona. Descubre ... HONDA Forza 350 Versión 2021 - 2024. Precio al c"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://motosimpala.com/gama/",
+        "titulo": "Descubre la Gama Completa de Motocicletas y Scooters Honda",
+        "snippet": "Concesionario Oficial Honda IMPALA. Inicio; Tienda. Gama · adventure · street · super ... Red de Concesionarios Oficial "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://motosimpala.com/cita-previa/",
+        "titulo": "Cita previa - Barcelona - COMERCIAL IMPALA",
+        "snippet": "Honda plus. Contacta con nosotros y pide cita previa para tu Honda. IMPALA C/AMIGÓ. Dirección. C/ Amigó 25. 08021 Barcel"
+      }
+    ],
+    "web_detectada": "https://motosimpala.com/",
     "google_search_url": "https://www.google.com/search?q=Honda+Impala+Barcelona",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Honda+Impala+Barcelona",
-    "gemini_verificado": false,
-    "gemini_razon": "Sin Instagram ni presencia web detectada",
-    "mensaje_dm": "",
-    "mensaje_seguimiento": "",
-    "estado": "Sin Web",
+    "gemini_verificado": true,
+    "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Sitio Web Detectado, Sitio Web)",
+    "mensaje_dm": "¡Hola equipo de Honda Impala! Os contactamos desde un equipo local de diseño web en Barcelona. Hemos estado revisando negocios con buenas referencias en vuestra zona y os hemos preparado una maqueta interactiva móvil para vuestra clínica: (Es un enlace 100% seguro sin registros para verlo en el navegador). ¿Os gustaría que conversemos 2 minutos sin compromiso? ¡Un saludo!",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Honda Impala! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
+    "estado": "Tiene Web",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
-    "campana_id": "camp_init_2_1788888949",
+    "campana_id": "camp_1788897477",
     "campana_ids": [
-      "camp_init_2_1788888949"
-    ]
+      "camp_init_2_1788888949",
+      "camp_1788897477"
+    ],
+    "campana_nombre": "Taller De Custom Motos · barcelona"
   },
   {
     "osm_id": "9608262963",
     "nombre": "Oliana Motos",
-    "categoria": "taller de motos (shop:motorcycle)",
+    "categoria": "taller de custom motos (shop:motorcycle)",
     "direccion": "",
     "ciudad": "Barcelona",
     "provincia": "Barcelona",
@@ -1300,7 +1464,7 @@
         "icono": "📸",
         "url": "https://www.instagram.com/olianamotos21/",
         "titulo": "Oliana Motos (@olianamotos21) • Instagram photos and videos",
-        "snippet": "576 Followers, 371 Following, 177 Posts - Oliana Motos (@olianamotos21) on Instagram: \"No tienes tiempo de llevar tu mot"
+        "snippet": "577 Followers, 371 Following, 177 Posts - Oliana Motos (@olianamotos21) on Instagram: \"No tienes tiempo de llevar tu mot"
       },
       {
         "tipo": "web",
@@ -1354,22 +1518,24 @@
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
-    "campana_id": "camp_init_2_1788888949",
+    "campana_id": "camp_1788897477",
     "campana_ids": [
-      "camp_init_2_1788888949"
-    ]
+      "camp_init_2_1788888949",
+      "camp_1788897477"
+    ],
+    "campana_nombre": "Taller De Custom Motos · barcelona"
   },
   {
     "osm_id": "9768940617",
     "nombre": "Mundimoto",
-    "categoria": "taller de motos (shop:motorcycle)",
+    "categoria": "taller de custom motos (shop:motorcycle)",
     "direccion": "",
     "ciudad": "Barcelona",
     "provincia": "Barcelona",
     "codigo_postal": "",
     "telefono": "",
     "email": "",
-    "tiene_web": true,
+    "tiene_web": false,
     "instagram_url": "https://www.instagram.com/mundimoto/",
     "instagram_handle": "@mundimoto",
     "enlaces_internet": [
@@ -1383,65 +1549,67 @@
       },
       {
         "tipo": "web",
-        "label": "Sitio Web Detectado",
+        "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://www.mundimoto.com/es/tiendas/barcelona-binefar",
-        "titulo": "Mundimoto Barcelona | Tiendas | Mundimoto",
-        "snippet": "Visita la tienda Mundimoto en Barcelona. Horarios, dirección, teléfono y motos disponibles."
+        "url": "https://mototaller.es/taller/mundimoto-barcelona-08020",
+        "titulo": "Mundimoto – Taller de Motos en BARCELONA, Barcelona ...",
+        "snippet": "Mundimoto ; Dirección. C/ Binéfar, 21-25 ; Código Postal. 08020 ; Ciudad. BARCELONA ; Provincia. Barcelona ; Teléfono. —"
+      },
+      {
+        "tipo": "linkedin",
+        "label": "LinkedIn",
+        "icono": "💼",
+        "url": "https://es.linkedin.com/company/mundimoto",
+        "titulo": "Mundimoto - LinkedIn",
+        "snippet": "Sitio web: https://www.mundimoto.com/. Enlace externo para Mundimoto ; Sector: Publicaciones en línea ; Tamaño de la emp"
       },
       {
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://mundimoto.com/es",
-        "titulo": "Concesionario de Motos Mundimoto - Compra, vende o haz un renting",
-        "snippet": "Concesionario de Motos Mundimoto - Compra, vende o haz un renting. Renting. Marcas. yamaha. peugeot. ktm. kawasaki. sym."
-      },
-      {
-        "tipo": "facebook",
-        "label": "Facebook",
-        "icono": "👥",
-        "url": "https://www.facebook.com/mundimotocom/",
-        "titulo": "Mundimoto | Barcelona - FacebookMundiMoto - Concesionario en Barcelona | Motos.netMundimoto, concesionario y tienda de motos de ocasion en ...Mundimoto Barcelona - Tienda de motos en BarcelonaMundimoto, Binefar 21-25, Barcelona (2026) - autoyas.com",
-        "snippet": "Renting de 18 o 24 meses en TODOS nuestros modelos con un mes de regalo. Cuota fija, seguro y mantenimiento incluidos. T"
+        "url": "https://es.trustpilot.com/review/mundimoto.com",
+        "titulo": "Lee las opiniones sobre el servicio de mundimoto.com",
+        "snippet": "Valoración 4,3 (3.093) Calle Binefar 21-25, 08020, Barcelona, España. +34 93 271 33 33 · info@mundimoto.com · mundimoto."
       },
       {
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://motos.coches.net/concesionario/mundimoto/",
-        "titulo": "MundiMoto - Concesionario en Barcelona | Motos.net",
-        "snippet": "Todos los vehículos del concesionario MundiMoto en Barcelona. Descubre todas las ofertas de este concesionario en motos."
+        "url": "https://www.milanuncios.com/tienda/mundimoto-129502.htm",
+        "titulo": "MundiMoto - Binefar 21-25 Barcelona - MIL ANUNCIOS.COM",
+        "snippet": "mundimoto, empresa de compra/venta de motos con más de 1. 000 motos en stock y 10. 000 ventas anuales. situado en barcel"
       },
       {
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://mundimoto.motosdeocasion.es/",
-        "titulo": "Mundimoto, concesionario y tienda de motos de ocasion en ...",
-        "snippet": "Jan 1, 2000 · Todos los anuncios de motos publicados por Mundimoto, concesionario y tienda de motos de ocasión en Barcel"
+        "url": "https://barcelona.cataloxy.es/firms/mundimoto.com.htm",
+        "titulo": "Mundimoto Barcelona: página web oficial, dirección, contactos",
+        "snippet": "Mundimoto es la plataforma española de compra, venta y renting de motos que ofrece un servicio 100% online, rápido y con"
       }
     ],
-    "web_detectada": "https://www.mundimoto.com/es/tiendas/barcelona-binefar",
+    "web_detectada": "",
     "google_search_url": "https://www.google.com/search?q=Mundimoto+Barcelona",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mundimoto+Barcelona",
     "gemini_verificado": true,
     "gemini_razon": "Validación automática heurística",
     "mensaje_dm": "¡Hola equipo de Mundimoto! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de Barcelona para ayudarles a conseguir más clientes desde Google. Os he preparado una maqueta interactiva de cómo luciría vuestra web: (El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!",
     "mensaje_seguimiento": "¡Hola de nuevo equipo de Mundimoto! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
-    "estado": "Tiene Web",
+    "estado": "Sin Web",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
-    "campana_id": "camp_init_2_1788888949",
+    "campana_id": "camp_1788897477",
     "campana_ids": [
-      "camp_init_2_1788888949"
-    ]
+      "camp_init_2_1788888949",
+      "camp_1788897477"
+    ],
+    "campana_nombre": "Taller De Custom Motos · barcelona"
   },
   {
     "osm_id": "9823542619",
     "nombre": "Motoralia",
-    "categoria": "taller de motos (shop:motorcycle)",
+    "categoria": "taller de custom motos (shop:motorcycle)",
     "direccion": "",
     "ciudad": "Barcelona",
     "provincia": "Barcelona",
@@ -1451,34 +1619,85 @@
     "tiene_web": false,
     "instagram_url": "",
     "instagram_handle": "",
-    "enlaces_internet": [],
+    "enlaces_internet": [
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.bmwmotos.com/foro/threads/ha-bajado-persiana-motoralia.580456/",
+        "titulo": "Ha bajado persiana Motoralia | BMWMOTOS.COM",
+        "snippet": "8 nov 2022 · Estuve hace un par de semanas en Motoralia de calle Rosselló y según el comercial cerraban porque los dueño"
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://metropoliabierta.elespanol.com/guia/p/comercial-galicia-motoralia-barcelona-7223045/",
+        "titulo": "Comercial galicia - motoralia",
+        "snippet": "Comercial galicia - motoralia. Motocicletas: recambios y accesorios. Calle roselló, 300, - 302. Barcelona (Barcelona) 08"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.tonipadrell.com/motoralia-tienda-de-accesorios-y-recambios-para-tu-moto-en-barcelona/",
+        "titulo": "Tienda de accesorios y recambios para tu moto en Barcelona",
+        "snippet": "5 oct 2013 · Motoralia es una tienda de accesorios y recambios de para la moto localizada en Barcelona que es cliente de"
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://www.cylex.es/barcelona/motoralia-10988047.html",
+        "titulo": "▷ Motoralia, Barcelona - Cylex",
+        "snippet": "28 mar 2026 · Motoralia es una empresa con más de 60 años de antigüedad en el sector del recambio y accesorio para la mo"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://barcelona.infoisinfo.es/ficha/comercial_galicia_motoralia/3311293",
+        "titulo": "Comercial Galicia - Motoralia - Barcelona - Infoisinfo",
+        "snippet": "Comercial Galicia - Motoralia tiene como actividad Motos,Concesionario,Recambios,... y está localizada C/ Rosselló, 300-"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://elclubtriumph.es/archivo/2008-2010/20/t-27458.html",
+        "titulo": "Schuberth en Barcelona???? - Elclubtriumph.es",
+        "snippet": "En[b2huaeqbb] Motoralia[/b2huaeqbb] (Comercial Galicia) tienen. C/Rosselló, 300. Tel. 93 207 02 12. Horario Lunes a Vier"
+      }
+    ],
     "web_detectada": "",
     "google_search_url": "https://www.google.com/search?q=Motoralia+Barcelona",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Motoralia+Barcelona",
-    "gemini_verificado": false,
-    "gemini_razon": "Sin Instagram ni presencia web detectada",
-    "mensaje_dm": "",
-    "mensaje_seguimiento": "",
+    "gemini_verificado": true,
+    "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Sitio Web, Directorio Local)",
+    "mensaje_dm": "¡Hola equipo de Motoralia! Os contactamos desde un equipo local de diseño web en Barcelona. Hemos estado revisando negocios con buenas referencias en vuestra zona y os hemos preparado una maqueta interactiva móvil para vuestra clínica: (Es un enlace 100% seguro sin registros para verlo en el navegador). ¿Os gustaría que conversemos 2 minutos sin compromiso? ¡Un saludo!",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Motoralia! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
     "estado": "Sin Web",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
-    "campana_id": "camp_init_2_1788888949",
+    "campana_id": "camp_1788897477",
     "campana_ids": [
-      "camp_init_2_1788888949"
-    ]
+      "camp_init_2_1788888949",
+      "camp_1788897477"
+    ],
+    "campana_nombre": "Taller De Custom Motos · barcelona"
   },
   {
     "osm_id": "9886744281",
     "nombre": "RRM",
-    "categoria": "taller de motos (shop:motorcycle)",
+    "categoria": "taller de custom motos (shop:motorcycle)",
     "direccion": "Carretera d'Esplugues 127",
     "ciudad": "Barcelona",
     "provincia": "Barcelona",
     "codigo_postal": "",
     "telefono": "",
     "email": "",
-    "tiene_web": false,
+    "tiene_web": true,
     "instagram_url": "https://www.instagram.com/rrm__official/",
     "instagram_handle": "@rrm__official",
     "enlaces_internet": [
@@ -1494,58 +1713,60 @@
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://music.youtube.com/watch?v=hqN1G_bh3_w&list=OLAK5uy_mCmZqTq-II7wSAK2LHvS92R7aRl0X079g",
-        "titulo": "Fariz RM - Barcelona - Karaoke - YouTube MusicBarcelona - Fariz RM | Karaoke Nada PRIA | Avimusik - YouTubeBarcelona - Fariz RM - Karaoke Version - YouTubeBOE-A-1996-17533 Real Decreto 1784/1996, de 19 de julio, por ...BARCELONA - Song Lyrics and Music by Fariz Rm ... - SmuleBarcelona (Fariz RM Original) - Lyrics and Music by Fariz Rm ...Metro map of Barcelona updated 2026",
-        "snippet": "Sign in to create & share playlists, get personalized recommendations, and more. New recommendations . Song Video . Fari"
+        "url": "https://www.registradores.org/directorio/-/registros/bienes/barcelona/barcelona/registro-mercantil-de-barcelona-merc-y-bm",
+        "titulo": "Registro Mercantil y de Bienes Muebles de Barcelona",
+        "snippet": "Realice cualquier trámite del Registro de Mercantil y de Bienes Muebles de Barcelona. Sin intermediarios. Página oficial"
       },
       {
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://www.youtube.com/watch?v=7Id0FH5xDko",
-        "titulo": "Barcelona - Fariz RM | Karaoke Nada PRIA | Avimusik - YouTubeBarcelona - Fariz RM - Karaoke Version - YouTubeBOE-A-1996-17533 Real Decreto 1784/1996, de 19 de julio, por ...BARCELONA - Song Lyrics and Music by Fariz Rm ... - SmuleBarcelona (Fariz RM Original) - Lyrics and Music by Fariz Rm ...Metro map of Barcelona updated 2026",
-        "snippet": "Dec 14, 2025 · Barcelona - Fariz RM | Karaoke Nada PRIA | AvimusikMastering&video : AviproductionBackground : canva.com,"
+        "url": "https://www.datoscif.es/empresa/rrm-serveis-poble-nou-sl",
+        "titulo": "RRM SERVEIS POBLE NOU SL - Informe de empresa | DatosCif",
+        "snippet": "RRM SERVEIS POBLE NOU SL - EXTINGUIDA. Municipio Barcelona. Provincia Barcelona. Razón Social RRM SERVEIS POBLE NOU SL. "
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://empresite.eleconomista.es/RRM-TRANSPORTES-PAQUETERIA-DISTRIBUCION-2015.html",
+        "titulo": "Rrm Transportes Paqueteria Y Distribucion 2015 S.l. - Empresite",
+        "snippet": "FABRICACION DE SIMULADORES QUIRURGICOS DE ODONTOLOGIA, TRAUMATOLOGIA, MEDICINA EN GENERAL Y VETERINARIA. BARCELONA. Ver "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://www.rrmconsultoria.es/contacto",
+        "titulo": "Contacto - RRM Consultoria",
+        "snippet": "RRM Consultoría. Centro de empresas industriales de Can Roqueta. Avda.Can Bordoll 119 08202 – Sabadell (Barcelona). 620 "
       },
       {
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://www.youtube.com/watch?v=VJfwhUrhTUQ",
-        "titulo": "Barcelona - Fariz RM - Karaoke Version - YouTubeBOE-A-1996-17533 Real Decreto 1784/1996, de 19 de julio, por ...BARCELONA - Song Lyrics and Music by Fariz Rm ... - SmuleBarcelona (Fariz RM Original) - Lyrics and Music by Fariz Rm ...Metro map of Barcelona updated 2026",
-        "snippet": "Dec 26, 2024 · Barcelona - Fariz RM - Karaoke Version Ciptaan & Penyanyi Fariz RM Dari Album Living In The Western World"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://www.smule.com/song/fariz-rm-barcelona-karaoke-lyrics/15823746_15823746/arrangement",
-        "titulo": "BARCELONA - Song Lyrics and Music by Fariz Rm ... - Smule",
-        "snippet": "BARCELONA by Fariz Rm - Karaoke Lyrics on Smule. | Smule Social Singing Karaoke app"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://www.smule.com/song/fariz-rm-barcelona-fariz-rm-original-karaoke-lyrics/277027546_1657468/arrangement",
-        "titulo": "Barcelona (Fariz RM Original) - Lyrics and Music by Fariz Rm ...",
-        "snippet": "Barcelona (Fariz RM Original) by Fariz Rm - Karaoke Lyrics on Smule. | Smule Social Singing Karaoke app"
+        "url": "https://aqiveo.com/listing/rrm-consultoria/",
+        "titulo": "RRM Consultoría - Aqiveo",
+        "snippet": "Tipo de empresa. Consultoría · Email. info@rrmconsultoria.es · Telefono. +34 620 269 429 · Dirección. C/ Tres Creus, 236"
       }
     ],
-    "web_detectada": "",
+    "web_detectada": "https://www.rrmconsultoria.es/contacto",
     "google_search_url": "https://www.google.com/search?q=RRM+Barcelona",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=RRM+Barcelona",
     "gemini_verificado": true,
     "gemini_razon": "Validación automática heurística",
     "mensaje_dm": "¡Hola equipo de RRM! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de Barcelona para ayudarles a conseguir más clientes desde Google. Os he preparado una maqueta interactiva de cómo luciría vuestra web: (El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!",
     "mensaje_seguimiento": "¡Hola de nuevo equipo de RRM! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
-    "estado": "Sin Web",
+    "estado": "Tiene Web",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
-    "campana_id": "camp_init_2_1788888949",
+    "campana_id": "camp_1788897477",
     "campana_ids": [
-      "camp_init_2_1788888949"
-    ]
+      "camp_init_2_1788888949",
+      "camp_1788897477"
+    ],
+    "campana_nombre": "Taller De Custom Motos · barcelona"
   },
   {
     "osm_id": "13397658701",
@@ -1580,7 +1801,7 @@
   {
     "osm_id": "3493224869",
     "nombre": "Taulè",
-    "categoria": "taller de motos (shop:motorcycle)",
+    "categoria": "taller de custom motos (shop:motorcycle)",
     "direccion": "",
     "ciudad": "Barcelona",
     "provincia": "Barcelona",
@@ -1596,7 +1817,7 @@
         "label": "Instagram (@honda_taule)",
         "icono": "📸",
         "url": "https://www.instagram.com/honda_taule/",
-        "titulo": "Honda Taulé (@honda_taule) • Instagram photos and videosHonda Taulé (@honda_taule) • Instagram photos and videosInstagramHonda Taulé | Revisiones, reparaciones, customizaciones ...Talè | - InstagramHonda Taulé | La vuelta al trabajo es más fácil cuando tu ...Honda Taulé | ¿Y si la aventura empezara antes de arrancar la ...",
+        "titulo": "Honda Taulé (@honda_taule) • Instagram photos and videosHonda Taulé (@honda_taule) • Instagram photos and videosHonda Taulé | ¡Ven a conocer nuestro concesionario Honda ...Honda Taulé | Revisiones, reparaciones, customizaciones ...Talè | - InstagramHonda Taulé | La vuelta al trabajo es más fácil cuando tu ...Honda Taulé | ¿Y si la aventura empezara antes de arrancar la ...",
         "snippet": "1,796 Followers, 230 Following, 3,396 Posts - Honda Taulé (@honda_taule) on Instagram: \"Concesionario Oficial Honda / Ba"
       },
       {
@@ -1651,9 +1872,11 @@
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
-    "campana_id": "camp_init_2_1788888949",
+    "campana_id": "camp_1788897477",
     "campana_ids": [
-      "camp_init_2_1788888949"
-    ]
+      "camp_init_2_1788888949",
+      "camp_1788897477"
+    ],
+    "campana_nombre": "Taller De Custom Motos · barcelona"
   }
 ]

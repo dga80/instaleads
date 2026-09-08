@@ -1238,7 +1238,7 @@
                 <a href="${googleMapsUrl}" target="_blank" class="hover:text-emerald-300 underline decoration-dotted">🗺️ Maps</a>
                 ${(lead.enlaces_internet && lead.enlaces_internet.length > 1) ? `
                   <span class="text-slate-600">·</span>
-                  <button onclick="abrirModal(${idx})" class="text-indigo-400 hover:text-indigo-300 font-medium">+${lead.enlaces_internet.length - 1} más</button>
+                  <button onclick="abrirModal('${lead.osm_id}')" class="text-indigo-400 hover:text-indigo-300 font-medium">+${lead.enlaces_internet.length - 1} más</button>
                 ` : ''}
               </div>
             </div>
@@ -1258,7 +1258,7 @@
                 <a href="${googleMapsUrl}" target="_blank" class="hover:text-emerald-300 underline decoration-dotted">🗺️ Maps</a>
                 ${lead.enlaces_internet.length > 1 ? `
                   <span class="text-slate-600">·</span>
-                  <button onclick="abrirModal(${idx})" class="text-indigo-400 hover:text-indigo-300 font-medium">+${lead.enlaces_internet.length - 1} más</button>
+                  <button onclick="abrirModal('${lead.osm_id}')" class="text-indigo-400 hover:text-indigo-300 font-medium">+${lead.enlaces_internet.length - 1} más</button>
                 ` : ''}
               </div>
             </div>
@@ -1349,10 +1349,10 @@
 
         const pitchBtn = lead.mensaje_dm ? `
           <div class="flex items-center justify-end space-x-2">
-            <button onclick="abrirModal(${idx})" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition" title="Ver análisis y pitch">
+            <button onclick="abrirModal('${lead.osm_id}')" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition" title="Ver análisis y pitch">
               Ver Pitch
             </button>
-            <button onclick="copiarPitch(${idx}, this)" class="text-xs px-3 py-1.5 rounded-lg ${lead.instagram_url ? 'ig-gradient shadow-pink-500/10' : 'bg-indigo-600 hover:bg-indigo-500 shadow-indigo-500/10'} text-white font-medium shadow-sm active:scale-95 transition flex items-center space-x-1.5">
+            <button onclick="copiarPitch('${lead.osm_id}', this)" class="text-xs px-3 py-1.5 rounded-lg ${lead.instagram_url ? 'ig-gradient shadow-pink-500/10' : 'bg-indigo-600 hover:bg-indigo-500 shadow-indigo-500/10'} text-white font-medium shadow-sm active:scale-95 transition flex items-center space-x-1.5">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
               <span>${lead.instagram_url ? 'Copiar DM' : 'Copiar Propuesta'}</span>
             </button>
@@ -1849,7 +1849,7 @@
                   </button>
                 `)}
 
-                <button onclick="abrirModal(${originalIdx})" class="text-[11px] px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+                <button onclick="abrirModal('${lead.osm_id}')" class="text-[11px] px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
                   ✉️ Pitch
                 </button>
               </div>
@@ -2005,10 +2005,24 @@
       }
     }
 
-    function abrirModal(idx) {
-      leadSeleccionadoIdx = idx;
-      const lead = todosLosLeads[idx];
+    function resolverLead(param) {
+      if (param === undefined || param === null) return { lead: null, idx: -1 };
+      // 1. Búsqueda por osm_id (string o numérico)
+      const idxOsm = todosLosLeads.findIndex(l => String(l.osm_id) === String(param));
+      if (idxOsm !== -1) {
+        return { lead: todosLosLeads[idxOsm], idx: idxOsm };
+      }
+      // 2. Fallback por índice numérico directo
+      if (typeof param === 'number' && param >= 0 && param < todosLosLeads.length) {
+        return { lead: todosLosLeads[param], idx: param };
+      }
+      return { lead: null, idx: -1 };
+    }
+
+    function abrirModal(param) {
+      const { lead, idx } = resolverLead(param);
       if (!lead) return;
+      leadSeleccionadoIdx = idx;
 
       document.getElementById('modal-title').innerText = lead.nombre;
       document.getElementById('modal-razon').innerText = lead.gemini_razon || 'Perfil coincidente y verificado por Gemini.';
@@ -2076,7 +2090,6 @@
         demoUrlEl.innerText = urlDemoActual;
         demoBox.classList.remove('hidden');
       } else {
-
         demoBox.classList.add('hidden');
         urlDemoActual = "";
       }
@@ -2090,8 +2103,8 @@
       document.getElementById('pitch-modal').classList.add('hidden');
     }
 
-    function copiarPitch(idx, btnElement) {
-      const lead = todosLosLeads[idx];
+    function copiarPitch(param, btnElement) {
+      const { lead } = resolverLead(param);
       if (!lead || !lead.mensaje_dm) return;
 
       navigator.clipboard.writeText(lead.mensaje_dm).then(() => {

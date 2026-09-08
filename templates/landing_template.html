@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="referrer" content="no-referrer">
   <title>{{ negocio.nombre }} | Web Oficial & Citas</title>
   <meta name="description" content="{{ negocio.meta_description or 'Sitio web oficial y reservas para ' ~ negocio.nombre ~ ' en ' ~ negocio.ciudad }}">
   
@@ -11,7 +12,9 @@
     (function() {
       try {
         const savedTheme = localStorage.getItem('instaleads_theme');
-        if (savedTheme === 'light') {
+        const defaultTheme = '{{ design.default_theme or "dark" }}';
+        const themeToApply = savedTheme || defaultTheme;
+        if (themeToApply === 'light') {
           document.documentElement.classList.add('light');
           document.documentElement.classList.remove('dark');
         } else {
@@ -132,6 +135,38 @@
       transform: scale(0.97);
     }
 
+    /* Ambient Background Patterns by Sector */
+    .bg-pattern-technical {
+      background-image: radial-gradient(rgba(249, 115, 22, 0.12) 1px, transparent 0), linear-gradient(to right, rgba(249, 115, 22, 0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(249, 115, 22, 0.04) 1px, transparent 1px);
+      background-size: 32px 32px, 32px 32px, 32px 32px;
+    }
+
+    .bg-pattern-medical {
+      background-image: radial-gradient(rgba(14, 165, 233, 0.16) 1.5px, transparent 0);
+      background-size: 26px 26px;
+    }
+
+    .bg-pattern-luxury {
+      background-image: radial-gradient(rgba(212, 151, 87, 0.15) 1px, transparent 0);
+      background-size: 30px 30px;
+    }
+
+    .bg-pattern-artisan {
+      background-image: radial-gradient(rgba(245, 158, 11, 0.14) 1.2px, transparent 0);
+      background-size: 28px 28px;
+    }
+
+    .glow-card {
+      position: relative;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .glow-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent) !important;
+      box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.4), 0 0 24px -6px var(--primary);
+    }
+
     .glass-pill {
       background: var(--pill-bg);
       backdrop-filter: blur(12px);
@@ -170,7 +205,7 @@
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col pb-20 sm:pb-0 selection:bg-indigo-500 selection:text-white">
+<body class="min-h-screen flex flex-col pb-20 sm:pb-0 selection:bg-indigo-500 selection:text-white relative {% if design.layout_type == 'technical_industrial' %}bg-pattern-technical{% elif design.layout_type == 'bento_medical' %}bg-pattern-medical{% elif design.layout_type == 'editorial_luxury' %}bg-pattern-luxury{% else %}bg-pattern-artisan{% endif %}">
 
   <!-- ============================================================ -->
   <!-- TOP BRAND NAVBAR (FULL-WIDTH DESKTOP & SLIM MOBILE) -->
@@ -443,20 +478,18 @@
         <!-- Columna Izquierda: Copy, Titular y CTAs -->
         <div class="lg:col-span-7 space-y-5 sm:space-y-6 text-left">
           
-          <!-- Category Pill -->
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold w-fit glass-pill" style="color: var(--accent); border-color: var(--border-color);">
+          <!-- Sector HUD Status Pill -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold w-fit glass-pill shadow-sm" style="color: var(--accent); border-color: var(--border-color);">
             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-            <span>{{ negocio.categoria_clean or 'Servicios Profesionales' }}</span>
-            <span class="opacity-40">·</span>
-            <span class="font-medium">📍 {{ negocio.ciudad }}</span>
+            <span class="tracking-wide">{{ design.status_badge or ('✨ ' ~ negocio.categoria_clean ~ ' · ' ~ negocio.ciudad) }}</span>
           </div>
 
-          <!-- Titular Principal -->
-          <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight theme-heading leading-[1.15]">
+          <!-- Titular Principal con Identidad Tipográfica -->
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight theme-heading leading-[1.12]">
             {{ web.titular or ('Tu ' ~ negocio.categoria ~ ' de confianza en ' ~ negocio.ciudad) }}
           </h1>
 
-          <!-- Subtítulo -->
+          <!-- Subtítulo Persuasivo -->
           <p class="text-sm sm:text-base lg:text-lg theme-muted font-normal leading-relaxed max-w-2xl">
             {{ web.subtitulo or ig.biografia }}
           </p>
@@ -469,7 +502,7 @@
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
               </svg>
-              <span>Reservar Cita por WhatsApp</span>
+              <span>{% if design.layout_type == 'technical_industrial' %}Consultar Taller por WhatsApp{% elif design.layout_type == 'bento_medical' %}Pedir Cita Online por WhatsApp{% else %}Reservar Cita por WhatsApp{% endif %}</span>
             </a>
             {% else %}
             <a href="#contacto" 
@@ -504,7 +537,7 @@
             </div>
             <div>
               <span class="font-bold text-sm sm:text-base block theme-heading">🏆 100%</span>
-              <span class="text-[11px] theme-muted">Garantía y Calidad</span>
+              <span class="text-[11px] theme-muted">Garantía & Compromiso</span>
             </div>
             <div>
               <span class="text-sky-400 font-bold text-sm sm:text-base block">📍 Local</span>
@@ -516,25 +549,25 @@
 
         <!-- Columna Derecha: Showcase Visual Cinemático -->
         <div class="lg:col-span-5 relative">
-          <div class="relative rounded-3xl overflow-hidden border shadow-2xl group" style="border-color: var(--border-color);">
+          <div class="relative rounded-3xl overflow-hidden border shadow-2xl group glow-card" style="border-color: var(--border-color);">
             <div class="aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] w-full overflow-hidden bg-slate-950">
               <img src="{{ web.hero_image or ig.posts[0].image_url }}" alt="{{ negocio.nombre }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-black/20 to-transparent"></div>
             </div>
 
             <!-- Floating Badge Superior -->
-            <div class="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-black/75 border border-white/20 backdrop-blur-md text-xs font-bold text-white flex items-center gap-1.5 shadow-lg">
+            <div class="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-black/80 border border-white/20 backdrop-blur-md text-xs font-bold text-white flex items-center gap-1.5 shadow-lg">
               <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-              <span>Abierto Hoy</span>
+              <span>Abierto Hoy en {{ negocio.ciudad }}</span>
             </div>
 
             <!-- Floating Card Inferior -->
-            <div class="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-black/80 border border-white/10 backdrop-blur-xl flex items-center justify-between text-xs">
+            <div class="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-black/85 border border-white/15 backdrop-blur-xl flex items-center justify-between text-xs shadow-2xl">
               <div class="flex items-center gap-3">
-                <img src="{{ ig.avatar_url }}" alt="{{ negocio.nombre }}" class="w-10 h-10 rounded-full object-cover ring-2 ring-sky-400">
+                <img src="{{ ig.avatar_url }}" alt="{{ negocio.nombre }}" class="w-10 h-10 rounded-full object-cover ring-2" style="ring-color: var(--accent);">
                 <div>
                   <span class="font-bold text-white block">{{ negocio.nombre }}</span>
-                  <span class="text-slate-300 text-[11px]">Tratamientos y Citas Online</span>
+                  <span class="text-slate-300 text-[11px]">{{ negocio.categoria_clean or 'Servicios de Calidad' }}</span>
                 </div>
               </div>
               <div class="text-amber-400 font-bold text-xs flex items-center gap-1">
@@ -548,26 +581,53 @@
     </section>
 
     <!-- ============================================================ -->
-    <!-- SERVICIOS & ESPECIALIDADES (BENTO GRID 3 COLUMNAS DESKTOP) -->
+    <!-- TRUST & GUARANTEE BENTO GRID (DIFERENCIADOR DE ALTO IMPACTO) -->
+    <!-- ============================================================ -->
+    {% if design.badges_confianza %}
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+      {% for b in design.badges_confianza %}
+      <div class="theme-card p-5 flex items-start gap-4 rounded-2xl glow-card shadow-lg" style="border-color: var(--border-color);">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl shrink-0 shadow-inner" style="background-color: var(--primary-container); border: 1px solid var(--border-color);">
+          {{ b.icono }}
+        </div>
+        <div>
+          <h3 class="font-bold text-sm sm:text-base theme-heading">{{ b.titulo }}</h3>
+          <p class="text-xs theme-muted mt-1 leading-relaxed">{{ b.desc }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </section>
+    {% endif %}
+
+    <!-- ============================================================ -->
+    <!-- SERVICIOS & ESPECIALIDADES (SECTOR TAILORED CARDS) -->
     <!-- ============================================================ -->
     <section id="servicios" class="space-y-6 pt-4">
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b pb-4" style="border-color: var(--border-color);">
         <div>
-          <span class="text-xs font-bold uppercase tracking-widest block" style="color: var(--accent);">Especialidades & Tratamientos</span>
-          <h2 class="text-2xl sm:text-3xl font-extrabold theme-heading tracking-tight">Nuestros Servicios Destacados</h2>
+          <span class="text-xs font-bold uppercase tracking-widest block" style="color: var(--accent);">
+            {% if design.layout_type == 'technical_industrial' %}⚙️ FICHA TÉCNICA DE TRABAJOS & MANTENIMIENTO{% elif design.layout_type == 'bento_medical' %}🩺 CATÁLOGO CLÍNICO & TRATAMIENTOS{% elif design.layout_type == 'editorial_luxury' %}✨ CARTA DE EXPERIENCIAS & AUTOR{% else %}🍽️ NUESTRAS ESPECIALIDADES{% endif %}
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold theme-heading tracking-tight">Servicios & Soluciones</h2>
         </div>
         <p class="text-xs sm:text-sm theme-muted max-w-md">
-          Tecnología de última generación y atención personalizada para garantizar los mejores resultados.
+          Atención especializada, garantía profesional y presupuesto transparente sin compromiso.
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {% for s in web.servicios %}
-        <div class="theme-card overflow-hidden flex flex-col justify-between group transition duration-300 shadow-xl">
+        <div class="theme-card overflow-hidden flex flex-col justify-between group glow-card shadow-xl rounded-2xl" style="border-color: var(--border-color);">
           {% if s.imagen %}
-          <div class="h-48 sm:h-52 w-full overflow-hidden relative">
+          <div class="h-48 sm:h-52 w-full overflow-hidden relative bg-slate-950">
             <img src="{{ s.imagen }}" alt="{{ s.nombre }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+            
+            <!-- Sector Job Pill -->
+            <span class="absolute top-3 left-3 text-[10px] font-extrabold px-2.5 py-1 rounded-md bg-black/80 text-white border border-white/20 uppercase tracking-wider backdrop-blur-md">
+              {% if design.layout_type == 'technical_industrial' %}JOB-0{{ loop.index }} • TALLER{% elif design.layout_type == 'bento_medical' %}MED-0{{ loop.index }} • TRATAMIENTO{% elif design.layout_type == 'editorial_luxury' %}VIP-0{{ loop.index }} • AUTOR{% else %}ESPECIALIDAD 0{{ loop.index }}{% endif %}
+            </span>
+
             {% if s.precio_o_duracion %}
             <span class="absolute bottom-3 right-3 text-xs font-bold px-3 py-1 rounded-full bg-black/85 text-white border border-white/20 backdrop-blur-md shadow-md">
               {{ s.precio_o_duracion }}
@@ -583,12 +643,13 @@
               </p>
             </div>
             {% if negocio.whatsapp_url %}
-            <div class="pt-3 border-t" style="border-color: var(--border-color);">
-              <a href="{{ negocio.whatsapp_url }}&text={{ ('Hola, me gustaría reservar o pedir información sobre: ' ~ s.nombre)|urlencode }}" target="_blank" 
+            <div class="pt-3 border-t flex items-center justify-between" style="border-color: var(--border-color);">
+              <a href="{{ negocio.whatsapp_url }}&text={{ ('Hola, me gustaría pedir presupuesto o cita para: ' ~ s.nombre)|urlencode }}" target="_blank" 
                 class="text-xs sm:text-sm font-bold inline-flex items-center gap-1.5 hover:underline" style="color: var(--accent);">
-                <span>Consultar o pedir cita</span>
+                <span>{% if design.layout_type == 'technical_industrial' %}Pedir Presupuesto Taller{% elif design.layout_type == 'bento_medical' %}Reservar Consulta{% else %}Consultar / Cita{% endif %}</span>
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
               </a>
+              <span class="text-xs font-bold" style="color: var(--accent);">→</span>
             </div>
             {% endif %}
           </div>
@@ -982,8 +1043,9 @@
           attributionControl: false
         });
 
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-          maxZoom: 19
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+          attribution: '&copy; OpenStreetMap contributors'
         }).addTo(map);
 
         L.marker([lat, lon]).addTo(map)
