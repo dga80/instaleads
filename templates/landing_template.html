@@ -11,8 +11,10 @@
   <script>
     (function() {
       try {
-        const savedTheme = localStorage.getItem('instaleads_theme');
-        const defaultTheme = '{{ design.default_theme or "dark" }}';
+        const pathSlug = window.location.pathname.replace(/\/+$/, '').split('/').pop() || 'demo';
+        const themeKey = 'instaleads_theme_' + pathSlug;
+        const savedTheme = localStorage.getItem(themeKey);
+        const defaultTheme = '{{ design.default_theme or "light" }}';
         const themeToApply = savedTheme || defaultTheme;
         if (themeToApply === 'light') {
           document.documentElement.classList.add('light');
@@ -1015,12 +1017,14 @@
 
     function toggleTheme() {
       const isLight = document.documentElement.classList.toggle('light');
+      const pathSlug = window.location.pathname.replace(/\/+$/, '').split('/').pop() || 'demo';
+      const themeKey = 'instaleads_theme_' + pathSlug;
       if (isLight) {
         document.documentElement.classList.remove('dark');
-        try { localStorage.setItem('instaleads_theme', 'light'); } catch(e) {}
+        try { localStorage.setItem(themeKey, 'light'); } catch(e) {}
       } else {
         document.documentElement.classList.add('dark');
-        try { localStorage.setItem('instaleads_theme', 'dark'); } catch(e) {}
+        try { localStorage.setItem(themeKey, 'dark'); } catch(e) {}
       }
       updateThemeUI(isLight);
     }

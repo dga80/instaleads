@@ -265,18 +265,18 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Dental+Nu%C3%B1ez+Barcelona",
     "gemini_verificado": true,
     "gemini_razon": "Clínica dental local independiente verificada en Barcelona.",
-    "mensaje_dm": "¡Hola equipo de Dental Nuñez! Me alegra contactaros. Somos un equipo local de diseño web en Barcelona y vemos que tenéis un gran potencial para recibir más clientes directos en Google y móvil. Os hemos preparado una maqueta interactiva adaptada a vuestro negocio: https://dga80.github.io/instaleads/dental-nunez-barcelona/. Es un enlace 100% seguro para verla en el navegador sin descargas. ¿Qué os parece?",
-    "mensaje_seguimiento": "¡Hola de nuevo! Os escribí hace un par de días con una maqueta web interactiva para vuestro negocio: https://dga80.github.io/instaleads/dental-nunez-barcelona/. Os lo comparto por aquí por si os resulta cómodo revisarlo desde el móvil. ¡Un saludo cordial!",
-    "estado": "Web Generada",
-    "demo_slug": "dental-nunez-barcelona",
-    "demo_url": "https://dga80.github.io/instaleads/dental-nunez-barcelona/",
-    "demo_vibe": "Bento Medical (Tecnología Clínica, Confianza & Salud)",
-    "demo_url_absoluta": "https://dga80.github.io/instaleads/dental-nunez-barcelona/",
+    "mensaje_dm": "¡Hola equipo de Dental Nuñez! Me alegra contactaros. Somos un equipo local de diseño web en Barcelona y vemos que tenéis un gran potencial para recibir más clientes directos en Google y móvil. Os hemos preparado una maqueta interactiva adaptada a vuestro negocio: Es un enlace 100% seguro para verla en el navegador sin descargas. ¿Qué os parece?",
+    "mensaje_seguimiento": "¡Hola de nuevo! Os escribí hace un par de días con una maqueta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta cómodo revisarlo desde el móvil. ¡Un saludo cordial!",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "demo_url_absoluta": "",
     "campana_id": "camp_init_1_1788888949",
     "campana_ids": [
       "camp_init_1_1788888949"
     ],
-    "demo_url_publica": "https://dga80.github.io/instaleads/dental-nunez-barcelona/"
+    "demo_url_publica": ""
   },
   {
     "osm_id": "1889913533",
@@ -913,17 +913,17 @@
     "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Directorio Local, Sitio Web)",
     "mensaje_dm": "¡Hola equipo de Gas Motorrad! Os contactamos desde un equipo local de diseño web en Barcelona. Hemos estado revisando negocios con buenas referencias en vuestra zona y os hemos preparado una maqueta interactiva móvil para vuestra clínica: (Es un enlace 100% seguro sin registros para verlo en el navegador). ¿Os gustaría que conversemos 2 minutos sin compromiso? ¡Un saludo!",
     "mensaje_seguimiento": "¡Hola de nuevo equipo de Gas Motorrad! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
-    "estado": "Web Generada",
-    "demo_slug": "gas-motorrad-barcelona",
-    "demo_url": "https://dga80.github.io/instaleads/gas-motorrad-barcelona/",
-    "demo_vibe": "Technical Industrial (Potencia, Precisión & Box de Taller)",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
     "campana_id": "camp_1788897477",
     "campana_ids": [
       "camp_init_2_1788888949",
       "camp_1788897477"
     ],
-    "demo_url_absoluta": "https://dga80.github.io/instaleads/gas-motorrad-barcelona/",
-    "demo_url_publica": "https://dga80.github.io/instaleads/gas-motorrad-barcelona/",
+    "demo_url_absoluta": "",
+    "demo_url_publica": "",
     "campana_nombre": "Taller De Custom Motos · barcelona"
   },
   {
@@ -1878,5 +1878,1607 @@
       "camp_1788897477"
     ],
     "campana_nombre": "Taller De Custom Motos · barcelona"
+  },
+  {
+    "osm_id": "432592965",
+    "nombre": "Mendizabal",
+    "categoria": "cafeteria (amenity:cafe)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "https://www.instagram.com/barmendizabal/",
+    "instagram_handle": "@barmendizabal",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@barmendizabal)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/barmendizabal/",
+        "titulo": "BarMendizabal (@barmendizabal) • Instagram photos and videos",
+        "snippet": "352 Followers, 38 Following, 1 Posts - BarMendizabal (@barmendizabal) on Instagram: \"Bar especializado en tapas y bocadi"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://plateselector.com/bar-mendizabal/",
+        "titulo": "Bar Mendizabal - Plateselector",
+        "snippet": "4 nov 2013 · Los que crecimos más al sur sabemos que encontrar un buen bocata en un bar era cosa de exploradores bienave"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://carta.menu/restaurants/barcelona/mendizabal-2",
+        "titulo": "Mendizabal en Barcelona - Carta",
+        "snippet": "17 ene 2026 · Reseñas, imágenes y 13 platos del menú de Mendizabal, Carrer De L'Hospital, 55, 08001 (), Spain, Barcelona"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.tripadvisor.es/Restaurant_Review-g187497-d8665874-Reviews-Bar_Mendizabal-Barcelona_Catalonia.html",
+        "titulo": "BAR MENDIZABAL, Barcelona - Carta, fotos y opiniones",
+        "snippet": "Valoración 4,1 (93) · € Típico bar con una barra que da a la calle; buen café, surtido de bollería y bocadillos. Servici"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.tripadvisor.es/Attraction_Review-g187497-d4043669-Reviews-Bar_Mendizabal-Barcelona_Catalonia.html",
+        "titulo": "BAR MENDIZÁBAL (Barcelona) - Qué SABER antes de ir (2026)",
+        "snippet": "Valoración 3,9 (136) Un gran lugar para disfrutar de una copa en una de las mesas de la plaza. Puedes ver pasar el mundo"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://ajuntament.barcelona.cat/santmarti/es/guia-del-districte/equipaments-temes/llistat/bar-mendizabal-99400400632",
+        "titulo": "Bar Mendizábal | Distrito de Sant Martí | Ajuntament de Barcelona",
+        "snippet": "Número de teléfono: Tel.: 935667052: Tel.: 935667057 · Redes sociales. Secciones principales. Consejo de Distrito · Ofic"
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Mendizabal+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mendizabal+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Validación automática heurística",
+    "mensaje_dm": "¡Hola equipo de Mendizabal! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de Barcelona para ayudarles a conseguir más clientes desde Google. Os he preparado una maqueta interactiva de cómo luciría vuestra web: (El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Mendizabal! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1788898547",
+    "campana_nombre": "Cafeteria · barcelona",
+    "campana_ids": [
+      "camp_1788898547"
+    ]
+  },
+  {
+    "osm_id": "499122829",
+    "nombre": "The New Orleans Coffee & Tea Company",
+    "categoria": "cafeteria (amenity:cafe)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.infobel.com/es/spain/the_new_orleans_coffee_tea_company/barcelona/ES100481061-840684420/businessdetails.aspx",
+        "titulo": "The New Orleans Coffee & Tea Company, Barcelona, ES - Infobel",
+        "snippet": "3 ago 2026 · The New Orleans Coffee & Tea Company en Barcelona. The New Orleans Coffee & Tea Company. Carrer de Pere d'A"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://local.tourmake.es/the-new-orleans-coffee-tea-company-carrer-pere-d-artés-catalunya-barcelona-bar-restaurante-tienda",
+        "titulo": "The New Orleans Coffee & Tea Company Barcelona",
+        "snippet": "The New Orleans Coffee & Tea Company Barcelona. Carrer Pere d'Artés 08031 Barcelona Catalunya Spain. +34 933 57 79 57. A"
+      },
+      {
+        "tipo": "linkedin",
+        "label": "LinkedIn",
+        "icono": "💼",
+        "url": "https://es.linkedin.com/in/sergio-leon-6b752611b",
+        "titulo": "Sergio Leon - The New Orleans Coffee & Tea Company",
+        "snippet": "Gerente en The New Orleans Coffee & Tea Company · Experiencia: The New Orleans Coffee & Tea Company · Ubicación: Barcelo"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.tripadvisor.es/LocationPhotoDirectLink-g187497-d10244908-i361018940-The_New_Orleans_Coffee_Tea_Compagny-Barcelona_Catalonia.html",
+        "titulo": "Foto de : The New Orleans Coffee & Tea Compagny - Tripadvisor",
+        "snippet": "Un buen lugar para desayunar a buen precio. Lugar de la visita: The New Orleans Coffee & Tea Company Fecha de la visita:"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.tripadvisor.es/Restaurant_Review-g187497-d10244908-Reviews-The_New_Orleans_Coffee_Tea_Compagny-Barcelona_Catalonia.html",
+        "titulo": "THE NEW ORLEANS COFFEE & TEA COMPAGNY, Barcelona",
+        "snippet": "Valoración 4,1 (28) · €€ - €€€ Genial local. Tiene dos plantas, cuenta con muchos sitios para parejas, grupos, familias."
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.toppingsandsalads.es/restaurante-de-desayunos/the-new-orleans-coffee-tea-company/",
+        "titulo": "The New Orleans Coffee & Tea Company",
+        "snippet": "Ubicado en el número 10 de la calle Pere d'Artés, junto a la agradable Plaza de Can Basté, este establecimiento destaca "
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=The+New+Orleans+Coffee+%26+Tea+Company+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=The+New+Orleans+Coffee+%26+Tea+Company+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Sitio Web, LinkedIn)",
+    "mensaje_dm": "¡Hola equipo de The New Orleans Coffee & Tea Company! Os contactamos desde un equipo local de diseño web en Barcelona. Hemos estado revisando negocios con buenas referencias en vuestra zona y os hemos preparado una maqueta interactiva móvil para vuestra clínica: (Es un enlace 100% seguro sin registros para verlo en el navegador). ¿Os gustaría que conversemos 2 minutos sin compromiso? ¡Un saludo!",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de The New Orleans Coffee & Tea Company! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1788898547",
+    "campana_nombre": "Cafeteria · barcelona",
+    "campana_ids": [
+      "camp_1788898547"
+    ]
+  },
+  {
+    "osm_id": "506202703",
+    "nombre": "Bar Almogávares",
+    "categoria": "cafeteria (amenity:cafe)",
+    "direccion": "Carrer dels Almogàvers",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.privateaser.es/local/51848-almogavares",
+        "titulo": "Almogávares - Privateaser",
+        "snippet": "Este bar ubicado en Barcelona se encuentra en carrer de Zamora, en el barrio de Sant Martí. Puedes llegar fácilmente tom"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.toppingsandsalads.es/restaurante-de-cocina-espanola/bar-almogavares/",
+        "titulo": "Bar Almogávares - Restaurantes en España",
+        "snippet": "Bar Almogávares es un establecimiento clásico ubicado en el carrer de Zamora, 103, en el barrio de Sant Martí de Barcelo"
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://www.einforma.com/informacion-empresa/bar-almogavares",
+        "titulo": "Bar Almogavares SL: consulte teléfono, CIF y dirección - eInforma",
+        "snippet": "BAR ALMOGAVARES S.L. en Barcelona ; CALLE ZAMORA, 103 Ver Mapa · 8018 · BARCELONA · Barcelona."
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.xsmusic.es/sites/cervecera-almogavers",
+        "titulo": "Cervecera Almogavers - Club - Barcelona in XSMusic",
+        "snippet": "Carrer de Binèfar, 19 Barcelona. Breakbeat House. web. Cervecera Almogavers. SpainCataluña. Cervecera Almogavers. Carrer"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.tripadvisor.es/LocationPhotoDirectLink-g187497-d12878356-i386450368-Ancestral_Bar-Barcelona_Catalonia.html",
+        "titulo": "Almogavers Barcelona craft beer.: fotografía de Ancestral Bar ...",
+        "snippet": "Fotografía de Ancestral Bar, Barcelona: Almogavers Barcelona craft beer.. Echa un vistazo a los 112 vídeos y fotos de An"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://barcelona.gunabiz.es/company/puig-albarranch-bar-comidas-almogavares-1-abierto-todo-el-dia-j.html",
+        "titulo": "Puig Albarranch - Bar Comidas Almogavares 1 Abierto todo el ...",
+        "snippet": "Puig Albarranch - Bar Comidas Almogavares 1 Abierto todo el dia j. address Zamora. 103-105 Barcelona, Barcelona 08017. P"
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Bar+Almog%C3%A1vares+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bar+Almog%C3%A1vares+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Sitio Web, Directorio Local)",
+    "mensaje_dm": "¡Hola equipo de Bar Almogávares! Os contactamos desde un equipo local de diseño web en Barcelona. Hemos estado revisando negocios con buenas referencias en vuestra zona y os hemos preparado una maqueta interactiva móvil para vuestra clínica: (Es un enlace 100% seguro sin registros para verlo en el navegador). ¿Os gustaría que conversemos 2 minutos sin compromiso? ¡Un saludo!",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Bar Almogávares! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1788898547",
+    "campana_nombre": "Cafeteria · barcelona",
+    "campana_ids": [
+      "camp_1788898547"
+    ]
+  },
+  {
+    "osm_id": "534367691",
+    "nombre": "Sant Bartomeu",
+    "categoria": "cafeteria (amenity:cafe)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://barcelona.callejero.net/carrer-de-sant-bartomeu.html",
+        "titulo": "Carrer de Sant Bartomeu - Callejero de Barcelona",
+        "snippet": "Carrer de Sant Bartomeu. Callejero, planos y mapas de la ciudad de Barcelona. Encuentra la calle que buscas en Callejero"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.toppingsandsalads.es/restaurante-mediterraneo/sant-bartomeu/",
+        "titulo": "Sant Bartomeu | Restaurante mediterráneo en Barcelona ...",
+        "snippet": "Sant Bartomeu es un bar restaurante ubicado en el número 124 de la transitada Carrer de Sants, en el barrio de Sants-Mon"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://guia.barcelona.cat/es/directoris/detall/parroquia-de-sant-bartomeu_92086000073.html",
+        "titulo": "Parròquia de Sant Bartomeu - Guia Barcelona",
+        "snippet": "Dirección: C Mare de Déu de Port 350 (Sants-Montjuïc) - Tel.: 932231293((Parròquia Mare de Déu del Port))"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.ayuntamiento.es/sant-bartomeu-del-grau/",
+        "titulo": "Ayuntamiento de Sant Bartomeu del Grau, Barcelona, Cataluña",
+        "snippet": "San Bartolomé del Grau (en catalán y oficialmente, Sant Bartomeu del Grau) es un municipio español de la provincia de Ba"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://fotoalquiler.com/turismo/barcelona/sant-bartomeu-del-grau",
+        "titulo": "Información turística de Sant Bartomeu Del Grau",
+        "snippet": "Sant Bartomeu del Grau es un municipio barcelonés perteneciente a la comarca de Osona de la cual Vic es la capital. Limi"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.viamichelin.es/itinerarios/resultados/sant_bartomeu_del_grau-08503-barcelona-cataluna-espana-to-barcelona-08001-barcelona-cataluna-espana",
+        "titulo": "Ruta Sant Bartomeu del Grau - Barcelona - ViaMichelin",
+        "snippet": "Encuentra la distancia de Sant Bartomeu del Grau a Barcelona, el tiempo de trayecto estimado con el impacto del tráfico "
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Sant+Bartomeu+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sant+Bartomeu+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Sitio Web)",
+    "mensaje_dm": "¡Hola equipo de Sant Bartomeu! Os contactamos desde un equipo local de diseño web en Barcelona. Hemos estado revisando negocios con buenas referencias en vuestra zona y os hemos preparado una maqueta interactiva móvil para vuestra clínica: (Es un enlace 100% seguro sin registros para verlo en el navegador). ¿Os gustaría que conversemos 2 minutos sin compromiso? ¡Un saludo!",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Sant Bartomeu! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1788898547",
+    "campana_nombre": "Cafeteria · barcelona",
+    "campana_ids": [
+      "camp_1788898547"
+    ]
+  },
+  {
+    "osm_id": "537748857",
+    "nombre": "Venècia",
+    "categoria": "cafeteria (amenity:cafe)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.skyscanner.es/rutas-aereas/veni/bcn/venecia-a-barcelona.html",
+        "titulo": "Vuelos baratos de Venecia (VENI) a Barcelona (BCN)",
+        "snippet": "Desde 11,00 € En este momento, 11 € es el mejor precio que hemos encontrado para un billete de ida de Venecia al Aeropue"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.edreams.es/vuelos/venecia-barcelona/VCE/BCN/",
+        "titulo": "Vuelos de Venecia a Barcelona | Mejor Precio Garantizado",
+        "snippet": "Desde 11,00 € Reserva vuelos a Barcelona desde 11€. Viaja desde Venecia con Ryanair, Vueling, easyJet, y muchás más aero"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.ryanair.com/flights/es/es/vuelos-desde-venecia-a-barcelona",
+        "titulo": "Vuelos de Venecia a Barcelona - Ryanair",
+        "snippet": "Reservar vuelos de Venecia (VCE) a Barcelona (BCN) desde 19,99 € · Guías de viaje de Barcelona · Vuelos baratos desde Ve"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.kayak.es/vuelos/Venecia-Aeropuerto-Internacional-Marco-Polo-VCE/Barcelona-El-Prat-BCN",
+        "titulo": "24€ Vuelos baratos de Venecia-Marco Polo a Barcelona (VCE",
+        "snippet": "Desde 24,10 € Los vuelos a Aeropuerto Barcelona-El Prat desde Aeropuerto Venecia Marco Polo suelen costar entre 61 € y 1"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.omio.es/viajes/venecia/barcelona",
+        "titulo": "Cómo ir de Venecia a Barcelona - Viajes - Omio",
+        "snippet": "La manera más rápida de viajar de Venecia a Barcelona es en vuelo con una duración de viaje de aproximadamente 5h 11min."
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.flixbus.es/rutas/venecia-barcelona",
+        "titulo": "Autobús de Venecia a Barcelona - Compra billetes baratos",
+        "snippet": "Desde 61,47 € ¿Cuánto dura el viaje en autobús de Venecia a Barcelona? El viaje más rápido en autobús de Venecia a Barce"
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Ven%C3%A8cia+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Ven%C3%A8cia+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Sitio Web)",
+    "mensaje_dm": "¡Hola equipo de Venècia! Os contactamos desde un equipo local de diseño web en Barcelona. Hemos estado revisando negocios con buenas referencias en vuestra zona y os hemos preparado una maqueta interactiva móvil para vuestra clínica: (Es un enlace 100% seguro sin registros para verlo en el navegador). ¿Os gustaría que conversemos 2 minutos sin compromiso? ¡Un saludo!",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Venècia! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1788898547",
+    "campana_nombre": "Cafeteria · barcelona",
+    "campana_ids": [
+      "camp_1788898547"
+    ]
+  },
+  {
+    "osm_id": "565479520",
+    "nombre": "HotDoks",
+    "categoria": "cafeteria (amenity:cafe)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "https://www.instagram.com/hotdoks_latino/",
+    "instagram_handle": "@hotdoks_latino",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@hotdoks_latino)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/hotdoks_latino/",
+        "titulo": "Hotdoks Latino (@hotdoks_latino) • Instagram photos and videos",
+        "snippet": "417 Followers, 719 Following, 36 Posts - See what Hotdoks Latino (@hotdoks_latino) is sharing on Instagram"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://menuweb.menu/restaurants/barcelona/hotdoks",
+        "titulo": "Hotdoks from Barcelona - menuweb.menu",
+        "snippet": "Reviews, photos, and 81 menu items for Hotdoks, Rambla De Fabra I Puig, 33, Sant Andreu, 08030 Barcelona, Spain."
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.ubereats.com/es-en/store/hotdoks/Xnb3e3neRdqDqitu5oh7ag",
+        "titulo": "Hotdoks delivery in Barcelona | Menu & prices | Uber Eats",
+        "snippet": "Use your Uber account to order delivery from Hotdoks in Barcelona. Browse the menu, view popular items, and track your o"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://downundercafe.com/en/cafe/hotdoks-barcelona",
+        "titulo": "HotDoks, Barcelona | Down Under Cafe",
+        "snippet": "Discover HotDoks in Barcelona, where specialty coffee meets gourmet hot dogs in a cozy atmosphere perfect for all coffee"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://carta.menu/restaurants/barcelona/hotdoks-placa-de-sants",
+        "titulo": "Hotdoks Plaça de Sants en Barcelona - carta.menu",
+        "snippet": "Perfecto para una comida rápida entre compras o una cena informal con amigos, Hotdoks ofrece raciones generosas y precio"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://tresycuarto.com/locales/barcelona/hotdoks",
+        "titulo": "HotDoks · Cafetería en Barcelona | tresycuarto",
+        "snippet": "HotDoks es un bar icónico en el corazón de Barcelona. Ubicado en Carrer de Sants, ofrece una atmósfera única y relajada."
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=HotDoks+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=HotDoks+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Validación automática heurística",
+    "mensaje_dm": "¡Hola equipo de HotDoks! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de Barcelona para ayudarles a conseguir más clientes desde Google. Os he preparado una maqueta interactiva de cómo luciría vuestra web: (El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de HotDoks! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1788898547",
+    "campana_nombre": "Cafeteria · barcelona",
+    "campana_ids": [
+      "camp_1788898547"
+    ]
+  },
+  {
+    "osm_id": "571920531",
+    "nombre": "IQRA Kebab",
+    "categoria": "cafeteria (amenity:cafe)",
+    "direccion": "Carrer de Joan Güell",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/xixkebab.barcelona/",
+    "instagram_handle": "@xixkebab.barcelona",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@xixkebab.barcelona)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/xixkebab.barcelona/",
+        "titulo": "Xix Kebab (@xixkebab.barcelona) • Instagram photos and videos",
+        "snippet": "1,533 Followers, 271 Following, 54 Posts - Xix Kebab (@xixkebab.barcelona) on Instagram: \"Des de 1983, alta cuina sirian"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://iqra-doner-kebab.es/",
+        "titulo": "IQRA DONER KEBAB - Barcelona - Kebab",
+        "snippet": "IQRA DONER KEBAB - Barcelona - Kebab Volver al menú principal IQRA DONER KEBAB - Kebab 4.3 Carrer de Joan Güell, 33, Bar"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://restaurantguru.com/Iqra-Doner-Kebab-Barcelona",
+        "titulo": "IQRA DONER KEBAB, Barcelona - Restaurant menu, prices and reviews",
+        "snippet": "Aug 6, 2026 · IQRA DONER KEBAB in Barcelona rated 3.4 out of 5 on Restaurant Guru: 94 reviews by visitors, 25 photos. Ex"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://es.restaurantguru.com/Iqra-Doner-Kebab-Barcelona",
+        "titulo": "IQRA DONER KEBAB, Barcelona - Menú del restaurante, precios y ...",
+        "snippet": "Te recomiendo que visites el restaurante IQRA DONER KEBAB. Encuentra más información sobre este sitio en la app de Resta"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://downundercafe.com/en/cafe/iqra-kebab-barcelona",
+        "titulo": "IQRA Kebab, Barcelona | Down Under Cafe",
+        "snippet": "Nestled on Carrer de Joan Güell, IQRA Kebab is a cozy haven for lovers of authentic Middle Eastern cuisine. The warm, in"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://carta.menu/restaurants/barcelona/iqra-doner-kebab",
+        "titulo": "Iqra Doner Kebab en Barcelona - carta.menu",
+        "snippet": "Reseñas, imágenes y 59 platos del menú de Iqra Doner Kebab, Carrer de Joan Güell 33, 08001 Barcelona, ES."
+      }
+    ],
+    "web_detectada": "https://iqra-doner-kebab.es/",
+    "google_search_url": "https://www.google.com/search?q=IQRA+Kebab+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=IQRA+Kebab+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Validación automática heurística",
+    "mensaje_dm": "¡Hola equipo de IQRA Kebab! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de Barcelona para ayudarles a conseguir más clientes desde Google. Os he preparado una maqueta interactiva de cómo luciría vuestra web: (El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de IQRA Kebab! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1788898547",
+    "campana_nombre": "Cafeteria · barcelona",
+    "campana_ids": [
+      "camp_1788898547"
+    ]
+  },
+  {
+    "osm_id": "571920533",
+    "nombre": "El Racó de la Xemenea",
+    "categoria": "cafeteria (amenity:cafe)",
+    "direccion": "Carrer del Miracle 50-52",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "https://www.instagram.com/elracopizzeriamediterrania/",
+    "instagram_handle": "@elracopizzeriamediterrania",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@elracopizzeriamediterrania)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/elracopizzeriamediterrania/",
+        "titulo": "El Racó (@elracopizzeriamediterrania) • Instagram photos and ...El Racó Restaurant (@elraco_restaurant) • Instagram photos ...ES RACÓ D'EN XESC (@esracodenxesc) • Instagram photos and videosRest. El racó de la Xinesca (@racoxinesca) - InstagramLA XEMENEIA (@laxemeneiabalaguer) • Instagram photos and videosEl Racó dels menuts (@raco_delsmenuts) - Instagram",
+        "snippet": "7,369 Followers, 964 Following, 601 Posts - El Racó (@elracopizzeriamediterrania) on Instagram: \"Palamós • Barcelona • P"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://restaurantguru.com/El-Raco-de-la-Xemeneia-Barcelona",
+        "titulo": "El Racó de la Xemeneia, Carrer del Miracle, 50-52, Local 6 in ...",
+        "snippet": "Feb 9, 2023 · All info on El Racó de la Xemeneia in Barcelona - Call to book a table. View the menu, check prices, find "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://downundercafe.com/en/cafe/el-rac-de-la-xemenea-barcelona",
+        "titulo": "El Racó de la Xemenea, Barcelona | Down Under Cafe",
+        "snippet": "El Racó de la Xemenea is a charming café located on Carrer del Miracle, perfect for those seeking a tranquil spot to unw"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.novacircle.com/spots/europe/spain/catalonia/barcelona/barcelona/el-raco-de-la-xemeneia-1f669c",
+        "titulo": "El Racó de la Xemeneia Restaurant in Barcelona, Spain",
+        "snippet": "Discover El Racó de la Xemeneia in Barcelona for authentic Spanish cuisine in a cozy setting. Book now and indulge in a "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://es.restaurantguru.com/El-Raco-de-la-Xemeneia-Barcelona",
+        "titulo": "El Racó de la Xemeneia, Barcelona - Menú del restaurante ...El Racó de la Xemeneia, Carrer del Miracle, 50-52, Local 6El Racó de la Xemenea — Barcelona | CoffeeShop NomadsEl Racó de la Xemenea, Barcelona | OpenALaCarte",
+        "snippet": "Mar 4, 2026 · El Racó de la Xemeneia en Barcelona calificado 3.5 de 5 en Restaurant Guru: 409 reseñas de visitantes, 68 "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://esopiniones.com/catalonia/el-raco-de-la-xemeneia-1250230",
+        "titulo": "El Racó de la Xemeneia, Carrer del Miracle, 50-52, Local 6El Racó de la Xemenea — Barcelona | CoffeeShop NomadsEl Racó de la Xemenea, Barcelona | OpenALaCarte",
+        "snippet": "El Racó de la Xemeneia, Catalunya, Comentarios de clientes, mapa de ubicación, números de teléfono, horas de trabajo El "
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=El+Rac%C3%B3+de+la+Xemenea+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=El+Rac%C3%B3+de+la+Xemenea+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Validación automática heurística",
+    "mensaje_dm": "¡Hola equipo de El Racó de la Xemenea! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de Barcelona para ayudarles a conseguir más clientes desde Google. Os he preparado una maqueta interactiva de cómo luciría vuestra web: (El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de El Racó de la Xemenea! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1788898547",
+    "campana_nombre": "Cafeteria · barcelona",
+    "campana_ids": [
+      "camp_1788898547"
+    ]
+  },
+  {
+    "osm_id": "573484622",
+    "nombre": "Via Fora!",
+    "categoria": "cafeteria (amenity:cafe)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://guia.barcelona.cat/es/detall/restaurant-via-fora_75990225969.html",
+        "titulo": "Restaurant Via Fora | Guía Barcelona | Ayuntamiento de ...",
+        "snippet": "Dirección: C Riera de Sant Miquel, 25 ; Distrito: Gràcia ; Barrio: la Vila de Gràcia ; Ciudad: Barcelona."
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.privateaser.es/local/64175-via-fora",
+        "titulo": "Via Fora! | Reservar y privatizar en línea - Privateaser",
+        "snippet": "Valoración 5,0 (2) · € Via Fora es un bar emblemático situado en el corazón de Gràcia, en el barrio de Sant Miquel, Barc"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.toppingsandsalads.es/bar-de-tapas/restaurant-via-fora/",
+        "titulo": "Restaurant Via Fora! | Bar de tapas en Barcelona, Catalunya",
+        "snippet": "Restaurant Via Fora! es un establecimiento gastronómico ubicado en el corazón del barrio de Gràcia, en Barcelona, concre"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.privateaser.es/local/54071-restaurant-via-fora",
+        "titulo": "Restaurant Via Fora! | Reservar y privatizar en línea - Privateaser",
+        "snippet": "Valoración 5,0 (1) · €€ Via Fora es un restaurante emblemático situado en el corazón de Gràcia, en el barrio de Sant Miq"
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://metropoliabierta.elespanol.com/guia/p/via-fora-trssa-sant-antoni-barcelona-7232097/",
+        "titulo": "Via Fora! (Trssa. Sant Antoni)",
+        "snippet": "Via Fora! (Trssa. Sant Antoni). Restaurantes de comida catalana. Travesía Sant Antoni 6 8. Barcelona (Barcelona) 08012. "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.aldente.com/restaurante-barcelona/via-fora/fotos",
+        "titulo": "Fotos del Restaurante Via Fora Barcelona - Tel. 931770732",
+        "snippet": "Valoración 7,9/10 (299) Fotos Restaurante Via Fora Barcelona."
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Via+Fora%21+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Via+Fora%21+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Sitio Web, Directorio Local)",
+    "mensaje_dm": "¡Hola equipo de Via Fora!! Os contactamos desde un equipo local de diseño web en Barcelona. Hemos estado revisando negocios con buenas referencias en vuestra zona y os hemos preparado una maqueta interactiva móvil para vuestra clínica: (Es un enlace 100% seguro sin registros para verlo en el navegador). ¿Os gustaría que conversemos 2 minutos sin compromiso? ¡Un saludo!",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Via Fora!! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1788898547",
+    "campana_nombre": "Cafeteria · barcelona",
+    "campana_ids": [
+      "camp_1788898547"
+    ]
+  },
+  {
+    "osm_id": "603785497",
+    "nombre": "El cafè de les delícies",
+    "categoria": "cafeteria (amenity:cafe)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://es.restaurantguru.com/Cafe-de-les-Delicies-Barcelona",
+        "titulo": "Cafè de les Delícies, Barcelona - Restaurant Guru",
+        "snippet": "Cafè de les Delícies en Barcelona calificado 4.3 de 5 en Restaurant Guru: 697 reseñas de visitantes, 225 fotos. Explorar"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.tripadvisor.es/Restaurant_Review-g187497-d1051027-Reviews-Cafe_de_les_Delicies-Barcelona_Catalonia.html",
+        "titulo": "CAFÈ DE LES DELÍCIES, Barcelona - Carta, fotos y opiniones",
+        "snippet": "En plena rambla del Raval de Barcelona, este pequeó cafè, con un par de mesas fuera. en un viejo edificio, decorado con "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g187497-d1051027-Reviews-Cafe_de_les_Delicies-Barcelona_Catalonia.html",
+        "titulo": "CAFÈ DE LES DELÍCIES, Barcelona - El Raval - Tripadvisor",
+        "snippet": "Cafè de les Delícies, Barcelona: See 60 unbiased reviews of Cafè de les Delícies, rated 4.0 of 5 on Tripadvisor and rank"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.tripadvisor.co.uk/Restaurant_Review-g187497-d1051027-Reviews-Cafe_de_les_Delicies-Barcelona_Catalonia.html",
+        "titulo": "CAFÈ DE LES DELÍCIES, Barcelona - 2026 Reviews & Information",
+        "snippet": "Cafè de les Delícies, Barcelona: See 61 unbiased reviews of Cafè de les Delícies, rated 4.0 of 5 on Tripadvisor and rank"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://downundercafe.com/en/cafe/el-caf-de-les-del-cies-barcelona",
+        "titulo": "El cafè de les delícies — Barcelona | Down Under Cafe",
+        "snippet": "Discover El cafè de les delícies in Barcelona, a cozy spot for specialty coffee and pastries in a vibrant atmosphere."
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://menuweb.menu/restaurants/barcelona/cafe-de-les-delicies",
+        "titulo": "Cafè De Les Delícies from Barcelona - menuweb.menu",
+        "snippet": "Reviews, photos, and 23 menu items for Cafè De Les Delícies, Rambla del Raval 47, 08001 Barcelona, ES."
+      }
+    ],
+    "web_detectada": "https://downundercafe.com/en/cafe/el-caf-de-les-del-cies-barcelona",
+    "google_search_url": "https://www.google.com/search?q=El+caf%C3%A8+de+les+del%C3%ADcies+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=El+caf%C3%A8+de+les+del%C3%ADcies+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Sitio Web, Sitio Web Detectado)",
+    "mensaje_dm": "¡Hola equipo de El cafè de les delícies! Os contactamos desde un equipo local de diseño web en Barcelona. Hemos estado revisando negocios con buenas referencias en vuestra zona y os hemos preparado una maqueta interactiva móvil para vuestra clínica: (Es un enlace 100% seguro sin registros para verlo en el navegador). ¿Os gustaría que conversemos 2 minutos sin compromiso? ¡Un saludo!",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de El cafè de les delícies! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1788898547",
+    "campana_nombre": "Cafeteria · barcelona",
+    "campana_ids": [
+      "camp_1788898547"
+    ]
+  },
+  {
+    "osm_id": "606991000",
+    "nombre": "Bar Seco",
+    "categoria": "cafeteria (amenity:cafe)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "https://www.instagram.com/barseco_poblesec/",
+    "instagram_handle": "@barseco_poblesec",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@barseco_poblesec)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/barseco_poblesec/",
+        "titulo": "Bar Seco (@barseco_poblesec) • Instagram photos and videos",
+        "snippet": "165 Followers, 155 Following, 22 Posts - Bar Seco (@barseco_poblesec) on Instagram: \"📍 Passeig de Montjuïc 74, Poble-sec"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g187497-d1008277-Reviews-Bar_Seco-Barcelona_Catalonia.html",
+        "titulo": "BAR SECO, Barcelona - El Poble Sec - Restaurant Reviews ...Bar Seco, Barcelona, Paral·lel - Restaurant menu, prices and ...Bar Seco: Poble Sec, Barcelona | The Discreet GentlemanBAR SECO, Barcelona - Carta, fotos y opiniones del restauranteBar Seco - Review & Guide (2026) | Poble SecBar Seco - Barcelona, BBar Seco | Bar Barcelona - laspizzerias.com",
+        "snippet": "Bar Seco, Barcelona: See 215 unbiased reviews of Bar Seco, rated 4.4 of 5 on Tripadvisor and ranked #821 of 9,415 restau"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://restaurantguru.com/SECO-Taverna-Km0-Barcelona-2",
+        "titulo": "Bar Seco, Barcelona, Paral·lel - Restaurant menu, prices and ...Bar Seco: Poble Sec, Barcelona | The Discreet GentlemanBAR SECO, Barcelona - Carta, fotos y opiniones del restauranteBar Seco - Review & Guide (2026) | Poble SecBar Seco - Barcelona, BBar Seco | Bar Barcelona - laspizzerias.com",
+        "snippet": "Aug 16, 2026 · Bar Seco in Barcelona rated 4.8 out of 5 on Restaurant Guru: 1295 reviews by visitors, 102 photos. Explor"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://thediscreetgentleman.com/countries/spain/barcelona/poble-sec/bar-seco",
+        "titulo": "Bar Seco: Poble Sec, Barcelona | The Discreet Gentleman",
+        "snippet": "Corner bar on Passeig de Montjuic with a terrace facing the hillside. Serves vermouth, local wines, and simple tapas. Th"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.tripadvisor.es/Restaurant_Review-g187497-d1008277-Reviews-Bar_Seco-Barcelona_Catalonia.html",
+        "titulo": "BAR SECO, Barcelona - Carta, fotos y opiniones del restauranteBar Seco - Review & Guide (2026) | Poble SecBar Seco - Barcelona, BBar Seco | Bar Barcelona - laspizzerias.com",
+        "snippet": "Este bar está ubicado en un barrio muy local y auténtico. Debido a COVID, han trasladado todos los asientos a las \"terra"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://mesprestiges.com/en/barcelona/places/bar-seco",
+        "titulo": "Bar Seco - Review & Guide (2026) | Poble Sec",
+        "snippet": "A small, sustainability-minded bar at the base of Montjuic with a leafy terrace facing the hill. Local, seasonal product"
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Bar+Seco+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bar+Seco+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Validación automática heurística",
+    "mensaje_dm": "¡Hola equipo de Bar Seco! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de Barcelona para ayudarles a conseguir más clientes desde Google. Os he preparado una maqueta interactiva de cómo luciría vuestra web: (El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Bar Seco! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1788898547",
+    "campana_nombre": "Cafeteria · barcelona",
+    "campana_ids": [
+      "camp_1788898547"
+    ]
+  },
+  {
+    "osm_id": "638346221",
+    "nombre": "Can Farines",
+    "categoria": "cafeteria (amenity:cafe)",
+    "direccion": "Plaça de Trafalgar 7",
+    "ciudad": "Badalona",
+    "provincia": "Barcelona",
+    "codigo_postal": "08913",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://zokko.es/servicios/panaderias/badalona/can-farines-93278",
+        "titulo": "Can Farines — Panadería en Badalona - Zokko",
+        "snippet": "En Badalona encuentras a Can Farines, panadería de la localidad. Ubicado en Carrer de Pérez Galdós. ¿Es tu negocio? Recl"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.horariosytiendas.es/can-farines/badalona/c-6889951f1a8e06b0f2b35a8d",
+        "titulo": "Can Farines | Horarios y Tiendas",
+        "snippet": "Sorli Discau - Badalona (MARQUES DE SANT MORI, 124). MARQUES DE SANT MORI, 124 Badalona. Grup Sorli es una cadena de ali"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.idealista.com/maps/badalona-barcelona/calle-guifre/86/",
+        "titulo": "Calle Guifre, 86, Badalona - Idealista",
+        "snippet": "Carnisseria Ecològica Can Kevin - \"Avinguda de Sant Ignasi de Loiola\". 0,013 km. Carnicería · Tel: \"+34931996619\". Can F"
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://www.paginasamarillas.es/f/badalona/pa-cuit-s-l-_021223870_000000004.html",
+        "titulo": "PA CUIT S.L. - Badalona - Avinguda Catalunya, 44 2-A(TDA)",
+        "snippet": "Panaderia PA CUIT S.L. es un negocio ubicado en Avinguda Catalunya, 44 2-A(TDA), Badalona. Puedes contactar con este neg"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://bufsdefarina.com/",
+        "titulo": "Bufs de farina: Coffe & Bakery en Badalona",
+        "snippet": "Sumérgete en el mundo de los sabores dulces y salados con nuestra selección de gofres y crepes, perfectos para cualquier"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.idealista.com/maps/badalona-barcelona/calle-guifre/103/",
+        "titulo": "Calle Guifre, 103, Badalona - Idealista",
+        "snippet": "Información del edificio en Calle Guifre, 103, Badalona · 661 m² de parcela · Construido en 1975 · Edificio de 8 plantas"
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Can+Farines+Badalona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Can+Farines+Badalona",
+    "gemini_verificado": true,
+    "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Sitio Web, Directorio Local)",
+    "mensaje_dm": "¡Hola equipo de Can Farines! Os contactamos desde un equipo local de diseño web en Badalona. Hemos estado revisando negocios con buenas referencias en vuestra zona y os hemos preparado una maqueta interactiva móvil para vuestra clínica: (Es un enlace 100% seguro sin registros para verlo en el navegador). ¿Os gustaría que conversemos 2 minutos sin compromiso? ¡Un saludo!",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Can Farines! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1788898547",
+    "campana_nombre": "Cafeteria · barcelona",
+    "campana_ids": [
+      "camp_1788898547"
+    ]
+  },
+  {
+    "osm_id": "643429648",
+    "nombre": "Joan Figuera",
+    "categoria": "cafeteria (amenity:cafe)",
+    "direccion": "Carretera de Santa Coloma 2",
+    "ciudad": "Badalona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "https://www.instagram.com/lafiguerabadalona/",
+    "instagram_handle": "@lafiguerabadalona",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@lafiguerabadalona)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/lafiguerabadalona/",
+        "titulo": "RESTAURANT LA FIGUERA (@lafiguerabadalona) - Instagram",
+        "snippet": "299 Followers, 8 Following, 25 Posts - RESTAURANT LA FIGUERA (@lafiguerabadalona) on Instagram: \"🍕 Pizzes, coques i post"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://coffeeshopnomads.com/coffee-shop/joan-figuera-badalona/",
+        "titulo": "Joan Figuera — Badalona - CoffeeShop Nomads",
+        "snippet": "Joan Figuera at 2 Carretera de Santa Coloma, Badalona. Hours: Mo-Fr 06:30-21:00; Sa 07:00-21:00; Su 08:00-21:00; PH clos"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://es.restaurantguru.com/Forn-De-Pa-Joan-Figuera-Badalona",
+        "titulo": "Forns de pa Figuera, Badalona - Menú del restaurante, precios ...Forns de pa Figuera, Avinguda dels Vents, nº60 in Badalona ...Forns de pa Figuera – Panadería en Badalona, BarcelonaCoffee Shops in Badalona, SpainForns de pa Figuera – Panadería en Badalona, BarcelonaFleca Joan Figuera - Mapa - Panadería - Badalona, Cataluña ...",
+        "snippet": "May 5, 2025 · Forns de pa Figuera, ubicado en la Ctra. de Santa Coloma, se encuentra cerca de la estación de metro Artig"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://restaurantguru.com/Forns-de-pa-Figuera-Badalona",
+        "titulo": "Forns de pa Figuera, Avinguda dels Vents, nº60 in Badalona ...Forns de pa Figuera – Panadería en Badalona, BarcelonaCoffee Shops in Badalona, SpainForns de pa Figuera – Panadería en Badalona, BarcelonaFleca Joan Figuera - Mapa - Panadería - Badalona, Cataluña ...",
+        "snippet": "Sep 28, 2022 · All info on Forns de pa Figuera in Badalona - Call to book a table. View the menu, check prices, find on "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://panaderiaminutos.es/7593-forns-de-pa-figuera-panaderia-en-badalona-barcelona/",
+        "titulo": "Forns de pa Figuera – Panadería en Badalona, Barcelona",
+        "snippet": "Jan 10, 2024 · Desde que descubrí Forns de pa Figuera, mi vida ha cambiado para mejor. Ubicada en la Avinguda de Puigfre"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://coffeeshopnomads.com/cities/badalona-spain/",
+        "titulo": "Coffee Shops in Badalona, Spain",
+        "snippet": "3 coffee shops in Badalona, Spain. 3 with verified addresses, hours, and websites — from specialty roasters to remote-wo"
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Joan+Figuera+Badalona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Joan+Figuera+Badalona",
+    "gemini_verificado": true,
+    "gemini_razon": "Validación automática heurística",
+    "mensaje_dm": "¡Hola equipo de Joan Figuera! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de Badalona para ayudarles a conseguir más clientes desde Google. Os he preparado una maqueta interactiva de cómo luciría vuestra web: (El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Joan Figuera! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1788898547",
+    "campana_nombre": "Cafeteria · barcelona",
+    "campana_ids": [
+      "camp_1788898547"
+    ]
+  },
+  {
+    "osm_id": "660100527",
+    "nombre": "Rambla Poblenou",
+    "categoria": "cafeteria (amenity:cafe)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.barcelonaturisme.com/wv3/de/page/452/rambla-del-poblenou.html",
+        "titulo": "Rambla del Poblenou - - Barcelona Tourism",
+        "snippet": "La Rambla del Poblenou, situada en distrito de Sant Martí, se erige como uno de los centros de la actividad cultural y s"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://barcelona.callejero.net/rambla-del-poblenou.html",
+        "titulo": "Rambla del Poblenou - Callejero de Barcelona",
+        "snippet": "Rambla del Poblenou. Callejero, planos y mapas de la ciudad de Barcelona. Encuentra la calle que buscas en Callejero.net"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://guia.barcelona.cat/es/detall/fira-d-artesans-rambla-poblenou_97352145618.html",
+        "titulo": "Fira d'Artesans Rambla Poblenou - Guia Barcelona",
+        "snippet": "Dirección: Rbla Poblenou, 72 ; Distrito: Sant Martí ; Barrio: el Poblenou ; Ciudad: Barcelona."
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://blog.demediterraning.com/barcelona/la-rambla-del-poblenou-en-barcelona.html",
+        "titulo": "La Rambla del Poblenou en Barcelona - DeMediterràning.com",
+        "snippet": "La Rambla del Poblenou cuenta con preciosos edificios modernistas de aire más rural. Es decir, lejos de los majestuosos "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.idealista.com/geo/venta-viviendas/rambla-poblenou-barcelona-barcelona/",
+        "titulo": "Casas y pisos, Rambla Poblenou, Barcelona - Idealista",
+        "snippet": "Desde 179.000 euros: 43 casas y pisos, Rambla Poblenou, Barcelona. Anuncios de particulares y agencias inmobiliarias."
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.tripadvisor.es/Attraction_Review-g187497-d7208916-Reviews-Rambla_del_Poblenou-Barcelona_Catalonia.html",
+        "titulo": "RAMBLA DEL POBLENOU (Barcelona) - Qué SABER antes de ir",
+        "snippet": "Valoración 4,3 (250) Gran lugar para visitar para comer y beber. Las mesas están situadas a lo largo del centro de la ca"
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Rambla+Poblenou+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Rambla+Poblenou+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Sitio Web)",
+    "mensaje_dm": "¡Hola equipo de Rambla Poblenou! Os contactamos desde un equipo local de diseño web en Barcelona. Hemos estado revisando negocios con buenas referencias en vuestra zona y os hemos preparado una maqueta interactiva móvil para vuestra clínica: (Es un enlace 100% seguro sin registros para verlo en el navegador). ¿Os gustaría que conversemos 2 minutos sin compromiso? ¡Un saludo!",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Rambla Poblenou! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1788898547",
+    "campana_nombre": "Cafeteria · barcelona",
+    "campana_ids": [
+      "camp_1788898547"
+    ]
+  },
+  {
+    "osm_id": "672140165",
+    "nombre": "La Granja 1872",
+    "categoria": "cafeteria (amenity:cafe)",
+    "direccion": "Carrer dels Banys Nous 4",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "08002",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "https://www.instagram.com/lagranja_1872_official/",
+    "instagram_handle": "@lagranja_1872_official",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@lagranja_1872_official)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/lagranja_1872_official/",
+        "titulo": "La Granja 1872 official (@lagranja_1872_official) - InstagramLa granja 1872 on Instagram • Photos and VideosLa Granja (@lagranjarestaurantofficial) • Instagram photos ...La Granja Restaurante (@lagranjarestaurante ... - InstagramInstagramTienda de la Granja (@tiendadelagranja) • Instagram photos ...La Granja del Vinti-1 (@granjavinti1) • Instagram photos and ...",
+        "snippet": "52 Followers, 149 Following, 1 Posts - La Granja 1872 official (@lagranja_1872_official) on Instagram: \"📍Barcelona, Carr"
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://metropoliabierta.elespanol.com/ciutat-vella/20201222/cierra-la-granja-otro-comercio-centenario-de-barcelona/545445651_0.html",
+        "titulo": "Cierra la Granja 1872, otro comercio centenario de Barcelona",
+        "snippet": "22 dic 2020 · Situada en la calle de los Banys Nous, 4, en el barrio Gòtic, la granja lleva cerrada desde el pasado vera"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.timeout.es/barcelona/es/restaurantes-cafes/la-granja-1",
+        "titulo": "La Granja - Time Out",
+        "snippet": "10 dic 2011 · La Granja es una preciosa cafetería del Call que nació en 1872 en plena efervescencia modernista, que mant"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://barcelonaurbana.com/blog/granjas-cafes-tradicionales-barcelona",
+        "titulo": "Granjas y cafés tradicionales de Barcelona",
+        "snippet": "13 abr 2026 · La Granja 1872, el chocolate sobre la muralla romana ; Granja M. Viader, Raval, 1870, 4.4 (4.200+), Más an"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.guiarepsol.com/es/comer/nuestros-favoritos/chocolaterias-barcelona-dulcinea-la-pallaresa-granja-1872-nena-y-viader/",
+        "titulo": "5 chocolaterías en Barcelona para los más golosos - Guía Repsol",
+        "snippet": "22 ene 2020 · En 'La Granja 1872' sirven un café con 5 texturas diferentes y unos churros muy particulares. Pueden comer"
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://www.einforma.com/informacion-empresa/vaca-lechera",
+        "titulo": "La Granja 1872 SL (en Liquidacion) - eInforma",
+        "snippet": "LA GRANJA 1872 SL. (EN LIQUIDACION) consta con el número de SIC 58130000, correspondiente a la actividad de Establecimie"
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=La+Granja+1872+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=La+Granja+1872+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Validación automática heurística",
+    "mensaje_dm": "¡Hola equipo de La Granja 1872! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de Barcelona para ayudarles a conseguir más clientes desde Google. Os he preparado una maqueta interactiva de cómo luciría vuestra web: (El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de La Granja 1872! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1788898547",
+    "campana_nombre": "Cafeteria · barcelona",
+    "campana_ids": [
+      "camp_1788898547"
+    ]
+  },
+  {
+    "osm_id": "672140177",
+    "nombre": "Dalston Coffee",
+    "categoria": "cafeteria (amenity:cafe)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://dalstoncoffee.com/?srsltid=AfmBOorYMpLmeYfN3GqKCKdbwJq46UQ_RgYCrakJbkYVhrWOCjcN81NI",
+        "titulo": "Dalston Coffee Roasters - Café de Especialidad",
+        "snippet": "Compra café de especialidad tostado artesanalmente en La Garriga, Barcelona. Envío rápido y frescura garantizada. Descub"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://dalstoncoffee.com/pages/about-us?srsltid=AfmBOorePOzEd07oBjk8Cbxpe65-QTTKRBHSMmGCR1tbYLcW4Unwb1Eb",
+        "titulo": "Quiénes somos - Dalston Coffee",
+        "snippet": "Dalston Coffee es una marca de café de especialidad tostado de forma artesanal en Barcelona. Abrimos nuestra primera caf"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.timeout.es/barcelona/es/restaurantes/dalston-coffee",
+        "titulo": "Dalston Coffee - Time Out",
+        "snippet": "11 Jan 2024 ... del manual del buen barista. El bar Dalston es un lugar pequeño, pero valiente: tiene un espacio de prod"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://dalstoncoffee.com/collections/all?page=2&srsltid=AfmBOoqJ62Wtu1qvoxOlsV2hhWKyB9tYx8yGAmbpsfZFeJshuipn-SpK",
+        "titulo": "Productos – Page 2 - Dalston Coffee",
+        "snippet": "2. Dalston Coffee Roasters. Cafeteria : Carrer Ramelleres 16, baixos 08001 Barcelona. Roastery: Carrer Llerona 110, loca"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.specialtycoffeemarket.es/post/visitando-dalston-coffee-un-proyecto-con-alma-londinense-y-corazón-barcelones",
+        "titulo": "Visita a Dalston Coffee – Café de especialidad tostado en Barcelona",
+        "snippet": "23 Oct 2025 ... Visitar Dalston Coffee transmite cercanía, creatividad y pasión por café bien trabajado. Proyecto mezcla"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://gastroranking.es/r/dalston-coffee_153117/",
+        "titulo": "Restaurante Dalston Coffee en Barcelona - Gastroranking",
+        "snippet": "Increíbles baristas, uno de los mejores cafés de Barcelona. No existe nada mejor que pedir un café y que esté bien prepa"
+      }
+    ],
+    "web_detectada": "https://dalstoncoffee.com/?srsltid=AfmBOorYMpLmeYfN3GqKCKdbwJq46UQ_RgYCrakJbkYVhrWOCjcN81NI",
+    "google_search_url": "https://www.google.com/search?q=Dalston+Coffee+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Dalston+Coffee+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Sitio Web Detectado, Sitio Web)",
+    "mensaje_dm": "¡Hola equipo de Dalston Coffee! Os contactamos desde un equipo local de diseño web en Barcelona. Hemos estado revisando negocios con buenas referencias en vuestra zona y os hemos preparado una maqueta interactiva móvil para vuestra clínica: (Es un enlace 100% seguro sin registros para verlo en el navegador). ¿Os gustaría que conversemos 2 minutos sin compromiso? ¡Un saludo!",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Dalston Coffee! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1788898547",
+    "campana_nombre": "Cafeteria · barcelona",
+    "campana_ids": [
+      "camp_1788898547"
+    ]
+  },
+  {
+    "osm_id": "672140180",
+    "nombre": "Kasparo",
+    "categoria": "cafeteria (amenity:cafe)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://es.ara.cat/comer/cierra-mitico-bar-kasparo-propietario-queria-cuadruplicar-alquiler_1_5349137.html",
+        "titulo": "Cierra el mítico bar Kasparo porque el propietario quería ... - ARA",
+        "snippet": "16 abr 2025 · El bar Kasparo, del barrio del Raval, ha cerrado definitivamente. Francesc Melcion."
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.elperiodico.com/es/que-hacer/planes/20250419/duelo-kasparo-cierra-bar-barcelona-historias-libros-116509296",
+        "titulo": "Duelo por el Kasparo: cierra el bar de Barcelona donde se ...",
+        "snippet": "19 abr 2025 · Duelo por el Kasparo: cierra el bar de Barcelona donde se estrenaban historias y libros. Así es el jardín "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://infonif.economia3.com/telefono-direccion/barcelona/kasparo-raval-sl",
+        "titulo": "Dirección y teléfonos de KASPARO RAVAL SL en BARCELONA",
+        "snippet": "KASPARO RAVAL SL en BARCELONA (BARCELONA). Dirección: C CONSELL DE CENT, 411 - 08009 - BARCELONA (BARCELONA). Teléfono: "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://analabel.es/kasparo/",
+        "titulo": "KASPARO - – ANA LABEL",
+        "snippet": "21 sept 2021 · Kasparo es Barcelona como escenario, el arte como excusa y el amor y la amistad como bandera. 20 años des"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.timeout.es/barcelona/es/noticias/cierra-el-bar-kasparo-la-terraza-con-mas-carisma-y-mas-local-del-raval-de-barcelona-041425",
+        "titulo": "Cierra el Kasparo, el bar que tenía la terraza más carismática ...",
+        "snippet": "14 abr 2025 · El negocio ha caído por culpa de la extinción del contrato de renta antigua."
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.tripadvisor.es/Restaurant_Review-g187497-d697611-Reviews-Bar_Kasparo-Barcelona_Catalonia.html",
+        "titulo": "BAR KASPARO, Barcelona - Carta, fotos y opiniones del ...",
+        "snippet": "Valoración 4,0 (215) 8 jul 2020 · La variedad de la carta es amplia - ensaladas, tapas, bocadillos, platos y encima una "
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Kasparo+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Kasparo+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Sitio Web)",
+    "mensaje_dm": "¡Hola equipo de Kasparo! Os contactamos desde un equipo local de diseño web en Barcelona. Hemos estado revisando negocios con buenas referencias en vuestra zona y os hemos preparado una maqueta interactiva móvil para vuestra clínica: (Es un enlace 100% seguro sin registros para verlo en el navegador). ¿Os gustaría que conversemos 2 minutos sin compromiso? ¡Un saludo!",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Kasparo! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1788898547",
+    "campana_nombre": "Cafeteria · barcelona",
+    "campana_ids": [
+      "camp_1788898547"
+    ]
+  },
+  {
+    "osm_id": "672398176",
+    "nombre": "Bonatapa",
+    "categoria": "cafeteria (amenity:cafe)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.toppingsandsalads.es/bar-de-tapas/bonatapa/",
+        "titulo": "BONATAPA | Bar de tapas en Barcelona, Catalunya",
+        "snippet": "BONATAPA es un establecimiento gastronómico situado en la Av. de Catalunya, 111 de Parets del Vallès, en la provincia de"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://gastroranking.es/r/bar-restaurant-bona-tapa_276587/",
+        "titulo": "Restaurante Bar-Restaurant Bona Tapa en Barcelona",
+        "snippet": "Bar-Restaurant Bona Tapa en Barcelona. Carrer de Duran i Borrell, 2 Barcelona · 698 23 19 30 · Sitio web. 6,6. Basado en"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://chequerestaurante.com/sodexho/barcelona/bona-tapa",
+        "titulo": "Bona Tapa, Barcelona - chequerestaurante.com",
+        "snippet": "Teléfono: 934 080 544 ; Dirección: Calle Velia, 071 - 8016 - Barcelona ; tipo de cocina: Menú Diario ; precio medio: 5,8"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.tripadvisor.es/Restaurant_Review-g187497-d10132398-Reviews-Bonatapa-Barcelona_Catalonia.html",
+        "titulo": "BONATAPA, Barcelona - Carta, fotos y opiniones del restaurante",
+        "snippet": "Valoración 2,2 (152) · €€ - €€€ Una pequeña cafetería con mesas al aire libre en Las Ramblas. Un buen lugar para sentars"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://guia.barcelona.cat/es/detall/restaurant-la-bona-tapa_96334163724.html",
+        "titulo": "Restaurant La Bona Tapa - Guia Barcelona",
+        "snippet": "Dirección: C Vèlia 71 (Nou Barris) - Tel.: 934080544."
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://carta.menu/restaurants/barcelona/bona-tapa",
+        "titulo": "Bona Tapa en Barcelona - Carta",
+        "snippet": "Bona Tapa es uno de los restaurantes más destacados y surtidos en tapas, caseras y originales. También brinda a los clie"
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Bonatapa+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bonatapa+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Sitio Web)",
+    "mensaje_dm": "¡Hola equipo de Bonatapa! Os contactamos desde un equipo local de diseño web en Barcelona. Hemos estado revisando negocios con buenas referencias en vuestra zona y os hemos preparado una maqueta interactiva móvil para vuestra clínica: (Es un enlace 100% seguro sin registros para verlo en el navegador). ¿Os gustaría que conversemos 2 minutos sin compromiso? ¡Un saludo!",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Bonatapa! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1788898547",
+    "campana_nombre": "Cafeteria · barcelona",
+    "campana_ids": [
+      "camp_1788898547"
+    ]
+  },
+  {
+    "osm_id": "673967568",
+    "nombre": "Cafe d'Annunzio",
+    "categoria": "cafeteria (amenity:cafe)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "https://www.instagram.com/cafedannunzio/",
+    "instagram_handle": "@cafedannunzio",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@cafedannunzio)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/cafedannunzio/",
+        "titulo": "Café D’Annunzio (@cafedannunzio) • Instagram photos and videos",
+        "snippet": "456 Followers, 925 Following, 96 Posts - Café D’Annunzio (@cafedannunzio) on Instagram: \"Un misterioso 📚 ️café Veneciano"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://guia.barcelona.cat/es/detall/bar-cafeteria-cafe-d-annunzio_75990691308.html",
+        "titulo": "Bar Cafeteria Cafè d'Annunzio - Guia Barcelona",
+        "snippet": "Dirección: Pl Vicenç Martorell, 5 ; Distrito: Ciutat Vella ; Barrio: el Raval ; Ciudad: Barcelona."
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://carta.menu/restaurants/barcelona/cafe-dannunzio",
+        "titulo": "Cafe D\"annunzio en Barcelona - Carta",
+        "snippet": "Cafe D'Annunzio: terraza acogedora en una plaza céntrica de Barcelona. Tapas, vinos y servicio amable en un local con mu"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://guia.barcelona.cat/es/directoris/detall/bar-cafeteria-cafe-d-annunzio_75990691308.html",
+        "titulo": "Bar Cafeteria Cafè d'Annunzio - Guia Barcelona",
+        "snippet": "Dirección: Pl Vicenç Martorell, 5 ; Distrito: Ciutat Vella ; Barrio: el Raval ; Ciudad: Barcelona."
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.tripadvisor.es/LocationPhotoDirectLink-g187497-d1156240-i193454600-Cafe_d_Annunzio-Barcelona_Catalonia.html",
+        "titulo": "Foto de : Cafe d'Annunzio - Barcelona - Tripadvisor",
+        "snippet": "Fotografía de Cafe d'Annunzio, Barcelona: Cafe d'Annunzio. Echa un vistazo a los 16 vídeos y fotos de Cafe d'Annunzio qu"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://ajuntament.barcelona.cat/ciutatvella/es/el-distrito-y-sus-barrios/el-raval/entidades-y-equipamientos/bar-cafeteria-cafe-d-annunzio-75990691308",
+        "titulo": "Bar Cafeteria Cafè d'Annunzio | Distrito de Ciutat Vella",
+        "snippet": "Bar Cafeteria Cafè d'Annunzio. Pl Vicenç Martorell, 5. La posición obtenida con su dispositivo no nos permite situarlo e"
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Cafe+d%27Annunzio+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Cafe+d%27Annunzio+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Validación automática heurística",
+    "mensaje_dm": "¡Hola equipo de Cafe d'Annunzio! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de Barcelona para ayudarles a conseguir más clientes desde Google. Os he preparado una maqueta interactiva de cómo luciría vuestra web: (El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Cafe d'Annunzio! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1788898547",
+    "campana_nombre": "Cafeteria · barcelona",
+    "campana_ids": [
+      "camp_1788898547"
+    ]
+  },
+  {
+    "osm_id": "673967678",
+    "nombre": "Chelo",
+    "categoria": "cafeteria (amenity:cafe)",
+    "direccion": "Plaça de Vicenç Martorell 4",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "https://www.instagram.com/chelo_cafe/",
+    "instagram_handle": "@chelo_cafe",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@chelo_cafe)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/chelo_cafe/",
+        "titulo": "CHELO CAFE (@chelo_cafe) • Instagram photos and videos",
+        "snippet": "773 Followers, 625 Following, 265 Posts - CHELO CAFE (@chelo_cafe) on Instagram: \"\""
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.srperro.com/chelo-cafe/",
+        "titulo": "Chelo Cafe - Srperro",
+        "snippet": "En Chelo Cafe puedes desayunar o comer -tienen sandwiches, ensaladas y diversas opciones veganas- y sentarte a cualquier"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.bandmix.es/barcelona/cello/page1/",
+        "titulo": "Chelo jugadores en Barcelona - BandMix.es",
+        "snippet": "Chelo jugadores en Barcelona · 19 Chelo jugadores se encuentran en Barcelona · 19 Cello jugadores se encuentran en Barce"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://shinemusicschool.es/es/clases/clases-de-chelo/",
+        "titulo": "Violonchelo - La Escuela de Música Shine",
+        "snippet": "La Escuela de Musica Shine de Barcelona ofrece Cursos Intensivos y Cursos Extensivos de Violonchelo en Inglés, Español y"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.just-eat.es/restaurants-carniceria-chelo-barcelona/menu",
+        "titulo": "Menú de Carnicería Chelo a domicilio en Barcelona - Just Eat",
+        "snippet": "Explora los productos de Carnicería Chelo en Barcelona, consulta los precios y haz tus compras online de forma rápida, c"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://carta.menu/restaurants/barcelona/chelo-cafe",
+        "titulo": "Chelo Cafe en Barcelona - Carta",
+        "snippet": "Chelo Cafe: terraza acogedora en Ciutat Vella con desayunos, sándwiches, cafés especiales y opciones vegetarianas. Ambie"
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Chelo+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chelo+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Validación automática heurística",
+    "mensaje_dm": "¡Hola equipo de Chelo! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de Barcelona para ayudarles a conseguir más clientes desde Google. Os he preparado una maqueta interactiva de cómo luciría vuestra web: https://dga80.github.io/instaleads/chelo-barcelona/ (El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Chelo! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: https://dga80.github.io/instaleads/chelo-barcelona/ Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
+    "estado": "Web Generada",
+    "demo_slug": "chelo-barcelona",
+    "demo_url": "https://dga80.github.io/instaleads/chelo-barcelona/",
+    "demo_vibe": "Warm Artisan (Cálido, Acogedor & Gastronómico)",
+    "campana_id": "camp_1788898547",
+    "campana_nombre": "Cafeteria · barcelona",
+    "campana_ids": [
+      "camp_1788898547"
+    ],
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/chelo-barcelona/",
+    "demo_url_publica": "https://dga80.github.io/instaleads/chelo-barcelona/"
   }
 ]
