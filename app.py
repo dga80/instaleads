@@ -53,12 +53,29 @@ BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "data"
 DATA_DIR.mkdir(exist_ok=True)
 LEADS_FILE = DATA_DIR / "leads.json"
+CAMPAIGNS_FILE = DATA_DIR / "campaigns.json"
+AGENT_MEMORY_FILE = DATA_DIR / "agent_memory.json"
+
 import threading
 leads_lock = threading.Lock()
+campaigns_lock = threading.Lock()
+agent_memory_lock = threading.Lock()
 
 if not LEADS_FILE.exists():
     with open(LEADS_FILE, "w", encoding="utf-8") as f:
         json.dump([], f)
+
+if not CAMPAIGNS_FILE.exists():
+    with open(CAMPAIGNS_FILE, "w", encoding="utf-8") as f:
+        json.dump([], f)
+
+if not AGENT_MEMORY_FILE.exists():
+    with open(AGENT_MEMORY_FILE, "w", encoding="utf-8") as f:
+        json.dump({
+            "learned_osm_mappings": {},
+            "location_stats": {},
+            "outlier_history": []
+        }, f, ensure_ascii=False, indent=2)
 
 app = FastAPI(
     title="InstaLeads AI",
@@ -148,31 +165,73 @@ def enviar_email_propuesta(destinatario: str, asunto: str, cuerpo_texto: str) ->
 # DICCIONARIO DE RESPALDO (Fallback para categorías comunes)
 # -------------------------------------------------------------
 FALLBACK_OSM_CATEGORIES = {
+    # Motor & Especialidades
     "taller de motos": {"key": "shop", "value": "motorcycle"},
     "motos": {"key": "shop", "value": "motorcycle"},
+    "custom motos": {"key": "shop", "value": "motorcycle"},
     "taller mecanico": {"key": "shop", "value": "car_repair"},
     "taller de coches": {"key": "shop", "value": "car_repair"},
+    "bicicletas": {"key": "shop", "value": "bicycle"},
+    "taller de bicis": {"key": "shop", "value": "bicycle"},
+    
+    # Nichos Outliers & Artesanía / Oficios de Autor
+    "luthier": {"key": "craft", "value": "luthier"},
+    "guitarra": {"key": "craft", "value": "luthier"},
+    "instrumentos musicales": {"key": "shop", "value": "musical_instrument"},
+    "instrumentos": {"key": "shop", "value": "musical_instrument"},
+    "surf": {"key": "craft", "value": "surfboard"},
+    "tablas de surf": {"key": "craft", "value": "surfboard"},
+    "shaper": {"key": "craft", "value": "surfboard"},
+    "escape room": {"key": "leisure", "value": "escape_game"},
+    "escape": {"key": "leisure", "value": "escape_game"},
+    "ceramica": {"key": "craft", "value": "pottery"},
+    "alfareria": {"key": "craft", "value": "pottery"},
+    "adiestramiento canino": {"key": "leisure", "value": "dog_training"},
+    "adiestrador": {"key": "leisure", "value": "dog_training"},
+    "educacion canina": {"key": "leisure", "value": "dog_training"},
+    "tatuajes": {"key": "shop", "value": "tattoo"},
+    "tattoo": {"key": "shop", "value": "tattoo"},
+    "piercing": {"key": "shop", "value": "tattoo"},
+    "podcast": {"key": "office", "value": "recording_studio"},
+    "estudio de grabacion": {"key": "office", "value": "recording_studio"},
+    "carpinteria": {"key": "craft", "value": "carpenter"},
+    "ebanisteria": {"key": "craft", "value": "carpenter"},
+    "tapiceria": {"key": "craft", "value": "upholsterer"},
+    "restauracion de muebles": {"key": "craft", "value": "restoration"},
+    "acuarios": {"key": "shop", "value": "pet"},
+    "terrarios": {"key": "shop", "value": "pet"},
+    
+    # Bienestar, Estética & Salud
     "centro de uñas": {"key": "shop", "value": "beauty"},
     "uñas": {"key": "shop", "value": "beauty"},
     "estetica": {"key": "shop", "value": "beauty"},
     "peluqueria": {"key": "shop", "value": "hairdresser"},
     "barberia": {"key": "shop", "value": "hairdresser"},
-    "cafeteria": {"key": "amenity", "value": "cafe"},
-    "bar": {"key": "amenity", "value": "bar"},
-    "restaurante": {"key": "amenity", "value": "restaurant"},
+    "peluqueria canina": {"key": "shop", "value": "pet"},
     "clinica dental": {"key": "amenity", "value": "dentist"},
     "dentista": {"key": "amenity", "value": "dentist"},
     "veterinario": {"key": "amenity", "value": "veterinary"},
     "clinica veterinaria": {"key": "amenity", "value": "veterinary"},
     "farmacia": {"key": "amenity", "value": "pharmacy"},
+    "fisioterapia": {"key": "amenity", "value": "physiotherapist"},
+    "podologia": {"key": "amenity", "value": "clinic"},
+    "yoga": {"key": "leisure", "value": "fitness_centre"},
+    "pilates": {"key": "leisure", "value": "fitness_centre"},
+    "boxeo": {"key": "leisure", "value": "sports_centre"},
+    "escalada": {"key": "leisure", "value": "sports_centre"},
+    "gimnasio": {"key": "leisure", "value": "fitness_centre"},
+
+    # Hostelería & Comercio
+    "cafeteria": {"key": "amenity", "value": "cafe"},
+    "bar": {"key": "amenity", "value": "bar"},
+    "restaurante": {"key": "amenity", "value": "restaurant"},
     "panaderia": {"key": "shop", "value": "bakery"},
     "pasteleria": {"key": "shop", "value": "pastry"},
     "floristeria": {"key": "shop", "value": "florist"},
-    "gimnasio": {"key": "leisure", "value": "fitness_centre"},
     "tienda de ropa": {"key": "shop", "value": "clothes"},
     "zapateria": {"key": "shop", "value": "shoes"},
     "optica": {"key": "shop", "value": "optician"},
-    "tatuajes": {"key": "shop", "value": "tattoo"},
+    "libreria": {"key": "shop", "value": "books"},
 }
 
 
@@ -248,20 +307,142 @@ def es_cadena_o_franquicia(nombre: str, tags: dict = None) -> bool:
 
 
 # -------------------------------------------------------------
-# 1. ROL GEMINI: MAPEAR CATEGORÍA OSM
+# 1. ROL GEMINI: MAPEAR CATEGORÍA OSM Y MEMORIA DEL AGENTE
 # -------------------------------------------------------------
+def leer_memoria_agente() -> Dict[str, Any]:
+    with agent_memory_lock:
+        if not AGENT_MEMORY_FILE.exists():
+            return {"learned_osm_mappings": {}, "location_stats": {}, "outlier_history": []}
+        try:
+            with open(AGENT_MEMORY_FILE, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            return {"learned_osm_mappings": {}, "location_stats": {}, "outlier_history": []}
+
+
+def actualizar_memoria_agente(categoria: str, osm_tag: dict, localidad: str, total_encontrados: int, total_leads_guardados: int):
+    try:
+        with agent_memory_lock:
+            memoria = leer_memoria_agente()
+            cat_key = categoria.strip().lower()
+            
+            # 1. Mapeos aprendidos
+            mappings = memoria.setdefault("learned_osm_mappings", {})
+            info = mappings.setdefault(cat_key, {
+                "key": osm_tag.get("key"),
+                "value": osm_tag.get("value"),
+                "searches": 0,
+                "total_found": 0,
+                "leads_sin_web": 0
+            })
+            info["key"] = osm_tag.get("key")
+            info["value"] = osm_tag.get("value")
+            info["searches"] = info.get("searches", 0) + 1
+            info["total_found"] = info.get("total_found", 0) + total_encontrados
+            info["leads_sin_web"] = info.get("leads_sin_web", 0) + total_leads_guardados
+            info["last_used"] = datetime.now(timezone.utc).isoformat()
+            
+            # 2. Estadísticas de ubicación
+            if localidad:
+                loc_key = localidad.strip().title()
+                loc_stats = memoria.setdefault("location_stats", {})
+                loc_info = loc_stats.setdefault(loc_key, {"searches": 0, "niches": []})
+                loc_info["searches"] = loc_info.get("searches", 0) + 1
+                if cat_key not in loc_info.get("niches", []):
+                    loc_info.setdefault("niches", []).append(cat_key)
+            
+            with open(AGENT_MEMORY_FILE, "w", encoding="utf-8") as f:
+                json.dump(memoria, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"[Error actualizando memoria agente] {e}")
+
+
+def sugerir_nichos_outlier(localidad: str = "", provincia: str = "") -> List[Dict[str, Any]]:
+    """
+    El Agente Gemini analiza la ubicación y su memoria para sugerir nichos no convencionales
+    u outliers (luthier, surf shaping, escape rooms, cerámica, adiestramiento, podcasts, etc.)
+    con alta probabilidad de encontrar negocios locales con Instagram pero sin web propia.
+    """
+    cliente = obtener_cliente_gemini()
+    loc_texto = f"{localidad}, {provincia}".strip(", ") if (localidad or provincia) else "España"
+    
+    if cliente:
+        prompt = f"""
+Actúa como un estratega de prospección B2B y cazador de nichos comerciales no tradicionales para {loc_texto}.
+Propón exactamente 6 nichos o comercios "outliers" (atípicos, artesanales, de autor, técnicos o poco convencionales) que suelen tener gran reputación y clientes pero muchas veces carecen de página web moderna o dependen únicamente de Instagram/boca a boca.
+
+Ejemplos de conceptos outlier:
+- Luthier de guitarras e instrumentos acústicos
+- Taller artesanal de tablas de surf / skate
+- Centro de adiestramiento y psicología canina
+- Escape room y experiencias inmersivas
+- Taller de restauración de muebles y tapicería clásica
+- Estudio de cerámica y alfarería artística
+- Taller de customización de motos clásicas
+- Academia de esgrima o artes marciales históricas
+- Diseño y montaje de acuarios / terrarios biotopo
+- Estudio de grabación de podcasts y streaming
+
+Devuelve EXCLUSIVAMENTE un array JSON con 6 objetos con esta estructura exacta:
+[
+  {{
+    "label": "Nombre corto y atractivo (ej. Luthier & Instrumentos)",
+    "query": "término de búsqueda en español para OSM (ej. luthier de instrumentos)",
+    "icono": "emoji representativo (ej. 🎸)",
+    "explicacion": "Por qué es una gran oportunidad de venta en {loc_texto}"
+  }}
+]
+"""
+        try:
+            texto, _ = generar_con_gemini_cascade(prompt, cliente=cliente, temperatura=0.6, formato_json=True)
+            if texto:
+                texto_limpio = re.sub(r"^```(json)?", "", texto, flags=re.MULTILINE).strip("` \n")
+                suggs = json.loads(texto_limpio)
+                if isinstance(suggs, list) and len(suggs) > 0:
+                    return suggs
+        except Exception as e:
+            print(f"[Error Sugerencias Outlier Gemini] {e}")
+
+    # Fallback predeterminado enriquecido
+    return [
+        {"label": "Luthier & Instrumentos", "query": "luthier de guitarras", "icono": "🎸", "explicacion": "Artesanos con gran prestigio pero escasa digitalización"},
+        {"label": "Surfboards & Shapers", "query": "taller de tablas de surf", "icono": "🏄", "explicacion": "Talleres de diseño que venden por Instagram sin web"},
+        {"label": "Escape Rooms & Ocio", "query": "escape room", "icono": "🗝️", "explicacion": "Negocios que necesitan sistema de reserva interactivo"},
+        {"label": "Cerámica y Escultura", "query": "taller de ceramica artesanal", "icono": "🏺", "explicacion": "Estudios creativos con alta demanda local"},
+        {"label": "Adiestramiento Canino", "query": "centro de adiestramiento canino", "icono": "🐕", "explicacion": "Educadores de autor con portfolios visuales en redes"},
+        {"label": "Custom Bikes / Clásicos", "query": "taller de custom motos", "icono": "🏍️", "explicacion": "Mecánica especializada con proyectos visuales únicos"}
+    ]
+
+
 def mapear_categoria_osm(termino_usuario: str) -> dict:
     """
-    Usa Gemini 2.5 Flash para convertir una categoría ingresada en lenguaje natural (ej. 'taller de motos')
-    a la clave y valor exactos de OpenStreetMap (ej. {"key": "shop", "value": "motorcycle"}).
+    Usa la memoria aprendida del agente o consulta a Gemini en cascada para convertir
+    cualquier término libre / nicho outlier en las etiquetas OpenStreetMap oficiales más precisas:
+    'shop', 'craft', 'amenity', 'leisure', 'tourism', 'office', etc.
     """
     termino_limpio = termino_usuario.strip().lower()
+
+    # 1. Comprobar si el agente ya aprendió este mapeo previamente con éxito
+    memoria = leer_memoria_agente()
+    learned = memoria.get("learned_osm_mappings", {}).get(termino_limpio)
+    if learned and learned.get("key") and learned.get("value") and learned.get("searches", 0) > 0:
+        print(f"[Memoria Agente] Usando mapeo aprendido para '{termino_limpio}': {learned['key']}={learned['value']}")
+        return {"key": learned["key"], "value": learned["value"], "modelo": "memoria_agente", "aprendido": True}
     
+    # 2. Consultar al agente Gemini con soporte total para nichos outliers y categorías libres
     cliente = obtener_cliente_gemini()
     if cliente:
         prompt = f"""
-Actúa como un experto en taxonomías de OpenStreetMap (OSM).
-Convierte la siguiente categoría de comercio o negocio en español a la clave ('key') y valor ('value') oficiales más exactos de OSM (por ejemplo 'shop', 'amenity', 'craft', 'leisure', etc.).
+Actúa como un experto en taxonomías de OpenStreetMap (OSM) y prospección de negocios.
+Convierte la siguiente categoría o nicho de negocio en español (puede ser un negocio estándar o un nicho "outlier" como luthier, escape room, surfboards, alfarería, adiestramiento, taxidermia, etc.) a la clave ('key') y valor ('value') oficiales más exactos de OSM.
+
+Prefijos válidos comunes en OSM:
+- 'craft': artesanos, talleres de oficios (luthier, pottery, surfboard, carpenter, dressmaker, blacksmith, etc.)
+- 'shop': tiendas y servicios comerciales (motorcycle, beauty, pet, bicycle, musical_instrument, tattoo, etc.)
+- 'leisure': ocio, deportes, centros recreativos (escape_game, fitness_centre, dance, horse_riding, etc.)
+- 'amenity': servicios públicos y locales (dentist, clinic, restaurant, veterinary, driving_school, etc.)
+- 'tourism': alojamientos y atracciones (guest_house, museum, gallery, etc.)
+- 'office': estudios y oficinas técnicas (architect, financial, advertising, coworking, etc.)
 
 Reglas:
 - Devuelve EXCLUSIVAMENTE un objeto JSON válido con las propiedades 'key' y 'value'.
@@ -269,22 +450,26 @@ Reglas:
 
 Ejemplos:
 - "taller de motos" -> {{"key": "shop", "value": "motorcycle"}}
+- "luthier de guitarras" -> {{"key": "craft", "value": "luthier"}}
+- "escape room" -> {{"key": "leisure", "value": "escape_game"}}
+- "taller de tablas de surf" -> {{"key": "craft", "value": "surfboard"}}
 - "centro de uñas" -> {{"key": "shop", "value": "beauty"}}
 - "peluqueria canina" -> {{"key": "shop", "value": "pet"}}
 - "clinica dental" -> {{"key": "amenity", "value": "dentist"}}
-- "gimnasio de boxeo" -> {{"key": "leisure", "value": "fitness_centre"}}
+- "taller de ceramica" -> {{"key": "craft", "value": "pottery"}}
+- "estudio de tatuajes" -> {{"key": "shop", "value": "tattoo"}}
+- "adiestramiento canino" -> {{"key": "leisure", "value": "dog_training"}}
 
-Categoría a clasificar: "{termino_usuario}"
+Categoría o nicho a clasificar: "{termino_usuario}"
 """
         try:
             texto, modelo_usado = generar_con_gemini_cascade(prompt, cliente=cliente, temperatura=0.1, formato_json=True)
             if texto:
-                # Limpiar posible markdown en caso de que venga con comillas triples
                 texto_limpio = re.sub(r"^```(json)?", "", texto, flags=re.MULTILINE).strip("` \n")
                 data = json.loads(texto_limpio)
                 if "key" in data and "value" in data:
                     print(f"[Gemini OSM Mapping] '{termino_usuario}' -> {data} (usando {modelo_usado})")
-                    return {"key": data["key"], "value": data["value"], "modelo": modelo_usado}
+                    return {"key": data["key"], "value": data["value"], "modelo": modelo_usado, "aprendido": False}
         except Exception as e:
             print(f"[Error Gemini OSM Mapping] {e}. Usando fallback local...")
 
@@ -921,7 +1106,7 @@ def detectar_demo_existente(nombre: str, ciudad: str = "") -> Optional[str]:
     return None
 
 
-def guardar_leads_deduplicados(nuevos_leads: List[Dict[str, Any]]) -> int:
+def guardar_leads_deduplicados(nuevos_leads: List[Dict[str, Any]], campana_id: Optional[str] = None) -> int:
     with leads_lock:
         existentes = leer_leads_guardados()
         # Claves únicas para deduplicación: (nombre normalizado, ciudad normalizada)
@@ -932,9 +1117,24 @@ def guardar_leads_deduplicados(nuevos_leads: List[Dict[str, Any]]) -> int:
 
         agregados = 0
         for l in nuevos_leads:
+            cid = campana_id or l.get("campana_id")
             k = (l.get("nombre", "").lower().strip(), l.get("ciudad", "").lower().strip())
             if k in mapa:
                 existente = mapa[k]
+                # Asociar campaña
+                campanas_list = existente.get("campana_ids") or []
+                if isinstance(campanas_list, str):
+                    campanas_list = [campanas_list]
+                elif not isinstance(campanas_list, list):
+                    campanas_list = []
+                if cid and cid not in campanas_list:
+                    campanas_list.append(cid)
+                l["campana_ids"] = campanas_list
+                if cid:
+                    l["campana_id"] = cid
+                elif existente.get("campana_id"):
+                    l["campana_id"] = existente.get("campana_id")
+
                 # Preservar demo previa y estado avanzado si ya existían
                 if existente.get("demo_slug"):
                     l["demo_slug"] = existente.get("demo_slug")
@@ -944,7 +1144,6 @@ def guardar_leads_deduplicados(nuevos_leads: List[Dict[str, Any]]) -> int:
                     if existente.get("estado") in ["Web Generada", "DM Enviado", "Respuesta Recibida", "Cerrado"]:
                         l["estado"] = existente.get("estado")
                 else:
-                    # Comprobar si existe demo en disco
                     slug_existente = detectar_demo_existente(l.get("nombre", ""), l.get("ciudad", ""))
                     if slug_existente:
                         l["demo_slug"] = slug_existente
@@ -954,7 +1153,11 @@ def guardar_leads_deduplicados(nuevos_leads: List[Dict[str, Any]]) -> int:
 
                 mapa[k].update(l)
             else:
-                # Comprobar si existe demo en disco para nuevo lead
+                if cid:
+                    l["campana_id"] = cid
+                    l["campana_ids"] = [cid]
+                else:
+                    l["campana_ids"] = l.get("campana_ids", [])
                 slug_existente = detectar_demo_existente(l.get("nombre", ""), l.get("ciudad", ""))
                 if slug_existente:
                     l["demo_slug"] = slug_existente
@@ -970,6 +1173,85 @@ def guardar_leads_deduplicados(nuevos_leads: List[Dict[str, Any]]) -> int:
             json.dump(lista_final, f, ensure_ascii=False, indent=2)
 
         return agregados
+
+
+# -------------------------------------------------------------
+# 5.1. GESTIÓN DE CAMPAÑAS E HISTORIAL (data/campaigns.json)
+# -------------------------------------------------------------
+def leer_campanas() -> List[Dict[str, Any]]:
+    with campaigns_lock:
+        if not CAMPAIGNS_FILE.exists():
+            return []
+        try:
+            with open(CAMPAIGNS_FILE, "r", encoding="utf-8") as f:
+                camps = json.load(f)
+                return camps if isinstance(camps, list) else []
+        except Exception:
+            return []
+
+
+def guardar_campanas_lista(campanas: List[Dict[str, Any]]):
+    with campaigns_lock:
+        with open(CAMPAIGNS_FILE, "w", encoding="utf-8") as f:
+            json.dump(campanas, f, ensure_ascii=False, indent=2)
+
+
+def registrar_o_actualizar_campana(camp_dict: Dict[str, Any]):
+    campanas = leer_campanas()
+    cid = camp_dict.get("id")
+    encontrada = False
+    for i, c in enumerate(campanas):
+        if c.get("id") == cid:
+            campanas[i].update(camp_dict)
+            encontrada = True
+            break
+    if not encontrada:
+        campanas.insert(0, camp_dict)
+    guardar_campanas_lista(campanas)
+
+
+def auto_migrar_campanas_iniciales():
+    """Si no hay campañas pero hay leads existentes, crea campañas históricas agrupadas."""
+    campanas = leer_campanas()
+    if campanas:
+        return
+    leads = leer_leads_guardados()
+    if not leads:
+        return
+    grupos = {}
+    for l in leads:
+        cat_raw = l.get("categoria", "Comercio Local")
+        cat = cat_raw.split("(")[0].strip() or "Comercio Local"
+        ciu = l.get("ciudad", "Local") or "Local"
+        k = (cat, ciu)
+        if k not in grupos:
+            grupos[k] = []
+        grupos[k].append(str(l.get("osm_id", "")))
+    
+    nuevas_campanas = []
+    idx = 1
+    for (cat, ciu), ids in grupos.items():
+        cid = f"camp_init_{idx}_{int(time.time())}"
+        nuevas_campanas.append({
+            "id": cid,
+            "nombre": f"{cat.title()} · {ciu.title()}",
+            "categoria": cat,
+            "ubicacion": ciu,
+            "created_at": datetime.now(timezone.utc).isoformat(),
+            "leads_count": len(ids),
+            "lead_ids": [x for x in ids if x]
+        })
+        for l in leads:
+            if str(l.get("osm_id", "")) in ids:
+                l["campana_id"] = cid
+                l["campana_ids"] = [cid]
+        idx += 1
+    
+    if nuevas_campanas:
+        guardar_campanas_lista(nuevas_campanas)
+        with leads_lock:
+            with open(LEADS_FILE, "w", encoding="utf-8") as f:
+                json.dump(leads, f, ensure_ascii=False, indent=2)
 
 
 # -------------------------------------------------------------
@@ -1077,22 +1359,146 @@ def get_leads():
 
 @app.delete("/leads")
 def clear_leads():
-    """Vacía la lista de leads guardados."""
+    """Vacía la lista de leads guardados y reinicia las campañas."""
     with leads_lock:
         with open(LEADS_FILE, "w", encoding="utf-8") as f:
             json.dump([], f)
-    return {"status": "ok", "mensaje": "Base de datos de leads reiniciada."}
+    with campaigns_lock:
+        with open(CAMPAIGNS_FILE, "w", encoding="utf-8") as f:
+            json.dump([], f)
+    return {"status": "ok", "mensaje": "Base de datos de leads y campañas reiniciada."}
+
+
+@app.get("/campaigns")
+def get_campaigns():
+    """Devuelve todas las campañas/sesiones de prospección con conteos de leads actualizados."""
+    auto_migrar_campanas_iniciales()
+    campanas = leer_campanas()
+    leads = leer_leads_guardados()
+
+    # Recalcular conteos de leads vivos por campaña
+    conteo_por_campana = {}
+    conteo_prioridad_por_campana = {}
+    conteo_demos_por_campana = {}
+
+    for l in leads:
+        cids = l.get("campana_ids") or ([l.get("campana_id")] if l.get("campana_id") else [])
+        for cid in cids:
+            if not cid:
+                continue
+            conteo_por_campana[cid] = conteo_por_campana.get(cid, 0) + 1
+            if (l.get("instagram_url") or l.get("instagram_handle")) and not l.get("tiene_web") and l.get("estado") != "Tiene Web":
+                conteo_prioridad_por_campana[cid] = conteo_prioridad_por_campana.get(cid, 0) + 1
+            if l.get("demo_slug"):
+                conteo_demos_por_campana[cid] = conteo_demos_por_campana.get(cid, 0) + 1
+
+    for c in campanas:
+        cid = c.get("id")
+        c["leads_count"] = conteo_por_campana.get(cid, c.get("leads_count", 0))
+        c["prioridad_count"] = conteo_prioridad_por_campana.get(cid, 0)
+        c["demos_count"] = conteo_demos_por_campana.get(cid, 0)
+
+    return campanas
+
+
+@app.delete("/campaigns/{campana_id}")
+def delete_campaign(campana_id: str):
+    """Elimina una campaña específica y sus leads asociados."""
+    campanas = leer_campanas()
+    nuevas_campanas = [c for c in campanas if c.get("id") != campana_id]
+    guardar_campanas_lista(nuevas_campanas)
+
+    with leads_lock:
+        leads = leer_leads_guardados()
+        leads_restantes = []
+        for l in leads:
+            cids = l.get("campana_ids") or ([l.get("campana_id")] if l.get("campana_id") else [])
+            cids_actualizados = [c for c in cids if c != campana_id]
+            if cids_actualizados:
+                l["campana_ids"] = cids_actualizados
+                l["campana_id"] = cids_actualizados[0]
+                leads_restantes.append(l)
+
+        with open(LEADS_FILE, "w", encoding="utf-8") as f:
+            json.dump(leads_restantes, f, ensure_ascii=False, indent=2)
+
+    return {"status": "ok", "mensaje": f"Campaña '{campana_id}' eliminada con éxito."}
+
+
+@app.get("/campaigns/{campana_id}/export-csv")
+def export_campaign_csv(campana_id: str):
+    """Exporta en CSV únicamente los prospectos de una campaña específica."""
+    leads = leer_leads_guardados()
+    campanas = leer_campanas()
+    camp_nombre = "campana"
+    for c in campanas:
+        if c.get("id") == campana_id:
+            camp_nombre = slugify(c.get("nombre", "campana"))
+            break
+
+    leads_campana = [
+        l for l in leads 
+        if campana_id in (l.get("campana_ids") or ([l.get("campana_id")] if l.get("campana_id") else []))
+    ]
+
+    output = io.StringIO()
+    writer = csv.writer(output)
+    writer.writerow([
+        "OSM ID", "Nombre", "Categoría", "Dirección", "Ciudad", "Código Postal",
+        "Teléfono", "Instagram Handle", "Instagram URL", "Gemini Verificado",
+        "Razón Gemini", "Estado", "Web Demo URL", "Vibe Demo", "Mensaje Prospección DM"
+    ])
+
+    for l in leads_campana:
+        writer.writerow([
+            l.get("osm_id", ""),
+            l.get("nombre", ""),
+            l.get("categoria", ""),
+            l.get("direccion", ""),
+            l.get("ciudad", ""),
+            l.get("codigo_postal", ""),
+            l.get("telefono", ""),
+            l.get("instagram_handle", ""),
+            l.get("instagram_url", ""),
+            "Sí" if l.get("gemini_verificado") else "No",
+            l.get("gemini_razon", ""),
+            l.get("estado", "Sin Web"),
+            l.get("demo_url_absoluta", l.get("demo_url", "")),
+            l.get("demo_vibe", ""),
+            l.get("mensaje_dm", "")
+        ])
+
+    output.seek(0)
+    return StreamingResponse(
+        io.BytesIO(output.getvalue().encode("utf-8-sig")),
+        media_type="text/csv",
+        headers={"Content-Disposition": f"attachment; filename=leads_{camp_nombre}.csv"}
+    )
+
+
+@app.get("/agent/suggest-outliers")
+def get_outlier_suggestions(localidad: Optional[str] = "", provincia: Optional[str] = ""):
+    """Devuelve sugerencias de nichos outliers y atípicos generadas por el Agente Gemini."""
+    sugerencias = sugerir_nichos_outlier(localidad=localidad or "", provincia=provincia or "")
+    return {"status": "ok", "localidad": localidad, "provincia": provincia, "sugerencias": sugerencias}
+
+
+@app.get("/agent/memory")
+def get_agent_memory():
+    """Devuelve la base de conocimiento y mapeos aprendidos por el Agente."""
+    return leer_memoria_agente()
 
 
 @app.post("/scan")
 def scan_local_leads(req: ScanRequest):
     """
     Orquesta el pipeline completo de prospección:
-    1. Normaliza la categoría a etiquetas OSM con Gemini (con auto-desescalado desde gemini-3.8-flash).
-    2. Consulta OpenStreetMap (por localidad, provincia y/o código postal) filtrando negocios sin web.
-    3. Descubre o extrae el perfil de Instagram y huella en internet (Doctoralia, Facebook, etc.).
-    4. Verifica con Gemini y redacta el pitch comercial adaptado (DM o Email/WhatsApp).
-    5. Deduplica y persiste en data/leads.json.
+    1. Normaliza la categoría a etiquetas OSM con Gemini o memoria aprendida.
+    2. Crea una Campaña / Sesión de prospección aislada.
+    3. Consulta OpenStreetMap (por localidad, provincia y/o código postal) filtrando negocios sin web.
+    4. Descubre o extrae el perfil de Instagram y huella en internet.
+    5. Verifica con Gemini y redacta el pitch comercial adaptado.
+    6. Deduplica y persiste en data/leads.json y data/campaigns.json.
     """
     cp = (req.codigo_postal or "").strip()
     loc = (req.localidad or "").strip()
@@ -1109,8 +1515,10 @@ def scan_local_leads(req: ScanRequest):
         )
 
     ubicacion_texto = ", ".join([p for p in [loc, prov, f"CP {cp}" if cp else ""] if p])
+    campaign_id = f"camp_{int(time.time())}"
+    campaign_name = f"{cat_usuario.title()} · {ubicacion_texto}"
 
-    print(f"\n[1/4] Mapeando categoría '{cat_usuario}' con Gemini...")
+    print(f"\n[1/4] Mapeando categoría '{cat_usuario}' con Agente Gemini...")
     osm_tag = mapear_categoria_osm(cat_usuario)
     osm_key = osm_tag["key"]
     osm_value = osm_tag["value"]
@@ -1126,21 +1534,34 @@ def scan_local_leads(req: ScanRequest):
     )
     print(f"      Encontrados {len(comercios)} comercios sin web propia.")
 
+    campana_dict = {
+        "id": campaign_id,
+        "nombre": campaign_name,
+        "categoria": cat_usuario,
+        "ubicacion": ubicacion_texto,
+        "created_at": datetime.now(timezone.utc).isoformat(),
+        "leads_count": 0,
+        "lead_ids": []
+    }
+    registrar_o_actualizar_campana(campana_dict)
+
     if not comercios:
+        actualizar_memoria_agente(cat_usuario, osm_tag, loc or prov, 0, 0)
         return {
             "status": "ok",
+            "campaign_id": campaign_id,
+            "campaign_name": campaign_name,
             "categoria_osm": osm_tag,
             "nuevos_leads_encontrados": 0,
             "mensaje": f"No se encontraron comercios sin página web con la etiqueta OSM '{osm_key}={osm_value}' en {ubicacion_texto}."
         }
 
-    # Limitar para respetar cuotas de búsqueda y generación
     comercios_a_procesar = comercios[:req.max_comercios]
     prospectos_procesados = []
 
     print(f"[3/4 y 4/4] Investigando presencia online, verificando y generando pitch con Gemini...")
     for com in comercios_a_procesar:
-        time.sleep(0.5)
+        time.sleep(0.4)
         nombre = com["nombre"]
         ciudad = com.get("ciudad") or loc or "Local"
         prov_lead = com.get("provincia") or prov or ""
@@ -1149,7 +1570,6 @@ def scan_local_leads(req: ScanRequest):
 
         nombre_para_buscar = f"{nombre} {calle}".strip() if nombre.lower().strip() in ["clínica dental", "clinica dental", "dentista", "peluqueria", "taller"] and calle else nombre
 
-        # Investigar huella en internet (Instagram, Facebook, Doctoralia, directorios, etc.)
         presencia = investigar_presencia_negocio(nombre_para_buscar, ciudad, ig_osm)
         ig_info = presencia["instagram"]
         enlaces_internet = presencia["enlaces_internet"]
@@ -1157,11 +1577,9 @@ def scan_local_leads(req: ScanRequest):
         google_search_url = presencia["google_search_url"]
         google_maps_url = presencia["google_maps_url"]
 
-        # Si encontramos perfil de Instagram, consultamos a Gemini para evaluar IG
         if ig_info["encontrado"]:
             analisis = verificar_y_redactar_pitch(nombre, ig_info["datos_crudos"], ciudad, tiene_ig=True)
         elif enlaces_internet:
-            # Si no tiene Instagram pero encontramos huella digital en internet
             resumen_enlaces = "\n".join([f"- {e['label']}: {e['url']} | {e.get('titulo', '')} {e.get('snippet', '')}" for e in enlaces_internet])
             analisis = verificar_y_redactar_pitch(nombre, resumen_enlaces, ciudad, tiene_ig=False)
         else:
@@ -1173,12 +1591,10 @@ def scan_local_leads(req: ScanRequest):
                 "mensaje_seguimiento": ""
             }
 
-        # 1. Filtro estricto: Descartar si es gran cadena / franquicia detectada por Gemini o por nombre/tags
         if analisis.get("es_gran_cadena") or es_cadena_o_franquicia(nombre, com.get("tags")):
             print(f"      [Descarte Cadena] Omitido '{nombre}' por ser gran cadena o franquicia.")
             continue
 
-        # 2. Configurar perfil y pitch según si tiene Instagram o presencia web alternativa
         if ig_info["encontrado"] and not analisis.get("es_perfil_correcto"):
             ig_url = ""
             ig_handle = ""
@@ -1205,7 +1621,6 @@ def scan_local_leads(req: ScanRequest):
             mensaje_seguimiento = ""
             razon = "Sin Instagram ni presencia web detectada"
 
-        # Si Gemini o DuckDuckGo detectaron una web oficial
         if analisis.get("tiene_web_oficial") and analisis.get("web_oficial_url"):
             web_detectada = analisis["web_oficial_url"]
 
@@ -1235,16 +1650,27 @@ def scan_local_leads(req: ScanRequest):
             "estado": "Tiene Web" if tiene_web_real else "Sin Web",
             "demo_slug": "",
             "demo_url": "",
-            "demo_vibe": ""
+            "demo_vibe": "",
+            "campana_id": campaign_id,
+            "campana_nombre": campaign_name,
+            "campana_ids": [campaign_id]
         }
         prospectos_procesados.append(lead)
 
-    # Persistir deduplicando
-    agregados = guardar_leads_deduplicados(prospectos_procesados)
-    print(f"      Pipeline completado. {agregados} leads nuevos agregados a data/leads.json.")
+    agregados = guardar_leads_deduplicados(prospectos_procesados, campana_id=campaign_id)
+    
+    # Actualizar campaña y memoria del agente
+    campana_dict["leads_count"] = len(prospectos_procesados)
+    campana_dict["lead_ids"] = [str(l["osm_id"]) for l in prospectos_procesados]
+    registrar_o_actualizar_campana(campana_dict)
+    actualizar_memoria_agente(cat_usuario, osm_tag, loc or prov, len(comercios), len(prospectos_procesados))
+
+    print(f"      Pipeline completado. {agregados} leads nuevos agregados a la campaña '{campaign_name}'.")
 
     return {
         "status": "ok",
+        "campaign_id": campaign_id,
+        "campaign_name": campaign_name,
         "categoria_osm": osm_tag,
         "total_procesados": len(prospectos_procesados),
         "nuevos_leads_encontrados": agregados,
@@ -1274,16 +1700,39 @@ async def scan_local_leads_stream(req: ScanRequest):
         )
 
     ubicacion_texto = ", ".join([p for p in [loc, prov, f"CP {cp}" if cp else ""] if p])
+    campaign_id = f"camp_{int(time.time())}"
+    campaign_name = f"{cat_usuario.title()} · {ubicacion_texto}"
 
     async def stream_events():
         def sse(payload: dict) -> str:
             return f"data: {json.dumps(payload, ensure_ascii=False)}\n\n"
 
+        # Registrar campaña inicial
+        campana_dict = {
+            "id": campaign_id,
+            "nombre": campaign_name,
+            "categoria": cat_usuario,
+            "ubicacion": ubicacion_texto,
+            "created_at": datetime.now(timezone.utc).isoformat(),
+            "leads_count": 0,
+            "lead_ids": []
+        }
+        await asyncio.to_thread(registrar_o_actualizar_campana, campana_dict)
+
+        yield sse({
+            "type": "start",
+            "campaign_id": campaign_id,
+            "campaign_name": campaign_name,
+            "message": f"Iniciando campaña '{campaign_name}'..."
+        })
+
         yield sse({
             "type": "step",
             "step": 1,
             "total_steps": 4,
-            "message": f"Mapeando categoría '{cat_usuario}' con Gemini..."
+            "campaign_id": campaign_id,
+            "campaign_name": campaign_name,
+            "message": f"Mapeando categoría '{cat_usuario}' con Agente Gemini..."
         })
 
         try:
@@ -1298,6 +1747,8 @@ async def scan_local_leads_stream(req: ScanRequest):
             "type": "step",
             "step": 2,
             "total_steps": 4,
+            "campaign_id": campaign_id,
+            "campaign_name": campaign_name,
             "categoria_osm": osm_tag,
             "message": f"Buscando comercios en OpenStreetMap ({ubicacion_texto}, {osm_key}={osm_value})..."
         })
@@ -1320,9 +1771,12 @@ async def scan_local_leads_stream(req: ScanRequest):
             return
 
         if not comercios:
+            await asyncio.to_thread(actualizar_memoria_agente, cat_usuario, osm_tag, loc or prov, 0, 0)
             yield sse({
                 "type": "complete",
                 "status": "ok",
+                "campaign_id": campaign_id,
+                "campaign_name": campaign_name,
                 "categoria_osm": osm_tag,
                 "nuevos_leads_encontrados": 0,
                 "total_procesados": 0,
@@ -1337,6 +1791,8 @@ async def scan_local_leads_stream(req: ScanRequest):
             "type": "step",
             "step": 3,
             "total_steps": 4,
+            "campaign_id": campaign_id,
+            "campaign_name": campaign_name,
             "total_encontrados_osm": len(comercios),
             "total_a_procesar": total_a_procesar,
             "message": f"Encontrados {len(comercios)} comercios en OSM. Analizando presencia digital ({total_a_procesar} a evaluar)..."
@@ -1357,6 +1813,7 @@ async def scan_local_leads_stream(req: ScanRequest):
                 "step": 4,
                 "index": idx,
                 "total": total_a_procesar,
+                "campaign_id": campaign_id,
                 "nombre": nombre,
                 "ciudad": ciudad,
                 "message": f"[{idx}/{total_a_procesar}] Analizando presencia online de '{nombre}'..."
@@ -1443,7 +1900,10 @@ async def scan_local_leads_stream(req: ScanRequest):
                     "estado": "Tiene Web" if tiene_web_real else "Sin Web",
                     "demo_slug": "",
                     "demo_url": "",
-                    "demo_vibe": ""
+                    "demo_vibe": "",
+                    "campana_id": campaign_id,
+                    "campana_nombre": campaign_name,
+                    "campana_ids": [campaign_id]
                 }
                 return lead, None
 
@@ -1454,19 +1914,21 @@ async def scan_local_leads_stream(req: ScanRequest):
                     "type": "skipped",
                     "index": idx,
                     "total": total_a_procesar,
+                    "campaign_id": campaign_id,
                     "nombre": nombre,
                     "razon": motivo_descarte or "Omitido"
                 })
             else:
-                agregado = await asyncio.to_thread(guardar_leads_deduplicados, [lead_res])
+                agregado = await asyncio.to_thread(guardar_leads_deduplicados, [lead_res], campaign_id)
                 total_agregados += agregado
                 prospectos_procesados.append(lead_res)
 
-                # Leer lead con datos persistidos
                 yield sse({
                     "type": "lead",
                     "index": idx,
                     "total": total_a_procesar,
+                    "campaign_id": campaign_id,
+                    "campaign_name": campaign_name,
                     "lead": lead_res,
                     "agregado_nuevo": bool(agregado > 0),
                     "message": f"Lead procesado: {nombre}"
@@ -1474,13 +1936,21 @@ async def scan_local_leads_stream(req: ScanRequest):
 
             await asyncio.sleep(0.05)
 
+        # Actualizar campaña y memoria
+        campana_dict["leads_count"] = len(prospectos_procesados)
+        campana_dict["lead_ids"] = [str(l["osm_id"]) for l in prospectos_procesados]
+        await asyncio.to_thread(registrar_o_actualizar_campana, campana_dict)
+        await asyncio.to_thread(actualizar_memoria_agente, cat_usuario, osm_tag, loc or prov, len(comercios), len(prospectos_procesados))
+
         yield sse({
             "type": "complete",
             "status": "ok",
+            "campaign_id": campaign_id,
+            "campaign_name": campaign_name,
             "categoria_osm": osm_tag,
             "total_procesados": len(prospectos_procesados),
             "nuevos_leads_encontrados": total_agregados,
-            "message": f"¡Escaneo finalizado con éxito! {total_agregados} nuevas oportunidades agregadas."
+            "message": f"¡Escaneo finalizado con éxito! {total_agregados} nuevas oportunidades agregadas a la campaña '{campaign_name}'."
         })
 
     return StreamingResponse(

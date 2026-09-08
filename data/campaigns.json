@@ -1,0 +1,76 @@
+[
+  {
+    "id": "camp_1788888958",
+    "nombre": "Luthier De Guitarras · Barcelona, Barcelona",
+    "categoria": "luthier de guitarras",
+    "ubicacion": "Barcelona, Barcelona",
+    "created_at": "2026-09-08T17:35:58.023676+00:00",
+    "leads_count": 0,
+    "lead_ids": []
+  },
+  {
+    "id": "camp_init_1_1788888949",
+    "nombre": "Clinica Dental · Barcelona",
+    "categoria": "clinica dental",
+    "ubicacion": "Barcelona",
+    "created_at": "2026-09-08T17:35:49.611698+00:00",
+    "leads_count": 4,
+    "lead_ids": [
+      "2627845577",
+      "4728093794",
+      "4776357935",
+      "7525556686"
+    ]
+  },
+  {
+    "id": "camp_init_2_1788888949",
+    "nombre": "Taller De Motos · Barcelona",
+    "categoria": "taller de motos",
+    "ubicacion": "Barcelona",
+    "created_at": "2026-09-08T17:35:49.611716+00:00",
+    "leads_count": 19,
+    "lead_ids": [
+      "1889913533",
+      "2468845809",
+      "4566036825",
+      "5040657021",
+      "5040657121",
+      "5118124302",
+      "6125602217",
+      "6133245829",
+      "6152363420",
+      "6488829196",
+      "6772371730",
+      "7002869604",
+      "7107839692",
+      "9235057511",
+      "9608262963",
+      "9768940617",
+      "9823542619",
+      "9886744281",
+      "3493224869"
+    ]
+  },
+  {
+    "id": "camp_init_3_1788888949",
+    "nombre": "Taller De Motos · Santa Coloma De Gramenet",
+    "categoria": "taller de motos",
+    "ubicacion": "Santa Coloma de Gramenet",
+    "created_at": "2026-09-08T17:35:49.611727+00:00",
+    "leads_count": 1,
+    "lead_ids": [
+      "5448091735"
+    ]
+  },
+  {
+    "id": "camp_init_4_1788888949",
+    "nombre": "Taller De Motos · Mataró",
+    "categoria": "taller de motos",
+    "ubicacion": "Mataró",
+    "created_at": "2026-09-08T17:35:49.611732+00:00",
+    "leads_count": 1,
+    "lead_ids": [
+      "13397658701"
+    ]
+  }
+]
