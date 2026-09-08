@@ -1509,14 +1509,21 @@ def get_leads():
         l["horas_transcurridas"] = horas_transcurridas
         l["alerta_seguimiento"] = alerta_seguimiento
 
-        # Auto-detectar demo previamente existente en disco
+        # Auto-detectar demo previamente existente en disco o en GitHub Pages
+        gh_base = obtener_base_github_pages()
         if not l.get("demo_slug"):
             slug_existente = detectar_demo_existente(l.get("nombre", ""), l.get("ciudad", ""))
             if slug_existente:
                 l["demo_slug"] = slug_existente
-                l["demo_url"] = f"/demos/{slug_existente}"
+                l["demo_url"] = f"{gh_base}/{slug_existente}/"
+                l["demo_url_publica"] = f"{gh_base}/{slug_existente}/"
+                l["demo_url_absoluta"] = f"{gh_base}/{slug_existente}/"
                 if l.get("estado") in ["Sin Web", "Tiene Web"]:
                     l["estado"] = "Web Generada"
+        elif l.get("demo_slug"):
+            l["demo_url"] = f"{gh_base}/{l['demo_slug']}/"
+            l["demo_url_publica"] = f"{gh_base}/{l['demo_slug']}/"
+            l["demo_url_absoluta"] = f"{gh_base}/{l['demo_slug']}/"
 
         # Compatibilidad: asegurar URLs de búsqueda directa y enlaces_internet
         if not l.get("google_search_url") and l.get("nombre"):
