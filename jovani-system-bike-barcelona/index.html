@@ -11,7 +11,9 @@
   <script>
     (function() {
       try {
-        const savedTheme = localStorage.getItem('instaleads_theme');
+        const pathSlug = window.location.pathname.replace(/\/+$/, '').split('/').pop() || 'demo';
+        const themeKey = 'instaleads_theme_' + pathSlug;
+        const savedTheme = localStorage.getItem(themeKey);
         const defaultTheme = 'dark';
         const themeToApply = savedTheme || defaultTheme;
         if (themeToApply === 'light') {
@@ -513,7 +515,7 @@
         <div class="lg:col-span-5 relative">
           <div class="relative rounded-3xl overflow-hidden border shadow-2xl group glow-card" style="border-color: var(--border-color);">
             <div class="aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] w-full overflow-hidden bg-slate-950">
-              <img src="https://scontent-qro3-1.cdninstagram.com/v/t51.82787-15/626334480_18339338299213188_2780839487779161455_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ig_cache_key=Mjk0OTQxNDM4MzEzMzkxNzc2Nw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=XrWDv9t0fC4Q7kNvwH4t9Dd&_nc_oc=AdpiFoEG1vCeulE5hc-UQWi1C9IZKVtWINHymLI-j__stuzfrC1s50_xNHmQeGtHc4A&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-qro3-1.cdninstagram.com&_nc_gid=zwcMAZxCvkbXYBMnMyV9gg&_nc_ss=7a22e&oh=00_AQIcVtG2mnxC6YPWgN07hcNXWtyrHDKRaqu8M_sj8l7WyQ&oe=6AA62B4B" alt="Jovani & System Bike" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+              <img src="https://scontent-yyz1-1.cdninstagram.com/v/t51.82787-15/619568881_18165452809392046_3699366765400150525_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ig_cache_key=MjA4NDA4Mjg2MzkzODAwMDg3OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuOTAwLnNkci5yZWd1bGFyX3Bob3RvLkMzIn0%3D&_nc_ohc=7qWn0JqJld0Q7kNvwFAZq3i&_nc_oc=AdqP-n6EZ67bRpE18Pqxj0cRTNwnmPesvNydlYfkBsb_I8061iZ_aFEtg1xryvpq_JM&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-yyz1-1.cdninstagram.com&_nc_gid=cYZ8L5zUCPFoLibjGFP21g&_nc_ss=7a22e&oh=00_AQKkN9wSKbSKGq4mzS6qtGDsq_JVVeJaHtDKV_KBC8JlCA&oe=6AA6382B" alt="Jovani & System Bike" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-black/20 to-transparent"></div>
             </div>
 
@@ -602,7 +604,7 @@
         <div class="theme-card overflow-hidden flex flex-col justify-between group glow-card shadow-xl rounded-2xl" style="border-color: var(--border-color);">
           
           <div class="h-48 sm:h-52 w-full overflow-hidden relative bg-slate-950">
-            <img src="https://scontent-qro3-1.cdninstagram.com/v/t51.82787-15/626334480_18339338299213188_2780839487779161455_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ig_cache_key=Mjk0OTQxNDM4MzEzMzkxNzc2Nw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=XrWDv9t0fC4Q7kNvwH4t9Dd&_nc_oc=AdpiFoEG1vCeulE5hc-UQWi1C9IZKVtWINHymLI-j__stuzfrC1s50_xNHmQeGtHc4A&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-qro3-1.cdninstagram.com&_nc_gid=zwcMAZxCvkbXYBMnMyV9gg&_nc_ss=7a22e&oh=00_AQIcVtG2mnxC6YPWgN07hcNXWtyrHDKRaqu8M_sj8l7WyQ&oe=6AA62B4B" alt="Terminamos semana con un montaje de" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <img src="https://scontent-yyz1-1.cdninstagram.com/v/t51.82787-15/619568881_18165452809392046_3699366765400150525_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ig_cache_key=MjA4NDA4Mjg2MzkzODAwMDg3OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuOTAwLnNkci5yZWd1bGFyX3Bob3RvLkMzIn0%3D&_nc_ohc=7qWn0JqJld0Q7kNvwFAZq3i&_nc_oc=AdqP-n6EZ67bRpE18Pqxj0cRTNwnmPesvNydlYfkBsb_I8061iZ_aFEtg1xryvpq_JM&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-yyz1-1.cdninstagram.com&_nc_gid=cYZ8L5zUCPFoLibjGFP21g&_nc_ss=7a22e&oh=00_AQKkN9wSKbSKGq4mzS6qtGDsq_JVVeJaHtDKV_KBC8JlCA&oe=6AA6382B" alt="Triumph custom!!" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
             
             <!-- Sector Job Pill -->
@@ -619,9 +621,12 @@
           
           <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
             <div>
-              <h3 class="font-bold text-base sm:text-lg theme-heading leading-snug">Terminamos semana con un montaje de</h3>
+              <h3 class="font-bold text-base sm:text-lg theme-heading leading-snug">Triumph custom!!</h3>
               <p class="text-xs sm:text-sm theme-muted mt-2 leading-relaxed">
-                Terminamos semana con un montaje de accesorios en esta bonita x-adv 🥰🥰🥰#barcelon
+                Triumph custom!!
+.
+.
+#triumph #triumphcustoms #superilla #poble9 #moto #motorcyc
               </p>
             </div>
             
@@ -631,7 +636,7 @@
         <div class="theme-card overflow-hidden flex flex-col justify-between group glow-card shadow-xl rounded-2xl" style="border-color: var(--border-color);">
           
           <div class="h-48 sm:h-52 w-full overflow-hidden relative bg-slate-950">
-            <img src="https://scontent-waw2-1.cdninstagram.com/v/t51.82787-15/620728513_18086037032169919_4360967689807494555_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&ig_cache_key=MjY5MjgwNDgwOTk2ODMyNjY5MQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=2vndKT0Tx1IQ7kNvwGPgcT5&_nc_oc=AdqvfTxw7830moD1s2kLpiFssVYrbDVp-cM7DCJLyJczFEZbi3CceuNFyw95ztSfv3g&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-waw2-1.cdninstagram.com&_nc_gid=SSrujhOGM4pYXkaYqGDT7A&_nc_ss=7a22e&oh=00_AQJkHa7WZ_ShxLQZQL6keSDUnUFNcuxzzo3h8U_loGJwyQ&oe=6AA63517" alt="En j. Systembikes ya estsmos especi" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <img src="https://instagram.ffmo1-1.fna.fbcdn.net/v/t51.82787-15/620875847_18136975828436061_5387319889177145154_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ig_cache_key=MjExMzc3ODE0ODExOTA0ODMzNA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuOTAwLnNkci5yZWd1bGFyX3Bob3RvLkMzIn0%3D&_nc_ohc=t5Kt3eWH8rgQ7kNvwFFsF2P&_nc_oc=AdqkKjQneFlqlHjaUiPkwJYKdytOGsxJh4lKyCTCR4o0wfneRF8RspnzAq6D2WEuJRo&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.ffmo1-1.fna&_nc_gid=WG3SCHsv5DtDk-G5b-9tLw&_nc_ss=7a22e&oh=00_AQLuq6XYi8CpCPL0dGl18r6MHGiN5yv6xI1bdbOcCSHKCA&oe=6AA6330A" alt="Volvemos a abrir después de unos di" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
             
             <!-- Sector Job Pill -->
@@ -648,9 +653,10 @@
           
           <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
             <div>
-              <h3 class="font-bold text-base sm:text-lg theme-heading leading-snug">En j. Systembikes ya estsmos especi</h3>
+              <h3 class="font-bold text-base sm:text-lg theme-heading leading-snug">Volvemos a abrir después de unos di</h3>
               <p class="text-xs sm:text-sm theme-muted mt-2 leading-relaxed">
-                En j. Systembikes ya estsmos especializados en motos electricas, aqui 1 foto del
+                Volvemos a abrir después de unos dias de vacaciones!! Feliz lunes 😁 
+Tornem a ob
               </p>
             </div>
             
@@ -660,7 +666,7 @@
         <div class="theme-card overflow-hidden flex flex-col justify-between group glow-card shadow-xl rounded-2xl" style="border-color: var(--border-color);">
           
           <div class="h-48 sm:h-52 w-full overflow-hidden relative bg-slate-950">
-            <img src="https://instagram.fosu2-1.fna.fbcdn.net/v/t51.82787-15/653702653_18183797419371973_6631930625433173026_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ig_cache_key=MjM1ODAyNDgwNDM3MTUwMzcwNA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=0b39Qzr9MesQ7kNvwGNjRai&_nc_oc=AdqADOvhj9RNwNZgusY9I9weQaCP5uiF65CPPRa2X56JPDU3M5yM3e002YeZBs_aaTBbax_2igOt3_jKY2eGkhwY&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fosu2-1.fna&_nc_gid=hDQCsyw0pJ_BMozbVqsS1A&_nc_ss=7a22e&oh=00_AQJqAAk78Sp58Ig2kDvvuX0w77Z3I3E-giheZ76feWA9dA&oe=6AA64738" alt="Porque disfrutamos haciendo estas c" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <img src="https://instagram.flba3-1.fna.fbcdn.net/v/t51.82787-15/653702653_18183797419371973_6631930625433173026_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ig_cache_key=MjM1ODAyNDgwNDM3MTUwMzcwNA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=0b39Qzr9MesQ7kNvwEHokCM&_nc_oc=AdqLItV3RxLWdOOIPS0UBeU0bWQnQVK0gpVSpyp2c8gQY8WTBVGma8LMM-EChPxEa_s&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.flba3-1.fna&_nc_gid=_TL6cfWnd9EbQAnVSvl1pw&_nc_ss=7a22e&oh=00_AQLzIH0fbroAxA80id-ZjVKnDgjG7RWv6gXiFRnaarOvOg&oe=6AA64738" alt="Porque disfrutamos haciendo estas c" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
             
             <!-- Sector Job Pill -->
@@ -708,41 +714,27 @@
 
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
         
-        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-qro3-1.cdninstagram.com/v/t51.82787-15/626334480_18339338299213188_2780839487779161455_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ig_cache_key=Mjk0OTQxNDM4MzEzMzkxNzc2Nw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=XrWDv9t0fC4Q7kNvwH4t9Dd&_nc_oc=AdpiFoEG1vCeulE5hc-UQWi1C9IZKVtWINHymLI-j__stuzfrC1s50_xNHmQeGtHc4A&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-qro3-1.cdninstagram.com&_nc_gid=zwcMAZxCvkbXYBMnMyV9gg&_nc_ss=7a22e&oh=00_AQIcVtG2mnxC6YPWgN07hcNXWtyrHDKRaqu8M_sj8l7WyQ&oe=6AA62B4B', 'Terminamos semana con un montaje de accesorios en esta bonita x-adv 🥰🥰🥰#barcelona #poblenou #superillla #mecanicobarcelona')">
-          <img src="https://scontent-qro3-1.cdninstagram.com/v/t51.82787-15/626334480_18339338299213188_2780839487779161455_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ig_cache_key=Mjk0OTQxNDM4MzEzMzkxNzc2Nw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=XrWDv9t0fC4Q7kNvwH4t9Dd&_nc_oc=AdpiFoEG1vCeulE5hc-UQWi1C9IZKVtWINHymLI-j__stuzfrC1s50_xNHmQeGtHc4A&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-qro3-1.cdninstagram.com&_nc_gid=zwcMAZxCvkbXYBMnMyV9gg&_nc_ss=7a22e&oh=00_AQIcVtG2mnxC6YPWgN07hcNXWtyrHDKRaqu8M_sj8l7WyQ&oe=6AA62B4B" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-yyz1-1.cdninstagram.com/v/t51.82787-15/619568881_18165452809392046_3699366765400150525_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ig_cache_key=MjA4NDA4Mjg2MzkzODAwMDg3OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuOTAwLnNkci5yZWd1bGFyX3Bob3RvLkMzIn0%3D&_nc_ohc=7qWn0JqJld0Q7kNvwFAZq3i&_nc_oc=AdqP-n6EZ67bRpE18Pqxj0cRTNwnmPesvNydlYfkBsb_I8061iZ_aFEtg1xryvpq_JM&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-yyz1-1.cdninstagram.com&_nc_gid=cYZ8L5zUCPFoLibjGFP21g&_nc_ss=7a22e&oh=00_AQKkN9wSKbSKGq4mzS6qtGDsq_JVVeJaHtDKV_KBC8JlCA&oe=6AA6382B', 'Triumph custom!!
+.
+.
+#triumph #triumphcustoms #superilla #poble9 #moto #motorcycle #bikelife #motorbike #bike #biker #motolife #motogp #ride#motorcycles #instamoto #motos #motor #bikersofinstagram #bhfyp #rutamotera')">
+          <img src="https://scontent-yyz1-1.cdninstagram.com/v/t51.82787-15/619568881_18165452809392046_3699366765400150525_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ig_cache_key=MjA4NDA4Mjg2MzkzODAwMDg3OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuOTAwLnNkci5yZWd1bGFyX3Bob3RvLkMzIn0%3D&_nc_ohc=7qWn0JqJld0Q7kNvwFAZq3i&_nc_oc=AdqP-n6EZ67bRpE18Pqxj0cRTNwnmPesvNydlYfkBsb_I8061iZ_aFEtg1xryvpq_JM&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-yyz1-1.cdninstagram.com&_nc_gid=cYZ8L5zUCPFoLibjGFP21g&_nc_ss=7a22e&oh=00_AQKkN9wSKbSKGq4mzS6qtGDsq_JVVeJaHtDKV_KBC8JlCA&oe=6AA6382B" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
           <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
-            <p class="text-[11px] text-white line-clamp-3 leading-tight">Terminamos semana con un montaje de accesorios en esta bonita x-adv 🥰🥰🥰#barcelona #poblenou #superillla #mecanicobarcelona</p>
+            <p class="text-[11px] text-white line-clamp-3 leading-tight">Triumph custom!!
+.
+.
+#triumph #triumphcustoms #superilla #poble9 #moto #motorcycle #bikelife #motorbike #bike #biker #motolife #motogp #ride#motorcycles #instamoto #motos #motor #bikersofinstagram #bhfyp #rutamotera</p>
             <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
-              ❤️ 15
+              ❤️ 51
             </span>
           </div>
         </div>
         
-        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-waw2-1.cdninstagram.com/v/t51.82787-15/620728513_18086037032169919_4360967689807494555_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&ig_cache_key=MjY5MjgwNDgwOTk2ODMyNjY5MQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=2vndKT0Tx1IQ7kNvwGPgcT5&_nc_oc=AdqvfTxw7830moD1s2kLpiFssVYrbDVp-cM7DCJLyJczFEZbi3CceuNFyw95ztSfv3g&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-waw2-1.cdninstagram.com&_nc_gid=SSrujhOGM4pYXkaYqGDT7A&_nc_ss=7a22e&oh=00_AQJkHa7WZ_ShxLQZQL6keSDUnUFNcuxzzo3h8U_loGJwyQ&oe=6AA63517', 'En j. Systembikes ya estsmos especializados en motos electricas, aqui 1 foto del taller con cambios y una Niu. Saludos #superilla #barcelona #poble9 #tallermotos #tallerbacelona #motosbarcelona #motoselectricas')">
-          <img src="https://scontent-waw2-1.cdninstagram.com/v/t51.82787-15/620728513_18086037032169919_4360967689807494555_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&ig_cache_key=MjY5MjgwNDgwOTk2ODMyNjY5MQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=2vndKT0Tx1IQ7kNvwGPgcT5&_nc_oc=AdqvfTxw7830moD1s2kLpiFssVYrbDVp-cM7DCJLyJczFEZbi3CceuNFyw95ztSfv3g&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-waw2-1.cdninstagram.com&_nc_gid=SSrujhOGM4pYXkaYqGDT7A&_nc_ss=7a22e&oh=00_AQJkHa7WZ_ShxLQZQL6keSDUnUFNcuxzzo3h8U_loGJwyQ&oe=6AA63517" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-          <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
-            <p class="text-[11px] text-white line-clamp-3 leading-tight">En j. Systembikes ya estsmos especializados en motos electricas, aqui 1 foto del taller con cambios y una Niu. Saludos #superilla #barcelona #poble9 #tallermotos #tallerbacelona #motosbarcelona #motoselectricas</p>
-            <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
-              ❤️ 14
-            </span>
-          </div>
-        </div>
-        
-        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://instagram.fosu2-1.fna.fbcdn.net/v/t51.82787-15/653702653_18183797419371973_6631930625433173026_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ig_cache_key=MjM1ODAyNDgwNDM3MTUwMzcwNA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=0b39Qzr9MesQ7kNvwGNjRai&_nc_oc=AdqADOvhj9RNwNZgusY9I9weQaCP5uiF65CPPRa2X56JPDU3M5yM3e002YeZBs_aaTBbax_2igOt3_jKY2eGkhwY&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fosu2-1.fna&_nc_gid=hDQCsyw0pJ_BMozbVqsS1A&_nc_ss=7a22e&oh=00_AQJqAAk78Sp58Ig2kDvvuX0w77Z3I3E-giheZ76feWA9dA&oe=6AA64738', 'Porque disfrutamos haciendo estas cosas #poble9#superilla#barcelona#modificación#mecanicosbarcelona#custom')">
-          <img src="https://instagram.fosu2-1.fna.fbcdn.net/v/t51.82787-15/653702653_18183797419371973_6631930625433173026_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ig_cache_key=MjM1ODAyNDgwNDM3MTUwMzcwNA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=0b39Qzr9MesQ7kNvwGNjRai&_nc_oc=AdqADOvhj9RNwNZgusY9I9weQaCP5uiF65CPPRa2X56JPDU3M5yM3e002YeZBs_aaTBbax_2igOt3_jKY2eGkhwY&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fosu2-1.fna&_nc_gid=hDQCsyw0pJ_BMozbVqsS1A&_nc_ss=7a22e&oh=00_AQJqAAk78Sp58Ig2kDvvuX0w77Z3I3E-giheZ76feWA9dA&oe=6AA64738" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-          <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
-            <p class="text-[11px] text-white line-clamp-3 leading-tight">Porque disfrutamos haciendo estas cosas #poble9#superilla#barcelona#modificación#mecanicosbarcelona#custom</p>
-            <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
-              ❤️ 15
-            </span>
-          </div>
-        </div>
-        
-        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-ams2-1.cdninstagram.com/v/t51.82787-15/620875847_18136975828436061_5387319889177145154_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ig_cache_key=MjExMzc3ODE0ODExOTA0ODMzNA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuOTAwLnNkci5yZWd1bGFyX3Bob3RvLkMzIn0%3D&_nc_ohc=t5Kt3eWH8rgQ7kNvwHNGs7l&_nc_oc=AdocavP1NQmdjgbwNEq2kiIc6sf8Iey7jFTZItiDvlBY_uHjsO3DCk6DEm0TWq34Duc&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=7LMeYTllIwscCqPN01pO1g&_nc_ss=7a22e&oh=00_AQJ2fwPdQ_r8Qz6gQ3tseF7hLAGd59DRvrfG81OzTd7zfg&oe=6AA6330A', 'Volvemos a abrir después de unos dias de vacaciones!! Feliz lunes 😁 
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://instagram.ffmo1-1.fna.fbcdn.net/v/t51.82787-15/620875847_18136975828436061_5387319889177145154_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ig_cache_key=MjExMzc3ODE0ODExOTA0ODMzNA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuOTAwLnNkci5yZWd1bGFyX3Bob3RvLkMzIn0%3D&_nc_ohc=t5Kt3eWH8rgQ7kNvwFFsF2P&_nc_oc=AdqkKjQneFlqlHjaUiPkwJYKdytOGsxJh4lKyCTCR4o0wfneRF8RspnzAq6D2WEuJRo&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.ffmo1-1.fna&_nc_gid=WG3SCHsv5DtDk-G5b-9tLw&_nc_ss=7a22e&oh=00_AQLuq6XYi8CpCPL0dGl18r6MHGiN5yv6xI1bdbOcCSHKCA&oe=6AA6330A', 'Volvemos a abrir después de unos dias de vacaciones!! Feliz lunes 😁 
 Tornem a obrir després duns dies de vacances!! Feliç dilluns 😁
 
 #poble9 #superilla #moterosbarcelona')">
-          <img src="https://scontent-ams2-1.cdninstagram.com/v/t51.82787-15/620875847_18136975828436061_5387319889177145154_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ig_cache_key=MjExMzc3ODE0ODExOTA0ODMzNA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuOTAwLnNkci5yZWd1bGFyX3Bob3RvLkMzIn0%3D&_nc_ohc=t5Kt3eWH8rgQ7kNvwHNGs7l&_nc_oc=AdocavP1NQmdjgbwNEq2kiIc6sf8Iey7jFTZItiDvlBY_uHjsO3DCk6DEm0TWq34Duc&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=7LMeYTllIwscCqPN01pO1g&_nc_ss=7a22e&oh=00_AQJ2fwPdQ_r8Qz6gQ3tseF7hLAGd59DRvrfG81OzTd7zfg&oe=6AA6330A" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <img src="https://instagram.ffmo1-1.fna.fbcdn.net/v/t51.82787-15/620875847_18136975828436061_5387319889177145154_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ig_cache_key=MjExMzc3ODE0ODExOTA0ODMzNA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuOTAwLnNkci5yZWd1bGFyX3Bob3RvLkMzIn0%3D&_nc_ohc=t5Kt3eWH8rgQ7kNvwFFsF2P&_nc_oc=AdqkKjQneFlqlHjaUiPkwJYKdytOGsxJh4lKyCTCR4o0wfneRF8RspnzAq6D2WEuJRo&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.ffmo1-1.fna&_nc_gid=WG3SCHsv5DtDk-G5b-9tLw&_nc_ss=7a22e&oh=00_AQLuq6XYi8CpCPL0dGl18r6MHGiN5yv6xI1bdbOcCSHKCA&oe=6AA6330A" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
           <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
             <p class="text-[11px] text-white line-clamp-3 leading-tight">Volvemos a abrir después de unos dias de vacaciones!! Feliz lunes 😁 
 Tornem a obrir després d'uns dies de vacances!! Feliç dilluns 😁
@@ -754,27 +746,21 @@ Tornem a obrir després d'uns dies de vacances!! Feliç dilluns 😁
           </div>
         </div>
         
-        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-fra5-1.cdninstagram.com/v/t51.82787-15/622164213_18214662625311280_5403729544932862208_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ig_cache_key=MjA3NDkzNjQzODc4MDEwNjYwNQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuOTAwLnNkci5yZWd1bGFyX3Bob3RvLkMyIn0%3D&_nc_ohc=slin82EApsMQ7kNvwFAWiwL&_nc_oc=AdpjA0QsHSKakO6Vq5We-WLFmQfeCCIbcL-ENxyFIR3kKXl6WemxfuW8ZTjzGBVd-VE&_nc_ad=z-m&_nc_cid=1128&_nc_zt=23&_nc_ht=scontent-fra5-1.cdninstagram.com&_nc_gid=Q7oOXwUvHnJTd8slP0RU5A&_nc_ss=7a22e&oh=00_AQKKYJuYfgj6f_CQN_ZSd-s0OA5L6g8W502tVeUg-rLhAQ&oe=6AA650A1', 'Puesta a punto para los alpes!
-.
-.
-#bmwr1200r #superilla #poble9 #moto #motorcycle #r #bikelife #motorbike #bike #bmw #biker #motolife #motogp #ride#motorcycles #instamoto #motos #cc #motor #bikersofinstagram #mx #bhfyp #rutamotera')">
-          <img src="https://scontent-fra5-1.cdninstagram.com/v/t51.82787-15/622164213_18214662625311280_5403729544932862208_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ig_cache_key=MjA3NDkzNjQzODc4MDEwNjYwNQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuOTAwLnNkci5yZWd1bGFyX3Bob3RvLkMyIn0%3D&_nc_ohc=slin82EApsMQ7kNvwFAWiwL&_nc_oc=AdpjA0QsHSKakO6Vq5We-WLFmQfeCCIbcL-ENxyFIR3kKXl6WemxfuW8ZTjzGBVd-VE&_nc_ad=z-m&_nc_cid=1128&_nc_zt=23&_nc_ht=scontent-fra5-1.cdninstagram.com&_nc_gid=Q7oOXwUvHnJTd8slP0RU5A&_nc_ss=7a22e&oh=00_AQKKYJuYfgj6f_CQN_ZSd-s0OA5L6g8W502tVeUg-rLhAQ&oe=6AA650A1" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://instagram.flba3-1.fna.fbcdn.net/v/t51.82787-15/653702653_18183797419371973_6631930625433173026_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ig_cache_key=MjM1ODAyNDgwNDM3MTUwMzcwNA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=0b39Qzr9MesQ7kNvwEHokCM&_nc_oc=AdqLItV3RxLWdOOIPS0UBeU0bWQnQVK0gpVSpyp2c8gQY8WTBVGma8LMM-EChPxEa_s&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.flba3-1.fna&_nc_gid=_TL6cfWnd9EbQAnVSvl1pw&_nc_ss=7a22e&oh=00_AQLzIH0fbroAxA80id-ZjVKnDgjG7RWv6gXiFRnaarOvOg&oe=6AA64738', 'Porque disfrutamos haciendo estas cosas #poble9#superilla#barcelona#modificación#mecanicosbarcelona#custom')">
+          <img src="https://instagram.flba3-1.fna.fbcdn.net/v/t51.82787-15/653702653_18183797419371973_6631930625433173026_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ig_cache_key=MjM1ODAyNDgwNDM3MTUwMzcwNA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=0b39Qzr9MesQ7kNvwEHokCM&_nc_oc=AdqLItV3RxLWdOOIPS0UBeU0bWQnQVK0gpVSpyp2c8gQY8WTBVGma8LMM-EChPxEa_s&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.flba3-1.fna&_nc_gid=_TL6cfWnd9EbQAnVSvl1pw&_nc_ss=7a22e&oh=00_AQLzIH0fbroAxA80id-ZjVKnDgjG7RWv6gXiFRnaarOvOg&oe=6AA64738" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
           <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
-            <p class="text-[11px] text-white line-clamp-3 leading-tight">Puesta a punto para los alpes!
-.
-.
-#bmwr1200r #superilla #poble9 #moto #motorcycle #r #bikelife #motorbike #bike #bmw #biker #motolife #motogp #ride#motorcycles #instamoto #motos #cc #motor #bikersofinstagram #mx #bhfyp #rutamotera</p>
+            <p class="text-[11px] text-white line-clamp-3 leading-tight">Porque disfrutamos haciendo estas cosas #poble9#superilla#barcelona#modificación#mecanicosbarcelona#custom</p>
             <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
-              ❤️ 46
+              ❤️ 15
             </span>
           </div>
         </div>
         
-        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://instagram.fnat2-1.fna.fbcdn.net/v/t51.82787-15/629285932_18355777963200155_5140126217332301344_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ig_cache_key=MjA3NjM2ODE5NzY0NDM0NjcwMg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuOTAwLnNkci5yZWd1bGFyX3Bob3RvLkMzIn0%3D&_nc_ohc=dMOZaUTiFm8Q7kNvwETi63m&_nc_oc=Adq5PmSTspfHwDcWCFK_lWc_DbiNHMbwB6l-lDWIe64ppIz6tYa6FnbChAM-ok83Pis&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fnat2-1.fna&_nc_gid=iClyTmBZfPFW384zOTIdww&_nc_ss=7a22e&oh=00_AQIX5v3dKQZyaDNUbEYUTAEbalsoc2rf93Vzzlid33iLVQ&oe=6AA64F4D', 'Gracias Ivan por la confianza! a disfrutar de tu nueva adquisición!!
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://instagram.fpoz3-1.fna.fbcdn.net/v/t51.82787-15/629285932_18355777963200155_5140126217332301344_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ig_cache_key=MjA3NjM2ODE5NzY0NDM0NjcwMg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuOTAwLnNkci5yZWd1bGFyX3Bob3RvLkMzIn0%3D&_nc_ohc=dMOZaUTiFm8Q7kNvwE8jhf0&_nc_oc=AdpOi2fPd5BAJI6CKbYjv5GaHozW1BKZXbGUizIIFoMJmcSdbIR1WExq-XLLh7NrTDM&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fpoz3-1.fna&_nc_gid=fejcbxhNF78agmH8k9JC7A&_nc_ss=7a22e&oh=00_AQJHYW5VCLlu1PjtKTki_c6dWsLN2yTodVTTDjomr1U4aQ&oe=6AA64F4D', 'Gracias Ivan por la confianza! a disfrutar de tu nueva adquisición!!
 .
 .
 #superilla #poble9 #sh300sport #moto #motorcycle #bikelife #motorbike #bike #biker #motolife #ride #motorcycles #instamoto #motos #cc #motor #bikersofinstagram #bhfyp')">
-          <img src="https://instagram.fnat2-1.fna.fbcdn.net/v/t51.82787-15/629285932_18355777963200155_5140126217332301344_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ig_cache_key=MjA3NjM2ODE5NzY0NDM0NjcwMg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuOTAwLnNkci5yZWd1bGFyX3Bob3RvLkMzIn0%3D&_nc_ohc=dMOZaUTiFm8Q7kNvwETi63m&_nc_oc=Adq5PmSTspfHwDcWCFK_lWc_DbiNHMbwB6l-lDWIe64ppIz6tYa6FnbChAM-ok83Pis&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fnat2-1.fna&_nc_gid=iClyTmBZfPFW384zOTIdww&_nc_ss=7a22e&oh=00_AQIX5v3dKQZyaDNUbEYUTAEbalsoc2rf93Vzzlid33iLVQ&oe=6AA64F4D" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <img src="https://instagram.fpoz3-1.fna.fbcdn.net/v/t51.82787-15/629285932_18355777963200155_5140126217332301344_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ig_cache_key=MjA3NjM2ODE5NzY0NDM0NjcwMg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuOTAwLnNkci5yZWd1bGFyX3Bob3RvLkMzIn0%3D&_nc_ohc=dMOZaUTiFm8Q7kNvwE8jhf0&_nc_oc=AdpOi2fPd5BAJI6CKbYjv5GaHozW1BKZXbGUizIIFoMJmcSdbIR1WExq-XLLh7NrTDM&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fpoz3-1.fna&_nc_gid=fejcbxhNF78agmH8k9JC7A&_nc_ss=7a22e&oh=00_AQJHYW5VCLlu1PjtKTki_c6dWsLN2yTodVTTDjomr1U4aQ&oe=6AA64F4D" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
           <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
             <p class="text-[11px] text-white line-clamp-3 leading-tight">Gracias Ivan por la confianza! a disfrutar de tu nueva adquisición!!
 .
@@ -786,11 +772,11 @@ Tornem a obrir després d'uns dies de vacances!! Feliç dilluns 😁
           </div>
         </div>
         
-        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://instagram.fcpq17-1.fna.fbcdn.net/v/t51.82787-15/656718217_18575672656041924_8110329069045620916_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ig_cache_key=MjA3OTAwOTA5MjE0NDUxNjMxMw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTA4MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=CwJMAAknFFwQ7kNvwEkceRr&_nc_oc=AdpvA19NliTN0fSDRT3YWb9gAKYTEMDugZOwUZ03y9sxnW3qQfhIzr2Bi5FQfM2rMSs&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fcpq17-1.fna&_nc_gid=GdblymH-p9J_XKcjiW84kQ&_nc_ss=7a22e&oh=00_AQIL-YLkTC2q-NYfAf8XXfSJUPwNTDdodTW7U5PO_kBbpw&oe=6AA624F4', 'Preparando Kawasaki vulcan s 650
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://instagram.fgrq1-1.fna.fbcdn.net/v/t51.82787-15/656718217_18575672656041924_8110329069045620916_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ig_cache_key=MjA3OTAwOTA5MjE0NDUxNjMxMw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTA4MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=CwJMAAknFFwQ7kNvwH29o9z&_nc_oc=AdrJcxw6UEE7Hck5bUDddqIJbUcf_YRyLU0H-6XTjCEpHqz4nVhDIO2tNIEiJwg8USM&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fgrq1-1.fna&_nc_gid=2x7437JSYyU_nMDU5xl6SQ&_nc_ss=7a22e&oh=00_AQJYqAwXnlH_uHrIHNA9k6IxnHPMzrZswlc5n74HcdtO5w&oe=6AA65D34', 'Preparando Kawasaki vulcan s 650
 .
 .
 #kawasaki #kawasakivulcans650 #poble9 #superilla #motos #motosportmotorcycle #bikelife #motorbike #bike #biker #motolife #ride #motorcycles #instamoto #motos #cc #motor #bikersofinstagram #bhfyp')">
-          <img src="https://instagram.fcpq17-1.fna.fbcdn.net/v/t51.82787-15/656718217_18575672656041924_8110329069045620916_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ig_cache_key=MjA3OTAwOTA5MjE0NDUxNjMxMw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTA4MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=CwJMAAknFFwQ7kNvwEkceRr&_nc_oc=AdpvA19NliTN0fSDRT3YWb9gAKYTEMDugZOwUZ03y9sxnW3qQfhIzr2Bi5FQfM2rMSs&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fcpq17-1.fna&_nc_gid=GdblymH-p9J_XKcjiW84kQ&_nc_ss=7a22e&oh=00_AQIL-YLkTC2q-NYfAf8XXfSJUPwNTDdodTW7U5PO_kBbpw&oe=6AA624F4" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <img src="https://instagram.fgrq1-1.fna.fbcdn.net/v/t51.82787-15/656718217_18575672656041924_8110329069045620916_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ig_cache_key=MjA3OTAwOTA5MjE0NDUxNjMxMw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTA4MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=CwJMAAknFFwQ7kNvwH29o9z&_nc_oc=AdrJcxw6UEE7Hck5bUDddqIJbUcf_YRyLU0H-6XTjCEpHqz4nVhDIO2tNIEiJwg8USM&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fgrq1-1.fna&_nc_gid=2x7437JSYyU_nMDU5xl6SQ&_nc_ss=7a22e&oh=00_AQJYqAwXnlH_uHrIHNA9k6IxnHPMzrZswlc5n74HcdtO5w&oe=6AA65D34" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
           <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
             <p class="text-[11px] text-white line-clamp-3 leading-tight">Preparando Kawasaki vulcan s 650
 .
@@ -802,18 +788,38 @@ Tornem a obrir després d'uns dies de vacances!! Feliç dilluns 😁
           </div>
         </div>
         
-        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://instagram.fmel16-1.fna.fbcdn.net/v/t51.82787-15/619568881_18165452809392046_3699366765400150525_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ig_cache_key=MjA4NDA4Mjg2MzkzODAwMDg3OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuOTAwLnNkci5yZWd1bGFyX3Bob3RvLkMzIn0%3D&_nc_ohc=7qWn0JqJld0Q7kNvwEnWO9q&_nc_oc=AdoNfQGsJGGdO0pOj3bGbS9Kl4QyNAk2vqZb53wIgQlbquq4l5ud4VzS__tO1LfBMpw&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fmel16-1.fna&_nc_gid=q0tZ0EHGydvhWXLN8ojj-g&_nc_ss=7a22e&oh=00_AQLvrXWNNSiIL7jwSbK8R0HLtbt64OvndMmd7_RNXNQSag&oe=6AA6382B', 'Triumph custom!!
-.
-.
-#triumph #triumphcustoms #superilla #poble9 #moto #motorcycle #bikelife #motorbike #bike #biker #motolife #motogp #ride#motorcycles #instamoto #motos #motor #bikersofinstagram #bhfyp #rutamotera')">
-          <img src="https://instagram.fmel16-1.fna.fbcdn.net/v/t51.82787-15/619568881_18165452809392046_3699366765400150525_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ig_cache_key=MjA4NDA4Mjg2MzkzODAwMDg3OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuOTAwLnNkci5yZWd1bGFyX3Bob3RvLkMzIn0%3D&_nc_ohc=7qWn0JqJld0Q7kNvwEnWO9q&_nc_oc=AdoNfQGsJGGdO0pOj3bGbS9Kl4QyNAk2vqZb53wIgQlbquq4l5ud4VzS__tO1LfBMpw&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fmel16-1.fna&_nc_gid=q0tZ0EHGydvhWXLN8ojj-g&_nc_ss=7a22e&oh=00_AQLvrXWNNSiIL7jwSbK8R0HLtbt64OvndMmd7_RNXNQSag&oe=6AA6382B" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-icn2-1.cdninstagram.com/v/t51.82787-15/626334480_18339338299213188_2780839487779161455_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ig_cache_key=Mjk0OTQxNDM4MzEzMzkxNzc2Nw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=XrWDv9t0fC4Q7kNvwFMzd_m&_nc_oc=AdoNlXCfwLR13TpwyYcr0ndaBXsN6M1hHKzEaNSDNnBxwN32qj-8kUfuNB46D4AT7Wo&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.cdninstagram.com&_nc_gid=7KHleEAoB-gSGR5B_jQ1jA&_nc_ss=7a22e&oh=00_AQIqQKu2iAtWjE83sn8o8HuEasOOTZcV4ECXwhebyeJAdA&oe=6AA62B4B', 'Terminamos semana con un montaje de accesorios en esta bonita x-adv 🥰🥰🥰#barcelona #poblenou #superillla #mecanicobarcelona')">
+          <img src="https://scontent-icn2-1.cdninstagram.com/v/t51.82787-15/626334480_18339338299213188_2780839487779161455_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ig_cache_key=Mjk0OTQxNDM4MzEzMzkxNzc2Nw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=XrWDv9t0fC4Q7kNvwFMzd_m&_nc_oc=AdoNlXCfwLR13TpwyYcr0ndaBXsN6M1hHKzEaNSDNnBxwN32qj-8kUfuNB46D4AT7Wo&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-icn2-1.cdninstagram.com&_nc_gid=7KHleEAoB-gSGR5B_jQ1jA&_nc_ss=7a22e&oh=00_AQIqQKu2iAtWjE83sn8o8HuEasOOTZcV4ECXwhebyeJAdA&oe=6AA62B4B" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
           <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
-            <p class="text-[11px] text-white line-clamp-3 leading-tight">Triumph custom!!
-.
-.
-#triumph #triumphcustoms #superilla #poble9 #moto #motorcycle #bikelife #motorbike #bike #biker #motolife #motogp #ride#motorcycles #instamoto #motos #motor #bikersofinstagram #bhfyp #rutamotera</p>
+            <p class="text-[11px] text-white line-clamp-3 leading-tight">Terminamos semana con un montaje de accesorios en esta bonita x-adv 🥰🥰🥰#barcelona #poblenou #superillla #mecanicobarcelona</p>
             <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
-              ❤️ 51
+              ❤️ 15
+            </span>
+          </div>
+        </div>
+        
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://instagram.fper6-1.fna.fbcdn.net/v/t51.82787-15/622164213_18214662625311280_5403729544932862208_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ig_cache_key=MjA3NDkzNjQzODc4MDEwNjYwNQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuOTAwLnNkci5yZWd1bGFyX3Bob3RvLkMzIn0%3D&_nc_ohc=slin82EApsMQ7kNvwHHaFKC&_nc_oc=AdqFMvtQu8tsVYQhxOq7zNqXKiOHd5rr9qs9OHuXNmWIAp_gfXspxyWf8FomPCOVOxL-IDNnSIkMys6cT1IOhO8-&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fper6-1.fna&_nc_gid=o7wDVAUE-T6tvxrADuuaRw&_nc_ss=7a22e&oh=00_AQJ9mU1ky0v58KU4ONKdaywe6-ytTyd49ATpQStWmxoLHw&oe=6AA650A1', 'Puesta a punto para los alpes!
+.
+.
+#bmwr1200r #superilla #poble9 #moto #motorcycle #r #bikelife #motorbike #bike #bmw #biker #motolife #motogp #ride#motorcycles #instamoto #motos #cc #motor #bikersofinstagram #mx #bhfyp #rutamotera')">
+          <img src="https://instagram.fper6-1.fna.fbcdn.net/v/t51.82787-15/622164213_18214662625311280_5403729544932862208_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ig_cache_key=MjA3NDkzNjQzODc4MDEwNjYwNQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuOTAwLnNkci5yZWd1bGFyX3Bob3RvLkMzIn0%3D&_nc_ohc=slin82EApsMQ7kNvwHHaFKC&_nc_oc=AdqFMvtQu8tsVYQhxOq7zNqXKiOHd5rr9qs9OHuXNmWIAp_gfXspxyWf8FomPCOVOxL-IDNnSIkMys6cT1IOhO8-&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fper6-1.fna&_nc_gid=o7wDVAUE-T6tvxrADuuaRw&_nc_ss=7a22e&oh=00_AQJ9mU1ky0v58KU4ONKdaywe6-ytTyd49ATpQStWmxoLHw&oe=6AA650A1" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
+            <p class="text-[11px] text-white line-clamp-3 leading-tight">Puesta a punto para los alpes!
+.
+.
+#bmwr1200r #superilla #poble9 #moto #motorcycle #r #bikelife #motorbike #bike #bmw #biker #motolife #motogp #ride#motorcycles #instamoto #motos #cc #motor #bikersofinstagram #mx #bhfyp #rutamotera</p>
+            <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
+              ❤️ 46
+            </span>
+          </div>
+        </div>
+        
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://instagram.fsyd4-2.fna.fbcdn.net/v/t51.82787-15/620728513_18086037032169919_4360967689807494555_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&_nc_map=urlgen_bucketless&ig_cache_key=MjY5MjgwNDgwOTk2ODMyNjY5MQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=2vndKT0Tx1IQ7kNvwGolz4Q&_nc_oc=AdrbJyjbHfTMSB6-Gh2hLkKqnip9aAiS_U7GEVIt6iyjUYFTj0MoEyGrq1UrL_eC-_Q&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fsyd4-2.fna&_nc_gid=sgG8wPDDVHUm7F8mNelwmQ&_nc_ss=7a22e&oh=00_AQLJWb0VTL8oCCiCqqfFbQIaaKsCXBqltMaSBvlSOa1lVQ&oe=6AA63517', 'En j. Systembikes ya estsmos especializados en motos electricas, aqui 1 foto del taller con cambios y una Niu. Saludos #superilla #barcelona #poble9 #tallermotos #tallerbacelona #motosbarcelona #motoselectricas')">
+          <img src="https://instagram.fsyd4-2.fna.fbcdn.net/v/t51.82787-15/620728513_18086037032169919_4360967689807494555_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&_nc_map=urlgen_bucketless&ig_cache_key=MjY5MjgwNDgwOTk2ODMyNjY5MQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=2vndKT0Tx1IQ7kNvwGolz4Q&_nc_oc=AdrbJyjbHfTMSB6-Gh2hLkKqnip9aAiS_U7GEVIt6iyjUYFTj0MoEyGrq1UrL_eC-_Q&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fsyd4-2.fna&_nc_gid=sgG8wPDDVHUm7F8mNelwmQ&_nc_ss=7a22e&oh=00_AQLJWb0VTL8oCCiCqqfFbQIaaKsCXBqltMaSBvlSOa1lVQ&oe=6AA63517" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
+            <p class="text-[11px] text-white line-clamp-3 leading-tight">En j. Systembikes ya estsmos especializados en motos electricas, aqui 1 foto del taller con cambios y una Niu. Saludos #superilla #barcelona #poble9 #tallermotos #tallerbacelona #motosbarcelona #motoselectricas</p>
+            <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
+              ❤️ 14
             </span>
           </div>
         </div>
@@ -1129,12 +1135,14 @@ Tornem a obrir després d'uns dies de vacances!! Feliç dilluns 😁
 
     function toggleTheme() {
       const isLight = document.documentElement.classList.toggle('light');
+      const pathSlug = window.location.pathname.replace(/\/+$/, '').split('/').pop() || 'demo';
+      const themeKey = 'instaleads_theme_' + pathSlug;
       if (isLight) {
         document.documentElement.classList.remove('dark');
-        try { localStorage.setItem('instaleads_theme', 'light'); } catch(e) {}
+        try { localStorage.setItem(themeKey, 'light'); } catch(e) {}
       } else {
         document.documentElement.classList.add('dark');
-        try { localStorage.setItem('instaleads_theme', 'dark'); } catch(e) {}
+        try { localStorage.setItem(themeKey, 'dark'); } catch(e) {}
       }
       updateThemeUI(isLight);
     }
