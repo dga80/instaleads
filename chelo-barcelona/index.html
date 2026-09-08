@@ -11,7 +11,9 @@
   <script>
     (function() {
       try {
-        const savedTheme = localStorage.getItem('instaleads_theme');
+        const pathSlug = window.location.pathname.replace(/\/+$/, '').split('/').pop() || 'demo';
+        const themeKey = 'instaleads_theme_' + pathSlug;
+        const savedTheme = localStorage.getItem(themeKey);
         const defaultTheme = 'light';
         const themeToApply = savedTheme || defaultTheme;
         if (themeToApply === 'light') {
@@ -513,7 +515,7 @@
         <div class="lg:col-span-5 relative">
           <div class="relative rounded-3xl overflow-hidden border shadow-2xl group glow-card" style="border-color: var(--border-color);">
             <div class="aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] w-full overflow-hidden bg-slate-950">
-              <img src="https://scontent-lga3-1.cdninstagram.com/v/t51.75761-15/485077836_18451986445078582_7557019996990301970_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ig_cache_key=MzU5MDE2ODA4NDg1NDAyODg3OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuNjcwLnNkci5yZWd1bGFyX3Bob3RvLkMzIn0%3D&_nc_ohc=SSVqzJhxuG0Q7kNvwEBcQju&_nc_oc=AdqJ5DOrSoYpy4mJ3B9VV95q8rmNkItP878yd22-1A5YsPo0coMJA-9sTMaFRdkrFPcDv2I50VV3eDgjpnPyVdsY&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_gid=04psTt_FRoq261rn2DA3QQ&_nc_ss=7a22e&oh=00_AQIDL-cim9BDqtjQr5BQmWlKt69X0hAuKAOKwB98Vv3IZA&oe=6AA64C1F" alt="Chelo" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+              <img src="https://scontent-atl3-2.cdninstagram.com/v/t51.82787-15/515206770_18470601817078582_1341206810639839409_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=MzY2ODQ0MjE0MzcxNDMzMjEzMA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=Psz4ULD1rNEQ7kNvwFnQREe&_nc_oc=AdrFXnGLJHkvfYW8NRPGqq9-QsJisqjHMxNs5hqVZGRw3LdDyzmh8JPPWipR0xvn0xn09GX5aYkW3PHPJS1y8xFk&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-atl3-2.cdninstagram.com&_nc_gid=mWr9C-zva8oNQCzewctQWQ&_nc_ss=7a22e&oh=00_AQJXZ1mbNFGQErV65d-ARpJpazt5DPC-BPZN_c5V3omRJQ&oe=6AA641C5" alt="Chelo" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-black/20 to-transparent"></div>
             </div>
 
@@ -602,7 +604,7 @@
         <div class="theme-card overflow-hidden flex flex-col justify-between group glow-card shadow-xl rounded-2xl" style="border-color: var(--border-color);">
           
           <div class="h-48 sm:h-52 w-full overflow-hidden relative bg-slate-950">
-            <img src="https://scontent-lga3-1.cdninstagram.com/v/t51.75761-15/485077836_18451986445078582_7557019996990301970_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ig_cache_key=MzU5MDE2ODA4NDg1NDAyODg3OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuNjcwLnNkci5yZWd1bGFyX3Bob3RvLkMzIn0%3D&_nc_ohc=SSVqzJhxuG0Q7kNvwEBcQju&_nc_oc=AdqJ5DOrSoYpy4mJ3B9VV95q8rmNkItP878yd22-1A5YsPo0coMJA-9sTMaFRdkrFPcDv2I50VV3eDgjpnPyVdsY&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_gid=04psTt_FRoq261rn2DA3QQ&_nc_ss=7a22e&oh=00_AQIDL-cim9BDqtjQr5BQmWlKt69X0hAuKAOKwB98Vv3IZA&oe=6AA64C1F" alt="buen día" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <img src="https://scontent-atl3-2.cdninstagram.com/v/t51.82787-15/515206770_18470601817078582_1341206810639839409_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=MzY2ODQ0MjE0MzcxNDMzMjEzMA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=Psz4ULD1rNEQ7kNvwFnQREe&_nc_oc=AdrFXnGLJHkvfYW8NRPGqq9-QsJisqjHMxNs5hqVZGRw3LdDyzmh8JPPWipR0xvn0xn09GX5aYkW3PHPJS1y8xFk&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-atl3-2.cdninstagram.com&_nc_gid=mWr9C-zva8oNQCzewctQWQ&_nc_ss=7a22e&oh=00_AQJXZ1mbNFGQErV65d-ARpJpazt5DPC-BPZN_c5V3omRJQ&oe=6AA641C5" alt="Bon día #chelocafe #barcelonabrunch" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
             
             <!-- Sector Job Pill -->
@@ -619,9 +621,9 @@
           
           <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
             <div>
-              <h3 class="font-bold text-base sm:text-lg theme-heading leading-snug">buen día</h3>
+              <h3 class="font-bold text-base sm:text-lg theme-heading leading-snug">Bon día #chelocafe #barcelonabrunch</h3>
               <p class="text-xs sm:text-sm theme-muted mt-2 leading-relaxed">
-                buen día
+                Bon día #chelocafe #barcelonabrunch #cafebarcelona
               </p>
             </div>
             
@@ -631,7 +633,7 @@
         <div class="theme-card overflow-hidden flex flex-col justify-between group glow-card shadow-xl rounded-2xl" style="border-color: var(--border-color);">
           
           <div class="h-48 sm:h-52 w-full overflow-hidden relative bg-slate-950">
-            <img src="https://scontent-dus1-1.cdninstagram.com/v/t51.82787-15/735786382_18544649923078582_911036575754345130_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&ig_cache_key=MzkzNzMwOTgwODkxNjY4OTEwNA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTM1MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=lrbmJV6KvE4Q7kNvwFTbhRb&_nc_oc=AdrzaTPjpEuu9ZzwKJ7yj0uUl-L28VvhCt5wer3R8blxdsadLitrMfvb-O6axLCRbFw&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-dus1-1.cdninstagram.com&_nc_gid=pOq6zP8upAkzfKet70Hl1g&_nc_ss=7a22e&oh=00_AQLdBgJGy_3AxpOhMhcTSApDATG5RErWHZDnKWtjMDCbJg&oe=6AA63658" alt="Especialidad 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <img src="https://scontent-ams2-1.cdninstagram.com/v/t51.82787-15/735786382_18544649923078582_911036575754345130_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&ig_cache_key=MzkzNzMwOTgwODkxNjY4OTEwNA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTM1MC5zZHIucmVndWxhcl9waG90by5DMiJ9&_nc_ohc=lrbmJV6KvE4Q7kNvwFiK3Vf&_nc_oc=AdqX58JUxjG_U4dVhavn1Xypxw3AyqxoMYJ_oQh3TOXsVbkCg4C0bYnKsd99Ng4AaE8cNeNGgplOPlQQ4DZDx-OT&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=etaKruLVdINjEE0Dks2aPQ&_nc_ss=7a22e&oh=00_AQKZw0FcKVwA-VPjzrCr94asUBa-db_Z7pQkqJSknwlOgA&oe=6AA63658" alt="Especialidad 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
             
             <!-- Sector Job Pill -->
@@ -660,7 +662,7 @@
         <div class="theme-card overflow-hidden flex flex-col justify-between group glow-card shadow-xl rounded-2xl" style="border-color: var(--border-color);">
           
           <div class="h-48 sm:h-52 w-full overflow-hidden relative bg-slate-950">
-            <img src="https://scontent-ams2-1.cdninstagram.com/v/t51.82787-15/626281062_18510494395078582_389855244097820056_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=110&ig_cache_key=MzgzMDE3MzkxNDQ4ODEyMTExOQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=gSNYqPyIGUMQ7kNvwGO8WNd&_nc_oc=AdpNKWhIgIAjyxFg5TTQlj5qfbtyN6qPBU-xtXvgOXcGOgy5vT1Tjsal7pGrOJwwWTQ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=0hXWgoZrnOZCtNqXVX-7qA&_nc_ss=7a22e&oh=00_AQKkzknULDtJ5S7XlWDUBORF9SZAVuIAESXhcfpzATMLHg&oe=6AA64DA7" alt="Especialidad 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <img src="https://instagram.fbvb1-1.fna.fbcdn.net/v/t51.82787-15/732434865_18543211348078582_2205732072896767418_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&_nc_map=urlgen_bucketless&ig_cache_key=MzkzMzE0NzcxODAwMjM5NzA1Mw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTM1MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=vgoaU4HLmz4Q7kNvwFajUGX&_nc_oc=AdqDH1bF88-oVv2xoMzgupMBuviHcPujwDueLSeuWAs2sxNy5eCWNDQtjv7LlKyy-ds&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fbvb1-1.fna&_nc_gid=W1ZrcNqO4whZ2EIuTLElqg&_nc_ss=7a22e&oh=00_AQIT6OE4Rvo6ECJ50Ipi9v-w4I2Sd6CLQm_yqr4O3cRmLw&oe=6AA65AFB" alt="Ruben es un amigo y uno de los crea" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
             
             <!-- Sector Job Pill -->
@@ -677,9 +679,9 @@
           
           <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
             <div>
-              <h3 class="font-bold text-base sm:text-lg theme-heading leading-snug">Especialidad 3</h3>
+              <h3 class="font-bold text-base sm:text-lg theme-heading leading-snug">Ruben es un amigo y uno de los crea</h3>
               <p class="text-xs sm:text-sm theme-muted mt-2 leading-relaxed">
-                Atención personalizada con los más altos estándares de calidad en Barcelona.
+                Ruben es un amigo y uno de los creadores del  @jardidelpop , de nuestras charlas
               </p>
             </div>
             
@@ -708,18 +710,18 @@
 
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
         
-        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-lga3-1.cdninstagram.com/v/t51.75761-15/485077836_18451986445078582_7557019996990301970_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ig_cache_key=MzU5MDE2ODA4NDg1NDAyODg3OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuNjcwLnNkci5yZWd1bGFyX3Bob3RvLkMzIn0%3D&_nc_ohc=SSVqzJhxuG0Q7kNvwEBcQju&_nc_oc=AdqJ5DOrSoYpy4mJ3B9VV95q8rmNkItP878yd22-1A5YsPo0coMJA-9sTMaFRdkrFPcDv2I50VV3eDgjpnPyVdsY&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_gid=04psTt_FRoq261rn2DA3QQ&_nc_ss=7a22e&oh=00_AQIDL-cim9BDqtjQr5BQmWlKt69X0hAuKAOKwB98Vv3IZA&oe=6AA64C1F', 'buen día')">
-          <img src="https://scontent-lga3-1.cdninstagram.com/v/t51.75761-15/485077836_18451986445078582_7557019996990301970_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ig_cache_key=MzU5MDE2ODA4NDg1NDAyODg3OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuNjcwLnNkci5yZWd1bGFyX3Bob3RvLkMzIn0%3D&_nc_ohc=SSVqzJhxuG0Q7kNvwEBcQju&_nc_oc=AdqJ5DOrSoYpy4mJ3B9VV95q8rmNkItP878yd22-1A5YsPo0coMJA-9sTMaFRdkrFPcDv2I50VV3eDgjpnPyVdsY&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_gid=04psTt_FRoq261rn2DA3QQ&_nc_ss=7a22e&oh=00_AQIDL-cim9BDqtjQr5BQmWlKt69X0hAuKAOKwB98Vv3IZA&oe=6AA64C1F" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-atl3-2.cdninstagram.com/v/t51.82787-15/515206770_18470601817078582_1341206810639839409_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=MzY2ODQ0MjE0MzcxNDMzMjEzMA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=Psz4ULD1rNEQ7kNvwFnQREe&_nc_oc=AdrFXnGLJHkvfYW8NRPGqq9-QsJisqjHMxNs5hqVZGRw3LdDyzmh8JPPWipR0xvn0xn09GX5aYkW3PHPJS1y8xFk&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-atl3-2.cdninstagram.com&_nc_gid=mWr9C-zva8oNQCzewctQWQ&_nc_ss=7a22e&oh=00_AQJXZ1mbNFGQErV65d-ARpJpazt5DPC-BPZN_c5V3omRJQ&oe=6AA641C5', 'Bon día #chelocafe #barcelonabrunch #cafebarcelona')">
+          <img src="https://scontent-atl3-2.cdninstagram.com/v/t51.82787-15/515206770_18470601817078582_1341206810639839409_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=MzY2ODQ0MjE0MzcxNDMzMjEzMA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=Psz4ULD1rNEQ7kNvwFnQREe&_nc_oc=AdrFXnGLJHkvfYW8NRPGqq9-QsJisqjHMxNs5hqVZGRw3LdDyzmh8JPPWipR0xvn0xn09GX5aYkW3PHPJS1y8xFk&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-atl3-2.cdninstagram.com&_nc_gid=mWr9C-zva8oNQCzewctQWQ&_nc_ss=7a22e&oh=00_AQJXZ1mbNFGQErV65d-ARpJpazt5DPC-BPZN_c5V3omRJQ&oe=6AA641C5" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
           <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
-            <p class="text-[11px] text-white line-clamp-3 leading-tight">buen día</p>
+            <p class="text-[11px] text-white line-clamp-3 leading-tight">Bon día #chelocafe #barcelonabrunch #cafebarcelona</p>
             <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
-              ❤️ 12
+              ❤️ 48
             </span>
           </div>
         </div>
         
-        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-dus1-1.cdninstagram.com/v/t51.82787-15/735786382_18544649923078582_911036575754345130_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&ig_cache_key=MzkzNzMwOTgwODkxNjY4OTEwNA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTM1MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=lrbmJV6KvE4Q7kNvwFTbhRb&_nc_oc=AdrzaTPjpEuu9ZzwKJ7yj0uUl-L28VvhCt5wer3R8blxdsadLitrMfvb-O6axLCRbFw&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-dus1-1.cdninstagram.com&_nc_gid=pOq6zP8upAkzfKet70Hl1g&_nc_ss=7a22e&oh=00_AQLdBgJGy_3AxpOhMhcTSApDATG5RErWHZDnKWtjMDCbJg&oe=6AA63658', '')">
-          <img src="https://scontent-dus1-1.cdninstagram.com/v/t51.82787-15/735786382_18544649923078582_911036575754345130_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&ig_cache_key=MzkzNzMwOTgwODkxNjY4OTEwNA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTM1MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=lrbmJV6KvE4Q7kNvwFTbhRb&_nc_oc=AdrzaTPjpEuu9ZzwKJ7yj0uUl-L28VvhCt5wer3R8blxdsadLitrMfvb-O6axLCRbFw&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-dus1-1.cdninstagram.com&_nc_gid=pOq6zP8upAkzfKet70Hl1g&_nc_ss=7a22e&oh=00_AQLdBgJGy_3AxpOhMhcTSApDATG5RErWHZDnKWtjMDCbJg&oe=6AA63658" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-ams2-1.cdninstagram.com/v/t51.82787-15/735786382_18544649923078582_911036575754345130_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&ig_cache_key=MzkzNzMwOTgwODkxNjY4OTEwNA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTM1MC5zZHIucmVndWxhcl9waG90by5DMiJ9&_nc_ohc=lrbmJV6KvE4Q7kNvwFiK3Vf&_nc_oc=AdqX58JUxjG_U4dVhavn1Xypxw3AyqxoMYJ_oQh3TOXsVbkCg4C0bYnKsd99Ng4AaE8cNeNGgplOPlQQ4DZDx-OT&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=etaKruLVdINjEE0Dks2aPQ&_nc_ss=7a22e&oh=00_AQKZw0FcKVwA-VPjzrCr94asUBa-db_Z7pQkqJSknwlOgA&oe=6AA63658', '')">
+          <img src="https://scontent-ams2-1.cdninstagram.com/v/t51.82787-15/735786382_18544649923078582_911036575754345130_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&ig_cache_key=MzkzNzMwOTgwODkxNjY4OTEwNA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTM1MC5zZHIucmVndWxhcl9waG90by5DMiJ9&_nc_ohc=lrbmJV6KvE4Q7kNvwFiK3Vf&_nc_oc=AdqX58JUxjG_U4dVhavn1Xypxw3AyqxoMYJ_oQh3TOXsVbkCg4C0bYnKsd99Ng4AaE8cNeNGgplOPlQQ4DZDx-OT&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=etaKruLVdINjEE0Dks2aPQ&_nc_ss=7a22e&oh=00_AQKZw0FcKVwA-VPjzrCr94asUBa-db_Z7pQkqJSknwlOgA&oe=6AA63658" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
           <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
             <p class="text-[11px] text-white line-clamp-3 leading-tight"></p>
             <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
@@ -728,29 +730,9 @@
           </div>
         </div>
         
-        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-ams2-1.cdninstagram.com/v/t51.82787-15/626281062_18510494395078582_389855244097820056_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=110&ig_cache_key=MzgzMDE3MzkxNDQ4ODEyMTExOQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=gSNYqPyIGUMQ7kNvwGO8WNd&_nc_oc=AdpNKWhIgIAjyxFg5TTQlj5qfbtyN6qPBU-xtXvgOXcGOgy5vT1Tjsal7pGrOJwwWTQ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=0hXWgoZrnOZCtNqXVX-7qA&_nc_ss=7a22e&oh=00_AQKkzknULDtJ5S7XlWDUBORF9SZAVuIAESXhcfpzATMLHg&oe=6AA64DA7', '')">
-          <img src="https://scontent-ams2-1.cdninstagram.com/v/t51.82787-15/626281062_18510494395078582_389855244097820056_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=110&ig_cache_key=MzgzMDE3MzkxNDQ4ODEyMTExOQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=gSNYqPyIGUMQ7kNvwGO8WNd&_nc_oc=AdpNKWhIgIAjyxFg5TTQlj5qfbtyN6qPBU-xtXvgOXcGOgy5vT1Tjsal7pGrOJwwWTQ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=0hXWgoZrnOZCtNqXVX-7qA&_nc_ss=7a22e&oh=00_AQKkzknULDtJ5S7XlWDUBORF9SZAVuIAESXhcfpzATMLHg&oe=6AA64DA7" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-          <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
-            <p class="text-[11px] text-white line-clamp-3 leading-tight"></p>
-            <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
-              ❤️ 21
-            </span>
-          </div>
-        </div>
-        
-        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-cdg6-1.cdninstagram.com/v/t51.82787-15/741648706_18544912156078582_5627036393284849693_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ig_cache_key=MzkzODEyNDAwNDY0MjAwNjA5OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ1Mi5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=g-ltnPM0S_gQ7kNvwE0uveR&_nc_oc=Adr6Hx22PB-J_Mu5zXTe5KXrBc6JC4m0x7rJU6dNQbeAvaljnfKN_KWIVIXWgb5q5da46Zu4SAmDhF28mlrLARCi&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-cdg6-1.cdninstagram.com&_nc_gid=H1iXDOOEDAr8GVMFJVgAew&_nc_ss=7a22e&oh=00_AQIB481t20SthIkrUXF7SeHy9B-7Wg_XPgkTeuBX1hZM1Q&oe=6AA62B2F', '')">
-          <img src="https://scontent-cdg6-1.cdninstagram.com/v/t51.82787-15/741648706_18544912156078582_5627036393284849693_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ig_cache_key=MzkzODEyNDAwNDY0MjAwNjA5OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ1Mi5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=g-ltnPM0S_gQ7kNvwE0uveR&_nc_oc=Adr6Hx22PB-J_Mu5zXTe5KXrBc6JC4m0x7rJU6dNQbeAvaljnfKN_KWIVIXWgb5q5da46Zu4SAmDhF28mlrLARCi&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-cdg6-1.cdninstagram.com&_nc_gid=H1iXDOOEDAr8GVMFJVgAew&_nc_ss=7a22e&oh=00_AQIB481t20SthIkrUXF7SeHy9B-7Wg_XPgkTeuBX1hZM1Q&oe=6AA62B2F" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-          <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
-            <p class="text-[11px] text-white line-clamp-3 leading-tight"></p>
-            <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
-              ❤️ 15
-            </span>
-          </div>
-        </div>
-        
-        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-nrt6-1.cdninstagram.com/v/t51.82787-15/732434865_18543211348078582_2205732072896767418_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ig_cache_key=MzkzMzE0NzcxODAwMjM5NzA1Mw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTM1MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=vgoaU4HLmz4Q7kNvwHdOESH&_nc_oc=AdrdsMurwvFlvEWUqdtElBorZ_LkiZ8SU9dYneOCA-1NoV-DEBqw8HZJijTji03fPeagOHJxXxfDClt9viwIq9Cu&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-nrt6-1.cdninstagram.com&_nc_gid=S72Xr-02m4J6SJ1bLVXTzA&_nc_ss=7a22e&oh=00_AQL-I6g-xjwRvcRloJLCWj3UtKMYn3jHjza8TgMpJJmRSA&oe=6AA65AFB', 'Ruben es un amigo y uno de los creadores del  @jardidelpop , de nuestras charlas en el chelo café y la práctica de intercambiar vinilos surgió esta idea que ahora traemos a las fiestas del Raval.
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://instagram.fbvb1-1.fna.fbcdn.net/v/t51.82787-15/732434865_18543211348078582_2205732072896767418_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&_nc_map=urlgen_bucketless&ig_cache_key=MzkzMzE0NzcxODAwMjM5NzA1Mw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTM1MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=vgoaU4HLmz4Q7kNvwFajUGX&_nc_oc=AdqDH1bF88-oVv2xoMzgupMBuviHcPujwDueLSeuWAs2sxNy5eCWNDQtjv7LlKyy-ds&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fbvb1-1.fna&_nc_gid=W1ZrcNqO4whZ2EIuTLElqg&_nc_ss=7a22e&oh=00_AQIT6OE4Rvo6ECJ50Ipi9v-w4I2Sd6CLQm_yqr4O3cRmLw&oe=6AA65AFB', 'Ruben es un amigo y uno de los creadores del  @jardidelpop , de nuestras charlas en el chelo café y la práctica de intercambiar vinilos surgió esta idea que ahora traemos a las fiestas del Raval.
 Es fácil , 1 cabina , 2 platos, 1 mixer , para qué qui')">
-          <img src="https://scontent-nrt6-1.cdninstagram.com/v/t51.82787-15/732434865_18543211348078582_2205732072896767418_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ig_cache_key=MzkzMzE0NzcxODAwMjM5NzA1Mw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTM1MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=vgoaU4HLmz4Q7kNvwHdOESH&_nc_oc=AdrdsMurwvFlvEWUqdtElBorZ_LkiZ8SU9dYneOCA-1NoV-DEBqw8HZJijTji03fPeagOHJxXxfDClt9viwIq9Cu&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-nrt6-1.cdninstagram.com&_nc_gid=S72Xr-02m4J6SJ1bLVXTzA&_nc_ss=7a22e&oh=00_AQL-I6g-xjwRvcRloJLCWj3UtKMYn3jHjza8TgMpJJmRSA&oe=6AA65AFB" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <img src="https://instagram.fbvb1-1.fna.fbcdn.net/v/t51.82787-15/732434865_18543211348078582_2205732072896767418_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&_nc_map=urlgen_bucketless&ig_cache_key=MzkzMzE0NzcxODAwMjM5NzA1Mw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTM1MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=vgoaU4HLmz4Q7kNvwFajUGX&_nc_oc=AdqDH1bF88-oVv2xoMzgupMBuviHcPujwDueLSeuWAs2sxNy5eCWNDQtjv7LlKyy-ds&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fbvb1-1.fna&_nc_gid=W1ZrcNqO4whZ2EIuTLElqg&_nc_ss=7a22e&oh=00_AQIT6OE4Rvo6ECJ50Ipi9v-w4I2Sd6CLQm_yqr4O3cRmLw&oe=6AA65AFB" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
           <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
             <p class="text-[11px] text-white line-clamp-3 leading-tight">Ruben es un amigo y uno de los creadores del  @jardidelpop , de nuestras charlas en el chelo café y la práctica de intercambiar vinilos surgió esta idea que ahora traemos a las fiestas del Raval.
 Es fácil , 1 cabina , 2 platos, 1 mixer , para qué qui</p>
@@ -760,10 +742,10 @@ Es fácil , 1 cabina , 2 platos, 1 mixer , para qué qui</p>
           </div>
         </div>
         
-        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://instagram.fmad16-1.fna.fbcdn.net/v/t51.75761-15/474198028_18442675252078582_2735692677056841670_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&ig_cache_key=MzU0OTgwMTIwNTQyNTk1MDQwOA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=9_PX_v8q_qYQ7kNvwHNEvWE&_nc_oc=AdqfNPxxCVpUdpfqIUU5LStALLQJr00SjDfRjCaHOHiUOCMXXrHnDkf8GQKUCkYQjOY&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fmad16-1.fna&_nc_gid=KgipxYG6vT66ubapSRL9vw&_nc_ss=7a22e&oh=00_AQJ3_fQmG2jhZRRhzKSV_cJlx2Fxo8txS6ZYJSOxNUZvsA&oe=6AA627F4', 'Estamos muy contentos con nuestra primera jam de poesía, por el hermoso miércoles que vivimos, por las lecturas, por la música y sobretodo por transformar nuestro café en un lugar de encuentros y arte. 🎤🍷
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-mxp1-1.cdninstagram.com/v/t51.75761-15/474198028_18442675252078582_2735692677056841670_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&ig_cache_key=MzU0OTgwMTIwNTQyNTk1MDQwOA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=9_PX_v8q_qYQ7kNvwHPZ0r0&_nc_oc=Adr4ubqUbHZvJyttDujljLpMi8bZWeLFuI-D59TPqeQDaghNA-CAQbGey1zm7VBV1Flr_nymzIA4QSv3FhdtjvtM&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-mxp1-1.cdninstagram.com&_nc_gid=qWPTQs4gyOGkJ8e9VADEwQ&_nc_ss=7a22e&oh=00_AQIJnNeEifpTYlgZAKINu_HO1tb7QeoUiKSo4kYzifOtvg&oe=6AA627F4', 'Estamos muy contentos con nuestra primera jam de poesía, por el hermoso miércoles que vivimos, por las lecturas, por la música y sobretodo por transformar nuestro café en un lugar de encuentros y arte. 🎤🍷
 
 gracias a todas las personas que se acercaro')">
-          <img src="https://instagram.fmad16-1.fna.fbcdn.net/v/t51.75761-15/474198028_18442675252078582_2735692677056841670_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&ig_cache_key=MzU0OTgwMTIwNTQyNTk1MDQwOA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=9_PX_v8q_qYQ7kNvwHNEvWE&_nc_oc=AdqfNPxxCVpUdpfqIUU5LStALLQJr00SjDfRjCaHOHiUOCMXXrHnDkf8GQKUCkYQjOY&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fmad16-1.fna&_nc_gid=KgipxYG6vT66ubapSRL9vw&_nc_ss=7a22e&oh=00_AQJ3_fQmG2jhZRRhzKSV_cJlx2Fxo8txS6ZYJSOxNUZvsA&oe=6AA627F4" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <img src="https://scontent-mxp1-1.cdninstagram.com/v/t51.75761-15/474198028_18442675252078582_2735692677056841670_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&ig_cache_key=MzU0OTgwMTIwNTQyNTk1MDQwOA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=9_PX_v8q_qYQ7kNvwHPZ0r0&_nc_oc=Adr4ubqUbHZvJyttDujljLpMi8bZWeLFuI-D59TPqeQDaghNA-CAQbGey1zm7VBV1Flr_nymzIA4QSv3FhdtjvtM&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-mxp1-1.cdninstagram.com&_nc_gid=qWPTQs4gyOGkJ8e9VADEwQ&_nc_ss=7a22e&oh=00_AQIJnNeEifpTYlgZAKINu_HO1tb7QeoUiKSo4kYzifOtvg&oe=6AA627F4" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
           <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
             <p class="text-[11px] text-white line-clamp-3 leading-tight">Estamos muy contentos con nuestra primera jam de poesía, por el hermoso miércoles que vivimos, por las lecturas, por la música y sobretodo por transformar nuestro café en un lugar de encuentros y arte. 🎤🍷
 
@@ -774,22 +756,32 @@ gracias a todas las personas que se acercaro</p>
           </div>
         </div>
         
-        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-itm1-1.cdninstagram.com/v/t51.82787-15/515206770_18470601817078582_1341206810639839409_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=MzY2ODQ0MjE0MzcxNDMzMjEzMA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=Psz4ULD1rNEQ7kNvwHaAl4k&_nc_oc=Adq87uO7v10jS3-vae4eDFbnh2fc7KTzW2SD-XfpurFOgbSMXmExxb2HxgYxNm9WhCgyDTpWEIbrGxAKi7hI23Gk&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-itm1-1.cdninstagram.com&_nc_gid=RHS71sj1_4KYEEXLt6PQUQ&_nc_ss=7a22e&oh=00_AQInra1eZyjX3mvE_Lkn0gVVRspQK2m6nPWU0QjjTeW-LQ&oe=6AA641C5', 'Bon día #chelocafe #barcelonabrunch #cafebarcelona')">
-          <img src="https://scontent-itm1-1.cdninstagram.com/v/t51.82787-15/515206770_18470601817078582_1341206810639839409_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=MzY2ODQ0MjE0MzcxNDMzMjEzMA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=Psz4ULD1rNEQ7kNvwHaAl4k&_nc_oc=Adq87uO7v10jS3-vae4eDFbnh2fc7KTzW2SD-XfpurFOgbSMXmExxb2HxgYxNm9WhCgyDTpWEIbrGxAKi7hI23Gk&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-itm1-1.cdninstagram.com&_nc_gid=RHS71sj1_4KYEEXLt6PQUQ&_nc_ss=7a22e&oh=00_AQInra1eZyjX3mvE_Lkn0gVVRspQK2m6nPWU0QjjTeW-LQ&oe=6AA641C5" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-cdg4-3.cdninstagram.com/v/t51.75761-15/485077836_18451986445078582_7557019996990301970_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ig_cache_key=MzU5MDE2ODA4NDg1NDAyODg3OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuNjcwLnNkci5yZWd1bGFyX3Bob3RvLkMzIn0%3D&_nc_ohc=SSVqzJhxuG0Q7kNvwGUqq8x&_nc_oc=Adq--LyXcekXT0cu-JLVwukI_QGw7Ea3hu5snCuRcn-l1XE8AaNpdRU0MyfBK9031XE36stYAN3P4-bvkIpqBjPX&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-cdg4-3.cdninstagram.com&_nc_gid=r5_u6FysBX78aQMboQvX9g&_nc_ss=7a22e&oh=00_AQJBNaEqc7mSjhs4ia1WWz-5nO-o8wj5tibBAt20JlwryQ&oe=6AA64C1F', 'buen día')">
+          <img src="https://scontent-cdg4-3.cdninstagram.com/v/t51.75761-15/485077836_18451986445078582_7557019996990301970_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ig_cache_key=MzU5MDE2ODA4NDg1NDAyODg3OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuNjcwLnNkci5yZWd1bGFyX3Bob3RvLkMzIn0%3D&_nc_ohc=SSVqzJhxuG0Q7kNvwGUqq8x&_nc_oc=Adq--LyXcekXT0cu-JLVwukI_QGw7Ea3hu5snCuRcn-l1XE8AaNpdRU0MyfBK9031XE36stYAN3P4-bvkIpqBjPX&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-cdg4-3.cdninstagram.com&_nc_gid=r5_u6FysBX78aQMboQvX9g&_nc_ss=7a22e&oh=00_AQJBNaEqc7mSjhs4ia1WWz-5nO-o8wj5tibBAt20JlwryQ&oe=6AA64C1F" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
           <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
-            <p class="text-[11px] text-white line-clamp-3 leading-tight">Bon día #chelocafe #barcelonabrunch #cafebarcelona</p>
+            <p class="text-[11px] text-white line-clamp-3 leading-tight">buen día</p>
             <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
-              ❤️ 48
+              ❤️ 12
             </span>
           </div>
         </div>
         
-        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-fra3-1.cdninstagram.com/v/t51.82787-15/763028174_18025619495845227_2204302301813124021_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=108&ig_cache_key=Mzk0NjE3NTA5NDM0MDk4NTY5NDE4MDI1NjE5NDkyODQ1MjI3.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjcyMC5zZHIudmlkZW9fZGVmYXVsdF9jb3Zlcl9mcmFtZS5DMyJ9&_nc_ohc=oV01vpMOp6gQ7kNvwES_E1Q&_nc_oc=AdrUOnLFM5htzCqI5YF7JG7bOmLnH928Sghc7bYrqHBVfQ0OiHtqE04MDyLtu1fdo-g&_nc_ad=z-m&_nc_cid=1005&_nc_zt=23&_nc_ht=scontent-fra3-1.cdninstagram.com&_nc_gid=FoEKnX9PnRJJgSDJwteJeg&_nc_ss=7a22e&oh=00_AQJEc5tOmasDONzfTkqN8Qn82yyHOvtCnbvMVkm7cBXjyA&oe=6AA63215', 'Així vam viure la primera edició de les Vinyl Sessions. ❤️
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://instagram.fbel1-1.fna.fbcdn.net/v/t51.82787-15/741648706_18544912156078582_5627036393284849693_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ig_cache_key=MzkzODEyNDAwNDY0MjAwNjA5OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ1Mi5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=g-ltnPM0S_gQ7kNvwHszbAz&_nc_oc=Adq-2h2Y7hcikiuK9qKVnXeED1XBjQl0_0b3RC7ZdRBn6t3Swewy5yyjme_sZCmMudrEaNREd3Y14NGhIQ4xlloM&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fbel1-1.fna&_nc_gid=s-mrRNWuoIpALh4zWVQZ6w&_nc_ss=7a22e&oh=00_AQLSvhjPyjhkqlPn8A2MD_lsFjXIK8A4ZzA7ejMjjrgUXA&oe=6AA62B2F', '')">
+          <img src="https://instagram.fbel1-1.fna.fbcdn.net/v/t51.82787-15/741648706_18544912156078582_5627036393284849693_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ig_cache_key=MzkzODEyNDAwNDY0MjAwNjA5OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ1Mi5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=g-ltnPM0S_gQ7kNvwHszbAz&_nc_oc=Adq-2h2Y7hcikiuK9qKVnXeED1XBjQl0_0b3RC7ZdRBn6t3Swewy5yyjme_sZCmMudrEaNREd3Y14NGhIQ4xlloM&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fbel1-1.fna&_nc_gid=s-mrRNWuoIpALh4zWVQZ6w&_nc_ss=7a22e&oh=00_AQLSvhjPyjhkqlPn8A2MD_lsFjXIK8A4ZzA7ejMjjrgUXA&oe=6AA62B2F" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
+            <p class="text-[11px] text-white line-clamp-3 leading-tight"></p>
+            <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
+              ❤️ 15
+            </span>
+          </div>
+        </div>
+        
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-gru1-2.cdninstagram.com/v/t51.82787-15/763028174_18025619495845227_2204302301813124021_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=108&ig_cache_key=Mzk0NjE3NTA5NDM0MDk4NTY5NDE4MDI1NjE5NDkyODQ1MjI3.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjcyMC5zZHIudmlkZW9fZGVmYXVsdF9jb3Zlcl9mcmFtZS5DMyJ9&_nc_ohc=oV01vpMOp6gQ7kNvwEC51D-&_nc_oc=AdpBk4a6zu69EiEzKQAZrfHTQw4wXH0oM_pE8dB56D20x_k5R-94Hfs57VG1wIwW44k&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-gru1-2.cdninstagram.com&_nc_gid=J_UjEi261eCZunNxGPrSaQ&_nc_ss=7a22e&oh=00_AQJHBai3n9p-HOcAqCD6-ijVvpfXKQlEqFxLYyKG-xAySA&oe=6AA63215', 'Així vam viure la primera edició de les Vinyl Sessions. ❤️
 
 Només podem donar les gràcies a totes les persones que vau venir a la Plaça Vicenç Martorell i vau compartir amb nosaltres una jornada plena de música, bon ambient i vida de barri.
 
 Ha estat')">
-          <img src="https://scontent-fra3-1.cdninstagram.com/v/t51.82787-15/763028174_18025619495845227_2204302301813124021_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=108&ig_cache_key=Mzk0NjE3NTA5NDM0MDk4NTY5NDE4MDI1NjE5NDkyODQ1MjI3.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjcyMC5zZHIudmlkZW9fZGVmYXVsdF9jb3Zlcl9mcmFtZS5DMyJ9&_nc_ohc=oV01vpMOp6gQ7kNvwES_E1Q&_nc_oc=AdrUOnLFM5htzCqI5YF7JG7bOmLnH928Sghc7bYrqHBVfQ0OiHtqE04MDyLtu1fdo-g&_nc_ad=z-m&_nc_cid=1005&_nc_zt=23&_nc_ht=scontent-fra3-1.cdninstagram.com&_nc_gid=FoEKnX9PnRJJgSDJwteJeg&_nc_ss=7a22e&oh=00_AQJEc5tOmasDONzfTkqN8Qn82yyHOvtCnbvMVkm7cBXjyA&oe=6AA63215" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <img src="https://scontent-gru1-2.cdninstagram.com/v/t51.82787-15/763028174_18025619495845227_2204302301813124021_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=108&ig_cache_key=Mzk0NjE3NTA5NDM0MDk4NTY5NDE4MDI1NjE5NDkyODQ1MjI3.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjcyMC5zZHIudmlkZW9fZGVmYXVsdF9jb3Zlcl9mcmFtZS5DMyJ9&_nc_ohc=oV01vpMOp6gQ7kNvwEC51D-&_nc_oc=AdpBk4a6zu69EiEzKQAZrfHTQw4wXH0oM_pE8dB56D20x_k5R-94Hfs57VG1wIwW44k&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-gru1-2.cdninstagram.com&_nc_gid=J_UjEi261eCZunNxGPrSaQ&_nc_ss=7a22e&oh=00_AQJHBai3n9p-HOcAqCD6-ijVvpfXKQlEqFxLYyKG-xAySA&oe=6AA63215" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
           <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
             <p class="text-[11px] text-white line-clamp-3 leading-tight">Així vam viure la primera edició de les Vinyl Sessions. ❤️
 
@@ -798,6 +790,16 @@ Només podem donar les gràcies a totes les persones que vau venir a la Plaça V
 Ha estat</p>
             <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
               ❤️ -1
+            </span>
+          </div>
+        </div>
+        
+        <div class="group relative aspect-square rounded-2xl overflow-hidden border bg-slate-950 cursor-pointer shadow-lg" style="border-color: var(--border-color);" onclick="verFoto('https://scontent-ams2-1.cdninstagram.com/v/t51.82787-15/626281062_18510494395078582_389855244097820056_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=110&ig_cache_key=MzgzMDE3MzkxNDQ4ODEyMTExOQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=gSNYqPyIGUMQ7kNvwGS0Z7r&_nc_oc=Adr87zlWbrXYluX0_b_CcHCXf4IP4auqhtl-LWX6Fvxef19ypQuDpLJEBSfOX7GOymKhOCHa5b6vhL3_9E9bH1W3&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=dp4qImrWqAxxN1hCj05hxA&_nc_ss=7a22e&oh=00_AQKKygYEkDrA9RwCfQCbBAVcF8ad0k-OIJxeZ2Ryp9RyWg&oe=6AA64DA7', '')">
+          <img src="https://scontent-ams2-1.cdninstagram.com/v/t51.82787-15/626281062_18510494395078582_389855244097820056_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=110&ig_cache_key=MzgzMDE3MzkxNDQ4ODEyMTExOQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=gSNYqPyIGUMQ7kNvwGS0Z7r&_nc_oc=Adr87zlWbrXYluX0_b_CcHCXf4IP4auqhtl-LWX6Fvxef19ypQuDpLJEBSfOX7GOymKhOCHa5b6vhL3_9E9bH1W3&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=dp4qImrWqAxxN1hCj05hxA&_nc_ss=7a22e&oh=00_AQKKygYEkDrA9RwCfQCbBAVcF8ad0k-OIJxeZ2Ryp9RyWg&oe=6AA64DA7" alt="Galería" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
+            <p class="text-[11px] text-white line-clamp-3 leading-tight"></p>
+            <span class="text-[10px] text-pink-400 font-bold mt-1.5 flex items-center gap-1">
+              ❤️ 21
             </span>
           </div>
         </div>
@@ -1113,12 +1115,14 @@ Ha estat</p>
 
     function toggleTheme() {
       const isLight = document.documentElement.classList.toggle('light');
+      const pathSlug = window.location.pathname.replace(/\/+$/, '').split('/').pop() || 'demo';
+      const themeKey = 'instaleads_theme_' + pathSlug;
       if (isLight) {
         document.documentElement.classList.remove('dark');
-        try { localStorage.setItem('instaleads_theme', 'light'); } catch(e) {}
+        try { localStorage.setItem(themeKey, 'light'); } catch(e) {}
       } else {
         document.documentElement.classList.add('dark');
-        try { localStorage.setItem('instaleads_theme', 'dark'); } catch(e) {}
+        try { localStorage.setItem(themeKey, 'dark'); } catch(e) {}
       }
       updateThemeUI(isLight);
     }
