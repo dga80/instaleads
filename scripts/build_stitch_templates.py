@@ -236,22 +236,21 @@ def build_luxury_glow():
     </nav>"""
     html = re.sub(r'<nav class="hidden lg:flex items-center gap-space-xs".*?</nav>', new_desktop_nav, html, flags=re.DOTALL)
 
-    # 7. Add Hamburger Button to Header
-    burger_btn = """<!-- Mobile Hamburger Button -->
-      <button id="hamburger-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-full hover:bg-surface-container text-on-surface transition flex items-center justify-center border border-primary-container/30" aria-label="Abrir Menú" aria-expanded="false">
+    # 7. Add Hamburger Button to Header (on the RIGHT)
+    burger_btn = """<!-- Mobile Hamburger Button (On the RIGHT) -->
+      <button id="hamburger-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-full hover:bg-surface-container text-on-surface transition flex items-center justify-center border border-primary-container/30 ml-1" aria-label="Abrir Menú" aria-expanded="false">
         <span class="material-symbols-outlined text-[24px]">menu</span>
       </button>"""
     html = re.sub(
-        r'(<div class="flex items-center gap-space-sm">)',
-        r'\1\n      ' + burger_btn,
-        html,
-        count=1
+        r'<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-sm ml-1">\s*<span class="material-symbols-outlined text-on-primary text-\[18px\]">person</span>\s*</div>',
+        r"""<div class="hidden sm:flex w-8 h-8 rounded-full bg-primary items-center justify-center shadow-sm ml-1"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div>\n      """ + burger_btn,
+        html
     )
 
     # 8. Main Safe-Area Padding
     html = re.sub(
-        r'<main class="w-full pt-28 bg-surface">',
-        r'<main class="w-full bg-surface" style="padding-top: calc(6.5rem + var(--sat, env(safe-area-inset-top, 0px)));">',
+        r'<main class="w-full pt-20 bg-surface">',
+        r'<main class="w-full bg-surface" style="padding-top: calc(7.5rem + var(--sat, env(safe-area-inset-top, 0px)));">',
         html
     )
 
@@ -528,22 +527,21 @@ def build_urban_edge():
     </nav>"""
     html = re.sub(r'<nav class="hidden md:flex items-center gap-space-md".*?</nav>', new_desktop_nav, html, flags=re.DOTALL)
 
-    # 7. Add Hamburger Button to Header
-    burger_btn = """<!-- Mobile Hamburger Button -->
-      <button id="hamburger-btn" onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition flex items-center justify-center border border-surface-container-high" aria-label="Abrir Menú" aria-expanded="false">
+    # 7. Add Hamburger Button to Header (On the RIGHT)
+    burger_btn = """<!-- Mobile Hamburger Button (On the RIGHT) -->
+      <button id="hamburger-btn" onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition flex items-center justify-center border border-surface-container-high shadow-sm ml-1" aria-label="Abrir Menú" aria-expanded="false">
         <span class="material-symbols-outlined text-[24px]">menu</span>
       </button>"""
     html = re.sub(
-        r'(<div class="flex items-center gap-space-md">)',
-        r'\1\n      ' + burger_btn,
-        html,
-        count=1
+        r'<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center">\s*<span class="material-symbols-outlined text-on-primary text-\[18px\]">person</span>\s*</div>',
+        r"""<div class="hidden sm:flex w-8 h-8 rounded-full bg-primary items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div>\n      """ + burger_btn,
+        html
     )
 
     # 8. Main Safe-Area Padding
     html = re.sub(
-        r'<main class="w-full pt-16 bg-surface-container-lowest">',
-        r'<main class="w-full bg-surface-container-lowest" style="padding-top: calc(4.5rem + var(--sat, env(safe-area-inset-top, 0px)));">',
+        r'<main class="w-full pt-16 bg-surface-container-lowest min-h-screen">',
+        r'<main class="w-full bg-surface-container-lowest min-h-screen" style="padding-top: calc(6.5rem + var(--sat, env(safe-area-inset-top, 0px)));">',
         html
     )
 
@@ -748,10 +746,9 @@ def build_warm_artisan():
     )
 
     # 5. Header Dynamic Island safe area & Brand
-    html = re.sub(
-        r'<header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">',
-        r'<header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));">',
-        html
+    html = html.replace(
+        '<header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">',
+        '<header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));">'
     )
 
     html = re.sub(
@@ -774,22 +771,21 @@ def build_warm_artisan():
     </nav>"""
     html = re.sub(r'<nav class="hidden lg:flex items-center gap-space-md".*?</nav>', new_desktop_nav, html, flags=re.DOTALL)
 
-    # 7. Add Hamburger Button to Header
-    burger_btn = """<!-- Mobile Hamburger Button -->
-      <button id="hamburger-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-on-surface hover:bg-surface-container transition flex items-center justify-center border border-outline-variant/40" aria-label="Abrir Menú" aria-expanded="false">
+    # 7. Add Hamburger Button to Header (On the RIGHT)
+    burger_btn = """<!-- Mobile Hamburger Button (On the RIGHT) -->
+      <button id="hamburger-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-on-surface hover:bg-surface-container transition flex items-center justify-center border border-outline-variant/40 ml-1" aria-label="Abrir Menú" aria-expanded="false">
         <span class="material-symbols-outlined text-[24px]">menu</span>
       </button>"""
     html = re.sub(
-        r'(<div class="flex items-center gap-space-sm">)',
-        r'\1\n      ' + burger_btn,
-        html,
-        count=1
+        r'<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0">\s*<span class="material-symbols-outlined text-on-primary text-\[18px\]">person</span>\s*</div>',
+        r"""<div class="hidden sm:flex w-8 h-8 rounded-full bg-primary items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div>\n      """ + burger_btn,
+        html
     )
 
     # 8. Main Safe-Area Padding
     html = re.sub(
         r'<main class="w-full pt-20 bg-surface">',
-        r'<main class="w-full bg-surface" style="padding-top: calc(5rem + var(--sat, env(safe-area-inset-top, 0px)));">',
+        r'<main class="w-full bg-surface" style="padding-top: calc(6.5rem + var(--sat, env(safe-area-inset-top, 0px)));">',
         html
     )
 
@@ -982,13 +978,15 @@ def build_clinical_trust():
     )
 
     # 5. Header Dynamic Island safe area & Brand
-    html = re.sub(
-        r'<header class="fixed top-0 left-0 w-full z-50 bg-surface/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]">',
-        r'<header class="fixed top-0 left-0 w-full z-50 bg-surface/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));">',
-        html
+    html = html.replace(
+        '<header class="fixed top-0 left-0 w-full z-50 bg-surface/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]">',
+        '<header class="fixed top-0 left-0 w-full z-50 bg-surface/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));">'
     )
 
-    html = re.sub(r'SannaMed', r"""<span class="truncate max-w-[170px] sm:max-w-xs md:max-w-none">{{ negocio.nombre }}</span>""", html)
+    html = html.replace('alt="SannaMed Clinic Logo"', 'alt="{{ negocio.nombre }} Clinic Logo"')
+    html = html.replace('<span class="font-title-lg text-title-lg text-on-surface font-bold tracking-tight">SannaMed</span>', '<span class="font-title-lg text-title-lg text-on-surface font-bold tracking-tight truncate max-w-[170px] sm:max-w-xs md:max-w-none">{{ negocio.nombre }}</span>')
+    html = html.replace('SannaMed Clinic', '{{ negocio.nombre }}')
+    html = html.replace('SannaMed', '{{ negocio.nombre }}')
 
     # 6. Functional Desktop Navigation
     new_desktop_nav = """<nav class="hidden lg:flex items-center gap-space-xs" data-active-classes="bg-surface-container text-primary font-title-md">
@@ -1001,22 +999,21 @@ def build_clinical_trust():
     </nav>"""
     html = re.sub(r'<nav class="hidden lg:flex items-center gap-space-xs".*?</nav>', new_desktop_nav, html, flags=re.DOTALL)
 
-    # 7. Add Hamburger Button to Header
-    burger_btn = """<!-- Mobile Hamburger Button -->
-      <button id="hamburger-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-xl text-primary hover:bg-surface-container transition flex items-center justify-center border border-outline/20" aria-label="Abrir Menú" aria-expanded="false">
+    # 7. Add Hamburger Button to Header (On the RIGHT)
+    burger_btn = """<!-- Mobile Hamburger Button (On the RIGHT) -->
+      <button id="hamburger-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-xl text-primary hover:bg-surface-container transition flex items-center justify-center border border-outline/20 ml-1" aria-label="Abrir Menú" aria-expanded="false">
         <span class="material-symbols-outlined text-[24px]">menu</span>
       </button>"""
     html = re.sub(
-        r'(<div class="flex items-center gap-space-md">)',
-        r'\1\n      ' + burger_btn,
-        html,
-        count=1
+        r'<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center">\s*<span class="material-symbols-outlined text-on-primary text-\[18px\]">person</span>\s*</div>',
+        r"""<div class="hidden sm:flex w-8 h-8 rounded-full bg-primary items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div>\n      """ + burger_btn,
+        html
     )
 
     # 8. Main Safe-Area Padding
     html = re.sub(
-        r'<main class="w-full pt-28 bg-surface">',
-        r'<main class="w-full bg-surface" style="padding-top: calc(7.5rem + var(--sat, env(safe-area-inset-top, 0px)));">',
+        r'<main class="w-full pt-\[120px\] bg-background min-h-screen">',
+        r'<main class="w-full bg-background min-h-screen" style="padding-top: calc(9rem + var(--sat, env(safe-area-inset-top, 0px)));">',
         html
     )
 
@@ -1220,10 +1217,9 @@ def build_craft_build():
     )
 
     # 5. Header Dynamic Island safe area & Brand
-    html = re.sub(
-        r'<header class="fixed top-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]">',
-        r'<header class="fixed top-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));">',
-        html
+    html = html.replace(
+        '<header class="fixed top-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]">',
+        '<header class="fixed top-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));">'
     )
 
     html = re.sub(r'VÉRTICE', r"""<span class="truncate max-w-[170px] sm:max-w-xs md:max-w-none">{{ negocio.nombre|upper }}</span>""", html)
@@ -1240,23 +1236,21 @@ def build_craft_build():
     </nav>"""
     html = re.sub(r'<nav class="hidden xl:flex items-center gap-space-lg".*?</nav>', new_desktop_nav, html, flags=re.DOTALL)
 
-    # 7. Add Hamburger Button to Header
-    burger_btn = """<!-- Mobile Hamburger Button -->
-      <button id="hamburger-btn" onclick="toggleMobileMenu()" class="xl:hidden p-2 rounded-lg text-on-surface hover:bg-surface-container transition flex items-center justify-center border border-outline/20" aria-label="Abrir Menú" aria-expanded="false">
+    # 7. Add Hamburger Button to Header (On the RIGHT)
+    burger_btn = """<!-- Mobile Hamburger Button (On the RIGHT) -->
+      <button id="hamburger-btn" onclick="toggleMobileMenu()" class="xl:hidden p-2 rounded-lg text-on-surface hover:bg-surface-container transition flex items-center justify-center border border-outline/20 ml-1" aria-label="Abrir Menú" aria-expanded="false">
         <span class="material-symbols-outlined text-[24px]">menu</span>
       </button>"""
     html = re.sub(
-        r'(<div class="flex items-center gap-space-md">)',
-        r'\1\n      ' + burger_btn,
-        html,
-        count=1
+        r'<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center">\s*<span class="material-symbols-outlined text-on-primary text-\[18px\]">person</span>\s*</div>',
+        r"""<div class="hidden sm:flex w-8 h-8 rounded-full bg-primary items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div>\n      """ + burger_btn,
+        html
     )
 
     # 8. Main Safe-Area Padding
-    html = re.sub(
-        r'<main class="w-full pt-28 bg-surface">',
-        r'<main class="w-full bg-surface" style="padding-top: calc(7rem + var(--sat, env(safe-area-inset-top, 0px)));">',
-        html
+    html = html.replace(
+        '<main class="w-full pt-28 pb-20 lg:pb-0 bg-surface min-h-screen">',
+        '<main class="w-full pb-20 lg:pb-0 bg-surface min-h-screen" style="padding-top: calc(8.5rem + var(--sat, env(safe-area-inset-top, 0px)));">'
     )
 
     # 9. Hero Badge & Copy
