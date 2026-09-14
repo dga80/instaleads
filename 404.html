@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desplegando Web Demo...</title>
+  <meta http-equiv="refresh" content="5">
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0b0f19; color: #f8fafc; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 20px; box-sizing: border-box; }
+    .card { background: #1e293b; border: 1px solid #334155; border-radius: 20px; padding: 36px 28px; max-width: 440px; text-align: center; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
+    .loader { width: 44px; height: 44px; border: 4px solid #38bdf8; border-top-color: transparent; border-radius: 50%; animation: spin 0.9s linear infinite; margin: 0 auto 20px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    h2 { font-size: 20px; font-weight: 700; margin: 0 0 10px; color: #f8fafc; }
+    p { font-size: 13.5px; color: #94a3b8; line-height: 1.5; margin: 0 0 20px; }
+    .badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 999px; font-size: 11.5px; color: #38bdf8; font-weight: 600; margin-bottom: 16px; }
+    .btn { display: inline-block; background: linear-gradient(135deg, #38bdf8, #818cf8); color: #0b0f19; font-weight: 700; font-size: 13px; text-decoration: none; padding: 10px 22px; border-radius: 10px; cursor: pointer; border: none; transition: opacity 0.2s; }
+    .btn:hover { opacity: 0.9; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="loader"></div>
+    <div class="badge">⚡ GitHub Pages CDN</div>
+    <h2>Propagando tu Web Demo</h2>
+    <p>La web ya ha sido generada y enviada a los servidores de GitHub. Durante los primeros 15-30 segundos el CDN de GitHub está distribuyendo la página por todo el mundo.<br><br>Esta pestaña <strong>se recargará automáticamente</strong> en unos segundos...</p>
+    <button class="btn" onclick="location.reload()">Recargar ahora</button>
+  </div>
+</body>
+</html>
