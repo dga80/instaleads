@@ -17,7 +17,7 @@ from email.mime.multipart import MIMEMultipart
 import requests
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, Request
-from fastapi.responses import HTMLResponse, JSONResponse, StreamingResponse
+from fastapi.responses import HTMLResponse, JSONResponse, StreamingResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
@@ -52,6 +52,8 @@ except ImportError:
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "data"
 DATA_DIR.mkdir(exist_ok=True)
+DEMOS_DIR = BASE_DIR / "demos"
+DEMOS_DIR.mkdir(exist_ok=True)
 LEADS_FILE = DATA_DIR / "leads.json"
 CAMPAIGNS_FILE = DATA_DIR / "campaigns.json"
 AGENT_MEMORY_FILE = DATA_DIR / "agent_memory.json"
@@ -159,8 +161,37 @@ def sincronizar_gh_pages(
             else:
                 commit_msg = "chore(demos): sincronizar índice showcase de GitHub Pages"
 
-            # 4. Asegurar .nojekyll
+            # 4. Asegurar .nojekyll y página 404 inteligente para amortiguar la latencia de CDN
             (tmp_worktree / ".nojekyll").touch()
+            (tmp_worktree / "404.html").write_text("""<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desplegando Web Demo...</title>
+  <meta http-equiv="refresh" content="5">
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0b0f19; color: #f8fafc; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 20px; box-sizing: border-box; }
+    .card { background: #1e293b; border: 1px solid #334155; border-radius: 20px; padding: 36px 28px; max-width: 440px; text-align: center; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
+    .loader { width: 44px; height: 44px; border: 4px solid #38bdf8; border-top-color: transparent; border-radius: 50%; animation: spin 0.9s linear infinite; margin: 0 auto 20px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    h2 { font-size: 20px; font-weight: 700; margin: 0 0 10px; color: #f8fafc; }
+    p { font-size: 13.5px; color: #94a3b8; line-height: 1.5; margin: 0 0 20px; }
+    .badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 999px; font-size: 11.5px; color: #38bdf8; font-weight: 600; margin-bottom: 16px; }
+    .btn { display: inline-block; background: linear-gradient(135deg, #38bdf8, #818cf8); color: #0b0f19; font-weight: 700; font-size: 13px; text-decoration: none; padding: 10px 22px; border-radius: 10px; cursor: pointer; border: none; transition: opacity 0.2s; }
+    .btn:hover { opacity: 0.9; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="loader"></div>
+    <div class="badge">⚡ GitHub Pages CDN</div>
+    <h2>Propagando tu Web Demo</h2>
+    <p>La web ya ha sido generada y enviada a los servidores de GitHub. Durante los primeros 15-30 segundos el CDN está distribuyendo la página por todo el mundo.<br><br>Esta pestaña <strong>se recargará automáticamente</strong> en unos segundos...</p>
+    <button class="btn" onclick="location.reload()">Recargar ahora</button>
+  </div>
+</body>
+</html>""", encoding="utf-8")
 
             # 5. Generar index.html centralizado para Showcase en GitHub Pages
             leads = leer_leads_guardados()
@@ -246,9 +277,16 @@ def sincronizar_gh_pages(
 
 @app.get("/demos/{slug:path}")
 def redirect_demos_route(slug: str):
-    """Redirección automática de cualquier ruta /demos/... hacia su URL pública en GitHub Pages."""
-    base = obtener_base_github_pages()
+    """
+    Sirve la demo instantáneamente desde local si existe (0 segundos de espera),
+    o redirige a la URL pública de GitHub Pages.
+    """
     clean = slug.strip("/")
+    if clean:
+        local_index = DEMOS_DIR / clean / "index.html"
+        if local_index.is_file():
+            return FileResponse(str(local_index), media_type="text/html")
+    base = obtener_base_github_pages()
     if clean:
         return HTMLResponse(content=f'<script>window.location.href="{base}/{clean}/";</script>')
     return HTMLResponse(content=f'<script>window.location.href="{base}/";</script>')
@@ -2179,7 +2217,15 @@ def generate_lead_web(osm_id: str, request: Request):
     slug = res["slug"]
     rendered_html = res["rendered_html"]
 
-    # Despliegue directo e instantáneo a GitHub Pages
+    # Guardar copia local en demos/ para previsualización inmediata (0s de espera)
+    try:
+        local_path = DEMOS_DIR / slug / "index.html"
+        local_path.parent.mkdir(parents=True, exist_ok=True)
+        local_path.write_text(rendered_html, encoding="utf-8")
+    except Exception as e:
+        print(f"[Local Demo Save Error] {e}")
+
+    # Despliegue directo a GitHub Pages (en segundo plano / rama gh-pages)
     try:
         sync_res = sincronizar_gh_pages(slug=slug, html_content=rendered_html, accion="guardar")
         demo_url_publica = sync_res.get("demo_url", f"{obtener_base_github_pages()}/{slug}/")
@@ -2258,13 +2304,19 @@ def delete_lead_demo(osm_id: str):
 
         slug = target_lead.get("demo_slug") or detectar_demo_existente(target_lead.get("nombre", ""), target_lead.get("ciudad", ""))
         
-        # Eliminar carpeta en GitHub Pages
+        # Eliminar carpeta en GitHub Pages y copia local
         if slug:
             try:
                 sincronizar_gh_pages(slug=slug, accion="borrar")
                 print(f"[GitHub Pages] ✓ Demo '{slug}' eliminada de gh-pages")
             except Exception as e:
                 print(f"[GitHub Pages Delete Error] al borrar {slug}: {e}")
+            try:
+                local_dir = DEMOS_DIR / slug
+                if local_dir.exists():
+                    shutil.rmtree(local_dir, ignore_errors=True)
+            except Exception:
+                pass
 
         # Resetear estado y metadatos de demo
         target_lead["demo_slug"] = ""

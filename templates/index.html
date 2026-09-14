@@ -1477,7 +1477,7 @@
           const slug = data.lead?.demo_slug || data.demo?.slug;
           job.demoUrl = data.lead?.demo_url_publica || data.lead?.demo_url_absoluta || data.demo?.demo_url || (slug ? `/demos/${slug}/` : '');
           
-          mostrarToast(`¡Web Demo creada para ${nombre}! 📱 Lista para ver.`);
+          mostrarToast(`¡Web Demo creada para ${nombre}! 📱 Lista en local (propagándose en GitHub Pages).`);
           
           // Sincronizar lead en memoria inmediatamente
           const lIdx = todosLosLeads.findIndex(l => String(l.osm_id) === osmIdStr);
@@ -2207,8 +2207,14 @@
         qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(finalUrl)}`;
       }
 
-      // Cargar en el marco del simulador
-      iframe.src = finalUrl;
+      // Cargar en el marco del simulador (si estamos en local, carga la copia local al instante)
+      const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+      const slugMatch = finalUrl.match(/instaleads\/([^/?#]+)/);
+      if (isLocal && slugMatch && slugMatch[1]) {
+        iframe.src = `/demos/${slugMatch[1]}/`;
+      } else {
+        iframe.src = finalUrl;
+      }
       
       const modal = document.getElementById('simulator-modal');
       modal.classList.remove('hidden');
