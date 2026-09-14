@@ -2347,19 +2347,19 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=HotDoks+Barcelona",
     "gemini_verificado": true,
     "gemini_razon": "Validación automática heurística",
-    "mensaje_dm": "¡Hola equipo de HotDoks! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de Barcelona para ayudarles a conseguir más clientes desde Google. Os he preparado una maqueta interactiva de cómo luciría vuestra web: https://dga80.github.io/instaleads/hotdoks-barcelona/ (El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de HotDoks! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: https://dga80.github.io/instaleads/hotdoks-barcelona/ Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
-    "estado": "Web Generada",
-    "demo_slug": "hotdoks-barcelona",
-    "demo_url": "https://dga80.github.io/instaleads/hotdoks-barcelona/",
-    "demo_vibe": "Warm Artisan (Cálido, Acogedor & Gastronómico)",
+    "mensaje_dm": "¡Hola equipo de HotDoks! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de Barcelona para ayudarles a conseguir más clientes desde Google. Os he preparado una maqueta interactiva de cómo luciría vuestra web: (El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de HotDoks! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
     "campana_id": "camp_1788898547",
     "campana_nombre": "Cafeteria · barcelona",
     "campana_ids": [
       "camp_1788898547"
     ],
-    "demo_url_absoluta": "https://dga80.github.io/instaleads/hotdoks-barcelona/",
-    "demo_url_publica": "https://dga80.github.io/instaleads/hotdoks-barcelona/"
+    "demo_url_absoluta": "",
+    "demo_url_publica": ""
   },
   {
     "osm_id": "571920531",
@@ -2749,19 +2749,19 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bar+Seco+Barcelona",
     "gemini_verificado": true,
     "gemini_razon": "Validación automática heurística",
-    "mensaje_dm": "¡Hola equipo de Bar Seco! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de Barcelona para ayudarles a conseguir más clientes desde Google. Os he preparado una maqueta interactiva de cómo luciría vuestra web: https://dga80.github.io/instaleads/bar-seco-barcelona/ (El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Bar Seco! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: https://dga80.github.io/instaleads/bar-seco-barcelona/ Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
-    "estado": "Web Generada",
-    "demo_slug": "bar-seco-barcelona",
-    "demo_url": "https://dga80.github.io/instaleads/bar-seco-barcelona/",
-    "demo_vibe": "Warm Artisan (Cálido, Acogedor & Gastronómico)",
+    "mensaje_dm": "¡Hola equipo de Bar Seco! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de Barcelona para ayudarles a conseguir más clientes desde Google. Os he preparado una maqueta interactiva de cómo luciría vuestra web: (El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Bar Seco! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
     "campana_id": "camp_1788898547",
     "campana_nombre": "Cafeteria · barcelona",
     "campana_ids": [
       "camp_1788898547"
     ],
-    "demo_url_absoluta": "https://dga80.github.io/instaleads/bar-seco-barcelona/",
-    "demo_url_publica": "https://dga80.github.io/instaleads/bar-seco-barcelona/"
+    "demo_url_absoluta": "",
+    "demo_url_publica": ""
   },
   {
     "osm_id": "638346221",
@@ -3471,18 +3471,1491 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chelo+Barcelona",
     "gemini_verificado": true,
     "gemini_razon": "Validación automática heurística",
-    "mensaje_dm": "¡Hola equipo de Chelo! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de Barcelona para ayudarles a conseguir más clientes desde Google. Os he preparado una maqueta interactiva de cómo luciría vuestra web: https://dga80.github.io/instaleads/chelo-barcelona/ (El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Chelo! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: https://dga80.github.io/instaleads/chelo-barcelona/ Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
-    "estado": "Web Generada",
-    "demo_slug": "chelo-barcelona",
-    "demo_url": "https://dga80.github.io/instaleads/chelo-barcelona/",
-    "demo_vibe": "Warm Artisan (Cálido, Acogedor & Gastronómico)",
+    "mensaje_dm": "¡Hola equipo de Chelo! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de Barcelona para ayudarles a conseguir más clientes desde Google. Os he preparado una maqueta interactiva de cómo luciría vuestra web: (El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Chelo! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
     "campana_id": "camp_1788898547",
     "campana_nombre": "Cafeteria · barcelona",
     "campana_ids": [
       "camp_1788898547"
     ],
-    "demo_url_absoluta": "https://dga80.github.io/instaleads/chelo-barcelona/",
-    "demo_url_publica": "https://dga80.github.io/instaleads/chelo-barcelona/"
+    "demo_url_absoluta": "",
+    "demo_url_publica": ""
+  },
+  {
+    "osm_id": "3548547497",
+    "nombre": "Draenor Tattoo Estudio",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "Carrer de Pérez Galdós 57",
+    "ciudad": "Badalona",
+    "provincia": "Barcelona",
+    "codigo_postal": "08913",
+    "telefono": "+34 635 48 36 70",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/draenortattoo/",
+    "instagram_handle": "@draenortattoo",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@draenortattoo)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/draenortattoo/",
+        "titulo": "Draenor Tattoo Estudio (@draenortattoo) - Instagram",
+        "snippet": "9,013 Followers, 143 Following, 13 Posts - Draenor Tattoo Estudio (@draenortattoo) on Instagram: \"Residentes:@rubengt97 "
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/draenortattoostudio/",
+        "titulo": "Draenor Tattoo Studio | Badalona",
+        "snippet": "Draenor Tattoo Studio, Badalona. 397 likes · 16 were here. Estudio de tatuajes"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://inkstinct.co/studio/draenor-tattoo-studio-badalona",
+        "titulo": "Draenor Tattoo Studio - Tattoo studio in Badalona, Spain - Inkstinct",
+        "snippet": "Ask a tattoo expert · Store · About · Advertising · Login/Signup · Claim · Studio de tatuajes · Avinguda de prat de la r"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://espanatattoo.com/c/badalona-08/",
+        "titulo": "Tatuador en Badalona abierto hoy. (08015....)",
+        "snippet": "June 18, 2022 - Dirección : Carrer de Pérez Galdós, 57, 08913 Badalona, Barcelona · Teléfono : +34936117781 · Página web"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://draenor-tattoo-studio.negocio.site/",
+        "titulo": "Draenor Tattoo Studio - Tienda de tatuajes en Badalona",
+        "snippet": "Tienda de tatuajes en Badalona"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://twitter.com/draenortattoo",
+        "titulo": "Draenor Tattoo (@draenortattoo) | Twitter",
+        "snippet": "Los Tweets más recientes de Draenor Tattoo (@draenortattoo). Estudio de tatuajes. Síguenos también en Instagram/ draenor"
+      }
+    ],
+    "web_detectada": "https://espanatattoo.com/c/badalona-08/",
+    "google_search_url": "https://www.google.com/search?q=Draenor+Tattoo+Estudio+Badalona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Draenor+Tattoo+Estudio+Badalona",
+    "gemini_verificado": true,
+    "gemini_razon": "Comercio local verificado sin web propia",
+    "mensaje_dm": "¡Hola equipo de Draenor Tattoo Estudio! Me alegra contactaros. Somos un equipo local de diseño web en Badalona y vemos que tenéis un gran potencial para recibir más clientes directos en Google y móvil. Os hemos preparado una maqueta interactiva adaptada a vuestro negocio: https://.... Es un enlace 100% seguro para verla en el navegador sin descargas. ¿Qué os parece?",
+    "mensaje_seguimiento": "¡Hola de nuevo! Os escribí hace un par de días con una maqueta web interactiva para vuestro negocio: https://.... Os lo comparto por aquí por si os resulta cómodo revisarlo desde el móvil. ¡Un saludo cordial!",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789417840",
+    "campana_nombre": "Estudio De Tatuajes · barcelona, barcelona",
+    "campana_ids": [
+      "camp_1789417840"
+    ]
+  },
+  {
+    "osm_id": "3595412701",
+    "nombre": "La barberia tatoo shop",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "Avinguda d'Amèrica 57",
+    "ciudad": "Badalona",
+    "provincia": "Barcelona",
+    "codigo_postal": "08913",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "https://www.instagram.com/labarberiatattooshop/",
+    "instagram_handle": "@labarberiatattooshop",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@labarberiatattooshop)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/labarberiatattooshop/",
+        "titulo": "Delucas Tatoo (@labarberiatattooshop) • Instagram photos and ...",
+        "snippet": "2,070 Followers, 2,774 Following, 690 Posts - Delucas Tatoo (@labarberiatattooshop) on Instagram: \"TODOS LOS ESTILOS :Re"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.infobel.com/es/spain/la_barberia_tattoo_shop_de_lucas/badalona/ES109580578/businessdetails.aspx",
+        "titulo": "La Barberia Tattoo Shop De Lucas, Badalona, ES - Infobel",
+        "snippet": "La Barberia Tattoo Shop De Lucas en Badalona. La Barberia Tattoo Shop De Lucas. Avinguda d'Amèrica 57 08913 Badalona. Mo"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.starofservice.es/dir/cataluna/barcelona/badalona/piercing",
+        "titulo": "Los 10 las mejores especialistas en piercings en Badalona ...",
+        "snippet": "08910 Badalona. Contactar. La Barberia Tattoo Shop De Lucas. 25. La Barberia Tattoo Shop De Lucas. Especialista en pierc"
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://www.espainfo.com/badalona/piercings",
+        "titulo": "Piercings en Badalona (11) - EspaInfo",
+        "snippet": "... tattoo shop, piercings, tatuajes, tattoo. +34 626 29 01... 11. La Barbería Tatto Shop Delucas. Avenida América 57 Ce"
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://empresite.eleconomista.es/Actividad/TATTO/provincia/BARCELONA/",
+        "titulo": "Empresas de \"Tatto\" en Barcelona - Empresite",
+        "snippet": "Peluqueria, estetica y realizacion de tatuajes. la compra, venta, fabricacion, importacoin, exporta... Imagen mapa. Call"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.boe.es/borme/dias/2019/06/10/pdfs/BORME-A-2019-108-08.pdf",
+        "titulo": "[PDF] Actos de BARCELONA del BORME núm. 108 de 2019 - BOE.es",
+        "snippet": "10 jun 2019 · 246941 - LA BARBERIA TATTOO SHOP S.L.. Revocaciones. ADM.UNICO: CHARME NUNES EDUARDO JOSE. Nombramientos. "
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=La+barberia+tatoo+shop+Badalona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=La+barberia+tatoo+shop+Badalona",
+    "gemini_verificado": true,
+    "gemini_razon": "Coincide el negocio y ubicación",
+    "mensaje_dm": "¡Hola equipo de La barberia tatoo shop! Me alegra contactaros. Somos un equipo local de diseño web en Badalona y vemos que tenéis un gran potencial para recibir más clientes directos en Google y móvil. Os hemos preparado una maqueta interactiva adaptada a vuestro negocio: https://.... Es un enlace 100% seguro para verla en el navegador sin descargas. ¿Qué os parece?",
+    "mensaje_seguimiento": "¡Hola de nuevo! Os escribí hace un par de días con una maqueta web interactiva para vuestro negocio: https://.... Os lo comparto por aquí por si os resulta cómodo revisarlo desde el móvil. ¡Un saludo cordial!",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789417840",
+    "campana_nombre": "Estudio De Tatuajes · barcelona, barcelona",
+    "campana_ids": [
+      "camp_1789417840"
+    ]
+  },
+  {
+    "osm_id": "4009003930",
+    "nombre": "Rotative",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "Carrer de Bailèn 209",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "08037",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/rotativetattooshop/",
+    "instagram_handle": "@rotativetattooshop",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@rotativetattooshop)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/rotativetattooshop/",
+        "titulo": "⚔️Rotative Tattoo Shop⚔️ (@rotativetattooshop) • Instagram ...",
+        "snippet": "4,701 Followers, 759 Following, 80 Posts - ⚔️Rotative Tattoo Shop⚔️ (@rotativetattooshop) on Instagram: \"Tattoo - Pierci"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://www.rotativetattooshop.com/en",
+        "titulo": "Rotative Tattoo Shop | Estudio De Tatuajes | Barcelona",
+        "snippet": "Getting a tattoo at Rotative Tattoo is a comfortable and enjoyable experience, even for first-time tattooers. All our cl"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.rotativetattooshop.com/",
+        "titulo": "Rotative Tattoo Shop | Estudio De Tatuajes | Barcelona",
+        "snippet": "Seguramente el estudio de tatuajes con mejores reseñas que puedes encontrar en Barcelona. Ven a Rotative Tattoo Shop par"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.inkspain.es/estudios/cataluna/barcelona/rotative-tattoo-born_2365/",
+        "titulo": "Rotative Tattoo Born - INK Spain",
+        "snippet": "Reserva tu cita con Rotative Tattoo Born, especialistas en tatuajes en Barcelona. Consulta su horario de apertura y llam"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.fresha.com/lvp/rotative-tattoo-carrer-de-sant-pere-mes-baix-barcelona-kq4GGb",
+        "titulo": "Rotative Tattoo Born - Carrer de Sant Pere Més Baix, 46 ... - Fresha",
+        "snippet": "Suggest an updateThis page uses publicly available information to help people discover this venue. The business is not c"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://firmania.es/barcelona/rotative-tattoo-born-1739893",
+        "titulo": "Rotative Tattoo Born - Tatuajes y Piercings en Barcelona Carrer Sant ...",
+        "snippet": "Localice los detalles de contacto comercial de Rotative Tattoo Born en Carrer Sant Pere Mes Baix, 46, CIUTAT VELLA, 0800"
+      }
+    ],
+    "web_detectada": "https://www.rotativetattooshop.com/en",
+    "google_search_url": "https://www.google.com/search?q=Rotative+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Rotative+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Estudio de tatuajes local independiente en Barcelona, perfil de Instagram verificado y sin página web oficial detectada en la información.",
+    "mensaje_dm": "¡Hola equipo de Rotative! ⚔️ Nos encanta vuestro estilo en Barcelona. Somos un equipo local de diseño web y hemos creado una maqueta interactiva exclusiva para vuestro estudio, pensada para captar más citas de tatuajes y piercings directamente: https://... Es un enlace 100% seguro para verla en el móvil sin descargas. ¿Qué os parece?",
+    "mensaje_seguimiento": "¡Hola! Solo os escribía para confirmar que os llegó el mensaje anterior. Os dejo por aquí la maqueta web interactiva que diseñamos para Rotative: https://... Se abre directamente en el navegador sin registros. ¡Que tengáis un gran día!",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789417840",
+    "campana_nombre": "Estudio De Tatuajes · barcelona, barcelona",
+    "campana_ids": [
+      "camp_1789417840"
+    ]
+  },
+  {
+    "osm_id": "5066027726",
+    "nombre": "Pepe Tattoo",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@pepe.tattoo)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/pepe.tattoo/",
+        "titulo": "PEPE (@pepe.tattoo) • Instagram photos and videos",
+        "snippet": "2,118 Followers, 529 Following, 59 Posts - PEPE (@pepe.tattoo) on Instagram: \"⬇️ INFO & PRENOTAZIONI ⬇️\""
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.pinterest.com/pin/tatuajes-de-instagram-de-cool-tattoo-sl--54887689197189924/",
+        "titulo": "Alligator Eye Tattoo - Pinterest",
+        "snippet": "4 Mar 2020 ... tattoo de Pepe (Pepe Tattoo - Hospitalet, Barcelona). Ver más en www.letstattoo.es #eye #ojo #fantasy #te"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://soulhuntertattoo.com/artistas/jdejuan-tattoo/",
+        "titulo": "Mejores Tatuadores Black and Grey Barcelona - Soul Hunter Tattoo",
+        "snippet": "Nuestro tatuador en Barcelona JdeJuan, es uno de los veteranos del equipo Soul Hunter Tattoo. ... and grey teniendo como"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.fresha.com/es/lvp/the-godfather-tattoo-barcelona-passeig-de-joan-de-borbo-barcelona-X0VZo0",
+        "titulo": "The Godfather Tattoo Barcelona - Pg. de Joan de Borbó, 39 ... - Fresha",
+        "snippet": "The Godfather Tattoo Barcelona · Pg. de Joan de Borbó, 39, Ciutat Vella, 08003 Barcelona, Spain · Cómo llegar."
+      },
+      {
+        "tipo": "instagram",
+        "label": "Instagram",
+        "icono": "📸",
+        "url": "https://www.instagram.com/p/DUIbOvgje6d/",
+        "titulo": "Esta locura realizada por @pilo.ink en Garden Tattoo Studio ...",
+        "snippet": "30 Jan 2026 ... ... barcelona #tattoo #tatuaje # ... Siempre te quedan brutales Jose. August 13 · enkitattoobcn's profil"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.laramblabarcelona.com/tatuajes-en-barcelona/",
+        "titulo": "los estudios de tatuajes en Barcelona que no te puedes perder",
+        "snippet": "23 Feb 2018 ... LTW Tattoo Studio. Dirección: carrer Tallers, 29. Realizan tatuajes a ... Pepe Ocaña: historia de una pr"
+      }
+    ],
+    "web_detectada": "https://soulhuntertattoo.com/artistas/jdejuan-tattoo/",
+    "google_search_url": "https://www.google.com/search?q=Pepe+Tattoo+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Pepe+Tattoo+Barcelona",
+    "gemini_verificado": false,
+    "gemini_razon": "Perfil descartado: la biografía está en italiano ('INFO & PRENOTAZIONI'), lo que indica que pertenece a un estudio o tatuador en Italia y no al negocio buscado en Barcelona.",
+    "mensaje_dm": "",
+    "mensaje_seguimiento": "",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789417840",
+    "campana_nombre": "Estudio De Tatuajes · barcelona, barcelona",
+    "campana_ids": [
+      "camp_1789417840"
+    ]
+  },
+  {
+    "osm_id": "5218828492",
+    "nombre": "Ink brothers tattoo shop",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@bcn.ink)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/bcn.ink/",
+        "titulo": "BCN INK TATTOO BARCELONA (@bcn.ink)",
+        "snippet": "54K seguidores, 5,020 siguiendo, 2,423 publicaciones - BCN INK TATTOO BARCELONA (@bcn.ink) en Instagram: \"10 años presta"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://dondetatuarme.es/cataluna/barcelona/badalona/inkbrothers-tattoo-shop/",
+        "titulo": "Inkbrothers Tattoo Shop - Badalona | Dónde Tatuarme",
+        "snippet": "Inkbrothers Tattoo Shop en Badalona. Tatuajes Ctra. Antiga de Valencia, 33, 08914 Badalona, Barcelona, 08914 Badalona"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://mapcarta.com/es/N5218828492",
+        "titulo": "Ink brothers tattoo shop - Mapa - Badalona, Cataluña, España",
+        "snippet": "Ink brothers tattoo shop es una tienda en Badalona, Provincia de Barcelona, Cataluña. Mapcarta, el mapa abierto."
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://www.bcnink.com/",
+        "titulo": "BCN INK l TATTOO SHOP BARCELONA",
+        "snippet": "B.C.N. INK l Professional Tattoo studio Profesional de Tatuaje Barcelona, España. Realizamos todo tipo de tatuajes según"
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/InkBrothersTattoo/",
+        "titulo": "Clandestino Tattoo Estudio | Badalona - Facebook",
+        "snippet": "Clandestino Tattoo Estudio is at Clandestino Tattoo Estudio. Comenzamos un nuevo proyecto que hemos montado con muchisim"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://tatuing.com/estudio/inkbrothers-tattoo-shop/",
+        "titulo": "Inkbrothers Tattoo Shop en Badalona ☎️ Pide tu Cita - Tatuing",
+        "snippet": "Inkbrothers Tattoo Shop se especializa en ilustración natural, científica y medieval, así como en tatuajes en estilo fue"
+      }
+    ],
+    "web_detectada": "https://www.bcnink.com/",
+    "google_search_url": "https://www.google.com/search?q=Ink+brothers+tattoo+shop+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Ink+brothers+tattoo+shop+Barcelona",
+    "gemini_verificado": false,
+    "gemini_razon": "El perfil encontrado pertenece a BCN INK TATTOO BARCELONA y no coincide con el negocio buscado (Ink brothers tattoo shop).",
+    "mensaje_dm": "",
+    "mensaje_seguimiento": "",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789417840",
+    "campana_nombre": "Estudio De Tatuajes · barcelona, barcelona",
+    "campana_ids": [
+      "camp_1789417840"
+    ]
+  },
+  {
+    "osm_id": "5279622091",
+    "nombre": "Blessed Art Tattoo",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "Carrer de Sardenya 226",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/blessedartattoobcn/",
+    "instagram_handle": "@blessedartattoobcn",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@blessedartattoobcn)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/blessedartattoobcn/",
+        "titulo": "BLESSED ART TATTOO BARCELONA (@blessedartattoobcn) - Instagram",
+        "snippet": "34K Followers, 694 Following, 212 Posts - BLESSED ART TATTOO BARCELONA (@blessedartattoobcn) on Instagram: \"⏳Lun a Sáb d"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://blessedarttattoobarcelona.com/",
+        "titulo": "Inicio - BLESSED ART TATTOO BARCELONA",
+        "snippet": "BLESSED ART TATTOO BARCELONA · Ttu destino de referencia en Barcelona para tatuajes y piercings excepcionales. Nuestro e"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://tatuadoresen.com/blessed-art-tattoo-barcelona-barcelona/",
+        "titulo": "Blessed Art Tattoo Barcelona - Barcelona ❤️ Opiniones, Horario y Dirección | Tatuadores",
+        "snippet": "Estudio de tatuajes en Barcelona (Barcelona) que encontrarás en Carrer de Sardenya, 224, L'Eixample, 08013 Barcelona. Aq"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.fresha.com/es/lvp/blessed-art-tattoo-barcelona-carrer-de-sardenya-barcelona-q8wVZD",
+        "titulo": "Blessed Art Tattoo Barcelona - C/ de Sardenya, 224, L'Eixample, 08013 Barcelona, Spain | Fresha",
+        "snippet": "Barcelona · Eixample · Blessed Art Tattoo Barcelona · Mostrar número · C/ de Sardenya, 224, L'Eixample, 08013 Barcelona,"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://es.tattoofilter.com/estudios-de-tatuajes/barcelona/blessedartattoobcn",
+        "titulo": "Blessed Art Tattoo BCN | Tattoofilter",
+        "snippet": "Hechos en Blessed Art Tattoo BCN · favorite_border2share · Albert Bonetroom Barcelona 🇪🇸 · ver más · Descubre Barcelona "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://x.com/tatuajesfutbol/status/923160794568822784",
+        "titulo": "Tatuajes de Fútbol on X: \"Neymar · Por Albert Bonet, hecho en Blessed Art Tattoo BCN, Barcelona. https://t.co/7TmafGzM7u #tatuajes #futbol https://t.co/TL8diQU4NW\" / X",
+        "snippet": "Neymar · Por Albert Bonet, hecho en Blessed Art Tattoo BCN, Barcelona."
+      }
+    ],
+    "web_detectada": "https://blessedarttattoobarcelona.com/",
+    "google_search_url": "https://www.google.com/search?q=Blessed+Art+Tattoo+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Blessed+Art+Tattoo+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Estudio local independiente de tatuajes en Barcelona sin web oficial detectada.",
+    "mensaje_dm": "¡Hola equipo de Blessed Art Tattoo! Nos encanta vuestro trabajo en Barcelona. Somos diseñadores web locales y, al ver que gestionáis citas solo por DM y WhatsApp, os creamos una maqueta web interactiva para mostrar portfolios y captar clientes: https://... Enlace 100% seguro sin descargas ni registros. ¿Qué os parece?",
+    "mensaje_seguimiento": "¡Hola de nuevo! Os escribí hace un par de días con la maqueta web interactiva adaptada a Blessed Art Tattoo: https://... Podéis verla directamente desde el móvil sin compromiso. ¡Un saludo y buen fin de semana!",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789417840",
+    "campana_nombre": "Estudio De Tatuajes · barcelona, barcelona",
+    "campana_ids": [
+      "camp_1789417840"
+    ]
+  },
+  {
+    "osm_id": "5448091658",
+    "nombre": "Arte Tattoo 2.0 The Art Factory",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "Passeig de Llorenç Serra 14",
+    "ciudad": "Santa Coloma de Gramenet",
+    "provincia": "Barcelona",
+    "codigo_postal": "08921",
+    "telefono": "+34 931666688",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "https://www.instagram.com/artetattoo.es/",
+    "instagram_handle": "@artetattoo.es",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@artetattoo.es)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/artetattoo.es/",
+        "titulo": "Arte Tattoo by BaenaOne (@artetattoo.es) · Santa Coloma ...",
+        "snippet": "Ver las fotos y vídeos en Instragram de Arte Tattoo by BaenaOne (@artetattoo.es)"
+      },
+      {
+        "tipo": "instagram",
+        "label": "Instagram",
+        "icono": "📸",
+        "url": "https://www.instagram.com/artetattoo.es/?hl=es",
+        "titulo": "Arte Tattoo by BaenaOne (@artetattoo.es) - Instagram",
+        "snippet": "artetattooestudios@gmail.com 685592277 carrer president companys,2 Santa coloma de gramenet Barcelona #tattoo #tattoos #"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.threads.com/@artetattoo.es?hl=es",
+        "titulo": "Arte Tattoo by BaenaOne (@artetattoo.es) - Threads",
+        "snippet": "2.0K Followers • 39 Threads • ✨Creamos y diseñamos arte, para ti Carrer President Companys, 2 Santacoloma CITA PREVIA 68"
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/artetattoo2.0/posts/luna-cactus-diseño-personalizado-de-la-artista-mire_tattoo-seguimos-atendiendo-s/1475691762614911/",
+        "titulo": "Luna cactus, diseño personalizado De la artista @mire_tattoo ...",
+        "snippet": "2 Sept 2020 ... Arte Tattoo 2.0 the art factory is in Santa Coloma de Gramenet, Spain. Sep 2, 2020. ..."
+      },
+      {
+        "tipo": "instagram",
+        "label": "Instagram",
+        "icono": "📸",
+        "url": "https://www.instagram.com/p/CoPtyssMrWg/",
+        "titulo": "Llaut menorquín y minis #tattoosantako #artetattoo ... - Instagram",
+        "snippet": "4 Feb 2023 ... 87 likes, 2 comments - mire_garabattoo on February 4, 2023: \"Llaut menorquín y minis #tattoosantako #arte"
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/artetattoo2.0/posts/hakuna-matatatattoo-de-hermanos-hecho-por-mire_tattoo-artetattoo20santakosantaco/1027758370741588/?locale=es_LA",
+        "titulo": "Hakuna matata,tattoo de hermanos hecho por @mire_tattoo ...",
+        "snippet": "10 Feb 2019 ... Arte Tattoo 2.0 the art factory. Feb 10, 2019. Hakuna matata,tattoo de ... EsmeraldaInk. Follow · Santa "
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Arte+Tattoo+2.0+The+Art+Factory+Santa+Coloma+de+Gramenet",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Arte+Tattoo+2.0+The+Art+Factory+Santa+Coloma+de+Gramenet",
+    "gemini_verificado": true,
+    "gemini_razon": "Estudio de tatuajes local en Santa Coloma de Gramenet verificado sin web propia detectada",
+    "mensaje_dm": "¡Hola equipo de Arte Tattoo! Somos un equipo local de diseño web en la zona y nos encanta el nivel de vuestros tatuajes. Para ayudaros a captar más reservas directas en Google, os hemos diseñado una maqueta interactiva exclusiva: https://... Es un enlace seguro, visible en el navegador sin registros ni descargas. ¿Qué os parece?",
+    "mensaje_seguimiento": "¡Buenas! Os escribí hace un par de días con la propuesta web que diseñamos para Arte Tattoo: https://... Podéis verla directamente desde el móvil cuando tengáis un hueco. ¡Un saludo y mucho éxito con los tattoos!",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789417840",
+    "campana_nombre": "Estudio De Tatuajes · barcelona, barcelona",
+    "campana_ids": [
+      "camp_1789417840"
+    ]
+  },
+  {
+    "osm_id": "5536153347",
+    "nombre": "Joker Tatoo",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "+34626015025",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "https://www.instagram.com/jokertattoobdn/",
+    "instagram_handle": "@jokertattoobdn",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@jokertattoobdn)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/jokertattoobdn/",
+        "titulo": "JOKER TATTOO BDN (@jokertattoobdn) - Instagram",
+        "snippet": "4,648 Followers, 1,040 Following, 1,662 Posts - JOKER TATTOO BDN (@jokertattoobdn) on Instagram: \"🔸@jokertattoobdn ☎️ 62"
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/p/Joker-Tattoo-bdn-100058910092597/",
+        "titulo": "Joker Tattoo bdn | Barcelona - Facebook",
+        "snippet": "Joker Tattoo bdn, Barcelona, Spain. 3,079 likes · 44 were here. Se realizan todo tipo de tatuajes...si has elegido ya tu"
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/profile.php/?id=100058910092597",
+        "titulo": "Joker Tattoo bdn | Barcelona - Facebook",
+        "snippet": "Joker Tattoo bdn, Barcelona. 3,139 likes · 44 were here. Se realizan todo tipo de tatuajes...si has elegido ya tu diseño"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.inkspain.es/estudios/cataluna/barcelona/joker-tattoo-bdn_3023/",
+        "titulo": "Joker Tattoo Bdn - INK Spain",
+        "snippet": "Opiniones, datos de contacto y detalles de Joker Tattoo Bdn, tu estudio de confianza en Badalona. Consulta su horario de"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.avantgardetattoo.es/en/collective_tattoos/realistic-joker-tattoo/",
+        "titulo": "Realistic Joker Tattoo | Avantgarde Tattoo Barcelona",
+        "snippet": "Realistic portrait tattoo of the Joker in black and white with red details and a negative cross on the wrist by Victor P"
+      },
+      {
+        "tipo": "instagram",
+        "label": "Instagram",
+        "icono": "📸",
+        "url": "https://www.instagram.com/joker_tattoo13/",
+        "titulo": "Joker_ Tattoo13 (@joker_tattoo13) • Instagram photos and videos",
+        "snippet": "22K Followers, 1,390 Following, 755 Posts - Joker_ Tattoo13 (@joker_tattoo13) on Instagram: \"🇪🇸Torrevieja Black and grey"
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Joker+Tatoo+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Joker+Tatoo+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Estudio de tatuajes local en Badalona (Barcelona) verificado, activo en Instagram y sin página web oficial.",
+    "mensaje_dm": "",
+    "mensaje_seguimiento": "",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789417840",
+    "campana_nombre": "Estudio De Tatuajes · barcelona, barcelona",
+    "campana_ids": [
+      "camp_1789417840"
+    ],
+    "demo_url_absoluta": "",
+    "demo_url_publica": ""
+  },
+  {
+    "osm_id": "6179327354",
+    "nombre": "Bhorn tattoo & design",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "Carrer dels Tiradors 9",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "08003",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/bhorn.tattoo/",
+    "instagram_handle": "@bhorn.tattoo",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@bhorn.tattoo)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/bhorn.tattoo/",
+        "titulo": "Bhorn Tattoo Studio Barcelona (@bhorn.tattoo) - Instagram",
+        "snippet": "112K Followers, 1,010 Following, 8,231 Posts - Bhorn Tattoo Studio Barcelona (@bhorn.tattoo) on Instagram: \"Barcelona's "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://bhorntattoo.com/",
+        "titulo": "Tattoo Studio Barcelona: BHORN Tattoo & Design",
+        "snippet": "August 2, 2025 - In our studio in the heart of Barcelona, with a team of 20 professional tattoo artists, you are guarant"
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://www.paginasamarillas.es/f/barcelona/bhorn-tattoo-design_229558713_000000001.html",
+        "titulo": "Bhorn Tattoo & Design - Barcelona - Carrer Tiradors, 9 | TATUAJES Y PIERCING Páginas Amarillas",
+        "snippet": "Tatuajes y piercing Bhorn Tattoo & Design es un negocio ubicado en Carrer Tiradors, 9, Barcelona. Puedes contactar con e"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.tripadvisor.es/Attraction_Review-g187497-d33022456-Reviews-Bhorn_Tattoo_Design-Barcelona_Catalonia.html",
+        "titulo": "BHORN TATTOO & DESIGN (Barcelona) - Qué SABER antes de ir",
+        "snippet": "El Mejor Estudio de Tatuajes de Barcelona , he estado allí para un Tatuaje walkins y me había encantado la experiencia.."
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://www.cylex.es/barcelona/bhorn-tattoo---design-13100967.html",
+        "titulo": "▷ Bhorn Tattoo & Design | Tatuajes y Piercings, Barcelona",
+        "snippet": "September 3, 2024 - Ver Bhorn Tattoo & Design en Barcelona, Carrer dels Tiradors 9 en Cylex y encuentre ☎ 631 28 23..., "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://mejorestatuajes.es/directorio/bhorn-tattoo-design-barcelona/",
+        "titulo": "Bhorn Tattoo & Design (Barcelona) - Mejorestatuajes.es",
+        "snippet": "March 20, 2025 - Los visitantes quedan fascinados ... un simple estudio de tatuajes: es una galería de arte viva. Direcc"
+      }
+    ],
+    "web_detectada": "https://bhorntattoo.com/",
+    "google_search_url": "https://www.google.com/search?q=Bhorn+tattoo+%26+design+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bhorn+tattoo+%26+design+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Coincide el negocio y ubicación, sin web oficial detectada",
+    "mensaje_dm": "¡Hola equipo de Bhorn tattoo & design! Me alegra contactaros. Somos un equipo local de diseño web en Barcelona y vemos que tenéis un gran potencial para recibir más clientes directos en Google y móvil. Os hemos preparado una maqueta interactiva adaptada a vuestro negocio: https://.... Es un enlace 100% seguro para verla en el navegador sin descargas. ¿Qué os parece?",
+    "mensaje_seguimiento": "¡Hola de nuevo! Os escribí hace un par de días con una maqueta web interactiva para vuestro negocio: https://.... Os lo comparto por aquí por si os resulta cómodo revisarlo desde el móvil. ¡Un saludo cordial!",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789417840",
+    "campana_nombre": "Estudio De Tatuajes · barcelona, barcelona",
+    "campana_ids": [
+      "camp_1789417840"
+    ]
+  },
+  {
+    "osm_id": "6992988850",
+    "nombre": "The Shyro Tattoo Studios",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "Carrer de Sicília 42",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "08922",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@shyro__ink)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/shyro__ink/",
+        "titulo": "𝐭𝐚𝐭𝐭𝐨𝐨𝐚𝐫𝐭𝐢𝐬𝐭 | 𝐣𝐞𝐧𝐧𝐲 (@shyro__ink) • Instagram p...CIRCA TATTOO STUDIO BARCELONA (@circatattoobcn) - InstagramTHE TATTOO SHIRE (@thetattooshire) • Instagram photos and videosInstagramTattoo studio in Barcelona (@sashatattooingbarcelona ...ShantyTattoo (@shantytattoo_) • Instagram photos and videosInstagram",
+        "snippet": "27K Followers, 477 Following, 131 Posts - 퐭퐚퐭퐭퐨퐨퐚퐫퐭퐢퐬퐭 | 퐣퐞퐧퐧퐲 (@shyro__ink) on Instagram: \"퐀퐧퐢퐦퐞 퐚퐧퐝 퐃퐚퐫퐤퐟퐞퐦 퐓퐚퐭퐭퐨퐨퐬 퐁퐨"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.nomas900.org/the-shyro-tattoo-628176",
+        "titulo": "The shyro tattoo - Tatuajes y Piercings",
+        "snippet": "The shyro tattoo Tatuajes y Piercings en Santa Coloma de Gramenet Tatuajes y piercings The shyro tattoo es una empresa l"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.yelp.com/search?cflt=tattoo&find_loc=Barcelona",
+        "titulo": "THE BEST 10 Tattoo in BARCELONA, SPAIN - Yelp",
+        "snippet": "My fiancé and I have been wanting our names tattoo'd on each other for a while now, so we decided, \"why not do it in Bar"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://barcelonasecreta.com/en/best-tattoo-artists-barcelona/",
+        "titulo": "Here Are The Best Tattoo Shops And Tattooists In Barcelona",
+        "snippet": "Apr 29, 2024 · With over 20 artists from around the world, the studio covers all styles of tattooing, standing out for i"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.timeout.com/barcelona/things-to-do/best-tattoo-shops-and-studios-in-barcelona",
+        "titulo": "Best tattoo shops and studios in Barcelona - Time Out",
+        "snippet": "Oct 20, 2017 · Whether you call it a tattoo shop, studio or parlour, and whatever your reason for getting one, these are"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://www.tattooswizard.com/locations/spain/barcelona",
+        "titulo": "Tattoo Artists & Studios in barcelona, spain - tattooswizard.com",
+        "snippet": "Find tattoo artists and studios near you. Browse portfolios, compare styles, and book with confidence."
+      }
+    ],
+    "web_detectada": "https://www.tattooswizard.com/locations/spain/barcelona",
+    "google_search_url": "https://www.google.com/search?q=The+Shyro+Tattoo+Studios+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=The+Shyro+Tattoo+Studios+Barcelona",
+    "gemini_verificado": false,
+    "gemini_razon": "El perfil detectado (@shyro__ink) corresponde a una artista independiente ubicada en Alemania (Stuttgart) y no al estudio buscado en Barcelona.",
+    "mensaje_dm": "",
+    "mensaje_seguimiento": "",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789417840",
+    "campana_nombre": "Estudio De Tatuajes · barcelona, barcelona",
+    "campana_ids": [
+      "camp_1789417840"
+    ]
+  },
+  {
+    "osm_id": "7003296912",
+    "nombre": "Esmeralda Ink",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/esmeraldaink/",
+    "instagram_handle": "@esmeraldaink",
+    "enlaces_internet": [
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://esmeraldaink.com/",
+        "titulo": "Esmeralda INK | #1 Tattoo Studio en Barcelona",
+        "snippet": "En Esmeralda INK, somos más que un estudio de tattoo en Barcelona; somos apasionados por el arte del tatuaje. Descubre l"
+      },
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@esmeraldaink)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/esmeraldaink/",
+        "titulo": "Barcelona Tattoo Studio (@esmeraldaink) - Instagram",
+        "snippet": "Barcelona Tattoo Studio 65.7Kfollowers 717following 🇪🇦🇨🇭🇩🇴🏴☠️@esmeralda.a.c13@julen_ink@silviaminimaltattoo@joankaveli@o"
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/EsmeraldaInkTattoo/",
+        "titulo": "EsmeraldaInk - Facebook",
+        "snippet": "EsmeraldaInk, Barcelona. 2,579 likes · 1 talking about this. Estudio de tatuajes en Barcelona Calle Margarit num 9 Poble"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://esmeraldaink.com/contactar/",
+        "titulo": "Contactar y reservar cita en Esmeralda INK | Tatuajes BCN",
+        "snippet": "Contactar Contáctanos (+34) 605 54 48 28 info@esmeraldaink.com Carrer de Margarit, 9, 08004 Barcelona"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.inkspain.es/estudios/cataluna/barcelona/esmeralda-ink-tattoo-studio-barcelona_2307/",
+        "titulo": "Esmeralda Ink Tattoo Studio Barcelona - INK Spain",
+        "snippet": "¿Buscas estudio de tatuaje en Barcelona? Conoce a Esmeralda Ink Tattoo Studio Barcelona y descubre su portfolio y estilo"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://dondetatuarme.es/cataluna/barcelona/barcelona/esmeralda-ink-tattoo-studio-barcelona/",
+        "titulo": "Esmeralda Ink Tattoo Studio Barcelona - dondetatuarme.es",
+        "snippet": "Esmeralda Ink Tattoo Studio Barcelona Estudio de Tatuajes situado en Poble Sec barrio de Barcelona. En nuestro estableci"
+      }
+    ],
+    "web_detectada": "https://esmeraldaink.com/",
+    "google_search_url": "https://www.google.com/search?q=Esmeralda+Ink+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Esmeralda+Ink+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Estudio de tatuajes local en Barcelona verificado sin web propia oficial detectada",
+    "mensaje_dm": "¡Hola equipo de Esmeralda Ink! Vemos el gran nivel de vuestros tatuajes en Barcelona. Somos un equipo local de diseño web y os hemos preparado una maqueta interactiva pensada para captar citas y mostrar vuestro portfolio: https://.... Es un enlace 100% seguro para verla online sin registros ni descargas. ¿Qué os parece?",
+    "mensaje_seguimiento": "¡Hola de nuevo! Os escribí hace un par de días con la propuesta y maqueta web que diseñamos para Esmeralda Ink: https://.... Os lo recuerdo por si queréis echarle un vistazo rápido desde el móvil. ¡Un saludo!",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789417840",
+    "campana_nombre": "Estudio De Tatuajes · barcelona, barcelona",
+    "campana_ids": [
+      "camp_1789417840"
+    ]
+  },
+  {
+    "osm_id": "7003408119",
+    "nombre": "Tattoo Can-Can",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@ivancaantattoo)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/ivancaantattoo/",
+        "titulo": "️IVAN CAAN TATTOO ️ (@ivancaantattoo) - Instagram",
+        "snippet": "5,167 Followers, 435 Following, 73 Posts - ️IVAN CAAN TATTOO ️ (@ivancaantattoo) on Instagram: \" ️Bright & Bold ️DM & ho"
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://metropoliabierta.elespanol.com/guia/p/can-can-tatuajes-barcelona-7216258/",
+        "titulo": "Can-Can Tatuajes, en Barcelona (Barcelona) - Metrópoli Abierta",
+        "snippet": "Can-Can Tatuajes en Rambla de Sant Josep 114, Barcelona (Barcelona). teléfono, dirección, ofertas, opiniones de usuarios"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://www.familyarttattoo.com/",
+        "titulo": "Family Art Tattoo: Tattoo Barcelona | Tatuajes Barcelona",
+        "snippet": "Estudio situado en el centro de Barcelona con una larga trayectoria en el sector del tatuaje, piercing y microblading. T"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.eixcomercialpoblenou.com/es/socio/never-i-cant-tattoo-studio",
+        "titulo": "Never I can't tattoo studio - Eix Comercial Poblenou",
+        "snippet": "C/ Marià Aguiló, 90 08005 Barcelona Tel. 938552556infotattoo@nevericant.comVisitar website · Never I can't tattoo studio"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://intitattoobcn.com/",
+        "titulo": "Inti Tattoo BCN",
+        "snippet": "En Inti Tattoo Bcn no sólo hacemos tatuajes y piercings: además te acompañamos durante todo el proceso. Desde que entras"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://71.studio/en/tattoos-japanese-barcelona/",
+        "titulo": "japanese tattoos in Barcelona | 71studio",
+        "snippet": "1 japanese tattoo artist at 71studio Barcelona. Eixample, C/ Entença 171. 301 Google reviews with 5☆. Book online."
+      }
+    ],
+    "web_detectada": "https://www.familyarttattoo.com/",
+    "google_search_url": "https://www.google.com/search?q=Tattoo+Can-Can+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Tattoo+Can-Can+Barcelona",
+    "gemini_verificado": false,
+    "gemini_razon": "Discrepancia en el nombre y negocio: el perfil encontrado corresponde al tatuador Ivan Caan Tattoo en Sabadell, no a Tattoo Can-Can.",
+    "mensaje_dm": "",
+    "mensaje_seguimiento": "",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789417840",
+    "campana_nombre": "Estudio De Tatuajes · barcelona, barcelona",
+    "campana_ids": [
+      "camp_1789417840"
+    ]
+  },
+  {
+    "osm_id": "7108817886",
+    "nombre": "Hidden Doorway Tattoo",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "Carrer de Calders 3",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "08003",
+    "telefono": "+34 699 68 99 21",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Hidden+Doorway+Tattoo+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Hidden+Doorway+Tattoo+Barcelona",
+    "gemini_verificado": false,
+    "gemini_razon": "Sin Instagram ni presencia web detectada",
+    "mensaje_dm": "",
+    "mensaje_seguimiento": "",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789417840",
+    "campana_nombre": "Estudio De Tatuajes · barcelona, barcelona",
+    "campana_ids": [
+      "camp_1789417840"
+    ]
+  },
+  {
+    "osm_id": "7736420805",
+    "nombre": "Secret tattoo barcelona",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "Carrer del Regent Mendieta 2",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "08028",
+    "telefono": "+34933344639",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/secrettattoobarcelona_/",
+    "instagram_handle": "@secrettattoobarcelona_",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@secrettattoobarcelona_)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/secrettattoobarcelona_/",
+        "titulo": "Expertos en tatuajes sobre Cicatrices ... - Instagram",
+        "snippet": "40K Followers, 10 Following, 234 Posts - See Instagram photos and videos from Expertos en tatuajes sobre Cicatrices. (@s"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://secretattoo.com/",
+        "titulo": "Secret Tattoo Barcelona: Expertos en cicatrices en Barcelona",
+        "snippet": "Especialistas en tatuajes sobre cicatrices en Barcelona. Con más de 15 años de experiencia, ofrecemos soluciones persona"
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/bygustavolesmes/?locale=es_ES",
+        "titulo": "Secret tattoo barcelona - Facebook",
+        "snippet": "Secret tattoo barcelona, Barcelona. 18 215 Me gusta · 188 personas han estado aquí. tatuajes, cubrimientos, arreglos de "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.fresha.com/es/lvp/secret-tattoo-barcelona-carrer-del-regent-mendieta-barcelona-85Bb3V",
+        "titulo": "Secret Tattoo Barcelona - Carrer del Regent Mendieta, 2, Les Corts ...",
+        "snippet": "Sala de tratamientos elegante en Natubeza, Barcelona, Catalunya, ES con equipos de belleza. Natubeza. 5,0 valoración. 5,"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://barcelonasecreta.com/mejores-tatuadores-barcelona/",
+        "titulo": "Aquí están los mejores locales de tattoo y tatuadores de Barcelona",
+        "snippet": "14 Aug 2024 ... Como ciudad vanguardista que es, Barcelona puede presumir de tener entre su elenco tatuador a algunos de"
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/bygustavolesmes/videos/️secret-tattoo-barcelona️calle-regente-mendieta-2metro-collblanchttpssecretattoo/2252564661568835/",
+        "titulo": "Secret Tattoo Barcelona⚜️ Calle Regente Mendieta 2 Metro ...",
+        "snippet": "2 May 2022 ... Secret Tattoo Barcelona⚜️ Calle Regente Mendieta 2 Metro Collblanc https://secretattoo.com/ . . #tattoos "
+      }
+    ],
+    "web_detectada": "https://secretattoo.com/",
+    "google_search_url": "https://www.google.com/search?q=Secret+tattoo+barcelona+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Secret+tattoo+barcelona+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Estudio local especializado en Barcelona sin web oficial detectada en su perfil.",
+    "mensaje_dm": "¡Hola equipo de Secret Tattoo Barcelona! Brutal vuestro trabajo con tatuajes sobre cicatrices. Somos un equipo local de diseño web en Barcelona y os hemos creado una maqueta interactiva pensada para mostrar vuestros casos y captar citas directas: https://.... Es un enlace seguro para verla online sin registros ni descargas. ¿Qué os parece?",
+    "mensaje_seguimiento": "¡Hola de nuevo! Os escribí hace un par de días por si queríais echar un ojo a la maqueta interactiva que diseñamos para vuestro estudio en Barcelona: https://.... Se revisa al instante en el móvil y sin compromiso. ¡Un saludo!",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789417840",
+    "campana_nombre": "Estudio De Tatuajes · barcelona, barcelona",
+    "campana_ids": [
+      "camp_1789417840"
+    ]
+  },
+  {
+    "osm_id": "8049732295",
+    "nombre": "A1 tattoo",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "https://www.instagram.com/a1bcn/",
+    "instagram_handle": "@a1bcn",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@a1bcn)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/a1bcn/",
+        "titulo": "A1 BCN (@a1bcn) • Instagram photos and videos",
+        "snippet": "16K Followers, 3,494 Following, 505 Posts - A1 BCN (@a1bcn) on Instagram: \"Estudio Profesional de tatuajes. 📍 Cami antic"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.inkspain.es/estudios/cataluna/barcelona/a1-tattoo-bcn_2989/",
+        "titulo": "A1 Tattoo Bcn - INK SpainA1 TATTOO BCN - Barcelona ️ Opiniones, Horario y Dirección ...A1 BCN (@a1bcn) • Instagram photos and videosA1 TATTOO BCN - Camí Antic de València, 20, Sant ... - FreshaA1 TATTOO BCN - Camí Antic de València, 20, Sant ... - FreshaA1 BCN - FacebookA1 TATTOO BCN, Camí Antic de València, 20, Sant Martí ...",
+        "snippet": "Encuentra a A1 Tattoo Bcn en Barcelona. Artistas del tatuaje y modificación corporal. Consulta su horario de apertura y "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://tatuadoresen.com/a1-tattoo-bcn-barcelona/",
+        "titulo": "A1 TATTOO BCN - Barcelona ️ Opiniones, Horario y Dirección ...",
+        "snippet": "Datos, contacto, información, opiniones y horarios de A1 TATTOO BCN - Barcelona. ¡Descúbrelo!"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.fresha.com/lvp/a1-tattoo-bcn-cami-antic-de-valencia-barcelona-RrqkYy",
+        "titulo": "A1 TATTOO BCN - Camí Antic de València, 20, Sant ... - Fresha",
+        "snippet": "A1 TATTOO BCN Show number Camí Antic de València, 20, Sant Martí, 08005 Barcelona, Spain Get directions Call to book"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.fresha.com/es/lvp/a1-tattoo-bcn-cami-antic-de-valencia-barcelona-RrqkYy",
+        "titulo": "A1 TATTOO BCN - Camí Antic de València, 20, Sant ... - Fresha",
+        "snippet": "Mostrar número Camí Antic de València, 20, Sant Martí, 08005 Barcelona, Spain Cómo llegar Llamar para reservar Atrás"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://esopiniones.com/catalonia/a1-tattoo-bcn-615419",
+        "titulo": "A1 TATTOO BCN, Camí Antic de València, 20, Sant Martí ...",
+        "snippet": "¡De vacaciones en Barcelona, con ganas de grabar un recuerdo en la piel, tropecé con un salón donde te esperan el buen h"
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=A1+tattoo+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=A1+tattoo+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Coincide el negocio y ubicación, sin web oficial detectada.",
+    "mensaje_dm": "¡Hola equipo de A1 tattoo! Me alegra contactaros. Somos un equipo local de diseño web en Barcelona y vemos que tenéis un gran potencial para recibir más clientes directos en Google y móvil. Os hemos preparado una maqueta interactiva adaptada a vuestro negocio: https://maqueta.ejemplo.com/a1tattoo. Es un enlace 100% seguro para verla en el navegador sin descargas. ¿Qué os parece?",
+    "mensaje_seguimiento": "¡Hola de nuevo! Os escribí hace un par de días con una maqueta web interactiva para vuestro negocio: https://maqueta.ejemplo.com/a1tattoo. Os lo comparto por aquí por si os resulta cómodo revisarlo desde el móvil. ¡Un saludo cordial!",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789417840",
+    "campana_nombre": "Estudio De Tatuajes · barcelona, barcelona",
+    "campana_ids": [
+      "camp_1789417840"
+    ]
+  },
+  {
+    "osm_id": "8544879040",
+    "nombre": "Rattattooink",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "https://www.instagram.com/rattattooink/",
+    "instagram_handle": "@rattattooink",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@rattattooink)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/rattattooink/",
+        "titulo": "RatTattooInk (@rattattooink) • Instagram photos and videos",
+        "snippet": "98 Followers, 95 Following, 33 Posts - See Instagram photos and videos from RatTattooInk (@rattattooink)"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://callejero.openalfa.es/barcelona_barcelones/comercio",
+        "titulo": "Locales comerciales en Barcelona, Barcelonés",
+        "snippet": "Logia Barcelona Carrer de Tarragona, 84 08015. Teléfono: +34 932506168; NUC Carrer de Torrijos, 11; Rattattooink Passeig"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://callejero.openalfa.es/barcelones/comercio",
+        "titulo": "Locales comerciales en Barcelonés, Provincia de Barcelona",
+        "snippet": "Rattattooink Passeig de Valldaura, 160A; Red Rabbit Tattoo studio. Carrer de València, 397 08013 Barcelona; Rotative Car"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://callejero.openalfa.es/calles/carrer-de-matamala-08031-can-peguera-nou-barris-barcelona",
+        "titulo": "Carrer de Matamala, Barcelona (Nou Barris, Can Peguera)",
+        "snippet": "Rattattooink Passeig de Valldaura, 160A; Tienda de variedades - 422m. Basar Amistat Passeig de Valldaura. Ocio y Deporte"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://callejero.openalfa.es/barcelona/comercio",
+        "titulo": "Locales comerciales en Provincia de Barcelona, Cataluña",
+        "snippet": "... Rattattooink Passeig de Valldaura, 160A; Red Rabbit Tattoo studio. Carrer de València, 397 08013 Barcelona; Roots Ta"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://callejero.openalfa.es/calles/carrer-de-ribelles-08031-can-peguera-nou-barris-barcelona",
+        "titulo": "Carrer de Ribelles, Barcelona (Nou Barris, Can Peguera)",
+        "snippet": "Rattattooink Passeig de Valldaura, 160A. Ocio y Deporte. Petanca - 398m - Carrer de Beret; Fútbol - 283m. Camp Municipal"
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Rattattooink+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Rattattooink+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Estudio de tatuajes local independiente en Barcelona sin web oficial detectada.",
+    "mensaje_dm": "¡Hola equipo de Rattattooink! Somos un equipo local de diseño web en Barcelona. Nos encanta vuestro trabajo y os preparamos una propuesta de web interactiva para mostrar vuestros tattoos y captar citas: https://... Es un enlace 100% seguro para verla online sin descargas ni registros. ¿Qué os parece?",
+    "mensaje_seguimiento": "¡Hola de nuevo! Os escribí hace un par de días con la maqueta web interactiva para Rattattooink: https://... Os la dejo por si queréis echarle un vistazo rápido sin compromiso. ¡Un saludo!",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789417840",
+    "campana_nombre": "Estudio De Tatuajes · barcelona, barcelona",
+    "campana_ids": [
+      "camp_1789417840"
+    ]
+  },
+  {
+    "osm_id": "8544879057",
+    "nombre": "Drag Tatoo",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://droptattoobarcelona.com/",
+        "titulo": "Drop Tattoo Barcelona: Tattoos",
+        "snippet": "The design features a mythical dragon in an oriental style with detailed shading in shades of gray and black. ... At Dro"
+      },
+      {
+        "tipo": "instagram",
+        "label": "Instagram",
+        "icono": "📸",
+        "url": "https://www.instagram.com/p/DSSaka0DJRh/",
+        "titulo": "Dragon Citas disponibles para Tattoos tradicionales ... - Instagram",
+        "snippet": "15 Dec 2025 ... Dragon Citas disponibles para Tattoos tradicionales. Más información o pide cita en el link bio o dm. Re"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://folktattoobcn.com/dragn-en-el-tatuaje-japons/",
+        "titulo": "Dragón en el tatuaje japonés - Folk Tattoo Bcn",
+        "snippet": "17 Aug 2026 ... Folk Tattoo Barcelona es un estudio fundado en 2021 por cuatro amigos que comparten una misma pasión por"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.tonyblacktattoo.com/tatuajes-realistas-en-barcelona/",
+        "titulo": "Los Mejores Tatuajes Realistas de Barcelona - Tony Black Tattoo",
+        "snippet": "Soy Tony Black, uno de los mejores tatuadores especializado en Tatuajes realistas de Barcelona y mi enfoque en el realis"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://bhorntattoo.com/es/",
+        "titulo": "Estudio de Tatuajes en Barcelona | BHORN Tattoo & Design",
+        "snippet": "Artistas del tatuaje en Barcelona. Especialistas en blackwork, fine line ... female dragon back tattoo. Lera Wolkovinska"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://circatattoo.com/",
+        "titulo": "Circa Tattoo | Tatuajes, Piercing y Joyería en Barcelona",
+        "snippet": "Tatuajes y piercings en Barcelona sin cita. Microrealismo, fine line, realismo, floral y mascotas; piercing con oro 14k "
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Drag+Tatoo+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Drag+Tatoo+Barcelona",
+    "gemini_verificado": false,
+    "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Sitio Web, Instagram)",
+    "mensaje_dm": "",
+    "mensaje_seguimiento": "",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789417840",
+    "campana_nombre": "Estudio De Tatuajes · barcelona, barcelona",
+    "campana_ids": [
+      "camp_1789417840"
+    ]
+  },
+  {
+    "osm_id": "9695204268",
+    "nombre": "Bluck tatto",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "https://www.instagram.com/blucktattoobcn/",
+    "instagram_handle": "@blucktattoobcn",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@blucktattoobcn)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/blucktattoobcn/",
+        "titulo": "BLUCKTATTOO VEGAN STUDIO BARCELONA (@blucktattoobcn) - Instagram",
+        "snippet": "5,845 Followers, 670 Following, 524 Posts - See Instagram photos and videos from BLUCKTATTOO VEGAN STUDIO BARCELONA (@bl"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.bing.com/aclick?ld=e8XXAT7_d5A5fUsNyaEabYOzVUCUxfz2awbMX_u6EkrmhFVWD5ffcgr9Ay34cnhuFMllYFHjtgg-ZvgaS_kuwlqY3HUY49h-tQj4jUP6OWxySAWp2hLoYteYsT8Vkb6_2xLTHxlKMPZJ5t9OlIw1VVKUJ3-cQl0sMjWpf5jXh3Scy8rDaeIwf_i3pI_KtAfHRCOXf8ELYhdpESL0_q9KvyW4w6r3Q&u=aHR0cHMlM2ElMmYlMmZ3d3cuZ3JvdXBvbi5jb20lMmZsb2NhbCUyZnRhdHRvbyUzZmFkc2FmZSUzZHRydWUlMjZ1dG1fY2FtcGFpZ24lM2RjXzU2OTMzMzc4OCUyNnV0bV9jb250ZW50JTNkNzQyMTczNTM4NzAyNDglMjZ1dG1fc291cmNlJTNkYmluZyUyNnV0bV9tZWRpdW0lM2RjcGMlMjZtc2Nsa2lkJTNkOGI2Y2Q0NmZiOTU5MTcxMTA1Y2ZiZWM3ZTU4Mzc0NDE&rlid=8b6cd46fb959171105cfbec7e5837441",
+        "titulo": "Tattoo Special Discounts - Eyebrow Tattoo Deals - Tattoo Salons",
+        "snippet": "4.0 (68559 reviews) Discover the best tattoo artists with exclusive offers and limited-time deals. Book your tattoo sess"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://tatuadoresen.com/bluck-tattoo-bcn-barcelona/",
+        "titulo": "Bluck Tattoo Bcn - Barcelona ️ Opiniones, Horario y Dirección ...Bluck Tattoo Bcn - INK SpainBLUCK TATTO | Horta-Guinardó Comerç - BarcelonaVictoria | Tattoo Artist Barcelona | Shark from one of my ...Bluck Tattoo Bcn - Carrer de Dante Alighieri, 37, Horta ...Bluck Tattoo Bcn, Carrer de Dante Alighieri, 37, teléfono +34 ...",
+        "snippet": "Estudio de tatuajes en Barcelona (Barcelona) que encontrarás en Carrer de Dante Alighieri, 37, Horta-Guinardó, 08032 Bar"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.inkspain.es/estudios/cataluna/barcelona/bluck-tattoo-bcn_6263/",
+        "titulo": "Bluck Tattoo Bcn - INK SpainBLUCK TATTO | Horta-Guinardó Comerç - BarcelonaVictoria | Tattoo Artist Barcelona | Shark from one of my ...Bluck Tattoo Bcn - Carrer de Dante Alighieri, 37, Horta ...Bluck Tattoo Bcn, Carrer de Dante Alighieri, 37, teléfono +34 ...",
+        "snippet": "Opiniones, datos de contacto y detalles de Bluck Tattoo Bcn, tu estudio de confianza en Barcelona. Consulta su horario d"
+      },
+      {
+        "tipo": "instagram",
+        "label": "Instagram",
+        "icono": "📸",
+        "url": "https://www.instagram.com/reel/DdOIULMKSnd/",
+        "titulo": "Victoria | Tattoo Artist Barcelona | Shark from one of my ...",
+        "snippet": "43 likes, 5 comments - 802.tattoo on September 13, 2026: \"Shark from one of my flashes 麗 tattooing in Barcelona DM to bo"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.fresha.com/lvp/bluck-tattoo-bcn-carrer-de-dante-alighieri-barcelona-r6EPKo",
+        "titulo": "Bluck Tattoo Bcn - Carrer de Dante Alighieri, 37, Horta ...",
+        "snippet": "Bluck Tattoo Bcn Show number Carrer de Dante Alighieri, 37, Horta-Guinardó, 08032 Barcelona, Spain Get directions Call t"
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Bluck+tatto+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bluck+tatto+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Coincide el negocio y ubicación, no se detecta web oficial.",
+    "mensaje_dm": "¡Hola equipo de Bluck tatto! Me alegra contactaros. Somos un equipo local de diseño web en Barcelona y vemos que tenéis un gran potencial para recibir más clientes directos en Google y móvil. Os hemos preparado una maqueta interactiva adaptada a vuestro negocio: https://.... Es un enlace 100% seguro para verla en el navegador sin descargas. ¿Qué os parece?",
+    "mensaje_seguimiento": "¡Hola de nuevo! Os escribí hace un par de días con una maqueta web interactiva para vuestro negocio: https://.... Os lo comparto por aquí por si os resulta cómodo revisarlo desde el móvil. ¡Un saludo cordial!",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789417840",
+    "campana_nombre": "Estudio De Tatuajes · barcelona, barcelona",
+    "campana_ids": [
+      "camp_1789417840"
+    ]
+  },
+  {
+    "osm_id": "9823596020",
+    "nombre": "Fenix Tattoo",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "+34 603 045707",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/FenixTattoos/?locale=es_ES",
+        "titulo": "Fenix Tattoos | Barcelona - Facebook",
+        "snippet": "Una revisión de los tatuajes con enfoque religioso y simbólico de estas últimas semanas. Escala de grises y realismo. >>"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.fresha.com/es/lvp/fenix-tattoo-carrer-de-provenca-barcelona-jwPAr4",
+        "titulo": "Fenix Tattoo - Carrer de Provença, 35, Eixample, 08029 Barcelona ...",
+        "snippet": "Fenix Tattoo · Carrer de Provença, 35, Eixample, 08029 Barcelona, Spain · Cómo llegar · Llamar para reservar. Fenix Tatt"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://fenixtattoov.com/",
+        "titulo": "Fenix Tattoo — Estudio de Tatuajes en Barcelona y Córdoba",
+        "snippet": "4 Sept 2026 ... Estudio de tatuajes artísticos en Barcelona y Córdoba. Realismo, blackwork, fineline y japonés. Reservas"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.tiktok.com/@tinytattoobarcelona/video/7631985385161116950",
+        "titulo": "Fine Line Phoenix Tattoo in Granollers, Barcelona - TikTok",
+        "snippet": "23 Apr 2026 ... Located in Granollers, Barcelona, our studio specializes in fine line tattoos, and the phoenix design is"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.infobel.com/es/spain/fenix_tattoo/barcelona/ES109877867/businessdetails.aspx",
+        "titulo": "Fenix Tattoo, Barcelona, ES | Información de la empresa - Infobel",
+        "snippet": "3 Aug 2026 ... Fenix Tattoo en Barcelona · Fenix Tattoo · Otros negocios de la misma zona."
+      },
+      {
+        "tipo": "instagram",
+        "label": "Instagram",
+        "icono": "📸",
+        "url": "https://www.instagram.com/p/DQY7Aw8jeIP/",
+        "titulo": "Fénix Tattoo directamente desde Barcelona abre sus ... - Instagram",
+        "snippet": "29 Oct 2025 ... Fénix Tattoo directamente desde Barcelona abre sus puertas en Córdoba Por ello, para celebrar nuestra se"
+      }
+    ],
+    "web_detectada": "https://fenixtattoov.com/",
+    "google_search_url": "https://www.google.com/search?q=Fenix+Tattoo+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Fenix+Tattoo+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Facebook, Sitio Web, Sitio Web Detectado, Instagram)",
+    "mensaje_dm": "",
+    "mensaje_seguimiento": "",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789417840",
+    "campana_nombre": "Estudio De Tatuajes · barcelona, barcelona",
+    "campana_ids": [
+      "camp_1789417840"
+    ]
   }
 ]

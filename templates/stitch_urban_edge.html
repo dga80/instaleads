@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link rel="icon" type="image/jpeg" href="{{ ig.avatar_url or 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=96&q=80' }}">
+<html class="dark" lang="es"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/><link rel="icon" type="image/jpeg" href="{{ ig.avatar_url or 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=96&q=80' }}">
 <link href="https://fonts.googleapis.com\" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;family=Space+Grotesk:wght@300..700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-primary-fixed-variant": "#783200", "on-surface-variant": "#e0c0b1", "on-primary-fixed": "#341100", "surface-container-lowest": "#0e0e10", "outline": "#a78b7d", "surface-variant": "#353437", "surface-container": "#201f22", "on-error": "#690005", "surface-container-high": "#2a2a2c", "on-secondary-fixed-variant": "#47464a", "surface-dim": "#131315", "background": "#131315", "surface": "#131315", "on-surface": "#e5e1e4", "secondary-fixed": "#e4e1e5", "inverse-surface": "#e5e1e4", "on-tertiary-container": "#31323a", "on-tertiary-fixed-variant": "#45464e", "tertiary-container": "#9a9aa3", "secondary-fixed-dim": "#c8c6c9", "primary-fixed": "#ffdbca", "surface-bright": "#39393b", "surface-container-highest": "#353437", "on-secondary-fixed": "#1b1b1e", "tertiary-fixed": "#e2e1eb", "primary-fixed-dim": "#ffb690", "surface-tint": "#ffb690", "primary-container": "#f97316", "inverse-on-surface": "#313032", "secondary-container": "#47464a", "inverse-primary": "#9d4300", "on-tertiary-fixed": "#1a1b22", "error": "#ffb4ab", "on-primary-container": "#582200", "on-tertiary": "#2f3037", "on-secondary": "#303033", "on-error-container": "#ffdad6", "tertiary": "#c6c6cf", "on-background": "#e5e1e4", "outline-variant": "#584237", "on-primary": "#552100", "surface-container-low": "#1c1b1d", "error-container": "#93000a", "on-secondary-container": "#b6b4b8", "tertiary-fixed-dim": "#c6c6cf", "primary": "#ffb690", "secondary": "#c8c6c9" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter-mobile": "1rem", "space-lg": "1.5rem", "space-xs": "0.25rem", "margin": "3rem", "margin-mobile": "1.25rem", "gutter": "1.5rem", "space-md": "1rem", "space-sm": "0.5rem", "space-xl": "2.5rem" }, "fontFamily": { "headline-lg-mobile": ["Space Grotesk"], "headline-lg": ["Space Grotesk"], "label-md": ["JetBrains Mono"], "body-sm": ["DM Sans"], "label-lg": ["JetBrains Mono"], "headline-xl-mobile": ["Space Grotesk"], "body-md": ["DM Sans"], "headline-xl": ["Space Grotesk"], "body-lg": ["DM Sans"], "headline-md": ["Space Grotesk"], "label-sm": ["JetBrains Mono"], "title-lg": ["Space Grotesk"] }, "fontSize": { "headline-lg-mobile": ["28px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-lg": ["40px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "500" }], "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }], "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "600" }], "headline-xl-mobile": ["36px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "headline-xl": ["56px", { "lineHeight": "60px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "400" }], "headline-md": ["24px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "500" }], "title-lg": ["20px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "600" }] } } } };</script></head><body class="bg-surface-container-lowest font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest/95 backdrop-blur-md border-b border-surface-container-high"><div class="h-16 w-full px-gutter-mobile lg:px-margin flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-sm group" data-path="the-works" href="#"><div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center text-on-primary-container font-headline-md text-headline-md leading-none shadow-[0_0_16px_rgba(249,115,22,0.35)]">⚡</div><div class="flex flex-col"><span class="font-headline-md text-body-md font-bold tracking-tight text-on-surface uppercase">{{ negocio.nombre }}</span><span class="font-label-sm text-label-sm tracking-widest text-primary font-semibold -mt-1">// {{ negocio.categoria_clean|upper }}</span></div></a><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-surface-container-low border border-surface-container-high"><span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span><span class="font-label-sm text-label-sm text-secondary font-medium tracking-wider uppercase">{{ web.badge_status or 'BOX ABIERTO / CITAS DISPONIBLES' }}</span></div></div><nav class="hidden md:flex items-center gap-space-md" data-active-classes="bg-primary-container text-on-primary-container font-bold rounded-lg"><a aria-current="page" class="px-space-sm py-space-xs uppercase tracking-wider transition-colors bg-primary-container text-on-primary-container font-bold rounded-lg" data-path="the-works" href="#">The Works</a><a class="px-space-sm py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" data-path="servicios-y-tarifas" href="#">Servicios &amp; Tarifas</a><a class="px-space-sm py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" data-path="box-hq" href="#">Box HQ</a><a class="px-space-sm py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" data-path="contacto" href="#">Contacto</a></nav><div class="flex items-center gap-space-md"><a class="hidden sm:inline-flex items-center justify-center px-space-lg py-space-sm rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md uppercase tracking-wider font-bold shadow-[0_0_20px_rgba(249,115,22,0.35)] hover:bg-primary-fixed hover:text-on-primary-fixed transition-all" data-path="solicitar-presupuesto" href="#">Solicitar Presupuesto</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface-container-lowest min-h-screen"><div class="flex flex-col w-full text-on-surface">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-primary-fixed-variant": "#783200", "on-surface-variant": "#e0c0b1", "on-primary-fixed": "#341100", "surface-container-lowest": "#0e0e10", "outline": "#a78b7d", "surface-variant": "#353437", "surface-container": "#201f22", "on-error": "#690005", "surface-container-high": "#2a2a2c", "on-secondary-fixed-variant": "#47464a", "surface-dim": "#131315", "background": "#131315", "surface": "#131315", "on-surface": "#e5e1e4", "secondary-fixed": "#e4e1e5", "inverse-surface": "#e5e1e4", "on-tertiary-container": "#31323a", "on-tertiary-fixed-variant": "#45464e", "tertiary-container": "#9a9aa3", "secondary-fixed-dim": "#c8c6c9", "primary-fixed": "#ffdbca", "surface-bright": "#39393b", "surface-container-highest": "#353437", "on-secondary-fixed": "#1b1b1e", "tertiary-fixed": "#e2e1eb", "primary-fixed-dim": "#ffb690", "surface-tint": "#ffb690", "primary-container": "#f97316", "inverse-on-surface": "#313032", "secondary-container": "#47464a", "inverse-primary": "#9d4300", "on-tertiary-fixed": "#1a1b22", "error": "#ffb4ab", "on-primary-container": "#582200", "on-tertiary": "#2f3037", "on-secondary": "#303033", "on-error-container": "#ffdad6", "tertiary": "#c6c6cf", "on-background": "#e5e1e4", "outline-variant": "#584237", "on-primary": "#552100", "surface-container-low": "#1c1b1d", "error-container": "#93000a", "on-secondary-container": "#b6b4b8", "tertiary-fixed-dim": "#c6c6cf", "primary": "#ffb690", "secondary": "#c8c6c9" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter-mobile": "1rem", "space-lg": "1.5rem", "space-xs": "0.25rem", "margin": "3rem", "margin-mobile": "1.25rem", "gutter": "1.5rem", "space-md": "1rem", "space-sm": "0.5rem", "space-xl": "2.5rem" }, "fontFamily": { "headline-lg-mobile": ["Space Grotesk"], "headline-lg": ["Space Grotesk"], "label-md": ["JetBrains Mono"], "body-sm": ["DM Sans"], "label-lg": ["JetBrains Mono"], "headline-xl-mobile": ["Space Grotesk"], "body-md": ["DM Sans"], "headline-xl": ["Space Grotesk"], "body-lg": ["DM Sans"], "headline-md": ["Space Grotesk"], "label-sm": ["JetBrains Mono"], "title-lg": ["Space Grotesk"] }, "fontSize": { "headline-lg-mobile": ["28px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-lg": ["40px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "500" }], "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }], "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "600" }], "headline-xl-mobile": ["36px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "headline-xl": ["56px", { "lineHeight": "60px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "400" }], "headline-md": ["24px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "500" }], "title-lg": ["20px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "600" }] } } } };</script><style>
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(5rem + env(safe-area-inset-top, 0px));
+  }
+  :root {
+    --sat: env(safe-area-inset-top, 0px);
+    --sab: env(safe-area-inset-bottom, 0px);
+  }
+</style>
+</head><body class="bg-surface-container-lowest font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest/95 backdrop-blur-md border-b border-surface-container-high" style="padding-top: env(safe-area-inset-top, 0px);"><div class="h-16 w-full px-gutter-mobile lg:px-margin flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md">
+      <!-- Mobile Hamburger Button -->
+      <button id="hamburger-btn" onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition flex items-center justify-center border border-surface-container-high" aria-label="Abrir Menú" aria-expanded="false">
+        <span class="material-symbols-outlined text-[24px]">menu</span>
+      </button><a class="flex items-center gap-space-sm group" data-path="the-works" href="#"><div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center text-on-primary-container font-headline-md text-headline-md leading-none shadow-[0_0_16px_rgba(249,115,22,0.35)]">⚡</div><div class="flex flex-col"><span class="font-headline-md text-body-md font-bold tracking-tight text-on-surface uppercase">{{ negocio.nombre }}</span><span class="font-label-sm text-label-sm tracking-widest text-primary font-semibold -mt-1">// ATELIER</span></div></a><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-surface-container-low border border-surface-container-high"><span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span><span class="font-label-sm text-label-sm text-secondary font-medium tracking-wider uppercase">BOX ABIERTO / CITAS DISPONIBLES</span></div></div><nav class="hidden md:flex items-center gap-space-md" data-active-classes="bg-primary-container text-on-primary-container font-bold rounded-lg">
+      <a class="px-space-sm py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="#galeria">The Works</a>
+      <a class="px-space-sm py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="#servicios">Servicios &amp; Tarifas</a>
+      <a class="px-space-sm py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="#box-hq">Box HQ</a>
+      <a class="px-space-sm py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="#contacto">Contacto</a>
+    </nav><div class="flex items-center gap-space-md"><a class="hidden sm:inline-flex items-center justify-center px-space-lg py-space-sm rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md uppercase tracking-wider font-bold shadow-[0_0_20px_rgba(249,115,22,0.35)] hover:bg-primary-fixed hover:text-on-primary-fixed transition-all" data-path="solicitar-presupuesto" href="#">Solicitar Presupuesto</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface-container-lowest min-h-screen"><div class="flex flex-col w-full text-on-surface">
 <!-- 01 // HERO SECTION -->
-<section class="relative w-full px-gutter-mobile lg:px-margin pt-space-xl pb-space-xl overflow-hidden bg-surface-container-lowest">
+<section id="inicio" class="relative w-full px-gutter-mobile lg:px-margin pt-space-xl pb-space-xl overflow-hidden bg-surface-container-lowest">
 <!-- Ambient Kinetic Backlight Glow -->
 <div class="absolute -top-24 right-1/4 w-96 h-96 rounded-full bg-primary-container/10 blur-[120px] pointer-events-none"></div>
 <div class="absolute bottom-0 left-10 w-72 h-72 rounded-full bg-primary/5 blur-[90px] pointer-events-none"></div>
@@ -15,24 +34,26 @@
 <div class="inline-flex items-center gap-space-xs px-space-md py-1.5 rounded-lg bg-surface-container border border-surface-container-high shadow-sm">
 <span class="inline-flex items-center justify-center w-2 h-2 rounded-full bg-primary-container animate-pulse shadow-[0_0_8px_rgba(249,115,22,0.6)]"></span>
 <span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">
-            ESPECIALISTAS CERTIFICADOS EN {{ negocio.ciudad|upper }} // ATELIER
+            ESPECIALISTAS CERTIFICADOS EN MADRID // ATELIER 01
           </span>
 </div>
 <!-- Display Headline -->
 <h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight uppercase leading-[1.05] mt-space-xs">
-          {{ web.titular or ('Trabajo puro.<br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-on-surface via-on-surface-variant to-primary">Sin rodeos.</span><br/>Calidad de máximo nivel.')|safe }}
+          Trabajo puro.<br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-on-surface via-on-surface-variant to-primary">Sin rodeos.</span><br/>
+          Calidad de máximo nivel.
         </h1>
 <!-- Subtitle -->
 <p class="font-body-lg text-body-lg text-secondary max-w-2xl mt-space-xs">
-          {{ web.subtitulo or ('Precisión, actitud y acabados sin concesiones. Proyectos y servicios a medida con garantía total en ' ~ negocio.ciudad ~ '.') }}
+          Precisión, actitud y acabados sin concesiones. Proyectos custom a medida, plazos quirúrgicos de entrega y garantía total en cada pieza acabada a mano en Madrid.
         </p>
 <!-- Dual CTA Row -->
 <div class="flex flex-wrap items-center gap-space-md mt-space-sm w-full sm:w-auto">
-<a class="inline-flex items-center justify-center gap-space-xs px-space-xl py-3.5 rounded-lg bg-primary-container text-on-primary-container font-label-lg text-label-lg uppercase tracking-wider font-bold shadow-[0_0_24px_rgba(249,115,22,0.3)] hover:bg-primary-fixed hover:text-on-primary-fixed hover:shadow-[0_0_32px_rgba(249,115,22,0.45)] transition-all" href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" rel="noopener\">
+<a class="inline-flex items-center justify-center gap-space-xs px-space-xl py-3.5 rounded-lg bg-primary-container text-on-primary-container font-label-lg text-label-lg uppercase tracking-wider font-bold shadow-[0_0_24px_rgba(249,115,22,0.3)] hover:bg-primary-fixed hover:text-on-primary-fixed hover:shadow-[0_0_32px_rgba(249,115,22,0.45)] transition-all" href="#contacto">
 <span>Solicitar Presupuesto Directo</span>
 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
 </a>
-<a class="inline-flex items-center justify-center gap-space-xs px-space-lg py-3.5 rounded-lg bg-surface-container border border-surface-container-high text-on-surface font-label-lg text-label-lg uppercase tracking-wider font-semibold hover:border-primary-container hover:text-primary transition-all" href="{{ negocio.instagram_url }}" target="_blank" rel="noopener\" rel="noopener noreferrer" target="_blank">
+<a class="inline-flex items-center justify-center gap-space-xs px-space-lg py-3.5 rounded-lg bg-surface-container border border-surface-container-high text-on-surface font-label-lg text-label-lg uppercase tracking-wider font-semibold hover:border-primary-container hover:text-primary transition-all" href="https://instagram.com" rel="noopener noreferrer" target="_blank">
 <span class="material-symbols-outlined text-[18px]">photo_camera</span>
 <span>Ver Trabajos en Instagram</span>
 </a>
@@ -58,7 +79,7 @@
 <div class="relative rounded-lg bg-surface-container border border-surface-container-high p-space-sm shadow-[0_0_32px_rgba(0,0,0,0.8)] group overflow-hidden">
 <!-- Visual Media Container -->
 <div class="relative w-full h-[460px] rounded bg-surface-container-lowest overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="{{ negocio.nombre }}" src="{{ ig.posts[0].image_url if ig.posts and ig.posts[0].image_url else 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1200&q=80' }}"/>
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Close-up high-contrast dark photography of a custom high-performance motorcycle engine and titanium exhaust with precision blue-orange heat weld burns, forged carbon intake panels, matte black industrial metal finish, studio kinetic edge lighting with soft orange neon accents, cinematic depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDs_I_ka9Zy1zK8v7eKUsioHeC7FO1Y9vnIvGkC8aQqHRIK9-oK7lZNIhnufsxEr0NNcOIDuDR0jRHOIiaMNkg3eWJkbXO8R_Za6IQZYPpYvUQ1Q4zDhd1duIVxeCJNeAREutlaP-H5dOne3iY7Iirl4hgI_dJ0Kly7di-4dfk8DBoTLjYLh0eX8TxUrgoLwfG7RRmVwH4K-N9B7R1eAhiPkxD2suEr7WEGuSjHGPhIZ_n5EFMHZYP"/>
 <!-- Overlay Gradient Scrim -->
 <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/30 to-transparent"></div>
 <!-- Floating Top Badges -->
@@ -73,7 +94,7 @@
 <!-- Bottom Technical Telemetry Panel -->
 <div class="absolute bottom-space-sm left-space-sm right-space-sm p-space-md rounded bg-surface-container/90 backdrop-blur-md border border-surface-container-high flex flex-col gap-space-xs">
 <div class="flex items-center justify-between">
-<span class="font-headline-md text-title-lg uppercase text-on-surface tracking-tight">{{ negocio.nombre|upper }}</span>
+<span class="font-headline-md text-title-lg uppercase text-on-surface tracking-tight">PROYECTO // VANGUARD</span>
 <span class="font-label-sm text-label-sm text-primary font-mono font-bold">STAGE 03 COMPLETE</span>
 </div>
 <!-- Live Technical Progress Bar -->
@@ -98,7 +119,7 @@
 </div>
 </section>
 <!-- 02 // KEY METRICS & TRUST BAR (3-COLUMN BENTO GRID) -->
-<section class="w-full px-gutter-mobile lg:px-margin py-space-lg bg-surface-container-lowest border-y border-surface-container-high">
+<section id="box-hq" class="w-full px-gutter-mobile lg:px-margin py-space-lg bg-surface-container-lowest border-y border-surface-container-high scroll-mt-20">
 <div class="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-gutter">
 <!-- Box 01: Q/C Guarantee -->
 <div class="p-space-lg rounded-lg bg-surface-container border border-surface-container-high flex flex-col justify-between hover:border-surface-variant transition-colors group">
@@ -157,7 +178,7 @@
 </div>
 </section>
 <!-- 03 // PORTFOLIO GRID - THE WORKS -->
-<section class="w-full px-gutter-mobile lg:px-margin py-space-xl bg-surface-container-lowest">
+<section id="galeria" class="w-full px-gutter-mobile lg:px-margin py-space-xl bg-surface-container-lowest scroll-mt-20">
 <div class="max-w-[1400px] mx-auto flex flex-col gap-space-lg">
 <!-- Section Header with Meta & Filters -->
 <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md border-b border-surface-container-high pb-space-md">
@@ -181,31 +202,11 @@
 <!-- Dynamic Portfolio Cards from Instagram -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
   {% for post in ig.posts[:3] %}
-  <div class="rounded-lg bg-surface-container border border-surface-container-high overflow-hidden hover:border-primary transition-all duration-300 group flex flex-col justify-between shadow-sm hover:shadow-[0_0_24px_rgba(249,115,22,0.18)]">
-    <div>
-      <div class="relative w-full h-72 bg-surface-container-lowest overflow-hidden">
-        <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="{{ post.image_url }}" alt="{{ post.caption[:30] if post.caption else negocio.nombre }}" />
-        <div class="absolute top-space-sm left-space-sm flex items-center gap-1.5">
-          <span class="px-2 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur font-label-sm text-label-sm text-on-surface font-mono font-bold">PROJECT // 0{{ loop.index }}</span>
-        </div>
-        <div class="absolute top-space-sm right-space-sm">
-          <span class="px-2 py-0.5 rounded bg-primary-container text-on-primary-container font-label-sm text-label-sm font-mono font-bold">VERIFICADO</span>
-        </div>
-      </div>
-      <div class="p-space-lg flex flex-col gap-space-xs">
-        <div class="flex items-center justify-between">
-          <h3 class="font-headline-md text-headline-md uppercase text-on-surface tracking-tight">{{ post.caption.split('
-')[0][:25] if post.caption else ('Trabajo ' ~ loop.index) }}</h3>
-          <a href="{{ negocio.instagram_url }}" target="_blank" rel="noopener"><span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">arrow_outward</span></a>
-        </div>
-        <p class="font-body-sm text-body-sm text-secondary mt-1 line-clamp-2">
-          {{ post.caption or ('Acabado profesional realizado en ' ~ negocio.ciudad ~ ' con materiales y técnicas de alta precisión.') }}
-        </p>
-      </div>
-    </div>
-    <div class="px-space-lg pb-space-lg pt-space-xs border-t border-surface-container-high/60 flex flex-wrap gap-1.5">
-      <span class="px-2 py-0.5 rounded bg-surface-container-lowest text-outline font-label-sm text-[11px] font-mono">100% Custom</span>
-      <span class="px-2 py-0.5 rounded bg-surface-container-lowest text-primary font-label-sm text-[11px] font-mono">Garantizado</span>
+  <div class="group relative aspect-[4/5] rounded-lg overflow-hidden bg-surface-container border border-surface-container-high">
+    <img alt="{{ post.caption[:30] if post.caption else negocio.nombre }}" class="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500" src="{{ post.image_url }}" />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-space-md flex flex-col justify-end">
+      <span class="font-label-sm text-primary font-mono text-xs uppercase tracking-widest">// REEL ARCHIVE 0{{ loop.index }}</span>
+      <p class="font-headline-sm text-sm text-on-surface font-bold truncate">{{ post.caption or negocio.nombre }}</p>
     </div>
   </div>
   {% endfor %}
@@ -213,7 +214,7 @@
 </div>
 </section>
 <!-- 04 // SERVICE & PRICING BREAKDOWN (TARIFARIO TÉCNICO MONOSPACE) -->
-<section class="w-full px-gutter-mobile lg:px-margin py-space-xl bg-surface-container-lowest border-t border-surface-container-high">
+<section id="servicios" class="w-full px-gutter-mobile lg:px-margin py-space-xl bg-surface-container-lowest border-t border-surface-container-high scroll-mt-20">
 <div class="max-w-[1400px] mx-auto flex flex-col gap-space-lg">
 <!-- Section Sub-Header -->
 <div class="flex flex-col items-start gap-1">
@@ -403,7 +404,7 @@
 </div>
 </section>
 </div></main><footer class="w-full bg-surface-container-low border-t border-surface-container-high"><div class="w-full px-gutter-mobile lg:px-margin py-space-xl flex flex-col md:flex-row items-center justify-between gap-space-lg"><div class="flex flex-col gap-space-xs"><span class="font-headline-md text-headline-md tracking-tight text-on-surface uppercase">APEX CUSTOMS // ATELIER</span><span class="font-label-sm text-label-sm text-secondary">PRECISION CRAFT &amp; PERFORMANCE TUNING STUDIO</span></div><div class="flex items-center gap-space-md font-label-sm text-label-sm text-on-surface-variant uppercase"><a class="hover:text-on-surface" data-path="the-works" href="#">The Works</a><a class="hover:text-on-surface" data-path="servicios-y-tarifas" href="#">Servicios</a><a class="hover:text-on-surface" data-path="box-hq" href="#">Box HQ</a><a class="hover:text-on-surface" data-path="contacto" href="#">Contacto</a></div><div class="font-label-sm text-label-sm text-secondary">© 2025 APEX CUSTOMS. ALL RIGHTS RESERVED.</div></div></footer><!-- Fixed Mobile Bottom Action Dock -->
-<div class="fixed bottom-0 inset-x-0 z-50 md:hidden p-3 bg-surface-container-lowest/95 backdrop-blur-xl border-t border-surface-container-high shadow-2xl">
+<div class="fixed bottom-0 inset-x-0 z-50 md:hidden p-3 bg-surface-container-lowest/95 backdrop-blur-xl border-t border-surface-container-high shadow-2xl" style="padding-bottom: max(0.75rem, env(safe-area-inset-bottom, 0px));">
   <div class="flex items-center justify-between gap-3">
     <div class="flex flex-col">
       <span class="font-label-sm text-xs font-mono font-bold text-primary uppercase">{{ negocio.nombre }}</span>
@@ -415,4 +416,126 @@
     </a>
   </div>
 </div>
+
+<!-- ============================================================ -->
+<!-- MOBILE NAVIGATION DRAWER (ACCESIBLE & IPHONE SAFE-AREA AWARE) -->
+<!-- ============================================================ -->
+<div id="mobile-drawer" class="fixed inset-0 z-[100] pointer-events-none transition-opacity duration-300" aria-hidden="true">
+  <!-- Backdrop desenfocado -->
+  <div id="mobile-drawer-backdrop" onclick="closeMobileMenu()" class="absolute inset-0 bg-black/65 backdrop-blur-sm opacity-0 transition-opacity duration-300 pointer-events-none"></div>
+
+  <!-- Panel lateral deslizante con padding seguro para Dynamic Island -->
+  <div id="mobile-drawer-panel" class="absolute top-0 right-0 bottom-0 w-[310px] sm:w-[350px] max-w-[86vw] bg-[#0e0f12] text-[#f2f4f8] border-l border-[#242731] shadow-2xl flex flex-col justify-between overflow-y-auto translate-x-full transition-transform duration-300 ease-out pointer-events-auto"
+       style="padding-top: max(1.25rem, calc(0.75rem + env(safe-area-inset-top, 0px))); padding-bottom: max(1.25rem, calc(0.75rem + env(safe-area-inset-bottom, 0px))); padding-left: 1.25rem; padding-right: 1.25rem;">
+    
+    <div class="space-y-6">
+      <!-- Cabecera del Drawer -->
+      <div class="flex items-center justify-between pb-4 border-b border-outline-variant/30">
+        <div class="flex items-center gap-3 truncate">
+          <img src="{{ ig.avatar_url or 'https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=96&q=80' }}" alt="{{ negocio.nombre }}" class="w-10 h-10 rounded-full object-cover border border-primary/30 shrink-0"/>
+          <div class="flex flex-col truncate">
+            <span class="font-bold text-sm text-on-surface truncate">{{ negocio.nombre }}</span>
+            <span class="text-[11px] text-on-surface-variant truncate">{{ negocio.categoria_clean or negocio.ciudad }}</span>
+          </div>
+        </div>
+        <button onclick="closeMobileMenu()" class="p-2 rounded-full hover:bg-surface-container-high transition text-on-surface flex items-center justify-center shrink-0" aria-label="Cerrar menú">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <!-- Enlaces de navegación -->
+      <nav class="flex flex-col space-y-1">
+        
+        <a href="#galeria" onclick="closeMobileMenu()" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl hover:bg-[#181a20] text-[#c5c8d4] hover:text-[#f97316] transition-colors group">
+          <span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:scale-110">photo_camera</span>
+          <span class="font-medium text-sm">The Works (Portfolio)</span>
+        </a>
+        <a href="#servicios" onclick="closeMobileMenu()" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl hover:bg-[#181a20] text-[#c5c8d4] hover:text-[#f97316] transition-colors group">
+          <span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:scale-110">precision_manufacturing</span>
+          <span class="font-medium text-sm">Servicios & Tarifas</span>
+        </a>
+        <a href="#box-hq" onclick="closeMobileMenu()" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl hover:bg-[#181a20] text-[#c5c8d4] hover:text-[#f97316] transition-colors group">
+          <span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:scale-110">verified</span>
+          <span class="font-medium text-sm">Box HQ / Estándares</span>
+        </a>
+        <a href="#contacto" onclick="closeMobileMenu()" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl hover:bg-[#181a20] text-[#c5c8d4] hover:text-[#f97316] transition-colors group">
+          <span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:scale-110">location_on</span>
+          <span class="font-medium text-sm">Contacto & Taller</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Botones de Acción / Contacto al pie del Drawer -->
+    <div class="space-y-3 pt-5 border-t border-outline-variant/30">
+      {% if negocio.whatsapp_url %}
+      <a href="{{ negocio.whatsapp_url }}" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-primary-container text-on-primary-container font-bold text-xs uppercase tracking-wider shadow-md transition-all">
+        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+        <span>Escribir por WhatsApp</span>
+      </a>
+      {% endif %}
+
+      {% if negocio.telefono %}
+      <a href="tel:{{ negocio.telefono }}" class="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-surface-container hover:bg-surface-container-high font-semibold text-xs transition-all">
+        <span class="material-symbols-outlined text-[16px]">call</span>
+        <span>Llamar {{ negocio.telefono }}</span>
+      </a>
+      {% endif %}
+
+      <div class="text-[11px] text-center text-on-surface-variant flex items-center justify-center gap-1 pt-1">
+        <span class="material-symbols-outlined text-[14px]">location_on</span>
+        <span class="truncate">{{ negocio.direccion or negocio.ciudad }}</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function toggleMobileMenu() {
+    const panel = document.getElementById('mobile-drawer-panel');
+    if (!panel) return;
+    if (panel.classList.contains('translate-x-full')) {
+      openMobileMenu();
+    } else {
+      closeMobileMenu();
+    }
+  }
+
+  function openMobileMenu() {
+    const drawer = document.getElementById('mobile-drawer');
+    const backdrop = document.getElementById('mobile-drawer-backdrop');
+    const panel = document.getElementById('mobile-drawer-panel');
+    const btn = document.getElementById('hamburger-btn');
+
+    if (!drawer || !backdrop || !panel) return;
+    drawer.classList.remove('pointer-events-none');
+    drawer.setAttribute('aria-hidden', 'false');
+    backdrop.classList.remove('opacity-0', 'pointer-events-none');
+    backdrop.classList.add('opacity-100');
+    panel.classList.remove('translate-x-full');
+    if (btn) btn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileMenu() {
+    const drawer = document.getElementById('mobile-drawer');
+    const backdrop = document.getElementById('mobile-drawer-backdrop');
+    const panel = document.getElementById('mobile-drawer-panel');
+    const btn = document.getElementById('hamburger-btn');
+
+    if (!drawer || !backdrop || !panel) return;
+    backdrop.classList.remove('opacity-100');
+    backdrop.classList.add('opacity-0', 'pointer-events-none');
+    panel.classList.add('translate-x-full');
+    drawer.classList.add('pointer-events-none');
+    drawer.setAttribute('aria-hidden', 'true');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeMobileMenu();
+  });
+</script>
+
 </body></html>

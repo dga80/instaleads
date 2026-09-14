@@ -1,29 +1,48 @@
 <!DOCTYPE html>
 
-<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-secondary-fixed-variant":"#832600","primary-fixed-dim":"#ffb77d","on-secondary-fixed":"#390c00","outline-variant":"#dbc2b0","on-surface-variant":"#554336","surface-tint":"#904d00","on-tertiary":"#ffffff","inverse-surface":"#33302d","primary-container":"#b15f00","on-background":"#1e1b19","inverse-primary":"#ffb77d","surface-container":"#f4ece8","primary-fixed":"#ffdcc3","on-error-container":"#93000a","on-tertiary-container":"#fffbff","on-primary-fixed":"#2f1500","on-secondary":"#ffffff","surface-container-lowest":"#ffffff","outline":"#887364","secondary":"#ac3400","surface-container-high":"#eee7e3","error-container":"#ffdad6","secondary-fixed":"#ffdbd0","tertiary":"#904821","on-primary-container":"#fffbff","surface-variant":"#e9e1dd","error":"#ba1a1a","tertiary-fixed-dim":"#ffb693","on-tertiary-fixed":"#351000","inverse-on-surface":"#f7efeb","primary":"#8d4b00","on-error":"#ffffff","on-surface":"#1e1b19","secondary-fixed-dim":"#ffb59d","on-primary-fixed-variant":"#6e3900","on-secondary-container":"#5d1900","surface":"#fff8f5","secondary-container":"#fd6b36","surface-bright":"#fff8f5","tertiary-container":"#af5f36","surface-container-highest":"#e9e1dd","on-primary":"#ffffff","tertiary-fixed":"#ffdbcc","surface-container-low":"#faf2ee","surface-dim":"#e0d8d5","background":"#fff8f5","on-tertiary-fixed-variant":"#76330d"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-md":"1rem",margin:"3rem","space-xl":"2.5rem","margin-tablet":"2rem","margin-mobile":"1.25rem",gutter:"1.5rem","gutter-mobile":"1rem","space-sm":"0.5rem","space-xs":"0.25rem","space-lg":"1.5rem"},fontFamily:{"headline-lg":["Bricolage Grotesque"],"display-hero":["Bricolage Grotesque"],"label-md":["Manrope"],"headline-sm":["Bricolage Grotesque"],"body-sm":["Manrope"],"body-lg":["Manrope"],"label-lg":["Manrope"],"display-hero-mobile":["Bricolage Grotesque"],"headline-xl":["Bricolage Grotesque"],"title-editorial":["Bricolage Grotesque"],"headline-xl-mobile":["Bricolage Grotesque"],"body-md":["Manrope"],"headline-md":["Bricolage Grotesque"],"label-caps":["Manrope"]},fontSize:{"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.015em",fontWeight:"600"}],"display-hero":["56px",{lineHeight:"64px",letterSpacing:"-0.03em",fontWeight:"700"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.04em",fontWeight:"600"}],"headline-sm":["20px",{lineHeight:"28px",letterSpacing:"0em",fontWeight:"600"}],"body-sm":["14px",{lineHeight:"20px",letterSpacing:"0em",fontWeight:"400"}],"body-lg":["18px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"400"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.02em",fontWeight:"600"}],"display-hero-mobile":["38px",{lineHeight:"44px",letterSpacing:"-0.02em",fontWeight:"700"}],"headline-xl":["40px",{lineHeight:"48px",letterSpacing:"-0.02em",fontWeight:"700"}],"title-editorial":["18px",{lineHeight:"26px",letterSpacing:"0.01em",fontWeight:"500"}],"headline-xl-mobile":["30px",{lineHeight:"38px",letterSpacing:"-0.02em",fontWeight:"700"}],"body-md":["16px",{lineHeight:"24px",letterSpacing:"0em",fontWeight:"400"}],"headline-md":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"600"}],"label-caps":["11px",{lineHeight:"14px",letterSpacing:"0.08em",fontWeight:"700"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 max-w-[1360px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-sm" href="#"><img alt="{{ negocio.nombre }}" class="h-9 w-9 rounded-full object-cover border border-primary/30" src="{{ ig.avatar_url or 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=120&q=80' }}"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-tight">{{ negocio.nombre }}</span><span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">{{ negocio.categoria_clean }}</span></div></a><div class="hidden xl:flex items-center gap-space-xs px-3 py-1 bg-surface-container rounded-full"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="font-label-md text-label-md text-on-surface-variant">Horario hoy: Abierto 08:00 - 20:00</span></div></div><nav class="hidden lg:flex items-center gap-space-md" data-active-classes="bg-primary-container text-on-primary-container font-bold rounded-lg"><a class="font-label-lg text-label-lg px-3 py-2 text-on-surface-variant hover:text-on-surface transition-colors" data-path="filosofia" href="#">Filosofía</a><a class="font-label-lg text-label-lg px-3 py-2 text-on-surface-variant hover:text-on-surface transition-colors" data-path="carta-digital" href="#">Carta Digital</a><a class="font-label-lg text-label-lg px-3 py-2 text-on-surface-variant hover:text-on-surface transition-colors" data-path="comunidad" href="#">Comunidad</a><a class="font-label-lg text-label-lg px-3 py-2 text-on-surface-variant hover:text-on-surface transition-colors" data-path="ubicacion-reservas" href="#">Ubicación &amp; Reservas</a></nav><div class="flex items-center gap-space-sm"><a class="hidden sm:inline-flex items-center justify-center px-space-md py-2.5 bg-primary text-on-primary hover:bg-secondary transition-all rounded-lg font-label-lg text-label-lg" href="#">Cómo Llegar</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface"><div class="flex flex-col w-full">
+<html lang="es"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-secondary-fixed-variant":"#832600","primary-fixed-dim":"#ffb77d","on-secondary-fixed":"#390c00","outline-variant":"#dbc2b0","on-surface-variant":"#554336","surface-tint":"#904d00","on-tertiary":"#ffffff","inverse-surface":"#33302d","primary-container":"#b15f00","on-background":"#1e1b19","inverse-primary":"#ffb77d","surface-container":"#f4ece8","primary-fixed":"#ffdcc3","on-error-container":"#93000a","on-tertiary-container":"#fffbff","on-primary-fixed":"#2f1500","on-secondary":"#ffffff","surface-container-lowest":"#ffffff","outline":"#887364","secondary":"#ac3400","surface-container-high":"#eee7e3","error-container":"#ffdad6","secondary-fixed":"#ffdbd0","tertiary":"#904821","on-primary-container":"#fffbff","surface-variant":"#e9e1dd","error":"#ba1a1a","tertiary-fixed-dim":"#ffb693","on-tertiary-fixed":"#351000","inverse-on-surface":"#f7efeb","primary":"#8d4b00","on-error":"#ffffff","on-surface":"#1e1b19","secondary-fixed-dim":"#ffb59d","on-primary-fixed-variant":"#6e3900","on-secondary-container":"#5d1900","surface":"#fff8f5","secondary-container":"#fd6b36","surface-bright":"#fff8f5","tertiary-container":"#af5f36","surface-container-highest":"#e9e1dd","on-primary":"#ffffff","tertiary-fixed":"#ffdbcc","surface-container-low":"#faf2ee","surface-dim":"#e0d8d5","background":"#fff8f5","on-tertiary-fixed-variant":"#76330d"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-md":"1rem",margin:"3rem","space-xl":"2.5rem","margin-tablet":"2rem","margin-mobile":"1.25rem",gutter:"1.5rem","gutter-mobile":"1rem","space-sm":"0.5rem","space-xs":"0.25rem","space-lg":"1.5rem"},fontFamily:{"headline-lg":["Bricolage Grotesque"],"display-hero":["Bricolage Grotesque"],"label-md":["Manrope"],"headline-sm":["Bricolage Grotesque"],"body-sm":["Manrope"],"body-lg":["Manrope"],"label-lg":["Manrope"],"display-hero-mobile":["Bricolage Grotesque"],"headline-xl":["Bricolage Grotesque"],"title-editorial":["Bricolage Grotesque"],"headline-xl-mobile":["Bricolage Grotesque"],"body-md":["Manrope"],"headline-md":["Bricolage Grotesque"],"label-caps":["Manrope"]},fontSize:{"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.015em",fontWeight:"600"}],"display-hero":["56px",{lineHeight:"64px",letterSpacing:"-0.03em",fontWeight:"700"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.04em",fontWeight:"600"}],"headline-sm":["20px",{lineHeight:"28px",letterSpacing:"0em",fontWeight:"600"}],"body-sm":["14px",{lineHeight:"20px",letterSpacing:"0em",fontWeight:"400"}],"body-lg":["18px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"400"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.02em",fontWeight:"600"}],"display-hero-mobile":["38px",{lineHeight:"44px",letterSpacing:"-0.02em",fontWeight:"700"}],"headline-xl":["40px",{lineHeight:"48px",letterSpacing:"-0.02em",fontWeight:"700"}],"title-editorial":["18px",{lineHeight:"26px",letterSpacing:"0.01em",fontWeight:"500"}],"headline-xl-mobile":["30px",{lineHeight:"38px",letterSpacing:"-0.02em",fontWeight:"700"}],"body-md":["16px",{lineHeight:"24px",letterSpacing:"0em",fontWeight:"400"}],"headline-md":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"600"}],"label-caps":["11px",{lineHeight:"14px",letterSpacing:"0.08em",fontWeight:"700"}]}}}};</script><style>
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(5.5rem + env(safe-area-inset-top, 0px));
+  }
+  :root {
+    --sat: env(safe-area-inset-top, 0px);
+    --sab: env(safe-area-inset-bottom, 0px);
+  }
+</style>
+</head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 max-w-[1360px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-sm" href="#"><img alt="Origen &amp; Miga Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XRx2FKu3bChWVbYWfVqMxTLdTiPM0L1ZeaN-DRFrQ9jY448aHvkpkX9rUuRfjYwOq--v_P9urdX-461pjFJsZsP3YwymiHt96_d95Tb8Gh0Fy1oScXGid6bh0JI7WrxWgjVBX76UWwDbPYxQ2rZySRjI44SfIBRXkfCFQLelouZ_ELdngfl_Qz0Iyah43NSza_qIkD_3LY3GdsHVjj8ZlHTRGyWQWnQOBP1t49bW9sjVXH2vT-rtPAyVQ"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-tight">{{ negocio.nombre }}</span><span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Café de Especialidad &amp; Obrador</span></div></a><div class="hidden xl:flex items-center gap-space-xs px-3 py-1 bg-surface-container rounded-full"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="font-label-md text-label-md text-on-surface-variant">Horario hoy: Abierto 08:00 - 20:00</span></div></div><nav class="hidden lg:flex items-center gap-space-md" data-active-classes="bg-primary-container text-on-primary-container font-bold rounded-lg">
+      <a class="font-label-lg text-label-lg px-3 py-2 text-on-surface-variant hover:text-primary transition-colors" href="#filosofia">Filosofía</a>
+      <a class="font-label-lg text-label-lg px-3 py-2 text-on-surface-variant hover:text-primary transition-colors" href="#carta">Carta Digital</a>
+      <a class="font-label-lg text-label-lg px-3 py-2 text-on-surface-variant hover:text-primary transition-colors" href="#comunidad">Comunidad</a>
+      <a class="font-label-lg text-label-lg px-3 py-2 text-on-surface-variant hover:text-primary transition-colors" href="#ubicacion">Ubicación &amp; Reservas</a>
+    </nav><div class="flex items-center gap-space-sm">
+      <!-- Mobile Hamburger Button -->
+      <button id="hamburger-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-on-surface hover:bg-surface-container transition flex items-center justify-center border border-outline-variant/40" aria-label="Abrir Menú" aria-expanded="false">
+        <span class="material-symbols-outlined text-[24px]">menu</span>
+      </button><a class="hidden sm:inline-flex items-center justify-center px-space-md py-2.5 bg-primary text-on-primary hover:bg-secondary transition-all rounded-lg font-label-lg text-label-lg" href="#">Cómo Llegar</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full bg-surface" style="padding-top: calc(5rem + env(safe-area-inset-top, 0px));"><div class="flex flex-col w-full">
 <!-- HERO SECTION -->
-<section class="relative w-full overflow-hidden bg-surface pt-6 pb-16 lg:pt-10 lg:pb-24">
+<section id="inicio" class="relative w-full overflow-hidden bg-surface pt-6 pb-16 lg:pt-10 lg:pb-24">
 <div class="max-w-[1360px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin">
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
 <!-- Left Column: Copy & CTAs -->
 <div class="lg:col-span-7 flex flex-col items-start gap-space-md z-10">
 <div class="inline-flex items-center gap-space-xs px-3.5 py-1.5 rounded-full bg-primary-fixed/60 text-on-primary-fixed shadow-sm">
 <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
-<span class="font-label-caps text-label-caps uppercase tracking-wider">{{ web.badge_status or '🥐 Elaborado a Diario • Café de Especialidad' }}</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider">🥐 Elaborado a Diario • Café de Especialidad</span>
 </div>
 <h1 class="font-display-hero text-headline-xl lg:text-display-hero text-on-surface tracking-tight leading-tight">
-            {{ web.titular or ('Tu rincón favorito para disfrutar sin prisas en ' ~ negocio.ciudad) }}
+            Tu rincón favorito para disfrutar sin prisas en Chamberí
           </h1>
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl leading-relaxed">
-            {{ web.subtitulo or ('Elaborado a diario con ingredientes reales y pasión artesana en ' ~ negocio.ciudad ~ '. Producto de proximidad y cuidado en cada detalle.') }}
+            Elaborado a diario con ingredientes reales y pasión artesana. Masa madre de fermentación lenta de 48h y café de origen tostado en pequeños lotes semanales.
           </p>
 <div class="flex flex-wrap items-center gap-space-sm pt-2 w-full sm:w-auto">
-<a class="px-6 py-3.5 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg shadow-md hover:bg-secondary transition-all hover:scale-[0.99] flex items-center justify-center gap-2" href="#carta-digital">
+<a class="px-6 py-3.5 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg shadow-md hover:bg-secondary transition-all hover:scale-[0.99] flex items-center justify-center gap-2" href="#carta">
 <span>Ver Carta Digital &amp; Especialidades</span>
 <span class="material-symbols-outlined text-[18px]">restaurant_menu</span>
 </a>
-<a class="px-6 py-3.5 rounded-xl bg-surface-container-lowest text-primary font-label-lg text-label-lg shadow-sm hover:bg-surface-container-low transition-all flex items-center justify-center gap-2" href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" rel="noopener\">
+<a class="px-6 py-3.5 rounded-xl bg-surface-container-lowest text-primary font-label-lg text-label-lg shadow-sm hover:bg-surface-container-low transition-all flex items-center justify-center gap-2" href="#ubicacion">
 <span class="material-symbols-outlined text-[18px]">explore</span>
 <span>Cómo Llegar al Local</span>
 </a>
@@ -49,7 +68,7 @@
 <!-- Right Column: Asymmetric Editorial Visual -->
 <div class="lg:col-span-5 relative mt-8 lg:mt-0">
 <div class="relative w-full aspect-[4/5] rounded-3xl overflow-hidden shadow-xl bg-surface-container">
-<img alt="{{ negocio.nombre }}" class="w-full h-full object-cover" src="{{ ig.posts[0].image_url if ig.posts and ig.posts[0].image_url else 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80' }}"/>
+<img alt="Obrador de Origen y Miga en pleno servicio" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZOZSW9Cnz5YYr2B_yvrq4q2u6nMaZziqxJ1YedYxf1Fy8eMIvEcqb0bRNx14ilQR2Lblgh4e2gVg9qVqxROWYUZNi8xG1pYaXn0ORfJKCg4oA_YWRSvvQPbN0-6lHIYYAZ-EqxgFo-p622naSu7HfxurYtn2-Xy2FY2s3_ZMaZ30KFxK-3XM9QRbsjmzWiLJYd3RXYZlTYcPtdYYlvhkWAvAENx9cxf0Js0AK6cBoik7kXitPr4CB"/>
 <div class="absolute inset-0 bg-gradient-to-t from-on-background/60 via-transparent to-transparent"></div>
 <!-- Inset Badge with Latent Pour -->
 <div class="absolute -bottom-4 -left-4 sm:bottom-6 sm:left-6 max-w-[240px] p-3 rounded-2xl bg-surface-container-lowest/95 backdrop-blur-md shadow-xl flex items-center gap-3">
@@ -70,7 +89,7 @@
 </div>
 </section>
 <!-- VALUE PILLARS -->
-<section class="w-full py-16 bg-surface-container-low">
+<section id="filosofia" class="w-full py-16 bg-surface-container-low scroll-mt-24">
 <div class="max-w-[1360px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin">
 <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
 <div>
@@ -134,7 +153,7 @@
 </div>
 </section>
 <!-- TABBED DIGITAL MENU -->
-<section class="w-full py-20 bg-surface" id="carta">
+<section id="carta" class="w-full py-20 bg-surface scroll-mt-24">
 <div class="max-w-[1360px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin">
 <div class="text-center max-w-2xl mx-auto mb-12 flex flex-col items-center">
 <span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest mb-2">Pizarras &amp; Vitrina</span>
@@ -295,7 +314,7 @@
 </div>
 </section>
 <!-- COMUNIDAD / INSTAGRAM MOMENTS -->
-<section class="w-full py-16 bg-surface-container-low">
+<section id="comunidad" class="w-full py-16 bg-surface-container-low scroll-mt-24">
 <div class="max-w-[1360px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin">
 <div class="flex flex-col md:flex-row items-start md:items-end justify-between mb-10 gap-4">
 <div>
@@ -341,7 +360,7 @@
 </div>
 </section>
 <!-- DÓNDE ENCONTRARNOS & RESERVAS -->
-<section class="w-full py-20 bg-surface" id="ubicacion">
+<section id="ubicacion" class="w-full py-20 bg-surface scroll-mt-24">
 <div class="max-w-[1360px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin">
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
 <!-- Left: Location Details -->
@@ -455,8 +474,8 @@
       }
     });
   }
-</script></main><footer class="w-full bg-surface-container-low mt-space-xl"><div class="max-w-[1360px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin py-margin"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter"><div class="lg:col-span-4 flex flex-col gap-space-sm"><div class="flex items-center gap-space-sm"><img alt="{{ negocio.nombre }}" class="h-9 w-9 rounded-full object-cover border border-primary/30" src="{{ ig.avatar_url or 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=120&q=80' }}"/><span class="font-headline-sm text-headline-sm text-on-surface">Origen &amp; Miga</span></div><p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">Café de fincas seleccionadas tostado en pequeños lotes y hogazas de masa madre horneadas al alba cada mañana.</p><div class="flex items-center gap-space-sm pt-space-xs"><a aria-label="Instagram" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-primary-container hover:text-on-primary-container transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">photo_camera</span></a><a aria-label="Spotify Coffee Playlist" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-primary-container hover:text-on-primary-container transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">music_note</span></a><a aria-label="Contacto directo" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-primary-container hover:text-on-primary-container transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">alternate_email</span></a></div></div><div class="lg:col-span-3 flex flex-col gap-space-xs"><h4 class="font-label-caps text-label-caps text-secondary uppercase tracking-wider mb-space-xs">Obrador &amp; Cafetería</h4><div class="flex flex-col gap-space-xs text-on-surface-variant font-body-sm text-body-sm"><span>Calle de la Tahona 14</span><span>28004 Madrid, España</span><div class="pt-space-sm"><span class="font-label-md text-label-md text-on-surface block">Horarios de Hornada y Barra</span><span>Lunes a Viernes: 08:00 – 20:00</span><span>Sábados y Domingos: 08:30 – 19:30</span></div></div></div><div class="lg:col-span-5 flex flex-col gap-space-sm"><h4 class="font-headline-sm text-headline-sm text-on-surface">Granos de Temporada</h4><p class="font-body-sm text-body-sm text-on-surface-variant">Recibe avisos sobre nuevas catas, sacos microlote y ediciones especiales de fermentación lenta antes de que se agoten.</p><form class="flex flex-col sm:flex-row gap-space-xs mt-space-xs" onsubmit="event.preventDefault()"><input class="flex-1 px-space-md py-2.5 rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-body-sm placeholder:text-on-surface-variant/60 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="tu-correo@origen.com" type="email"/><button class="px-space-md py-2.5 bg-primary text-on-primary hover:bg-secondary font-label-lg text-label-lg rounded-lg transition-colors shrink-0" type="submit">Suscribirme</button></form></div></div><div class="mt-margin pt-space-md flex flex-col sm:flex-row items-center justify-between gap-space-sm"><span class="font-body-sm text-body-sm text-on-surface-variant">© 2024 Origen &amp; Miga S.L. Todos los derechos reservados.</span><div class="flex items-center gap-space-md font-label-md text-label-md text-on-surface-variant"><a class="hover:text-on-surface transition-colors" href="#">Aviso Legal</a><a class="hover:text-on-surface transition-colors" href="#">Privacidad</a><a class="hover:text-on-surface transition-colors" href="#">Trazabilidad de Cosechas</a></div></div></div></footer><!-- Fixed Mobile Bottom Bar -->
-<div class="fixed bottom-0 inset-x-0 z-50 md:hidden p-3 bg-surface/95 backdrop-blur-md border-t border-primary/20 shadow-lg">
+</script></main><footer class="w-full bg-surface-container-low mt-space-xl"><div class="max-w-[1360px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin py-margin"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter"><div class="lg:col-span-4 flex flex-col gap-space-sm"><div class="flex items-center gap-space-sm"><img alt="Origen &amp; Miga Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XRx2FKu3bChWVbYWfVqMxTLdTiPM0L1ZeaN-DRFrQ9jY448aHvkpkX9rUuRfjYwOq--v_P9urdX-461pjFJsZsP3YwymiHt96_d95Tb8Gh0Fy1oScXGid6bh0JI7WrxWgjVBX76UWwDbPYxQ2rZySRjI44SfIBRXkfCFQLelouZ_ELdngfl_Qz0Iyah43NSza_qIkD_3LY3GdsHVjj8ZlHTRGyWQWnQOBP1t49bW9sjVXH2vT-rtPAyVQ"/><span class="font-headline-sm text-headline-sm text-on-surface">Origen &amp; Miga</span></div><p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">Café de fincas seleccionadas tostado en pequeños lotes y hogazas de masa madre horneadas al alba cada mañana.</p><div class="flex items-center gap-space-sm pt-space-xs"><a aria-label="Instagram" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-primary-container hover:text-on-primary-container transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">photo_camera</span></a><a aria-label="Spotify Coffee Playlist" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-primary-container hover:text-on-primary-container transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">music_note</span></a><a aria-label="Contacto directo" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-primary-container hover:text-on-primary-container transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">alternate_email</span></a></div></div><div class="lg:col-span-3 flex flex-col gap-space-xs"><h4 class="font-label-caps text-label-caps text-secondary uppercase tracking-wider mb-space-xs">Obrador &amp; Cafetería</h4><div class="flex flex-col gap-space-xs text-on-surface-variant font-body-sm text-body-sm"><span>Calle de la Tahona 14</span><span>28004 Madrid, España</span><div class="pt-space-sm"><span class="font-label-md text-label-md text-on-surface block">Horarios de Hornada y Barra</span><span>Lunes a Viernes: 08:00 – 20:00</span><span>Sábados y Domingos: 08:30 – 19:30</span></div></div></div><div class="lg:col-span-5 flex flex-col gap-space-sm"><h4 class="font-headline-sm text-headline-sm text-on-surface">Granos de Temporada</h4><p class="font-body-sm text-body-sm text-on-surface-variant">Recibe avisos sobre nuevas catas, sacos microlote y ediciones especiales de fermentación lenta antes de que se agoten.</p><form class="flex flex-col sm:flex-row gap-space-xs mt-space-xs" onsubmit="event.preventDefault()"><input class="flex-1 px-space-md py-2.5 rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-body-sm placeholder:text-on-surface-variant/60 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="tu-correo@origen.com" type="email"/><button class="px-space-md py-2.5 bg-primary text-on-primary hover:bg-secondary font-label-lg text-label-lg rounded-lg transition-colors shrink-0" type="submit">Suscribirme</button></form></div></div><div class="mt-margin pt-space-md flex flex-col sm:flex-row items-center justify-between gap-space-sm"><span class="font-body-sm text-body-sm text-on-surface-variant">© 2024 Origen &amp; Miga S.L. Todos los derechos reservados.</span><div class="flex items-center gap-space-md font-label-md text-label-md text-on-surface-variant"><a class="hover:text-on-surface transition-colors" href="#">Aviso Legal</a><a class="hover:text-on-surface transition-colors" href="#">Privacidad</a><a class="hover:text-on-surface transition-colors" href="#">Trazabilidad de Cosechas</a></div></div></div></footer><!-- Fixed Mobile Bottom Bar -->
+<div class="fixed bottom-0 inset-x-0 z-50 md:hidden p-3 bg-surface/95 backdrop-blur-md border-t border-primary/20 shadow-lg" style="padding-bottom: max(0.75rem, env(safe-area-inset-bottom, 0px));">
   <div class="flex items-center justify-between gap-3">
     <div class="flex flex-col">
       <span class="font-headline-sm text-xs font-bold text-on-surface">{{ negocio.nombre }}</span>
@@ -468,4 +487,126 @@
     </a>
   </div>
 </div>
+
+<!-- ============================================================ -->
+<!-- MOBILE NAVIGATION DRAWER (ACCESIBLE & IPHONE SAFE-AREA AWARE) -->
+<!-- ============================================================ -->
+<div id="mobile-drawer" class="fixed inset-0 z-[100] pointer-events-none transition-opacity duration-300" aria-hidden="true">
+  <!-- Backdrop desenfocado -->
+  <div id="mobile-drawer-backdrop" onclick="closeMobileMenu()" class="absolute inset-0 bg-black/65 backdrop-blur-sm opacity-0 transition-opacity duration-300 pointer-events-none"></div>
+
+  <!-- Panel lateral deslizante con padding seguro para Dynamic Island -->
+  <div id="mobile-drawer-panel" class="absolute top-0 right-0 bottom-0 w-[310px] sm:w-[350px] max-w-[86vw] bg-surface border-l border-outline-variant/30 shadow-2xl flex flex-col justify-between overflow-y-auto translate-x-full transition-transform duration-300 ease-out pointer-events-auto"
+       style="padding-top: max(1.25rem, calc(0.75rem + env(safe-area-inset-top, 0px))); padding-bottom: max(1.25rem, calc(0.75rem + env(safe-area-inset-bottom, 0px))); padding-left: 1.25rem; padding-right: 1.25rem;">
+    
+    <div class="space-y-6">
+      <!-- Cabecera del Drawer -->
+      <div class="flex items-center justify-between pb-4 border-b border-outline-variant/30">
+        <div class="flex items-center gap-3 truncate">
+          <img src="{{ ig.avatar_url or 'https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=96&q=80' }}" alt="{{ negocio.nombre }}" class="w-10 h-10 rounded-full object-cover border border-primary/30 shrink-0"/>
+          <div class="flex flex-col truncate">
+            <span class="font-bold text-sm text-on-surface truncate">{{ negocio.nombre }}</span>
+            <span class="text-[11px] text-on-surface-variant truncate">{{ negocio.categoria_clean or negocio.ciudad }}</span>
+          </div>
+        </div>
+        <button onclick="closeMobileMenu()" class="p-2 rounded-full hover:bg-surface-container-high transition text-on-surface flex items-center justify-center shrink-0" aria-label="Cerrar menú">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <!-- Enlaces de navegación -->
+      <nav class="flex flex-col space-y-1">
+        
+        <a href="#filosofia" onclick="closeMobileMenu()" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl hover:bg-surface-container text-on-surface hover:text-primary transition-colors group">
+          <span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:scale-110">bakery_dining</span>
+          <span class="font-medium text-sm">Filosofía & Origen</span>
+        </a>
+        <a href="#carta" onclick="closeMobileMenu()" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl hover:bg-surface-container text-on-surface hover:text-primary transition-colors group">
+          <span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:scale-110">restaurant_menu</span>
+          <span class="font-medium text-sm">Carta Digital</span>
+        </a>
+        <a href="#comunidad" onclick="closeMobileMenu()" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl hover:bg-surface-container text-on-surface hover:text-primary transition-colors group">
+          <span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:scale-110">photo_camera</span>
+          <span class="font-medium text-sm">Comunidad & Fotos</span>
+        </a>
+        <a href="#ubicacion" onclick="closeMobileMenu()" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl hover:bg-surface-container text-on-surface hover:text-primary transition-colors group">
+          <span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:scale-110">storefront</span>
+          <span class="font-medium text-sm">Ubicación & Reservas</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Botones de Acción / Contacto al pie del Drawer -->
+    <div class="space-y-3 pt-5 border-t border-outline-variant/30">
+      {% if negocio.whatsapp_url %}
+      <a href="{{ negocio.whatsapp_url }}" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-primary text-on-primary font-bold text-xs uppercase tracking-wider shadow-md transition-all">
+        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+        <span>Escribir por WhatsApp</span>
+      </a>
+      {% endif %}
+
+      {% if negocio.telefono %}
+      <a href="tel:{{ negocio.telefono }}" class="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-surface-container hover:bg-surface-container-high font-semibold text-xs transition-all">
+        <span class="material-symbols-outlined text-[16px]">call</span>
+        <span>Llamar {{ negocio.telefono }}</span>
+      </a>
+      {% endif %}
+
+      <div class="text-[11px] text-center text-on-surface-variant flex items-center justify-center gap-1 pt-1">
+        <span class="material-symbols-outlined text-[14px]">location_on</span>
+        <span class="truncate">{{ negocio.direccion or negocio.ciudad }}</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function toggleMobileMenu() {
+    const panel = document.getElementById('mobile-drawer-panel');
+    if (!panel) return;
+    if (panel.classList.contains('translate-x-full')) {
+      openMobileMenu();
+    } else {
+      closeMobileMenu();
+    }
+  }
+
+  function openMobileMenu() {
+    const drawer = document.getElementById('mobile-drawer');
+    const backdrop = document.getElementById('mobile-drawer-backdrop');
+    const panel = document.getElementById('mobile-drawer-panel');
+    const btn = document.getElementById('hamburger-btn');
+
+    if (!drawer || !backdrop || !panel) return;
+    drawer.classList.remove('pointer-events-none');
+    drawer.setAttribute('aria-hidden', 'false');
+    backdrop.classList.remove('opacity-0', 'pointer-events-none');
+    backdrop.classList.add('opacity-100');
+    panel.classList.remove('translate-x-full');
+    if (btn) btn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileMenu() {
+    const drawer = document.getElementById('mobile-drawer');
+    const backdrop = document.getElementById('mobile-drawer-backdrop');
+    const panel = document.getElementById('mobile-drawer-panel');
+    const btn = document.getElementById('hamburger-btn');
+
+    if (!drawer || !backdrop || !panel) return;
+    backdrop.classList.remove('opacity-100');
+    backdrop.classList.add('opacity-0', 'pointer-events-none');
+    panel.classList.add('translate-x-full');
+    drawer.classList.add('pointer-events-none');
+    drawer.setAttribute('aria-hidden', 'true');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeMobileMenu();
+  });
+</script>
+
 </body></html>

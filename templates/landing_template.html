@@ -2,7 +2,7 @@
 <html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <meta name="referrer" content="no-referrer">
   <title>{{ negocio.nombre }} | Web Oficial & Citas</title>
   <meta name="description" content="{{ negocio.meta_description or 'Sitio web oficial y reservas para ' ~ negocio.nombre ~ ' en ' ~ negocio.ciudad }}">
@@ -212,7 +212,7 @@
   <!-- ============================================================ -->
   <!-- TOP BRAND NAVBAR (FULL-WIDTH DESKTOP & SLIM MOBILE) -->
   <!-- ============================================================ -->
-  <header class="sticky top-0 z-40 backdrop-blur-2xl border-b transition w-full" style="background-color: var(--header-bg); border-color: var(--border-color);">
+  <header class="sticky top-0 z-40 backdrop-blur-2xl border-b transition w-full" style="background-color: var(--header-bg); border-color: var(--border-color); padding-top: env(safe-area-inset-top, 0px);">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
       
       <!-- Identidad y Avatar del Negocio -->
@@ -305,7 +305,7 @@
     <div id="mobile-drawer-backdrop" onclick="toggleMobileMenu()" class="absolute inset-0 bg-black/75 backdrop-blur-md opacity-0 pointer-events-none"></div>
 
     <!-- Panel lateral deslizante con margen superior para Dynamic Island / Status Bar -->
-    <div id="mobile-drawer-panel" class="absolute top-0 right-0 bottom-0 w-[310px] sm:w-[350px] max-w-[88vw] border-l shadow-2xl px-5 pt-16 pb-6 flex flex-col justify-between overflow-y-auto translate-x-full pointer-events-auto" style="background-color: var(--drawer-bg); border-color: var(--border-color);">
+    <div id="mobile-drawer-panel" class="absolute top-0 right-0 bottom-0 w-[310px] sm:w-[350px] max-w-[88vw] border-l shadow-2xl px-5 flex flex-col justify-between overflow-y-auto translate-x-full pointer-events-auto" style="background-color: var(--drawer-bg); border-color: var(--border-color); padding-top: max(1.5rem, calc(1rem + env(safe-area-inset-top, 0px))); padding-bottom: max(1.5rem, calc(1rem + env(safe-area-inset-bottom, 0px)));">
       
       <!-- Cabecera del Menú -->
       <div class="space-y-5">
