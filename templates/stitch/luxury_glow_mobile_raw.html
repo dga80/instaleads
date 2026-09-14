@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#fff8f5;color:#1e1b19;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "primary-container": "#d49757", "surface-container-high": "#eee7e3", "on-primary": "#ffffff", "tertiary-container": "#aaa29c", "on-surface-variant": "#514439", "surface-container": "#f4ece8", "on-tertiary-fixed-variant": "#4b4641", "on-primary-fixed": "#2c1600", "primary-fixed": "#ffdcbd", "tertiary-fixed": "#eae1da", "on-tertiary": "#ffffff", "on-tertiary-fixed": "#1f1b17", "tertiary": "#645d58", "secondary": "#5f5e5b", "secondary-container": "#e5e2dd", "tertiary-fixed-dim": "#cec5bf", "on-primary-container": "#563100", "surface-variant": "#e9e1dd", "surface": "#fff8f5", "error-container": "#ffdad6", "error": "#ba1a1a", "surface-container-low": "#faf2ee", "on-background": "#1e1b19", "primary-fixed-dim": "#fbb976", "outline": "#837468", "surface-container-lowest": "#ffffff", "surface-dim": "#e0d8d5", "on-secondary-fixed-variant": "#474743", "on-secondary": "#ffffff", "on-secondary-fixed": "#1c1c19", "on-secondary-container": "#656461", "secondary-fixed-dim": "#c8c6c2", "outline-variant": "#d5c3b4", "surface-tint": "#855319", "primary": "#855319", "on-surface": "#1e1b19", "surface-container-highest": "#e9e1dd", "on-primary-fixed-variant": "#693c01", "on-tertiary-container": "#3e3934", "secondary-fixed": "#e5e2dd", "on-error": "#ffffff", "surface-bright": "#fff8f5", "on-error-container": "#93000a", "background": "#fff8f5", "inverse-surface": "#33302d", "inverse-on-surface": "#f7efeb", "inverse-primary": "#fbb976" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xl": "3.5rem", "margin-tablet": "2.5rem", "space-sm": "0.75rem", "space-xs": "0.375rem", "margin": "1.25rem", "margin-desktop": "4rem", "space-md": "1.25rem", "gutter": "1.5rem", "gutter-desktop": "2.5rem", "space-lg": "2rem" }, "fontFamily": { "label-md": ["Plus Jakarta Sans"], "headline-lg": ["Playfair Display"], "headline-md": ["Playfair Display"], "body-lg": ["Plus Jakarta Sans"], "display-hero": ["Playfair Display"], "label-caps": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "display-hero-mobile": ["Playfair Display"], "headline-sm": ["Playfair Display"], "headline-lg-mobile": ["Playfair Display"], "body-md": ["Plus Jakarta Sans"] }, "fontSize": { "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "400" }], "headline-md": ["28px", { "lineHeight": "36px", "fontWeight": "500" }], "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }], "display-hero": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "400" }], "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.12em", "fontWeight": "600" }], "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "display-hero-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "400" }], "headline-sm": ["22px", { "lineHeight": "30px", "fontWeight": "600" }], "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "0em", "fontWeight": "400" }], "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }] } } } }</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface min-h-screen flex flex-col antialiased"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_10px_30px_-10px_rgba(212,151,87,0.12)]"><div class="h-20 px-space-md flex items-center justify-between gap-space-xs"><div class="flex items-center gap-space-xs"><img alt="Brand logo. - Primary color: #d49757
+- Font: playfairDisplay
+- Mode: light
+- Roundness: rounded-md
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WnhiYLdLiaB-ILcwgtD-dSdcHhme04fBDlIrGO0ZW5xelRZDndQ5_pW8QF2zOx8uGN5jO_Jh7zcKhiu5g0L4au65wAoa2_akkFfPV5f5jgvqyBR-rTWGxylUH4TCQJ1Znn6-KEGTE4RLW3DalnTWWUGeeNBpvCI1Wbr0BVeEZ1cq_kctaswVf_NmMfzA8siJit4nv1XPQphbTONYPixdXMloejykX3O0NT1vHW4z8YQ5QFaWDR_unRUzNN"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-tight tracking-tight">Élixir</span><span class="font-label-caps text-label-caps text-primary-container tracking-widest">MADRID</span></div></div><div class="flex items-center gap-space-xs"><a class="hidden sm:flex items-center gap-1 px-3 py-1 rounded-full bg-surface-container-lowest/80 text-on-surface-variant font-label-caps text-label-caps tracking-wider shadow-[0_2px_8px_rgba(212,151,87,0.1)]" href="#"><span class="material-symbols-outlined text-[14px] text-primary-container">camera_alt</span>@elixir.madrid</a><a class="min-h-[44px] px-4 rounded-full bg-primary-container text-on-primary font-label-caps text-label-caps tracking-wider flex items-center justify-center transition-transform active:scale-95 shadow-[0_8px_20px_-4px_rgba(212,151,87,0.4)]" data-path="reserva-inmediata" href="#">CITA</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-20 pb-36 bg-surface"><div class="flex flex-col w-full">
+<!-- 1. Hero Mobile Section -->
+<section class="flex flex-col px-space-md pt-4 pb-8">
+<div class="inline-flex items-center gap-1.5 self-start px-3 py-1 rounded-full bg-surface-container-lowest shadow-[0_2px_10px_rgba(212,151,87,0.12)]">
+<span class="text-primary-container text-xs">✨</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant tracking-wider uppercase">Atención Exclusiva • Cita Previa</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mt-3.5 leading-snug">
+      Realza tu <span class="italic font-display-hero-mobile text-primary">belleza natural</span> con técnicas de autor en Madrid
+    </h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-3 leading-relaxed">
+      Atención individualizada en cabina privada, aparatología de última generación y formulaciones botánicas bioactivas certificadas. Sin prisas, con rigor experto en el Barrio de Salamanca.
+    </p>
+<!-- CTAs Mobile -->
+<div class="flex flex-col gap-2.5 mt-5">
+<a class="min-h-[48px] w-full rounded-full bg-primary-container text-on-primary font-label-md text-label-md flex items-center justify-center gap-2 shadow-[0_10px_25px_-5px_rgba(212,151,87,0.45)] active:scale-[0.98] transition-transform" href="https://wa.me/34910000000">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+<span class="tracking-wide">Reservar Cita por WhatsApp</span>
+</a>
+<a class="min-h-[44px] w-full rounded-full bg-surface-container-lowest text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 shadow-[0_4px_12px_rgba(28,25,23,0.04)] active:scale-[0.98] transition-transform" href="#carta-servicios">
+<span>Ver Carta de Servicios</span>
+<span class="material-symbols-outlined text-[16px] text-primary-container">arrow_downward</span>
+</a>
+</div>
+<!-- Rating badge -->
+<div class="flex items-center gap-2 mt-3.5 px-3 py-2 rounded-xl bg-surface-container-low/80">
+<div class="flex items-center text-primary-container">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-label-caps text-label-caps text-on-surface-variant font-medium">
+<strong class="text-on-surface">4.9/5</strong> valoración media (180+ reseñas)
+      </p>
+</div>
+<!-- Hero Visual Stack -->
+<div class="relative w-full mt-6">
+<div class="w-full h-72 rounded-2xl overflow-hidden shadow-[0_16px_36px_-8px_rgba(212,151,87,0.22)] bg-surface-container relative">
+<img class="w-full h-full object-cover" data-alt="High-end private aesthetic clinic interior in Barrio de Salamanca Madrid, warm beige travertine walls, curved bouclé treatment bed, soft sheer linen drapes with warm morning sunlight, minimalist brass accessories, luxury spa sanctuary mood" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEmVzv08in9m2kzDo4oi8MCvZ2RhlKeh2x7OzzN5h6d1VfHZNoYmuUCtKRTHmFh4HGXPdW9pZoRJ8g6Ir9DpjTUYpZ9sUIRUGLLlUspW1Y-vhp54FZEYxgBdH-pVqZ9HNcXC2HrboVOWOl9v3EobNl_MfiGxD5KIcio4yD9mf_VBHs7E63jMzfimkI9lT0A4Q876A9LkDTO_APpAvJ4gSi7jPUhs6-cr15ofQQnaM__nPtUoXsmW3z-w"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+<!-- Floating tag on bottom left -->
+<div class="absolute bottom-3 left-3 right-16 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-md shadow-sm">
+<span class="material-symbols-outlined text-primary-container text-[16px]">lock</span>
+<span class="font-label-caps text-label-caps text-on-surface tracking-wider truncate">Cabinas Privadas VIP • Máxima confidencialidad</span>
+</div>
+</div>
+<!-- Overlapping Floating Badge with Glow preview -->
+<div class="absolute -bottom-4 right-2 w-32 p-2 rounded-xl bg-surface-container-lowest shadow-[0_12px_28px_rgba(28,25,23,0.12)] flex flex-col gap-1">
+<div class="h-16 w-full rounded-lg overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Close up of a serene woman receiving precision facial hydra microneedling treatment in a luxury clinic, glowing dewy skin, gentle ambient lighting, champagne gold tones, peaceful expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ7u_Y6o0y8uHfMcgCHf6BA-D6BERjiaFP6x6jPfEEsUKLURsIIR9MU_DPF6www71MISWH1uVC533QeOIDk_fhTU29OHOtNKHuhYAd_PyGOFcZ9LsnJLTwX9DeAnoUCEIXH_s8vMvoJ8CNZKWRLN3NSRRbGQxBxh1elFYnyXV_oWZhE___mI6vpIUQfSgVPbxtO_LuuG7aSgH-70bLzmAEAZnv0JfrIXCDZhz1t8OdZl8JDr4tdFH8ag"/>
+</div>
+<div class="flex items-center justify-between px-0.5">
+<span class="font-label-caps text-[9px] text-primary-container font-semibold tracking-wider">RESULTADO</span>
+<span class="font-label-caps text-[10px] text-on-surface font-medium">Glow Inmediato</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. Trust Pillars (Tactile Luxury Stack) -->
+<section class="flex flex-col gap-3 px-space-md py-6 bg-surface-container-low/60">
+<div class="flex items-center gap-2 mb-1">
+<span class="h-px w-6 bg-primary-container"></span>
+<span class="font-label-caps text-label-caps text-primary-container tracking-widest uppercase">Estándar de Excelencia</span>
+</div>
+<!-- Pillar 1 -->
+<div class="p-4 rounded-xl bg-surface-container-lowest shadow-[0_4px_16px_rgba(212,151,87,0.08)] flex gap-3.5 items-start">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary-container text-[20px]">view_in_ar</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h2 class="font-headline-sm text-[17px] text-on-surface leading-snug">Diagnóstico 3D Cuidado Personalizado</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-normal">
+          Evaluación digital previa que analiza las capas profundas de tu dermis antes de tocar tu piel.
+        </p>
+</div>
+</div>
+<!-- Pillar 2 -->
+<div class="p-4 rounded-xl bg-surface-container-lowest shadow-[0_4px_16px_rgba(212,151,87,0.08)] flex gap-3.5 items-start">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary-container text-[20px]">sanitizer</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h2 class="font-headline-sm text-[17px] text-on-surface leading-snug">Cosmecéutica de Autor Premium</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-normal">
+          Formulaciones bioactivas suizas y francesas con certificación médica y principios puros.
+        </p>
+</div>
+</div>
+<!-- Pillar 3 -->
+<div class="p-4 rounded-xl bg-surface-container-lowest shadow-[0_4px_16px_rgba(212,151,87,0.08)] flex gap-3.5 items-start">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary-container text-[20px]">volume_off</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h2 class="font-headline-sm text-[17px] text-on-surface leading-snug">Sosiego &amp; Confort Acústico</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-normal">
+          Cabinas con aislamiento acústico integral, aromaterapia orgánica de azahar y sándalo silvestre.
+        </p>
+</div>
+</div>
+</section>
+<!-- 3. Carta de Terapias (Bento Mobile Cards) -->
+<section class="flex flex-col px-space-md py-8" id="carta-servicios">
+<div class="flex flex-col items-start gap-1">
+<span class="px-2.5 py-0.5 rounded-full bg-primary-container/15 text-primary-container font-label-caps text-label-caps tracking-widest uppercase">
+        Tratamientos Exclusivos
+      </span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mt-1">
+        Carta de Terapias
+      </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Precisión en cabina individual y resultados visibles desde la primera sesión.
+      </p>
+</div>
+<div class="flex flex-col gap-4 mt-6">
+<!-- Card 1: Featured Signature Facial (Gold Glow Card) -->
+<div class="p-5 rounded-2xl bg-surface-container-lowest shadow-[0_12px_32px_-6px_rgba(212,151,87,0.22)] relative overflow-hidden flex flex-col gap-3.5">
+<div class="flex items-center justify-between">
+<span class="px-2.5 py-1 rounded-full bg-primary-container text-on-primary font-label-caps text-label-caps tracking-widest uppercase">
+            Tratamiento Estrella • 90 min
+          </span>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">145€</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-md text-[22px] text-on-surface font-normal">
+            Élixir Glow Signature Facial
+          </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+            Protocolo insignia de renovación celular completa y oxigenación dérmica intensiva.
+          </p>
+</div>
+<!-- Treatment Highlights List -->
+<div class="grid grid-cols-1 gap-2 py-2 px-3 rounded-xl bg-surface-container-low/70">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-[18px]">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface">Hidratación multicapa con ácido hialurónico 3D</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-[18px]">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface">Drenaje linfático facial manual descongestivo</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-[18px]">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface">Efecto tensor no invasivo con radiofrecuencia suave</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-[18px]">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface">Mascarilla oclusiva bio-celulosa con infusión de oro</span>
+</div>
+</div>
+<a class="min-h-[46px] w-full rounded-full bg-primary-container text-on-primary font-label-md text-label-md flex items-center justify-center gap-2 shadow-[0_6px_18px_rgba(212,151,87,0.35)] active:scale-95 transition-transform" href="https://wa.me/34910000000?text=Hola,%20deseo%20reservar%20Élixir%20Glow%20Signature">
+<span>Reservar este servicio</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+<!-- Card 2: Kobido -->
+<div class="p-5 rounded-2xl bg-surface-container-lowest shadow-[0_6px_20px_rgba(28,25,23,0.05)] flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-primary-container tracking-wider uppercase font-semibold">
+            Lifting Manual • 60 min
+          </span>
+<span class="font-headline-sm text-headline-sm text-on-surface">95€</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-[20px] text-on-surface">Lifting Japonés Kobido &amp; Gua Sha</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-normal">
+            Estimula el colágeno natural mediante maniobras de percusión y amasamiento profundo mientras disuelve tensiones de mandíbula y entrecejo.
+          </p>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Aceites botánicos fríos</span>
+<a class="flex items-center gap-1 font-label-md text-label-md text-primary font-semibold hover:translate-x-1 transition-transform" href="https://wa.me/34910000000?text=Deseo%20reservar%20Kobido">
+<span>Reservar</span>
+<span class="material-symbols-outlined text-[16px]">east</span>
+</a>
+</div>
+</div>
+<!-- Card 3: Peeling Enzimático -->
+<div class="p-5 rounded-2xl bg-surface-container-lowest shadow-[0_6px_20px_rgba(28,25,23,0.05)] flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-primary-container tracking-wider uppercase font-semibold">
+            Renovación Celular • 45 min
+          </span>
+<span class="font-headline-sm text-headline-sm text-on-surface">85€</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-[20px] text-on-surface">Peeling Enzimático Luminosidad</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-normal">
+            Exfoliación no invasiva a base de enzimas de papaya y piña con vitamina C bioasimilable. 100% sin descamación visible ni tiempo de baja.
+          </p>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Ideal antes de un evento</span>
+<a class="flex items-center gap-1 font-label-md text-label-md text-primary font-semibold hover:translate-x-1 transition-transform" href="https://wa.me/34910000000?text=Deseo%20reservar%20Peeling%20Enzimatico">
+<span>Reservar</span>
+<span class="material-symbols-outlined text-[16px]">east</span>
+</a>
+</div>
+</div>
+<!-- Card 4: Indiba Deep Care -->
+<div class="p-5 rounded-2xl bg-surface-container-lowest shadow-[0_6px_20px_rgba(28,25,23,0.05)] flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-primary-container tracking-wider uppercase font-semibold">
+            Alta Tecnología • 75 min
+          </span>
+<span class="font-headline-sm text-headline-sm text-on-surface">120€</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-[20px] text-on-surface">Remodelación Indiba Deep Care</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-normal">
+            Radiofrecuencia monopolar patentada que reactiva el metabolismo celular, reafirma tejidos y reduce adiposidad localizada.
+          </p>
+</div>
+<div class="flex flex-wrap gap-1.5 py-1">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-caps text-[10px]">448 kHz Pro</span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-caps text-[10px]">Abdomen / Piernas</span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-caps text-[10px]">Confort Térmico</span>
+</div>
+<a class="min-h-[44px] w-full rounded-full bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 active:scale-95 transition-transform mt-1" href="https://wa.me/34910000000?text=Deseo%20reservar%20Indiba%20Deep%20Care">
+<span>Reservar este servicio</span>
+<span class="material-symbols-outlined text-[16px] text-primary-container">calendar_today</span>
+</a>
+</div>
+</div>
+</section>
+<!-- 4. Momentos en el Atelier (2x2 Editorial Photo Grid) -->
+<section class="flex flex-col px-space-md py-6 bg-surface-container-low/40">
+<div class="flex items-center justify-between mb-4">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-primary-container tracking-widest uppercase">Atmósfera Élixir</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Momentos en el Atelier</h2>
+</div>
+<a class="flex items-center gap-1 text-primary font-label-caps text-label-caps tracking-wider font-semibold" href="https://instagram.com/elixir.madrid">
+<span>@ELIXIR.MADRID</span>
+<span class="material-symbols-outlined text-[14px]">north_east</span>
+</a>
+</div>
+<!-- 2x2 Grid -->
+<div class="grid grid-cols-2 gap-2.5">
+<div class="h-44 rounded-xl overflow-hidden bg-surface-container shadow-sm relative">
+<img class="w-full h-full object-cover" data-alt="Aesthetic medical practitioner applying a soothing organic gold peptide serum to a woman's cheek in Madrid clinic, macro soft focus, radiant skin, neutral warm palette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmX0umPFpnq8MJohykw72xOlgKaIZ2AF0AjHdGvKWZU0CtS_iuTEszpMhL0oWdj8PxFOUb84tOBJ4ZhaXoIj35IQuAjVjQuBWPTnHRsJqbZgwS-hjf4BPBRBjXUmLOp-LuKKaex6Wx7Sx9eSBK6jqMaGy8OgPiXy7kRNPW3jW1zSJ9ScwKEUbVl7e2Qnkg4lcu6e5YmST3ImyeDZlu22WkmcUzLvcaTRp7VDqpdqrTNP5Sypj8579q5A"/>
+</div>
+<div class="h-44 rounded-xl overflow-hidden bg-surface-container shadow-sm relative">
+<img class="w-full h-full object-cover" data-alt="Artistic still life of luxury skincare cosmetic glass vials, golden pipettes, organic dried flowers, and white marble countertop in daylight, minimalist editorial" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBA1HORHxHfyQv5ixmulOa5bifgpgwegQCwzvhexoi7e1-fdnfKDwbCYTf3tWE1bVxvhCFRxKVmJiziaV3msYC2alsV2Dms3LSuOJ_WCBTbMsMCoJ_C3bBkv6fU_eLL2OvxZxIlFuf9_UkNQd2vPO_l51-1Yema568lXammA3sf63zJSb_vO89giZGTfL6KA1_Hs0t1yrxbYxAuhqFyOJhhK_YEYtrBSIihywYMvmAvucWMDm_0O_lqmA"/>
+</div>
+<div class="h-44 rounded-xl overflow-hidden bg-surface-container shadow-sm relative">
+<img class="w-full h-full object-cover" data-alt="Serene treatment room at Élixir Studio Madrid, arched soft beige alcoves, ambient warm sconce light, plush bouclé daybed, warm minimalism" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzkELObw1KqRvJTNTOOhsgmw14sULQGsF2sxPO0xXVFEAs6Fz-w79wFtUbtgpgad9hz6K_CxZPTK2HTec67rf__qnrfs0iKF4-2uIkbBB_QBluAnc5JRH7EPK2L068MzodtATYec3bnf9BkB3VGyzO8H4WW8V9WPpqe2ELVppoZxREoqJdmKiFKDl_BTOzqV7RxzT2GHR05-McGD0Ir3exmlXohUQ8dJZMA7USp2E_-fNv7PCZOuE2hw"/>
+</div>
+<div class="h-44 rounded-xl overflow-hidden bg-surface-container shadow-sm relative">
+<img class="w-full h-full object-cover" data-alt="Close up of therapist hands performing traditional Japanese Kobido lifting facial massage with rose quartz gua sha tool, peaceful tranquil glow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBX1TPxVjt0IV4u7K9NuxpXXIkN0OOqhH1--esRmPOISusmCDsU46HPR-14kUS0gSxJQEAfXwQh25SxkMCvCgH3XcM0aJbEsRivMuQ1ICM_bjuPdWHGmz5Xb4Hd_0slENG1dqYv3kZMBtUI1_w7gaity6s0CdJTX5ayxEnvPuj-bN3stnQzLdGGvTT7JZYWaUhaivDyIEX8923CveL8C2JhIC4Pse2l0Hy3yB2ez70X1sAYVhhZHa4Tgg"/>
+</div>
+</div>
+</section>
+<!-- 5. Experiencias en Primera Persona (Client Testimonials) -->
+<section class="flex flex-col px-space-md py-8">
+<div class="flex items-center gap-2 mb-1">
+<span class="h-px w-6 bg-primary-container"></span>
+<span class="font-label-caps text-label-caps text-primary-container tracking-widest uppercase">Opiniones Verificadas</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">
+      Experiencias en Primera Persona
+    </h2>
+<div class="flex flex-col gap-3.5 mt-5">
+<!-- Testimonial 1 -->
+<div class="p-5 rounded-2xl bg-surface-container-lowest shadow-[0_4px_18px_rgba(28,25,23,0.06)] flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex text-primary-container">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-label-caps text-[10px] text-on-surface-variant font-medium">Hace 4 días</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface italic leading-relaxed">
+          “El mejor tratamiento facial que he probado en Madrid. La cabina es completamente silenciosa y el diagnóstico 3D me explicó por primera vez las necesidades reales de mi piel. Salí radiante.”
+        </p>
+<div class="flex items-center gap-3 pt-1">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center font-headline-sm text-[13px] text-primary">CD</div>
+<div class="flex flex-col">
+<span class="font-label-md text-[13px] text-on-surface font-semibold">Carmen Delgado</span>
+<span class="font-label-caps text-[10px] text-on-surface-variant">Tratamiento Élixir Glow Signature</span>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="p-5 rounded-2xl bg-surface-container-lowest shadow-[0_4px_18px_rgba(28,25,23,0.06)] flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex text-primary-container">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-label-caps text-[10px] text-on-surface-variant font-medium">Hace 2 semanas</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface italic leading-relaxed">
+          “Un verdadero oasis de paz en el Barrio de Salamanca. El Kobido facial liberó toda la tensión de bruxismo y los resultados son inmediatos. Profesionalidad impecable.”
+        </p>
+<div class="flex items-center gap-3 pt-1">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center font-headline-sm text-[13px] text-primary">SM</div>
+<div class="flex flex-col">
+<span class="font-label-md text-[13px] text-on-surface font-semibold">Sofía Martorell</span>
+<span class="font-label-caps text-[10px] text-on-surface-variant">Lifting Japonés Kobido</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. Concierge WhatsApp Card -->
+<section class="flex flex-col px-space-md py-6">
+<div class="p-6 rounded-2xl bg-surface-container shadow-[0_10px_30px_rgba(212,151,87,0.15)] flex flex-col items-center text-center gap-3.5 relative overflow-hidden">
+<div class="w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-[24px]">support_agent</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">Asesoramiento Exclusivo</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">¿Dudas sobre qué tratamiento elegir?</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-normal max-w-xs">
+          Nuestro equipo de especialistas te asesorará directamente vía WhatsApp sin compromiso alguno.
+        </p>
+</div>
+<a class="min-h-[48px] w-full max-w-xs rounded-full bg-primary-container text-on-primary font-label-md text-label-md flex items-center justify-center gap-2 shadow-[0_8px_20px_rgba(212,151,87,0.35)] active:scale-95 transition-transform" href="https://wa.me/34910000000?text=Hola,%20quisiera%20asesoramiento%20personalizado">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+<span class="tracking-wide">Hablar con Concierge</span>
+</a>
+</div>
+</section>
+<!-- 7. Map & Location Brief -->
+<section class="flex flex-col px-space-md py-4">
+<div class="flex flex-col gap-1 mb-3">
+<span class="font-label-caps text-label-caps text-primary-container tracking-widest uppercase">Ubicación</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">En el corazón de Salamanca</h3>
+</div>
+<div class="w-full h-44 rounded-2xl bg-cover bg-center overflow-hidden shadow-sm" data-location="Calle de Serrano 48, Salamanca, Madrid, Spain" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD9PDG7pgdCJKOxSxfh1ZPA7KOFzbfPuM6i8s_KPLAqV-FR8KsI1M_2pqLYeINLO9xQ15coWbXfD7GTGedDDuYI7agEjSGAZ_8NHH8C2HB0ufmVi3UOzTN6oJoj1QTJmLpT0j3Xzr6_p_-Gl8yzP46AAzW74RCUeSuH-_3rzqH5EDrucI2v1KV1F2UBSMzqOFu-m-vg22v5WbAZdoaKP1VXdxlEcgQc3RtEUkUrWRfAhC9RUzsNjYsysg')"></div>
+<div class="flex items-center gap-2 mt-3 px-3 py-2.5 rounded-xl bg-surface-container-lowest shadow-sm">
+<span class="material-symbols-outlined text-primary-container text-[20px]">pin_drop</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-[13px] text-on-surface font-semibold truncate">Calle de Serrano 48, 1º Izquierda</span>
+<span class="font-body-sm text-[12px] text-on-surface-variant">28001 Madrid • Parking público a 50m</span>
+</div>
+</div>
+</section>
+</div><footer class="w-full mt-space-xl px-space-md py-space-lg bg-surface-container-low/70 flex flex-col gap-space-md"><div class="flex flex-col gap-1"><p class="font-headline-sm text-headline-sm text-on-surface">Élixir Studio Madrid</p><p class="font-body-sm text-body-sm text-on-surface-variant">Calle de Serrano 48, Barrio de Salamanca, 28001 Madrid</p><p class="font-label-caps text-label-caps text-primary-container tracking-widest">LUN - SÁB: 10:00 — 20:30</p></div><div class="flex items-center justify-between pt-space-xs"><div class="flex gap-space-sm font-label-caps text-label-caps text-tertiary"><a class="hover:text-primary" href="#">AVISO LEGAL</a><span>•</span><a class="hover:text-primary" href="#">PRIVACIDAD</a><span>•</span><a class="hover:text-primary" href="#">MÉDICO COL.</a></div><span class="font-label-caps text-label-caps text-tertiary">© 2025</span></div></footer></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-8px_30px_rgba(28,25,23,0.06)]" data-active-classes="text-primary font-semibold"><div class="h-16 px-space-sm flex items-center justify-around"><a aria-current="page" class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-2 transition-colors text-primary font-semibold" data-path="inicio" href="#"><span class="material-symbols-outlined text-[22px]">spa</span><span class="font-label-caps text-label-caps mt-0.5">Studio</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-2 text-on-surface-variant transition-colors" data-path="tratamientos" href="#"><span class="material-symbols-outlined text-[22px]">medical_services</span><span class="font-label-caps text-label-caps mt-0.5">Tratamientos</span></a><a class="flex items-center gap-2 h-11 px-5 rounded-full bg-primary-container text-on-primary font-label-caps text-label-caps tracking-widest shadow-[0_6px_20px_rgba(212,151,87,0.35)] active:scale-95 transition-transform" data-path="concierge-whatsapp" href="#"><span class="material-symbols-outlined text-[18px]">chat</span><span>WHATSAPP</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-2 text-on-surface-variant transition-colors" data-path="medicos-expertos" href="#"><span class="material-symbols-outlined text-[22px]">verified</span><span class="font-label-caps text-label-caps mt-0.5">Equipo</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-2 text-on-surface-variant transition-colors" data-path="ubicacion-salamanca" href="#"><span class="material-symbols-outlined text-[22px]">location_on</span><span class="font-label-caps text-label-caps mt-0.5">Serrano</span></a></div></nav></body></html>

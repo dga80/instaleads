@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link rel="icon" type="image/jpeg" href="{{ ig.avatar_url or 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=96&q=80' }}">
+<link href="https://fonts.googleapis.com\" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-primary-container": "#003751", "primary-fixed-dim": "#89ceff", "surface-container": "#e2efff", "tertiary-fixed": "#6ffbbe", "on-surface-variant": "#3e4850", "secondary": "#006399", "outline": "#6e7881", "on-background": "#001d32", "on-error": "#ffffff", "outline-variant": "#bec8d2", "surface-dim": "#bddeff", "error": "#ba1a1a", "on-error-container": "#93000a", "tertiary-container": "#00b17b", "inverse-on-surface": "#e7f2ff", "on-surface": "#001d32", "surface-variant": "#cde5ff", "surface-container-highest": "#cde5ff", "on-tertiary-container": "#003b26", "on-tertiary": "#ffffff", "on-secondary-fixed-variant": "#004b74", "surface-container-lowest": "#ffffff", "primary-fixed": "#c9e6ff", "tertiary-fixed-dim": "#4edea3", "on-primary-fixed-variant": "#004c6e", "secondary-fixed-dim": "#94ccff", "on-secondary-fixed": "#001d32", "on-tertiary-fixed-variant": "#005236", "on-primary-fixed": "#001e2f", "secondary-container": "#7bc2ff", "secondary-fixed": "#cde5ff", "on-secondary-container": "#004f7b", "surface-tint": "#006591", "on-tertiary-fixed": "#002113", "surface-bright": "#f7f9ff", "on-secondary": "#ffffff", "background": "#f7f9ff", "surface-container-high": "#d8eaff", "inverse-surface": "#0e334d", "primary": "#006591", "surface": "#f7f9ff", "error-container": "#ffdad6", "on-primary": "#ffffff", "primary-container": "#0ea5e9", "inverse-primary": "#89ceff", "surface-container-low": "#edf4ff", "tertiary": "#006c49" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter-mobile": "1rem", "gutter": "1.5rem", "margin-mobile": "1.25rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "space-md": "1rem", "space-lg": "1.5rem", "space-xl": "2.5rem", "margin": "3rem" }, "fontFamily": { "headline-md": ["Plus Jakarta Sans"], "label-md": ["Inter"], "body-md": ["Inter"], "display": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "title-md": ["Plus Jakarta Sans"], "display-mobile": ["Plus Jakarta Sans"], "label-lg": ["Inter"], "title-lg": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "headline-lg-mobile": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "caption": ["Inter"] }, "fontSize": { "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }], "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "display": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.025em", "fontWeight": "700" }], "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "title-md": ["16px", { "lineHeight": "22px", "fontWeight": "600" }], "display-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "title-lg": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "headline-sm": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }], "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "caption": ["11px", { "lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "500" }] } } } };</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 w-full z-50 bg-surface/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="w-full bg-surface-container-low"><div class="max-w-[1280px] mx-auto px-gutter h-10 flex items-center justify-between font-label-md text-label-md"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs text-on-surface"><span class="material-symbols-outlined text-primary text-[16px]">call</span><span class="font-semibold">Urgencias 24h:</span><a class="text-primary hover:underline" href="tel:+34910234567">+34 910 234 567</a></div><div class="hidden md:flex items-center gap-space-xs text-on-surface-variant"><span class="material-symbols-outlined text-[16px]">location_on</span><span>Av. de la Salud 42, Centro Médico</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs"><span class="inline-block w-2 h-2 rounded-full bg-tertiary-container animate-pulse"></span><span class="text-on-surface font-medium">Abierto hoy hasta las 20:30</span></div></div></div></div><div class="max-w-[1280px] mx-auto px-gutter h-20 flex items-center justify-between"><div class="flex items-center gap-space-md"><img alt="{{ negocio.nombre }} Clinic Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Xrwu5vrnVU7UEfTkCrS5ySq5RLFUqf448BaLQOWKvW3enqrxeIkXtNQpi1edx-G2zkqx4l36KUS3cAm47mc8fRMCFJk8QOfPB1Q6iGv9e3TTZ12ZZ4KVkFN-3cKK-UP6pELdAFvK5uIW2N0RV0Xo_TsY3O6uUpmtb6tA_p04kcXi8L6ra5v9COJCPV8MI3H9odBmDZv2voYj6econKq_uhKkZ_ahbzNMOQwaGDqvvHaYxGSKt-a873Ne8"/><span class="font-title-lg text-title-lg text-on-surface font-bold tracking-tight">{{ negocio.nombre }}</span></div><nav class="hidden lg:flex items-center gap-space-xs" data-active-classes="bg-surface-container text-primary font-title-md"><a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-title-md text-title-md transition-colors" data-path="especialidades" href="#">Especialidades</a><a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-title-md text-title-md transition-colors" data-path="garantias" href="#">Garantías</a><a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-title-md text-title-md transition-colors" data-path="equipo-medico" href="#">Equipo Médico</a><a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-title-md text-title-md transition-colors" data-path="opiniones" href="#">Opiniones</a><a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-title-md text-title-md transition-colors" data-path="tecnologia-3d" href="#">Tecnología 3D</a><a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-title-md text-title-md transition-colors" data-path="financiacion" href="#">Financiación</a></nav><div class="flex items-center gap-space-md"><a class="inline-flex items-center gap-space-xs bg-primary-container text-on-primary hover:bg-primary px-space-lg py-space-sm rounded-xl font-label-lg text-label-lg shadow-[0_4px_14px_rgba(14,165,233,0.35)] transition-all" data-path="pedir-cita" href="#"><span class="material-symbols-outlined text-[18px]">calendar_month</span><span>Pedir Cita Online</span></a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-[120px] bg-background min-h-screen"><div class="flex flex-col w-full">
+<!-- HERO SECTION -->
+<section class="relative w-full overflow-hidden bg-gradient-to-b from-surface-container-low via-background to-surface py-space-xl">
+<!-- Ambient glowing backdrop effect -->
+<div class="absolute top-0 right-1/4 w-96 h-96 rounded-full bg-secondary-container/20 blur-3xl pointer-events-none -z-0"></div>
+<div class="absolute bottom-10 left-10 w-72 h-72 rounded-full bg-tertiary-fixed/30 blur-2xl pointer-events-none -z-0"></div>
+<div class="max-w-[1280px] mx-auto px-gutter relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<!-- Left Editorial Content (7 Cols) -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<!-- Trust Pill Badge -->
+<div class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container-lowest text-on-surface shadow-sm self-start">
+<span class="material-symbols-outlined text-primary text-[18px]">medical_services</span>
+<span class="font-label-md text-label-md font-semibold tracking-wide text-primary">1ª VALORACIÓN &amp; DIAGNÓSTICO DIGITAL DISPONIBLE</span>
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse ml-1"></span>
+</div>
+<!-- Headline -->
+<h1 class="font-display text-display text-on-surface leading-tight tracking-tight">
+            Cuidamos de tu <span class="text-primary">sonrisa y salud</span> con la tecnología más avanzada de Madrid
+          </h1>
+<!-- Reassurance Copy -->
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+            Tratamientos odontológicos y médicos con protocolos mínimamente invasivos sin dolor, empatía humana personalizada y equipamiento de vanguardia diagnóstica 3D sin conjeturas.
+          </p>
+<!-- CTAs -->
+<div class="flex flex-wrap items-center gap-space-md mt-space-sm">
+<a class="inline-flex items-center gap-space-xs bg-primary text-on-primary hover:bg-secondary px-space-xl py-space-md rounded-xl font-label-lg text-label-lg shadow-md transition-all" href="#cita-online">
+<span class="material-symbols-outlined text-[20px]">calendar_add_on</span>
+<span>Solicitar Primera Cita Informativa</span>
+</a>
+<a class="inline-flex items-center gap-space-xs bg-surface-container text-primary hover:bg-surface-container-high px-space-lg py-space-md rounded-xl font-label-lg text-label-lg transition-colors" href="#tecnologia-3d">
+<span class="material-symbols-outlined text-[20px]">view_in_ar</span>
+<span>Ver Tecnología 3D</span>
+</a>
+</div>
+<!-- Confidence Indicators Ribbon -->
+<div class="pt-space-md flex flex-wrap items-center gap-x-space-lg gap-y-space-xs font-label-md text-label-md text-on-surface-variant">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[18px]">verified</span>
+<span>Equipo Colegiado Oficial</span>
+</div>
+<span class="text-outline-variant">•</span>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[18px]">memory</span>
+<span>Instalaciones 100% Digitales</span>
+</div>
+<span class="text-outline-variant">•</span>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[18px]">star</span>
+<span class="font-semibold text-on-surface">4.9 / 5</span>
+<span>(740+ reseñas verificadas)</span>
+</div>
+</div>
+</div>
+<!-- Right Visual (5 Cols with overlays) -->
+<div class="lg:col-span-5 relative flex justify-center">
+<div class="relative w-full max-w-[480px] rounded-2xl overflow-hidden shadow-xl bg-surface-container-lowest">
+<!-- Doctor & Patient Image -->
+<img class="w-full h-[470px] object-cover object-center" data-alt="Doctor in modern clinic with patient. A friendly female doctor wearing a white medical lab coat and stethoscope smiling while showing a digital tablet to an older woman seated comfortably in an illuminated consultation suite equipped with modern medical 3D imaging monitors in soft cerulean and white tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoz7QcOuA9Q04NqRsazbeUZy9kGvPsBpSFT-XFByOJ9qCJJZMNqHfCDta2Y1xeOLu19UcSp8SB43VpN63qvpcN4BnrzmWqjrCcyr9iKppsFm-2Z2926UtZBwB8mZKkWE7YbOAmCPgD28uA7sVhX57XY-zj5T3h2BvyfE4ro_xcT8n-NzLEzZbLLub0qHvUoOJiUncFOsGOFjyk7VNeN9s1HxDJpqIIdFb_lye1lpKRme3dP69BoWet"/>
+<!-- Gradient scrim -->
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/60 via-transparent to-transparent"></div>
+<!-- Floating Stat 1: 99.2% Sin molestias -->
+<div class="absolute top-space-md left-space-md bg-surface/95 backdrop-blur-md px-space-md py-space-xs rounded-xl shadow-md flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined text-[18px]">sentiment_satisfied</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface font-bold">99.2%</span>
+<span class="font-caption text-caption text-on-surface-variant">Tratamientos sin molestias</span>
+</div>
+</div>
+<!-- Floating Stat 2: TAC 3D Baja Radiación -->
+<div class="absolute bottom-space-md right-space-md left-space-md bg-surface-container-lowest/95 backdrop-blur-md p-space-md rounded-xl shadow-lg flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">radiology</span>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface font-semibold">TAC Dental 3D HD</h4>
+<p class="font-caption text-caption text-on-surface-variant">87% menos radiación ionizante que TAC tradicional</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-tertiary text-[20px]">check_circle</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- LAS 3 GARANTÍAS DEL PACIENTE -->
+<section class="w-full py-space-xl bg-surface-container-low" id="garantias">
+<div class="max-w-[1280px] mx-auto px-gutter">
+<!-- Section Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-xl gap-space-md">
+<div>
+<div class="inline-flex items-center gap-space-xs font-label-md text-label-md text-primary font-semibold mb-space-xs">
+<span class="material-symbols-outlined text-[16px]">verified_user</span>
+<span>COMPROMISO CLÍNICO SANNAMED</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Las 3 Garantías del Paciente</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+          Atención estructurada en torno a la certidumbre, el bienestar neurosensorial y la transparencia económica.
+        </p>
+</div>
+<!-- 3 Columns of Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div class="flex flex-col gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[28px]">biotech</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary font-semibold">Garantía 01</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="font-caption text-caption text-on-surface-variant">Sin conjeturas</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Diagnóstico 3D Preciso</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Escáner intraoral 3D de alta velocidad y TAC tomográfico de haz cónico. Detectamos microfisuras y anomalías invisibles al ojo clínico tradicional antes de cualquier intervención.
+            </p>
+</div>
+<div class="pt-space-lg mt-space-md flex items-center gap-space-xs font-label-md text-label-md text-secondary font-semibold">
+<span class="material-symbols-outlined text-[16px]">fact_check</span>
+<span>Informe radiológico detallado incluido</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div class="flex flex-col gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[28px]">spa</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md uppercase tracking-wider text-tertiary font-semibold">Garantía 02</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="font-caption text-caption text-on-surface-variant">Mínimamente invasivo</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Tratamiento sin Dolor</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Sistemas de anestesia computarizada indolora SleeperOne y sedación consciente monitorizada por médico anestesista colegiado para erradicar cualquier atisbo de ansiedad u odontofobia.
+            </p>
+</div>
+<div class="pt-space-lg mt-space-md flex items-center gap-space-xs font-label-md text-label-md text-tertiary font-semibold">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Protocolo de Odontología Amable</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div class="flex flex-col gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[28px]">credit_score</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary font-semibold">Garantía 03</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="font-caption text-caption text-on-surface-variant">0% Intereses TAE</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Facilidades de Financiación</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Planes flexibles y a medida de hasta 36 meses sin intereses (0% TAE). Tramitación directa en la propia recepción de la clínica médica en 5 minutos, sin financieras externas abusivas.
+            </p>
+</div>
+<div class="pt-space-lg mt-space-md flex items-center gap-space-xs font-label-md text-label-md text-secondary font-semibold">
+<span class="material-symbols-outlined text-[16px]">payments</span>
+<span>Aprobación instantánea con DNI</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- TRATAMIENTOS & ESPECIALIDADES: BENTO GRID -->
+<section class="w-full py-space-xl bg-surface" id="especialidades">
+<div class="max-w-[1280px] mx-auto px-gutter">
+<!-- Bento Header -->
+<div class="flex flex-col items-center text-center max-w-3xl mx-auto mb-space-xl">
+<span class="inline-flex items-center gap-space-xs font-label-md text-label-md text-primary font-semibold tracking-wider uppercase mb-space-xs">
+<span class="material-symbols-outlined text-[16px]">clinical_notes</span>
+          Áreas Médicas de Vanguardia
+        </span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold">
+          Especialidades Odontológicas y Médicas Integradas
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-space-xs">
+          Diagnósticos precisos en una única visita con aparatología de grado hospitalario y especialistas dedicados.
+        </p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg">
+<!-- Bento 1: Implantología Guiada 3D (Spans 2 columns on desktop) -->
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">precision_manufacturing</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-tertiary font-semibold uppercase">Técnica Estrella</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Implantología Guiada 3D &amp; Carga Inmediata</h3>
+</div>
+</div>
+<span class="font-title-lg text-title-lg text-primary font-bold">Desde 690€</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-md leading-relaxed">
+              Cirugía planificada por ordenador con férulas quirúrgicas milimétricas. Colocación de piezas fijas en 24 horas sin incisiones agresivas ni puntos de sutura dolorosos. Recuperación funcional y estética desde el primer día.
+            </p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm mt-space-md">
+<div class="bg-surface-container-low rounded-xl p-space-sm flex items-center gap-space-xs font-label-md text-label-md text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px]">task_alt</span>
+<span>Sin apertura de encía</span>
+</div>
+<div class="bg-surface-container-low rounded-xl p-space-sm flex items-center gap-space-xs font-label-md text-label-md text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px]">schedule</span>
+<span>Dientes fijos en 24h</span>
+</div>
+<div class="bg-surface-container-low rounded-xl p-space-sm flex items-center gap-space-xs font-label-md text-label-md text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+<span>Titanio Grado Médico V</span>
+</div>
+</div>
+</div>
+<div class="mt-space-lg pt-space-md flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Estudio tomográfico y férula de guiado incluidos.</span>
+<a class="inline-flex items-center gap-space-xs text-primary font-title-md text-title-md hover:text-secondary font-semibold" href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" rel="noopener\">
+<span>Más información</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Bento 2: Ortodoncia Invisible & Digital -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">view_in_ar</span>
+</div>
+<span class="font-title-lg text-title-lg text-primary font-bold">Desde 59€<span class="font-caption text-caption text-on-surface-variant font-normal">/mes</span></span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mt-space-md">Ortodoncia Invisible Digital</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+              Alineadores transparentes biomecánicos. Visualiza en 3D la evolución de tu sonrisa y el resultado final antes de colocar el primer alineador.
+            </p>
+<ul class="mt-space-md flex flex-col gap-space-xs font-label-md text-label-md text-on-surface-variant">
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
+<span>Planificación 3D ClinCheck®</span>
+</li>
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
+<span>Removible y 100% discreto</span>
+</li>
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
+<span>Revisiones presenciales o telemáticas</span>
+</li>
+</ul>
+</div>
+<div class="mt-space-lg pt-space-md flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant">Clínica Diamond Apex</span>
+<a class="inline-flex items-center gap-space-xs text-primary font-label-lg text-label-lg hover:text-secondary font-semibold" href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" rel="noopener\">
+<span>Más información</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Bento 3: Odontología General & Prevención -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">dentistry</span>
+</div>
+<span class="font-title-lg text-title-lg text-primary font-bold">Desde 45€</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mt-space-md">Odontología General &amp; Higiene</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+              Mantenimiento preventivo, obturaciones estéticas de composite cerámico, profilaxis mediante ultrasonidos y curetajes periodontales indoloros.
+            </p>
+<ul class="mt-space-md flex flex-col gap-space-xs font-label-md text-label-md text-on-surface-variant">
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
+<span>Limpieza por flujo de aire caliente</span>
+</li>
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
+<span>Tratamiento de encías (Periodoncia)</span>
+</li>
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
+<span>Sellado y fluoración profiláctica</span>
+</li>
+</ul>
+</div>
+<div class="mt-space-lg pt-space-md flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant">Protocolo Air-Flow EMS®</span>
+<a class="inline-flex items-center gap-space-xs text-primary font-label-lg text-label-lg hover:text-secondary font-semibold" href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" rel="noopener\">
+<span>Más información</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Bento 4: Estética Dental & Carillas de Porcelana -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">auto_awesome</span>
+</div>
+<span class="font-label-md text-label-md px-space-sm py-space-xs rounded-full bg-surface-container text-primary font-semibold">DSD Design</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mt-space-md">Estética Dental &amp; Carillas</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+              Diseño de Sonrisa Digital (DSD) con carillas ultrafinas de disilicato de litio o composite inyectado sin tallado dental agresivo. Mock-up previo en boca.
+            </p>
+<ul class="mt-space-md flex flex-col gap-space-xs font-label-md text-label-md text-on-surface-variant">
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
+<span>Prueba física en resina sin tallar</span>
+</li>
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
+<span>Blanqueamiento Philips Zoom LED</span>
+</li>
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
+<span>Biocompatibilidad total</span>
+</li>
+</ul>
+</div>
+<div class="mt-space-lg pt-space-md flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant">Garantía estética 5 años</span>
+<a class="inline-flex items-center gap-space-xs text-primary font-label-lg text-label-lg hover:text-secondary font-semibold" href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" rel="noopener\">
+<span>Más información</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Bento 5: Fisioterapia & ATM Temporomandibular -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">neurology</span>
+</div>
+<span class="font-label-md text-label-md px-space-sm py-space-xs rounded-full bg-tertiary-fixed text-on-tertiary-container font-semibold">Salud Integral</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mt-space-md">ATM, Bruxismo y Fisioterapia</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+              Tratamiento integral de la articulación temporomandibular. Alivio inmediato del rechinamiento dental, dolor cervical, cefaleas tensionales y chasquidos al masticar.
+            </p>
+<ul class="mt-space-md flex flex-col gap-space-xs font-label-md text-label-md text-on-surface-variant">
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
+<span>Férulas de descarga Michigan 3D</span>
+</li>
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
+<span>Fisioterapia orofacial en clínica</span>
+</li>
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
+<span>Terapia de neuromodulación</span>
+</li>
+</ul>
+</div>
+<div class="mt-space-lg pt-space-md flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant">Colaboración interdisciplinar</span>
+<a class="inline-flex items-center gap-space-xs text-primary font-label-lg text-label-lg hover:text-secondary font-semibold" href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" rel="noopener\">
+<span>Más información</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- TECNOLOGÍA 3D & EQUIPAMIENTO VANGUARDISTA -->
+<section class="w-full py-space-xl bg-surface-container-low" id="tecnologia-3d">
+<div class="max-w-[1280px] mx-auto px-gutter">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<!-- Left Data & Features (6 Cols) -->
+<div class="lg:col-span-6 flex flex-col gap-space-md">
+<div class="inline-flex items-center gap-space-xs font-label-md text-label-md text-primary font-semibold">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+<span>DIAGNÓSTICO DIGITAL POR IMAGEN</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold leading-tight">
+            Cirugías Virtuales &amp; Planificación Milimétrica
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Eliminamos por completo las pastas de impresión incómodas que provocan náuseas. Mediante tecnología de barrido óptico digital tomamos una réplica de tu boca en solo 45 segundos con resolución microscópica.
+          </p>
+<!-- Precision Metrics -->
+<div class="grid grid-cols-2 gap-space-md pt-space-sm">
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm">
+<span class="font-display-mobile text-display-mobile text-primary font-bold">12 µm</span>
+<p class="font-label-md text-label-md text-on-surface-variant font-medium mt-space-xs">Nivel de precisión óptica en escaneo 3D</p>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm">
+<span class="font-display-mobile text-display-mobile text-tertiary font-bold">0 Seg</span>
+<p class="font-label-md text-label-md text-on-surface-variant font-medium mt-space-xs">Tiempos de espera por moldes convencionales</p>
+</div>
+</div>
+<div class="flex items-center gap-space-md pt-space-sm">
+<div class="flex items-center gap-space-xs text-on-surface font-label-lg text-label-lg">
+<span class="material-symbols-outlined text-tertiary text-[20px]">check_circle</span>
+<span>Visualización simultánea en pantalla paciente</span>
+</div>
+</div>
+</div>
+<!-- Right Diagnostic Visual (6 Cols) -->
+<div class="lg:col-span-6">
+<div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-md">
+<div class="relative rounded-xl overflow-hidden mb-space-md">
+<img class="w-full h-72 object-cover" data-alt="Close up of a high-tech medical dental 3D intraoral scanner screen showing a colorful high-definition 3D digital model of teeth and jaw alignment. Clean clinical setting with sterile equipment, soft cerulean backlights, and precise diagnostic graphic overlays." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTCvGeKu0CUFEY5NokJdqRhFm6oIraLhWM7_-sZkZXXRNPpmIdR9sjFlbOIEBgTAv74DrPc6S4CQE-E7KNdvsYj9zJkyN8n0wva7iMUsYRcIr6Bm_J0SdD1lWxCh39CNWHRXRTpiXcFXMsYjC7WFTUTxF0DjDoWdDh3KdZh55VDBLPIYMsyb7pTqz0oUJa3ZcfQqnjMTJXimdn_oWe1-6dXcsD1bKPVJ5yaWCGS9tdVmIO7MBEQE8N"/>
+<div class="absolute top-space-sm right-space-sm bg-inverse-surface/85 text-inverse-on-surface px-space-sm py-space-xs rounded-lg font-caption text-caption">
+                Simulación en tiempo real (CAD/CAM)
+              </div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+<span>iTero Element 5D Plus + CBCT Planmeca</span>
+</span>
+<span class="font-label-md text-label-md text-tertiary font-semibold">Calibración Semanal ISO</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- EQUIPO MÉDICO & CUALIFICACIÓN OFICIAL -->
+<section class="w-full py-space-xl bg-surface" id="equipo-medico">
+<div class="max-w-[1280px] mx-auto px-gutter">
+<!-- Section Intro -->
+<div class="text-center max-w-3xl mx-auto mb-space-xl">
+<span class="inline-flex items-center gap-space-xs font-label-md text-label-md text-primary font-semibold tracking-wider uppercase mb-space-xs">
+<span class="material-symbols-outlined text-[16px]">groups</span>
+          Especialistas Colegiados
+        </span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold">
+          Nuestro Cuadro Facultativo
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-space-xs">
+          Cada paciente es tratado por cirujanos, ortodoncistas y médicos con dedicación exclusiva en su especialidad y formación continua en centros hospitalarios internacionales.
+        </p>
+</div>
+<!-- Doctor Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Doctor 1: Dra. Elena Ruiz -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col">
+<div class="relative w-full h-64 rounded-xl overflow-hidden mb-space-md">
+<img class="w-full h-full object-cover object-top" data-alt="Professional medical portrait of Dra. Elena Ruiz Santos, a senior female dental surgeon in her 40s wearing a clean white medical coat and clinical badge, smiling warmly and confidently in a bright modern clinic with soft blue and white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAue4vNq9zVtVskvVte_B4sQ3x0uJzJsp_wzINMdnX6tRHITSH3oP170Pq7KhLCEkrDJy8B0LGh8KRnD0u_FceguLoq4_7pKKgLKTFkybU0cwKFq1N4tsiuxdYL1nSbhehOSHqJQ7ZUUrt31SMZSezmk5L6RH5OgmKIKn1lP6Q-XIg9etOV-LJIKmJLz9lAW1znoI2UHKA1P3pmJBiGkLVj45cfIwj_94eFfd1WAUgZzSxJes_L9xXb"/>
+<div class="absolute top-space-sm left-space-sm bg-surface/90 backdrop-blur-sm px-space-sm py-space-xs rounded-full flex items-center gap-space-xs font-caption text-caption text-on-surface font-semibold shadow-sm">
+<span class="material-symbols-outlined text-tertiary text-[14px]">verified</span>
+<span>15+ años exp.</span>
+</div>
+</div>
+<div class="flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary font-semibold">Directora Médica</span>
+<span class="font-caption text-caption text-on-surface-variant">Col. 28004521</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mt-space-xs">Dra. Elena Ruiz Santos</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+                Especialista en Cirugía Oral, Implantología Guiada y Regeneración Tisular. Máster en Cirugía Bucal e Implantes por la Universidad Complutense de Madrid.
+              </p>
+</div>
+<div class="pt-space-md mt-space-md bg-surface-container-low p-space-sm rounded-xl flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant">Miembro Activo SECIB / SEPA</span>
+<span class="material-symbols-outlined text-primary text-[18px]">medical_information</span>
+</div>
+</div>
+</div>
+<!-- Doctor 2: Dr. Carlos Méndez -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col">
+<div class="relative w-full h-64 rounded-xl overflow-hidden mb-space-md">
+<img class="w-full h-full object-cover object-top" data-alt="Professional medical headshot portrait of Dr. Carlos Mendez, an orthodontist in his late 30s with friendly approachable demeanor, wearing navy clinical scrubs and white coat, standing in front of high-tech orthodontic equipment in a modern clinic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAF4lKkveASrc0dRXWY4LKdbthKCxmGs9hX0pmkgz12yBLkDrwMY_0DvZxbvZrA3AQPJy0tqSu_EzHSCpYO9XvTQs4EGnJl9AuGEBNQhV5iIt1j-55KhrLY-GdOya1yrXLUYQHJUmxdXN0JfeSvApT6te6xMENwvK2ZcpX4mXXBHZ2F5bO6v7eJkJDQTN3VcvHwCMM5cXBiSbL0DD2xoM5CXF03MCdtAfTIz669BqhnUeVMpKDXuFaz"/>
+<div class="absolute top-space-sm left-space-sm bg-surface/90 backdrop-blur-sm px-space-sm py-space-xs rounded-full flex items-center gap-space-xs font-caption text-caption text-on-surface font-semibold shadow-sm">
+<span class="material-symbols-outlined text-tertiary text-[14px]">verified</span>
+<span>Diamond Apex</span>
+</div>
+</div>
+<div class="flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary font-semibold">Coord. Ortodoncia Digital</span>
+<span class="font-caption text-caption text-on-surface-variant">Col. 28005912</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mt-space-xs">Dr. Carlos Méndez Alarcón</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+                Especialista en Alineación Invisible y Estética Facial. Certificación Internacional Invisalign Diamond Apex (Top 1% de casos clínicos resueltos en Europa).
+              </p>
+</div>
+<div class="pt-space-md mt-space-md bg-surface-container-low p-space-sm rounded-xl flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant">Profesor Colaborador SEDO</span>
+<span class="material-symbols-outlined text-primary text-[18px]">medical_information</span>
+</div>
+</div>
+</div>
+<!-- Doctor 3: Dra. Laura Valls -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col">
+<div class="relative w-full h-64 rounded-xl overflow-hidden mb-space-md">
+<img class="w-full h-full object-cover object-top" data-alt="Professional clinical portrait of Dra. Laura Valls Ortiz, a pediatric and gentle care dentist with warm welcoming smile, wearing light blue scrubs in a warm, welcoming consultation room designed for patient reassurance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVFP7jc1rWgHvUuXHXtUyeb0xjjuGe-jjiqxkr1IpkgEQxNv0uEXa-zOCLS376BGL3UvT2VnU7BdxAyPLsAqet7JVVLJ6EuqFu6PJ4YdXjg_x5F4q0vXNssz94gIUiozZ1ErBahct48sT2wm7ANUS12nHfoFyHouARz-R0htGYNckjMtLUSd5oaznGhUa7iONkUnDEzvusaReroAeEsnUTyTpP62_JA5vEiMHpCqRoBV5CnArkGJ13"/>
+<div class="absolute top-space-sm left-space-sm bg-surface/90 backdrop-blur-sm px-space-sm py-space-xs rounded-full flex items-center gap-space-xs font-caption text-caption text-on-surface font-semibold shadow-sm">
+<span class="material-symbols-outlined text-tertiary text-[14px]">verified</span>
+<span>Protocolo Antiansiedad</span>
+</div>
+</div>
+<div class="flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary font-semibold">Odontopediatría &amp; Fobia</span>
+<span class="font-caption text-caption text-on-surface-variant">Col. 28006341</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mt-space-xs">Dra. Laura Valls Ortiz</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+                Especialista en atención a pacientes con odontofobia, sedación por óxido nitroso y odontopediatría preventiva. Experta en manejo emocional clínico infantil y adulto.
+              </p>
+</div>
+<div class="pt-space-md mt-space-md bg-surface-container-low p-space-sm rounded-xl flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant">Sociedad Española Odontopediatría</span>
+<span class="material-symbols-outlined text-primary text-[18px]">medical_information</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Registration Banner Ribbon -->
+<div class="mt-space-xl p-space-md rounded-2xl bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-md text-center sm:text-left">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-surface-container-lowest flex items-center justify-center text-tertiary shadow-sm">
+<span class="material-symbols-outlined text-[22px]">policy</span>
+</div>
+<div>
+<span class="font-title-md text-title-md text-on-surface font-bold">Centro Sanitario Autorizado por la Consejería de Sanidad</span>
+<p class="font-caption text-caption text-on-surface-variant">Número de Registro Oficial: CS-10492/24 • Cumplimiento exhaustivo de esterilización y bioseguridad UNE 179001</p>
+</div>
+</div>
+<div class="inline-flex items-center gap-space-xs text-primary font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span>Inspección Sanitaria Superada 2024</span>
+</div>
+</div>
+</div>
+</section>
+<!-- OPINIONES VERIFICADAS DE PACIENTES -->
+<section class="w-full py-space-xl bg-surface-container-low" id="opiniones">
+<div class="max-w-[1280px] mx-auto px-gutter">
+<!-- Testimonials Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-xl gap-space-md">
+<div>
+<span class="inline-flex items-center gap-space-xs font-label-md text-label-md text-primary font-semibold uppercase mb-space-xs">
+<span class="material-symbols-outlined text-[16px]">rate_review</span>
+            Experiencias Reales
+          </span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold">Opiniones Verificadas de Pacientes</h2>
+</div>
+<div class="flex items-center gap-space-sm bg-surface-container-lowest px-space-md py-space-sm rounded-xl shadow-sm">
+<div class="flex text-tertiary">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-title-md text-title-md text-on-surface font-bold">4.9/5</span>
+<span class="font-caption text-caption text-on-surface-variant">en Google Reviews</span>
+</div>
+</div>
+<!-- Testimonial Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Review 1 -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex text-tertiary">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Hace 2 semanas</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface italic leading-relaxed">
+              "Venía con pánico al dentista desde niña y el trato de la Dra. Elena fue exquisito. Cero dolor en los implantes y máxima tranquilidad durante toda la sesión. No vuelvo a pisar otra clínica."
+            </p>
+</div>
+<div class="pt-space-lg mt-space-md flex items-center justify-between">
+<div>
+<span class="font-title-md text-title-md text-on-surface font-bold block">María José R.</span>
+<span class="font-caption text-caption text-primary font-medium">Implantes guiados 3D</span>
+</div>
+<span class="inline-flex items-center gap-space-xs font-caption text-caption text-tertiary bg-tertiary-fixed/30 px-space-sm py-space-xs rounded-full font-semibold">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<span>Paciente Verificado</span>
+</span>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex text-tertiary">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Hace 1 mes</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface italic leading-relaxed">
+              "La simulación 3D que me enseñó el Dr. Carlos me convenció y el resultado superó lo prometido. En solo 8 meses mi sonrisa es perfecta y nadie notaba que llevaba alineadores en el trabajo."
+            </p>
+</div>
+<div class="pt-space-lg mt-space-md flex items-center justify-between">
+<div>
+<span class="font-title-md text-title-md text-on-surface font-bold block">David G.</span>
+<span class="font-caption text-caption text-primary font-medium">Ortodoncia Invisible</span>
+</div>
+<span class="inline-flex items-center gap-space-xs font-caption text-caption text-tertiary bg-tertiary-fixed/30 px-space-sm py-space-xs rounded-full font-semibold">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<span>Paciente Verificado</span>
+</span>
+</div>
+</div>
+<!-- Review 3 -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex text-tertiary">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Hace 3 semanas</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface italic leading-relaxed">
+              "Financiación directa sin sorpresas ni letra pequeña desde la misma recepción. Son profesionales médicos de verdad con vocación, no una franquicia fría comercial. Recomiendo al 100%."
+            </p>
+</div>
+<div class="pt-space-lg mt-space-md flex items-center justify-between">
+<div>
+<span class="font-title-md text-title-md text-on-surface font-bold block">Carmen P.</span>
+<span class="font-caption text-caption text-primary font-medium">Rehabilitación Completa</span>
+</div>
+<span class="inline-flex items-center gap-space-xs font-caption text-caption text-tertiary bg-tertiary-fixed/30 px-space-sm py-space-xs rounded-full font-semibold">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<span>Paciente Verificado</span>
+</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- INTERACTIVE APPOINTMENT BOOKING BANNER -->
+<section class="w-full py-space-xl bg-surface" id="cita-online">
+<div class="max-w-[1280px] mx-auto px-gutter">
+<div class="relative bg-inverse-surface text-inverse-on-surface rounded-2xl p-space-xl overflow-hidden shadow-xl">
+<!-- Decorative subtle background glow -->
+<div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-primary/20 blur-3xl pointer-events-none"></div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl relative z-10 items-center">
+<!-- Left Text Details (5 Cols) -->
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<div class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-on-tertiary-container/60 text-tertiary-fixed text-label-md font-semibold self-start">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed animate-pulse"></span>
+<span>Agenda Médica en Vivo</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-inverse-on-surface">
+              Agenda tu cita en menos de 1 minuto
+            </h2>
+<p class="font-body-md text-body-md text-outline-variant leading-relaxed">
+              Selecciona especialidad, día preferente y franja horaria. Te contactamos al instante para confirmar tu cita y enviarte el recordatorio a tu móvil sin ningún compromiso.
+            </p>
+<div class="flex flex-col gap-space-xs pt-space-sm font-body-sm text-body-sm text-outline-variant">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary-fixed text-[18px]">done</span>
+<span>Primera consulta diagnóstica &amp; radiografía digital incluidas</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary-fixed text-[18px]">done</span>
+<span>Plan de tratamiento claro y cerrado por escrito</span>
+</div>
+</div>
+</div>
+<!-- Right Booking Panel (7 Cols) -->
+<div class="lg:col-span-7 bg-surface-container-lowest text-on-surface rounded-2xl p-space-xl shadow-lg">
+<form class="flex flex-col gap-space-md" id="booking-form" onsubmit="event.preventDefault(); document.getElementById('booking-confirmation').classList.remove('hidden');">
+<!-- Select Specialty & Doctor -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface-variant font-semibold">Tratamiento o Especialidad</label>
+<select class="h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary">
+<option>1ª Consulta de Valoración General</option>
+<option>Implantología Guiada 3D</option>
+<option>Ortodoncia Invisible (Invisalign)</option>
+<option>Estética Dental &amp; Carillas</option>
+<option>ATM / Fisioterapia Orofacial</option>
+<option>Urgencia Odontológica Inmediata</option>
+</select>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface-variant font-semibold">Fecha Preferente</label>
+<input class="h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary" type="date" value="2024-11-20"/>
+</div>
+</div>
+<!-- Time Slot Interactive Selection -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface-variant font-semibold">Horarios Disponibles para Hoy / Mañana</label>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs" id="slot-container">
+<button class="slot-btn py-space-xs px-space-sm rounded-lg bg-surface-container text-primary font-label-md text-label-md text-center hover:bg-primary-container hover:text-on-primary transition-colors" onclick="selectSlot(this)" type="button">09:30 h</button>
+<button class="slot-btn py-space-xs px-space-sm rounded-lg bg-surface-container text-primary font-label-md text-label-md text-center hover:bg-primary-container hover:text-on-primary transition-colors" onclick="selectSlot(this)" type="button">11:15 h</button>
+<button class="slot-btn py-space-xs px-space-sm rounded-lg bg-surface-container text-primary font-label-md text-label-md text-center hover:bg-primary-container hover:text-on-primary transition-colors" onclick="selectSlot(this)" type="button">16:00 h</button>
+<button class="slot-btn py-space-xs px-space-sm rounded-lg bg-surface-container text-primary font-label-md text-label-md text-center hover:bg-primary-container hover:text-on-primary transition-colors" onclick="selectSlot(this)" type="button">18:45 h</button>
+</div>
+</div>
+<!-- Contact Inputs -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface-variant font-semibold">Nombre y Apellidos</label>
+<input class="h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Ej. Ana Martínez Ruiz" required="" type="text"/>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface-variant font-semibold">Teléfono Móvil (SMS de confirmación)</label>
+<input class="h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary" placeholder="+34 600 000 000" required="" type="tel"/>
+</div>
+</div>
+<!-- Submit Action Button -->
+<div class="pt-space-xs flex flex-col gap-space-xs">
+<button class="w-full h-12 bg-primary text-on-primary hover:bg-secondary rounded-xl font-title-md text-title-md font-semibold flex items-center justify-center gap-space-xs shadow-md transition-all" type="submit">
+<span class="material-symbols-outlined text-[20px]">send</span>
+<span>Confirmar Cita Informativa sin Coste</span>
+</button>
+<span class="font-caption text-caption text-on-surface-variant text-center">Protección de datos garantizada según el Reglamento Sanitario RGPD.</span>
+</div>
+<!-- Instant Feedback Confirmation Message -->
+<div class="hidden p-space-md bg-surface-container-high rounded-xl flex items-center gap-space-sm text-primary" id="booking-confirmation">
+<span class="material-symbols-outlined text-tertiary text-[24px]">task_alt</span>
+<div>
+<h4 class="font-title-md text-title-md font-bold text-on-surface">¡Solicitud recibida correctamente!</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Nuestro coordinador clínico te llamará en los próximos 15 minutos para confirmar la hora.</p>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<script>
+  function selectSlot(el) {
+    document.querySelectorAll('.slot-btn').forEach(function(btn) {
+      btn.classList.remove('bg-primary', 'text-on-primary');
+      btn.classList.add('bg-surface-container', 'text-primary');
+    });
+    el.classList.remove('bg-surface-container', 'text-primary');
+    el.classList.add('bg-primary', 'text-on-primary');
+  }
+</script></main><footer class="w-full bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="w-full bg-surface-container-low py-space-md"><div class="max-w-[1280px] mx-auto px-gutter flex flex-wrap items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-tertiary-container text-[20px]">verified</span><span class="font-label-md text-label-md text-on-surface">Acreditación JCI Gold Quality</span></div><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[20px]">shield</span><span class="font-label-md text-label-md text-on-surface">Certificación Sanitaria ISO 9001:2015</span></div><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[20px]">medical_services</span><span class="font-label-md text-label-md text-on-surface">Registro Sanitario Autonómico</span></div></div><div class="font-label-md text-label-md text-on-surface-variant"><span class="font-semibold text-on-surface">Nº de Autorización Sanitaria:</span> Reg. Sanitario: CS-10492/24</div></div></div><div class="max-w-[1280px] mx-auto px-gutter py-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-xl"><div class="flex flex-col gap-space-md"><div class="flex items-center gap-space-xs"><img alt="{{ negocio.nombre }} Clinic Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Xrwu5vrnVU7UEfTkCrS5ySq5RLFUqf448BaLQOWKvW3enqrxeIkXtNQpi1edx-G2zkqx4l36KUS3cAm47mc8fRMCFJk8QOfPB1Q6iGv9e3TTZ12ZZ4KVkFN-3cKK-UP6pELdAFvK5uIW2N0RV0Xo_TsY3O6uUpmtb6tA_p04kcXi8L6ra5v9COJCPV8MI3H9odBmDZv2voYj6econKq_uhKkZ_ahbzNMOQwaGDqvvHaYxGSKt-a873Ne8"/><span class="font-title-lg text-title-lg text-on-surface font-bold">{{ negocio.nombre }} Clinic</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Centro hospitalario y odontológico de alta especialización. Atención personalizada respaldada por el Ilustre Colegio Oficial de Médicos y Odontólogos.</p><div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-surface-container text-on-surface-variant font-caption text-caption"><span class="material-symbols-outlined text-tertiary-container text-[14px]">check_circle</span><span>Centro Médico y Odontológico Colegiado Nº 2800491</span></div></div><div class="flex flex-col gap-space-sm"><span class="font-title-md text-title-md text-on-surface">Urgencias y Citas</span><div class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><span class="text-primary font-semibold">Centralita 24 Horas</span><a class="text-on-surface font-title-md text-title-md hover:text-primary transition-colors" href="tel:+34910234567">+34 910 234 567</a><span>Atención ininterrumpida de urgencias odontológicas y médicas de traumatología leve.</span><span class="font-semibold text-on-surface mt-space-xs">Horario de Consultas Generales:</span><span>Lunes a Viernes: 08:00 - 20:30 h</span><span>Sábados: 09:00 - 14:00 h</span></div></div><div class="flex flex-col gap-space-sm"><span class="font-title-md text-title-md text-on-surface">Ubicación y Acceso</span><div class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><span>Av. de la Salud 42, Centro Médico</span><span>28040 Madrid, España</span><div class="w-full h-24 rounded-xl bg-surface-container-high flex flex-col items-center justify-center gap-space-xs text-on-surface-variant"><span class="material-symbols-outlined text-primary text-[24px]">map</span><span class="font-label-md text-label-md">Parking concertado disponible (2h gratis)</span></div></div></div><div class="flex flex-col gap-space-sm"><span class="font-title-md text-title-md text-on-surface">Garantía y Pacientes</span><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-primary transition-colors" data-path="derechos-paciente" href="#">Carta de Derechos y Deberes del Paciente</a></li><li><a class="hover:text-primary transition-colors" data-path="consentimientos" href="#">Consentimientos Informados Digitales</a></li><li><a class="hover:text-primary transition-colors" data-path="sociedades-medicas" href="#">Sociedades Médicas Concertadas</a></li><li><a class="hover:text-primary transition-colors" data-path="atencion-usuario" href="#">Servicio de Atención al Usuario (SAU)</a></li><li><a class="hover:text-primary transition-colors" data-path="rgpd" href="#">Protección de Datos Sanitarios (RGPD)</a></li></ul></div></div><div class="mt-space-xl pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md font-caption text-caption text-on-surface-variant"><p>Aviso Médico Legal: La información médica proporcionada en este portal tiene carácter puramente orientativo y no reemplaza la consulta clínica presencial o el criterio de un facultativo colegiado.</p><div class="flex items-center gap-space-md shrink-0"><a class="hover:text-primary transition-colors" data-path="aviso-legal" href="#">Aviso Legal</a><a class="hover:text-primary transition-colors" data-path="politica-privacidad" href="#">Política de Privacidad</a><a class="hover:text-primary transition-colors" data-path="cookies" href="#">Política de Cookies</a><span>© 2024 {{ negocio.nombre }} Clínica Integral S.L.P.</span></div></div></div></footer><!-- Sticky Mobile Bar -->
+<div class="fixed bottom-0 inset-x-0 z-50 lg:hidden p-3 bg-white/95 backdrop-blur-lg border-t border-primary-container/20 shadow-lg">
+  <div class="flex items-center justify-between gap-3">
+    <a class="flex-1 inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-surface-container text-on-surface font-semibold text-xs border border-primary-container/30" href="tel:{{ negocio.telefono }}">
+      <span class="material-symbols-outlined text-[16px]">call</span>
+      <span>Llamar</span>
+    </a>
+    <a class="flex-1 inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-primary text-on-primary font-semibold text-xs shadow-md" href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" rel="noopener">
+      <span class="material-symbols-outlined text-[16px]">chat</span>
+      <span>Cita WhatsApp</span>
+    </a>
+  </div>
+</div>
+</body></html>

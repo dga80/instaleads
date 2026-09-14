@@ -55,12 +55,12 @@ Tu misión como Director de Diseño y Copywriting es decidir y estructurar el co
    - Regla de diseño UX: Negocios de salud, clínicas dentales, centros médicos, spas, panaderías, cafeterías, boutiques de moda o belleza transmiten mucha mayor higiene, luminosidad, confianza y frescura con "light".
    - Talleres de motos/coches, estudios de tatuaje, discotecas, barberías oscuras o negocios técnicos transmiten más potencia e identidad industrial con "dark".
 2. 'arquetipo_diseno': Arquetipo visual más idóneo. Elige estrictamente uno entre:
-   - "fresh_clinical" (clínicas dentales, medicina, fisioterapia, estética limpia)
-   - "technical_dark" (talleres de motos, coches, mecánica, diagnosis)
-   - "editorial_luxury" (centros de uñas de autor, alta cosmética, joyería, moda)
-   - "warm_artisan" (cafeterías de especialidad, panaderías artesanas, restaurantes)
-   - "modern_lifestyle" (fitness, gimnasios, barberías urbanas, estudios)
-3. 'badge_status': Una frase de estado con emoji para el header (ej. "🩺 1ª CITA & REVISIÓN DIGITAL DISPONIBLE", "⚡ BOX DE TALLER ACTIVO • CITA RÁPIDA", "✨ CITAS ABIERTAS • AGENDA ONLINE").
+   - "luxury_glow" (centros de uñas, estética facial/corporal, pestañas, spa, alta cosmética, joyería, peluquería femenina premium)
+   - "urban_edge" (estudios de tatuaje/piercing, barberías urbanas, talleres de motos, coches, detailing, gimnasios, crossfit)
+   - "warm_artisan" (cafeterías de especialidad, panaderías artesanas, bistrós, pastelerías, brunch, restaurantes de autor)
+   - "clinical_trust" (clínicas dentales, fisioterapia, osteopatía, podología, salud médica, clínicas veterinarias)
+   - "craft_build" (reformas integrales, interiorismo, carpintería a medida, fontanería, climatización, servicios del hogar)
+3. 'badge_status': Una frase de estado con emoji para el header (ej. "🩺 1ª CITA & DIAGNÓSTICO DIGITAL DISPONIBLE", "⚡ BOX DE TALLER ACTIVO • CITA RÁPIDA", "✨ CITAS ABIERTAS • AGENDA ONLINE", "🥐 ELABORADO A DIARIO • CAFÉ DE ESPECIALIDAD", "🛡️ PRESUPUESTO CERRADO • GARANTÍA 2 AÑOS").
 4. 'titular': Un título potente y persuasivo para el Hero (máx 8 palabras).
 5. 'subtitulo': Una frase que explique el valor diferencial y anime a contactar (máx 20 palabras).
 6. 'servicios': Lista de entre 2 y 4 servicios o especialidades clave detectadas. Para cada uno:
@@ -68,7 +68,7 @@ Tu misión como Director de Diseño y Copywriting es decidir y estructurar el co
    - 'descripcion': Breve explicación atractiva (máx 15 palabras).
    - 'precio_o_duracion': Estimación sugerida (ej. "1ª Visita Gratuita", "Presupuesto sin compromiso", "Desde 25€", etc.).
 7. 'sobre_nosotros': Párrafo cercano y profesional resumiendo su propuesta de valor (máx 40 palabras).
-8. 'categoria_clean': Nombre corto y limpio de la categoría para la etiqueta (ej. "Clínica Dental", "Taller Especializado", "Studio de Uñas").
+8. 'categoria_clean': Nombre corto y limpio de la categoría para la etiqueta (ej. "Clínica Dental", "Taller Especializado", "Studio de Uñas", "Café de Especialidad", "Reformas & Obras").
 
 Responde ÚNICAMENTE con el objeto JSON válido:
 """
@@ -152,8 +152,14 @@ def generar_web_comercio(lead: Dict[str, Any], cliente_gemini=None) -> Dict[str,
 
     slug = slugify(f"{nombre}-{ciudad}")
 
-    # Preparar datos para la plantilla Jinja2
-    template = env.get_template("landing_template.html")
+    # Preparar datos para la plantilla Jinja2 según el arquetipo oficial de Stitch
+    template_name = design_tokens.get("template_file", "stitch_luxury_glow.html")
+    try:
+        template = env.get_template(template_name)
+    except Exception as e:
+        print(f"[Web Generator Warning] No se pudo cargar {template_name}: {e}. Usando stitch_luxury_glow.html como fallback.")
+        template = env.get_template("stitch_luxury_glow.html")
+
     rendered_html = template.render(
         negocio={
             "nombre": nombre,

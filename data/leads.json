@@ -2347,17 +2347,19 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=HotDoks+Barcelona",
     "gemini_verificado": true,
     "gemini_razon": "Validación automática heurística",
-    "mensaje_dm": "¡Hola equipo de HotDoks! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de Barcelona para ayudarles a conseguir más clientes desde Google. Os he preparado una maqueta interactiva de cómo luciría vuestra web: (El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de HotDoks! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
-    "estado": "Sin Web",
-    "demo_slug": "",
-    "demo_url": "",
-    "demo_vibe": "",
+    "mensaje_dm": "¡Hola equipo de HotDoks! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de Barcelona para ayudarles a conseguir más clientes desde Google. Os he preparado una maqueta interactiva de cómo luciría vuestra web: https://dga80.github.io/instaleads/hotdoks-barcelona/ (El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de HotDoks! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: https://dga80.github.io/instaleads/hotdoks-barcelona/ Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
+    "estado": "Web Generada",
+    "demo_slug": "hotdoks-barcelona",
+    "demo_url": "https://dga80.github.io/instaleads/hotdoks-barcelona/",
+    "demo_vibe": "Warm Artisan (Cálido, Acogedor & Gastronómico)",
     "campana_id": "camp_1788898547",
     "campana_nombre": "Cafeteria · barcelona",
     "campana_ids": [
       "camp_1788898547"
-    ]
+    ],
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/hotdoks-barcelona/",
+    "demo_url_publica": "https://dga80.github.io/instaleads/hotdoks-barcelona/"
   },
   {
     "osm_id": "571920531",
@@ -2747,17 +2749,19 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bar+Seco+Barcelona",
     "gemini_verificado": true,
     "gemini_razon": "Validación automática heurística",
-    "mensaje_dm": "¡Hola equipo de Bar Seco! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de Barcelona para ayudarles a conseguir más clientes desde Google. Os he preparado una maqueta interactiva de cómo luciría vuestra web: (El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Bar Seco! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
-    "estado": "Sin Web",
-    "demo_slug": "",
-    "demo_url": "",
-    "demo_vibe": "",
+    "mensaje_dm": "¡Hola equipo de Bar Seco! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de Barcelona para ayudarles a conseguir más clientes desde Google. Os he preparado una maqueta interactiva de cómo luciría vuestra web: https://dga80.github.io/instaleads/bar-seco-barcelona/ (El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Bar Seco! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: https://dga80.github.io/instaleads/bar-seco-barcelona/ Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
+    "estado": "Web Generada",
+    "demo_slug": "bar-seco-barcelona",
+    "demo_url": "https://dga80.github.io/instaleads/bar-seco-barcelona/",
+    "demo_vibe": "Warm Artisan (Cálido, Acogedor & Gastronómico)",
     "campana_id": "camp_1788898547",
     "campana_nombre": "Cafeteria · barcelona",
     "campana_ids": [
       "camp_1788898547"
-    ]
+    ],
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/bar-seco-barcelona/",
+    "demo_url_publica": "https://dga80.github.io/instaleads/bar-seco-barcelona/"
   },
   {
     "osm_id": "638346221",

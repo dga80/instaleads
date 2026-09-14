@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;family=Space+Grotesk:wght@300..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-tint": "#ffb690", "on-secondary-container": "#b6b4b8", "on-background": "#e5e1e4", "surface-container-lowest": "#0e0e10", "surface-container-low": "#1c1b1d", "secondary": "#c8c6c9", "inverse-surface": "#e5e1e4", "surface-bright": "#39393b", "on-tertiary-fixed-variant": "#45464e", "primary-fixed-dim": "#ffb690", "on-surface-variant": "#e0c0b1", "surface-container-high": "#2a2a2c", "outline": "#a78b7d", "on-tertiary-container": "#31323a", "error": "#ffb4ab", "secondary-fixed-dim": "#c8c6c9", "secondary-container": "#47464a", "background": "#131315", "on-tertiary-fixed": "#1a1b22", "tertiary": "#c6c6cf", "primary-fixed": "#ffdbca", "inverse-primary": "#9d4300", "on-secondary-fixed": "#1b1b1e", "surface-container": "#201f22", "surface-container-highest": "#353437", "on-error-container": "#ffdad6", "on-primary": "#552100", "tertiary-fixed-dim": "#c6c6cf", "surface": "#131315", "error-container": "#93000a", "on-secondary-fixed-variant": "#47464a", "inverse-on-surface": "#313032", "primary-container": "#f97316", "tertiary-fixed": "#e2e1eb", "on-error": "#690005", "primary": "#ffb690", "on-tertiary": "#2f3037", "secondary-fixed": "#e4e1e5", "on-primary-fixed-variant": "#783200", "on-secondary": "#303033", "surface-variant": "#353437", "tertiary-container": "#9a9aa3", "on-surface": "#e5e1e4", "on-primary-container": "#582200", "outline-variant": "#584237", "on-primary-fixed": "#341100", "surface-dim": "#131315" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter-mobile": "1rem", "space-xl": "2.5rem", "space-sm": "0.5rem", "space-lg": "1.5rem", "space-md": "1rem", "margin-mobile": "1.25rem", "gutter": "1.5rem", "space-xs": "0.25rem", "margin": "3rem" }, "fontFamily": { "headline-lg-mobile": ["Space Grotesk"], "label-lg": ["JetBrains Mono"], "body-lg": ["DM Sans"], "body-sm": ["DM Sans"], "headline-lg": ["Space Grotesk"], "headline-xl-mobile": ["Space Grotesk"], "title-lg": ["Space Grotesk"], "headline-xl": ["Space Grotesk"], "body-md": ["DM Sans"], "label-md": ["JetBrains Mono"], "label-sm": ["JetBrains Mono"], "headline-md": ["Space Grotesk"] }, "fontSize": { "headline-lg-mobile": ["28px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "600" }], "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "400" }], "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }], "headline-lg": ["40px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-xl-mobile": ["36px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "title-lg": ["20px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "600" }], "headline-xl": ["56px", { "lineHeight": "60px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "500" }], "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "500" }], "headline-md": ["24px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }] } } } }</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-background font-body-md text-body-md text-on-surface flex flex-col min-h-screen selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 inset-x-0 z-50 bg-[#09090B]/90 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="h-20 px-margin-mobile flex items-center justify-between"><div class="flex flex-col gap-space-xs justify-center"><div class="flex items-center gap-space-sm"><span class="font-headline-md text-headline-md uppercase tracking-tight text-on-surface">KINETIC LABS</span><span class="font-label-sm text-label-sm text-outline uppercase hidden sm:inline-block">/ ATELIER</span></div><div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_#10B981]"></span><span class="font-label-sm text-label-sm tracking-wider uppercase text-emerald-400 font-semibold">BOX ABIERTO / CITAS DISPONIBLES</span></div></div><div class="flex items-center gap-space-sm"><button class="min-h-[44px] px-space-md bg-surface-container hover:bg-surface-container-high rounded-lg text-primary font-label-md text-label-md uppercase tracking-wider flex items-center gap-1 transition-all"><span class="material-symbols-outlined text-[16px]">event_available</span><span>CITAR</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-20 pb-36 bg-background"><div class="flex flex-col w-full text-on-surface">
+<!-- TOP HERO SPOTLIGHT & IDENTITY BANNER -->
+<section class="flex flex-col px-margin-mobile pt-space-md pb-space-lg gap-space-md">
+<!-- Micro Badge Status -->
+<div class="flex items-center justify-between gap-space-sm">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-low rounded-lg shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-primary tracking-wider uppercase">⚡ ESPECIALISTAS CERTIFICADOS EN {LOCALIDAD}</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-widest hidden xs:inline-block">SPEC // 2025</span>
+</div>
+<!-- Atelier Core Moniker -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-baseline gap-2">
+<h1 class="font-headline-xl-mobile text-headline-xl-mobile tracking-tight uppercase text-on-surface">APEX CUSTOMS</h1>
+<span class="font-label-md text-label-md text-primary font-bold tracking-widest">// ATELIER</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">{NOMBRE_NEGOCIO} • Custom Studio &amp; Precision Tuning</p>
+</div>
+<!-- Hero Punchy Statement -->
+<div class="flex flex-col gap-space-sm bg-surface-container p-space-md rounded-lg shadow-md relative overflow-hidden">
+<div class="absolute -right-8 -top-8 w-32 h-32 rounded-full bg-primary-container/10 blur-2xl pointer-events-none"></div>
+<p class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight">
+        Trabajo puro. Sin rodeos. Calidad de máximo nivel.
+      </p>
+<p class="font-body-md text-body-md text-secondary">
+        Precisión, actitud y acabados sin concesiones. Proyectos custom a medida, plazos quirúrgicos de entrega y garantía total en cada pieza acabada a mano en {LOCALIDAD}.
+      </p>
+<!-- Action Buttons -->
+<div class="flex flex-col sm:flex-row gap-space-sm pt-space-xs">
+<a class="min-h-[44px] px-space-lg bg-primary-container hover:brightness-110 active:scale-[0.98] rounded-lg text-on-primary-container font-label-md text-label-md font-bold uppercase tracking-wider flex items-center justify-center gap-space-sm shadow-[0_0_24px_rgba(249,115,22,0.28)] transition-all" href="#contacto">
+<span class="material-symbols-outlined text-[18px]">build</span>
+<span>Solicitar Presupuesto Directo</span>
+</a>
+<a class="min-h-[44px] px-space-md bg-surface-container-high hover:bg-surface-bright rounded-lg text-on-surface font-label-md text-label-md uppercase tracking-wider flex items-center justify-center gap-space-xs transition-colors" href="https://instagram.com" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[18px]">photo_camera</span>
+<span>Ver Trabajos en Instagram</span>
+</a>
+</div>
+</div>
+</section>
+<!-- TRUST & METRICS BENTO GRID -->
+<section class="flex flex-col px-margin-mobile pb-space-lg gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-outline">STANDARDS &amp; COMPROMISO</span>
+<span class="font-label-sm text-label-sm text-primary">01 / DISRUPT</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm">
+<!-- Metric 1 -->
+<div class="flex flex-col p-space-md bg-surface-container-low rounded-lg gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-primary text-[22px]">verified</span>
+<span class="font-label-sm text-label-sm text-outline">Q/C LAB</span>
+</div>
+<div class="font-headline-md text-headline-md text-on-surface pt-space-xs">+100% Pasión</div>
+<p class="font-body-sm text-body-sm text-secondary">Control exhaustivo milimétrico y garantía sin letra chica en cada ensamble.</p>
+</div>
+<!-- Metric 2 -->
+<div class="flex flex-col p-space-md bg-surface-container-low rounded-lg gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-primary text-[22px]">speed</span>
+<span class="font-label-sm text-label-sm text-outline">24H SLA</span>
+</div>
+<div class="font-headline-md text-headline-md text-on-surface pt-space-xs">Diagnóstico Claro</div>
+<p class="font-body-sm text-body-sm text-secondary">Evaluación técnica integral con presupuesto cerrado antes de tocar un tornillo.</p>
+</div>
+<!-- Metric 3 -->
+<div class="flex flex-col p-space-md bg-surface-container-low rounded-lg gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-primary text-[22px]">security</span>
+<span class="font-label-sm text-label-sm text-outline">HQ SITE</span>
+</div>
+<div class="font-headline-md text-headline-md text-on-surface pt-space-xs">En {LOCALIDAD}</div>
+<p class="font-body-sm text-body-sm text-secondary">Instalaciones con custodia 24/7 y acceso rápido directo al polígono técnico.</p>
+</div>
+</div>
+</section>
+<!-- PORTFOLIO / GALLERY ('THE WORKS') -->
+<section class="flex flex-col px-margin-mobile pb-space-lg gap-space-md">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">PORTFOLIO DROPS</span>
+<span class="font-label-sm text-label-sm text-outline">02 / ARCHIVE</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile uppercase tracking-tight text-on-surface">THE WORKS // RECIENTES</h2>
+</div>
+<!-- Project Cards Stack -->
+<div class="flex flex-col gap-space-md">
+<!-- Card 1 -->
+<div class="flex flex-col bg-surface-container rounded-lg overflow-hidden shadow-md group">
+<div class="relative w-full h-56 bg-surface-container-lowest">
+<img class="w-full h-full object-cover" data-alt="High-performance custom cafe racer motorcycle with matte Cerakote black coating and forged carbon fiber tank details inside an ultra-modern dark industrial garage studio with orange rim lighting and smoke atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdBeauAgsCJHRHYwhz2yivC-2zIahTkz1ysxtSeG-0iUsAvVungU6L1PmzyZTRTTP5x2pnVgf1tm3YgzeN0nJfLzOSPZt2-28nu9BcAosHRe3meYoS0YeJHADBcNhQJsT1Qf_s1K9fKPyWR0CwFEAluRED8EaaRpCn1aE3rTbgvwkuRGD1o6mTKvQqNYXcSDBXpN7IzdNrpjanuvH_mv6gXoWK74puDF63ejJvz6faNHBGpJU7T4ZX"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
+<div class="absolute top-3 right-3 bg-surface-container-lowest/90 backdrop-blur-md px-2.5 py-1 rounded font-label-sm text-label-sm text-primary">BUILD 09-A</div>
+</div>
+<div class="flex flex-col p-space-md gap-space-sm">
+<div class="flex items-center justify-between">
+<h3 class="font-title-lg text-title-lg uppercase text-on-surface tracking-tight">PROYECTO // VANGUARD BLACK</h3>
+<span class="font-label-sm text-label-sm text-primary bg-primary-container/10 px-2 py-0.5 rounded">18H BENCH</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">
+            Acabado Cerakote ultra-mate resistente a temperatura extrema, colín en fibra de carbono forjada y admisión directa artesanal calibrada en banco.
+          </p>
+<div class="flex flex-wrap gap-space-xs pt-space-xs">
+<span class="px-2 py-1 bg-surface-container-high rounded font-label-sm text-label-sm text-on-surface-variant">Grade-5 Titanium</span>
+<span class="px-2 py-1 bg-surface-container-high rounded font-label-sm text-label-sm text-on-surface-variant">Forged Carbon</span>
+<span class="px-2 py-1 bg-surface-container-high rounded font-label-sm text-label-sm text-on-surface-variant">Laser Mapping</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="flex flex-col bg-surface-container rounded-lg overflow-hidden shadow-md group">
+<div class="relative w-full h-56 bg-surface-container-lowest">
+<img class="w-full h-full object-cover" data-alt="Custom aggressive overland vehicle chassis component detail machined with orange anodized CNC aluminum brackets and heavy-duty performance suspension coils in a high-tech workshop setup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDveKExkQmDMQ0r-NAAQReT3QKGXXfNtwoetpOdg1liiGoYnQxVNZTc-xduhBuLN61c98ekOZIj-knsjOunQo9kuHxzJZmsEo93GSIC4idtuITHL0BT2e7sfpATUBXL4wSA4yTde3jthqdR23D7ti7AMNEnaLtgcFHwKkhL-zdz0ujSG55VgnLhM7D7iglb1NTd97QXW99dZh-pR32LB3G-Qjt9c3ah1nR-bT8fl_9-8iIwxdQjp4AU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
+<div class="absolute top-3 right-3 bg-surface-container-lowest/90 backdrop-blur-md px-2.5 py-1 rounded font-label-sm text-label-sm text-primary">DROP 04-B</div>
+</div>
+<div class="flex flex-col p-space-md gap-space-sm">
+<div class="flex items-center justify-between">
+<h3 class="font-title-lg text-title-lg uppercase text-on-surface tracking-tight">EDICIÓN // OCHRE OVERLAND</h3>
+<span class="font-label-sm text-label-sm text-primary bg-primary-container/10 px-2 py-0.5 rounded">42H BENCH</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">
+            Fabricación estructural bajo especificación de resistencia severa. Amortiguación personalizada multirregulación y torretas aligeradas por sustracción CNC.
+          </p>
+<div class="flex flex-wrap gap-space-xs pt-space-xs">
+<span class="px-2 py-1 bg-surface-container-high rounded font-label-sm text-label-sm text-on-surface-variant">CNC Billet 6061-T6</span>
+<span class="px-2 py-1 bg-surface-container-high rounded font-label-sm text-label-sm text-on-surface-variant">TIG Welded</span>
+<span class="px-2 py-1 bg-surface-container-high rounded font-label-sm text-label-sm text-on-surface-variant">Ochre Anodized</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="flex flex-col bg-surface-container rounded-lg overflow-hidden shadow-md group">
+<div class="relative w-full h-56 bg-surface-container-lowest">
+<img class="w-full h-full object-cover" data-alt="Vintage retro-modern customized cafe racer cockpit with minimal digital instrument screen, hidden black braided wiring, clip-on handlebars and brushed metal texture in an ambient atelier" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDN3X2hx0e5Ubbq8qBRrWeiA5MEcLYZ0yR6J8MuLsMFJ7SaIgqpz1c5idLLSFmnwduUtXI4wtkOqLbj0BdqY5lz3cKJwumFDoi5zh5CHViNS3ZsV2yvupacxbSI947yUwqJ1DD5Aqv-zS3S6otk0hGJVApWAxKkU_8TBUENlyDj5Tmh_bBLWStUY1b9MJOuk5MlumJrcB8VdQTajx9BokY-JQGmB_hm_MVqxxy1dN2jBt39PsDIayLN"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
+<div class="absolute top-3 right-3 bg-surface-container-lowest/90 backdrop-blur-md px-2.5 py-1 rounded font-label-sm text-label-sm text-primary">RESTOMOD 02</div>
+</div>
+<div class="flex flex-col p-space-md gap-space-sm">
+<div class="flex items-center justify-between">
+<h3 class="font-title-lg text-title-lg uppercase text-on-surface tracking-tight">STUDIO // STEALTH RESTORATION</h3>
+<span class="font-label-sm text-label-sm text-primary bg-primary-container/10 px-2 py-0.5 rounded">35H BENCH</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">
+            Restauración de chasis, cableado militar oculto de matriz reducida, integración total con tecnología digital Motogadget y botoneras táctiles micro.
+          </p>
+<div class="flex flex-wrap gap-space-xs pt-space-xs">
+<span class="px-2 py-1 bg-surface-container-high rounded font-label-sm text-label-sm text-on-surface-variant">Handcrafted</span>
+<span class="px-2 py-1 bg-surface-container-high rounded font-label-sm text-label-sm text-on-surface-variant">M-Unit Micro</span>
+<span class="px-2 py-1 bg-surface-container-high rounded font-label-sm text-label-sm text-on-surface-variant">Satin Hand Finish</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- PRICING & SERVICES BREAKDOWN -->
+<section class="flex flex-col px-margin-mobile pb-space-lg gap-space-md" id="servicios">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">TRANSPARENCIA TOTAL</span>
+<span class="font-label-sm text-label-sm text-outline">03 / PRICING</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile uppercase tracking-tight text-on-surface">TARIFARIO TÉCNICO</h2>
+</div>
+<!-- Service Cards List -->
+<div class="flex flex-col gap-space-sm">
+<!-- Service Item 1 -->
+<div class="flex flex-col p-space-md bg-surface-container rounded-lg gap-space-sm">
+<div class="flex items-start justify-between gap-space-xs">
+<div>
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block">TIER 01 // TUNING</span>
+<h3 class="font-headline-md text-headline-md text-on-surface uppercase">Mantenimiento &amp; Setup</h3>
+</div>
+<span class="font-label-lg text-label-lg text-primary font-bold bg-surface-container-lowest px-3 py-1 rounded">€180 - €350</span>
+</div>
+<ul class="flex flex-col gap-1.5 pt-space-xs">
+<li class="flex items-center gap-space-xs text-secondary font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span>Diagnóstico por sensor óptico y telemetría de tolerancias.</span>
+</li>
+<li class="flex items-center gap-space-xs text-secondary font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span>Calibración láser de cotas, balanceo dinámico y ajuste de par.</span>
+</li>
+<li class="flex items-center gap-space-xs text-secondary font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span>Fluidos sintéticos de alto rendimiento y purgado de circuito.</span>
+</li>
+<li class="flex items-center gap-space-xs text-secondary font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span>Entrega de reporte técnico digital con firma de homologación.</span>
+</li>
+</ul>
+</div>
+<!-- Service Item 2 -->
+<div class="flex flex-col p-space-md bg-surface-container rounded-lg gap-space-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 w-1.5 h-full bg-primary-container"></div>
+<div class="flex items-start justify-between gap-space-xs">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider block">TIER 02 // LAB BESPOKE</span>
+<h3 class="font-headline-md text-headline-md text-on-surface uppercase">Custom Design &amp; Fabricación</h3>
+</div>
+<span class="font-label-lg text-label-lg text-primary font-bold bg-surface-container-lowest px-3 py-1 rounded">Desde €750</span>
+</div>
+<ul class="flex flex-col gap-1.5 pt-space-xs">
+<li class="flex items-center gap-space-xs text-secondary font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span>Renderizado 3D y análisis de tensión de materiales previo.</span>
+</li>
+<li class="flex items-center gap-space-xs text-secondary font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span>Mecanizado CNC a 5 ejes y soldadura TIG en atmósfera controlada.</span>
+</li>
+<li class="flex items-center gap-space-xs text-secondary font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span>Acabados premium en polvo electrostático o pulido artesanal.</span>
+</li>
+<li class="flex items-center gap-space-xs text-secondary font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span>Piezas 100% exclusivas numeradas y con ficha de trazabilidad.</span>
+</li>
+</ul>
+</div>
+<!-- Service Item 3 -->
+<div class="flex flex-col p-space-md bg-surface-container rounded-lg gap-space-sm">
+<div class="flex items-start justify-between gap-space-xs">
+<div>
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block">TIER 03 // COMPLETE REBUILD</span>
+<h3 class="font-headline-md text-headline-md text-on-surface uppercase">Full Overhaul Build</h3>
+</div>
+<span class="font-label-lg text-label-lg text-primary font-bold bg-surface-container-lowest px-3 py-1 rounded">€1.800 - €4.500+</span>
+</div>
+<ul class="flex flex-col gap-1.5 pt-space-xs">
+<li class="flex items-center gap-space-xs text-secondary font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span>Desmontaje total a chasis vivo con inspección no destructiva.</span>
+</li>
+<li class="flex items-center gap-space-xs text-secondary font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span>Rediseño ergonómico, electrónica total CanBus y escape artesanal.</span>
+</li>
+<li class="flex items-center gap-space-xs text-secondary font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span>Homologación en ficha técnica ITV y certificación para vía pública.</span>
+</li>
+<li class="flex items-center gap-space-xs text-secondary font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span>2 años de garantía total de mano de obra y soporte prioritario.</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- LOCATION & FAST SCHEDULE SECTION -->
+<section class="flex flex-col px-margin-mobile pb-space-xl gap-space-md" id="ubicacion">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">BOX HEADQUARTERS</span>
+<span class="font-label-sm text-label-sm text-outline">04 / ACCESS</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile uppercase tracking-tight text-on-surface">TALLER &amp; ACCESO</h2>
+</div>
+<!-- Map & Workshop Info Card -->
+<div class="flex flex-col bg-surface-container rounded-lg overflow-hidden shadow-md">
+<!-- Interactive Dark Map Component -->
+<div class="w-full h-48 bg-cover bg-center relative" data-location="Polígono Industrial Neotech, Nave 04, {LOCALIDAD}" style="background-image: url('https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg')">
+<div class="absolute inset-0 bg-background/30 backdrop-blur-[1px]"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="flex flex-col items-center gap-1 bg-surface-container-lowest/90 px-3 py-2 rounded-lg shadow-[0_0_20px_rgba(249,115,22,0.4)]">
+<span class="material-symbols-outlined text-primary text-[28px] animate-bounce">location_on</span>
+<span class="font-label-sm text-label-sm text-on-surface uppercase font-bold tracking-wider">APEX LAB BOX 04</span>
+</div>
+</div>
+</div>
+<!-- Details Block -->
+<div class="flex flex-col p-space-md gap-space-md">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">pin_drop</span>
+              DIRECCIÓN
+            </span>
+<p class="font-body-md text-body-md text-on-surface font-semibold">Polígono Industrial Neotech, Nave 04</p>
+<p class="font-label-md text-label-md text-secondary uppercase">{LOCALIDAD}, España</p>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">schedule</span>
+              HORARIO DE OPERACIÓN
+            </span>
+<p class="font-body-md text-body-md text-on-surface">Lun a Vie: <span class="text-primary font-bold">08:30 - 19:30</span></p>
+<p class="font-body-sm text-body-sm text-secondary">Sábados: <span class="text-on-surface font-semibold">Citas VIP &amp; Entrega de Proyectos</span></p>
+</div>
+</div>
+<a class="min-h-[44px] w-full bg-surface-container-high hover:bg-surface-bright rounded-lg text-on-surface font-label-md text-label-md uppercase tracking-wider flex items-center justify-center gap-space-xs transition-colors" href="https://maps.google.com" rel="noopener noreferrer" target="_blank">
+<span>Abrir en Google Maps</span>
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</a>
+</div>
+</div>
+</section>
+<!-- CONTACT CARD / DIRECT FAST TRIGGER -->
+<section class="flex flex-col px-margin-mobile pb-space-lg gap-space-sm" id="contacto">
+<div class="flex flex-col p-space-md bg-surface-container rounded-lg gap-space-sm text-center relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-primary-container/5 via-transparent to-transparent pointer-events-none"></div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest font-semibold">INICIA TU PROYECTO</span>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile uppercase text-on-surface">¿Tienes una idea en mente?</h3>
+<p class="font-body-md text-body-md text-secondary">
+        Envíanos las fotos, modelo y bocetos de tu máquina. Respondemos el mismo día con valoración de horas y viabilidad de homologación.
+      </p>
+<div class="pt-space-xs flex justify-center">
+<a class="min-h-[48px] px-space-lg bg-primary-container hover:brightness-110 active:scale-[0.98] rounded-lg text-on-primary-container font-label-md text-label-md font-bold uppercase tracking-wider flex items-center justify-center gap-space-sm shadow-[0_0_24px_rgba(249,115,22,0.35)] transition-all" href="https://wa.me/" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+<span>Escribir al Jefe de Taller</span>
+</a>
+</div>
+</div>
+</section>
+</div>
+<script>
+  // Dynamic visual feedback for interactive build cards
+  document.querySelectorAll('.group').forEach((card) => {
+    card.addEventListener('pointerenter', () => {
+      card.style.boxShadow = '0 0 24px 0 rgba(249, 115, 22, 0.18)';
+    });
+    card.addEventListener('pointerleave', () => {
+      card.style.boxShadow = '';
+    });
+  });
+</script></main><footer class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-[#09090B]/90 backdrop-blur-xl shadow-[0_-4px_24px_rgba(0,0,0,0.6)]"><div class="px-margin-mobile pt-space-sm pb-space-xs flex flex-col gap-space-xs"><a class="min-h-[48px] w-full bg-primary-container hover:brightness-110 active:scale-[0.99] rounded-lg flex items-center justify-center gap-space-sm px-space-lg text-on-primary-container font-label-md text-label-md font-bold uppercase tracking-wider shadow-[0_0_24px_0_rgba(249,115,22,0.35)] transition-all" href="https://wa.me/" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined text-[20px]">chat</span><span>Contactar por WhatsApp ahora</span></a><nav class="flex justify-around items-center h-14" data-active-classes="text-primary"><a aria-current="page" class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] transition-colors text-primary" data-path="overview" href="#"><span class="material-symbols-outlined text-[20px]">bolt</span><span class="font-label-sm text-label-sm">OVERVIEW</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="projects" href="#"><span class="material-symbols-outlined text-[20px]">precision_manufacturing</span><span class="font-label-sm text-label-sm">DROPS</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="services" href="#"><span class="material-symbols-outlined text-[20px]">tune</span><span class="font-label-sm text-label-sm">TUNING</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="booking" href="#"><span class="material-symbols-outlined text-[20px]">calendar_today</span><span class="font-label-sm text-label-sm">CITAS</span></a></nav></div></footer></body></html>

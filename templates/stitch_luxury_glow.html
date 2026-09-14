@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link rel="icon" type="image/jpeg" href="{{ ig.avatar_url or 'https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=96&q=80' }}">
+<link href="https://fonts.googleapis.com\" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"tertiary":"#645d58","surface-container-high":"#eee7e3","surface-container":"#f4ece8","primary":"#855319","outline-variant":"#d5c3b4","surface-variant":"#e9e1dd","on-secondary-container":"#656461","on-background":"#1e1b19","surface":"#fff8f5","on-tertiary-fixed-variant":"#4b4641","on-tertiary-fixed":"#1f1b17","tertiary-container":"#aaa29c","on-primary-fixed":"#2c1600","tertiary-fixed":"#eae1da","primary-fixed-dim":"#fbb976","surface-container-low":"#faf2ee","inverse-on-surface":"#f7efeb","secondary-fixed":"#e5e2dd","error-container":"#ffdad6","on-tertiary-container":"#3e3934","primary-fixed":"#ffdcbd","surface-tint":"#855319","tertiary-fixed-dim":"#cec5bf","on-primary-fixed-variant":"#693c01","background":"#fff8f5","surface-container-highest":"#e9e1dd","outline":"#837468","surface-dim":"#e0d8d5","on-secondary-fixed":"#1c1c19","surface-bright":"#fff8f5","inverse-primary":"#fbb976","on-primary-container":"#563100","on-error-container":"#93000a","surface-container-lowest":"#ffffff","error":"#ba1a1a","secondary-fixed-dim":"#c8c6c2","secondary":"#5f5e5b","on-primary":"#ffffff","on-secondary":"#ffffff","secondary-container":"#e5e2dd","on-tertiary":"#ffffff","on-secondary-fixed-variant":"#474743","on-surface-variant":"#514439","primary-container":"#d49757","inverse-surface":"#33302d","on-surface":"#1e1b19","on-error":"#ffffff"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-lg":"2rem","gutter-desktop":"2.5rem","space-sm":"0.75rem","space-xl":"3.5rem","margin":"1.25rem","space-xs":"0.375rem","gutter":"1.5rem","space-md":"1.25rem","margin-tablet":"2.5rem","margin-desktop":"4rem"},"fontFamily":{"body-sm":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"display-hero-mobile":["Playfair Display"],"display-hero":["Playfair Display"],"headline-lg":["Playfair Display"],"label-caps":["Plus Jakarta Sans"],"headline-sm":["Playfair Display"],"body-md":["Plus Jakarta Sans"],"headline-lg-mobile":["Playfair Display"],"headline-md":["Playfair Display"],"label-md":["Plus Jakarta Sans"]},"fontSize":{"body-sm":["14px",{"lineHeight":"20px","fontWeight":"400"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}],"display-hero-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.01em","fontWeight":"400"}],"display-hero":["56px",{"lineHeight":"64px","letterSpacing":"-0.02em","fontWeight":"400"}],"headline-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.01em","fontWeight":"400"}],"label-caps":["11px",{"lineHeight":"16px","letterSpacing":"0.12em","fontWeight":"600"}],"headline-sm":["22px",{"lineHeight":"30px","fontWeight":"600"}],"body-md":["16px",{"lineHeight":"24px","fontWeight":"400"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"0em","fontWeight":"400"}],"headline-md":["28px",{"lineHeight":"36px","fontWeight":"500"}],"label-md":["14px",{"lineHeight":"20px","fontWeight":"500"}]}}}};</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 inset-x-0 z-50 px-margin sm:px-margin-tablet lg:px-margin-desktop py-space-sm"><div class="max-w-7xl mx-auto"><div class="h-20 px-gutter bg-surface-container-lowest/85 backdrop-blur-md border border-primary-container/20 rounded-full shadow-[0_10px_30px_-10px_rgba(212,151,87,0.15)] flex items-center justify-between transition-all duration-300"><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-xs focus:outline-none" data-path="inicio" href="#"><img alt="{{ negocio.nombre }}" class="h-9 w-9 rounded-full object-cover border border-primary-container/40" src="{{ ig.avatar_url or 'https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=120&q=80' }}"/><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface ml-1 hidden sm:inline-block">{{ negocio.nombre }}</span></a><div class="h-4 w-[1px] bg-outline-variant/50 hidden md:block"></div><a class="hidden md:flex items-center gap-1 text-on-surface-variant hover:text-primary transition-colors font-label-caps text-label-caps uppercase tracking-widest" href="#" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined text-[15px]">photo_camera</span><span>@{{ ig.username or (negocio.nombre|lower|replace(' ', '')) }}</span></a></div><nav class="hidden lg:flex items-center gap-space-xs" data-active-classes="bg-surface-container text-primary font-medium"><a class="px-space-md py-space-xs rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="servicios" href="#">Servicios</a><a class="px-space-md py-space-xs rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="el-espacio" href="#">El Espacio</a><a class="px-space-md py-space-xs rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="resultados" href="#">Resultados</a><a class="px-space-md py-space-xs rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="testimonios" href="#">Testimonios</a></nav><div class="flex items-center gap-space-sm"><a class="inline-flex items-center justify-center px-space-md py-2.5 rounded-full bg-primary-container hover:bg-[#c48444] text-on-surface font-label-caps text-label-caps uppercase tracking-wider transition-all duration-300 shadow-[0_4px_16px_rgba(212,151,87,0.3)] hover:shadow-[0_6px_20px_rgba(212,151,87,0.45)]" data-path="pedir-cita" href="#">Pedir Cita</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-sm ml-1"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="w-full pt-20 bg-surface"><div class="max-w-7xl mx-auto px-margin sm:px-margin-tablet lg:px-margin-desktop py-space-md"><div class="flex flex-col w-full">
+<!-- Top Decorative Ambient Glow -->
+<div class="relative w-full overflow-hidden">
+<div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[720px] h-[360px] bg-gradient-to-b from-primary-container/15 via-primary-fixed-dim/5 to-transparent blur-3xl pointer-events-none -z-10"></div>
+<!-- 1. HERO SECTION -->
+<section class="w-full pb-space-xl pt-space-xs">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-center">
+<!-- Text Column (Left) -->
+<div class="lg:col-span-6 flex flex-col space-y-space-md z-10">
+<!-- Status Pill Badge -->
+<div class="inline-flex items-center gap-2 self-start px-space-md py-1.5 rounded-full bg-surface-container-lowest/90 border border-primary-container/30 shadow-[0_4px_16px_rgba(212,151,87,0.18)]">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-primary font-semibold">
+              {{ web.badge_status or '✨ Atención Exclusiva • Cita Previa' }}
+            </span>
+</div>
+<!-- Editorial Main Headline -->
+<h1 class="font-display-hero text-display-hero sm:text-[60px] sm:leading-[68px] text-on-surface tracking-tight">
+            {{ web.titular or ('Realza tu <span class="italic font-display-hero text-primary select-none drop-shadow-sm font-normal">belleza natural</span> en ' ~ negocio.ciudad)|safe }}
+          </h1>
+<!-- Value Proposition -->
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl leading-relaxed">
+            {{ web.subtitulo or ('Atención individualizada en cabina privada, cosmecéutica de autor y las técnicas más avanzadas de belleza en ' ~ negocio.ciudad ~ '.') }}
+          </p>
+<!-- CTAs & Micro-Proof Container -->
+<div class="flex flex-col sm:flex-row sm:items-center gap-space-sm pt-space-xs">
+<a class="inline-flex items-center justify-center gap-2.5 px-space-lg py-4 rounded-full bg-gradient-to-r from-primary-container to-[#c78847] hover:to-primary text-on-surface font-label-caps text-label-caps uppercase tracking-wider transition-all duration-300 shadow-[0_8px_24px_rgba(212,151,87,0.35)] hover:shadow-[0_12px_28px_rgba(212,151,87,0.5)] transform hover:-translate-y-0.5" href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" rel="noopener\" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[20px] text-on-surface">chat</span>
+<span>Reservar Cita por WhatsApp</span>
+</a>
+<a class="inline-flex items-center justify-center gap-2 px-space-md py-4 rounded-full bg-surface-container-lowest/80 hover:bg-surface-container-high text-on-surface border border-primary-container/40 font-label-caps text-label-caps uppercase tracking-wider transition-all duration-200" href="#servicios-tarifas">
+<span>Ver Carta de Servicios</span>
+<span class="material-symbols-outlined text-[16px] text-primary">arrow_downward</span>
+</a>
+</div>
+<!-- Proof Card (Micro review) -->
+<div class="pt-space-xs">
+<div class="inline-flex items-center gap-3 px-space-md py-2.5 rounded-2xl bg-surface-container-lowest/95 border border-primary-container/20 shadow-[0_10px_30px_-10px_rgba(212,151,87,0.15)]">
+<div class="flex items-center gap-0.5 text-primary">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface font-medium">
+                4.9/5 <span class="text-on-surface-variant font-normal">valoración media (180+ reseñas verificadas)</span>
+</p>
+</div>
+</div>
+</div>
+<!-- Visual Mosaic Column (Right) -->
+<div class="lg:col-span-6 relative mt-space-md lg:mt-0">
+<div class="relative w-full max-w-lg mx-auto lg:max-w-none">
+<!-- Main Hero Visual Card -->
+<div class="relative z-10 w-full h-[430px] sm:h-[490px] rounded-[24px] overflow-hidden border border-primary-container/25 shadow-[0_20px_50px_-15px_rgba(212,151,87,0.25)] bg-surface-container-lowest">
+<img class="w-full h-full object-cover" alt="{{ negocio.nombre }}" src="{{ ig.posts[0].image_url if ig.posts and ig.posts[0].image_url else 'https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&w=1200&q=80' }}"/>
+<!-- Subtle inner gradient scrim -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/10"></div>
+<!-- Location Stamp on Hero Image -->
+<div class="absolute top-4 right-4 backdrop-blur-md bg-surface-container-lowest/85 border border-primary-container/30 px-space-sm py-1.5 rounded-full flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-primary text-[16px]">pin_drop</span>
+<span class="font-label-caps text-label-caps uppercase text-on-surface tracking-wider">{{ negocio.direccion or negocio.ciudad }}</span>
+</div>
+<div class="absolute bottom-5 left-5 right-5 flex items-end justify-between">
+<div>
+<span class="font-label-caps text-label-caps uppercase text-primary-fixed tracking-widest block mb-0.5">Santuario Privado</span>
+<p class="font-headline-sm text-headline-sm text-surface-container-lowest font-medium drop-shadow-sm">Cabina Estética de Autor</p>
+</div>
+<span class="px-3 py-1 rounded-full bg-surface-container-lowest/90 font-label-caps text-label-caps text-primary uppercase">No Invasivo</span>
+</div>
+</div>
+<!-- Overlapping Detail Image https://lh3.googleusercontent.com/aida-public/AB6AXuC6FgXhlX5LZqPgohplJutgZ_xf-mLLI-E4aqlgheCgmhuxGOphM3EoHO3yhA82qNxg8O6sU4ZIljwQNmuQkv3rQWhzVdMPC1B728Q8gLkLHrgYVNZcOI-BhU71_LnARtqNUnryFFVy0aI6jxg1FQ7DizTMP8VQ-tVIIcQ3sSJThCOFselvmRxJmQMJxmZtSQShShlIhqnXBeDM4fO5pxth8WERyjaVCvwpobSXexJ62pnftOM3WiY4bA -->
+<div class="hidden sm:block absolute -bottom-8 -left-8 z-20 w-52 h-52 rounded-[20px] overflow-hidden border-2 border-surface-container-lowest shadow-[0_15px_35px_-8px_rgba(133,83,25,0.3)] bg-surface-container-lowest">
+<img alt="{{ negocio.nombre }} glow" class="w-full h-full object-cover" src="{{ ig.posts[1].image_url if ig.posts and ig.posts|length > 1 and ig.posts[1].image_url else 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80' }}"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/40 via-transparent to-transparent"></div>
+<div class="absolute bottom-2.5 inset-x-2.5 text-center">
+<span class="font-label-caps text-[10px] text-surface-container-lowest uppercase tracking-wider font-semibold">Glow Instantáneo</span>
+</div>
+</div>
+<!-- Floating VIP Cabins Badge Card -->
+<div class="absolute top-8 sm:-left-6 z-20 px-space-md py-3 rounded-2xl bg-surface-container-lowest/95 backdrop-blur-md border border-primary-container/30 shadow-[0_10px_30px_-10px_rgba(212,151,87,0.25)] flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">spa</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps uppercase tracking-wider text-primary font-bold">Cabinas Privadas VIP</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs">Máxima confidencialidad</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. TRUST BADGES (3-COLUMN LUXURY GRID) -->
+<section class="w-full py-space-lg">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="group p-space-lg rounded-[20px] bg-surface-container-lowest border border-primary-container/25 shadow-[0_10px_30px_-10px_rgba(212,151,87,0.15)] hover:shadow-[0_15px_35px_-10px_rgba(212,151,87,0.25)] transition-all duration-300">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary mb-space-md group-hover:scale-105 transition-transform duration-300 border border-primary-container/30">
+<span class="material-symbols-outlined text-[24px]">biotech</span>
+</div>
+<span class="font-label-caps text-label-caps uppercase text-primary tracking-widest block mb-1">Diagnóstico 3D</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2 font-medium">Cuidado Personalizado</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Evaluación digital previa que analiza las capas profundas de tu piel. Diseñamos un protocolo 100% individualizado para conseguir resultados duraderos y armónicos.
+          </p>
+</div>
+<!-- Card 2 -->
+<div class="group p-space-lg rounded-[20px] bg-surface-container-lowest border border-primary-container/25 shadow-[0_10px_30px_-10px_rgba(212,151,87,0.15)] hover:shadow-[0_15px_35px_-10px_rgba(212,151,87,0.25)] transition-all duration-300">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary mb-space-md group-hover:scale-105 transition-transform duration-300 border border-primary-container/30">
+<span class="material-symbols-outlined text-[24px]">verified</span>
+</div>
+<span class="font-label-caps text-label-caps uppercase text-primary tracking-widest block mb-1">Cosmecéutica de Autor</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2 font-medium">Productos Premium</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Formulaciones bioactivas suizas y francesas con certificación de grado médico. Máxima tolerancia dermatológica, sin parabenos y con activos puros de alta asimilación.
+          </p>
+</div>
+<!-- Card 3 -->
+<div class="group p-space-lg rounded-[20px] bg-surface-container-lowest border border-primary-container/25 shadow-[0_10px_30px_-10px_rgba(212,151,87,0.15)] hover:shadow-[0_15px_35px_-10px_rgba(212,151,87,0.25)] transition-all duration-300">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary mb-space-md group-hover:scale-105 transition-transform duration-300 border border-primary-container/30">
+<span class="material-symbols-outlined text-[24px]">wb_twilight</span>
+</div>
+<span class="font-label-caps text-label-caps uppercase text-primary tracking-widest block mb-1">Sosiego &amp; Confort</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2 font-medium">Ambiente Relajante</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Cabinas con aislamiento acústico integral, aromaterapia orgánica de azahar y sándalo, camillas térmicas acolchadas y atención sin tiempos de espera.
+          </p>
+</div>
+</div>
+</section>
+<!-- 3. BENTO GRID DE SERVICIOS & TARIFAS -->
+<section class="w-full py-space-xl" id="servicios-tarifas">
+<!-- Section Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-lg">
+<div class="max-w-xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-primary-container/30 mb-2">
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-primary font-semibold">Tratamientos Exclusivos</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-medium">
+            Carta de Servicios <span class="italic font-display-hero text-primary font-normal">• {{ negocio.nombre }}</span>
+</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+            Precisión en cabina individual, aparatología certificada y resultados visibles desde la primera sesión sin tiempo de recuperación.
+          </p>
+</div>
+<div class="mt-4 md:mt-0 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">verified_user</span>
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant">Diagnóstico previo incluido</span>
+</div>
+</div>
+<!-- Dynamic Bento Grid from Instagram & Gemini -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter">
+  {% for s in web.servicios %}
+  <div class="{% if loop.first %}lg:col-span-7{% elif loop.index == 2 %}lg:col-span-5{% elif loop.index == 3 %}lg:col-span-5{% else %}lg:col-span-7{% endif %} flex flex-col justify-between p-space-lg sm:p-space-xl rounded-[24px] bg-surface-container-lowest border border-primary-container/30 shadow-[0_12px_36px_-10px_rgba(212,151,87,0.18)] relative overflow-hidden group">
+    <div>
+      <div class="flex items-center justify-between gap-2 mb-space-sm">
+        <span class="px-3 py-1 rounded-full bg-primary-container/20 text-primary font-label-caps text-label-caps uppercase tracking-wider font-semibold border border-primary-container/30">
+          {% if loop.first %}⭐ Tratamiento Estrella{% else %}Cuidado Premium{% endif %}
+        </span>
+        <div class="flex items-center gap-1 text-primary">
+          <span class="material-symbols-outlined text-[16px]">schedule</span>
+          <span class="font-label-caps text-label-caps uppercase tracking-wider">{{ s.precio_o_duracion or "Cita Previa" }}</span>
+        </div>
+      </div>
+      <h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-space-xs">
+        {{ s.nombre }}
+      </h3>
+      <p class="font-body-md text-body-md text-on-surface-variant mb-space-md leading-relaxed">
+        {{ s.descripcion }}
+      </p>
+      {% if s.imagen %}
+      <div class="w-full h-44 rounded-xl overflow-hidden mb-space-md border border-primary-container/20">
+        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="{{ s.imagen }}" alt="{{ s.nombre }}" />
+      </div>
+      {% endif %}
+    </div>
+    <div class="pt-space-md border-t border-outline-variant/30 flex items-center justify-between gap-space-sm mt-auto">
+      <div>
+        <span class="font-label-caps text-[10px] uppercase text-tertiary block">Inversión Estimada</span>
+        <span class="font-headline-sm text-primary font-medium">{{ s.precio_o_duracion or "Consultar" }}</span>
+      </div>
+      <a class="inline-flex items-center justify-center gap-2 px-space-md py-2.5 rounded-full bg-primary hover:bg-on-primary-fixed-variant text-on-primary font-label-caps text-label-caps uppercase tracking-wider transition-all duration-200 shadow-sm" href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" rel="noopener noreferrer" target="_blank">
+        <span>Reservar</span>
+        <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+</section>
+<!-- 4. GALERÍA VISUAL & INSTAGRAM FEED -->
+<section class="w-full py-space-xl">
+<div class="flex flex-col sm:flex-row sm:items-end justify-between mb-space-lg gap-space-sm">
+<div>
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-primary font-semibold block mb-1">
+            Universo Visual • Editorial Care
+          </span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-medium">
+            Momentos en el Atelier
+          </h2>
+</div>
+<a class="inline-flex items-center gap-2 text-primary hover:text-on-primary-fixed-variant font-label-caps text-label-caps uppercase tracking-widest transition-colors" href="{{ negocio.instagram_url }}" target="_blank" rel="noopener\" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[18px]">photo_camera</span>
+<span>@{{ ig.username or (negocio.nombre|lower|replace(' ', '')) }} • Síguenos en Instagram</span>
+<span class="material-symbols-outlined text-[16px]">north_east</span>
+</a>
+</div>
+<!-- 4-Item Curated Visual Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+  {% for post in ig.posts[:4] %}
+  <div class="group relative rounded-[20px] overflow-hidden aspect-[4/5] border border-primary-container/25 shadow-sm bg-surface-container">
+    <img alt="{{ post.caption[:40] if post.caption else negocio.nombre }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" src="{{ post.image_url }}" />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+      <span class="font-label-caps text-[10px] text-primary-fixed uppercase tracking-wider">Instagram Post</span>
+      <p class="font-body-sm text-surface-container-lowest font-medium text-xs line-clamp-2">{{ post.caption or negocio.nombre }}</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+</section>
+<!-- 5. TESTIMONIOS REALES (EDITORIAL LUXURY CARDS) -->
+<section class="w-full py-space-xl">
+<div class="text-center max-w-2xl mx-auto mb-space-xl">
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-primary font-semibold block mb-1">
+          Confianza de Nuestras Clientas
+        </span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-medium">
+          Experiencias en Primera Persona
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+          La satisfacción de un rostro descansado y un momento de desconexión absoluta en Madrid.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Testimonial Card 1 -->
+<div class="p-space-xl rounded-[24px] bg-surface-container-lowest border border-primary-container/25 shadow-[0_10px_30px_-10px_rgba(212,151,87,0.15)] flex flex-col justify-between relative">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container font-label-caps text-[10px] text-primary uppercase tracking-wider font-semibold">
+<span class="material-symbols-outlined text-[14px]">verified</span> Reseña Verificada
+              </span>
+</div>
+<blockquote class="font-body-lg text-body-lg text-on-surface leading-relaxed mb-space-lg italic">
+              “El mejor tratamiento facial que he probado en Madrid. La piel me quedó luminosa, descansada y jugosa sin rojeces. La atención personalizada es impecable.”
+            </blockquote>
+</div>
+<div class="flex items-center gap-3 pt-space-md border-t border-outline-variant/30">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center font-headline-sm text-headline-sm text-primary">
+              CD
+            </div>
+<div>
+<p class="font-headline-sm text-sm font-semibold text-on-surface">Carmen Delgado</p>
+<p class="font-body-sm text-xs text-on-surface-variant">Empresaria, Madrid • Tratamiento Élixir Glow</p>
+</div>
+</div>
+</div>
+<!-- Testimonial Card 2 -->
+<div class="p-space-xl rounded-[24px] bg-surface-container-lowest border border-primary-container/25 shadow-[0_10px_30px_-10px_rgba(212,151,87,0.15)] flex flex-col justify-between relative">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container font-label-caps text-[10px] text-primary uppercase tracking-wider font-semibold">
+<span class="material-symbols-outlined text-[14px]">verified</span> Reseña Verificada
+              </span>
+</div>
+<blockquote class="font-body-lg text-body-lg text-on-surface leading-relaxed mb-space-lg italic">
+              “Un verdadero oasis de paz en el Barrio de Salamanca. El diagnóstico previo me descubrió exactamente lo que mi piel necesitaba. Absolutamente recomendado.”
+            </blockquote>
+</div>
+<div class="flex items-center gap-3 pt-space-md border-t border-outline-variant/30">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center font-headline-sm text-headline-sm text-primary">
+              SM
+            </div>
+<div>
+<p class="font-headline-sm text-sm font-semibold text-on-surface">Sofía Martorell</p>
+<p class="font-body-sm text-xs text-on-surface-variant">Arquitecta • Protocolo Kobido Facial</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FINAL PRE-FOOTER CONCIERGE BANNER -->
+<section class="w-full py-space-xl">
+<div class="rounded-[28px] bg-gradient-to-br from-surface-container-low via-surface-container to-surface-container-lowest p-space-lg sm:p-space-xl border border-primary-container/30 shadow-[0_16px_40px_-15px_rgba(212,151,87,0.2)] flex flex-col md:flex-row items-center justify-between gap-space-lg">
+<div class="max-w-xl text-center md:text-left">
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-primary font-semibold block mb-1">
+            Atención Inmediata
+          </span>
+<h3 class="font-headline-lg text-headline-lg text-on-surface font-medium">
+            ¿Dudas sobre qué tratamiento elegir?
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+            Nuestro equipo de especialistas te asesorará directamente vía WhatsApp sin compromiso alguno. Reserva tu cita con prioridad.
+          </p>
+</div>
+<div class="flex flex-col sm:flex-row items-center gap-space-sm w-full md:w-auto">
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-space-lg py-4 rounded-full bg-primary hover:bg-on-primary-fixed-variant text-on-primary font-label-caps text-label-caps uppercase tracking-wider transition-all duration-300 shadow-lg" href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" rel="noopener\" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+<span>Hablar con Concierge</span>
+</a>
+<span class="text-xs font-body-sm text-on-surface-variant text-center sm:text-left">
+            Lun - Sáb 10:00 - 20:00
+          </span>
+</div>
+</div>
+</section>
+</div>
+<!-- 6. STICKY MOBILE ACTION BAR (FIXED BOTTOM DOCK ON MOBILE) -->
+<div class="fixed bottom-0 inset-x-0 z-40 lg:hidden p-3 bg-surface-container-lowest/95 backdrop-blur-lg border-t border-primary-container/25 shadow-[0_-8px_20px_rgba(0,0,0,0.06)]">
+<div class="max-w-md mx-auto flex items-center justify-between gap-3">
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] text-primary uppercase font-bold tracking-wider">Cita Previa VIP</span>
+<span class="font-body-sm text-xs text-on-surface-variant truncate">Lun - Sáb 10:00 - 20:00</span>
+</div>
+<a class="inline-flex items-center justify-center gap-2 px-space-md py-2.5 rounded-full bg-primary-container text-on-surface font-label-caps text-label-caps uppercase tracking-wider shadow-md hover:bg-primary hover:text-on-primary transition-colors" href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" rel="noopener\" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span>WhatsApp</span>
+</a>
+</div>
+</div>
+<script>
+    // Micro-interaction for smooth scrolling anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href').substring(1);
+        if (!targetId) return;
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</div></div></main><footer class="w-full bg-surface-container-low border-t border-primary-container/20 mt-space-xl"><div class="max-w-7xl mx-auto px-margin sm:px-margin-tablet lg:px-margin-desktop py-space-xl"><div class="grid grid-cols-1 md:grid-cols-12 gap-gutter-desktop"><div class="md:col-span-4 flex flex-col space-y-space-md"><div class="flex items-center gap-space-xs"><img alt="{{ negocio.nombre }}" class="h-9 w-9 rounded-full object-cover border border-primary-container/40" src="{{ ig.avatar_url or 'https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=120&q=80' }}"/><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface ml-1">{{ negocio.nombre }}</span></div><p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">{{ web.sobre_nosotros or ('Servicios profesionales de alta fidelidad y cuidado de autor en ' ~ negocio.ciudad ~ '. Máxima calidad y atención 100% personalizada.') }}</p><div class="flex items-center gap-space-sm pt-space-xs"><a aria-label="WhatsApp Concierge" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors" href="#"><span class="material-symbols-outlined text-[20px]">chat</span></a><a aria-label="Instagram" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors" href="#"><span class="material-symbols-outlined text-[20px]">photo_camera</span></a><a aria-label="Email" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors" href="#"><span class="material-symbols-outlined text-[20px]">mail</span></a></div></div><div class="md:col-span-3 flex flex-col space-y-space-sm"><span class="font-label-caps text-label-caps uppercase text-primary tracking-widest">Atelier &amp; Ubicación</span><div class="font-body-sm text-body-sm text-on-surface-variant flex flex-col space-y-1"><p class="font-medium text-on-surface">Barrio de Salamanca</p><p>{{ negocio.direccion or negocio.ciudad }}</p>
+<p>{{ negocio.ciudad }}, España</p></div><div class="pt-space-xs"><a class="inline-flex items-center gap-1.5 font-label-md text-label-md text-primary hover:text-on-primary-fixed-variant transition-colors" href="#"><span class="material-symbols-outlined text-[16px]">location_on</span><span>Ver en mapa</span></a></div></div><div class="md:col-span-3 flex flex-col space-y-space-sm"><span class="font-label-caps text-label-caps uppercase text-primary tracking-widest">Horario &amp; Concierge</span><div class="font-body-sm text-body-sm text-on-surface-variant flex flex-col space-y-1"><p><span class="font-medium text-on-surface">Lunes a Sábado:</span> 10:00 – 20:00</p><p><span class="font-medium text-on-surface">Domingos:</span> Cerrado (Privé bajo cita)</p></div><div class="pt-space-xs"><a class="inline-flex items-center gap-1.5 font-label-md text-label-md text-primary hover:text-on-primary-fixed-variant transition-colors" href="#"><span class="material-symbols-outlined text-[16px]">call</span><span>WhatsApp Concierge</span></a></div></div><div class="md:col-span-2 flex flex-col space-y-space-sm"><span class="font-label-caps text-label-caps uppercase text-primary tracking-widest">Menú Privado</span><ul class="font-body-sm text-body-sm text-on-surface-variant space-y-2"><li><a class="hover:text-primary transition-colors" data-path="servicios" href="#">Tratamientos</a></li><li><a class="hover:text-primary transition-colors" data-path="el-espacio" href="#">Filosofía</a></li><li><a class="hover:text-primary transition-colors" data-path="pedir-cita" href="#">Diagnóstico Online</a></li><li><a class="hover:text-primary transition-colors" href="#">Aviso Legal</a></li></ul></div></div><div class="mt-space-xl pt-space-md border-t border-outline-variant/30 flex flex-col sm:flex-row items-center justify-between gap-space-sm font-body-sm text-body-sm text-tertiary"><p>© 2025 {{ negocio.nombre }} • {{ negocio.ciudad }}. Todos los derechos reservados.</p><div class="flex items-center gap-space-md text-label-caps font-label-caps"><a class="hover:text-on-surface transition-colors uppercase" href="#">Privacidad</a><a class="hover:text-on-surface transition-colors uppercase" href="#">Términos de Cita</a><a class="hover:text-on-surface transition-colors uppercase" href="#">Cookies</a></div></div></div></footer></body></html>
