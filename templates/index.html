@@ -2210,11 +2210,21 @@
       // Cargar en el marco del simulador (si estamos en local, carga la copia local al instante)
       const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
       const slugMatch = finalUrl.match(/instaleads\/([^/?#]+)/);
+      let targetIframeUrl = finalUrl;
       if (isLocal && slugMatch && slugMatch[1]) {
-        iframe.src = `/demos/${slugMatch[1]}/`;
-      } else {
-        iframe.src = finalUrl;
+        targetIframeUrl = `/demos/${slugMatch[1]}/`;
       }
+      const sep = targetIframeUrl.includes('?') ? '&' : '?';
+      iframe.src = targetIframeUrl + sep + 'sim=iphone';
+
+      iframe.onload = function() {
+        try {
+          if (iframe.contentDocument && iframe.contentDocument.documentElement) {
+            iframe.contentDocument.documentElement.style.setProperty('--sat', '54px');
+            iframe.contentDocument.documentElement.style.setProperty('--sab', '20px');
+          }
+        } catch (e) {}
+      };
       
       const modal = document.getElementById('simulator-modal');
       modal.classList.remove('hidden');

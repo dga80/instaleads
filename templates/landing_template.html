@@ -25,6 +25,18 @@
         }
       } catch(e) {}
     })();
+
+    // Detección de simulador o iPhone para safe-area
+    (function() {
+      try {
+        var isIframe = window.self !== window.top;
+        var isSim = isIframe || /[?&]sim(=|&|$)/.test(window.location.search) || window.location.hash.indexOf('sim') !== -1;
+        if (isSim) {
+          document.documentElement.style.setProperty('--sat', '54px');
+          document.documentElement.style.setProperty('--sab', '20px');
+        }
+      } catch(e) {}
+    })();
   </script>
 
   <!-- Favicon desde avatar de Instagram -->
@@ -212,7 +224,7 @@
   <!-- ============================================================ -->
   <!-- TOP BRAND NAVBAR (FULL-WIDTH DESKTOP & SLIM MOBILE) -->
   <!-- ============================================================ -->
-  <header class="sticky top-0 z-40 backdrop-blur-2xl border-b transition w-full" style="background-color: var(--header-bg); border-color: var(--border-color); padding-top: env(safe-area-inset-top, 0px);">
+  <header class="sticky top-0 z-40 backdrop-blur-2xl border-b transition w-full" style="background-color: var(--header-bg); border-color: var(--border-color); padding-top: var(--sat, env(safe-area-inset-top, 0px));">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
       
       <!-- Identidad y Avatar del Negocio -->

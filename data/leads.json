@@ -3633,17 +3633,19 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=La+barberia+tatoo+shop+Badalona",
     "gemini_verificado": true,
     "gemini_razon": "Coincide el negocio y ubicación",
-    "mensaje_dm": "¡Hola equipo de La barberia tatoo shop! Me alegra contactaros. Somos un equipo local de diseño web en Badalona y vemos que tenéis un gran potencial para recibir más clientes directos en Google y móvil. Os hemos preparado una maqueta interactiva adaptada a vuestro negocio: https://.... Es un enlace 100% seguro para verla en el navegador sin descargas. ¿Qué os parece?",
-    "mensaje_seguimiento": "¡Hola de nuevo! Os escribí hace un par de días con una maqueta web interactiva para vuestro negocio: https://.... Os lo comparto por aquí por si os resulta cómodo revisarlo desde el móvil. ¡Un saludo cordial!",
-    "estado": "Sin Web",
-    "demo_slug": "",
-    "demo_url": "",
-    "demo_vibe": "",
+    "mensaje_dm": "¡Hola equipo de La Barberia Tatoo Shop! Somos un equipo local de diseño web en Badalona. Nos encanta vuestro trabajo y os hemos preparado una maqueta web interactiva adaptada a vuestro estudio: https://dga80.github.io/instaleads/la-barberia-tatoo-shop-badalona/ (enlace 100% seguro, sin registros ni descargas). ¿Le echáis un ojo a ver qué os parece?",
+    "mensaje_seguimiento": "¡Hola de nuevo! Os escribí hace un par de días con la propuesta web que diseñamos para La Barberia Tatoo Shop: https://dga80.github.io/instaleads/la-barberia-tatoo-shop-badalona/. Solo quería asegurarme de que os llegó bien. ¡Un saludo!",
+    "estado": "Web Generada",
+    "demo_slug": "la-barberia-tatoo-shop-badalona",
+    "demo_url": "https://dga80.github.io/instaleads/la-barberia-tatoo-shop-badalona/",
+    "demo_vibe": "Urban Edge & Dark Tech (Tatuajes, Barberías, Talleres & Fitness)",
     "campana_id": "camp_1789417840",
     "campana_nombre": "Estudio De Tatuajes · barcelona, barcelona",
     "campana_ids": [
       "camp_1789417840"
-    ]
+    ],
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/la-barberia-tatoo-shop-badalona/",
+    "demo_url_publica": "https://dga80.github.io/instaleads/la-barberia-tatoo-shop-badalona/"
   },
   {
     "osm_id": "4009003930",
@@ -4033,17 +4035,19 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Arte+Tattoo+2.0+The+Art+Factory+Santa+Coloma+de+Gramenet",
     "gemini_verificado": true,
     "gemini_razon": "Estudio de tatuajes local en Santa Coloma de Gramenet verificado sin web propia detectada",
-    "mensaje_dm": "¡Hola equipo de Arte Tattoo! Somos un equipo local de diseño web en la zona y nos encanta el nivel de vuestros tatuajes. Para ayudaros a captar más reservas directas en Google, os hemos diseñado una maqueta interactiva exclusiva: https://... Es un enlace seguro, visible en el navegador sin registros ni descargas. ¿Qué os parece?",
-    "mensaje_seguimiento": "¡Buenas! Os escribí hace un par de días con la propuesta web que diseñamos para Arte Tattoo: https://... Podéis verla directamente desde el móvil cuando tengáis un hueco. ¡Un saludo y mucho éxito con los tattoos!",
-    "estado": "Sin Web",
-    "demo_slug": "",
-    "demo_url": "",
-    "demo_vibe": "",
+    "mensaje_dm": "¡Hola equipo de Arte Tattoo 2.0 The Art Factory! Me alegra contactaros. Somos un equipo local de diseño web en Santa Coloma de Gramenet y vemos que tenéis un gran potencial para recibir más clientes directos en Google y móvil. Os hemos preparado una maqueta interactiva adaptada a vuestro negocio: https://dga80.github.io/instaleads/arte-tattoo-20-the-art-factory-santa-coloma-de-gramenet/. Es un enlace 100% seguro para verla en el navegador sin descargas. ¿Qué os parece?",
+    "mensaje_seguimiento": "¡Hola de nuevo! Os escribí hace un par de días con una maqueta web interactiva para vuestro negocio: https://dga80.github.io/instaleads/arte-tattoo-20-the-art-factory-santa-coloma-de-gramenet/. Os lo comparto por aquí por si os resulta cómodo revisarlo desde el móvil. ¡Un saludo cordial!",
+    "estado": "Web Generada",
+    "demo_slug": "arte-tattoo-20-the-art-factory-santa-coloma-de-gramenet",
+    "demo_url": "https://dga80.github.io/instaleads/arte-tattoo-20-the-art-factory-santa-coloma-de-gramenet/",
+    "demo_vibe": "Urban Edge & Dark Tech (Tatuajes, Barberías, Talleres & Fitness)",
     "campana_id": "camp_1789417840",
     "campana_nombre": "Estudio De Tatuajes · barcelona, barcelona",
     "campana_ids": [
       "camp_1789417840"
-    ]
+    ],
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/arte-tattoo-20-the-art-factory-santa-coloma-de-gramenet/",
+    "demo_url_publica": "https://dga80.github.io/instaleads/arte-tattoo-20-the-art-factory-santa-coloma-de-gramenet/"
   },
   {
     "osm_id": "5536153347",
@@ -4113,19 +4117,19 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Joker+Tatoo+Barcelona",
     "gemini_verificado": true,
     "gemini_razon": "Estudio de tatuajes local en Badalona (Barcelona) verificado, activo en Instagram y sin página web oficial.",
-    "mensaje_dm": "",
-    "mensaje_seguimiento": "",
-    "estado": "Sin Web",
-    "demo_slug": "",
-    "demo_url": "",
-    "demo_vibe": "",
+    "mensaje_dm": "¡Hola! Os escribo porque somos un equipo de diseño web en Barcelona y nos encanta vuestro trabajo. Para ayudaros a captar más reservas directas desde Google y móvil, os hemos preparado esta maqueta interactiva: https://dga80.github.io/instaleads/joker-tatoo-barcelona/ (enlace 100% seguro, sin registros ni descargas). ¿Qué os parece la idea?",
+    "mensaje_seguimiento": "¡Hola de nuevo! Os compartí hace unos días la maqueta web interactiva que diseñamos para vosotros: https://dga80.github.io/instaleads/joker-tatoo-barcelona/. Podéis revisarla cómodamente desde el móvil cuando tengáis un hueco. Estaremos encantados de conocer vuestra opinión. ¡Un saludo!",
+    "estado": "Web Generada",
+    "demo_slug": "joker-tatoo-barcelona",
+    "demo_url": "https://dga80.github.io/instaleads/joker-tatoo-barcelona/",
+    "demo_vibe": "Urban Edge & Dark Tech (Tatuajes, Barberías, Talleres & Fitness)",
     "campana_id": "camp_1789417840",
     "campana_nombre": "Estudio De Tatuajes · barcelona, barcelona",
     "campana_ids": [
       "camp_1789417840"
     ],
-    "demo_url_absoluta": "",
-    "demo_url_publica": ""
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/joker-tatoo-barcelona/",
+    "demo_url_publica": "https://dga80.github.io/instaleads/joker-tatoo-barcelona/"
   },
   {
     "osm_id": "6179327354",

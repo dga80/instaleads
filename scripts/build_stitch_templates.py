@@ -41,7 +41,7 @@ def make_mobile_drawer_and_script(
 
   <!-- Panel lateral deslizante con padding seguro para Dynamic Island -->
   <div id="mobile-drawer-panel" class="absolute top-0 right-0 bottom-0 w-[310px] sm:w-[350px] max-w-[86vw] {drawer_bg_class} border-l {drawer_border_class} shadow-2xl flex flex-col justify-between overflow-y-auto translate-x-full transition-transform duration-300 ease-out pointer-events-auto"
-       style="padding-top: max(1.25rem, calc(0.75rem + env(safe-area-inset-top, 0px))); padding-bottom: max(1.25rem, calc(0.75rem + env(safe-area-inset-bottom, 0px))); padding-left: 1.25rem; padding-right: 1.25rem;">
+       style="padding-top: max(1.25rem, calc(0.75rem + var(--sat, env(safe-area-inset-top, 0px)))); padding-bottom: max(1.25rem, calc(0.75rem + var(--sab, env(safe-area-inset-bottom, 0px)))); padding-left: 1.25rem; padding-right: 1.25rem;">
     
     <div class="space-y-6">
       <!-- Cabecera del Drawer -->
@@ -140,6 +140,31 @@ def make_mobile_drawer_and_script(
     return drawer_html
 
 
+def get_safe_area_script_and_css(scroll_padding_rem: float) -> str:
+    return f"""<style>
+  :root {{
+    --sat: env(safe-area-inset-top, 0px);
+    --sab: env(safe-area-inset-bottom, 0px);
+  }}
+  html {{
+    scroll-behavior: smooth;
+    scroll-padding-top: calc({scroll_padding_rem}rem + var(--sat, 0px));
+  }}
+</style>
+<script>
+  (function() {{
+    try {{
+      var isIframe = window.self !== window.top;
+      var isSim = isIframe || /[?&]sim(=|&|$)/.test(window.location.search) || window.location.hash.indexOf('sim') !== -1;
+      if (isSim) {{
+        document.documentElement.style.setProperty('--sat', '54px');
+        document.documentElement.style.setProperty('--sab', '20px');
+      }}
+    }} catch(e) {{}}
+  }})();
+</script>"""
+
+
 def build_luxury_glow():
     raw_path = os.path.join(STITCH_DIR, "luxury_glow_desktop_raw.html")
     with open(raw_path, "r", encoding="utf-8") as f:
@@ -153,16 +178,7 @@ def build_luxury_glow():
     )
 
     # 2. Smooth scrolling & safe-area CSS
-    safe_css = """<style>
-  html {
-    scroll-behavior: smooth;
-    scroll-padding-top: calc(6.5rem + env(safe-area-inset-top, 0px));
-  }
-  :root {
-    --sat: env(safe-area-inset-top, 0px);
-    --sab: env(safe-area-inset-bottom, 0px);
-  }
-</style>"""
+    safe_css = get_safe_area_script_and_css(6.5)
     html = html.replace("</head>", safe_css + "\n</head>")
 
     # 3. Title & Meta
@@ -186,7 +202,7 @@ def build_luxury_glow():
     # 5. Header Dynamic Island safe area & Logo & Brand
     html = re.sub(
         r'<header class="fixed top-0 inset-x-0 z-50 px-margin sm:px-margin-tablet lg:px-margin-desktop py-space-sm">',
-        r'<header class="fixed top-0 inset-x-0 z-50 px-margin sm:px-margin-tablet lg:px-margin-desktop py-space-sm" style="padding-top: max(0.5rem, env(safe-area-inset-top, 0px));">',
+        r'<header class="fixed top-0 inset-x-0 z-50 px-margin sm:px-margin-tablet lg:px-margin-desktop py-space-sm" style="padding-top: max(0.5rem, var(--sat, env(safe-area-inset-top, 0px)));">',
         html
     )
 
@@ -235,7 +251,7 @@ def build_luxury_glow():
     # 8. Main Safe-Area Padding
     html = re.sub(
         r'<main class="w-full pt-28 bg-surface">',
-        r'<main class="w-full bg-surface" style="padding-top: calc(6.5rem + env(safe-area-inset-top, 0px));">',
+        r'<main class="w-full bg-surface" style="padding-top: calc(6.5rem + var(--sat, env(safe-area-inset-top, 0px)));">',
         html
     )
 
@@ -463,16 +479,7 @@ def build_urban_edge():
     )
 
     # 2. Smooth scrolling & safe-area CSS
-    safe_css = """<style>
-  html {
-    scroll-behavior: smooth;
-    scroll-padding-top: calc(5rem + env(safe-area-inset-top, 0px));
-  }
-  :root {
-    --sat: env(safe-area-inset-top, 0px);
-    --sab: env(safe-area-inset-bottom, 0px);
-  }
-</style>"""
+    safe_css = get_safe_area_script_and_css(5.0)
     html = html.replace("</head>", safe_css + "\n</head>")
 
     # 3. Title & Meta
@@ -496,14 +503,14 @@ def build_urban_edge():
     # 5. Header Dynamic Island safe area
     html = re.sub(
         r'<header class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest/95 backdrop-blur-md border-b border-surface-container-high">',
-        r'<header class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest/95 backdrop-blur-md border-b border-surface-container-high" style="padding-top: env(safe-area-inset-top, 0px);">',
+        r'<header class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest/95 backdrop-blur-md border-b border-surface-container-high" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));">',
         html
     )
 
     # Logo & Moniker
     html = re.sub(
         r'<span class="font-headline-md text-body-md font-bold tracking-tight text-on-surface uppercase">APEX CUSTOMS</span>',
-        r"""<span class="font-headline-md text-body-md font-bold tracking-tight text-on-surface uppercase">{{ negocio.nombre }}</span>""",
+        r"""<span class="font-headline-md text-body-md font-bold tracking-tight text-on-surface uppercase truncate max-w-[170px] sm:max-w-xs md:max-w-none">{{ negocio.nombre }}</span>""",
         html
     )
     html = re.sub(
@@ -536,7 +543,7 @@ def build_urban_edge():
     # 8. Main Safe-Area Padding
     html = re.sub(
         r'<main class="w-full pt-16 bg-surface-container-lowest">',
-        r'<main class="w-full bg-surface-container-lowest" style="padding-top: calc(4.5rem + env(safe-area-inset-top, 0px));">',
+        r'<main class="w-full bg-surface-container-lowest" style="padding-top: calc(4.5rem + var(--sat, env(safe-area-inset-top, 0px)));">',
         html
     )
 
@@ -719,16 +726,7 @@ def build_warm_artisan():
     )
 
     # 2. Smooth scrolling & safe-area CSS
-    safe_css = """<style>
-  html {
-    scroll-behavior: smooth;
-    scroll-padding-top: calc(5.5rem + env(safe-area-inset-top, 0px));
-  }
-  :root {
-    --sat: env(safe-area-inset-top, 0px);
-    --sab: env(safe-area-inset-bottom, 0px);
-  }
-</style>"""
+    safe_css = get_safe_area_script_and_css(5.5)
     html = html.replace("</head>", safe_css + "\n</head>")
 
     # 3. Title & Meta
@@ -752,13 +750,13 @@ def build_warm_artisan():
     # 5. Header Dynamic Island safe area & Brand
     html = re.sub(
         r'<header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">',
-        r'<header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]" style="padding-top: env(safe-area-inset-top, 0px);">',
+        r'<header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));">',
         html
     )
 
     html = re.sub(
         r'<span class="font-headline-sm text-headline-sm text-on-surface leading-tight">Origen &amp; Miga</span>',
-        r"""<span class="font-headline-sm text-headline-sm text-on-surface leading-tight">{{ negocio.nombre }}</span>""",
+        r"""<span class="font-headline-sm text-headline-sm text-on-surface leading-tight truncate max-w-[170px] sm:max-w-xs md:max-w-none">{{ negocio.nombre }}</span>""",
         html
     )
     html = re.sub(
@@ -791,7 +789,7 @@ def build_warm_artisan():
     # 8. Main Safe-Area Padding
     html = re.sub(
         r'<main class="w-full pt-20 bg-surface">',
-        r'<main class="w-full bg-surface" style="padding-top: calc(5rem + env(safe-area-inset-top, 0px));">',
+        r'<main class="w-full bg-surface" style="padding-top: calc(5rem + var(--sat, env(safe-area-inset-top, 0px)));">',
         html
     )
 
@@ -962,16 +960,7 @@ def build_clinical_trust():
     )
 
     # 2. Smooth scrolling & safe-area CSS
-    safe_css = """<style>
-  html {
-    scroll-behavior: smooth;
-    scroll-padding-top: calc(8rem + env(safe-area-inset-top, 0px));
-  }
-  :root {
-    --sat: env(safe-area-inset-top, 0px);
-    --sab: env(safe-area-inset-bottom, 0px);
-  }
-</style>"""
+    safe_css = get_safe_area_script_and_css(8.0)
     html = html.replace("</head>", safe_css + "\n</head>")
 
     # 3. Title & Meta
@@ -995,11 +984,11 @@ def build_clinical_trust():
     # 5. Header Dynamic Island safe area & Brand
     html = re.sub(
         r'<header class="fixed top-0 left-0 w-full z-50 bg-surface/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]">',
-        r'<header class="fixed top-0 left-0 w-full z-50 bg-surface/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]" style="padding-top: env(safe-area-inset-top, 0px);">',
+        r'<header class="fixed top-0 left-0 w-full z-50 bg-surface/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));">',
         html
     )
 
-    html = re.sub(r'SannaMed', r"""{{ negocio.nombre }}""", html)
+    html = re.sub(r'SannaMed', r"""<span class="truncate max-w-[170px] sm:max-w-xs md:max-w-none">{{ negocio.nombre }}</span>""", html)
 
     # 6. Functional Desktop Navigation
     new_desktop_nav = """<nav class="hidden lg:flex items-center gap-space-xs" data-active-classes="bg-surface-container text-primary font-title-md">
@@ -1027,7 +1016,7 @@ def build_clinical_trust():
     # 8. Main Safe-Area Padding
     html = re.sub(
         r'<main class="w-full pt-28 bg-surface">',
-        r'<main class="w-full bg-surface" style="padding-top: calc(7.5rem + env(safe-area-inset-top, 0px));">',
+        r'<main class="w-full bg-surface" style="padding-top: calc(7.5rem + var(--sat, env(safe-area-inset-top, 0px)));">',
         html
     )
 
@@ -1209,16 +1198,7 @@ def build_craft_build():
     )
 
     # 2. Smooth scrolling & safe-area CSS
-    safe_css = """<style>
-  html {
-    scroll-behavior: smooth;
-    scroll-padding-top: calc(7.5rem + env(safe-area-inset-top, 0px));
-  }
-  :root {
-    --sat: env(safe-area-inset-top, 0px);
-    --sab: env(safe-area-inset-bottom, 0px);
-  }
-</style>"""
+    safe_css = get_safe_area_script_and_css(7.5)
     html = html.replace("</head>", safe_css + "\n</head>")
 
     # 3. Title & Meta
@@ -1242,11 +1222,11 @@ def build_craft_build():
     # 5. Header Dynamic Island safe area & Brand
     html = re.sub(
         r'<header class="fixed top-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]">',
-        r'<header class="fixed top-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]" style="padding-top: env(safe-area-inset-top, 0px);">',
+        r'<header class="fixed top-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));">',
         html
     )
 
-    html = re.sub(r'VÉRTICE', r"""{{ negocio.nombre|upper }}""", html)
+    html = re.sub(r'VÉRTICE', r"""<span class="truncate max-w-[170px] sm:max-w-xs md:max-w-none">{{ negocio.nombre|upper }}</span>""", html)
     html = re.sub(r'ARQ &amp; REFORMAS', r"""{{ negocio.categoria_clean|upper }}""", html)
 
     # 6. Functional Desktop Navigation
@@ -1275,7 +1255,7 @@ def build_craft_build():
     # 8. Main Safe-Area Padding
     html = re.sub(
         r'<main class="w-full pt-28 bg-surface">',
-        r'<main class="w-full bg-surface" style="padding-top: calc(7rem + env(safe-area-inset-top, 0px));">',
+        r'<main class="w-full bg-surface" style="padding-top: calc(7rem + var(--sat, env(safe-area-inset-top, 0px)));">',
         html
     )
 
