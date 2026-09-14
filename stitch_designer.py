@@ -250,16 +250,19 @@ DESIGN_ARCHETYPES["fresh_clinical"] = DESIGN_ARCHETYPES["clinical_trust"]
 def sintetizar_design_system(
     categoria: str, 
     nombre_negocio: str = "",
-    sugerencia_gemini: Dict[str, Any] = None
+    sugerencia_gemini: Dict[str, Any] = None,
+    arquetipo_forzado: str = None
 ) -> Dict[str, Any]:
     """
     Sintetiza un Design System individualizado en base a la categoría, tono del negocio
-    y decisiones creativas del Agente Diseñador UX/UI de Gemini.
+    y decisiones creativas del Agente Diseñador UX/UI de Gemini, o respetando la plantilla forzada.
     """
     cat = (categoria + " " + nombre_negocio).lower()
     
-    # 1. Selección de Arquetipo Base
-    if sugerencia_gemini and sugerencia_gemini.get("arquetipo_diseno") in DESIGN_ARCHETYPES:
+    # 1. Selección de Arquetipo Base (Prioridad máxima: elección manual del usuario)
+    if arquetipo_forzado and arquetipo_forzado in DESIGN_ARCHETYPES:
+        tokens = dict(DESIGN_ARCHETYPES[arquetipo_forzado])
+    elif sugerencia_gemini and sugerencia_gemini.get("arquetipo_diseno") in DESIGN_ARCHETYPES:
         tokens = dict(DESIGN_ARCHETYPES[sugerencia_gemini["arquetipo_diseno"]])
     elif any(k in cat for k in ["reforma", "obra", "construc", "carpinter", "fontaner", "electric", "pladur", "climatiz", "pintor", "albanil", "cristal", "persiana", "mueble"]):
         tokens = dict(DESIGN_ARCHETYPES["craft_build"])

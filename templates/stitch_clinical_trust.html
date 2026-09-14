@@ -53,12 +53,12 @@
 </div>
 <!-- Headline -->
 <h1 class="font-display text-display text-on-surface leading-tight tracking-tight">
-            Cuidamos de tu <span class="text-primary">sonrisa y salud</span> con la tecnología más avanzada de Madrid
-          </h1>
+  {{ web.titular or ('Cuidamos de tu salud y bienestar en ' ~ negocio.ciudad) }}
+</h1>
 <!-- Reassurance Copy -->
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
-            Tratamientos odontológicos y médicos con protocolos mínimamente invasivos sin dolor, empatía humana personalizada y equipamiento de vanguardia diagnóstica 3D sin conjeturas.
-          </p>
+  {{ web.subtitulo or ('Tratamientos especializados con protocolos de máxima calidad, empatía y equipamiento avanzado en ' ~ negocio.ciudad ~ '.') }}
+</p>
 <!-- CTAs -->
 <div class="flex flex-wrap items-center gap-space-md mt-space-sm">
 <a class="inline-flex items-center gap-space-xs bg-primary text-on-primary hover:bg-secondary px-space-xl py-space-md rounded-xl font-label-lg text-label-lg shadow-md transition-all" href="#cita-online">

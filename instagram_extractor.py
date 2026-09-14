@@ -9,6 +9,86 @@ from dotenv import load_dotenv
 BASE_DIR = Path(__file__).resolve().parent
 load_dotenv(BASE_DIR / ".env")
 
+import urllib.parse
+
+def extraer_sitio_web_perfil(item: Dict[str, Any]) -> str:
+    """
+    Extrae y normaliza el sitio web oficial enlazado en el perfil de Instagram.
+    Comprueba externalUrl, externalUrlShimmed, bioLinks y regex en biography.
+    Filtra redes sociales (WhatsApp, FB, TikTok, etc.) para evitar falsos positivos.
+    """
+    if not isinstance(item, dict):
+        return ""
+
+    candidatos = []
+
+    # 1. externalUrl directo
+    if item.get("externalUrl"):
+        candidatos.append(str(item["externalUrl"]).strip())
+
+    # 2. externalUrlShimmed (enlace de redirección seguro de Instagram: l.instagram.com/?u=...)
+    if item.get("externalUrlShimmed"):
+        shim = str(item["externalUrlShimmed"]).strip()
+        try:
+            parsed = urllib.parse.urlparse(shim)
+            qs = urllib.parse.parse_qs(parsed.query)
+            if "u" in qs and qs["u"]:
+                candidatos.append(qs["u"][0].strip())
+        except Exception:
+            pass
+
+    # 3. bioLinks (formato moderno de múltiples enlaces en bio de Instagram)
+    bio_links = item.get("bioLinks")
+    if isinstance(bio_links, list):
+        for bl in bio_links:
+            if isinstance(bl, dict) and bl.get("url"):
+                candidatos.append(str(bl["url"]).strip())
+
+    # 4. website directo
+    if item.get("website"):
+        candidatos.append(str(item["website"]).strip())
+
+    # 5. URLs explícitas en el texto de la biografía
+    bio_texto = item.get("biography") or item.get("bio") or ""
+    if bio_texto:
+        urls_bio = re.findall(r'(?:https?://|www\.)[a-zA-Z0-9_\-\.]+\.[a-zA-Z]{2,}(?:/[^\s]*)?', bio_texto)
+        candidatos.extend([u.strip() for u in urls_bio])
+
+    # Dominios de redes sociales y mensajería a excluir (NO son un sitio web propio)
+    dominios_excluidos = [
+        "instagram.com", "facebook.com", "fb.me", "tiktok.com", "twitter.com", "x.com",
+        "threads.net", "wa.me", "whatsapp.com", "t.me", "telegram.me", "youtube.com",
+        "youtu.be", "linkedin.com", "pinterest.com", "spotify.com", "twitch.tv"
+    ]
+
+    for cand in candidatos:
+        if not cand:
+            continue
+        # Limpieza básica
+        url_limpia = cand.strip().strip("'\"<>[]()").rstrip("/ .,;:")
+        if not url_limpia:
+            continue
+
+        if not url_limpia.startswith("http://") and not url_limpia.startswith("https://"):
+            url_limpia = "https://" + url_limpia
+
+        try:
+            parsed = urllib.parse.urlparse(url_limpia)
+            netloc = parsed.netloc.lower().replace("www.", "")
+            if not netloc or "." not in netloc:
+                continue
+
+            # Comprobar si pertenece a redes sociales excluidas
+            if any(excl in netloc for excl in dominios_excluidos):
+                continue
+
+            # Si pasa los filtros, hemos encontrado una web válida
+            return url_limpia
+        except Exception:
+            continue
+
+    return ""
+
 def normalizar_handle(handle_or_url: str) -> str:
     """Extrae el nombre de usuario limpio sin @ ni URLs."""
     if not handle_or_url:
@@ -21,31 +101,91 @@ def normalizar_handle(handle_or_url: str) -> str:
 
 def extraer_con_apify(username: str, api_token: str) -> Optional[Dict[str, Any]]:
     """
-    Ejecuta el actor oficial apify/instagram-scraper de forma síncrona
-    para obtener el perfil y las últimas publicaciones.
+    Ejecuta el actor oficial apify/instagram-scraper de forma síncrona.
+    1. Primero intenta con resultsType='details', que obtiene en una sola llamada rápida:
+       - Biografía real completa
+       - Foto de perfil (avatar HD)
+       - Contador de seguidores
+       - Enlace web oficial (externalUrl, externalUrlShimmed, bioLinks)
+       - Las 12 publicaciones más recientes con fotos de alta resolución y texto
+    2. Si 'details' no devolviera posts, recurre a resultsType='posts' como respaldo.
     """
     if not api_token or not username:
         return None
 
-    url = f"https://api.apify.com/v2/acts/apify~instagram-scraper/run-sync-get-dataset-items?token={api_token}"
-    payload = {
-        "directUrls": [f"https://www.instagram.com/{username}/"],
-        "resultsType": "posts",
-        "resultsLimit": 8,
-        "addParentData": True
-    }
+    base_url = f"https://api.apify.com/v2/acts/apify~instagram-scraper/run-sync-get-dataset-items?token={api_token}"
 
+    # Intento 1: Modo 'details' (Mucho más completo y rápido)
     try:
-        resp = requests.post(url, json=payload, timeout=40)
+        payload_details = {
+            "directUrls": [f"https://www.instagram.com/{username}/"],
+            "resultsType": "details"
+        }
+        resp = requests.post(base_url, json=payload_details, timeout=40)
+        if resp.status_code in (200, 201):
+            items = resp.json()
+            if items and isinstance(items, list):
+                item = items[0]
+                latest_posts = item.get("latestPosts") or []
+                if latest_posts:
+                    bio = item.get("biography") or ""
+                    avatar = item.get("profilePicUrlHD") or item.get("profilePicUrl") or ""
+                    full_name = item.get("fullName") or username
+                    followers = item.get("followersCount") or 0
+                    sitio_web = extraer_sitio_web_perfil(item)
+
+                    posts = []
+                    for p in latest_posts[:12]:
+                        img_url = p.get("displayUrl") or p.get("thumbnailUrl") or (p.get("images", [None])[0])
+                        caption = p.get("caption") or ""
+                        likes = p.get("likesCount", 0)
+                        timestamp = p.get("timestamp", "")
+                        post_url = p.get("url") or (f"https://www.instagram.com/p/{p.get('shortCode')}/" if p.get("shortCode") else "")
+                        if img_url:
+                            posts.append({
+                                "image_url": img_url,
+                                "caption": caption[:250],
+                                "likes": likes,
+                                "date": timestamp,
+                                "url": post_url
+                            })
+
+                    if posts:
+                        return {
+                            "username": username,
+                            "nombre_completo": full_name,
+                            "biografia": bio,
+                            "avatar_url": avatar,
+                            "seguidores": followers,
+                            "sitio_web": sitio_web,
+                            "external_url": item.get("externalUrl") or "",
+                            "bio_links": item.get("bioLinks") or [],
+                            "posts": posts,
+                            "fuente": "apify",
+                            "exito_real": True,
+                            "aviso_extraccion": ""
+                        }
+    except Exception as e:
+        print(f"[Apify Details Error] {e}")
+
+    # Intento 2: Modo 'posts' de respaldo
+    try:
+        payload_posts = {
+            "directUrls": [f"https://www.instagram.com/{username}/"],
+            "resultsType": "posts",
+            "resultsLimit": 8,
+            "addParentData": True
+        }
+        resp = requests.post(base_url, json=payload_posts, timeout=40)
         if resp.status_code in (200, 201):
             items = resp.json()
             if items and isinstance(items, list):
                 primer_item = items[0]
-                # Extraer info del perfil del parent o del primer item
                 owner = primer_item.get("owner", {}) or {}
                 bio = primer_item.get("ownerBio") or owner.get("biography", "")
                 avatar = primer_item.get("ownerProfilePicUrl") or owner.get("profilePicUrl", "")
                 full_name = primer_item.get("ownerFullName") or owner.get("fullName", username)
+                sitio_web = extraer_sitio_web_perfil(primer_item) or extraer_sitio_web_perfil(owner)
                 
                 posts = []
                 for it in items:
@@ -63,17 +203,23 @@ def extraer_con_apify(username: str, api_token: str) -> Optional[Dict[str, Any]]
                             "url": post_url
                         })
 
-                return {
-                    "username": username,
-                    "nombre_completo": full_name or username,
-                    "biografia": bio,
-                    "avatar_url": avatar,
-                    "seguidores": primer_item.get("ownerFollowersCount", 0),
-                    "posts": posts,
-                    "fuente": "apify"
-                }
+                if posts:
+                    return {
+                        "username": username,
+                        "nombre_completo": full_name or username,
+                        "biografia": bio,
+                        "avatar_url": avatar,
+                        "seguidores": primer_item.get("ownerFollowersCount", 0),
+                        "sitio_web": sitio_web,
+                        "external_url": primer_item.get("externalUrl") or owner.get("externalUrl") or "",
+                        "bio_links": primer_item.get("bioLinks") or owner.get("bioLinks") or [],
+                        "posts": posts,
+                        "fuente": "apify",
+                        "exito_real": True,
+                        "aviso_extraccion": ""
+                    }
     except Exception as e:
-        print(f"[Apify Scraper Error] {e}")
+        print(f"[Apify Posts Error] {e}")
     return None
 
 def generar_datos_instagram_mock(nombre_negocio: str, categoria: str, ciudad: str, handle: str) -> Dict[str, Any]:
@@ -162,6 +308,17 @@ def generar_datos_instagram_mock(nombre_negocio: str, categoria: str, ciudad: st
             {"img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&auto=format&fit=crop&q=80", "caption": "Ven a descubrir nuestro rincón favorito en {ciudad}. ¡Te esperamos! ☕🥐"}
         ]
         bio = f"Sabor, producto artesano y pasión en {ciudad}. Desayunos, especialidades y momentos para disfrutar. Pasa a vernos ☕🥐"
+    elif any(k in clean_cat for k in ["tattoo", "tatuaj", "piercing", "ink", "body art"]):
+        avatar = "https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?w=300&auto=format&fit=crop&q=80"
+        tematicas = [
+            {"img": "https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?w=1000&auto=format&fit=crop&q=80", "caption": "Diseños exclusivos, líneas finas y realismo blackwork. Arte único plasmado en tu piel."},
+            {"img": "https://images.unsplash.com/photo-1562962230-16e4623d36e6?w=800&auto=format&fit=crop&q=80", "caption": "Sesiones de realismo en sombras y piezas de gran formato con acabado de máxima precisión."},
+            {"img": "https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?w=800&auto=format&fit=crop&q=80", "caption": "Material esterilizado 100% desechable, tintas homologadas UE y máxima higiene sanitaria."},
+            {"img": "https://images.unsplash.com/photo-1568515045052-f9a854d70bfd?w=800&auto=format&fit=crop&q=80", "caption": "Piercings de precisión y anillado profesional con joyería de titanio grado implante."},
+            {"img": "https://images.unsplash.com/photo-1550537687-c91072c4792d?w=800&auto=format&fit=crop&q=80", "caption": "Cover-up y restauración de tatuajes con técnicas avanzadas de contraste."},
+            {"img": "https://images.unsplash.com/photo-1560707303-4e980ce876ad?w=800&auto=format&fit=crop&q=80", "caption": "Asesoramiento personalizado en diseño antes de cada sesión en {ciudad}."}
+        ]
+        bio = f"Estudio de tatuajes y piercing en {ciudad}. Diseños de autor, realismo, fine line y máxima higiene. ¡Reserva tu sesión! 🖤"
     else:
         # Comercio y servicios profesionales de proximidad
         avatar = "https://images.unsplash.com/photo-1497366216548-37526070297c?w=300&auto=format&fit=crop&q=80"
@@ -178,7 +335,7 @@ def generar_datos_instagram_mock(nombre_negocio: str, categoria: str, ciudad: st
     posts = [
         {
             "image_url": t["img"],
-            "caption": t["caption"],
+            "caption": t["caption"].replace("{ciudad}", ciudad),
             "likes": 42 + (i * 18),
             "date": "Reciente",
             "url": f"https://www.instagram.com/{handle}/"
@@ -192,8 +349,13 @@ def generar_datos_instagram_mock(nombre_negocio: str, categoria: str, ciudad: st
         "biografia": bio,
         "avatar_url": avatar,
         "seguidores": 1420,
+        "sitio_web": "",
+        "external_url": "",
+        "bio_links": [],
         "posts": posts,
-        "fuente": "curated_fallback"
+        "fuente": "curated_fallback",
+        "exito_real": False,
+        "aviso_extraccion": f"No se pudieron extraer fotos reales de Instagram (@{handle or nombre_negocio}). Se ha generado la web con fotos de catálogo temáticas adaptadas a {categoria}."
     }
 
 def obtener_datos_completos_instagram(
@@ -205,7 +367,7 @@ def obtener_datos_completos_instagram(
     """
     Intenta extraer datos reales mediante Apify si hay token configurado.
     Si no hay token o la extracción falla, recurre a datos curados de alta calidad
-    adaptados al nicho para que la demo quede perfecta de forma instantánea.
+    adaptados al nicho y notifica con un aviso transparente.
     """
     handle = normalizar_handle(handle_or_url)
     apify_token = os.getenv("APIFY_TOKEN") or os.getenv("APIFY_API_KEY", "").strip()
@@ -214,8 +376,10 @@ def obtener_datos_completos_instagram(
         print(f"[Instagram Extractor] Consultando Apify para @{handle}...")
         datos = extraer_con_apify(handle, apify_token)
         if datos and datos.get("posts"):
-            print(f"[Instagram Extractor] ✓ Obtenidos {len(datos['posts'])} posts reales vía Apify.")
+            print(f"[Instagram Extractor] ✓ Obtenidos {len(datos['posts'])} posts y perfil real vía Apify.")
             return datos
+        else:
+            print(f"[Instagram Extractor] ⚠️ Apify no devolvió publicaciones para @{handle}. Activando fallback curado.")
 
     # Fallback visual de alta fidelidad
     print(f"[Instagram Extractor] Generando feed curado adaptado a '{categoria}' para @{handle}...")

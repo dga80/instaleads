@@ -50,21 +50,21 @@
 </div>
 <!-- Headline -->
 <h1 class="font-display-hero text-display-hero text-on-surface">
-          Reformas e instalaciones con acabado impecable en Madrid y alrededores
-        </h1>
+  {{ web.titular or ('Reformas e instalaciones profesionales en ' ~ negocio.ciudad) }}
+</h1>
 <!-- Subtitle -->
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
-          Convertimos tus ideas en espacios reales con presupuesto cerrado y sin sorpresas. Llave en mano, dirección de obra colegiada y penalización de 100€ por día de retraso estipulada en contrato.
-        </p>
+  {{ web.subtitulo or ('Convertimos tus ideas en proyectos reales con presupuesto claro, seriedad y garantía en ' ~ negocio.ciudad ~ '.') }}
+</p>
 <!-- CTA Action Cluster -->
 <div class="w-full pt-space-xs flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md">
-<a class="inline-flex items-center justify-center px-space-lg py-space-md rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg shadow-md hover:shadow-xl transition-all duration-200 text-center" href="#solicitar-presupuesto">
+<a class="inline-flex items-center justify-center px-space-lg py-space-md rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg shadow-md hover:shadow-xl transition-all duration-200 text-center" href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" rel="noopener">
 <span class="material-symbols-outlined mr-space-xs text-[20px]">assignment_turned_in</span>
-<span>Pedir Presupuesto Gratuito en 24h (Sin Compromiso)</span>
+<span>Pedir Presupuesto Gratuito</span>
 </a>
-<a class="inline-flex items-center justify-center px-space-lg py-space-md rounded-lg bg-inverse-surface hover:bg-on-background text-inverse-on-surface font-label-lg text-label-lg shadow-sm transition-all duration-200 text-center" href="https://wa.me/34900839214" rel="noopener noreferrer" target="_blank">
+<a class="inline-flex items-center justify-center px-space-lg py-space-md rounded-lg bg-inverse-surface hover:bg-on-background text-inverse-on-surface font-label-lg text-label-lg shadow-sm transition-all duration-200 text-center" href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" rel="noopener noreferrer" target="_blank">
 <span class="material-symbols-outlined mr-space-xs text-[20px] text-tertiary-fixed">chat</span>
-<span>WhatsApp Directo con Arquitecto (&lt;15 min)</span>
+<span>WhatsApp Directo</span>
 </a>
 </div>
 <!-- Trust Signals Bar -->

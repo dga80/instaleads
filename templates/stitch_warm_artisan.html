@@ -44,11 +44,11 @@
 <span class="font-label-caps text-label-caps uppercase tracking-wider">🥐 Elaborado a Diario • Café de Especialidad</span>
 </div>
 <h1 class="font-display-hero text-headline-xl lg:text-display-hero text-on-surface tracking-tight leading-tight">
-            Tu rincón favorito para disfrutar sin prisas en Chamberí
-          </h1>
+  {{ web.titular or ('Tu espacio gastronómico de confianza en ' ~ negocio.ciudad) }}
+</h1>
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl leading-relaxed">
-            Elaborado a diario con ingredientes reales y pasión artesana. Masa madre de fermentación lenta de 48h y café de origen tostado en pequeños lotes semanales.
-          </p>
+  {{ web.subtitulo or ('Elaborado a diario con ingredientes frescos, producto de proximidad y dedicación artesanal en ' ~ negocio.ciudad ~ '.') }}
+</p>
 <div class="flex flex-wrap items-center gap-space-sm pt-2 w-full sm:w-auto">
 <a class="px-6 py-3.5 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg shadow-md hover:bg-secondary transition-all hover:scale-[0.99] flex items-center justify-center gap-2" href="#carta">
 <span>Ver Carta Digital &amp; Especialidades</span>

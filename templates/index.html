@@ -432,6 +432,160 @@
     </div>
   </main>
 
+  <div id="template-selector-modal" onclick="if(event.target === this) cerrarModalSelectorPlantilla()" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-md hidden overflow-y-auto">
+    <div class="bg-slate-900 border border-slate-700/80 rounded-2xl max-w-2xl w-full p-5 sm:p-6 shadow-2xl relative my-auto max-h-[92vh] flex flex-col">
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3.5 shrink-0">
+        <div class="flex items-center space-x-2.5">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-orange-500 via-pink-500 to-indigo-600 flex items-center justify-center text-white shadow-lg">
+            <span class="text-lg">🎨</span>
+          </div>
+          <div>
+            <h3 id="tpl-modal-negocio" class="text-base font-bold text-white leading-tight">Diseñar Web con Google Stitch</h3>
+            <p id="tpl-modal-sub" class="text-xs text-slate-400">Selecciona el arquetipo visual y cromático para esta demo</p>
+          </div>
+        </div>
+        <button onclick="cerrarModalSelectorPlantilla()" class="text-slate-400 hover:text-white transition p-1.5 rounded-lg hover:bg-slate-800" aria-label="Cerrar">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <!-- Modal Body (Archetypes List) -->
+      <div class="py-4 overflow-y-auto space-y-2.5 custom-scrollbar">
+        <!-- Alerta si el comercio ya tiene web oficial activa -->
+        <div id="tpl-modal-web-alerta" class="hidden p-3 rounded-xl bg-sky-950/80 border border-sky-600/50 text-sky-200 text-xs flex items-start gap-2.5">
+          <span class="text-lg leading-none mt-0.5">🌐</span>
+          <div class="flex-1">
+            <div class="font-bold text-sky-100">Este comercio ya cuenta con página web oficial:</div>
+            <a id="tpl-modal-web-link" href="#" target="_blank" rel="noopener noreferrer" class="text-sky-300 hover:text-white underline font-semibold break-all text-[11px] mt-0.5 block"></a>
+            <div class="text-slate-400 text-[10.5px] mt-1">La demo se generará como <strong>propuesta interactiva de rediseño y modernización mobile-first</strong>.</div>
+          </div>
+        </div>
+
+        <div class="text-xs text-slate-400 mb-2 flex items-center justify-between flex-wrap gap-1">
+          <span>Elige la plantilla que mejor represente la identidad del comercio:</span>
+          <span class="text-[11px] px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 font-medium">5 Arquetipos Oficiales</span>
+        </div>
+
+        <input type="hidden" id="tpl-selected-osm-id" value="">
+        <input type="hidden" id="tpl-selected-value" value="urban_edge">
+
+        <!-- Grid de 5 plantillas -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5" id="tpl-options-container">
+          <!-- Opción 1: Urban Edge -->
+          <div onclick="seleccionarPlantilla('urban_edge')" id="tpl-card-urban_edge" class="tpl-card p-3.5 rounded-xl border border-slate-700 bg-slate-800/60 hover:bg-slate-800 cursor-pointer transition-all relative group flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                  <span class="text-lg">⚡</span>
+                  <span class="font-bold text-sm text-white">Urban Edge & Dark Tech</span>
+                </div>
+                <span id="rec-urban_edge" class="rec-badge hidden text-[9.5px] bg-orange-500/20 text-orange-300 px-1.5 py-0.5 rounded border border-orange-500/30 font-bold uppercase tracking-wider">RECOMENDADA</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">Identidad técnica de alto impacto, modo oscuro industrial y contraste vivo.</p>
+              <div class="text-[11px] text-slate-500 mt-2 font-medium">Ideal para: Tatuajes, Barberías, Talleres de Motos/Coches, Fitness & Crossfit.</div>
+            </div>
+            <div class="flex items-center gap-1.5 mt-3 pt-2 border-t border-slate-700/60 text-[11px] text-slate-300 font-mono">
+              <span class="w-3 h-3 rounded-full bg-orange-500 inline-block shadow-sm"></span>
+              <span class="w-3 h-3 rounded-full bg-zinc-900 border border-zinc-700 inline-block shadow-sm"></span>
+              <span>Dark Industrial • Space Grotesk</span>
+            </div>
+          </div>
+
+          <!-- Opción 2: Luxury Glow -->
+          <div onclick="seleccionarPlantilla('luxury_glow')" id="tpl-card-luxury_glow" class="tpl-card p-3.5 rounded-xl border border-slate-700 bg-slate-800/60 hover:bg-slate-800 cursor-pointer transition-all relative group flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                  <span class="text-lg">💅</span>
+                  <span class="font-bold text-sm text-white">Luxury Glow</span>
+                </div>
+                <span id="rec-luxury_glow" class="rec-badge hidden text-[9.5px] bg-amber-500/20 text-amber-300 px-1.5 py-0.5 rounded border border-amber-500/30 font-bold uppercase tracking-wider">RECOMENDADA</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">Elegancia editorial, tonos oro champán, microinteracciones suaves y atmósfera premium.</p>
+              <div class="text-[11px] text-slate-500 mt-2 font-medium">Ideal para: Uñas, Estética, Pestañas, Spas, Joyerías, Peluquería Femenina.</div>
+            </div>
+            <div class="flex items-center gap-1.5 mt-3 pt-2 border-t border-slate-700/60 text-[11px] text-slate-300 font-mono">
+              <span class="w-3 h-3 rounded-full bg-amber-500 inline-block shadow-sm"></span>
+              <span class="w-3 h-3 rounded-full bg-stone-900 border border-stone-700 inline-block shadow-sm"></span>
+              <span>Editorial Luxury • Playfair Display</span>
+            </div>
+          </div>
+
+          <!-- Opción 3: Warm Artisan -->
+          <div onclick="seleccionarPlantilla('warm_artisan')" id="tpl-card-warm_artisan" class="tpl-card p-3.5 rounded-xl border border-slate-700 bg-slate-800/60 hover:bg-slate-800 cursor-pointer transition-all relative group flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                  <span class="text-lg">🥐</span>
+                  <span class="font-bold text-sm text-white">Warm Artisan</span>
+                </div>
+                <span id="rec-warm_artisan" class="rec-badge hidden text-[9.5px] bg-amber-600/20 text-amber-300 px-1.5 py-0.5 rounded border border-amber-600/30 font-bold uppercase tracking-wider">RECOMENDADA</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">Atmósfera acogedora, tipografía rústica moderna y diseño de carta/producto cercano.</p>
+              <div class="text-[11px] text-slate-500 mt-2 font-medium">Ideal para: Cafeterías de especialidad, Panaderías artesanas, Restaurantes, Bistrós.</div>
+            </div>
+            <div class="flex items-center gap-1.5 mt-3 pt-2 border-t border-slate-700/60 text-[11px] text-slate-300 font-mono">
+              <span class="w-3 h-3 rounded-full bg-amber-700 inline-block shadow-sm"></span>
+              <span class="w-3 h-3 rounded-full bg-orange-100 border border-orange-200 inline-block shadow-sm"></span>
+              <span>Warm Organic • Plus Jakarta Sans</span>
+            </div>
+          </div>
+
+          <!-- Opción 4: Clinical Trust -->
+          <div onclick="seleccionarPlantilla('clinical_trust')" id="tpl-card-clinical_trust" class="tpl-card p-3.5 rounded-xl border border-slate-700 bg-slate-800/60 hover:bg-slate-800 cursor-pointer transition-all relative group flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                  <span class="text-lg">🩺</span>
+                  <span class="font-bold text-sm text-white">Clinical Trust</span>
+                </div>
+                <span id="rec-clinical_trust" class="rec-badge hidden text-[9.5px] bg-sky-500/20 text-sky-300 px-1.5 py-0.5 rounded border border-sky-500/30 font-bold uppercase tracking-wider">RECOMENDADA</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">Luminosidad médica, máxima sensación de higiene, rigor profesional y confianza clínica.</p>
+              <div class="text-[11px] text-slate-500 mt-2 font-medium">Ideal para: Clínicas Dentales, Fisioterapia, Osteopatía, Podología, Salud, Veterinarias.</div>
+            </div>
+            <div class="flex items-center gap-1.5 mt-3 pt-2 border-t border-slate-700/60 text-[11px] text-slate-300 font-mono">
+              <span class="w-3 h-3 rounded-full bg-sky-500 inline-block shadow-sm"></span>
+              <span class="w-3 h-3 rounded-full bg-slate-100 border border-slate-300 inline-block shadow-sm"></span>
+              <span>Clinical Light • Inter UI</span>
+            </div>
+          </div>
+
+          <!-- Opción 5: Craft & Build -->
+          <div onclick="seleccionarPlantilla('craft_build')" id="tpl-card-craft_build" class="tpl-card p-3.5 rounded-xl border border-slate-700 bg-slate-800/60 hover:bg-slate-800 cursor-pointer transition-all relative group flex flex-col justify-between sm:col-span-2">
+            <div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                  <span class="text-lg">🔨</span>
+                  <span class="font-bold text-sm text-white">Craft & Build</span>
+                </div>
+                <span id="rec-craft_build" class="rec-badge hidden text-[9.5px] bg-yellow-500/20 text-yellow-300 px-1.5 py-0.5 rounded border border-yellow-500/30 font-bold uppercase tracking-wider">RECOMENDADA</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">Estructura arquitectónica sólida, acabados técnicos, métricas de garantía y solvencia.</p>
+              <div class="text-[11px] text-slate-500 mt-2 font-medium">Ideal para: Reformas integrales, Interiorismo, Carpintería a medida, Climatización, Hogar.</div>
+            </div>
+            <div class="flex items-center gap-1.5 mt-3 pt-2 border-t border-slate-700/60 text-[11px] text-slate-300 font-mono">
+              <span class="w-3 h-3 rounded-full bg-amber-600 inline-block shadow-sm"></span>
+              <span class="w-3 h-3 rounded-full bg-slate-900 border border-slate-700 inline-block shadow-sm"></span>
+              <span>Architectural • Outfit Sans</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="pt-3.5 border-t border-slate-800 flex items-center justify-between gap-3 shrink-0">
+        <button onclick="cerrarModalSelectorPlantilla()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition">
+          Cancelar
+        </button>
+        <button id="tpl-confirm-btn" onclick="confirmarGeneracionConPlantilla()" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white text-xs font-semibold shadow-lg shadow-indigo-500/25 active:scale-95 transition flex items-center gap-2">
+          <span>⚡ Generar Web con esta Plantilla</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- PITCH MODAL -->
   <div id="pitch-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/75 backdrop-blur-sm hidden overflow-y-auto">
     <div class="bg-slate-900 border border-slate-700/80 rounded-2xl max-w-2xl w-full p-5 sm:p-6 shadow-2xl relative my-auto max-h-[92vh] flex flex-col">
@@ -474,6 +628,11 @@
             <div class="truncate">
               <span class="text-indigo-400 font-semibold uppercase tracking-wider block">Web Demo Generada:</span>
               <span id="modal-demo-url" class="text-slate-300 font-mono text-[11px] truncate max-w-sm block mt-0.5"></span>
+              <div class="flex items-center gap-2 mt-1 flex-wrap">
+                <span id="modal-demo-fecha" class="text-[10px] text-slate-400 font-mono"></span>
+                <span id="modal-demo-vibe" class="text-[10px] text-indigo-300/80"></span>
+                <span id="modal-demo-extraccion" class="text-[10px] text-amber-400/90 font-medium"></span>
+              </div>
             </div>
             <div class="flex items-center space-x-1.5 shrink-0">
               <button id="modal-ver-demo-btn" onclick="abrirSimuladorDesdeModal()" class="px-3 py-1.5 rounded-lg bg-indigo-600/60 hover:bg-indigo-600 text-white border border-indigo-500/40 text-xs font-semibold transition flex items-center gap-1.5">
@@ -1247,6 +1406,20 @@
           prioridadBadge = `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-slate-900 text-slate-500 border border-slate-800">⚪ Sin Web</span>`;
         }
 
+        let webBadgeHtml = '';
+        if (lead.web_detectada) {
+          const domDisplay = lead.web_detectada.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
+          webBadgeHtml = `
+            <div class="mt-1">
+              <a href="${lead.web_detectada}" target="_blank" rel="noopener noreferrer" 
+                 class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-950/80 text-emerald-300 border border-emerald-600/40 hover:bg-emerald-900/60 text-[10.5px] font-semibold transition" title="Sitio Web Oficial Activo: ${lead.web_detectada}">
+                <span>🌐</span>
+                <span class="truncate max-w-[135px]">${domDisplay}</span>
+              </a>
+            </div>
+          `;
+        }
+
         let presenciaHtml = '';
         if (lead.instagram_url) {
           presenciaHtml = `
@@ -1256,10 +1429,13 @@
                 <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/></svg>
                 <span>${lead.instagram_handle || '@ver_perfil'}</span>
               </a>
+              ${webBadgeHtml}
               <div class="flex items-center gap-1.5 text-[10px] text-slate-400 pl-0.5">
                 <a href="${googleSearchUrl}" target="_blank" class="hover:text-sky-300 underline decoration-dotted">🔍 Google</a>
                 <span class="text-slate-600">·</span>
                 <a href="${googleMapsUrl}" target="_blank" class="hover:text-emerald-300 underline decoration-dotted">🗺️ Maps</a>
+                <span class="text-slate-600">·</span>
+                <button onclick="auditarWebLead('${lead.osm_id}', this)" class="hover:text-indigo-300 text-slate-400 underline decoration-dotted" title="Verificar si su perfil de Instagram tiene web">Auditar</button>
                 ${(lead.enlaces_internet && lead.enlaces_internet.length > 1) ? `
                   <span class="text-slate-600">·</span>
                   <button onclick="abrirModal('${lead.osm_id}')" class="text-indigo-400 hover:text-indigo-300 font-medium">+${lead.enlaces_internet.length - 1} más</button>
@@ -1276,6 +1452,7 @@
                 <span>${mainSource.icono || '🌐'}</span>
                 <span class="truncate max-w-[120px]">${mainSource.label}</span>
               </a>
+              ${webBadgeHtml}
               <div class="flex items-center gap-1.5 text-[10px] text-slate-400 pl-0.5">
                 <a href="${googleSearchUrl}" target="_blank" class="hover:text-sky-300 underline decoration-dotted">🔍 Google</a>
                 <span class="text-slate-600">·</span>
@@ -1291,6 +1468,7 @@
           presenciaHtml = `
             <div class="space-y-1">
               <span class="text-xs text-slate-500 italic">Sin IG directo</span>
+              ${webBadgeHtml}
               <div class="flex items-center gap-1.5 text-[10px] text-slate-400 pl-0.5">
                 <a href="${googleSearchUrl}" target="_blank" class="hover:text-sky-300 underline decoration-dotted">🔍 Google</a>
                 <span class="text-slate-600">·</span>
@@ -1311,15 +1489,30 @@
           "Cerrado": "bg-emerald-900/40 text-emerald-300 border-emerald-700/50"
         };
 
+        let fechaDemoBadge = '';
+        if (lead.demo_fecha_creacion) {
+          fechaDemoBadge = `<span class="text-[10px] text-slate-400 font-mono block mt-1 tracking-tight" title="Fecha de generación: ${lead.demo_fecha_creacion}">📅 ${lead.demo_fecha_creacion}</span>`;
+        }
+        let fallbackAvisoBadge = '';
+        if (lead.extraccion_fuente === 'curated_fallback' || (lead.demo_slug && lead.extraccion_exitosa === false)) {
+          fallbackAvisoBadge = `<span class="text-[9.5px] text-amber-400/90 font-medium block mt-0.5 cursor-help" title="${lead.extraccion_aviso || 'Fotos de catálogo temáticas (no se pudo acceder a publicaciones de Instagram)'}">⚠️ Fotos catálogo</span>`;
+        } else if (lead.demo_slug && lead.extraccion_fuente === 'apify') {
+          fallbackAvisoBadge = `<span class="text-[9.5px] text-emerald-400/90 font-medium block mt-0.5" title="Fotos y perfil reales extraídos de Instagram">📸 Instagram Real</span>`;
+        }
+
         const estadoSelect = `
-          <select onchange="cambiarEstado('${lead.osm_id}', this.value)" class="text-[11px] font-semibold rounded-lg px-2 py-1 bg-slate-900 border ${estadoColors[estadoActual] || 'border-slate-700 text-slate-300'} focus:outline-none cursor-pointer">
-            <option value="Sin Web" ${estadoActual === "Sin Web" ? "selected" : ""}>⚪ Sin Web</option>
-            <option value="Tiene Web" ${estadoActual === "Tiene Web" ? "selected" : ""}>🌐 Ya Tiene Web</option>
-            <option value="Web Generada" ${estadoActual === "Web Generada" ? "selected" : ""}>🟣 Web Lista</option>
-            <option value="DM Enviado" ${estadoActual === "DM Enviado" ? "selected" : ""}>🟡 DM Enviado</option>
-            <option value="Respuesta Recibida" ${estadoActual === "Respuesta Recibida" ? "selected" : ""}>🔵 Respondido</option>
-            <option value="Cerrado" ${estadoActual === "Cerrado" ? "selected" : ""}>🟢 Cerrado</option>
-          </select>
+          <div class="flex flex-col items-center">
+            <select onchange="cambiarEstado('${lead.osm_id}', this.value)" class="text-[11px] font-semibold rounded-lg px-2 py-1 bg-slate-900 border ${estadoColors[estadoActual] || 'border-slate-700 text-slate-300'} focus:outline-none cursor-pointer">
+              <option value="Sin Web" ${estadoActual === "Sin Web" ? "selected" : ""}>⚪ Sin Web</option>
+              <option value="Tiene Web" ${estadoActual === "Tiene Web" ? "selected" : ""}>🌐 Ya Tiene Web</option>
+              <option value="Web Generada" ${estadoActual === "Web Generada" ? "selected" : ""}>🟣 Web Lista</option>
+              <option value="DM Enviado" ${estadoActual === "DM Enviado" ? "selected" : ""}>🟡 DM Enviado</option>
+              <option value="Respuesta Recibida" ${estadoActual === "Respuesta Recibida" ? "selected" : ""}>🔵 Respondido</option>
+              <option value="Cerrado" ${estadoActual === "Cerrado" ? "selected" : ""}>🟢 Cerrado</option>
+            </select>
+            ${fechaDemoBadge}
+            ${fallbackAvisoBadge}
+          </div>
         `;
 
         // Columna Web Demo (GitHub Pages / Stitch)
@@ -1369,7 +1562,7 @@
           `;
         } else {
           webDemoCol = `
-            <button onclick="iniciarGeneracionWeb('${lead.osm_id}')" class="text-xs px-3 py-1.5 rounded-lg bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-semibold shadow-md shadow-indigo-500/20 active:scale-95 transition flex items-center space-x-1.5 mx-auto">
+            <button onclick="abrirSelectorPlantilla('${lead.osm_id}')" class="text-xs px-3 py-1.5 rounded-lg bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-semibold shadow-md shadow-indigo-500/20 active:scale-95 transition flex items-center space-x-1.5 mx-auto">
               <span>⚡ Generar Web</span>
             </button>
           `;
@@ -1425,9 +1618,137 @@
     }
 
     // -------------------------------------------------------------
+    // SELECTOR DE PLANTILLAS VISUALES STITCH
+    // -------------------------------------------------------------
+    function deducirArquetipoRecomendado(categoria, nombre) {
+      const text = `${categoria || ''} ${nombre || ''}`.toLowerCase();
+      if (/tattoo|tatuaj|piercing|ink|barber|taller|moto|motor|mecanic|boxeo|crossfit|gimnasio|gym|tuning/.test(text)) {
+        return 'urban_edge';
+      }
+      if (/uñ|nail|estetic|belleza|beauty|spa|joyer|pestañ|laser|masaje|depilac|cosmet/.test(text)) {
+        return 'luxury_glow';
+      }
+      if (/cafe|cafeter|panader|reposter|pasteler|bakery|restauran|bistro|pizz|bar\b|artesan|comida|gastro|taberna|braser/.test(text)) {
+        return 'warm_artisan';
+      }
+      if (/dent|clinic|odont|fisioterap|fisio|podolog|salud|medic|veterinar|psicolog|optica|quiropract/.test(text)) {
+        return 'clinical_trust';
+      }
+      if (/reforma|construc|interiorism|carpinter|fontaner|electric|climatiz|pintor|arquitect|instalac|cerraj/.test(text)) {
+        return 'craft_build';
+      }
+      return 'urban_edge';
+    }
+
+    function abrirSelectorPlantilla(osmId) {
+      const osmIdStr = String(osmId);
+      const lead = todosLosLeads.find(l => String(l.osm_id) === osmIdStr);
+      
+      const osmInput = document.getElementById('tpl-selected-osm-id');
+      if (osmInput) osmInput.value = osmIdStr;
+      
+      const nombre = lead ? lead.nombre : 'Comercio Local';
+      const categoria = lead ? lead.categoria : 'Comercio';
+      const ciudad = lead ? lead.ciudad : '';
+      
+      const tituloEl = document.getElementById('tpl-modal-negocio');
+      if (tituloEl) tituloEl.innerText = `Diseñar Web: ${nombre}`;
+      
+      const subEl = document.getElementById('tpl-modal-sub');
+      if (subEl) subEl.innerText = `${categoria}${ciudad ? ' en ' + ciudad : ''} • Elige el arquetipo visual Stitch`;
+      
+      const recomendado = deducirArquetipoRecomendado(categoria, nombre);
+      
+      // Ocultar todos los badges y mostrar el recomendado
+      document.querySelectorAll('.rec-badge').forEach(badge => badge.classList.add('hidden'));
+      const recBadge = document.getElementById(`rec-${recomendado}`);
+      if (recBadge) recBadge.classList.remove('hidden');
+      
+      seleccionarPlantilla(recomendado);
+      
+      // Alerta si el comercio ya dispone de web oficial
+      const alertaWeb = document.getElementById('tpl-modal-web-alerta');
+      const linkWeb = document.getElementById('tpl-modal-web-link');
+      if (alertaWeb && linkWeb) {
+        if (lead && (lead.web_detectada || lead.tiene_web)) {
+          const webUrl = lead.web_detectada || 'Web Oficial detectada';
+          linkWeb.href = lead.web_detectada || '#';
+          linkWeb.innerText = webUrl;
+          alertaWeb.classList.remove('hidden');
+        } else {
+          alertaWeb.classList.add('hidden');
+        }
+      }
+
+      const modal = document.getElementById('template-selector-modal');
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function cerrarModalSelectorPlantilla() {
+      const modal = document.getElementById('template-selector-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    async function auditarWebLead(osmId, btnEl) {
+      if (btnEl) {
+        btnEl.innerText = '⏳ Verificando...';
+        btnEl.disabled = true;
+      }
+      try {
+        const resp = await fetch(`/leads/${osmId}/verificar-web`, { method: 'POST' });
+        const data = await resp.json();
+        if (data.status === 'ok') {
+          if (data.encontrada) {
+            mostrarToast(`✓ Web oficial detectada: ${data.web}`);
+          } else {
+            mostrarToast(`Info: ${data.mensaje}`);
+          }
+          await cargarLeads();
+        } else {
+          mostrarToast(`Error al auditar: ${data.detail || 'Error desconocido'}`);
+        }
+      } catch (err) {
+        mostrarToast(`Error de conexión al auditar web`);
+      } finally {
+        if (btnEl) {
+          btnEl.innerText = 'Auditar';
+          btnEl.disabled = false;
+        }
+      }
+    }
+
+    function seleccionarPlantilla(arquetipo) {
+      const valInput = document.getElementById('tpl-selected-value');
+      if (valInput) valInput.value = arquetipo;
+      
+      const cards = document.querySelectorAll('.tpl-card');
+      cards.forEach(card => {
+        card.classList.remove('border-indigo-500', 'border-2', 'bg-indigo-950/50', 'shadow-lg', 'shadow-indigo-500/20');
+        card.classList.add('border-slate-700', 'border', 'bg-slate-800/60');
+      });
+      
+      const selectedCard = document.getElementById(`tpl-card-${arquetipo}`);
+      if (selectedCard) {
+        selectedCard.classList.remove('border-slate-700', 'border', 'bg-slate-800/60');
+        selectedCard.classList.add('border-2', 'border-indigo-500', 'bg-indigo-950/50', 'shadow-lg', 'shadow-indigo-500/20');
+      }
+    }
+
+    function confirmarGeneracionConPlantilla() {
+      const osmInput = document.getElementById('tpl-selected-osm-id');
+      const valInput = document.getElementById('tpl-selected-value');
+      const osmId = osmInput ? osmInput.value : null;
+      const arquetipo = valInput ? valInput.value : null;
+      cerrarModalSelectorPlantilla();
+      if (osmId) {
+        iniciarGeneracionWeb(osmId, null, null, null, arquetipo);
+      }
+    }
+
+    // -------------------------------------------------------------
     // GESTOR DE GENERACIÓN CONCURRENTE EN SEGUNDO PLANO
     // -------------------------------------------------------------
-    async function iniciarGeneracionWeb(osmId, customNombre, customCiudad, customCat) {
+    async function iniciarGeneracionWeb(osmId, customNombre, customCiudad, customCat, selectedPlantilla = null) {
       const osmIdStr = String(osmId);
       let lead = todosLosLeads.find(l => String(l.osm_id) === osmIdStr);
       const nombre = customNombre || (lead ? lead.nombre : 'Comercio Local');
@@ -1467,7 +1788,12 @@
       mostrarToast(`⚡ Generando web para ${nombre} en segundo plano...`);
 
       try {
-        const res = await fetch(`/leads/${osmIdStr}/generate-web`, { method: 'POST' });
+        const payload = selectedPlantilla ? { plantilla: selectedPlantilla } : {};
+        const res = await fetch(`/leads/${osmIdStr}/generate-web`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
         const data = await res.json();
 
         if (res.ok) {
@@ -1478,6 +1804,12 @@
           job.demoUrl = data.lead?.demo_url_publica || data.lead?.demo_url_absoluta || data.demo?.demo_url || (slug ? `/demos/${slug}/` : '');
           
           mostrarToast(`¡Web Demo creada para ${nombre}! 📱 Lista en local (propagándose en GitHub Pages).`);
+          
+          if (data.aviso_extraccion || data.extraccion_aviso) {
+            mostrarToast(`⚠️ Aviso catálogo: ${data.aviso_extraccion || data.extraccion_aviso}`, true);
+          } else if (data.extraccion_fuente === 'apify') {
+            mostrarToast(`📸 ¡Fotos reales de Instagram integradas con éxito!`);
+          }
           
           // Sincronizar lead en memoria inmediatamente
           const lIdx = todosLosLeads.findIndex(l => String(l.osm_id) === osmIdStr);
@@ -1875,7 +2207,7 @@
                     </button>
                   </div>
                 ` : `
-                  <button onclick="iniciarGeneracionWeb('${lead.osm_id}')" class="text-[11px] px-2.5 py-1 rounded-lg bg-indigo-600/40 hover:bg-indigo-600/60 text-indigo-200 border border-indigo-500/40 transition font-semibold">
+                  <button onclick="abrirSelectorPlantilla('${lead.osm_id}')" class="text-[11px] px-2.5 py-1 rounded-lg bg-indigo-600/40 hover:bg-indigo-600/60 text-indigo-200 border border-indigo-500/40 transition font-semibold">
                     <span>⚡ Crear Web</span>
                   </button>
                 `)}
@@ -2116,10 +2448,34 @@
       // Caja de demo en el modal
       const demoBox = document.getElementById('modal-demo-box');
       const demoUrlEl = document.getElementById('modal-demo-url');
+      const demoFechaEl = document.getElementById('modal-demo-fecha');
+      const demoVibeEl = document.getElementById('modal-demo-vibe');
+      const demoExtraccionEl = document.getElementById('modal-demo-extraccion');
       const computedDemoUrl = getDemoUrl(lead);
+
       if (computedDemoUrl) {
         urlDemoActual = computedDemoUrl;
         demoUrlEl.innerText = urlDemoActual;
+        
+        if (demoFechaEl) {
+          demoFechaEl.innerText = lead.demo_fecha_creacion ? `📅 ${lead.demo_fecha_creacion}` : '';
+        }
+        if (demoVibeEl) {
+          const vibeName = lead.demo_vibe_name || lead.demo_arquetipo;
+          demoVibeEl.innerText = vibeName ? `🎨 ${vibeName}` : '';
+        }
+        if (demoExtraccionEl) {
+          if (lead.extraccion_fuente === 'apify') {
+            demoExtraccionEl.className = 'text-[10px] text-emerald-400 font-medium';
+            demoExtraccionEl.innerText = '📸 Instagram Real';
+          } else if (lead.extraccion_fuente === 'mock') {
+            demoExtraccionEl.className = 'text-[10px] text-amber-400 font-medium';
+            demoExtraccionEl.innerText = lead.extraccion_aviso ? `⚠️ ${lead.extraccion_aviso}` : '⚠️ Catálogo Curado';
+          } else {
+            demoExtraccionEl.innerText = '';
+          }
+        }
+
         demoBox.classList.remove('hidden');
       } else {
         demoBox.classList.add('hidden');

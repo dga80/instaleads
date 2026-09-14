@@ -691,12 +691,14 @@ Categoría o nicho a clasificar: "{termino_usuario}"
 # -------------------------------------------------------------
 # 2. ROL GEMINI: VERIFICAR PERFIL Y REDACTAR PITCH DE VENTA
 # -------------------------------------------------------------
-def verificar_y_redactar_pitch(nombre_negocio: str, datos_presencia: str, ciudad: str, demo_url: str = "", tiene_ig: bool = True) -> dict:
+def verificar_y_redactar_pitch(nombre_negocio: str, datos_presencia: str, ciudad: str, demo_url: str = "", tiene_ig: bool = True, web_existente: str = "") -> dict:
     """
     Analiza el negocio local y su presencia digital (Instagram, Doctoralia, Facebook, directorios) y genera:
     1. Mensaje de prospección comercial inicial (cercano, elogiando su trabajo/reputación, explicando que somos
        un equipo local de diseño que busca comercios en su zona para mejorar su captación móvil, con frase anti-malware).
     2. Mensaje de seguimiento (para enviar a las 48-72h por Email o WhatsApp si no han contestado).
+    Si el negocio YA dispone de página web oficial activa (web_existente), adapta el pitch hacia una propuesta
+    de REDISEÑO y modernización mobile-first, evitando afirmar que carece de página web.
     Utiliza gemini-3.8-flash y auto-desescalado a 3.7, 3.5 y 2.5 si hay saturación.
     """
     cliente = obtener_cliente_gemini()
@@ -704,6 +706,19 @@ def verificar_y_redactar_pitch(nombre_negocio: str, datos_presencia: str, ciudad
 
     contexto_tipo = "perfil de Instagram detectado" if tiene_ig else "huella digital y presencia en internet detectada (Doctoralia, Facebook, directorios)"
     canal_contacto = "Instagram DM" if tiene_ig else "Email / WhatsApp / Formulario"
+
+    instruccion_web = ""
+    if web_existente:
+        instruccion_web = f"""
+INFORMACIÓN CRÍTICA SOBRE SU PÁGINA WEB:
+Este negocio YA DISPONE de una página web oficial activa ({web_existente}).
+Por tanto:
+- 'tiene_web_oficial' debe ser true.
+- 'web_oficial_url' debe ser '{web_existente}'.
+- 'razon': Indica 'Comercio local con web oficial activa ({web_existente})'.
+- 'mensaje_dm_sugerido': NUNCA digas 'cómo luciría vuestra web' ni afirmes que no tienen web. Plantea el mensaje como una propuesta respetuosa de REDISEÑO Y MODERNIZACIÓN mobile-first para optimizar su captación móvil y velocidad de reserva:
+  "¡Hola equipo de {nombre_negocio}! Hemos estado viendo vuestra web ({web_existente}) y nos encanta vuestro trabajo en {ciudad}. Somos un estudio local de diseño y os hemos preparado una propuesta interactiva de rediseño y modernización mobile-first: {demo_url or 'https://...'}. Es un enlace 100% seguro sin descargas para abrirlo en el navegador. ¿Qué os parece?"
+"""
 
     if cliente:
         prompt = f"""
@@ -716,14 +731,15 @@ Negocio local buscado:
 
 Datos de presencia encontrados en internet:
 {datos_presencia}
+{instruccion_web}
 
 Debes evaluar y responder:
 1. 'es_gran_cadena': true si es una gran cadena corporativa, franquicia nacional/multinacional, aseguradora o gran empresa (ejemplos: Vitaldent, Sanitas, Adeslas, Vivanta, Dentix, Dorsia, McDonald's, Midas, etc.). False si es un comercio o clínica local independiente.
 2. 'es_perfil_correcto': true si los datos corresponden CLARAMENTE a este negocio ({nombre_negocio} en {ciudad}). Si los datos son de una marca ajena o negocio sin relación de otra localidad lejana, devuelve false.
-3. 'tiene_web_oficial': true si entre los datos/enlaces detectas que el negocio YA tiene una página web propia activa oficial (ej: clinicadentalbarcelona.com, gesclident.com). False si NO tiene web propia (solo directorios genéricos, páginas amarillas o redes sociales).
+3. 'tiene_web_oficial': true si entre los datos/enlaces detectas que el negocio YA tiene una página web propia activa oficial (ej: clinicadentalbarcelona.com, gesclident.com, rotativetattooshop.com). False si NO tiene web propia (solo directorios genéricos, páginas amarillas o redes sociales).
 4. 'web_oficial_url': La URL de su página web oficial si 'tiene_web_oficial' es true, o cadena vacía "" si no tiene.
 5. 'razon': Justificación breve y directa de tu decisión (ej: 'Coincide clínica local en {ciudad}', 'Descartado por ser gran franquicia nacional', 'Comercio local verificado sin web propia', o 'Tiene página web oficial activa').
-6. 'mensaje_dm_sugerido': Si 'es_perfil_correcto' es true Y 'es_gran_cadena' es false, redacta la propuesta de primer contacto para {canal_contacto} (máximo 60 palabras, tono cercano, profesional, equipo local de diseño en su zona, enlace seguro a la maqueta {demo_url or 'https://...'} sin registros ni descargas). En caso contrario, devuelve cadena vacía "".
+6. 'mensaje_dm_sugerido': Si 'es_perfil_correcto' es true Y 'es_gran_cadena' es false, redacta la propuesta de primer contacto para {canal_contacto} (máximo 60 palabras, tono cercano, profesional, equipo local de diseño en su zona, enlace seguro a la maqueta {demo_url or 'https://...'} sin registros ni descargas). Si ya tienen web, enfócalo como rediseño/modernización. En caso contrario, devuelve cadena vacía "".
 7. 'mensaje_seguimiento': Si 'es_perfil_correcto' es true Y 'es_gran_cadena' es false, redacta el seguimiento educado a las 48-72h. En caso contrario, devuelve cadena vacía "".
 
 Devuelve ÚNICAMENTE un JSON con esta estructura:
@@ -743,11 +759,13 @@ Devuelve ÚNICAMENTE un JSON con esta estructura:
                 texto_limpio = re.sub(r"^```(json)?", "", texto, flags=re.MULTILINE).strip("` \n")
                 data = json.loads(texto_limpio)
                 print(f"[Gemini Pitch] '{nombre_negocio}' evaluado con éxito (modelo: {modelo_usado})")
+                web_retornada = str(data.get("web_oficial_url", "")).strip() or web_existente
+                tiene_web_ret = bool(data.get("tiene_web_oficial", False) or web_existente)
                 return {
                     "es_gran_cadena": bool(data.get("es_gran_cadena", False)),
                     "es_perfil_correcto": bool(data.get("es_perfil_correcto", True)),
-                    "tiene_web_oficial": bool(data.get("tiene_web_oficial", False)),
-                    "web_oficial_url": str(data.get("web_oficial_url", "")).strip(),
+                    "tiene_web_oficial": tiene_web_ret,
+                    "web_oficial_url": web_retornada,
                     "razon": str(data.get("razon", "Evaluación completada")),
                     "mensaje_dm_sugerido": str(data.get("mensaje_dm_sugerido", "")),
                     "mensaje_seguimiento": str(data.get("mensaje_seguimiento", "")),
@@ -756,14 +774,35 @@ Devuelve ÚNICAMENTE un JSON con esta estructura:
         except Exception as e:
             print(f"[Error Gemini Pitch] {e}. Usando plantilla fallback...")
 
-    # Fallback si no hay API key de Gemini
+    # Fallback si no hay API key de Gemini o si falla
     link_texto = f" {demo_url}" if demo_url else ""
-    if tiene_ig:
+    if web_existente:
+        if tiene_ig:
+            pitch_dm_fallback = (
+                f"¡Hola equipo de {nombre_negocio}! Hemos estado viendo vuestra web ({web_existente}) y vuestro gran trabajo en {ciudad}. "
+                f"Somos un equipo local de diseño web y os hemos preparado una propuesta interactiva de modernización mobile-first para optimizar vuestra captación de clientes desde el móvil:{link_texto} "
+                f"(El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Qué os parece la propuesta? ¡Un saludo!"
+            )
+        else:
+            pitch_dm_fallback = (
+                f"¡Hola equipo de {nombre_negocio}! Os contactamos desde un equipo local de diseño web en {ciudad}. "
+                f"Hemos estado viendo vuestra web actual ({web_existente}) y os hemos preparado una propuesta interactiva de modernización mobile-first:{link_texto} "
+                f"(Es un enlace 100% seguro sin registros para verlo en el navegador). ¿Os gustaría que conversemos 2 minutos sin compromiso? ¡Un saludo!"
+            )
+        seguimiento_fallback = (
+            f"¡Hola de nuevo equipo de {nombre_negocio}! Os escribí hace unos días con una propuesta web interactiva de modernización para vuestra web actual:{link_texto} "
+            f"Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!"
+        )
+    elif tiene_ig:
         pitch_dm_fallback = (
             f"¡Hola equipo de {nombre_negocio}! Me encantan vuestros trabajos en Instagram. "
             f"Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de {ciudad} para ayudarles a conseguir más clientes desde Google. "
             f"Os he preparado una maqueta interactiva de cómo luciría vuestra web:{link_texto} "
             f"(El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!"
+        )
+        seguimiento_fallback = (
+            f"¡Hola de nuevo equipo de {nombre_negocio}! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio:{link_texto} "
+            f"Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!"
         )
     else:
         pitch_dm_fallback = (
@@ -771,11 +810,10 @@ Devuelve ÚNICAMENTE un JSON con esta estructura:
             f"Hemos estado revisando negocios con buenas referencias en vuestra zona y os hemos preparado una maqueta interactiva móvil para vuestra clínica:{link_texto} "
             f"(Es un enlace 100% seguro sin registros para verlo en el navegador). ¿Os gustaría que conversemos 2 minutos sin compromiso? ¡Un saludo!"
         )
-
-    seguimiento_fallback = (
-        f"¡Hola de nuevo equipo de {nombre_negocio}! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio:{link_texto} "
-        f"Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!"
-    )
+        seguimiento_fallback = (
+            f"¡Hola de nuevo equipo de {nombre_negocio}! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio:{link_texto} "
+            f"Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!"
+        )
     return {
         "es_gran_cadena": False,
         "es_perfil_correcto": True,
@@ -1196,6 +1234,17 @@ def investigar_presencia_negocio(nombre: str, ciudad: str, ig_osm: str = "") -> 
                                         break
 
                             if coincide:
+                                # Buscar si en el título o snippet de Instagram viene citada una web oficial
+                                urls_en_ig = re.findall(r'(?:https?://|www\.)[a-zA-Z0-9_\-\.]+\.[a-zA-Z]{2,}(?:/[^\s]*)?', title + " " + body)
+                                for u_ig in urls_en_ig:
+                                    u_clean = u_ig.strip().rstrip(".,;:/")
+                                    if not any(excl in u_clean.lower() for excl in ["instagram.com", "facebook.com", "threads.net", "wa.me", "whatsapp.com"]):
+                                        if not u_clean.startswith("http"):
+                                            u_clean = "https://" + u_clean
+                                        if not web_detectada:
+                                            web_detectada = u_clean
+                                        break
+
                                 res_ig = {
                                     "encontrado": True,
                                     "handle": handle,
@@ -1255,13 +1304,31 @@ def investigar_presencia_negocio(nombre: str, ciudad: str, ig_osm: str = "") -> 
                     fuente = clasificar_fuente_web(href, title)
                     fuente["snippet"] = body[:120] if body else ""
 
-                    # Si parece ser su propia web oficial (ej. www.clinicadentalbarcelona.com)
+                    # Si parece ser su propia web oficial (ej. www.rotativetattooshop.com o clinicadentalbarcelona.com)
                     if fuente["tipo"] == "web" and not web_detectada:
                         domain = urllib.parse.urlparse(href).netloc.lower().replace("www.", "")
                         nom_compacto = re.sub(r"[^a-z0-9]", "", nom_limpio.lower())
-                        if any(tok in domain for tok in tokens_negocio if len(tok) >= 3) or (nom_compacto and nom_compacto in domain):
+                        ig_handle_compacto = re.sub(r"[^a-z0-9]", "", res_ig.get("handle", "").lower())
+                        if (
+                            any(tok in domain for tok in tokens_negocio if len(tok) >= 3)
+                            or (nom_compacto and len(nom_compacto) >= 3 and nom_compacto in domain)
+                            or (ig_handle_compacto and len(ig_handle_compacto) >= 3 and ig_handle_compacto in domain)
+                        ):
                             web_detectada = href
                             fuente["label"] = "Sitio Web Detectado"
+
+                    # Detección adicional: si en la URL o snippet de directorios/reseñas se cita su dominio oficial (ej. trustpilot.com/review/mundimoto.com)
+                    if not web_detectada:
+                        texto_completo = f"{href} {title} {body}".lower()
+                        dominios_mencionados = re.findall(r'(?:https?://|www\.)?([a-zA-Z0-9-]+\.(?:com|es|cat|net|org|eu|barcelona))', texto_completo)
+                        for dom in dominios_mencionados:
+                            dom_clean = dom.lower().replace("www.", "")
+                            if dom_clean not in ["instagram.com", "facebook.com", "google.com", "trustpilot.com", "cataloxy.es", "paginasamarillas.es", "infobel.com", "cylex.es", "axesor.es", "einforma.com", "qdq.com", "guias.es"]:
+                                nom_comp = re.sub(r"[^a-z0-9]", "", nom_limpio.lower())
+                                ig_comp = re.sub(r"[^a-z0-9]", "", res_ig.get("handle", "").lower())
+                                if (ig_comp and len(ig_comp) >= 4 and ig_comp in dom_clean) or (nom_comp and len(nom_comp) >= 4 and nom_comp in dom_clean):
+                                    web_detectada = f"https://www.{dom_clean}"
+                                    break
 
                     enlaces_internet.append(fuente)
             except Exception as e_gen:
@@ -1798,11 +1865,24 @@ def scan_local_leads(req: ScanRequest):
         google_search_url = presencia["google_search_url"]
         google_maps_url = presencia["google_maps_url"]
 
+        datos_para_analisis = []
         if ig_info["encontrado"]:
-            analisis = verificar_y_redactar_pitch(nombre, ig_info["datos_crudos"], ciudad, tiene_ig=True)
-        elif enlaces_internet:
-            resumen_enlaces = "\n".join([f"- {e['label']}: {e['url']} | {e.get('titulo', '')} {e.get('snippet', '')}" for e in enlaces_internet])
-            analisis = verificar_y_redactar_pitch(nombre, resumen_enlaces, ciudad, tiene_ig=False)
+            datos_para_analisis.append(f"Perfil de Instagram detectado:\n{ig_info['datos_crudos']}")
+        if web_detectada:
+            datos_para_analisis.append(f"Sitio web detectado en rastreo:\n- URL: {web_detectada}")
+        if enlaces_internet:
+            resumen_enlaces = "\n".join([f"- {e['label']}: {e['url']} | {e.get('titulo', '')} {e.get('snippet', '')}" for e in enlaces_internet if e.get('url') != ig_info.get('url')])
+            if resumen_enlaces:
+                datos_para_analisis.append(f"Otras fuentes y enlaces encontrados en internet:\n{resumen_enlaces}")
+
+        if datos_para_analisis:
+            analisis = verificar_y_redactar_pitch(
+                nombre_negocio=nombre,
+                datos_presencia="\n\n".join(datos_para_analisis),
+                ciudad=ciudad,
+                tiene_ig=ig_info["encontrado"],
+                web_existente=web_detectada
+            )
         else:
             analisis = {
                 "es_gran_cadena": False,
@@ -2049,11 +2129,24 @@ async def scan_local_leads_stream(req: ScanRequest):
                 google_search_url = presencia["google_search_url"]
                 google_maps_url = presencia["google_maps_url"]
 
+                datos_para_analisis = []
                 if ig_info["encontrado"]:
-                    analisis = verificar_y_redactar_pitch(nombre, ig_info["datos_crudos"], ciudad, tiene_ig=True)
-                elif enlaces_internet:
-                    resumen_enlaces = "\n".join([f"- {e['label']}: {e['url']} | {e.get('titulo', '')} {e.get('snippet', '')}" for e in enlaces_internet])
-                    analisis = verificar_y_redactar_pitch(nombre, resumen_enlaces, ciudad, tiene_ig=False)
+                    datos_para_analisis.append(f"Perfil de Instagram detectado:\n{ig_info['datos_crudos']}")
+                if web_detectada:
+                    datos_para_analisis.append(f"Sitio web detectado en rastreo:\n- URL: {web_detectada}")
+                if enlaces_internet:
+                    resumen_enlaces = "\n".join([f"- {e['label']}: {e['url']} | {e.get('titulo', '')} {e.get('snippet', '')}" for e in enlaces_internet if e.get('url') != ig_info.get('url')])
+                    if resumen_enlaces:
+                        datos_para_analisis.append(f"Otras fuentes y enlaces encontrados en internet:\n{resumen_enlaces}")
+
+                if datos_para_analisis:
+                    analisis = verificar_y_redactar_pitch(
+                        nombre_negocio=nombre,
+                        datos_presencia="\n\n".join(datos_para_analisis),
+                        ciudad=ciudad,
+                        tiene_ig=ig_info["encontrado"],
+                        web_existente=web_detectada
+                    )
                 else:
                     analisis = {
                         "es_gran_cadena": False,
@@ -2190,14 +2283,15 @@ class StatusUpdateRequest(BaseModel):
 
 
 @app.post("/leads/{osm_id}/generate-web")
-def generate_lead_web(osm_id: str, request: Request):
+async def generate_lead_web(osm_id: str, request: Request):
     """
     Genera la web demo individualizada para un lead usando:
     1. Extracción de datos de Instagram (Apify o fallback adaptado).
-    2. Design System estilo Stitch (colores, fuentes y formas).
+    2. Design System estilo Stitch (colores, fuentes y formas, respetando plantilla elegida).
     3. Estructuración con Gemini.
     4. Guardado directo en la rama gh-pages de GitHub (cero espacio en local).
     5. Actualización del pitch de prospección con el enlace público de GitHub Pages.
+    6. Registro de fecha de creación y avisos de diagnóstico.
     """
     leads = leer_leads_guardados()
     target_lead = None
@@ -2209,11 +2303,22 @@ def generate_lead_web(osm_id: str, request: Request):
     if target_lead is None:
         raise HTTPException(status_code=404, detail="Lead no encontrado.")
 
+    # Detectar si el usuario especificó una plantilla concreta
+    plantilla_seleccionada = None
+    try:
+        if request.headers.get("content-type", "").startswith("application/json"):
+            body_json = await request.json()
+            plantilla_seleccionada = body_json.get("plantilla")
+    except Exception:
+        pass
+    if not plantilla_seleccionada:
+        plantilla_seleccionada = request.query_params.get("plantilla")
+
     slug_existente = target_lead.get("demo_slug") or detectar_demo_existente(target_lead.get("nombre", ""), target_lead.get("ciudad", ""))
     ya_existia = bool(slug_existente and target_lead.get("demo_url_publica"))
 
     cliente_gemini = obtener_cliente_gemini()
-    res = generar_web_comercio(target_lead, cliente_gemini=cliente_gemini)
+    res = generar_web_comercio(target_lead, cliente_gemini=cliente_gemini, plantilla_seleccionada=plantilla_seleccionada)
     slug = res["slug"]
     rendered_html = res["rendered_html"]
 
@@ -2233,21 +2338,52 @@ def generate_lead_web(osm_id: str, request: Request):
         print(f"[GitHub Pages Sync Error] {e}")
         demo_url_publica = f"{obtener_base_github_pages()}/{slug}/"
 
-    # Actualizar lead
+    # Actualizar lead con metadatos de demo y fecha
+    ahora = datetime.now()
+    fecha_formateada = ahora.strftime("%d/%m/%Y %H:%M")
+    
     target_lead["demo_slug"] = slug
     target_lead["demo_url"] = demo_url_publica
     target_lead["demo_url_absoluta"] = demo_url_publica
     target_lead["demo_url_publica"] = demo_url_publica
     target_lead["demo_vibe"] = res["design_vibe"]
+    target_lead["demo_fecha_creacion"] = fecha_formateada
+    target_lead["demo_fecha_ts"] = int(ahora.timestamp())
+    target_lead["extraccion_fuente"] = res.get("extraccion_fuente", "curated_fallback")
+    target_lead["extraccion_aviso"] = res.get("extraccion_aviso", "")
+    target_lead["extraccion_exitosa"] = res.get("exito_real", False)
+    
+    sitio_web_detectado = res.get("sitio_web") or res.get("external_url") or target_lead.get("web_detectada", "")
+    if sitio_web_detectado:
+        target_lead["tiene_web"] = True
+        target_lead["web_detectada"] = sitio_web_detectado
+        enlaces = target_lead.get("enlaces_internet", [])
+        if not any(e.get("url") == sitio_web_detectado or sitio_web_detectado in e.get("url", "") for e in enlaces):
+            enlaces.insert(0, {
+                "tipo": "web",
+                "label": "Web Oficial (Instagram)",
+                "icono": "🌐",
+                "url": sitio_web_detectado,
+                "titulo": f"Web Oficial de {target_lead.get('nombre')}",
+                "snippet": "Página web oficial detectada en su perfil verificado de Instagram"
+            })
+            target_lead["enlaces_internet"] = enlaces
+
     if target_lead.get("estado") in ["Sin Web", "Tiene Web"]:
         target_lead["estado"] = "Web Generada"
 
-    # Regenerar el pitch comercial incorporando la URL pública de GitHub Pages
+    # Regenerar el pitch comercial incorporando la URL pública de GitHub Pages y propuesta de rediseño si ya tiene web
+    datos_presencia_pitch = f"Instagram: {target_lead.get('instagram_url', '')} | Categoría: {target_lead.get('categoria', '')}"
+    if target_lead.get("web_detectada"):
+        datos_presencia_pitch += f" | Web Oficial activa: {target_lead.get('web_detectada')}"
+
     nuevo_pitch = verificar_y_redactar_pitch(
         nombre_negocio=target_lead.get("nombre", ""),
-        datos_presencia=f"Instagram: {target_lead.get('instagram_url', '')} | Categoría: {target_lead.get('categoria', '')}",
+        datos_presencia=datos_presencia_pitch,
         ciudad=target_lead.get("ciudad", ""),
-        demo_url=demo_url_publica
+        demo_url=demo_url_publica,
+        tiene_ig=bool(target_lead.get("instagram_url")),
+        web_existente=target_lead.get("web_detectada", "")
     )
     target_lead["mensaje_dm"] = nuevo_pitch.get("mensaje_dm_sugerido", target_lead.get("mensaje_dm", ""))
     target_lead["mensaje_seguimiento"] = nuevo_pitch.get("mensaje_seguimiento", target_lead.get("mensaje_seguimiento", ""))
@@ -2270,11 +2406,14 @@ def generate_lead_web(osm_id: str, request: Request):
         "status": "ok",
         "ya_existia": ya_existia,
         "lead": target_lead,
+        "aviso_extraccion": res.get("extraccion_aviso", ""),
+        "extraccion_fuente": res.get("extraccion_fuente", "curated_fallback"),
         "demo": {
             "slug": slug,
             "demo_url": demo_url_publica,
             "demo_url_local": demo_url_publica,
-            "design_vibe": res["design_vibe"]
+            "design_vibe": res["design_vibe"],
+            "demo_fecha_creacion": fecha_formateada
         }
     }
 
@@ -2324,6 +2463,11 @@ def delete_lead_demo(osm_id: str):
         target_lead["demo_url_absoluta"] = ""
         target_lead["demo_url_publica"] = ""
         target_lead["demo_vibe"] = ""
+        target_lead["demo_fecha_creacion"] = ""
+        target_lead["demo_fecha_ts"] = 0
+        target_lead["extraccion_fuente"] = ""
+        target_lead["extraccion_aviso"] = ""
+        target_lead["extraccion_exitosa"] = False
         if target_lead.get("estado") == "Web Generada":
             target_lead["estado"] = "Tiene Web" if target_lead.get("tiene_web") else "Sin Web"
 
@@ -2376,6 +2520,104 @@ def cleanup_all_demos():
             json.dump(leads, f, ensure_ascii=False, indent=2)
 
         return {"status": "ok", "message": "Se han eliminado todas las demos de GitHub Pages correctamente."}
+
+
+@app.post("/leads/{osm_id}/verificar-web")
+def verificar_web_lead(osm_id: str):
+    """
+    Audita y verifica en profundidad la presencia de un sitio web oficial para un lead:
+    1. Si tiene perfil de Instagram, consulta Apify y extrae externalUrl, bioLinks y biography.
+    2. Si se detecta un sitio web oficial propio, actualiza tiene_web=True, web_detectada=url, y estado='Tiene Web'.
+    3. Regenera el pitch de prospección adaptado a propuesta de rediseño mobile-first.
+    4. Guarda atómicamente el lead actualizado en data/leads.json.
+    """
+    with leads_lock:
+        leads = leer_leads_guardados()
+        target_idx = None
+        target_lead = None
+        for idx, l in enumerate(leads):
+            if str(l.get("osm_id")) == str(osm_id):
+                target_idx = idx
+                target_lead = l
+                break
+
+        if target_lead is None:
+            raise HTTPException(status_code=404, detail="Lead no encontrado.")
+
+        handle = target_lead.get("instagram_handle") or target_lead.get("instagram_url", "")
+        nombre = target_lead.get("nombre", "")
+        ciudad = target_lead.get("ciudad", "Local")
+        categoria = target_lead.get("categoria", "")
+
+        web_encontrada = ""
+        fuente_web = ""
+
+        # 1. Consultar Instagram si tiene handle/url
+        if handle:
+            from instagram_extractor import obtener_datos_completos_instagram
+            ig_data = obtener_datos_completos_instagram(handle, nombre, categoria, ciudad)
+            if ig_data.get("sitio_web"):
+                web_encontrada = ig_data["sitio_web"]
+                fuente_web = "Instagram Oficial"
+
+        # 2. Si no se encontró en Instagram, intentar una búsqueda dirigida de presencia
+        if not web_encontrada:
+            presencia = investigar_presencia_negocio(nombre, ciudad, target_lead.get("instagram_url", ""))
+            if presencia.get("web_detectada"):
+                web_encontrada = presencia["web_detectada"]
+                fuente_web = "Rastreo Web"
+
+        if web_encontrada:
+            target_lead["tiene_web"] = True
+            target_lead["web_detectada"] = web_encontrada
+            if target_lead.get("estado") == "Sin Web":
+                target_lead["estado"] = "Tiene Web"
+
+            # Añadir a enlaces_internet si no está
+            enlaces = target_lead.get("enlaces_internet", [])
+            if not any(e.get("url") == web_encontrada or web_encontrada in e.get("url", "") for e in enlaces):
+                enlaces.insert(0, {
+                    "tipo": "web",
+                    "label": f"Web Oficial ({fuente_web})",
+                    "icono": "🌐",
+                    "url": web_encontrada,
+                    "titulo": f"Web Oficial de {nombre}",
+                    "snippet": f"Página web oficial verificada mediante {fuente_web}"
+                })
+                target_lead["enlaces_internet"] = enlaces
+
+            # Regenerar pitch como propuesta de rediseño
+            nuevo_pitch = verificar_y_redactar_pitch(
+                nombre_negocio=nombre,
+                datos_presencia=f"Instagram: {target_lead.get('instagram_url', '')} | Web Oficial: {web_encontrada} | Categoría: {categoria}",
+                ciudad=ciudad,
+                demo_url=target_lead.get("demo_url_publica", target_lead.get("demo_url", "")),
+                tiene_ig=bool(target_lead.get("instagram_url")),
+                web_existente=web_encontrada
+            )
+            target_lead["mensaje_dm"] = nuevo_pitch.get("mensaje_dm_sugerido", target_lead.get("mensaje_dm", ""))
+            target_lead["mensaje_seguimiento"] = nuevo_pitch.get("mensaje_seguimiento", target_lead.get("mensaje_seguimiento", ""))
+            target_lead["gemini_razon"] = f"Web oficial activa detectada ({web_encontrada}). Propuesta adaptada a rediseño mobile-first."
+
+            leads[target_idx] = target_lead
+            with open(LEADS_FILE, "w", encoding="utf-8") as f:
+                json.dump(leads, f, ensure_ascii=False, indent=2)
+
+            return {
+                "status": "ok",
+                "encontrada": True,
+                "web": web_encontrada,
+                "mensaje": f"Se ha detectado y verificado la web oficial de '{nombre}': {web_encontrada}",
+                "lead": target_lead
+            }
+        else:
+            return {
+                "status": "ok",
+                "encontrada": False,
+                "web": "",
+                "mensaje": f"No se detectó ninguna página web oficial para '{nombre}'. Permanece como comercio Sin Web.",
+                "lead": target_lead
+            }
 
 
 
