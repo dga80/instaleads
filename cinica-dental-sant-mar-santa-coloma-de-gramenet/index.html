@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link rel="icon" type="image/jpeg" href="data:image/avif;base64,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">
+<link href="https://fonts.googleapis.com\" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-primary-container": "#003751", "primary-fixed-dim": "#89ceff", "surface-container": "#e2efff", "tertiary-fixed": "#6ffbbe", "on-surface-variant": "#3e4850", "secondary": "#006399", "outline": "#6e7881", "on-background": "#001d32", "on-error": "#ffffff", "outline-variant": "#bec8d2", "surface-dim": "#bddeff", "error": "#ba1a1a", "on-error-container": "#93000a", "tertiary-container": "#00b17b", "inverse-on-surface": "#e7f2ff", "on-surface": "#001d32", "surface-variant": "#cde5ff", "surface-container-highest": "#cde5ff", "on-tertiary-container": "#003b26", "on-tertiary": "#ffffff", "on-secondary-fixed-variant": "#004b74", "surface-container-lowest": "#ffffff", "primary-fixed": "#c9e6ff", "tertiary-fixed-dim": "#4edea3", "on-primary-fixed-variant": "#004c6e", "secondary-fixed-dim": "#94ccff", "on-secondary-fixed": "#001d32", "on-tertiary-fixed-variant": "#005236", "on-primary-fixed": "#001e2f", "secondary-container": "#7bc2ff", "secondary-fixed": "#cde5ff", "on-secondary-container": "#004f7b", "surface-tint": "#006591", "on-tertiary-fixed": "#002113", "surface-bright": "#f7f9ff", "on-secondary": "#ffffff", "background": "#f7f9ff", "surface-container-high": "#d8eaff", "inverse-surface": "#0e334d", "primary": "#006591", "surface": "#f7f9ff", "error-container": "#ffdad6", "on-primary": "#ffffff", "primary-container": "#0ea5e9", "inverse-primary": "#89ceff", "surface-container-low": "#edf4ff", "tertiary": "#006c49" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter-mobile": "1rem", "gutter": "1.5rem", "margin-mobile": "1.25rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "space-md": "1rem", "space-lg": "1.5rem", "space-xl": "2.5rem", "margin": "3rem" }, "fontFamily": { "headline-md": ["Plus Jakarta Sans"], "label-md": ["Inter"], "body-md": ["Inter"], "display": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "title-md": ["Plus Jakarta Sans"], "display-mobile": ["Plus Jakarta Sans"], "label-lg": ["Inter"], "title-lg": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "headline-lg-mobile": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "caption": ["Inter"] }, "fontSize": { "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }], "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "display": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.025em", "fontWeight": "700" }], "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "title-md": ["16px", { "lineHeight": "22px", "fontWeight": "600" }], "display-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "title-lg": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "headline-sm": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }], "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "caption": ["11px", { "lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "500" }] } } } };</script><style>
+  :root {
+    --sat: env(safe-area-inset-top, 0px);
+    --sab: env(safe-area-inset-bottom, 0px);
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(8.0rem + var(--sat, 0px));
+  }
+</style>
+<script>
+  (function() {
+    try {
+      var isIframe = window.self !== window.top;
+      var isSim = isIframe || /[?&]sim(=|&|$)/.test(window.location.search) || window.location.hash.indexOf('sim') !== -1;
+      if (isSim) {
+        document.documentElement.style.setProperty('--sat', '54px');
+        document.documentElement.style.setProperty('--sab', '20px');
+      }
+    } catch(e) {}
+  })();
+</script>
+</head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 w-full z-50 bg-surface/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));"><div class="w-full bg-surface-container-low"><div class="max-w-[1280px] mx-auto px-gutter h-10 flex items-center justify-between font-label-md text-label-md"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs text-on-surface"><span class="material-symbols-outlined text-primary text-[16px]">call</span><span class="font-semibold">Urgencias 24h:</span><a class="text-primary hover:underline" href="tel:+34910234567">+34 910 234 567</a></div><div class="hidden md:flex items-center gap-space-xs text-on-surface-variant"><span class="material-symbols-outlined text-[16px]">location_on</span><span>Av. de la Salud 42, Centro Médico</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs"><span class="inline-block w-2 h-2 rounded-full bg-tertiary-container animate-pulse"></span><span class="text-on-surface font-medium">Abierto hoy hasta las 20:30</span></div></div></div></div><div class="max-w-[1280px] mx-auto px-gutter h-20 flex items-center justify-between"><div class="flex items-center gap-space-md"><img alt="Cínica Dental Sant Mar Clinic Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Xrwu5vrnVU7UEfTkCrS5ySq5RLFUqf448BaLQOWKvW3enqrxeIkXtNQpi1edx-G2zkqx4l36KUS3cAm47mc8fRMCFJk8QOfPB1Q6iGv9e3TTZ12ZZ4KVkFN-3cKK-UP6pELdAFvK5uIW2N0RV0Xo_TsY3O6uUpmtb6tA_p04kcXi8L6ra5v9COJCPV8MI3H9odBmDZv2voYj6econKq_uhKkZ_ahbzNMOQwaGDqvvHaYxGSKt-a873Ne8"/><span class="font-title-lg text-title-lg text-on-surface font-bold tracking-tight truncate max-w-[170px] sm:max-w-xs md:max-w-none">Cínica Dental Sant Mar</span></div><nav class="hidden lg:flex items-center gap-space-xs" data-active-classes="bg-surface-container text-primary font-title-md">
+      <a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-md text-title-md transition-colors" href="#especialidades">Especialidades</a>
+      <a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-md text-title-md transition-colors" href="#garantias">Garantías</a>
+      <a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-md text-title-md transition-colors" href="#equipo-medico">Equipo Médico</a>
+      <a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-md text-title-md transition-colors" href="#opiniones">Opiniones</a>
+      <a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-md text-title-md transition-colors" href="#tecnologia-3d">Tecnología 3D</a>
+      <a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-md text-title-md transition-colors" href="#cita-online">Pedir Cita</a>
+    </nav><div class="flex items-center gap-space-md"><a class="inline-flex items-center gap-space-xs bg-primary-container text-on-primary hover:bg-primary px-space-lg py-space-sm rounded-xl font-label-lg text-label-lg shadow-[0_4px_14px_rgba(14,165,233,0.35)] transition-all" data-path="pedir-cita" href="#"><span class="material-symbols-outlined text-[18px]">calendar_month</span><span>Pedir Cita Online</span></a><div class="hidden sm:flex w-8 h-8 rounded-full bg-primary items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div>
+      <!-- Mobile Hamburger Button (On the RIGHT) -->
+      <button id="hamburger-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-xl text-primary hover:bg-surface-container transition flex items-center justify-center border border-outline/20 ml-1" aria-label="Abrir Menú" aria-expanded="false">
+        <span class="material-symbols-outlined text-[24px]">menu</span>
+      </button></div></div></header><main class="w-full bg-background min-h-screen" style="padding-top: calc(9rem + var(--sat, env(safe-area-inset-top, 0px)));"><div class="flex flex-col w-full">
+<!-- HERO SECTION -->
+<section class="relative w-full overflow-hidden bg-gradient-to-b from-surface-container-low via-background to-surface py-space-xl">
+<!-- Ambient glowing backdrop effect -->
+<div class="absolute top-0 right-1/4 w-96 h-96 rounded-full bg-secondary-container/20 blur-3xl pointer-events-none -z-0"></div>
+<div class="absolute bottom-10 left-10 w-72 h-72 rounded-full bg-tertiary-fixed/30 blur-2xl pointer-events-none -z-0"></div>
+<div class="max-w-[1280px] mx-auto px-gutter relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<!-- Left Editorial Content (7 Cols) -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<!-- Trust Pill Badge -->
+<div class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container-lowest text-on-surface shadow-sm self-start">
+<span class="material-symbols-outlined text-primary text-[18px]">medical_services</span>
+<span class="font-label-md text-label-md font-semibold tracking-wide text-primary">1ª VALORACIÓN &amp; DIAGNÓSTICO DIGITAL DISPONIBLE</span>
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse ml-1"></span>
+</div>
+<!-- Headline -->
+<h1 class="font-display text-display text-on-surface leading-tight tracking-tight">
+  Cínica Dental Sant Mar en Santa Coloma de Gramenet
+</h1>
+<!-- Reassurance Copy -->
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+  Clínica odontológica de referencia en Santa Coloma de Gramenet. Implantes, estética dental, ortodoncia invisible y prevención. Cuidamos de tu sonrisa y salud con la última tecnología.
+</p>
+<!-- CTAs -->
+<div class="flex flex-wrap items-center gap-space-md mt-space-sm">
+<a class="inline-flex items-center gap-space-xs bg-primary text-on-primary hover:bg-secondary px-space-xl py-space-md rounded-xl font-label-lg text-label-lg shadow-md transition-all" href="#cita-online">
+<span class="material-symbols-outlined text-[20px]">calendar_add_on</span>
+<span>Solicitar Primera Cita Informativa</span>
+</a>
+<a class="inline-flex items-center gap-space-xs bg-surface-container text-primary hover:bg-surface-container-high px-space-lg py-space-md rounded-xl font-label-lg text-label-lg transition-colors" href="#tecnologia-3d">
+<span class="material-symbols-outlined text-[20px]">view_in_ar</span>
+<span>Ver Tecnología 3D</span>
+</a>
+</div>
+<!-- Confidence Indicators Ribbon -->
+<div class="pt-space-md flex flex-wrap items-center gap-x-space-lg gap-y-space-xs font-label-md text-label-md text-on-surface-variant">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[18px]">verified</span>
+<span>Equipo Colegiado Oficial</span>
+</div>
+<span class="text-outline-variant">•</span>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[18px]">memory</span>
+<span>Instalaciones 100% Digitales</span>
+</div>
+<span class="text-outline-variant">•</span>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[18px]">star</span>
+<span class="font-semibold text-on-surface">4.9 / 5</span>
+<span>(740+ reseñas verificadas)</span>
+</div>
+</div>
+</div>
+<!-- Right Visual (5 Cols with overlays) -->
+<div class="lg:col-span-5 relative flex justify-center">
+<div class="relative w-full max-w-[480px] rounded-2xl overflow-hidden shadow-xl bg-surface-container-lowest">
+<!-- Doctor & Patient Image -->
+<img class="w-full h-[470px] object-cover object-center" data-alt="Doctor in modern clinic with patient. A friendly female doctor wearing a white medical lab coat and stethoscope smiling while showing a digital tablet to an older woman seated comfortably in an illuminated consultation suite equipped with modern medical 3D imaging monitors in soft cerulean and white tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoz7QcOuA9Q04NqRsazbeUZy9kGvPsBpSFT-XFByOJ9qCJJZMNqHfCDta2Y1xeOLu19UcSp8SB43VpN63qvpcN4BnrzmWqjrCcyr9iKppsFm-2Z2926UtZBwB8mZKkWE7YbOAmCPgD28uA7sVhX57XY-zj5T3h2BvyfE4ro_xcT8n-NzLEzZbLLub0qHvUoOJiUncFOsGOFjyk7VNeN9s1HxDJpqIIdFb_lye1lpKRme3dP69BoWet"/>
+<!-- Gradient scrim -->
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/60 via-transparent to-transparent"></div>
+<!-- Floating Stat 1: 99.2% Sin molestias -->
+<div class="absolute top-space-md left-space-md bg-surface/95 backdrop-blur-md px-space-md py-space-xs rounded-xl shadow-md flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined text-[18px]">sentiment_satisfied</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface font-bold">99.2%</span>
+<span class="font-caption text-caption text-on-surface-variant">Tratamientos sin molestias</span>
+</div>
+</div>
+<!-- Floating Stat 2: TAC 3D Baja Radiación -->
+<div class="absolute bottom-space-md right-space-md left-space-md bg-surface-container-lowest/95 backdrop-blur-md p-space-md rounded-xl shadow-lg flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">radiology</span>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface font-semibold">TAC Dental 3D HD</h4>
+<p class="font-caption text-caption text-on-surface-variant">87% menos radiación ionizante que TAC tradicional</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-tertiary text-[20px]">check_circle</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- LAS 3 GARANTÍAS DEL PACIENTE -->
+<section class="w-full py-space-xl bg-surface-container-low scroll-mt-32" id="garantias">
+<div class="max-w-[1280px] mx-auto px-gutter">
+<!-- Section Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-xl gap-space-md">
+<div>
+<div class="inline-flex items-center gap-space-xs font-label-md text-label-md text-primary font-semibold mb-space-xs">
+<span class="material-symbols-outlined text-[16px]">verified_user</span>
+<span>COMPROMISO CLÍNICO SANNAMED</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Las 3 Garantías del Paciente</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+          Atención estructurada en torno a la certidumbre, el bienestar neurosensorial y la transparencia económica.
+        </p>
+</div>
+<!-- 3 Columns of Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div class="flex flex-col gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[28px]">biotech</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary font-semibold">Garantía 01</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="font-caption text-caption text-on-surface-variant">Sin conjeturas</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Diagnóstico 3D Preciso</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Escáner intraoral 3D de alta velocidad y TAC tomográfico de haz cónico. Detectamos microfisuras y anomalías invisibles al ojo clínico tradicional antes de cualquier intervención.
+            </p>
+</div>
+<div class="pt-space-lg mt-space-md flex items-center gap-space-xs font-label-md text-label-md text-secondary font-semibold">
+<span class="material-symbols-outlined text-[16px]">fact_check</span>
+<span>Informe radiológico detallado incluido</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div class="flex flex-col gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[28px]">spa</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md uppercase tracking-wider text-tertiary font-semibold">Garantía 02</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="font-caption text-caption text-on-surface-variant">Mínimamente invasivo</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Tratamiento sin Dolor</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Sistemas de anestesia computarizada indolora SleeperOne y sedación consciente monitorizada por médico anestesista colegiado para erradicar cualquier atisbo de ansiedad u odontofobia.
+            </p>
+</div>
+<div class="pt-space-lg mt-space-md flex items-center gap-space-xs font-label-md text-label-md text-tertiary font-semibold">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Protocolo de Odontología Amable</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div class="flex flex-col gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[28px]">credit_score</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary font-semibold">Garantía 03</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="font-caption text-caption text-on-surface-variant">0% Intereses TAE</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Facilidades de Financiación</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Planes flexibles y a medida de hasta 36 meses sin intereses (0% TAE). Tramitación directa en la propia recepción de la clínica médica en 5 minutos, sin financieras externas abusivas.
+            </p>
+</div>
+<div class="pt-space-lg mt-space-md flex items-center gap-space-xs font-label-md text-label-md text-secondary font-semibold">
+<span class="material-symbols-outlined text-[16px]">payments</span>
+<span>Aprobación instantánea con DNI</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- TRATAMIENTOS & ESPECIALIDADES: BENTO GRID -->
+<section class="w-full py-space-xl bg-surface scroll-mt-32" id="especialidades">
+<div class="max-w-[1280px] mx-auto px-gutter">
+<!-- Bento Header -->
+<div class="flex flex-col items-center text-center max-w-3xl mx-auto mb-space-xl">
+<span class="inline-flex items-center gap-space-xs font-label-md text-label-md text-primary font-semibold tracking-wider uppercase mb-space-xs">
+<span class="material-symbols-outlined text-[16px]">clinical_notes</span>
+          Áreas Médicas de Vanguardia
+        </span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold">
+          Especialidades Odontológicas y Médicas Integradas
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-space-xs">
+          Diagnósticos precisos en una única visita con aparatología de grado hospitalario y especialistas dedicados.
+        </p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg">
+<!-- Bento 1: Implantología Guiada 3D (Spans 2 columns on desktop) -->
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">precision_manufacturing</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-tertiary font-semibold uppercase">Técnica Estrella</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Implantología Guiada 3D &amp; Carga Inmediata</h3>
+</div>
+</div>
+<span class="font-title-lg text-title-lg text-primary font-bold">Desde 690€</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-md leading-relaxed">
+              Cirugía planificada por ordenador con férulas quirúrgicas milimétricas. Colocación de piezas fijas en 24 horas sin incisiones agresivas ni puntos de sutura dolorosos. Recuperación funcional y estética desde el primer día.
+            </p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm mt-space-md">
+<div class="bg-surface-container-low rounded-xl p-space-sm flex items-center gap-space-xs font-label-md text-label-md text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px]">task_alt</span>
+<span>Sin apertura de encía</span>
+</div>
+<div class="bg-surface-container-low rounded-xl p-space-sm flex items-center gap-space-xs font-label-md text-label-md text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px]">schedule</span>
+<span>Dientes fijos en 24h</span>
+</div>
+<div class="bg-surface-container-low rounded-xl p-space-sm flex items-center gap-space-xs font-label-md text-label-md text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+<span>Titanio Grado Médico V</span>
+</div>
+</div>
+</div>
+<div class="mt-space-lg pt-space-md flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Estudio tomográfico y férula de guiado incluidos.</span>
+<a class="inline-flex items-center gap-space-xs text-primary font-title-md text-title-md hover:text-secondary font-semibold" href="https://api.whatsapp.com/send?phone=34934661088&text=%C2%A1Hola%20equipo%20de%20C%C3%ADnica%20Dental%20Sant%20Mar%21%20Os%20contacto%20desde%20vuestra%20web%20para%20pedir%20informaci%C3%B3n%20o%20cita." target="_blank" rel="noopener\">
+<span>Más información</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Bento 2: Ortodoncia Invisible & Digital -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">view_in_ar</span>
+</div>
+<span class="font-title-lg text-title-lg text-primary font-bold">Desde 59€<span class="font-caption text-caption text-on-surface-variant font-normal">/mes</span></span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mt-space-md">Ortodoncia Invisible Digital</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+              Alineadores transparentes biomecánicos. Visualiza en 3D la evolución de tu sonrisa y el resultado final antes de colocar el primer alineador.
+            </p>
+<ul class="mt-space-md flex flex-col gap-space-xs font-label-md text-label-md text-on-surface-variant">
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
+<span>Planificación 3D ClinCheck®</span>
+</li>
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
+<span>Removible y 100% discreto</span>
+</li>
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
+<span>Revisiones presenciales o telemáticas</span>
+</li>
+</ul>
+</div>
+<div class="mt-space-lg pt-space-md flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant">Clínica Diamond Apex</span>
+<a class="inline-flex items-center gap-space-xs text-primary font-label-lg text-label-lg hover:text-secondary font-semibold" href="https://api.whatsapp.com/send?phone=34934661088&text=%C2%A1Hola%20equipo%20de%20C%C3%ADnica%20Dental%20Sant%20Mar%21%20Os%20contacto%20desde%20vuestra%20web%20para%20pedir%20informaci%C3%B3n%20o%20cita." target="_blank" rel="noopener\">
+<span>Más información</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Bento 3: Odontología General & Prevención -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">dentistry</span>
+</div>
+<span class="font-title-lg text-title-lg text-primary font-bold">Desde 45€</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mt-space-md">Odontología General &amp; Higiene</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+              Mantenimiento preventivo, obturaciones estéticas de composite cerámico, profilaxis mediante ultrasonidos y curetajes periodontales indoloros.
+            </p>
+<ul class="mt-space-md flex flex-col gap-space-xs font-label-md text-label-md text-on-surface-variant">
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
+<span>Limpieza por flujo de aire caliente</span>
+</li>
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
+<span>Tratamiento de encías (Periodoncia)</span>
+</li>
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
+<span>Sellado y fluoración profiláctica</span>
+</li>
+</ul>
+</div>
+<div class="mt-space-lg pt-space-md flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant">Protocolo Air-Flow EMS®</span>
+<a class="inline-flex items-center gap-space-xs text-primary font-label-lg text-label-lg hover:text-secondary font-semibold" href="https://api.whatsapp.com/send?phone=34934661088&text=%C2%A1Hola%20equipo%20de%20C%C3%ADnica%20Dental%20Sant%20Mar%21%20Os%20contacto%20desde%20vuestra%20web%20para%20pedir%20informaci%C3%B3n%20o%20cita." target="_blank" rel="noopener\">
+<span>Más información</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Bento 4: Estética Dental & Carillas de Porcelana -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">auto_awesome</span>
+</div>
+<span class="font-label-md text-label-md px-space-sm py-space-xs rounded-full bg-surface-container text-primary font-semibold">DSD Design</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mt-space-md">Estética Dental &amp; Carillas</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+              Diseño de Sonrisa Digital (DSD) con carillas ultrafinas de disilicato de litio o composite inyectado sin tallado dental agresivo. Mock-up previo en boca.
+            </p>
+<ul class="mt-space-md flex flex-col gap-space-xs font-label-md text-label-md text-on-surface-variant">
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
+<span>Prueba física en resina sin tallar</span>
+</li>
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
+<span>Blanqueamiento Philips Zoom LED</span>
+</li>
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
+<span>Biocompatibilidad total</span>
+</li>
+</ul>
+</div>
+<div class="mt-space-lg pt-space-md flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant">Garantía estética 5 años</span>
+<a class="inline-flex items-center gap-space-xs text-primary font-label-lg text-label-lg hover:text-secondary font-semibold" href="https://api.whatsapp.com/send?phone=34934661088&text=%C2%A1Hola%20equipo%20de%20C%C3%ADnica%20Dental%20Sant%20Mar%21%20Os%20contacto%20desde%20vuestra%20web%20para%20pedir%20informaci%C3%B3n%20o%20cita." target="_blank" rel="noopener\">
+<span>Más información</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Bento 5: Fisioterapia & ATM Temporomandibular -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">neurology</span>
+</div>
+<span class="font-label-md text-label-md px-space-sm py-space-xs rounded-full bg-tertiary-fixed text-on-tertiary-container font-semibold">Salud Integral</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mt-space-md">ATM, Bruxismo y Fisioterapia</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+              Tratamiento integral de la articulación temporomandibular. Alivio inmediato del rechinamiento dental, dolor cervical, cefaleas tensionales y chasquidos al masticar.
+            </p>
+<ul class="mt-space-md flex flex-col gap-space-xs font-label-md text-label-md text-on-surface-variant">
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
+<span>Férulas de descarga Michigan 3D</span>
+</li>
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
+<span>Fisioterapia orofacial en clínica</span>
+</li>
+<li class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
+<span>Terapia de neuromodulación</span>
+</li>
+</ul>
+</div>
+<div class="mt-space-lg pt-space-md flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant">Colaboración interdisciplinar</span>
+<a class="inline-flex items-center gap-space-xs text-primary font-label-lg text-label-lg hover:text-secondary font-semibold" href="https://api.whatsapp.com/send?phone=34934661088&text=%C2%A1Hola%20equipo%20de%20C%C3%ADnica%20Dental%20Sant%20Mar%21%20Os%20contacto%20desde%20vuestra%20web%20para%20pedir%20informaci%C3%B3n%20o%20cita." target="_blank" rel="noopener\">
+<span>Más información</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- TECNOLOGÍA 3D & EQUIPAMIENTO VANGUARDISTA -->
+<section class="w-full py-space-xl bg-surface-container-low scroll-mt-32" id="tecnologia-3d">
+<div class="max-w-[1280px] mx-auto px-gutter">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<!-- Left Data & Features (6 Cols) -->
+<div class="lg:col-span-6 flex flex-col gap-space-md">
+<div class="inline-flex items-center gap-space-xs font-label-md text-label-md text-primary font-semibold">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+<span>DIAGNÓSTICO DIGITAL POR IMAGEN</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold leading-tight">
+            Cirugías Virtuales &amp; Planificación Milimétrica
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Eliminamos por completo las pastas de impresión incómodas que provocan náuseas. Mediante tecnología de barrido óptico digital tomamos una réplica de tu boca en solo 45 segundos con resolución microscópica.
+          </p>
+<!-- Precision Metrics -->
+<div class="grid grid-cols-2 gap-space-md pt-space-sm">
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm">
+<span class="font-display-mobile text-display-mobile text-primary font-bold">12 µm</span>
+<p class="font-label-md text-label-md text-on-surface-variant font-medium mt-space-xs">Nivel de precisión óptica en escaneo 3D</p>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm">
+<span class="font-display-mobile text-display-mobile text-tertiary font-bold">0 Seg</span>
+<p class="font-label-md text-label-md text-on-surface-variant font-medium mt-space-xs">Tiempos de espera por moldes convencionales</p>
+</div>
+</div>
+<div class="flex items-center gap-space-md pt-space-sm">
+<div class="flex items-center gap-space-xs text-on-surface font-label-lg text-label-lg">
+<span class="material-symbols-outlined text-tertiary text-[20px]">check_circle</span>
+<span>Visualización simultánea en pantalla paciente</span>
+</div>
+</div>
+</div>
+<!-- Right Diagnostic Visual (6 Cols) -->
+<div class="lg:col-span-6">
+<div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-md">
+<div class="relative rounded-xl overflow-hidden mb-space-md">
+<img class="w-full h-72 object-cover" data-alt="Close up of a high-tech medical dental 3D intraoral scanner screen showing a colorful high-definition 3D digital model of teeth and jaw alignment. Clean clinical setting with sterile equipment, soft cerulean backlights, and precise diagnostic graphic overlays." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTCvGeKu0CUFEY5NokJdqRhFm6oIraLhWM7_-sZkZXXRNPpmIdR9sjFlbOIEBgTAv74DrPc6S4CQE-E7KNdvsYj9zJkyN8n0wva7iMUsYRcIr6Bm_J0SdD1lWxCh39CNWHRXRTpiXcFXMsYjC7WFTUTxF0DjDoWdDh3KdZh55VDBLPIYMsyb7pTqz0oUJa3ZcfQqnjMTJXimdn_oWe1-6dXcsD1bKPVJ5yaWCGS9tdVmIO7MBEQE8N"/>
+<div class="absolute top-space-sm right-space-sm bg-inverse-surface/85 text-inverse-on-surface px-space-sm py-space-xs rounded-lg font-caption text-caption">
+                Simulación en tiempo real (CAD/CAM)
+              </div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+<span>iTero Element 5D Plus + CBCT Planmeca</span>
+</span>
+<span class="font-label-md text-label-md text-tertiary font-semibold">Calibración Semanal ISO</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- EQUIPO MÉDICO & CUALIFICACIÓN OFICIAL -->
+<section class="w-full py-space-xl bg-surface scroll-mt-32" id="equipo-medico">
+<div class="max-w-[1280px] mx-auto px-gutter">
+<!-- Section Intro -->
+<div class="text-center max-w-3xl mx-auto mb-space-xl">
+<span class="inline-flex items-center gap-space-xs font-label-md text-label-md text-primary font-semibold tracking-wider uppercase mb-space-xs">
+<span class="material-symbols-outlined text-[16px]">groups</span>
+          Especialistas Colegiados
+        </span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold">
+          Nuestro Cuadro Facultativo
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-space-xs">
+          Cada paciente es tratado por cirujanos, ortodoncistas y médicos con dedicación exclusiva en su especialidad y formación continua en centros hospitalarios internacionales.
+        </p>
+</div>
+<!-- Doctor Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Doctor 1: Dra. Elena Ruiz -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col">
+<div class="relative w-full h-64 rounded-xl overflow-hidden mb-space-md">
+<img class="w-full h-full object-cover object-top" data-alt="Professional medical portrait of Dra. Elena Ruiz Santos, a senior female dental surgeon in her 40s wearing a clean white medical coat and clinical badge, smiling warmly and confidently in a bright modern clinic with soft blue and white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAue4vNq9zVtVskvVte_B4sQ3x0uJzJsp_wzINMdnX6tRHITSH3oP170Pq7KhLCEkrDJy8B0LGh8KRnD0u_FceguLoq4_7pKKgLKTFkybU0cwKFq1N4tsiuxdYL1nSbhehOSHqJQ7ZUUrt31SMZSezmk5L6RH5OgmKIKn1lP6Q-XIg9etOV-LJIKmJLz9lAW1znoI2UHKA1P3pmJBiGkLVj45cfIwj_94eFfd1WAUgZzSxJes_L9xXb"/>
+<div class="absolute top-space-sm left-space-sm bg-surface/90 backdrop-blur-sm px-space-sm py-space-xs rounded-full flex items-center gap-space-xs font-caption text-caption text-on-surface font-semibold shadow-sm">
+<span class="material-symbols-outlined text-tertiary text-[14px]">verified</span>
+<span>15+ años exp.</span>
+</div>
+</div>
+<div class="flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary font-semibold">Directora Médica</span>
+<span class="font-caption text-caption text-on-surface-variant">Col. 28004521</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mt-space-xs">Dra. Elena Ruiz Santos</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+                Especialista en Cirugía Oral, Implantología Guiada y Regeneración Tisular. Máster en Cirugía Bucal e Implantes por la Universidad Complutense de Madrid.
+              </p>
+</div>
+<div class="pt-space-md mt-space-md bg-surface-container-low p-space-sm rounded-xl flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant">Miembro Activo SECIB / SEPA</span>
+<span class="material-symbols-outlined text-primary text-[18px]">medical_information</span>
+</div>
+</div>
+</div>
+<!-- Doctor 2: Dr. Carlos Méndez -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col">
+<div class="relative w-full h-64 rounded-xl overflow-hidden mb-space-md">
+<img class="w-full h-full object-cover object-top" data-alt="Professional medical headshot portrait of Dr. Carlos Mendez, an orthodontist in his late 30s with friendly approachable demeanor, wearing navy clinical scrubs and white coat, standing in front of high-tech orthodontic equipment in a modern clinic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAF4lKkveASrc0dRXWY4LKdbthKCxmGs9hX0pmkgz12yBLkDrwMY_0DvZxbvZrA3AQPJy0tqSu_EzHSCpYO9XvTQs4EGnJl9AuGEBNQhV5iIt1j-55KhrLY-GdOya1yrXLUYQHJUmxdXN0JfeSvApT6te6xMENwvK2ZcpX4mXXBHZ2F5bO6v7eJkJDQTN3VcvHwCMM5cXBiSbL0DD2xoM5CXF03MCdtAfTIz669BqhnUeVMpKDXuFaz"/>
+<div class="absolute top-space-sm left-space-sm bg-surface/90 backdrop-blur-sm px-space-sm py-space-xs rounded-full flex items-center gap-space-xs font-caption text-caption text-on-surface font-semibold shadow-sm">
+<span class="material-symbols-outlined text-tertiary text-[14px]">verified</span>
+<span>Diamond Apex</span>
+</div>
+</div>
+<div class="flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary font-semibold">Coord. Ortodoncia Digital</span>
+<span class="font-caption text-caption text-on-surface-variant">Col. 28005912</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mt-space-xs">Dr. Carlos Méndez Alarcón</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+                Especialista en Alineación Invisible y Estética Facial. Certificación Internacional Invisalign Diamond Apex (Top 1% de casos clínicos resueltos en Europa).
+              </p>
+</div>
+<div class="pt-space-md mt-space-md bg-surface-container-low p-space-sm rounded-xl flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant">Profesor Colaborador SEDO</span>
+<span class="material-symbols-outlined text-primary text-[18px]">medical_information</span>
+</div>
+</div>
+</div>
+<!-- Doctor 3: Dra. Laura Valls -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col">
+<div class="relative w-full h-64 rounded-xl overflow-hidden mb-space-md">
+<img class="w-full h-full object-cover object-top" data-alt="Professional clinical portrait of Dra. Laura Valls Ortiz, a pediatric and gentle care dentist with warm welcoming smile, wearing light blue scrubs in a warm, welcoming consultation room designed for patient reassurance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVFP7jc1rWgHvUuXHXtUyeb0xjjuGe-jjiqxkr1IpkgEQxNv0uEXa-zOCLS376BGL3UvT2VnU7BdxAyPLsAqet7JVVLJ6EuqFu6PJ4YdXjg_x5F4q0vXNssz94gIUiozZ1ErBahct48sT2wm7ANUS12nHfoFyHouARz-R0htGYNckjMtLUSd5oaznGhUa7iONkUnDEzvusaReroAeEsnUTyTpP62_JA5vEiMHpCqRoBV5CnArkGJ13"/>
+<div class="absolute top-space-sm left-space-sm bg-surface/90 backdrop-blur-sm px-space-sm py-space-xs rounded-full flex items-center gap-space-xs font-caption text-caption text-on-surface font-semibold shadow-sm">
+<span class="material-symbols-outlined text-tertiary text-[14px]">verified</span>
+<span>Protocolo Antiansiedad</span>
+</div>
+</div>
+<div class="flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary font-semibold">Odontopediatría &amp; Fobia</span>
+<span class="font-caption text-caption text-on-surface-variant">Col. 28006341</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold mt-space-xs">Dra. Laura Valls Ortiz</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
+                Especialista en atención a pacientes con odontofobia, sedación por óxido nitroso y odontopediatría preventiva. Experta en manejo emocional clínico infantil y adulto.
+              </p>
+</div>
+<div class="pt-space-md mt-space-md bg-surface-container-low p-space-sm rounded-xl flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant">Sociedad Española Odontopediatría</span>
+<span class="material-symbols-outlined text-primary text-[18px]">medical_information</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Registration Banner Ribbon -->
+<div class="mt-space-xl p-space-md rounded-2xl bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-md text-center sm:text-left">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-surface-container-lowest flex items-center justify-center text-tertiary shadow-sm">
+<span class="material-symbols-outlined text-[22px]">policy</span>
+</div>
+<div>
+<span class="font-title-md text-title-md text-on-surface font-bold">Centro Sanitario Autorizado por la Consejería de Sanidad</span>
+<p class="font-caption text-caption text-on-surface-variant">Número de Registro Oficial: CS-10492/24 • Cumplimiento exhaustivo de esterilización y bioseguridad UNE 179001</p>
+</div>
+</div>
+<div class="inline-flex items-center gap-space-xs text-primary font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span>Inspección Sanitaria Superada 2024</span>
+</div>
+</div>
+</div>
+</section>
+<!-- OPINIONES VERIFICADAS DE PACIENTES -->
+<section class="w-full py-space-xl bg-surface-container-low scroll-mt-32" id="opiniones">
+<div class="max-w-[1280px] mx-auto px-gutter">
+<!-- Testimonials Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-xl gap-space-md">
+<div>
+<span class="inline-flex items-center gap-space-xs font-label-md text-label-md text-primary font-semibold uppercase mb-space-xs">
+<span class="material-symbols-outlined text-[16px]">rate_review</span>
+            Experiencias Reales
+          </span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold">Opiniones Verificadas de Pacientes</h2>
+</div>
+<div class="flex items-center gap-space-sm bg-surface-container-lowest px-space-md py-space-sm rounded-xl shadow-sm">
+<div class="flex text-tertiary">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-title-md text-title-md text-on-surface font-bold">4.9/5</span>
+<span class="font-caption text-caption text-on-surface-variant">en Google Reviews</span>
+</div>
+</div>
+<!-- Testimonial Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Review 1 -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex text-tertiary">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Hace 2 semanas</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface italic leading-relaxed">
+              "Venía con pánico al dentista desde niña y el trato de la Dra. Elena fue exquisito. Cero dolor en los implantes y máxima tranquilidad durante toda la sesión. No vuelvo a pisar otra clínica."
+            </p>
+</div>
+<div class="pt-space-lg mt-space-md flex items-center justify-between">
+<div>
+<span class="font-title-md text-title-md text-on-surface font-bold block">María José R.</span>
+<span class="font-caption text-caption text-primary font-medium">Implantes guiados 3D</span>
+</div>
+<span class="inline-flex items-center gap-space-xs font-caption text-caption text-tertiary bg-tertiary-fixed/30 px-space-sm py-space-xs rounded-full font-semibold">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<span>Paciente Verificado</span>
+</span>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex text-tertiary">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Hace 1 mes</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface italic leading-relaxed">
+              "La simulación 3D que me enseñó el Dr. Carlos me convenció y el resultado superó lo prometido. En solo 8 meses mi sonrisa es perfecta y nadie notaba que llevaba alineadores en el trabajo."
+            </p>
+</div>
+<div class="pt-space-lg mt-space-md flex items-center justify-between">
+<div>
+<span class="font-title-md text-title-md text-on-surface font-bold block">David G.</span>
+<span class="font-caption text-caption text-primary font-medium">Ortodoncia Invisible</span>
+</div>
+<span class="inline-flex items-center gap-space-xs font-caption text-caption text-tertiary bg-tertiary-fixed/30 px-space-sm py-space-xs rounded-full font-semibold">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<span>Paciente Verificado</span>
+</span>
+</div>
+</div>
+<!-- Review 3 -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex text-tertiary">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Hace 3 semanas</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface italic leading-relaxed">
+              "Financiación directa sin sorpresas ni letra pequeña desde la misma recepción. Son profesionales médicos de verdad con vocación, no una franquicia fría comercial. Recomiendo al 100%."
+            </p>
+</div>
+<div class="pt-space-lg mt-space-md flex items-center justify-between">
+<div>
+<span class="font-title-md text-title-md text-on-surface font-bold block">Carmen P.</span>
+<span class="font-caption text-caption text-primary font-medium">Rehabilitación Completa</span>
+</div>
+<span class="inline-flex items-center gap-space-xs font-caption text-caption text-tertiary bg-tertiary-fixed/30 px-space-sm py-space-xs rounded-full font-semibold">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<span>Paciente Verificado</span>
+</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- INTERACTIVE APPOINTMENT BOOKING BANNER -->
+<section class="w-full py-space-xl bg-surface scroll-mt-32" id="cita-online">
+<div class="max-w-[1280px] mx-auto px-gutter">
+<div class="relative bg-inverse-surface text-inverse-on-surface rounded-2xl p-space-xl overflow-hidden shadow-xl">
+<!-- Decorative subtle background glow -->
+<div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-primary/20 blur-3xl pointer-events-none"></div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl relative z-10 items-center">
+<!-- Left Text Details (5 Cols) -->
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<div class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-on-tertiary-container/60 text-tertiary-fixed text-label-md font-semibold self-start">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed animate-pulse"></span>
+<span>Agenda Médica en Vivo</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-inverse-on-surface">
+              Agenda tu cita en menos de 1 minuto
+            </h2>
+<p class="font-body-md text-body-md text-outline-variant leading-relaxed">
+              Selecciona especialidad, día preferente y franja horaria. Te contactamos al instante para confirmar tu cita y enviarte el recordatorio a tu móvil sin ningún compromiso.
+            </p>
+<div class="flex flex-col gap-space-xs pt-space-sm font-body-sm text-body-sm text-outline-variant">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary-fixed text-[18px]">done</span>
+<span>Primera consulta diagnóstica &amp; radiografía digital incluidas</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary-fixed text-[18px]">done</span>
+<span>Plan de tratamiento claro y cerrado por escrito</span>
+</div>
+</div>
+</div>
+<!-- Right Booking Panel (7 Cols) -->
+<div class="lg:col-span-7 bg-surface-container-lowest text-on-surface rounded-2xl p-space-xl shadow-lg">
+<form class="flex flex-col gap-space-md" id="booking-form" onsubmit="event.preventDefault(); document.getElementById('booking-confirmation').classList.remove('hidden');">
+<!-- Select Specialty & Doctor -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface-variant font-semibold">Tratamiento o Especialidad</label>
+<select class="h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary">
+<option>1ª Consulta de Valoración General</option>
+<option>Implantología Guiada 3D</option>
+<option>Ortodoncia Invisible (Invisalign)</option>
+<option>Estética Dental &amp; Carillas</option>
+<option>ATM / Fisioterapia Orofacial</option>
+<option>Urgencia Odontológica Inmediata</option>
+</select>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface-variant font-semibold">Fecha Preferente</label>
+<input class="h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary" type="date" value="2024-11-20"/>
+</div>
+</div>
+<!-- Time Slot Interactive Selection -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface-variant font-semibold">Horarios Disponibles para Hoy / Mañana</label>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs" id="slot-container">
+<button class="slot-btn py-space-xs px-space-sm rounded-lg bg-surface-container text-primary font-label-md text-label-md text-center hover:bg-primary-container hover:text-on-primary transition-colors" onclick="selectSlot(this)" type="button">09:30 h</button>
+<button class="slot-btn py-space-xs px-space-sm rounded-lg bg-surface-container text-primary font-label-md text-label-md text-center hover:bg-primary-container hover:text-on-primary transition-colors" onclick="selectSlot(this)" type="button">11:15 h</button>
+<button class="slot-btn py-space-xs px-space-sm rounded-lg bg-surface-container text-primary font-label-md text-label-md text-center hover:bg-primary-container hover:text-on-primary transition-colors" onclick="selectSlot(this)" type="button">16:00 h</button>
+<button class="slot-btn py-space-xs px-space-sm rounded-lg bg-surface-container text-primary font-label-md text-label-md text-center hover:bg-primary-container hover:text-on-primary transition-colors" onclick="selectSlot(this)" type="button">18:45 h</button>
+</div>
+</div>
+<!-- Contact Inputs -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface-variant font-semibold">Nombre y Apellidos</label>
+<input class="h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Ej. Ana Martínez Ruiz" required="" type="text"/>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface-variant font-semibold">Teléfono Móvil (SMS de confirmación)</label>
+<input class="h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary" placeholder="+34 600 000 000" required="" type="tel"/>
+</div>
+</div>
+<!-- Submit Action Button -->
+<div class="pt-space-xs flex flex-col gap-space-xs">
+<button class="w-full h-12 bg-primary text-on-primary hover:bg-secondary rounded-xl font-title-md text-title-md font-semibold flex items-center justify-center gap-space-xs shadow-md transition-all" type="submit">
+<span class="material-symbols-outlined text-[20px]">send</span>
+<span>Confirmar Cita Informativa sin Coste</span>
+</button>
+<span class="font-caption text-caption text-on-surface-variant text-center">Protección de datos garantizada según el Reglamento Sanitario RGPD.</span>
+</div>
+<!-- Instant Feedback Confirmation Message -->
+<div class="hidden p-space-md bg-surface-container-high rounded-xl flex items-center gap-space-sm text-primary" id="booking-confirmation">
+<span class="material-symbols-outlined text-tertiary text-[24px]">task_alt</span>
+<div>
+<h4 class="font-title-md text-title-md font-bold text-on-surface">¡Solicitud recibida correctamente!</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Nuestro coordinador clínico te llamará en los próximos 15 minutos para confirmar la hora.</p>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<script>
+  function selectSlot(el) {
+    document.querySelectorAll('.slot-btn').forEach(function(btn) {
+      btn.classList.remove('bg-primary', 'text-on-primary');
+      btn.classList.add('bg-surface-container', 'text-primary');
+    });
+    el.classList.remove('bg-surface-container', 'text-primary');
+    el.classList.add('bg-primary', 'text-on-primary');
+  }
+</script></main><footer class="w-full bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="w-full bg-surface-container-low py-space-md"><div class="max-w-[1280px] mx-auto px-gutter flex flex-wrap items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-tertiary-container text-[20px]">verified</span><span class="font-label-md text-label-md text-on-surface">Acreditación JCI Gold Quality</span></div><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[20px]">shield</span><span class="font-label-md text-label-md text-on-surface">Certificación Sanitaria ISO 9001:2015</span></div><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[20px]">medical_services</span><span class="font-label-md text-label-md text-on-surface">Registro Sanitario Autonómico</span></div></div><div class="font-label-md text-label-md text-on-surface-variant"><span class="font-semibold text-on-surface">Nº de Autorización Sanitaria:</span> Reg. Sanitario: CS-10492/24</div></div></div><div class="max-w-[1280px] mx-auto px-gutter py-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-xl"><div class="flex flex-col gap-space-md"><div class="flex items-center gap-space-xs"><img alt="Cínica Dental Sant Mar Clinic Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Xrwu5vrnVU7UEfTkCrS5ySq5RLFUqf448BaLQOWKvW3enqrxeIkXtNQpi1edx-G2zkqx4l36KUS3cAm47mc8fRMCFJk8QOfPB1Q6iGv9e3TTZ12ZZ4KVkFN-3cKK-UP6pELdAFvK5uIW2N0RV0Xo_TsY3O6uUpmtb6tA_p04kcXi8L6ra5v9COJCPV8MI3H9odBmDZv2voYj6econKq_uhKkZ_ahbzNMOQwaGDqvvHaYxGSKt-a873Ne8"/><span class="font-title-lg text-title-lg text-on-surface font-bold">Cínica Dental Sant Mar</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Centro hospitalario y odontológico de alta especialización. Atención personalizada respaldada por el Ilustre Colegio Oficial de Médicos y Odontólogos.</p><div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-surface-container text-on-surface-variant font-caption text-caption"><span class="material-symbols-outlined text-tertiary-container text-[14px]">check_circle</span><span>Centro Médico y Odontológico Colegiado Nº 2800491</span></div></div><div class="flex flex-col gap-space-sm"><span class="font-title-md text-title-md text-on-surface">Urgencias y Citas</span><div class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><span class="text-primary font-semibold">Centralita 24 Horas</span><a class="text-on-surface font-title-md text-title-md hover:text-primary transition-colors" href="tel:+34910234567">+34 910 234 567</a><span>Atención ininterrumpida de urgencias odontológicas y médicas de traumatología leve.</span><span class="font-semibold text-on-surface mt-space-xs">Horario de Consultas Generales:</span><span>Lunes a Viernes: 08:00 - 20:30 h</span><span>Sábados: 09:00 - 14:00 h</span></div></div><div class="flex flex-col gap-space-sm"><span class="font-title-md text-title-md text-on-surface">Ubicación y Acceso</span><div class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><span>Av. de la Salud 42, Centro Médico</span><span>28040 Madrid, España</span><div class="w-full h-24 rounded-xl bg-surface-container-high flex flex-col items-center justify-center gap-space-xs text-on-surface-variant"><span class="material-symbols-outlined text-primary text-[24px]">map</span><span class="font-label-md text-label-md">Parking concertado disponible (2h gratis)</span></div></div></div><div class="flex flex-col gap-space-sm"><span class="font-title-md text-title-md text-on-surface">Garantía y Pacientes</span><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-primary transition-colors" data-path="derechos-paciente" href="#">Carta de Derechos y Deberes del Paciente</a></li><li><a class="hover:text-primary transition-colors" data-path="consentimientos" href="#">Consentimientos Informados Digitales</a></li><li><a class="hover:text-primary transition-colors" data-path="sociedades-medicas" href="#">Sociedades Médicas Concertadas</a></li><li><a class="hover:text-primary transition-colors" data-path="atencion-usuario" href="#">Servicio de Atención al Usuario (SAU)</a></li><li><a class="hover:text-primary transition-colors" data-path="rgpd" href="#">Protección de Datos Sanitarios (RGPD)</a></li></ul></div></div><div class="mt-space-xl pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md font-caption text-caption text-on-surface-variant"><p>Aviso Médico Legal: La información médica proporcionada en este portal tiene carácter puramente orientativo y no reemplaza la consulta clínica presencial o el criterio de un facultativo colegiado.</p><div class="flex items-center gap-space-md shrink-0"><a class="hover:text-primary transition-colors" data-path="aviso-legal" href="#">Aviso Legal</a><a class="hover:text-primary transition-colors" data-path="politica-privacidad" href="#">Política de Privacidad</a><a class="hover:text-primary transition-colors" data-path="cookies" href="#">Política de Cookies</a><span>© 2024 Cínica Dental Sant Mar Clínica Integral S.L.P.</span></div></div></div></footer><!-- Sticky Mobile Bar -->
+<div class="fixed bottom-0 inset-x-0 z-50 lg:hidden p-3 bg-white/95 backdrop-blur-lg border-t border-primary-container/20 shadow-lg" style="padding-bottom: max(0.75rem, env(safe-area-inset-bottom, 0px));">
+  <div class="flex items-center justify-between gap-3">
+    <a class="flex-1 inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-surface-container text-on-surface font-semibold text-xs border border-primary-container/30" href="tel:+34 934661088">
+      <span class="material-symbols-outlined text-[16px]">call</span>
+      <span>Llamar</span>
+    </a>
+    <a class="flex-1 inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-primary text-on-primary font-semibold text-xs shadow-md" href="https://api.whatsapp.com/send?phone=34934661088&text=%C2%A1Hola%20equipo%20de%20C%C3%ADnica%20Dental%20Sant%20Mar%21%20Os%20contacto%20desde%20vuestra%20web%20para%20pedir%20informaci%C3%B3n%20o%20cita." target="_blank" rel="noopener">
+      <span class="material-symbols-outlined text-[16px]">chat</span>
+      <span>Cita WhatsApp</span>
+    </a>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- MOBILE NAVIGATION DRAWER (ACCESIBLE & IPHONE SAFE-AREA AWARE) -->
+<!-- ============================================================ -->
+<div id="mobile-drawer" class="fixed inset-0 z-[100] pointer-events-none transition-opacity duration-300" aria-hidden="true">
+  <!-- Backdrop desenfocado -->
+  <div id="mobile-drawer-backdrop" onclick="closeMobileMenu()" class="absolute inset-0 bg-black/65 backdrop-blur-sm opacity-0 transition-opacity duration-300 pointer-events-none"></div>
+
+  <!-- Panel lateral deslizante con padding seguro para Dynamic Island -->
+  <div id="mobile-drawer-panel" class="absolute top-0 right-0 bottom-0 w-[310px] sm:w-[350px] max-w-[86vw] bg-surface border-l border-surface-container-high shadow-2xl flex flex-col justify-between overflow-y-auto translate-x-full transition-transform duration-300 ease-out pointer-events-auto"
+       style="padding-top: max(1.25rem, calc(0.75rem + var(--sat, env(safe-area-inset-top, 0px)))); padding-bottom: max(1.25rem, calc(0.75rem + var(--sab, env(safe-area-inset-bottom, 0px)))); padding-left: 1.25rem; padding-right: 1.25rem;">
+    
+    <div class="space-y-6">
+      <!-- Cabecera del Drawer -->
+      <div class="flex items-center justify-between pb-4 border-b border-outline-variant/30">
+        <div class="flex items-center gap-3 truncate">
+          <img src="data:image/avif;base64,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" alt="Cínica Dental Sant Mar" class="w-10 h-10 rounded-full object-cover border border-primary/30 shrink-0"/>
+          <div class="flex flex-col truncate">
+            <span class="font-bold text-sm text-on-surface truncate">Cínica Dental Sant Mar</span>
+            <span class="text-[11px] text-on-surface-variant truncate">Clinica Dental</span>
+          </div>
+        </div>
+        <button onclick="closeMobileMenu()" class="p-2 rounded-full hover:bg-surface-container-high transition text-on-surface flex items-center justify-center shrink-0" aria-label="Cerrar menú">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <!-- Enlaces de navegación -->
+      <nav class="flex flex-col space-y-1">
+        
+        <a href="#especialidades" onclick="closeMobileMenu()" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl hover:bg-surface-container text-on-surface hover:text-primary transition-colors group">
+          <span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:scale-110">medical_services</span>
+          <span class="font-medium text-sm">Especialidades Médicas</span>
+        </a>
+        <a href="#garantias" onclick="closeMobileMenu()" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl hover:bg-surface-container text-on-surface hover:text-primary transition-colors group">
+          <span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:scale-110">verified_user</span>
+          <span class="font-medium text-sm">Garantías Clínicas</span>
+        </a>
+        <a href="#equipo-medico" onclick="closeMobileMenu()" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl hover:bg-surface-container text-on-surface hover:text-primary transition-colors group">
+          <span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:scale-110">groups</span>
+          <span class="font-medium text-sm">Equipo Colegiado</span>
+        </a>
+        <a href="#opiniones" onclick="closeMobileMenu()" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl hover:bg-surface-container text-on-surface hover:text-primary transition-colors group">
+          <span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:scale-110">reviews</span>
+          <span class="font-medium text-sm">Opiniones de Pacientes</span>
+        </a>
+        <a href="#tecnologia-3d" onclick="closeMobileMenu()" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl hover:bg-surface-container text-on-surface hover:text-primary transition-colors group">
+          <span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:scale-110">biotech</span>
+          <span class="font-medium text-sm">Tecnología & Diagnóstico</span>
+        </a>
+        <a href="#cita-online" onclick="closeMobileMenu()" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl hover:bg-surface-container text-on-surface hover:text-primary transition-colors group">
+          <span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:scale-110">calendar_month</span>
+          <span class="font-medium text-sm">Pedir Cita Online</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Botones de Acción / Contacto al pie del Drawer -->
+    <div class="space-y-3 pt-5 border-t border-outline-variant/30">
+      
+      <a href="https://api.whatsapp.com/send?phone=34934661088&text=%C2%A1Hola%20equipo%20de%20C%C3%ADnica%20Dental%20Sant%20Mar%21%20Os%20contacto%20desde%20vuestra%20web%20para%20pedir%20informaci%C3%B3n%20o%20cita." target="_blank" rel="noopener" class="flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-primary text-on-primary font-bold text-xs uppercase tracking-wider shadow-md transition-all">
+        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+        <span>Escribir por WhatsApp</span>
+      </a>
+      
+
+      
+      <a href="tel:+34 934661088" class="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-surface-container hover:bg-surface-container-high font-semibold text-xs transition-all">
+        <span class="material-symbols-outlined text-[16px]">call</span>
+        <span>Llamar +34 934661088</span>
+      </a>
+      
+
+      <div class="text-[11px] text-center text-on-surface-variant flex items-center justify-center gap-1 pt-1">
+        <span class="material-symbols-outlined text-[14px]">location_on</span>
+        <span class="truncate">Carrer de Dalt dels Banús 56</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function toggleMobileMenu() {
+    const panel = document.getElementById('mobile-drawer-panel');
+    if (!panel) return;
+    if (panel.classList.contains('translate-x-full')) {
+      openMobileMenu();
+    } else {
+      closeMobileMenu();
+    }
+  }
+
+  function openMobileMenu() {
+    const drawer = document.getElementById('mobile-drawer');
+    const backdrop = document.getElementById('mobile-drawer-backdrop');
+    const panel = document.getElementById('mobile-drawer-panel');
+    const btn = document.getElementById('hamburger-btn');
+
+    if (!drawer || !backdrop || !panel) return;
+    drawer.classList.remove('pointer-events-none');
+    drawer.setAttribute('aria-hidden', 'false');
+    backdrop.classList.remove('opacity-0', 'pointer-events-none');
+    backdrop.classList.add('opacity-100');
+    panel.classList.remove('translate-x-full');
+    if (btn) btn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileMenu() {
+    const drawer = document.getElementById('mobile-drawer');
+    const backdrop = document.getElementById('mobile-drawer-backdrop');
+    const panel = document.getElementById('mobile-drawer-panel');
+    const btn = document.getElementById('hamburger-btn');
+
+    if (!drawer || !backdrop || !panel) return;
+    backdrop.classList.remove('opacity-100');
+    backdrop.classList.add('opacity-0', 'pointer-events-none');
+    panel.classList.add('translate-x-full');
+    drawer.classList.add('pointer-events-none');
+    drawer.setAttribute('aria-hidden', 'true');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeMobileMenu();
+  });
+</script>
+
+</body></html>
