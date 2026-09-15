@@ -23,7 +23,7 @@
     } catch(e) {}
   })();
 </script>
-</head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));"><div class="h-20 max-w-[1360px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-sm" href="#"><img alt="Origen &amp; Miga Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XRx2FKu3bChWVbYWfVqMxTLdTiPM0L1ZeaN-DRFrQ9jY448aHvkpkX9rUuRfjYwOq--v_P9urdX-461pjFJsZsP3YwymiHt96_d95Tb8Gh0Fy1oScXGid6bh0JI7WrxWgjVBX76UWwDbPYxQ2rZySRjI44SfIBRXkfCFQLelouZ_ELdngfl_Qz0Iyah43NSza_qIkD_3LY3GdsHVjj8ZlHTRGyWQWnQOBP1t49bW9sjVXH2vT-rtPAyVQ"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-tight truncate max-w-[170px] sm:max-w-xs md:max-w-none">{{ negocio.nombre }}</span><span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Café de Especialidad &amp; Obrador</span></div></a><div class="hidden xl:flex items-center gap-space-xs px-3 py-1 bg-surface-container rounded-full"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="font-label-md text-label-md text-on-surface-variant">Horario hoy: Abierto 08:00 - 20:00</span></div></div><nav class="hidden lg:flex items-center gap-space-md" data-active-classes="bg-primary-container text-on-primary-container font-bold rounded-lg">
+</head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));"><div class="h-20 max-w-[1360px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-sm" href="#">{% if ig.avatar_url or ig.avatar %}<img alt="{{ negocio.nombre }}" class="h-9 w-9 rounded-full object-cover border border-primary/30 shrink-0" src="{{ ig.avatar_url or ig.avatar }}"/>{% else %}<div class="w-9 h-9 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-sm shrink-0">✨</div>{% endif %}<div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-tight truncate max-w-[170px] sm:max-w-xs md:max-w-none">{{ negocio.nombre }}</span><span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">{{ negocio.categoria_clean or 'Artesanal & Autor' }}</span></div></a><div class="hidden xl:flex items-center gap-space-xs px-3 py-1 bg-surface-container rounded-full"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="font-label-md text-label-md text-on-surface-variant">Atención en {{ negocio.ciudad }}</span></div></div><nav class="hidden lg:flex items-center gap-space-md" data-active-classes="bg-primary-container text-on-primary-container font-bold rounded-lg">
       <a class="font-label-lg text-label-lg px-3 py-2 text-on-surface-variant hover:text-primary transition-colors" href="#filosofia">Filosofía</a>
       <a class="font-label-lg text-label-lg px-3 py-2 text-on-surface-variant hover:text-primary transition-colors" href="#carta">Carta Digital</a>
       <a class="font-label-lg text-label-lg px-3 py-2 text-on-surface-variant hover:text-primary transition-colors" href="#comunidad">Comunidad</a>
@@ -330,44 +330,30 @@
 <div class="max-w-[1360px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin">
 <div class="flex flex-col md:flex-row items-start md:items-end justify-between mb-10 gap-4">
 <div>
-<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest block mb-1">Comunidad Chamberí</span>
-<h2 class="font-headline-xl text-headline-xl text-on-surface">Vivido en Origen &amp; Miga</h2>
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest block mb-1">Comunidad // Galería</span>
+<h2 class="font-headline-xl text-headline-xl text-on-surface">Vivido en {{ negocio.nombre }}</h2>
 </div>
-<a class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-surface-container-lowest text-on-surface font-label-md text-label-md hover:text-primary transition-colors shadow-sm" href="https://instagram.com" rel="noopener noreferrer" target="_blank">
+<a class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-surface-container-lowest text-on-surface font-label-md text-label-md hover:text-primary transition-colors shadow-sm" href="{{ negocio.instagram_url }}" rel="noopener noreferrer" target="_blank">
 <span class="material-symbols-outlined text-[18px]">photo_camera</span>
-<span>@origenymiga.madrid • #OrigenYMiga</span>
+<span>@{{ ig.username or (negocio.nombre|lower|replace(' ', '')) }} • Síguenos en Instagram</span>
 </a>
 </div>
-<!-- Masonry Editorial Grid -->
+<!-- Dynamic Instagram Grid -->
 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-<!-- Photo 1 -->
-<div class="relative group rounded-2xl overflow-hidden aspect-square bg-surface-container shadow-sm">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A macro shot of a golden browned sourdough bread loaf freshly sliced in an artisan bakery in Madrid with airy open crumb texture and soft morning sunshine, warm tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmnuIKAUz_ddDlCC2dzCY1NRr3Xmt6wmALIkU_U2TS8CPRws6a9xXKH_bIvzRHt0xhdFfiibRagUdgbC1YmnEp7uNJ3VlEW15giYOwJHlE5iCHMp25iqvpUn7moylurpyezl_Lxxl0fpIFVWQuZUP3f2CSvnZtS4Zq2kJRlJJKNuYHPgNzggKA5ov4JKGy1C1LXwI4mnd2RTCrfVSvKRx8iMlQPyrOyINHuhrZ97wSqRMpIMTe8r4K"/>
-<div class="absolute inset-0 bg-on-background/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-<span class="text-on-primary font-label-md text-label-md">Hogaza 48h recien cortada</span>
-</div>
-</div>
-<!-- Photo 2 -->
-<div class="relative group rounded-2xl overflow-hidden aspect-square bg-surface-container shadow-sm">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A cozy scene at an artisan specialty coffee shop in Chamberi Madrid with customers reading books, eating cinnamon roll, warm timber tables and ceramic cups" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAT-sXlVxrnsTH9JehTzKcKTO3BR0s8Cemu82SSGlIwrvszBWCgt2_M0rAZDVhjKA-nbmjAwGJx6I0df_meIT1MGqBEvNYWXeCTWZJlM0HMXPSrOx4MHmOOgNWLWd9TRq7C8OeNl0ueBFSheMwqlIxDp3M9mn8whWLt_RBDw0eOVtDzXP5VWGgCYMVLp2_xJjJWpcAeN4jEgfvuN2qW_MbyFiQKPTnLgcnoXagBkjsaPBbYYLQqiXd7"/>
-<div class="absolute inset-0 bg-on-background/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-<span class="text-on-primary font-label-md text-label-md">Lecturas de media mañana</span>
-</div>
-</div>
-<!-- Photo 3 -->
-<div class="relative group rounded-2xl overflow-hidden aspect-square bg-surface-container shadow-sm">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A cute golden retriever resting happily on a terracotta floor beside a wooden coffee shop counter in Madrid with a ceramic water bowl nearby, bright natural daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBb7To5tm9kh9jCSLC8JTb5vWAisf_rqpiHglxdpYPLvc1UBlGNzaucp5FYyyy46dLIox8XMVeh94dgBP_VX8k9maXR_DqYk-gQyx6Fk9TIPwVMCCBY6H5Efoh6dJUjSBl0ez-Yh5T3VdFxrXr-8m524Ehkg3sQxCoi6uu0uKawAsxdBaE3EiS8gZjDWaw2OKk-Ny7oYf_kcLcA1t0KcqvdwW8NEf-ADcQHi0FII1QmLJ5uX9YBpkxy"/>
-<div class="absolute inset-0 bg-on-background/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-<span class="text-on-primary font-label-md text-label-md">Perritos bienvenidos</span>
-</div>
-</div>
-<!-- Photo 4 -->
-<div class="relative group rounded-2xl overflow-hidden aspect-square bg-surface-container shadow-sm">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Close up of a barista holding a portafilter filled with freshly ground specialty coffee in a warm rustic cafe with espresso machine steam in the background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIRxGX0jw2nXc-8rwdHBqLtgLrWj4-NeWIRjySTa-mvxjE8cQbr8d6WMtUljNZMOk7_1wbYE5bbllMPVUUAppiqMMuMYqrNfUhzQLYpvfVYm7eNzvgHoCu2mId9Oib7CghTg9_og98j8kuNd8yFxORV78Ctb2bK3S8oU_dnp2OaGvHEUY03ar5aR9UjLRoOq12K7VZngYrRpX1EYe9lRzUipX8_jjwuLKUUCWZddToQ4U5IBN4NoHx"/>
-<div class="absolute inset-0 bg-on-background/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-<span class="text-on-primary font-label-md text-label-md">Calibrando el Geisha</span>
-</div>
-</div>
+  {% if ig.posts %}
+    {% for post in ig.posts[:8] %}
+    <div class="relative group rounded-2xl overflow-hidden aspect-square bg-surface-container shadow-sm border border-outline-variant/20">
+      <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="{{ post.caption[:30] if post.caption else negocio.nombre }}" src="{{ post.image_url }}" loading="lazy" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3 sm:p-4">
+        <span class="text-white font-label-md text-xs line-clamp-2">{{ post.caption or negocio.nombre }}</span>
+      </div>
+    </div>
+    {% endfor %}
+  {% else %}
+    <div class="relative group rounded-2xl overflow-hidden aspect-square bg-surface-container shadow-sm">
+      <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Artisanal Work" src="{{ ig.avatar_url or 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=80' }}" />
+    </div>
+  {% endif %}
 </div>
 </div>
 </section>

@@ -243,12 +243,12 @@
 <span class="material-symbols-outlined text-[16px]">north_east</span>
 </a>
 </div>
-<!-- 4-Item Curated Visual Grid -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
-  {% for post in ig.posts[:4] %}
+<!-- Dynamic Visual Grid from Instagram -->
+<div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-space-sm sm:gap-gutter">
+  {% for post in ig.posts[:8] %}
   <div class="group relative rounded-[20px] overflow-hidden aspect-[4/5] border border-primary-container/25 shadow-sm bg-surface-container">
-    <img alt="{{ post.caption[:40] if post.caption else negocio.nombre }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" src="{{ post.image_url }}" />
-    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+    <img alt="{{ post.caption[:40] if post.caption else negocio.nombre }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" src="{{ post.image_url }}" loading="lazy" />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 sm:p-4">
       <span class="font-label-caps text-[10px] text-primary-fixed uppercase tracking-wider">Instagram Post</span>
       <p class="font-body-sm text-surface-container-lowest font-medium text-xs line-clamp-2">{{ post.caption or negocio.nombre }}</p>
     </div>
