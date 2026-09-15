@@ -4363,10 +4363,18 @@
     "codigo_postal": "",
     "telefono": "",
     "email": "",
-    "tiene_web": false,
+    "tiene_web": true,
     "instagram_url": "https://www.instagram.com/esmeraldaink/",
     "instagram_handle": "@esmeraldaink",
     "enlaces_internet": [
+      {
+        "tipo": "web",
+        "label": "Web Oficial (Instagram)",
+        "icono": "🌐",
+        "url": "http://linktr.ee/esmeraldaalonso",
+        "titulo": "Web Oficial de Esmeralda Ink",
+        "snippet": "Página web oficial detectada en su perfil verificado de Instagram"
+      },
       {
         "tipo": "instagram",
         "label": "Instagram (@esmeraldaink)",
@@ -4416,13 +4424,13 @@
         "snippet": "Esmeralda Ink Tattoo Studio. Carrer de Margarit 9 08004 Barcelona. Mostrar teléfono. STA8Lbh5MCkhyknZbqJVYQC5AivvXLcn. E"
       }
     ],
-    "web_detectada": "",
+    "web_detectada": "http://linktr.ee/esmeraldaalonso",
     "google_search_url": "https://www.google.com/search?q=Esmeralda+Ink+Barcelona",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Esmeralda+Ink+Barcelona",
     "gemini_verificado": true,
     "gemini_razon": "Validación automática heurística",
-    "mensaje_dm": "¡Hola equipo de Esmeralda Ink! Me encantan vuestros trabajos en Instagram. Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de Barcelona para ayudarles a conseguir más clientes desde Google. Os he preparado una maqueta interactiva de cómo luciría vuestra web: https://dga80.github.io/instaleads/esmeralda-ink-barcelona/ (El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Esmeralda Ink! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio: https://dga80.github.io/instaleads/esmeralda-ink-barcelona/ Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!",
+    "mensaje_dm": "¡Hola equipo de Esmeralda Ink! Hemos estado viendo vuestra web (http://linktr.ee/esmeraldaalonso) y nos encanta vuestro trabajo en Barcelona. Somos un estudio local de diseño y os hemos preparado una propuesta interactiva de rediseño y modernización mobile-first: https://dga80.github.io/instaleads/esmeralda-ink-barcelona/. Es un enlace 100% seguro sin descargas para abrirlo en el navegador. ¿Qué os parece?",
+    "mensaje_seguimiento": "¡Hola de nuevo! Os escribí hace un par de días con una propuesta de rediseño web interactivo para vuestro estudio: https://dga80.github.io/instaleads/esmeralda-ink-barcelona/. Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el móvil. ¡Un saludo cordial!",
     "estado": "Web Generada",
     "demo_slug": "esmeralda-ink-barcelona",
     "demo_url": "https://dga80.github.io/instaleads/esmeralda-ink-barcelona/",
@@ -4435,8 +4443,8 @@
     ],
     "demo_url_absoluta": "https://dga80.github.io/instaleads/esmeralda-ink-barcelona/",
     "demo_url_publica": "https://dga80.github.io/instaleads/esmeralda-ink-barcelona/",
-    "demo_fecha_creacion": "15/09/2026 17:04",
-    "demo_fecha_ts": 1789484671,
+    "demo_fecha_creacion": "15/09/2026 17:36",
+    "demo_fecha_ts": 1789486606,
     "extraccion_fuente": "apify",
     "extraccion_aviso": "",
     "extraccion_exitosa": true

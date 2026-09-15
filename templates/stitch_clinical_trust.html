@@ -24,14 +24,13 @@
     } catch(e) {}
   })();
 </script>
-</head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 w-full z-50 bg-surface/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));"><div class="w-full bg-surface-container-low"><div class="max-w-[1280px] mx-auto px-gutter h-10 flex items-center justify-between font-label-md text-label-md"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs text-on-surface"><span class="material-symbols-outlined text-primary text-[16px]">call</span><span class="font-semibold">Urgencias 24h:</span><a class="text-primary hover:underline" href="tel:+34910234567">+34 910 234 567</a></div><div class="hidden md:flex items-center gap-space-xs text-on-surface-variant"><span class="material-symbols-outlined text-[16px]">location_on</span><span>Av. de la Salud 42, Centro Médico</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs"><span class="inline-block w-2 h-2 rounded-full bg-tertiary-container animate-pulse"></span><span class="text-on-surface font-medium">Abierto hoy hasta las 20:30</span></div></div></div></div><div class="max-w-[1280px] mx-auto px-gutter h-20 flex items-center justify-between"><div class="flex items-center gap-space-md">{% if ig.avatar_url or ig.avatar %}<img alt="{{ negocio.nombre }}" class="h-9 w-9 rounded-full object-cover border border-primary/30 shrink-0" src="{{ ig.avatar_url or ig.avatar }}"/>{% else %}<div class="w-9 h-9 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold text-sm shrink-0">🏥</div>{% endif %}<span class="font-title-lg text-title-lg text-on-surface font-bold tracking-tight truncate max-w-[170px] sm:max-w-xs md:max-w-none">{{ negocio.nombre }}</span></div><nav class="hidden lg:flex items-center gap-space-xs" data-active-classes="bg-surface-container text-primary font-title-md">
-      <a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-md text-title-md transition-colors" href="#especialidades">Especialidades</a>
+</head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 w-full z-50 bg-surface/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));"><div class="w-full bg-surface-container-low"><div class="max-w-[1280px] mx-auto px-gutter h-10 flex items-center justify-between font-label-md text-label-md"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs text-on-surface"><span class="material-symbols-outlined text-primary text-[16px]">call</span><span class="font-semibold">Atención &amp; Citas:</span>{% if negocio.telefono %}<a class="text-primary hover:underline" href="tel:{{ negocio.telefono }}">{{ negocio.telefono }}</a>{% else %}<a class="text-primary hover:underline" href="{{ negocio.whatsapp_url }}" target="_blank">WhatsApp Directo</a>{% endif %}</div><div class="hidden md:flex items-center gap-space-xs text-on-surface-variant"><span class="material-symbols-outlined text-[16px]">location_on</span><a href="https://www.google.com/maps/search/?api=1&query={{ (negocio.nombre ~ ' ' ~ (negocio.direccion or negocio.ciudad))|urlencode }}" target="_blank" rel="noopener" class="hover:underline">{{ negocio.direccion or negocio.ciudad }}</a></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs"><span class="inline-block w-2 h-2 rounded-full bg-tertiary-container animate-pulse"></span><span class="text-on-surface font-medium">Atención en {{ negocio.ciudad }}</span></div></div></div></div><div class="max-w-[1280px] mx-auto px-gutter h-20 flex items-center justify-between"><div class="flex items-center gap-space-md">{% if ig.avatar_url or ig.avatar %}<img alt="{{ negocio.nombre }}" class="h-9 w-9 rounded-full object-cover border border-primary/30 shrink-0" src="{{ ig.avatar_url or ig.avatar }}"/>{% else %}<div class="w-9 h-9 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold text-sm shrink-0">🏥</div>{% endif %}<span class="font-title-lg text-title-lg text-on-surface font-bold tracking-tight truncate max-w-[170px] sm:max-w-xs md:max-w-none">{{ negocio.nombre }}</span></div><nav class="hidden lg:flex items-center gap-space-xs" data-active-classes="bg-surface-container text-primary font-title-md">
       <a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-md text-title-md transition-colors" href="#garantias">Garantías</a>
+      <a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-md text-title-md transition-colors" href="#servicios-clinicos">Especialidades</a>
       <a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-md text-title-md transition-colors" href="#equipo-medico">Equipo Médico</a>
       <a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-md text-title-md transition-colors" href="#opiniones">Opiniones</a>
-      <a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-md text-title-md transition-colors" href="#tecnologia-3d">Tecnología 3D</a>
       <a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-md text-title-md transition-colors" href="#cita-online">Pedir Cita</a>
-    </nav><div class="flex items-center gap-space-md"><a class="inline-flex items-center gap-space-xs bg-primary-container text-on-primary hover:bg-primary px-space-lg py-space-sm rounded-xl font-label-lg text-label-lg shadow-[0_4px_14px_rgba(14,165,233,0.35)] transition-all" data-path="pedir-cita" href="#"><span class="material-symbols-outlined text-[18px]">calendar_month</span><span>Pedir Cita Online</span></a><div class="hidden sm:flex w-8 h-8 rounded-full bg-primary items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div>
+    </nav><div class="flex items-center gap-space-md"><a class="inline-flex items-center gap-space-xs bg-primary-container text-on-primary hover:bg-primary px-space-lg py-space-sm rounded-xl font-label-lg text-label-lg shadow-[0_4px_14px_rgba(14,165,233,0.35)] transition-all" data-path="pedir-cita" href="#cita-online"><span class="material-symbols-outlined text-[18px]">calendar_month</span><span>Pedir Cita Online</span></a><div class="hidden sm:flex w-8 h-8 rounded-full bg-primary items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div>
       <!-- Mobile Hamburger Button (On the RIGHT) -->
       <button id="hamburger-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-xl text-primary hover:bg-surface-container transition flex items-center justify-center border border-outline/20 ml-1" aria-label="Abrir Menú" aria-expanded="false">
         <span class="material-symbols-outlined text-[24px]">menu</span>
@@ -729,60 +728,59 @@
 </div>
 <!-- Right Booking Panel (7 Cols) -->
 <div class="lg:col-span-7 bg-surface-container-lowest text-on-surface rounded-2xl p-space-xl shadow-lg">
-<form class="flex flex-col gap-space-md" id="booking-form" onsubmit="event.preventDefault(); document.getElementById('booking-confirmation').classList.remove('hidden');">
+<form class="flex flex-col gap-space-md" id="booking-form" onsubmit="enviarFormularioCita(event, this)">
 <!-- Select Specialty & Doctor -->
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
 <div class="flex flex-col gap-space-xs">
 <label class="font-label-md text-label-md text-on-surface-variant font-semibold">Tratamiento o Especialidad</label>
-<select class="h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary">
-<option>1ª Consulta de Valoración General</option>
-<option>Implantología Guiada 3D</option>
-<option>Ortodoncia Invisible (Invisalign)</option>
-<option>Estética Dental &amp; Carillas</option>
-<option>ATM / Fisioterapia Orofacial</option>
-<option>Urgencia Odontológica Inmediata</option>
+<select name="servicio" class="h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary">
+<option value="1ª Consulta de Valoración General">1ª Consulta de Valoración General</option>
+{% for s in web.servicios %}
+<option value="{{ s.nombre }}">{{ s.nombre }}</option>
+{% endfor %}
 </select>
 </div>
 <div class="flex flex-col gap-space-xs">
 <label class="font-label-md text-label-md text-on-surface-variant font-semibold">Fecha Preferente</label>
-<input class="h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary" type="date" value="2024-11-20"/>
+<input name="fecha" class="h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary" type="date"/>
 </div>
 </div>
 <!-- Time Slot Interactive Selection -->
 <div class="flex flex-col gap-space-xs">
 <label class="font-label-md text-label-md text-on-surface-variant font-semibold">Horarios Disponibles para Hoy / Mañana</label>
+<input type="hidden" name="horario" id="selected-slot" value="09:30 h" />
 <div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs" id="slot-container">
-<button class="slot-btn py-space-xs px-space-sm rounded-lg bg-surface-container text-primary font-label-md text-label-md text-center hover:bg-primary-container hover:text-on-primary transition-colors" onclick="selectSlot(this)" type="button">09:30 h</button>
-<button class="slot-btn py-space-xs px-space-sm rounded-lg bg-surface-container text-primary font-label-md text-label-md text-center hover:bg-primary-container hover:text-on-primary transition-colors" onclick="selectSlot(this)" type="button">11:15 h</button>
-<button class="slot-btn py-space-xs px-space-sm rounded-lg bg-surface-container text-primary font-label-md text-label-md text-center hover:bg-primary-container hover:text-on-primary transition-colors" onclick="selectSlot(this)" type="button">16:00 h</button>
-<button class="slot-btn py-space-xs px-space-sm rounded-lg bg-surface-container text-primary font-label-md text-label-md text-center hover:bg-primary-container hover:text-on-primary transition-colors" onclick="selectSlot(this)" type="button">18:45 h</button>
+<button class="slot-btn py-space-xs px-space-sm rounded-lg bg-primary text-on-primary font-label-md text-label-md text-center transition-colors" onclick="selectSlot(this, '09:30 h')" type="button">09:30 h</button>
+<button class="slot-btn py-space-xs px-space-sm rounded-lg bg-surface-container text-primary font-label-md text-label-md text-center hover:bg-primary-container hover:text-on-primary transition-colors" onclick="selectSlot(this, '11:15 h')" type="button">11:15 h</button>
+<button class="slot-btn py-space-xs px-space-sm rounded-lg bg-surface-container text-primary font-label-md text-label-md text-center hover:bg-primary-container hover:text-on-primary transition-colors" onclick="selectSlot(this, '16:00 h')" type="button">16:00 h</button>
+<button class="slot-btn py-space-xs px-space-sm rounded-lg bg-surface-container text-primary font-label-md text-label-md text-center hover:bg-primary-container hover:text-on-primary transition-colors" onclick="selectSlot(this, '18:45 h')" type="button">18:45 h</button>
 </div>
 </div>
 <!-- Contact Inputs -->
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
 <div class="flex flex-col gap-space-xs">
 <label class="font-label-md text-label-md text-on-surface-variant font-semibold">Nombre y Apellidos</label>
-<input class="h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Ej. Ana Martínez Ruiz" required="" type="text"/>
+<input name="nombre" class="h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Tu nombre completo..." required="" type="text"/>
 </div>
 <div class="flex flex-col gap-space-xs">
-<label class="font-label-md text-label-md text-on-surface-variant font-semibold">Teléfono Móvil (SMS de confirmación)</label>
-<input class="h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary" placeholder="+34 600 000 000" required="" type="tel"/>
+<label class="font-label-md text-label-md text-on-surface-variant font-semibold">Teléfono Móvil (WhatsApp)</label>
+<input name="telefono" class="h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary" placeholder="{{ negocio.telefono or '+34 600 000 000' }}" required="" type="tel"/>
 </div>
 </div>
 <!-- Submit Action Button -->
 <div class="pt-space-xs flex flex-col gap-space-xs">
-<button class="w-full h-12 bg-primary text-on-primary hover:bg-secondary rounded-xl font-title-md text-title-md font-semibold flex items-center justify-center gap-space-xs shadow-md transition-all" type="submit">
+<button class="w-full h-12 bg-primary text-on-primary hover:bg-secondary rounded-xl font-title-md text-title-md font-semibold flex items-center justify-center gap-space-xs shadow-md transition-all cursor-pointer" type="submit">
 <span class="material-symbols-outlined text-[20px]">send</span>
-<span>Confirmar Cita Informativa sin Coste</span>
+<span>Confirmar Cita Informativa por WhatsApp</span>
 </button>
 <span class="font-caption text-caption text-on-surface-variant text-center">Protección de datos garantizada según el Reglamento Sanitario RGPD.</span>
 </div>
 <!-- Instant Feedback Confirmation Message -->
-<div class="hidden p-space-md bg-surface-container-high rounded-xl flex items-center gap-space-sm text-primary" id="booking-confirmation">
-<span class="material-symbols-outlined text-tertiary text-[24px]">task_alt</span>
+<div class="hidden p-space-md bg-emerald-900/30 border border-emerald-500/40 rounded-xl flex items-center gap-space-sm text-emerald-700" id="booking-confirmation">
+<span class="material-symbols-outlined text-emerald-600 text-[24px]">task_alt</span>
 <div>
-<h4 class="font-title-md text-title-md font-bold text-on-surface">¡Solicitud recibida correctamente!</h4>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Nuestro coordinador clínico te llamará en los próximos 15 minutos para confirmar la hora.</p>
+<h4 class="font-title-md text-title-md font-bold text-on-surface">¡Solicitud preparada correctamente!</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Conectando con el canal de WhatsApp para confirmar tu cita...</p>
 </div>
 </div>
 </form>
@@ -793,15 +791,42 @@
 </section>
 </div>
 <script>
-  function selectSlot(el) {
+  function selectSlot(el, slotTime) {
     document.querySelectorAll('.slot-btn').forEach(function(btn) {
       btn.classList.remove('bg-primary', 'text-on-primary');
       btn.classList.add('bg-surface-container', 'text-primary');
     });
     el.classList.remove('bg-surface-container', 'text-primary');
     el.classList.add('bg-primary', 'text-on-primary');
+    const hiddenInput = document.getElementById('selected-slot');
+    if (hiddenInput) hiddenInput.value = slotTime;
   }
-</script></main><footer class="w-full bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="w-full bg-surface-container-low py-space-md"><div class="max-w-[1280px] mx-auto px-gutter flex flex-wrap items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-tertiary-container text-[20px]">verified</span><span class="font-label-md text-label-md text-on-surface">Acreditación JCI Gold Quality</span></div><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[20px]">shield</span><span class="font-label-md text-label-md text-on-surface">Certificación Sanitaria ISO 9001:2015</span></div><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[20px]">medical_services</span><span class="font-label-md text-label-md text-on-surface">Registro Sanitario Autonómico</span></div></div><div class="font-label-md text-label-md text-on-surface-variant"><span class="font-semibold text-on-surface">Nº de Autorización Sanitaria:</span> Reg. Sanitario: CS-10492/24</div></div></div><div class="max-w-[1280px] mx-auto px-gutter py-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-xl"><div class="flex flex-col gap-space-md"><div class="flex items-center gap-space-xs"><img alt="{{ negocio.nombre }} Clinic Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Xrwu5vrnVU7UEfTkCrS5ySq5RLFUqf448BaLQOWKvW3enqrxeIkXtNQpi1edx-G2zkqx4l36KUS3cAm47mc8fRMCFJk8QOfPB1Q6iGv9e3TTZ12ZZ4KVkFN-3cKK-UP6pELdAFvK5uIW2N0RV0Xo_TsY3O6uUpmtb6tA_p04kcXi8L6ra5v9COJCPV8MI3H9odBmDZv2voYj6econKq_uhKkZ_ahbzNMOQwaGDqvvHaYxGSKt-a873Ne8"/><span class="font-title-lg text-title-lg text-on-surface font-bold">{{ negocio.nombre }}</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Centro hospitalario y odontológico de alta especialización. Atención personalizada respaldada por el Ilustre Colegio Oficial de Médicos y Odontólogos.</p><div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-surface-container text-on-surface-variant font-caption text-caption"><span class="material-symbols-outlined text-tertiary-container text-[14px]">check_circle</span><span>Centro Médico y Odontológico Colegiado Nº 2800491</span></div></div><div class="flex flex-col gap-space-sm"><span class="font-title-md text-title-md text-on-surface">Urgencias y Citas</span><div class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><span class="text-primary font-semibold">Centralita 24 Horas</span><a class="text-on-surface font-title-md text-title-md hover:text-primary transition-colors" href="tel:+34910234567">+34 910 234 567</a><span>Atención ininterrumpida de urgencias odontológicas y médicas de traumatología leve.</span><span class="font-semibold text-on-surface mt-space-xs">Horario de Consultas Generales:</span><span>Lunes a Viernes: 08:00 - 20:30 h</span><span>Sábados: 09:00 - 14:00 h</span></div></div><div class="flex flex-col gap-space-sm"><span class="font-title-md text-title-md text-on-surface">Ubicación y Acceso</span><div class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><span>Av. de la Salud 42, Centro Médico</span><span>28040 Madrid, España</span><div class="w-full h-24 rounded-xl bg-surface-container-high flex flex-col items-center justify-center gap-space-xs text-on-surface-variant"><span class="material-symbols-outlined text-primary text-[24px]">map</span><span class="font-label-md text-label-md">Parking concertado disponible (2h gratis)</span></div></div></div><div class="flex flex-col gap-space-sm"><span class="font-title-md text-title-md text-on-surface">Garantía y Pacientes</span><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-primary transition-colors" data-path="derechos-paciente" href="#">Carta de Derechos y Deberes del Paciente</a></li><li><a class="hover:text-primary transition-colors" data-path="consentimientos" href="#">Consentimientos Informados Digitales</a></li><li><a class="hover:text-primary transition-colors" data-path="sociedades-medicas" href="#">Sociedades Médicas Concertadas</a></li><li><a class="hover:text-primary transition-colors" data-path="atencion-usuario" href="#">Servicio de Atención al Usuario (SAU)</a></li><li><a class="hover:text-primary transition-colors" data-path="rgpd" href="#">Protección de Datos Sanitarios (RGPD)</a></li></ul></div></div><div class="mt-space-xl pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md font-caption text-caption text-on-surface-variant"><p>Aviso Médico Legal: La información médica proporcionada en este portal tiene carácter puramente orientativo y no reemplaza la consulta clínica presencial o el criterio de un facultativo colegiado.</p><div class="flex items-center gap-space-md shrink-0"><a class="hover:text-primary transition-colors" data-path="aviso-legal" href="#">Aviso Legal</a><a class="hover:text-primary transition-colors" data-path="politica-privacidad" href="#">Política de Privacidad</a><a class="hover:text-primary transition-colors" data-path="cookies" href="#">Política de Cookies</a><span>© 2024 {{ negocio.nombre }} Clínica Integral S.L.P.</span></div></div></div></footer><!-- Sticky Mobile Bar -->
+
+  function enviarFormularioCita(event, form) {
+    event.preventDefault();
+    const nombre = form.querySelector('[name="nombre"]')?.value || '';
+    const tel = form.querySelector('[name="telefono"]')?.value || '';
+    const serv = form.querySelector('[name="servicio"]')?.value || 'Valoración General';
+    const fecha = form.querySelector('[name="fecha"]')?.value || 'Lo antes posible';
+    const hora = document.getElementById('selected-slot')?.value || 'A convenir';
+
+    const msg = encodeURIComponent(`¡Hola equipo de {{ negocio.nombre }}! Mi nombre es ${nombre} (tel: ${tel}). Quisiera solicitar cita para: *${serv}*. Fecha deseada: ${fecha} en franja ${hora}.`);
+    const waBase = '{{ negocio.whatsapp_url or ("https://wa.me/" ~ negocio.telefono) }}';
+
+    let targetUrl = waBase;
+    if (waBase.includes('wa.me') || waBase.includes('whatsapp.com')) {
+      const sep = waBase.includes('?') ? '&' : '?';
+      targetUrl = waBase + sep + 'text=' + msg;
+    }
+
+    const conf = document.getElementById('booking-confirmation');
+    if (conf) conf.classList.remove('hidden');
+
+    setTimeout(() => {
+      window.open(targetUrl, '_blank');
+    }, 400);
+  }
+</script></main><footer class="w-full bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="w-full bg-surface-container-low py-space-md"><div class="max-w-[1280px] mx-auto px-gutter flex flex-wrap items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-tertiary-container text-[20px]">verified</span><span class="font-label-md text-label-md text-on-surface">Atención Certificada</span></div><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[20px]">shield</span><span class="font-label-md text-label-md text-on-surface">Garantía en Tratamientos</span></div><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[20px]">medical_services</span><span class="font-label-md text-label-md text-on-surface">Equipo Colegiado</span></div></div><div class="font-label-md text-label-md text-on-surface-variant"><span class="font-semibold text-on-surface">Centro:</span> {{ negocio.nombre }} ({{ negocio.ciudad }})</div></div></div><div class="max-w-[1280px] mx-auto px-gutter py-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-xl"><div class="flex flex-col gap-space-md"><div class="flex items-center gap-space-xs">{% if ig.avatar_url or ig.avatar %}<img alt="{{ negocio.nombre }}" class="h-8 w-8 rounded-full object-cover border border-primary/30" src="{{ ig.avatar_url or ig.avatar }}"/>{% else %}<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold text-xs">🏥</div>{% endif %}<span class="font-title-lg text-title-lg text-on-surface font-bold">{{ negocio.nombre }}</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">{{ web.subtitulo or ('Centro especializado de referencia en ' ~ negocio.ciudad ~ '. Atención personalizada, empatía y tecnología de vanguardia.') }}</p><div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-surface-container text-on-surface-variant font-caption text-caption"><span class="material-symbols-outlined text-tertiary-container text-[14px]">check_circle</span><span>Centro Sanitario Verificado en {{ negocio.ciudad }}</span></div></div><div class="flex flex-col gap-space-sm"><span class="font-title-md text-title-md text-on-surface">Atención y Citas</span><div class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><span class="text-primary font-semibold">Contacto Directo</span>{% if negocio.telefono %}<a class="text-on-surface font-title-md text-title-md hover:text-primary transition-colors" href="tel:{{ negocio.telefono }}">{{ negocio.telefono }}</a>{% else %}<a class="text-on-surface font-title-md text-title-md hover:text-primary transition-colors" href="{{ negocio.whatsapp_url }}" target="_blank">WhatsApp Directo</a>{% endif %}<span>Atención y resolución de dudas personalizadas sin esperas.</span><span class="font-semibold text-on-surface mt-space-xs">Horario de Consultas:</span><span>Lunes a Viernes: 09:00 - 20:00 h</span><span>Sábados: Con Cita Previa</span></div></div><div class="flex flex-col gap-space-sm"><span class="font-title-md text-title-md text-on-surface">Ubicación y Acceso</span><div class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><span>{{ negocio.direccion or negocio.ciudad }}</span><a href="https://www.google.com/maps/search/?api=1&query={{ (negocio.nombre ~ ' ' ~ (negocio.direccion or negocio.ciudad))|urlencode }}" target="_blank" rel="noopener" class="w-full py-2.5 px-3 rounded-xl bg-surface-container hover:bg-surface-container-high flex items-center justify-center gap-space-xs text-primary transition font-semibold text-xs mt-1"><span class="material-symbols-outlined text-[18px]">map</span><span>Ver cómo llegar en Google Maps</span></a></div></div><div class="flex flex-col gap-space-sm"><span class="font-title-md text-title-md text-on-surface">Enlaces Rápidos</span><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-primary transition-colors" href="#cita-online">Pedir Cita Online</a></li><li><a class="hover:text-primary transition-colors" href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank">WhatsApp de Atención</a></li><li><a class="hover:text-primary transition-colors" href="{{ negocio.instagram_url or ('https://instagram.com/' ~ ig.username) }}" target="_blank">Instagram Oficial</a></li><li><a class="hover:text-primary transition-colors" href="#garantias">Garantías del Paciente</a></li></ul></div></div><div class="mt-space-xl pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md font-caption text-caption text-on-surface-variant"><p>Aviso Médico Legal: La información médica proporcionada en este portal tiene carácter puramente orientativo y no reemplaza la consulta clínica presencial.</p><div class="flex items-center gap-space-md shrink-0"><a class="hover:text-primary transition-colors" href="#inicio">Inicio</a><a class="hover:text-primary transition-colors" href="#servicios-clinicos">Especialidades</a><span>© 2026 {{ negocio.nombre }}. Todos los derechos reservados.</span></div></div></div></footer><!-- Sticky Mobile Bar -->
 <div class="fixed bottom-0 inset-x-0 z-50 lg:hidden p-3 bg-white/95 backdrop-blur-lg border-t border-primary-container/20 shadow-lg" style="padding-bottom: max(0.75rem, env(safe-area-inset-bottom, 0px));">
   <div class="flex items-center justify-between gap-3">
     <a class="flex-1 inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-surface-container text-on-surface font-semibold text-xs border border-primary-container/30" href="tel:{{ negocio.telefono }}">

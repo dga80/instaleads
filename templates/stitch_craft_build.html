@@ -24,14 +24,12 @@
     } catch(e) {}
   })();
 </script>
-</head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));"><div class="bg-inverse-surface text-inverse-on-surface text-label-technical font-label-technical"><div class="max-w-7xl mx-auto px-gutter flex flex-col md:flex-row items-center justify-between py-space-xs gap-space-xs"><div class="flex items-center gap-space-sm overflow-hidden text-ellipsis whitespace-nowrap"><span class="material-symbols-outlined text-[14px] text-tertiary-fixed">verified_user</span><span>CIF B-88492011 • Inscrita en Registro Mercantil • Seguro RC Allianz 600.000€</span></div><div class="flex items-center gap-space-md"><span class="hidden lg:inline text-inverse-on-surface/80">Atención inmediata 24/7 en Madrid y alrededores</span><a class="flex items-center gap-space-xs font-bold text-primary-fixed-dim hover:text-on-primary transition-colors" href="tel:900839214"><span class="material-symbols-outlined text-[16px]">call</span><span>900 839 214</span></a></div></div></div><div class="h-20 max-w-7xl mx-auto px-gutter flex items-center justify-between gap-space-md"><a class="flex items-center gap-space-sm" data-path="landing-principal" href="#">{% if ig.avatar_url or ig.avatar %}<img alt="{{ negocio.nombre }}" class="h-10 w-10 rounded-lg object-cover border border-primary/30 shrink-0" src="{{ ig.avatar_url or ig.avatar }}"/>{% else %}<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[24px]">apartment</span></div>{% endif %}<div class="flex flex-col"><span class="font-headline-sm text-headline-sm uppercase tracking-tight text-on-surface leading-tight"><span class="truncate max-w-[170px] sm:max-w-xs md:max-w-none">{{ negocio.nombre|upper }}</span></span><span class="font-label-technical text-label-technical text-on-surface-variant uppercase tracking-wider">{{ negocio.categoria_clean or 'Construcción & Arquitectura' }}</span></div></a><nav class="hidden xl:flex items-center gap-space-lg" data-active-classes="bg-surface-container text-primary font-bold rounded-lg">
-      <a class="transition-colors py-space-xs px-space-sm rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-primary" href="#inicio">Inicio</a>
-      <a class="transition-colors py-space-xs px-space-sm rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-primary" href="#servicios">Servicios</a>
-      <a class="transition-colors py-space-xs px-space-sm rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-primary" href="#antes-y-despues">Antes y Después</a>
-      <a class="transition-colors py-space-xs px-space-sm rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-primary" href="#garantias">Garantías</a>
-      <a class="transition-colors py-space-xs px-space-sm rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-primary" href="#opiniones">Opiniones</a>
-      <a class="transition-colors py-space-xs px-space-sm rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-primary" href="#solicitar-presupuesto">Presupuesto</a>
-    </nav><div class="flex items-center gap-space-md"><a class="hidden sm:inline-flex items-center justify-center px-space-lg py-space-sm rounded-full bg-primary hover:bg-primary-container text-on-primary transition-all font-label-lg text-label-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)] hover:shadow-lg" data-path="calculador" href="#">Pedir Presupuesto (Gratis)</a><div class="hidden sm:flex w-8 h-8 rounded-full bg-primary items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div>
+</head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));"><div class="bg-inverse-surface text-inverse-on-surface text-label-technical font-label-technical"><div class="max-w-7xl mx-auto px-gutter flex flex-col md:flex-row items-center justify-between py-space-xs gap-space-xs"><div class="flex items-center gap-space-sm overflow-hidden text-ellipsis whitespace-nowrap"><span class="material-symbols-outlined text-[14px] text-tertiary-fixed">verified_user</span><span>Empresa Acreditada • Máxima Garantía en {{ negocio.ciudad }}</span></div><div class="flex items-center gap-space-md"><span class="hidden lg:inline text-inverse-on-surface/80">Atención personalizada en {{ negocio.ciudad }} y alrededores</span>{% if negocio.telefono %}<a class="flex items-center gap-space-xs font-bold text-primary-fixed-dim hover:text-on-primary transition-colors" href="tel:{{ negocio.telefono }}"><span class="material-symbols-outlined text-[16px]">call</span><span>{{ negocio.telefono }}</span></a>{% else %}<a class="flex items-center gap-space-xs font-bold text-primary-fixed-dim hover:text-on-primary transition-colors" href="{{ negocio.whatsapp_url }}" target="_blank"><span class="material-symbols-outlined text-[16px]">chat</span><span>WhatsApp</span></a>{% endif %}</div></div></div><div class="h-20 max-w-7xl mx-auto px-gutter flex items-center justify-between gap-space-md"><a class="flex items-center gap-space-sm" data-path="landing-principal" href="#inicio">{% if ig.avatar_url or ig.avatar %}<img alt="{{ negocio.nombre }}" class="h-10 w-10 rounded-lg object-cover border border-primary/30 shrink-0" src="{{ ig.avatar_url or ig.avatar }}"/>{% else %}<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[24px]">apartment</span></div>{% endif %}<div class="flex flex-col"><span class="font-headline-sm text-headline-sm uppercase tracking-tight text-on-surface leading-tight"><span class="truncate max-w-[170px] sm:max-w-xs md:max-w-none">{{ negocio.nombre|upper }}</span></span><span class="font-label-technical text-label-technical text-on-surface-variant uppercase tracking-wider">{{ negocio.categoria_clean or 'Servicios Profesionales' }}</span></div></a><nav class="hidden xl:flex items-center gap-space-lg" data-active-classes="bg-surface-container text-primary font-bold rounded-lg">
+      <a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-md transition-colors" href="#garantias">Garantías</a>
+      <a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-md transition-colors" href="#servicios-tecnicos">Servicios</a>
+      <a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-md transition-colors" href="#opiniones">Opiniones</a>
+      <a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-md transition-colors" href="#solicitar-presupuesto">Presupuesto</a>
+    </nav><div class="flex items-center gap-space-md"><a class="hidden sm:inline-flex items-center justify-center px-space-lg py-space-sm rounded-full bg-primary hover:bg-primary-container text-on-primary transition-all font-label-lg text-label-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)] hover:shadow-lg" data-path="calculador" href="#solicitar-presupuesto">Pedir Presupuesto (Gratis)</a><div class="hidden sm:flex w-8 h-8 rounded-full bg-primary items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div>
       <!-- Mobile Hamburger Button (On the RIGHT) -->
       <button id="hamburger-btn" onclick="toggleMobileMenu()" class="xl:hidden p-2 rounded-lg text-on-surface hover:bg-surface-container transition flex items-center justify-center border border-outline/20 ml-1" aria-label="Abrir Menú" aria-expanded="false">
         <span class="material-symbols-outlined text-[24px]">menu</span>
@@ -487,36 +485,36 @@
 </div>
 <!-- Right Column: Interactive Form -->
 <div class="lg:col-span-7 bg-surface-container-low p-space-md sm:p-space-lg rounded-xl">
-<form class="space-y-space-md" id="quoteForm" onsubmit="event.preventDefault(); document.getElementById('formSuccessMessage').classList.remove('hidden'); this.classList.add('hidden');">
+<form class="space-y-space-md" id="quoteForm" onsubmit="enviarFormularioPresupuesto(event, this)">
 <!-- Form Header -->
 <div class="flex items-center justify-between pb-space-xs">
-<span class="font-label-lg text-label-lg font-bold text-on-surface">Datos de la Vivienda</span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Datos de la Vivienda o Proyecto</span>
 <span class="font-label-technical text-label-technical text-tertiary">Paso 1 de 1</span>
 </div>
 <!-- Field: Tipo de Reforma -->
 <div class="space-y-1">
-<label class="block font-label-md text-label-md text-on-surface">Tipo de Reforma / Intervención</label>
+<label class="block font-label-md text-label-md text-on-surface">Tipo de Intervención</label>
 <div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs">
 <label class="cursor-pointer">
-<input checked="" class="peer sr-only" name="scope" type="radio" value="integral"/>
+<input checked="" class="peer sr-only" name="scope" type="radio" value="Reforma Integral"/>
 <div class="p-space-xs text-center rounded bg-surface-container-lowest text-on-surface peer-checked:bg-primary-fixed peer-checked:text-on-primary-fixed peer-checked:font-bold font-label-technical text-label-technical transition-all">
                     Integral
                   </div>
 </label>
 <label class="cursor-pointer">
-<input class="peer sr-only" name="scope" type="radio" value="cocina"/>
+<input class="peer sr-only" name="scope" type="radio" value="Cocina / Baño"/>
 <div class="p-space-xs text-center rounded bg-surface-container-lowest text-on-surface peer-checked:bg-primary-fixed peer-checked:text-on-primary-fixed peer-checked:font-bold font-label-technical text-label-technical transition-all">
-                    Cocina
+                    Cocina/Baño
                   </div>
 </label>
 <label class="cursor-pointer">
-<input class="peer sr-only" name="scope" type="radio" value="bano"/>
+<input class="peer sr-only" name="scope" type="radio" value="Estructura / Fachada"/>
 <div class="p-space-xs text-center rounded bg-surface-container-lowest text-on-surface peer-checked:bg-primary-fixed peer-checked:text-on-primary-fixed peer-checked:font-bold font-label-technical text-label-technical transition-all">
-                    Baño(s)
+                    Estructura
                   </div>
 </label>
 <label class="cursor-pointer">
-<input class="peer sr-only" name="scope" type="radio" value="otro"/>
+<input class="peer sr-only" name="scope" type="radio" value="Local / Oficina"/>
 <div class="p-space-xs text-center rounded bg-surface-container-lowest text-on-surface peer-checked:bg-primary-fixed peer-checked:text-on-primary-fixed peer-checked:font-bold font-label-technical text-label-technical transition-all">
                     Local/Oficina
                   </div>
@@ -527,37 +525,37 @@
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
 <div class="space-y-1">
 <label class="block font-label-md text-label-md text-on-surface" for="contactName">Nombre y Apellidos</label>
-<input class="w-full h-11 px-space-md rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" id="contactName" placeholder="Ej. Ana Martínez" required="" type="text"/>
+<input name="nombre" class="w-full h-11 px-space-md rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" id="contactName" placeholder="Tu nombre..." required="" type="text"/>
 </div>
 <div class="space-y-1">
 <label class="block font-label-md text-label-md text-on-surface" for="contactPhone">Teléfono / WhatsApp</label>
-<input class="w-full h-11 px-space-md rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" id="contactPhone" placeholder="Ej. 612 345 678" required="" type="tel"/>
+<input name="telefono" class="w-full h-11 px-space-md rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" id="contactPhone" placeholder="{{ negocio.telefono or '+34 600 000 000' }}" required="" type="tel"/>
 </div>
 </div>
 <!-- Fields Row: Square Meters and Location -->
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
 <div class="space-y-1">
 <label class="block font-label-md text-label-md text-on-surface" for="contactM2">Metros Cuadrados Aprox.</label>
-<input class="w-full h-11 px-space-md rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" id="contactM2" min="10" placeholder="Ej. 85 m²" required="" type="number"/>
+<input name="m2" class="w-full h-11 px-space-md rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" id="contactM2" min="5" placeholder="Ej. 85 m²" type="number"/>
 </div>
 <div class="space-y-1">
-<label class="block font-label-md text-label-md text-on-surface" for="contactLocation">Zona / Municipio</label>
-<input class="w-full h-11 px-space-md rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" id="contactLocation" placeholder="Ej. Retiro, Chamartín, Pozuelo..." required="" type="text"/>
+<label class="block font-label-md text-label-md text-on-surface" for="contactLocation">Zona o Población</label>
+<input name="zona" class="w-full h-11 px-space-md rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" id="contactLocation" placeholder="{{ negocio.ciudad }}" type="text"/>
 </div>
 </div>
 <!-- Brief Notes -->
 <div class="space-y-1">
 <label class="block font-label-md text-label-md text-on-surface" for="contactNotes">¿Qué cambios tienes en mente? (Opcional)</label>
-<textarea class="w-full p-space-sm rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" id="contactNotes" placeholder="Ej. Tirar tabique de cocina para hacer isla, cambiar 2 baños y ventanas..." rows="2"></textarea>
+<textarea name="notas" class="w-full p-space-sm rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" id="contactNotes" placeholder="Describe brevemente la idea del proyecto..." rows="2"></textarea>
 </div>
 <!-- Submit Button -->
-<button class="w-full py-space-md rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg shadow-md hover:shadow-xl transition-all flex items-center justify-center gap-space-xs" type="submit">
+<button class="w-full py-space-md rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg shadow-md hover:shadow-xl transition-all flex items-center justify-center gap-space-xs cursor-pointer" type="submit">
 <span class="material-symbols-outlined text-[20px]">send</span>
-<span>Solicitar Visita Técnica y Presupuesto Gratis en 24h</span>
+<span>Enviar Solicitud de Presupuesto por WhatsApp</span>
 </button>
 <!-- Micro-Privacy -->
 <p class="font-label-technical text-label-technical text-on-surface-variant text-center">
-              🔒 Tus datos sólo se utilizarán para la visita y estudio técnico. Sin spam ni cesión a terceras empresas.
+              🔒 Presupuesto directo sin intermediarios ni compromiso.
             </p>
 </form>
 <!-- Success Feedback State -->
@@ -565,16 +563,18 @@
 <div class="w-16 h-16 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant mx-auto flex items-center justify-center">
 <span class="material-symbols-outlined text-[36px]">verified</span>
 </div>
-<h3 class="font-headline-md text-headline-md text-on-surface">¡Solicitud Registrada con Éxito!</h3>
+<h3 class="font-headline-md text-headline-md text-on-surface">¡Solicitud Preparada con Éxito!</h3>
 <p class="font-body-md text-body-md text-on-surface-variant max-w-md mx-auto">
-              Un arquitecto técnico de Vértice se pondrá en contacto contigo en las próximas horas para coordinar la visita a la vivienda y preparar tu estudio detallado sin coste.
-            </p>
+  Conectando con {{ negocio.nombre }} vía WhatsApp para coordinar tu presupuesto y visita técnica...
+</p>
+{% if negocio.telefono %}
 <div class="pt-space-xs">
-<a class="inline-flex items-center gap-space-xs font-label-lg text-label-lg text-primary font-bold" href="tel:900839214">
+<a class="inline-flex items-center gap-space-xs font-label-lg text-label-lg text-primary font-bold" href="tel:{{ negocio.telefono }}">
 <span class="material-symbols-outlined text-[18px]">call</span>
-<span>¿Urgencia? Llámanos al 900 839 214</span>
+<span>Llamar directamente: {{ negocio.telefono }}</span>
 </a>
 </div>
+{% endif %}
 </div>
 </div>
 </div>
@@ -612,8 +612,37 @@
       window.addEventListener('DOMContentLoaded', syncImgWidth);
       syncImgWidth();
     })();
+
+    function enviarFormularioPresupuesto(event, form) {
+      event.preventDefault();
+      const scope = form.querySelector('[name="scope"]:checked')?.value || 'Reforma';
+      const nombre = form.querySelector('[name="nombre"]')?.value || '';
+      const tel = form.querySelector('[name="telefono"]')?.value || '';
+      const m2 = form.querySelector('[name="m2"]')?.value || '';
+      const zona = form.querySelector('[name="zona"]')?.value || '{{ negocio.ciudad }}';
+      const notas = form.querySelector('[name="notas"]')?.value || '';
+
+      const msg = encodeURIComponent(`¡Hola equipo de {{ negocio.nombre }}! Mi nombre es ${nombre} (tel: ${tel}). Quisiera pedir presupuesto para un proyecto de tipo *${scope}* en ${zona} (${m2 ? m2 + ' m²' : 'a valorar'}). Detalles: ${notas || 'Sin notas adicionales'}.`);
+      const waBase = '{{ negocio.whatsapp_url or ("https://wa.me/" ~ negocio.telefono) }}';
+
+      let targetUrl = waBase;
+      if (waBase.includes('wa.me') || waBase.includes('whatsapp.com')) {
+        const sep = waBase.includes('?') ? '&' : '?';
+        targetUrl = waBase + sep + 'text=' + msg;
+      }
+
+      const success = document.getElementById('formSuccessMessage');
+      if (success) {
+        form.classList.add('hidden');
+        success.classList.remove('hidden');
+      }
+
+      setTimeout(() => {
+        window.open(targetUrl, '_blank');
+      }, 400);
+    }
   </script>
-</div></main><aside class="fixed bottom-0 left-0 w-full z-40 bg-surface-container-lowest/95 backdrop-blur-lg shadow-[0_20px_25px_-5px_rgba(15,23,42,0.12),0_1px_3px_0_rgba(15,23,42,0.08)] py-space-sm px-gutter block lg:hidden"><div class="max-w-7xl mx-auto flex items-center justify-between gap-space-sm"><div class="flex flex-col"><span class="font-label-technical text-label-technical text-tertiary flex items-center gap-space-xs"><span class="material-symbols-outlined text-[12px]">bolt</span> Respuesta en &lt;24h</span><span class="font-label-md text-label-md text-on-surface font-bold">Sin Compromiso</span></div><div class="flex items-center gap-space-xs"><a class="p-space-sm rounded-full bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors flex items-center justify-center" href="tel:900839214"><span class="material-symbols-outlined text-[20px]">call</span></a><a class="px-space-md py-space-sm rounded-full bg-primary text-on-primary font-label-md text-label-md text-center transition-all" data-path="calculador" href="#">Calcular Presupuesto</a></div></div></aside><footer class="w-full bg-surface-container-low text-on-surface-variant"><div class="max-w-7xl mx-auto px-gutter py-space-2xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-xl mb-space-2xl"><div class="space-y-space-md"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[20px]">apartment</span></div><span class="font-headline-sm text-headline-sm uppercase tracking-tight text-on-surface"><span class="truncate max-w-[170px] sm:max-w-xs md:max-w-none">{{ negocio.nombre|upper }}</span></span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Constructora técnica y estudio de arquitectura en Madrid. Expertos en reformas integrales, cálculo de estructuras y dirección facultativa con garantía contractual certificada.</p><div class="flex items-center gap-space-xs text-tertiary font-label-technical text-label-technical"><span class="material-symbols-outlined text-[16px]">verified</span><span>Certificación de Calidad ISO 9001 &amp; 14001</span></div></div><div class="space-y-space-sm"><h4 class="font-headline-sm text-headline-sm text-on-surface">Servicios Clave</h4><ul class="space-y-space-xs font-body-sm text-body-sm"><li class="hover:text-on-surface transition-colors cursor-pointer">Reformas Integrales de Vivienda</li><li class="hover:text-on-surface transition-colors cursor-pointer">Rehabilitación Energética &amp; Fachadas</li><li class="hover:text-on-surface transition-colors cursor-pointer">Cálculo y Refuerzo Estructural</li><li class="hover:text-on-surface transition-colors cursor-pointer">Construcción Passivhaus &amp; Sostenible</li><li class="hover:text-on-surface transition-colors cursor-pointer">Tramitación de Licencias Urbanísticas</li></ul></div><div class="space-y-space-sm"><h4 class="font-headline-sm text-headline-sm text-on-surface">Seguridad &amp; Garantías</h4><div class="space-y-space-xs font-body-sm text-body-sm"><p class="flex items-start gap-space-xs"><span class="material-symbols-outlined text-primary text-[18px]">gavel</span><span>Póliza RC Allianz N° 28490-219 por 600.000€</span></p><p class="flex items-start gap-space-xs"><span class="material-symbols-outlined text-primary text-[18px]">shield</span><span>Garantía decenal y aval bancario por hitos</span></p><p class="flex items-start gap-space-xs"><span class="material-symbols-outlined text-primary text-[18px]">assignment_turned_in</span><span>Inscrita en REA (Reg. Empresas Acreditadas)</span></p></div></div><div class="space-y-space-sm"><h4 class="font-headline-sm text-headline-sm text-on-surface">Contacto Técnico</h4><p class="font-body-sm text-body-sm text-on-surface-variant">C/ Príncipe de Vergara 132, 1ª Planta, 28002 Madrid</p><p class="font-label-md text-label-md text-on-surface">Centralita: 900 839 214 / 914 200 910</p><p class="font-label-technical text-label-technical text-on-surface-variant">urgencias@vertice-constructora.es</p><a class="mt-space-sm inline-flex items-center justify-center w-full px-space-md py-space-sm rounded-full bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md transition-all" data-path="calculador" href="#">Solicitar Estudio Gratuito</a></div></div><div class="pt-space-lg bg-surface-container text-on-surface-variant text-label-technical font-label-technical rounded-lg p-space-md flex flex-col md:flex-row items-center justify-between gap-space-md"><div>© 2025 Vértice Obras y Arquitectura S.L. CIF: B-88492011. Todos los derechos reservados.</div><div class="flex items-center gap-space-md"><span>Aviso Legal</span><span>Política de Privacidad</span><span>Política de Cookies</span><span>Registro Mercantil de Madrid, Tomo 39.421, Folio 120</span></div></div></div></footer><!-- Sticky Mobile Lead Bar -->
+</div></main><aside class="fixed bottom-0 left-0 w-full z-40 bg-surface-container-lowest/95 backdrop-blur-lg shadow-[0_20px_25px_-5px_rgba(15,23,42,0.12),0_1px_3px_0_rgba(15,23,42,0.08)] py-space-sm px-gutter block lg:hidden"><div class="max-w-7xl mx-auto flex items-center justify-between gap-space-sm"><div class="flex flex-col"><span class="font-label-technical text-label-technical text-tertiary flex items-center gap-space-xs"><span class="material-symbols-outlined text-[12px]">bolt</span> Respuesta en &lt;24h</span><span class="font-label-md text-label-md text-on-surface font-bold">Sin Compromiso</span></div><div class="flex items-center gap-space-xs">{% if negocio.telefono %}<a class="p-space-sm rounded-full bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors flex items-center justify-center" href="tel:{{ negocio.telefono }}"><span class="material-symbols-outlined text-[20px]">call</span></a>{% endif %}<a class="px-space-md py-space-sm rounded-full bg-primary text-on-primary font-label-md text-label-md text-center transition-all" data-path="calculador" href="#solicitar-presupuesto">Calcular Presupuesto</a></div></div></aside><footer class="w-full bg-surface-container-low text-on-surface-variant"><div class="max-w-7xl mx-auto px-gutter py-space-2xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-xl mb-space-2xl"><div class="space-y-space-md"><div class="flex items-center gap-space-sm">{% if ig.avatar_url or ig.avatar %}<img alt="{{ negocio.nombre }}" class="h-8 w-8 rounded-lg object-cover border border-primary/30" src="{{ ig.avatar_url or ig.avatar }}"/>{% else %}<div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[20px]">apartment</span></div>{% endif %}<span class="font-headline-sm text-headline-sm uppercase tracking-tight text-on-surface"><span class="truncate max-w-[170px] sm:max-w-xs md:max-w-none">{{ negocio.nombre|upper }}</span></span></div><p class="font-body-sm text-body-sm text-on-surface-variant">{{ web.subtitulo or ('Soluciones profesionales y reformas de calidad con presupuesto cerrado y garantía certificada en ' ~ negocio.ciudad ~ '.') }}</p><div class="flex items-center gap-space-xs text-tertiary font-label-technical text-label-technical"><span class="material-symbols-outlined text-[16px]">verified</span><span>Empresa Verificada en {{ negocio.ciudad }}</span></div></div><div class="space-y-space-sm"><h4 class="font-headline-sm text-headline-sm text-on-surface">Servicios</h4><ul class="space-y-space-xs font-body-sm text-body-sm">{% for s in web.servicios %}<li class="hover:text-on-surface transition-colors cursor-pointer"><a href="#solicitar-presupuesto">{{ s.nombre }}</a></li>{% endfor %}{% if not web.servicios %}<li class="hover:text-on-surface transition-colors cursor-pointer"><a href="#solicitar-presupuesto">Reformas Integrales</a></li><li class="hover:text-on-surface transition-colors cursor-pointer"><a href="#solicitar-presupuesto">Proyectos &amp; Obras</a></li>{% endif %}</ul></div><div class="space-y-space-sm"><h4 class="font-headline-sm text-headline-sm text-on-surface">Garantías</h4><div class="space-y-space-xs font-body-sm text-body-sm"><p class="flex items-start gap-space-xs"><span class="material-symbols-outlined text-primary text-[18px]">gavel</span><span>Presupuesto cerrado sin imprevistos</span></p><p class="flex items-start gap-space-xs"><span class="material-symbols-outlined text-primary text-[18px]">shield</span><span>Garantía de ejecución y satisfacción</span></p><p class="flex items-start gap-space-xs"><span class="material-symbols-outlined text-primary text-[18px]">assignment_turned_in</span><span>Técnicos cualificados en {{ negocio.ciudad }}</span></p></div></div><div class="space-y-space-sm"><h4 class="font-headline-sm text-headline-sm text-on-surface">Contacto Directo</h4><p class="font-body-sm text-body-sm text-on-surface-variant">{{ negocio.direccion or negocio.ciudad }}</p>{% if negocio.telefono %}<p class="font-label-md text-label-md text-on-surface">Teléfono: <a href="tel:{{ negocio.telefono }}" class="hover:text-primary transition-colors">{{ negocio.telefono }}</a></p>{% endif %}<p class="font-label-technical text-label-technical text-on-surface-variant"><a href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" class="hover:text-primary transition-colors">WhatsApp de Atención Inmediata</a></p><a class="mt-space-sm inline-flex items-center justify-center w-full px-space-md py-space-sm rounded-full bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md transition-all" data-path="calculador" href="#solicitar-presupuesto">Solicitar Estudio Gratuito</a></div></div><div class="pt-space-lg bg-surface-container text-on-surface-variant text-label-technical font-label-technical rounded-lg p-space-md flex flex-col md:flex-row items-center justify-between gap-space-md"><div>© 2026 {{ negocio.nombre }}. Todos los derechos reservados.</div><div class="flex items-center gap-space-md"><a href="#inicio" class="hover:underline">Inicio</a><a href="#solicitar-presupuesto" class="hover:underline">Presupuesto</a><a href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" class="hover:underline">WhatsApp</a></div></div></div></footer><!-- Sticky Mobile Lead Bar -->
 <div class="fixed bottom-0 inset-x-0 z-50 md:hidden p-3 bg-white/95 backdrop-blur-md border-t border-slate-200 shadow-xl" style="padding-bottom: max(0.75rem, env(safe-area-inset-bottom, 0px));">
   <div class="flex items-center justify-between gap-3">
     <div class="flex flex-col">
