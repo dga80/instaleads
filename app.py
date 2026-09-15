@@ -694,9 +694,11 @@ Categoría o nicho a clasificar: "{termino_usuario}"
 def verificar_y_redactar_pitch(nombre_negocio: str, datos_presencia: str, ciudad: str, demo_url: str = "", tiene_ig: bool = True, web_existente: str = "") -> dict:
     """
     Analiza el negocio local y su presencia digital (Instagram, Doctoralia, Facebook, directorios) y genera:
-    1. Mensaje de prospección comercial inicial (cercano, elogiando su trabajo/reputación, explicando que somos
-       un equipo local de diseño que busca comercios en su zona para mejorar su captación móvil, con frase anti-malware).
-    2. Mensaje de seguimiento (para enviar a las 48-72h por Email o WhatsApp si no han contestado).
+    1. Mensaje de prospección comercial inicial redactado en PRIMERA PERSONA DEL SINGULAR como Dani (Daniel García),
+       diseñador gráfico, UX/UI y desarrollador frontend en Barcelona (+20 años de experiencia), invitando a ver
+       su portfolio (https://dga-creative.netlify.app/) para transmitir máxima seriedad y solvencia profesional,
+       y adjuntando el enlace seguro a la maqueta interactiva.
+    2. Mensaje de seguimiento a las 48-72h por Email o WhatsApp en primera persona.
     Si el negocio YA dispone de página web oficial activa (web_existente), adapta el pitch hacia una propuesta
     de REDISEÑO y modernización mobile-first, evitando afirmar que carece de página web.
     Utiliza gemini-3.8-flash y auto-desescalado a 3.7, 3.5 y 2.5 si hay saturación.
@@ -716,13 +718,18 @@ Por tanto:
 - 'tiene_web_oficial' debe ser true.
 - 'web_oficial_url' debe ser '{web_existente}'.
 - 'razon': Indica 'Comercio local con web oficial activa ({web_existente})'.
-- 'mensaje_dm_sugerido': NUNCA digas 'cómo luciría vuestra web' ni afirmes que no tienen web. Plantea el mensaje como una propuesta respetuosa de REDISEÑO Y MODERNIZACIÓN mobile-first para optimizar su captación móvil y velocidad de reserva:
-  "¡Hola equipo de {nombre_negocio}! Hemos estado viendo vuestra web ({web_existente}) y nos encanta vuestro trabajo en {ciudad}. Somos un estudio local de diseño y os hemos preparado una propuesta interactiva de rediseño y modernización mobile-first: {demo_url or 'https://...'}. Es un enlace 100% seguro sin descargas para abrirlo en el navegador. ¿Qué os parece?"
+- 'mensaje_dm_sugerido': NUNCA digas 'cómo luciría vuestra web', NO digas que la maqueta se hizo con Instagram, ni afirmes que no tienen web. Plantea el mensaje en primera persona como Daniel García, indicando que viste su web actual ({web_existente}) y que preparaste una web demo interactiva con el contenido de su propia página como propuesta de rediseño y modernización mobile-first:
+  "¡Hola equipo de {nombre_negocio}!\\n\\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual ({web_existente}), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\\n\\n👉 {demo_url or 'https://...'}\\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\\n\\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\\n\\nUn saludo,\\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\\n🌐 https://dga-creative.netlify.app/"
 """
 
     if cliente:
         prompt = f"""
-Actúa como un estratega de prospección comercial B2B y auditor de negocios locales en España.
+Actúa como Daniel García, profesional de diseño y desarrollo web establecido en Barcelona.
+Firma obligatoria al pie de todos los mensajes:
+Un saludo,
+Daniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)
+🌐 https://dga-creative.netlify.app/
+
 Analiza con rigor crítico este negocio local y los datos de su {contexto_tipo}:
 
 Negocio local buscado:
@@ -739,8 +746,21 @@ Debes evaluar y responder:
 3. 'tiene_web_oficial': true si entre los datos/enlaces detectas que el negocio YA tiene una página web propia activa oficial (ej: clinicadentalbarcelona.com, gesclident.com, rotativetattooshop.com). False si NO tiene web propia (solo directorios genéricos, páginas amarillas o redes sociales).
 4. 'web_oficial_url': La URL de su página web oficial si 'tiene_web_oficial' es true, o cadena vacía "" si no tiene.
 5. 'razon': Justificación breve y directa de tu decisión (ej: 'Coincide clínica local en {ciudad}', 'Descartado por ser gran franquicia nacional', 'Comercio local verificado sin web propia', o 'Tiene página web oficial activa').
-6. 'mensaje_dm_sugerido': Si 'es_perfil_correcto' es true Y 'es_gran_cadena' es false, redacta la propuesta de primer contacto para {canal_contacto} (máximo 60 palabras, tono cercano, profesional, equipo local de diseño en su zona, enlace seguro a la maqueta {demo_url or 'https://...'} sin registros ni descargas). Si ya tienen web, enfócalo como rediseño/modernización. En caso contrario, devuelve cadena vacía "".
-7. 'mensaje_seguimiento': Si 'es_perfil_correcto' es true Y 'es_gran_cadena' es false, redacta el seguimiento educado a las 48-72h. En caso contrario, devuelve cadena vacía "".
+6. 'mensaje_dm_sugerido': Si 'es_perfil_correcto' es true Y 'es_gran_cadena' es false:
+   - Redacta la propuesta de primer contacto para {canal_contacto} en PRIMERA PERSONA DEL SINGULAR como Daniel García.
+   - Si YA TIENEN WEB: di que has visto su trabajo y su web actual ({web_existente}), y que has preparado una web demo interactiva con el contenido de su propia página como propuesta de rediseño y modernización mobile-first.
+   - Si NO TIENEN WEB: di que has visto su trabajo en Instagram y que has preparado una web demo interactiva utilizando contenido de su propio perfil, pensada para potenciar su imagen y captar clientes desde el móvil.
+   - Incluye el enlace seguro a la maqueta ({demo_url or 'https://...'}), aclarando que es 100% seguro sin descargas ni registros.
+   - Pregunta qué les parece y ofrece comentarlo 2 minutos sin compromiso.
+   - Remata con la firma exacta:
+     Un saludo,
+     Daniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)
+     🌐 https://dga-creative.netlify.app/
+7. 'mensaje_seguimiento': Si 'es_perfil_correcto' es true Y 'es_gran_cadena' es false, redacta el seguimiento educado a las 48-72h recordando brevemente la web demo interactiva ({demo_url or 'https://...'}), preguntando si tienen 2 minutos para comentarlo sin compromiso y cerrando con la firma:
+   Un saludo cordial,
+   Daniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)
+   🌐 https://dga-creative.netlify.app/
+   En caso contrario, devuelve cadena vacía "".
 
 Devuelve ÚNICAMENTE un JSON con esta estructura:
 {{
@@ -749,15 +769,16 @@ Devuelve ÚNICAMENTE un JSON con esta estructura:
   "tiene_web_oficial": false,
   "web_oficial_url": "",
   "razon": "Coincide el negocio y ubicación",
-  "mensaje_dm_sugerido": "¡Hola equipo de {nombre_negocio}! Me alegra contactaros. Somos un equipo local de diseño web en {ciudad} y vemos que tenéis un gran potencial para recibir más clientes directos en Google y móvil. Os hemos preparado una maqueta interactiva adaptada a vuestro negocio: {demo_url or 'https://...'}. Es un enlace 100% seguro para verla en el navegador sin descargas. ¿Qué os parece?",
-  "mensaje_seguimiento": "¡Hola de nuevo! Os escribí hace un par de días con una maqueta web interactiva para vuestro negocio: {demo_url or 'https://...'}. Os lo comparto por aquí por si os resulta cómodo revisarlo desde el móvil. ¡Un saludo cordial!"
+  "mensaje_dm_sugerido": "¡Hola equipo de {nombre_negocio}!\\n\\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\\n\\n👉 {demo_url or 'https://...'}\\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\\n\\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\\n\\nUn saludo,\\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\\n🌐 https://dga-creative.netlify.app/",
+  "mensaje_seguimiento": "¡Hola de nuevo equipo de {nombre_negocio}!\\n\\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil: {demo_url or 'https://...'}\\n\\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\\n\\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\\n\\nUn saludo cordial,\\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\\n🌐 https://dga-creative.netlify.app/"
 }}
 """
         try:
             texto, modelo_usado = generar_con_gemini_cascade(prompt, cliente=cliente, temperatura=0.2, formato_json=True)
             if texto:
-                texto_limpio = re.sub(r"^```(json)?", "", texto, flags=re.MULTILINE).strip("` \n")
-                data = json.loads(texto_limpio)
+                match = re.search(r"\{.*\}", texto, flags=re.DOTALL)
+                raw_json = match.group(0) if match else re.sub(r"^```(json)?", "", texto, flags=re.MULTILINE).strip("` \n")
+                data = json.loads(raw_json)
                 print(f"[Gemini Pitch] '{nombre_negocio}' evaluado con éxito (modelo: {modelo_usado})")
                 web_retornada = str(data.get("web_oficial_url", "")).strip() or web_existente
                 tiene_web_ret = bool(data.get("tiene_web_oficial", False) or web_existente)
@@ -776,43 +797,64 @@ Devuelve ÚNICAMENTE un JSON con esta estructura:
 
     # Fallback si no hay API key de Gemini o si falla
     link_texto = f" {demo_url}" if demo_url else ""
+    firma = (
+        "Un saludo,\n"
+        "Daniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n"
+        "🌐 https://dga-creative.netlify.app/"
+    )
+    firma_seguimiento = (
+        "Un saludo cordial,\n"
+        "Daniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n"
+        "🌐 https://dga-creative.netlify.app/"
+    )
+
     if web_existente:
-        if tiene_ig:
-            pitch_dm_fallback = (
-                f"¡Hola equipo de {nombre_negocio}! Hemos estado viendo vuestra web ({web_existente}) y vuestro gran trabajo en {ciudad}. "
-                f"Somos un equipo local de diseño web y os hemos preparado una propuesta interactiva de modernización mobile-first para optimizar vuestra captación de clientes desde el móvil:{link_texto} "
-                f"(El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Qué os parece la propuesta? ¡Un saludo!"
-            )
-        else:
-            pitch_dm_fallback = (
-                f"¡Hola equipo de {nombre_negocio}! Os contactamos desde un equipo local de diseño web en {ciudad}. "
-                f"Hemos estado viendo vuestra web actual ({web_existente}) y os hemos preparado una propuesta interactiva de modernización mobile-first:{link_texto} "
-                f"(Es un enlace 100% seguro sin registros para verlo en el navegador). ¿Os gustaría que conversemos 2 minutos sin compromiso? ¡Un saludo!"
-            )
+        pitch_dm_fallback = (
+            f"¡Hola equipo de {nombre_negocio}!\n\n"
+            f"Soy Daniel García. He visto vuestro trabajo y vuestra web actual ({web_existente}), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n"
+            f"👉{link_texto}\n"
+            f"*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n"
+            f"¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\n"
+            f"{firma}"
+        )
         seguimiento_fallback = (
-            f"¡Hola de nuevo equipo de {nombre_negocio}! Os escribí hace unos días con una propuesta web interactiva de modernización para vuestra web actual:{link_texto} "
-            f"Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!"
+            f"¡Hola de nuevo equipo de {nombre_negocio}!\n\n"
+            f"Os escribí hace un par de días con la web demo interactiva que preparé para vosotros con el contenido de vuestra página:{link_texto}\n\n"
+            f"Os lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n"
+            f"¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\n"
+            f"{firma_seguimiento}"
         )
     elif tiene_ig:
         pitch_dm_fallback = (
-            f"¡Hola equipo de {nombre_negocio}! Me encantan vuestros trabajos en Instagram. "
-            f"Somos un equipo local de diseño y estamos seleccionando comercios con gran potencial en vuestra zona de {ciudad} para ayudarles a conseguir más clientes desde Google. "
-            f"Os he preparado una maqueta interactiva de cómo luciría vuestra web:{link_texto} "
-            f"(El enlace es 100% seguro para navegarlo desde el móvil sin registros ni descargas). ¿Podéis echarle un ojo a ver qué os parece? ¡Un saludo!"
+            f"¡Hola equipo de {nombre_negocio}!\n\n"
+            f"Soy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n"
+            f"👉{link_texto}\n"
+            f"*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n"
+            f"¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\n"
+            f"{firma}"
         )
         seguimiento_fallback = (
-            f"¡Hola de nuevo equipo de {nombre_negocio}! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio:{link_texto} "
-            f"Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!"
+            f"¡Hola de nuevo equipo de {nombre_negocio}!\n\n"
+            f"Os escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil:{link_texto}\n\n"
+            f"Os lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n"
+            f"¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\n"
+            f"{firma_seguimiento}"
         )
     else:
         pitch_dm_fallback = (
-            f"¡Hola equipo de {nombre_negocio}! Os contactamos desde un equipo local de diseño web en {ciudad}. "
-            f"Hemos estado revisando negocios con buenas referencias en vuestra zona y os hemos preparado una maqueta interactiva móvil para vuestra clínica:{link_texto} "
-            f"(Es un enlace 100% seguro sin registros para verlo en el navegador). ¿Os gustaría que conversemos 2 minutos sin compromiso? ¡Un saludo!"
+            f"¡Hola equipo de {nombre_negocio}!\n\n"
+            f"Soy Daniel García. He visto vuestro trabajo y os he preparado una web demo interactiva adaptada a vuestro negocio para mostraros cómo potenciar vuestra presencia digital y captar clientes desde el móvil:\n\n"
+            f"👉{link_texto}\n"
+            f"*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n"
+            f"¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\n"
+            f"{firma}"
         )
         seguimiento_fallback = (
-            f"¡Hola de nuevo equipo de {nombre_negocio}! Os escribí hace unos días con una propuesta web interactiva para vuestro negocio:{link_texto} "
-            f"Os lo comparto por aquí por si os resulta más cómodo revisarlo desde el teléfono. ¿Os gustaría que hablemos 2 minutos sin compromiso? ¡Un saludo cordial!"
+            f"¡Hola de nuevo equipo de {nombre_negocio}!\n\n"
+            f"Os escribí hace un par de días con la propuesta web interactiva que preparé para vosotros:{link_texto}\n\n"
+            f"Os lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n"
+            f"¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\n"
+            f"{firma_seguimiento}"
         )
     return {
         "es_gran_cadena": False,

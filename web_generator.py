@@ -61,6 +61,94 @@ def descargar_imagen_a_base64(url: str, timeout: int = 6) -> str:
     
     return url
 
+def extraer_contenido_web_existente(url_web: str) -> Dict[str, Any]:
+    """
+    Rastrea y extrae la información clave del sitio web oficial existente del comercio:
+    - Título del sitio y meta-descripción.
+    - Encabezados (h1, h2, h3) con nombres de servicios y propuesta de valor.
+    - Párrafos principales (sobre nosotros, historia, especialidades).
+    - Imágenes destacadas y teléfonos de contacto.
+    """
+    if not url_web or not isinstance(url_web, str) or not url_web.startswith("http"):
+        return {}
+    
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "es-ES,es;q=0.9,en;q=0.8"
+    }
+
+    try:
+        resp = requests.get(url_web, headers=headers, timeout=8, verify=False)
+        if resp.status_code != 200 or not resp.text:
+            return {}
+
+        from bs4 import BeautifulSoup
+        soup = BeautifulSoup(resp.text, "html.parser")
+
+        # Eliminar scripts, estilos y elementos irrelevantes
+        for tag in soup(["script", "style", "noscript", "svg", "iframe"]):
+            tag.decompose()
+
+        titulo = soup.title.string.strip() if soup.title and soup.title.string else ""
+        
+        meta_desc = ""
+        desc_tag = soup.find("meta", attrs={"name": re.compile(r"description", re.I)}) or soup.find("meta", attrs={"property": "og:description"})
+        if desc_tag and desc_tag.get("content"):
+            meta_desc = desc_tag["content"].strip()
+
+        # Encabezados
+        encabezados = []
+        for h in soup.find_all(["h1", "h2", "h3"]):
+            txt = h.get_text(separator=" ", strip=True)
+            if txt and len(txt) > 3 and len(txt) < 120 and txt not in encabezados:
+                encabezados.append(txt)
+
+        # Párrafos informativos
+        parrafos = []
+        for p in soup.find_all("p"):
+            txt = p.get_text(separator=" ", strip=True)
+            if txt and len(txt) > 25 and len(txt) < 350 and txt not in parrafos:
+                parrafos.append(txt)
+
+        # Imágenes (og:image o imágenes con alt relevante)
+        imagenes = []
+        og_img = soup.find("meta", attrs={"property": "og:image"})
+        if og_img and og_img.get("content"):
+            imagenes.append(urllib.parse.urljoin(url_web, og_img["content"]))
+
+        for img in soup.find_all("img"):
+            src = img.get("src") or img.get("data-src")
+            if src and not src.startswith("data:"):
+                full_img = urllib.parse.urljoin(url_web, src)
+                if full_img not in imagenes and any(ext in full_img.lower() for ext in [".jpg", ".jpeg", ".png", ".webp"]):
+                    imagenes.append(full_img)
+            if len(imagenes) >= 6:
+                break
+
+        # Teléfonos detectados en la web
+        telefonos = []
+        tel_links = soup.find_all("a", href=re.compile(r"^tel:", re.I))
+        for t in tel_links:
+            raw_tel = t["href"].replace("tel:", "").strip()
+            if raw_tel and raw_tel not in telefonos:
+                telefonos.append(raw_tel)
+
+        print(f"[Web Extractor] ✓ Extraído de {url_web}: {len(encabezados)} títulos, {len(parrafos)} párrafos, {len(imagenes)} imágenes")
+        return {
+            "url": url_web,
+            "titulo": titulo,
+            "meta_descripcion": meta_desc,
+            "encabezados": encabezados[:8],
+            "parrafos": parrafos[:6],
+            "imagenes": imagenes[:6],
+            "telefonos": telefonos
+        }
+    except Exception as e:
+        print(f"[Web Extractor Warning] No se pudo extraer datos de {url_web}: {e}")
+        return {}
+
+
 def descargar_imagenes_en_paralelo(urls: List[str]) -> Dict[str, str]:
     """Descarga de forma concurrente todas las imágenes necesarias en menos de un segundo."""
     unique_urls = list(dict.fromkeys([u for u in urls if u and isinstance(u, str) and not u.startswith("data:image")]))
@@ -270,10 +358,11 @@ def estructurar_contenido_con_gemini(
     ciudad: str,
     ig_bio: str,
     ig_posts: list,
-    cliente_gemini=None
+    cliente_gemini=None,
+    web_info: Optional[Dict[str, Any]] = None
 ) -> Dict[str, Any]:
     """
-    Convierte la identidad de Instagram en una arquitectura web completa y persuasiva.
+    Convierte la identidad de Instagram o la información de la web oficial existente en una arquitectura web completa y persuasiva.
     Si Gemini está saturado o sin cuota, aplica el motor semántico local por categoría.
     """
     categoria_clean = limpiar_categoria(categoria)
@@ -282,6 +371,24 @@ def estructurar_contenido_con_gemini(
     try:
         from gemini_service import generar_con_gemini_cascade
         posts_text = "\n".join([f"- Post {i+1}: {p.get('caption', '')[:100]}" for i, p in enumerate(ig_posts[:6])])
+        
+        web_context_prompt = ""
+        if web_info:
+            encabezados_str = ", ".join(web_info.get("encabezados", []))
+            parrafos_str = "\n".join([f"  • {p}" for p in web_info.get("parrafos", [])[:4]])
+            web_context_prompt = f"""
+INFORMACIÓN REAL EXTRAÍDA DE SU SITIO WEB OFICIAL ACTUAL ({web_info.get('url', '')}):
+- Título actual de su web: {web_info.get('titulo', '')}
+- Meta-descripción actual: {web_info.get('meta_descripcion', '')}
+- Secciones/Servicios reales detectados en su web: {encabezados_str}
+- Contenido textual y propuesta de valor de su web:
+{parrafos_str}
+
+REGLA CRÍTICA DE REDISEÑO:
+Este proyecto es una PROPUESTA DE REDISEÑO de su página web oficial actual.
+Debes tomar y respetar los SERVICIOS REALES, textos y especialidades extraídas de su página web oficial para adaptarlos a la nueva arquitectura mobile-first moderna de alta conversión.
+"""
+
         prompt = f"""
 Actúa como Diseñador Principal UX/UI y Director Creativo de élite para comercios locales.
 Tu objetivo es diseñar la identidad visual, el modo cromático y la arquitectura de contenidos de una landing page mobile-first de máxima conversión para este negocio.
@@ -291,6 +398,7 @@ Datos del negocio:
 - Categoría: {categoria_clean}
 - Ciudad: {ciudad}
 - Biografía de Instagram: {ig_bio}
+{web_context_prompt}
 
 Publicaciones recientes en Instagram:
 {posts_text}
@@ -301,7 +409,7 @@ Tu misión como Director de Diseño y Copywriting es decidir y estructurar el co
 3. 'badge_status': Una frase de estado con emoji para el header (ej. "⚡ BOX DE TALLER ACTIVO • CITA RÁPIDA", "✨ CITAS ABIERTAS • AGENDA ONLINE").
 4. 'titular': Un título potente y persuasivo para el Hero (máx 8 palabras).
 5. 'subtitulo': Una frase que explique el valor diferencial y anime a contactar (máx 20 palabras).
-6. 'servicios': Lista de 3 servicios clave detectados ('nombre', 'descripcion', 'precio_o_duracion').
+6. 'servicios': Lista de 3 servicios clave detectados ('nombre', 'descripcion', 'precio_o_duracion'). Si se aportó información de su web actual, utiliza prioritariamente sus servicios reales.
 7. 'sobre_nosotros': Párrafo cercano y profesional resumiendo su propuesta de valor (máx 40 palabras).
 8. 'categoria_clean': Nombre corto y limpio de la categoría.
 
@@ -309,8 +417,9 @@ Responde ÚNICAMENTE con el objeto JSON válido:
 """
         texto, modelo_usado = generar_con_gemini_cascade(prompt, cliente=cliente_gemini, formato_json=True)
         if texto:
-            texto = re.sub(r"^```(json)?", "", texto, flags=re.MULTILINE).strip("` \n")
-            data = json.loads(texto)
+            match = re.search(r"\{.*\}", texto, flags=re.DOTALL)
+            raw_json = match.group(0) if match else re.sub(r"^```(json)?", "", texto, flags=re.MULTILINE).strip("` \n")
+            data = json.loads(raw_json)
             if "titular" in data and "servicios" in data and isinstance(data["servicios"], list) and len(data["servicios"]) > 0:
                 print(f"[Gemini Web Structuring] Contenido y diseño UX/UI generados con modelo {modelo_usado}")
                 for i, s in enumerate(data.get("servicios", [])):
@@ -328,8 +437,18 @@ Responde ÚNICAMENTE con el objeto JSON válido:
     default_theme = "light" if any(k in cat_low for k in ["dental", "dentist", "clinic", "salud", "fisioterap", "uña", "belleza", "spa", "cafe", "panader"]) else "dark"
 
     subtitulo = ig_bio.strip() if ig_bio else f"Calidad, profesionalidad y trato cercano en {ciudad}. Descubre nuestros servicios y reserva tu cita en segundos."
-    # Si la bio es muy larga o tiene muchos saltos, limpiar los saltos excesivos
+    if web_info:
+        if web_info.get("meta_descripcion"):
+            subtitulo = web_info["meta_descripcion"]
+        elif web_info.get("parrafos"):
+            subtitulo = web_info["parrafos"][0][:140]
+        if web_info.get("encabezados"):
+            for idx, enc in enumerate(web_info["encabezados"][:3]):
+                if idx < len(servicios_base):
+                    servicios_base[idx]["nombre"] = enc
+
     subtitulo = re.sub(r'\n{3,}', '\n\n', subtitulo)
+    sobre_nosotros = (web_info.get("parrafos", [""])[0] if web_info and web_info.get("parrafos") else ig_bio) or f"En {nombre} nos dedicamos con pasión a ofrecer la mejor experiencia a nuestros clientes en {ciudad}. Cuidamos cada detalle para garantizar los mejores resultados."
 
     badge_status = f"• {categoria_clean.upper()} EN {ciudad.upper()}"
 
@@ -339,17 +458,18 @@ Responde ÚNICAMENTE con el objeto JSON válido:
         "titular": f"{nombre} en {ciudad}",
         "subtitulo": subtitulo,
         "servicios": servicios_base,
-        "sobre_nosotros": ig_bio or f"En {nombre} nos dedicamos con pasión a ofrecer la mejor experiencia a nuestros clientes en {ciudad}. Cuidamos cada detalle para garantizar los mejores resultados.",
+        "sobre_nosotros": sobre_nosotros,
         "categoria_clean": categoria_clean
     }
 
 def generar_web_comercio(lead: Dict[str, Any], cliente_gemini=None, plantilla_seleccionada: str = None) -> Dict[str, Any]:
     """
-    Ejecuta el pipeline completo de replicación Instagram -> Web Demo:
-    1. Extrae fotos, bio y datos de Instagram (Apify / Curated).
-    2. Estructura el contenido persuasivo y decisiones UX/UI con Gemini.
-    3. Sintetiza el Design System estilo Stitch con tokens cromáticos y tipográficos (respetando plantilla elegida).
-    4. Compila el index.html y lo prepara para despliegue en GitHub Pages.
+    Ejecuta el pipeline completo de generación de Web Demo:
+    1. Si tiene web oficial propia, extrae contenidos y fotos de su sitio web actual.
+    2. Extrae fotos, bio y datos de Instagram (Apify / Curated).
+    3. Estructura el contenido persuasivo y decisiones UX/UI con Gemini enfocadas a rediseño mobile-first o nueva web.
+    4. Sintetiza el Design System estilo Stitch con tokens cromáticos y tipográficos (respetando plantilla elegida).
+    5. Compila el index.html y lo prepara para despliegue en GitHub Pages.
     """
     nombre = lead.get("nombre", "Comercio Local")
     categoria = lead.get("categoria", "Comercio")
@@ -363,17 +483,35 @@ def generar_web_comercio(lead: Dict[str, Any], cliente_gemini=None, plantilla_se
                 break
     telefono = lead.get("telefono", "")
 
-    # 1. Extraer datos del perfil de Instagram
+    # 1. Si el comercio tiene página web oficial detectada, extraer su contenido real para la propuesta de rediseño
+    web_existente = lead.get("web_detectada", "")
+    web_info = {}
+    if web_existente:
+        web_info = extraer_contenido_web_existente(web_existente)
+        if not telefono and web_info.get("telefonos"):
+            telefono = web_info["telefonos"][0]
+
+    # 2. Extraer datos del perfil de Instagram
     ig_data = obtener_datos_completos_instagram(handle, nombre, categoria, ciudad)
 
-    # 2. Estructurar contenidos, copy persuasivo y decisiones de diseño con Gemini
+    # Incorporar imágenes de su web existente si están disponibles para enriquecer la galería
+    if web_info.get("imagenes"):
+        for img_url in web_info["imagenes"]:
+            if not any(p.get("image_url") == img_url for p in ig_data.get("posts", [])):
+                ig_data.setdefault("posts", []).append({
+                    "image_url": img_url,
+                    "caption": web_info.get("titulo", "Servicio oficial")
+                })
+
+    # 3. Estructurar contenidos, copy persuasivo y decisiones de diseño con Gemini
     web_content = estructurar_contenido_con_gemini(
         nombre=nombre,
         categoria=categoria,
         ciudad=ciudad,
         ig_bio=ig_data.get("biografia", ""),
         ig_posts=ig_data.get("posts", []),
-        cliente_gemini=cliente_gemini
+        cliente_gemini=cliente_gemini,
+        web_info=web_info
     )
 
     if plantilla_seleccionada:

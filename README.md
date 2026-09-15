@@ -94,8 +94,8 @@ Analiza la correspondencia del perfil, descarta franquicias multinacionales y re
   "es_gran_cadena": false,
   "es_perfil_correcto": true,
   "razon": "Coincide el nombre comercial y la ubicación en Badalona",
-  "mensaje_dm_sugerido": "¡Hola equipo de Dra. Laguna! Me encantan vuestros trabajos en Instagram...",
-  "mensaje_seguimiento": "¡Hola de nuevo! Os escribí hace un par de días por Instagram..."
+  "mensaje_dm_sugerido": "¡Hola equipo de Dra. Laguna! Me encanta vuestro trabajo. Soy Dani, diseñador UX/UI y frontend en Barcelona (+20 años en diseño y desarrollo web). Os he preparado una maqueta interactiva exclusiva: https://dga80.github.io/... Para que veáis que soy un perfil serio, podéis ver mi web: https://dga-creative.netlify.app/. ¿Qué os parece? ¡Un saludo!",
+  "mensaje_seguimiento": "¡Hola de nuevo! Os escribí hace unos días presentándome (soy Dani, diseñador y dev frontend en Barcelona)..."
 }
 ```
 
