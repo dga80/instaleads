@@ -167,12 +167,17 @@
         <div class="mt-4 flex flex-wrap items-center gap-2 text-xs">
           <span class="text-slate-400 font-medium">Sugerencias rápidas:</span>
           <button type="button" onclick="setPreset('taller de motos')" class="px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 border border-slate-700 transition">🏍️ Taller de motos</button>
+          <button type="button" onclick="setPreset('car detailing')" class="px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 border border-slate-700 transition">🚗 Car Detailing</button>
           <button type="button" onclick="setPreset('centro de uñas')" class="px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 border border-slate-700 transition">💅 Centro de uñas</button>
           <button type="button" onclick="setPreset('peluqueria')" class="px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 border border-slate-700 transition">✂️ Peluquería</button>
+          <button type="button" onclick="setPreset('peluqueria canina')" class="px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 border border-slate-700 transition">🐶 Peluquería canina</button>
           <button type="button" onclick="setPreset('estudio de tatuajes')" class="px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 border border-slate-700 transition">🎨 Tatuajes & Piercing</button>
+          <button type="button" onclick="setPreset('tartas personalizadas')" class="px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 border border-slate-700 transition">🎂 Tartas personalizadas</button>
+          <button type="button" onclick="setPreset('microblading')" class="px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 border border-slate-700 transition">👁️ Microblading</button>
           <button type="button" onclick="setPreset('cafeteria')" class="px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 border border-slate-700 transition">☕ Cafetería</button>
           <button type="button" onclick="setPreset('clinica dental')" class="px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 border border-slate-700 transition">🦷 Clínica dental</button>
           <button type="button" onclick="setPreset('reformas integrales')" class="px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 border border-slate-700 transition">🔨 Reformas & Obras</button>
+          <button type="button" onclick="setPreset('microcemento')" class="px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 border border-slate-700 transition">🧱 Microcemento</button>
           <button type="button" id="btn-outlier-toggle" onclick="pedirSugerenciasOutlier(this)" class="px-2.5 py-1 rounded-lg bg-gradient-to-r from-pink-900/60 to-purple-900/60 hover:from-pink-800 hover:to-purple-800 text-pink-300 font-semibold border border-pink-500/40 transition flex items-center gap-1.5 shadow-sm">
             <span>✨ Explorar Nichos Outlier (Gemini)</span>
           </button>
@@ -664,6 +669,23 @@
           <div id="modal-internet-links" class="max-h-44 overflow-y-auto space-y-1.5 pt-0.5 custom-scrollbar"></div>
         </div>
 
+        <!-- Caja Informativa de Web Detectada con opción de descarte si no es real -->
+        <div id="modal-web-detectada-box" class="bg-amber-950/40 rounded-xl p-3 border border-amber-500/40 text-xs hidden">
+          <div class="flex items-center justify-between gap-3 flex-wrap sm:flex-nowrap">
+            <div class="truncate">
+              <span class="text-amber-400 font-semibold uppercase tracking-wider block">🌐 Supuesta Web Detectada:</span>
+              <a id="modal-web-detectada-url" href="#" target="_blank" rel="noopener noreferrer" 
+                 class="text-sky-300 font-mono text-[11px] truncate max-w-sm block mt-0.5 hover:underline" title="Abrir en pestaña nueva">
+              </a>
+              <span class="text-[10px] text-slate-400 block mt-0.5">Si este enlace es un WhatsApp, agregador o no es su web real, puedes descartarlo con un clic:</span>
+            </div>
+            <button type="button" onclick="descartarWebLeadModal(this)" title="Elimina esta web del comercio y pasa el lead a Sin Web" 
+              class="px-3 py-1.5 rounded-lg bg-rose-600/30 hover:bg-rose-600/50 text-rose-200 border border-rose-500/40 text-xs font-semibold transition flex items-center gap-1.5 shrink-0 active:scale-95 shadow-sm">
+              <span>🚫 No es web real (quitar)</span>
+            </button>
+          </div>
+        </div>
+
         <!-- Pestañas de Cadencia: Paso 1 (DM) vs Paso 2 (Seguimiento) -->
         <div class="border-b border-slate-800 flex space-x-4 text-xs font-semibold">
           <button type="button" id="tab-pitch-step1" onclick="switchPitchTab(1)" class="pb-2 text-pink-400 border-b-2 border-pink-500 transition">
@@ -672,6 +694,31 @@
           <button type="button" id="tab-pitch-step2" onclick="switchPitchTab(2)" class="pb-2 text-slate-400 hover:text-slate-200 transition">
             Paso 2: Seguimiento (48-72h)
           </button>
+        </div>
+
+        <!-- Selector de Enfoque de DM Comercial -->
+        <div class="bg-slate-900/90 rounded-xl p-2.5 border border-slate-800 space-y-2">
+          <div class="flex items-center justify-between flex-wrap gap-1">
+            <div class="flex items-center gap-1.5">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-slate-300">🎯 Enfoque Comercial del DM:</span>
+              <span id="modal-enfoque-badge" class="text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-mono">Sin Web</span>
+            </div>
+            <span class="text-[10px] text-slate-500">Cambia la redacción según el contexto real del cliente</span>
+          </div>
+          <div class="flex items-center gap-2 flex-wrap sm:flex-nowrap">
+            <button type="button" id="btn-enfoque-sinweb" onclick="cambiarEnfoqueModal('sin_web')" 
+              class="flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold border transition flex items-center justify-center gap-1.5 bg-pink-600/20 text-pink-300 border-pink-500/40 hover:bg-pink-600/30">
+              <span>🚀 Sin Web (Primera Web / IG)</span>
+            </button>
+            <button type="button" id="btn-enfoque-conweb" onclick="cambiarEnfoqueModal('con_web')" 
+              class="flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold border transition flex items-center justify-center gap-1.5 bg-slate-800 text-slate-400 border-slate-700 hover:bg-slate-700 hover:text-slate-200">
+              <span>🔄 Con Web (Rediseño Mobile)</span>
+            </button>
+            <button type="button" id="btn-enfoque-ia" onclick="regenerarPitchModalIA(this)" title="Re-redactar con Gemini usando este enfoque"
+              class="py-1.5 px-3 rounded-lg text-xs font-semibold border transition flex items-center justify-center gap-1.5 bg-indigo-600/30 text-indigo-300 border-indigo-500/40 hover:bg-indigo-600/50 shrink-0">
+              <span>✨ Re-redactar IA</span>
+            </button>
+          </div>
         </div>
 
         <!-- Badge de Confianza Anti-Malware -->
@@ -756,20 +803,32 @@
       <div class="w-full max-w-[393px] lg:w-60 p-3.5 bg-slate-900/95 border border-slate-700/80 rounded-3xl backdrop-blur-2xl shadow-2xl flex flex-col gap-3 text-xs z-50 shrink-0">
         
         <!-- Info del Comercio & Live Indicator -->
-        <div class="flex items-center justify-between pb-2.5 border-b border-slate-800">
-          <div class="flex items-center space-x-2 min-w-0">
-            <span class="relative flex h-2.5 w-2.5 shrink-0">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-            </span>
-            <div class="truncate">
-              <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Vista Previa Móvil</span>
-              <span id="simulator-title" class="font-bold text-white text-xs truncate block">Dental Nuñez</span>
+        <div class="space-y-2 pb-2.5 border-b border-slate-800">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-2 min-w-0">
+              <span class="relative flex h-2.5 w-2.5 shrink-0">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+              </span>
+              <div class="truncate">
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Simulación en Vivo</span>
+                <span id="simulator-title" class="font-bold text-white text-xs truncate block">Dental Nuñez</span>
+              </div>
             </div>
+            <button onclick="cerrarSimulador()" title="Cerrar (Esc)" class="p-1 rounded-lg bg-slate-800 hover:bg-red-500/20 text-slate-400 hover:text-red-400 transition lg:hidden">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
           </div>
-          <button onclick="cerrarSimulador()" title="Cerrar (Esc)" class="p-1 rounded-lg bg-slate-800 hover:bg-red-500/20 text-slate-400 hover:text-red-400 transition lg:hidden">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-          </button>
+          <!-- URL Oficial de GitHub Pages (Verificación Real) -->
+          <div class="p-2 rounded-xl bg-slate-950 border border-slate-800/80 flex items-center justify-between gap-1.5 shadow-inner">
+            <div class="flex items-center gap-1.5 min-w-0 flex-1">
+              <span class="text-[11px]">🌐</span>
+              <span id="sim-url-display" class="text-[10.5px] font-mono font-medium text-emerald-400 truncate select-all">dga80.github.io/instaleads/...</span>
+            </div>
+            <button onclick="copiarUrlActualSimulador(this)" title="Copiar enlace oficial de GitHub Pages" class="p-1 rounded bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white shrink-0 transition">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+            </button>
+          </div>
         </div>
 
         <!-- Selector de Modelo iPhone -->
@@ -887,12 +946,24 @@
               <div class="w-2.5 h-2.5 rounded-full bg-slate-950/80"></div>
             </div>
 
-            <!-- Iframe de la Landing Page Mobile (Full screen edge-to-edge) -->
-            <iframe id="simulator-iframe" src="about:blank" class="w-full h-full border-0 bg-slate-950 block" loading="eager"></iframe>
+            <!-- Iframe de la Landing Page Mobile (Full screen con enlace público oficial) -->
+            <iframe id="simulator-iframe" src="about:blank" class="w-full flex-1 border-0 bg-slate-950 block" loading="eager"></iframe>
 
-            <!-- Barra Inferior iOS Home Indicator -->
-            <div class="w-full h-5 absolute bottom-0 left-0 right-0 z-40 pointer-events-none flex items-center justify-center">
-              <div class="w-32 h-1 bg-white/40 rounded-full shadow-sm"></div>
+            <!-- Barra Inferior Safari iOS con URL Oficial de GitHub Pages -->
+            <div class="w-full bg-neutral-900/95 backdrop-blur-md border-t border-white/10 flex flex-col items-center pt-1.5 pb-2 z-30 shrink-0 select-none">
+              <div class="w-full px-3 flex items-center justify-between">
+                <span class="text-[10px] text-slate-400 font-bold px-1 tracking-tight">AA</span>
+                <div class="flex-1 mx-2 px-2.5 py-1 rounded-full bg-neutral-800/90 border border-white/10 flex items-center justify-center gap-1.5 text-center truncate shadow-inner">
+                  <svg class="w-3 h-3 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                  <span id="sim-safari-url" class="text-[10.5px] text-slate-200 font-mono font-medium truncate">dga80.github.io/instaleads/...</span>
+                </div>
+                <button onclick="recargarSimulador()" title="Recargar enlace público oficial" class="p-1 text-slate-400 hover:text-white transition">
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                </button>
+              </div>
+              <div class="w-full pt-1.5 flex items-center justify-center">
+                <div class="w-32 h-1 bg-white/40 rounded-full shadow-sm"></div>
+              </div>
             </div>
 
           </div>
@@ -2279,6 +2350,181 @@
       }
     }
 
+    function actualizarBotonesEnfoqueModal(lead) {
+      const btnSinWeb = document.getElementById('btn-enfoque-sinweb');
+      const btnConWeb = document.getElementById('btn-enfoque-conweb');
+      const badge = document.getElementById('modal-enfoque-badge');
+      if (!btnSinWeb || !btnConWeb || !badge) return 'sin_web';
+
+      let enfoque = lead.enfoque_pitch;
+      if (!enfoque) {
+        if (lead.mensaje_dm && (lead.mensaje_dm.includes('vuestra web actual') || lead.mensaje_dm.includes('propuesta de rediseño'))) {
+          enfoque = 'con_web';
+        } else {
+          enfoque = 'sin_web';
+        }
+      }
+
+      if (enfoque === 'con_web') {
+        btnConWeb.className = "flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold border transition flex items-center justify-center gap-1.5 bg-sky-600/30 text-sky-300 border-sky-500/50 shadow-sm";
+        btnSinWeb.className = "flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold border transition flex items-center justify-center gap-1.5 bg-slate-900 text-slate-400 border-slate-700 hover:bg-slate-800 hover:text-slate-200";
+        badge.innerText = "Con Web (Rediseño)";
+        badge.className = "text-[10px] px-2 py-0.5 rounded-full bg-sky-950/80 text-sky-300 border border-sky-800/40 font-medium";
+      } else {
+        btnSinWeb.className = "flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold border transition flex items-center justify-center gap-1.5 bg-pink-600/30 text-pink-300 border-pink-500/50 shadow-sm";
+        btnConWeb.className = "flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold border transition flex items-center justify-center gap-1.5 bg-slate-900 text-slate-400 border-slate-700 hover:bg-slate-800 hover:text-slate-200";
+        badge.innerText = "Sin Web (Primera Web)";
+        badge.className = "text-[10px] px-2 py-0.5 rounded-full bg-pink-950/80 text-pink-300 border border-pink-800/40 font-medium";
+      }
+      return enfoque;
+    }
+
+    async function cambiarEnfoqueModal(nuevoEnfoque) {
+      const lead = todosLosLeads[leadSeleccionadoIdx];
+      if (!lead) return;
+
+      const textarea = document.getElementById('modal-pitch-text');
+      const computedDemo = getDemoUrl(lead);
+      const linkTexto = computedDemo ? ` ${computedDemo}` : '';
+      const firma = "Un saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/";
+      const firmaSeg = "Un saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/";
+
+      let nuevoDm = "";
+      let nuevoSeg = "";
+
+      if (nuevoEnfoque === 'con_web') {
+        const webUrl = lead.web_detectada || "vuestra web actual";
+        nuevoDm = `¡Hola equipo de ${lead.nombre}!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (${webUrl}), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉${linkTexto}\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\n${firma}`;
+        nuevoSeg = `¡Hola de nuevo equipo de ${lead.nombre}!\n\nOs escribí hace un par de días con la web demo interactiva que preparé para vosotros con el contenido de vuestra página:${linkTexto}\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\n${firmaSeg}`;
+      } else {
+        if (lead.instagram_url) {
+          nuevoDm = `¡Hola equipo de ${lead.nombre}!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉${linkTexto}\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\n${firma}`;
+        } else {
+          nuevoDm = `¡Hola equipo de ${lead.nombre}!\n\nSoy Daniel García. He visto vuestro trabajo y os he preparado una web demo interactiva adaptada a vuestro negocio para mostraros cómo potenciar vuestra presencia digital y captar clientes desde el móvil:\n\n👉${linkTexto}\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\n${firma}`;
+        }
+        nuevoSeg = `¡Hola de nuevo equipo de ${lead.nombre}!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil:${linkTexto}\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\n${firmaSeg}`;
+      }
+
+      lead.enfoque_pitch = nuevoEnfoque;
+      lead.mensaje_dm = nuevoDm;
+      lead.mensaje_seguimiento = nuevoSeg;
+
+      if (tabPitchPaso === 1) {
+        textarea.value = nuevoDm;
+      } else {
+        textarea.value = nuevoSeg;
+      }
+
+      actualizarBotonesEnfoqueModal(lead);
+
+      try {
+        await fetch(`/leads/${lead.osm_id}/pitch`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            mensaje_dm: nuevoDm,
+            mensaje_seguimiento: nuevoSeg,
+            enfoque_pitch: nuevoEnfoque
+          })
+        });
+        mostrarToast(`Enfoque cambiado a: ${nuevoEnfoque === 'con_web' ? 'Con Web (Rediseño)' : 'Sin Web (Primera Web)'}`);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    async function descartarWebLeadModal(btnElement) {
+      const lead = todosLosLeads[leadSeleccionadoIdx];
+      if (!lead) return;
+
+      if (!confirm(`¿Confirmas que "${lead.web_detectada || 'esta web'}" no es una web real del comercio y deseas descartarla?\n\nEl lead pasará a figurar como Sin Web y el DM se ajustará automáticamente a la propuesta de primera web.`)) {
+        return;
+      }
+
+      const origHtml = btnElement ? btnElement.innerHTML : '';
+      if (btnElement) {
+        btnElement.disabled = true;
+        btnElement.innerHTML = `<span>Descartando...</span>`;
+      }
+
+      try {
+        const res = await fetch(`/leads/${lead.osm_id}/cambiar-enfoque-pitch`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            enfoque: 'sin_web',
+            descartar_web: true,
+            regenerar_ia: false
+          })
+        });
+        const data = await res.json();
+        if (res.ok && data.lead) {
+          todosLosLeads[leadSeleccionadoIdx] = data.lead;
+          const updatedLead = data.lead;
+          document.getElementById('modal-web-detectada-box').classList.add('hidden');
+          document.getElementById('modal-pitch-text').value = updatedLead.mensaje_dm;
+          document.getElementById('modal-razon').innerText = updatedLead.gemini_razon || 'Comercio verificado sin web propia.';
+          actualizarBotonesEnfoqueModal(updatedLead);
+          mostrarToast('Web descartada con éxito. Lead actualizado a Sin Web.');
+          await cargarLeads();
+        } else {
+          alert('Error al descartar la web: ' + (data.detail || ''));
+        }
+      } catch (err) {
+        alert('Error al conectar con el servidor: ' + err.message);
+      } finally {
+        if (btnElement) {
+          btnElement.disabled = false;
+          btnElement.innerHTML = origHtml;
+        }
+      }
+    }
+
+    async function regenerarPitchModalIA(btnElement) {
+      const lead = todosLosLeads[leadSeleccionadoIdx];
+      if (!lead) return;
+
+      const enfoqueActual = lead.enfoque_pitch || (lead.web_detectada ? 'con_web' : 'sin_web');
+      const origHtml = btnElement.innerHTML;
+      btnElement.disabled = true;
+      btnElement.innerHTML = `
+        <svg class="w-3.5 h-3.5 animate-spin text-white" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        <span>Redactando con IA...</span>
+      `;
+
+      try {
+        const res = await fetch(`/leads/${lead.osm_id}/cambiar-enfoque-pitch`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            enfoque: enfoqueActual,
+            descartar_web: false,
+            regenerar_ia: true
+          })
+        });
+        const data = await res.json();
+        if (res.ok && data.lead) {
+          todosLosLeads[leadSeleccionadoIdx] = data.lead;
+          if (tabPitchPaso === 1) {
+            document.getElementById('modal-pitch-text').value = data.lead.mensaje_dm;
+          } else {
+            document.getElementById('modal-pitch-text').value = data.lead.mensaje_seguimiento;
+          }
+          mostrarToast('¡Nuevo mensaje redactado por IA con éxito!');
+        } else {
+          alert('Error al regenerar mensaje: ' + (data.detail || ''));
+        }
+      } catch (err) {
+        alert('Error de conexión: ' + err.message);
+      } finally {
+        btnElement.disabled = false;
+        btnElement.innerHTML = origHtml;
+      }
+    }
+
     async function guardarPitchEditado() {
       const lead = todosLosLeads[leadSeleccionadoIdx];
       if (!lead) return;
@@ -2286,7 +2532,8 @@
       const textoActual = document.getElementById('modal-pitch-text').value;
       const payload = {
         mensaje_dm: tabPitchPaso === 1 ? textoActual : (lead.mensaje_dm || ""),
-        mensaje_seguimiento: tabPitchPaso === 2 ? textoActual : (lead.mensaje_seguimiento || "")
+        mensaje_seguimiento: tabPitchPaso === 2 ? textoActual : (lead.mensaje_seguimiento || ""),
+        enfoque_pitch: lead.enfoque_pitch || undefined
       };
 
       try {
@@ -2488,6 +2735,20 @@
         urlDemoActual = "";
       }
 
+      // Caja de web detectada y opción de descarte si es falso positivo
+      const webBox = document.getElementById('modal-web-detectada-box');
+      const webUrlEl = document.getElementById('modal-web-detectada-url');
+      if (lead.web_detectada) {
+        webUrlEl.href = lead.web_detectada;
+        webUrlEl.innerText = lead.web_detectada;
+        webBox.classList.remove('hidden');
+      } else {
+        webBox.classList.add('hidden');
+      }
+
+      // Sincronizar botones de enfoque comercial (Sin Web vs Con Web)
+      actualizarBotonesEnfoqueModal(lead);
+
       // Resetear a pestaña 1
       switchPitchTab(1);
       document.getElementById('pitch-modal').classList.remove('hidden');
@@ -2569,15 +2830,23 @@
         qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(finalUrl)}`;
       }
 
-      // Cargar en el marco del simulador (si estamos en local, carga la copia local al instante)
-      const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-      const slugMatch = finalUrl.match(/instaleads\/([^/?#]+)/);
-      let targetIframeUrl = finalUrl;
-      if (isLocal && slugMatch && slugMatch[1]) {
-        targetIframeUrl = `/demos/${slugMatch[1]}/`;
+      // Actualizar visualización del enlace oficial tanto en el panel como en la barra Safari del iPhone
+      const displayUrl = finalUrl.replace(/^https?:\/\//, '');
+      const urlDisplay = document.getElementById('sim-url-display');
+      if (urlDisplay) {
+        urlDisplay.innerText = displayUrl;
+        urlDisplay.title = finalUrl;
       }
-      const sep = targetIframeUrl.includes('?') ? '&' : '?';
-      iframe.src = targetIframeUrl + sep + 'sim=iphone';
+      const safariUrl = document.getElementById('sim-safari-url');
+      if (safariUrl) {
+        safariUrl.innerText = displayUrl;
+        safariUrl.title = finalUrl;
+      }
+
+      // Cargar en el marco del simulador DIRECTAMENTE el enlace público oficial de GitHub Pages
+      // (el enlace exacto que recibirá el cliente para garantizar 100% de fiabilidad)
+      const sep = finalUrl.includes('?') ? '&' : '?';
+      iframe.src = finalUrl + sep + 'sim=iphone';
 
       iframe.onload = function() {
         try {
@@ -2613,8 +2882,9 @@
     function recargarSimulador() {
       const iframe = document.getElementById('simulator-iframe');
       if (iframe && urlActualSimulador) {
-        iframe.src = urlActualSimulador;
-        mostrarToast('Recargando vista móvil...');
+        const sep = urlActualSimulador.includes('?') ? '&' : '?';
+        iframe.src = urlActualSimulador + sep + 'sim=iphone&_t=' + Date.now();
+        mostrarToast('Recargando URL pública (GitHub Pages)...');
       }
     }
 
@@ -2655,9 +2925,9 @@
 
       if (val === 'auto') {
         const isDesktop = window.innerWidth >= 1024;
-        const availableH = window.innerHeight - (isDesktop ? 30 : 180);
-        const availableW = isDesktop ? window.innerWidth - 300 : window.innerWidth - 20;
-        const scale = Math.min(1.0, Math.max(0.55, Math.min(availableH / chassisH, availableW / chassisW)));
+        const availableH = window.innerHeight - (isDesktop ? 80 : 160);
+        const availableW = isDesktop ? window.innerWidth - 320 : window.innerWidth - 30;
+        const scale = Math.min(1.0, Math.max(0.5, Math.min(availableH / chassisH, availableW / chassisW)));
         container.style.transform = `scale(${scale.toFixed(2)})`;
         container.style.marginBottom = scale < 1.0 ? `${-(chassisH * (1 - scale))}px` : '0px';
       } else {

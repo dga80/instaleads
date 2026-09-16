@@ -24,15 +24,15 @@
     } catch(e) {}
   })();
 </script>
-</head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 w-full z-50 bg-surface/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));"><div class="w-full bg-surface-container-low"><div class="max-w-[1280px] mx-auto px-gutter h-10 flex items-center justify-between font-label-md text-label-md"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs text-on-surface"><span class="material-symbols-outlined text-primary text-[16px]">call</span><span class="font-semibold">Atención &amp; Citas:</span>{% if negocio.telefono %}<a class="text-primary hover:underline" href="tel:{{ negocio.telefono }}">{{ negocio.telefono }}</a>{% else %}<a class="text-primary hover:underline" href="{{ negocio.whatsapp_url }}" target="_blank">WhatsApp Directo</a>{% endif %}</div><div class="hidden md:flex items-center gap-space-xs text-on-surface-variant"><span class="material-symbols-outlined text-[16px]">location_on</span><a href="https://www.google.com/maps/search/?api=1&query={{ (negocio.nombre ~ ' ' ~ (negocio.direccion or negocio.ciudad))|urlencode }}" target="_blank" rel="noopener" class="hover:underline">{{ negocio.direccion or negocio.ciudad }}</a></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs"><span class="inline-block w-2 h-2 rounded-full bg-tertiary-container animate-pulse"></span><span class="text-on-surface font-medium">Atención en {{ negocio.ciudad }}</span></div></div></div></div><div class="max-w-[1280px] mx-auto px-gutter h-20 flex items-center justify-between"><div class="flex items-center gap-space-md">{% if ig.avatar_url or ig.avatar %}<img alt="{{ negocio.nombre }}" class="h-9 w-9 rounded-full object-cover border border-primary/30 shrink-0" src="{{ ig.avatar_url or ig.avatar }}"/>{% else %}<div class="w-9 h-9 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold text-sm shrink-0">🏥</div>{% endif %}<span class="font-title-lg text-title-lg text-on-surface font-bold tracking-tight truncate max-w-[170px] sm:max-w-xs md:max-w-none">{{ negocio.nombre }}</span></div><nav class="hidden lg:flex items-center gap-space-xs" data-active-classes="bg-surface-container text-primary font-title-md">
+</head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 w-full z-50 bg-surface/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));"><div class="w-full bg-surface-container-low"><div class="max-w-[1280px] mx-auto px-gutter h-10 flex items-center justify-between font-label-md text-label-md"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs text-on-surface"><span class="material-symbols-outlined text-primary text-[16px]">call</span><span class="font-semibold">Atención &amp; Citas:</span>{% if negocio.telefono %}<a class="text-primary hover:underline" href="tel:{{ negocio.telefono }}">{{ negocio.telefono }}</a>{% else %}<a class="text-primary hover:underline" href="{{ negocio.whatsapp_url }}" target="_blank">WhatsApp Directo</a>{% endif %}</div><div class="hidden md:flex items-center gap-space-xs text-on-surface-variant"><span class="material-symbols-outlined text-[16px]">location_on</span><a href="https://www.google.com/maps/search/?api=1&query={{ (negocio.nombre ~ ' ' ~ (negocio.direccion or negocio.ciudad))|urlencode }}" target="_blank" rel="noopener" class="hover:underline">{{ negocio.direccion or negocio.ciudad }}</a></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs"><span class="inline-block w-2 h-2 rounded-full bg-tertiary-container animate-pulse"></span><span class="text-on-surface font-medium">Atención en {{ negocio.ciudad }}</span></div></div></div></div><div class="max-w-[1280px] mx-auto px-gutter h-20 flex items-center justify-between"><div class="flex items-center gap-space-sm sm:gap-space-md min-w-0">{% if ig.avatar_url or ig.avatar %}<img alt="{{ negocio.nombre }}" class="h-9 w-9 rounded-full object-cover border border-primary/30 shrink-0" src="{{ ig.avatar_url or ig.avatar }}"/>{% else %}<div class="w-9 h-9 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold text-sm shrink-0">🏥</div>{% endif %}<span class="font-title-lg text-title-lg text-on-surface font-bold tracking-tight truncate max-w-[125px] xs:max-w-[160px] sm:max-w-xs md:max-w-none">{{ negocio.nombre }}</span></div><nav class="hidden lg:flex items-center gap-space-xs" data-active-classes="bg-surface-container text-primary font-title-md">
       <a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-md text-title-md transition-colors" href="#garantias">Garantías</a>
       <a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-md text-title-md transition-colors" href="#servicios-clinicos">Especialidades</a>
       <a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-md text-title-md transition-colors" href="#equipo-medico">Equipo Médico</a>
       <a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-md text-title-md transition-colors" href="#opiniones">Opiniones</a>
       <a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-md text-title-md transition-colors" href="#cita-online">Pedir Cita</a>
-    </nav><div class="flex items-center gap-space-md"><a class="inline-flex items-center gap-space-xs bg-primary-container text-on-primary hover:bg-primary px-space-lg py-space-sm rounded-xl font-label-lg text-label-lg shadow-[0_4px_14px_rgba(14,165,233,0.35)] transition-all" data-path="pedir-cita" href="#cita-online"><span class="material-symbols-outlined text-[18px]">calendar_month</span><span>Pedir Cita Online</span></a><div class="hidden sm:flex w-8 h-8 rounded-full bg-primary items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div>
+    </nav><div class="flex items-center gap-1.5 sm:gap-space-md shrink-0"><a class="hidden sm:inline-flex items-center gap-space-xs bg-primary-container text-on-primary hover:bg-primary px-space-lg py-space-sm rounded-xl font-label-lg text-label-lg shadow-[0_4px_14px_rgba(14,165,233,0.35)] transition-all whitespace-nowrap shrink-0" data-path="pedir-cita" href="#cita-online"><span class="material-symbols-outlined text-[18px]">calendar_month</span><span>Pedir Cita Online</span></a><a class="sm:hidden inline-flex items-center gap-1 bg-primary-container text-on-primary hover:bg-primary px-2.5 py-1.5 rounded-lg font-semibold text-xs shadow-sm transition-all whitespace-nowrap shrink-0" href="#cita-online"><span class="material-symbols-outlined text-[15px]">calendar_month</span><span>Pedir Cita</span></a><div class="hidden sm:flex w-8 h-8 rounded-full bg-primary items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div>
       <!-- Mobile Hamburger Button (On the RIGHT) -->
-      <button id="hamburger-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-xl text-primary hover:bg-surface-container transition flex items-center justify-center border border-outline/20 ml-1" aria-label="Abrir Menú" aria-expanded="false">
+      <button id="hamburger-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-xl text-primary hover:bg-surface-container transition flex items-center justify-center border border-outline/20 shrink-0 ml-1" aria-label="Abrir Menú" aria-expanded="false">
         <span class="material-symbols-outlined text-[24px]">menu</span>
       </button></div></div></header><main class="w-full bg-background min-h-screen" style="padding-top: calc(9rem + var(--sat, env(safe-area-inset-top, 0px)));"><div class="flex flex-col w-full">
 <!-- HERO SECTION -->
@@ -91,8 +91,7 @@
 <!-- Right Visual (5 Cols with overlays) -->
 <div class="lg:col-span-5 relative flex justify-center">
 <div class="relative w-full max-w-[480px] rounded-2xl overflow-hidden shadow-xl bg-surface-container-lowest">
-<!-- Doctor & Patient Image -->
-<img class="w-full h-[470px] object-cover object-center" data-alt="Doctor in modern clinic with patient. A friendly female doctor wearing a white medical lab coat and stethoscope smiling while showing a digital tablet to an older woman seated comfortably in an illuminated consultation suite equipped with modern medical 3D imaging monitors in soft cerulean and white tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoz7QcOuA9Q04NqRsazbeUZy9kGvPsBpSFT-XFByOJ9qCJJZMNqHfCDta2Y1xeOLu19UcSp8SB43VpN63qvpcN4BnrzmWqjrCcyr9iKppsFm-2Z2926UtZBwB8mZKkWE7YbOAmCPgD28uA7sVhX57XY-zj5T3h2BvyfE4ro_xcT8n-NzLEzZbLLub0qHvUoOJiUncFOsGOFjyk7VNeN9s1HxDJpqIIdFb_lye1lpKRme3dP69BoWet"/>
+<img class="w-full h-[470px] object-cover object-center" alt="{{ web.hero_alt or negocio.nombre }}" src="{{ web.hero_image_url or (ig.posts[0].image_url if ig.posts and ig.posts[0].image_url else (ig.avatar_url or 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1000&auto=format&fit=crop&q=80')) }}"/>
 <!-- Gradient scrim -->
 <div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/60 via-transparent to-transparent"></div>
 <!-- Floating Stat 1: 99.2% Sin molestias -->
@@ -451,7 +450,7 @@
 <div class="lg:col-span-6">
 <div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-md">
 <div class="relative rounded-xl overflow-hidden mb-space-md">
-<img class="w-full h-72 object-cover" data-alt="Close up of a high-tech medical dental 3D intraoral scanner screen showing a colorful high-definition 3D digital model of teeth and jaw alignment. Clean clinical setting with sterile equipment, soft cerulean backlights, and precise diagnostic graphic overlays." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTCvGeKu0CUFEY5NokJdqRhFm6oIraLhWM7_-sZkZXXRNPpmIdR9sjFlbOIEBgTAv74DrPc6S4CQE-E7KNdvsYj9zJkyN8n0wva7iMUsYRcIr6Bm_J0SdD1lWxCh39CNWHRXRTpiXcFXMsYjC7WFTUTxF0DjDoWdDh3KdZh55VDBLPIYMsyb7pTqz0oUJa3ZcfQqnjMTJXimdn_oWe1-6dXcsD1bKPVJ5yaWCGS9tdVmIO7MBEQE8N"/>
+<img class="w-full h-72 object-cover" alt="Tecnología e Instalaciones {{ negocio.nombre }}" src="{{ (ig.posts[1].image_url if ig.posts|length > 1 and ig.posts[1].image_url else 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&auto=format&fit=crop&q=80') }}"/>
 <div class="absolute top-space-sm right-space-sm bg-inverse-surface/85 text-inverse-on-surface px-space-sm py-space-xs rounded-lg font-caption text-caption">
                 Simulación en tiempo real (CAD/CAM)
               </div>
@@ -489,7 +488,7 @@
 <!-- Doctor 1: Dra. Elena Ruiz -->
 <div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col">
 <div class="relative w-full h-64 rounded-xl overflow-hidden mb-space-md">
-<img class="w-full h-full object-cover object-top" data-alt="Professional medical portrait of Dra. Elena Ruiz Santos, a senior female dental surgeon in her 40s wearing a clean white medical coat and clinical badge, smiling warmly and confidently in a bright modern clinic with soft blue and white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAue4vNq9zVtVskvVte_B4sQ3x0uJzJsp_wzINMdnX6tRHITSH3oP170Pq7KhLCEkrDJy8B0LGh8KRnD0u_FceguLoq4_7pKKgLKTFkybU0cwKFq1N4tsiuxdYL1nSbhehOSHqJQ7ZUUrt31SMZSezmk5L6RH5OgmKIKn1lP6Q-XIg9etOV-LJIKmJLz9lAW1znoI2UHKA1P3pmJBiGkLVj45cfIwj_94eFfd1WAUgZzSxJes_L9xXb"/>
+<img class="w-full h-full object-cover object-top" alt="Especialista {{ negocio.nombre }}" src="{{ (ig.posts[2].image_url if ig.posts|length > 2 and ig.posts[2].image_url else 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&auto=format&fit=crop&q=80') }}"/>
 <div class="absolute top-space-sm left-space-sm bg-surface/90 backdrop-blur-sm px-space-sm py-space-xs rounded-full flex items-center gap-space-xs font-caption text-caption text-on-surface font-semibold shadow-sm">
 <span class="material-symbols-outlined text-tertiary text-[14px]">verified</span>
 <span>15+ años exp.</span>
@@ -515,7 +514,7 @@
 <!-- Doctor 2: Dr. Carlos Méndez -->
 <div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col">
 <div class="relative w-full h-64 rounded-xl overflow-hidden mb-space-md">
-<img class="w-full h-full object-cover object-top" data-alt="Professional medical headshot portrait of Dr. Carlos Mendez, an orthodontist in his late 30s with friendly approachable demeanor, wearing navy clinical scrubs and white coat, standing in front of high-tech orthodontic equipment in a modern clinic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAF4lKkveASrc0dRXWY4LKdbthKCxmGs9hX0pmkgz12yBLkDrwMY_0DvZxbvZrA3AQPJy0tqSu_EzHSCpYO9XvTQs4EGnJl9AuGEBNQhV5iIt1j-55KhrLY-GdOya1yrXLUYQHJUmxdXN0JfeSvApT6te6xMENwvK2ZcpX4mXXBHZ2F5bO6v7eJkJDQTN3VcvHwCMM5cXBiSbL0DD2xoM5CXF03MCdtAfTIz669BqhnUeVMpKDXuFaz"/>
+<img class="w-full h-full object-cover object-top" alt="Especialista {{ negocio.nombre }}" src="{{ (ig.posts[3].image_url if ig.posts|length > 3 and ig.posts[3].image_url else 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600&auto=format&fit=crop&q=80') }}"/>
 <div class="absolute top-space-sm left-space-sm bg-surface/90 backdrop-blur-sm px-space-sm py-space-xs rounded-full flex items-center gap-space-xs font-caption text-caption text-on-surface font-semibold shadow-sm">
 <span class="material-symbols-outlined text-tertiary text-[14px]">verified</span>
 <span>Diamond Apex</span>
@@ -541,7 +540,7 @@
 <!-- Doctor 3: Dra. Laura Valls -->
 <div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col">
 <div class="relative w-full h-64 rounded-xl overflow-hidden mb-space-md">
-<img class="w-full h-full object-cover object-top" data-alt="Professional clinical portrait of Dra. Laura Valls Ortiz, a pediatric and gentle care dentist with warm welcoming smile, wearing light blue scrubs in a warm, welcoming consultation room designed for patient reassurance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVFP7jc1rWgHvUuXHXtUyeb0xjjuGe-jjiqxkr1IpkgEQxNv0uEXa-zOCLS376BGL3UvT2VnU7BdxAyPLsAqet7JVVLJ6EuqFu6PJ4YdXjg_x5F4q0vXNssz94gIUiozZ1ErBahct48sT2wm7ANUS12nHfoFyHouARz-R0htGYNckjMtLUSd5oaznGhUa7iONkUnDEzvusaReroAeEsnUTyTpP62_JA5vEiMHpCqRoBV5CnArkGJ13"/>
+<img class="w-full h-full object-cover object-top" alt="Especialista {{ negocio.nombre }}" src="{{ (ig.posts[4].image_url if ig.posts|length > 4 and ig.posts[4].image_url else 'https://images.unsplash.com/photo-1594824813590-482869974246?w=600&auto=format&fit=crop&q=80') }}"/>
 <div class="absolute top-space-sm left-space-sm bg-surface/90 backdrop-blur-sm px-space-sm py-space-xs rounded-full flex items-center gap-space-xs font-caption text-caption text-on-surface font-semibold shadow-sm">
 <span class="material-symbols-outlined text-tertiary text-[14px]">verified</span>
 <span>Protocolo Antiansiedad</span>
@@ -583,6 +582,40 @@
 </div>
 </div>
 </section>
+{% if ig.posts %}
+<!-- GALERÍA REAL DE INSTAGRAM (CASOS CLÍNICOS, INSTALACIONES Y TRABAJOS REALES) -->
+<section class="w-full py-space-xl bg-surface scroll-mt-32" id="galeria-clinica">
+  <div class="max-w-[1280px] mx-auto px-gutter">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-space-xl gap-space-md">
+      <div>
+        <div class="inline-flex items-center gap-space-xs font-label-md text-label-md text-primary font-semibold uppercase mb-space-xs">
+          <span class="material-symbols-outlined text-[18px]">photo_camera</span>
+          <span>Día a Día en Nuestra Clínica</span>
+        </div>
+        <h2 class="font-headline-lg text-headline-lg text-on-surface font-bold">Casos Clínicos &amp; Resultados Reales</h2>
+        <p class="font-body-md text-body-md text-on-surface-variant max-w-xl mt-1">
+          Publicaciones recientes extraídas directamente de nuestro perfil oficial de Instagram.
+        </p>
+      </div>
+      <a class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-primary font-semibold text-xs border border-primary/20 transition-all shadow-sm shrink-0" href="{{ negocio.instagram_url or ('https://instagram.com/' ~ ig.username) }}" target="_blank" rel="noopener">
+        <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+        <span>@{{ ig.username }} en Instagram</span>
+      </a>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-space-md">
+      {% for post in ig.posts[:8] %}
+      <div class="group relative rounded-2xl overflow-hidden aspect-[4/5] bg-surface-container-low border border-primary/10 shadow-sm hover:shadow-md cursor-pointer transition-all" onclick="abrirLightbox('{{ post.image_url }}', '{{ (post.caption or negocio.nombre)|replace('\'', '\\\'')|replace('\"', '&quot;') }}')">
+        <img alt="{{ post.caption[:40] if post.caption else negocio.nombre }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" src="{{ post.image_url }}" loading="lazy" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 sm:p-4">
+          <span class="font-label-md text-[10px] text-primary-fixed uppercase tracking-wider">Publicación Real • Ver Detalle</span>
+          <p class="text-white font-medium text-xs line-clamp-2 mt-1">{{ post.caption or negocio.nombre }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
 <!-- OPINIONES VERIFICADAS DE PACIENTES -->
 <section class="w-full py-space-xl bg-surface-container-low scroll-mt-32" id="opiniones">
 <div class="max-w-[1280px] mx-auto px-gutter">
@@ -768,12 +801,12 @@
 </div>
 </div>
 <!-- Submit Action Button -->
-<div class="pt-space-xs flex flex-col gap-space-xs">
-<button class="w-full h-12 bg-primary text-on-primary hover:bg-secondary rounded-xl font-title-md text-title-md font-semibold flex items-center justify-center gap-space-xs shadow-md transition-all cursor-pointer" type="submit">
-<span class="material-symbols-outlined text-[20px]">send</span>
-<span>Confirmar Cita Informativa por WhatsApp</span>
+<div class="pt-space-xs flex flex-col gap-2">
+<button class="w-full min-h-[3rem] py-3.5 px-4 bg-primary text-on-primary hover:bg-secondary rounded-xl font-title-md text-sm sm:text-base font-semibold flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer text-center leading-snug" type="submit">
+<span class="material-symbols-outlined text-[20px] shrink-0">send</span>
+<span>Confirmar Cita por WhatsApp</span>
 </button>
-<span class="font-caption text-caption text-on-surface-variant text-center">Protección de datos garantizada según el Reglamento Sanitario RGPD.</span>
+<span class="font-caption text-caption text-on-surface-variant text-center mt-1">Protección de datos garantizada según el Reglamento Sanitario RGPD.</span>
 </div>
 <!-- Instant Feedback Confirmation Message -->
 <div class="hidden p-space-md bg-emerald-900/30 border border-emerald-500/40 rounded-xl flex items-center gap-space-sm text-emerald-700" id="booking-confirmation">
@@ -965,8 +998,79 @@
   }
 
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeMobileMenu();
+    if (e.key === 'Escape') {
+      closeMobileMenu();
+      cerrarLightbox();
+    }
   });
+
+  // Lightbox Modal para fotos de Instagram
+  function abrirLightbox(imgUrl, caption) {
+    const modal = document.getElementById('lightbox-modal');
+    const img = document.getElementById('lightbox-img');
+    const cap = document.getElementById('lightbox-caption');
+    const waBtn = document.getElementById('lightbox-wa-btn');
+    if (!modal || !img) return;
+
+    img.src = imgUrl;
+    cap.textContent = caption || 'Tratamiento y caso clínico en {{ negocio.nombre }} ({{ negocio.ciudad }})';
+    
+    const waBase = '{{ negocio.whatsapp_url or ("https://wa.me/" ~ negocio.telefono) }}';
+    const cleanCap = (caption || 'vuestro tratamiento en la web').substring(0, 75);
+    const waMsg = encodeURIComponent('¡Hola equipo de {{ negocio.nombre }}! He visto este caso clínico en vuestra web y quisiera consultar o pedir cita previa: "' + cleanCap + '"');
+    
+    let targetUrl = waBase;
+    if (waBase.includes('wa.me') || waBase.includes('whatsapp.com')) {
+      const sep = waBase.includes('?') ? '&' : '?';
+      targetUrl = waBase + sep + 'text=' + waMsg;
+    }
+    if (waBtn) waBtn.href = targetUrl;
+
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    setTimeout(() => {
+      modal.classList.remove('opacity-0');
+      modal.classList.add('opacity-100');
+    }, 10);
+    document.body.style.overflow = 'hidden';
+  }
+
+  function cerrarLightbox(e) {
+    if (e && e.target && e.target.id !== 'lightbox-modal' && !e.target.closest('button')) return;
+    const modal = document.getElementById('lightbox-modal');
+    if (!modal) return;
+    modal.classList.remove('opacity-100');
+    modal.classList.add('opacity-0');
+    setTimeout(() => {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = '';
+    }, 200);
+  }
 </script>
+
+<!-- ============================================================ -->
+<!-- LIGHTBOX MODAL (VISUALIZADOR FOTOS INSTAGRAM) -->
+<!-- ============================================================ -->
+<div id="lightbox-modal" class="fixed inset-0 z-[110] bg-black/90 backdrop-blur-md hidden items-center justify-center p-4 transition-all duration-300 opacity-0" onclick="cerrarLightbox(event)">
+  <div class="relative max-w-2xl w-full bg-surface-container-lowest rounded-2xl overflow-hidden shadow-2xl border border-primary/20 flex flex-col" onclick="event.stopPropagation()">
+    <button type="button" onclick="cerrarLightbox()" class="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/80 transition-colors">
+      <span class="material-symbols-outlined text-[20px]">close</span>
+    </button>
+    <div class="relative max-h-[65vh] overflow-hidden bg-black flex items-center justify-center">
+      <img id="lightbox-img" src="" alt="Detalle" class="w-full h-auto max-h-[65vh] object-contain" />
+    </div>
+    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-surface">
+      <div class="flex-1">
+        <span class="font-label-md text-[11px] text-primary uppercase font-bold tracking-wider block mb-1">Publicación Oficial • Instagram</span>
+        <p id="lightbox-caption" class="font-body-sm text-on-surface text-xs sm:text-sm line-clamp-3 leading-relaxed"></p>
+      </div>
+      <a id="lightbox-wa-btn" href="{{ negocio.whatsapp_url }}" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-on-primary font-semibold text-xs shadow-md hover:bg-primary-container transition-all shrink-0">
+        <span class="material-symbols-outlined text-[18px]">chat</span>
+        <span>Preguntar por WhatsApp</span>
+      </a>
+    </div>
+  </div>
+</div>
 
 </body></html>

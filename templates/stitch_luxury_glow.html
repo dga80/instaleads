@@ -29,7 +29,7 @@
       <a class="px-space-md py-space-xs rounded-full font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#filosofia">Filosofía</a>
       <a class="px-space-md py-space-xs rounded-full font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#galeria">Resultados</a>
       <a class="px-space-md py-space-xs rounded-full font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#contacto">Contacto</a>
-    </nav><div class="flex items-center gap-space-sm"><button onclick="abrirModalPresupuesto()" class="inline-flex items-center justify-center px-space-md py-2.5 rounded-full bg-primary-container hover:bg-[#c48444] text-on-surface font-label-caps text-label-caps uppercase tracking-wider transition-all duration-300 shadow-[0_4px_16px_rgba(212,151,87,0.3)] hover:shadow-[0_6px_20px_rgba(212,151,87,0.45)] cursor-pointer" data-path="pedir-cita">Pedir Cita</button><div class="hidden sm:flex w-8 h-8 rounded-full bg-primary items-center justify-center shadow-sm ml-1"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div>
+    </nav><div class="flex items-center gap-space-sm shrink-0"><button onclick="abrirModalPresupuesto()" class="inline-flex items-center justify-center px-space-md py-2.5 rounded-full bg-primary-container hover:bg-[#c48444] text-on-surface font-label-caps text-label-caps uppercase tracking-wider transition-all duration-300 shadow-[0_4px_16px_rgba(212,151,87,0.3)] hover:shadow-[0_6px_20px_rgba(212,151,87,0.45)] cursor-pointer whitespace-nowrap shrink-0" data-path="pedir-cita">Pedir Cita</button><div class="hidden sm:flex w-8 h-8 rounded-full bg-primary items-center justify-center shadow-sm ml-1 shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div>
       <!-- Mobile Hamburger Button (On the RIGHT) -->
       <button id="hamburger-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-full hover:bg-surface-container text-on-surface transition flex items-center justify-center border border-primary-container/30 ml-1" aria-label="Abrir Menú" aria-expanded="false">
         <span class="material-symbols-outlined text-[24px]">menu</span>
@@ -89,7 +89,7 @@
 <div class="relative w-full max-w-lg mx-auto lg:max-w-none">
 <!-- Main Hero Visual Card -->
 <div class="relative z-10 w-full h-[430px] sm:h-[490px] rounded-[24px] overflow-hidden border border-primary-container/25 shadow-[0_20px_50px_-15px_rgba(212,151,87,0.25)] bg-surface-container-lowest">
-<img class="w-full h-full object-cover" alt="{{ negocio.nombre }}" src="{{ ig.posts[0].image_url if ig.posts and ig.posts[0].image_url else 'https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&w=1200&q=80' }}"/>
+<img class="w-full h-full object-cover" alt="{{ web.hero_alt or negocio.nombre }}" src="{{ web.hero_image_url or (ig.posts[0].image_url if ig.posts and ig.posts[0].image_url else 'https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&w=1200&q=80') }}"/>
 <!-- Subtle inner gradient scrim -->
 <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/10"></div>
 <!-- Location Stamp on Hero Image -->

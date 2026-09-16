@@ -11,7 +11,7 @@ from concurrent.futures import ThreadPoolExecutor
 import requests
 from jinja2 import Environment, FileSystemLoader
 
-from instagram_extractor import obtener_datos_completos_instagram
+from instagram_extractor import obtener_datos_completos_instagram, generar_datos_instagram_mock
 from stitch_designer import sintetizar_design_system
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -32,7 +32,7 @@ def limpiar_categoria(cat: str) -> str:
     limpio = re.sub(r'[:_]', ' ', limpio).strip()
     return limpio.title() if limpio else "Comercio Local"
 
-def descargar_imagen_a_base64(url: str, timeout: int = 6) -> str:
+def descargar_imagen_a_base64(url: str, timeout: int = 12) -> str:
     """
     Descarga una imagen de Instagram CDN o externa y la convierte en data URI base64.
     Esto es ESENCIAL porque los servidores CDN de Instagram envían 'cross-origin-resource-policy: same-origin',
@@ -45,7 +45,8 @@ def descargar_imagen_a_base64(url: str, timeout: int = 6) -> str:
         return url
     
     headers = {
-        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+        "Referer": "https://www.instagram.com/",
         "Accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8"
     }
     try:
@@ -406,12 +407,22 @@ Publicaciones recientes en Instagram:
 Tu misión como Director de Diseño y Copywriting es decidir y estructurar el contenido en JSON:
 1. 'tema_predeterminado': Modo visual inicial ideal ("light" o "dark").
 2. 'arquetipo_diseno': Arquetipo visual más idóneo ("luxury_glow", "urban_edge", "warm_artisan", "clinical_trust", "craft_build").
-3. 'badge_status': Una frase de estado con emoji para el header (ej. "⚡ BOX DE TALLER ACTIVO • CITA RÁPIDA", "✨ CITAS ABIERTAS • AGENDA ONLINE").
-4. 'titular': Un título potente y persuasivo para el Hero (máx 8 palabras).
-5. 'subtitulo': Una frase que explique el valor diferencial y anime a contactar (máx 20 palabras).
-6. 'servicios': Lista de 3 servicios clave detectados ('nombre', 'descripcion', 'precio_o_duracion'). Si se aportó información de su web actual, utiliza prioritariamente sus servicios reales.
-7. 'sobre_nosotros': Párrafo cercano y profesional resumiendo su propuesta de valor (máx 40 palabras).
-8. 'categoria_clean': Nombre corto y limpio de la categoría.
+3. 'subnicho_cultural': Identifica el concepto cultural, gastronómico o especialidad exacta (ej. "colombiano", "mexicano", "italiano", "japones", "hamburgueseria", "panaderia_artesanal", "cafeteria_especialidad", "taller_motos", "taller_coches", "clinica_dental", "barberia", "peluqueria", "estetica_unas", "tatuajes", "reformas", "general").
+4. 'badge_status': Una frase de estado con emoji para el header (ej. "⚡ BOX DE TALLER ACTIVO • CITA RÁPIDA", "✨ CITAS ABIERTAS • AGENDA ONLINE").
+5. 'hero_badge_pill': Frase corta para la píldora superior del Hero adaptada exactamente a la especialidad u origen del negocio (ej. "🇨🇴 SABOR AUTÉNTICO COLOMBIANO • HECHO CON AMOR", "🥖 MASA MADRE & FERMENTACIÓN LENTA").
+6. 'hero_stat_number': Cifra de impacto (ej. "+10.000", "+1.200", "100%").
+7. 'hero_stat_label': Etiqueta de la cifra adaptada al servicio del negocio (ej. "arepas & especialidades servidas", "sonrisas transformadas", "motos puestas a punto").
+8. 'hero_stat_icon': Nombre de icono de Google Material Symbols (ej. "restaurant", "local_cafe", "verified", "star", "health_and_safety").
+9. 'hero_float_tag': Etiqueta pequeña flotante (ej. "Especialidad Criolla", "Tratamiento Estrella", "Garantía Oficial").
+10. 'hero_float_title': Título del elemento flotante (ej. "Arepas con Queso & Empanadas", "Diagnóstico 3D Digital").
+11. 'hero_status_pill': Píldora de estado (ej. "Cocina abierta hoy", "Citas disponibles hoy").
+12. 'prompt_foto_hero': Prompt fotográfico en inglés hiper-realista, descriptivo y apetitoso para la imagen principal del hero, adaptado exactamente al tipo de negocio y su propuesta cultural/gastronómica o técnica.
+13. 'prompt_foto_detalle': Prompt fotográfico en inglés para la foto de detalle secundario.
+14. 'titular': Un título potente y persuasivo para el Hero (máx 8 palabras).
+15. 'subtitulo': Una frase que explique el valor diferencial y anime a contactar (máx 20 palabras).
+16. 'servicios': Lista de 3 servicios clave detectados ('nombre', 'descripcion', 'precio_o_duracion'). Si se aportó información de su web actual, utiliza prioritariamente sus servicios reales.
+17. 'sobre_nosotros': Párrafo cercano y profesional resumiendo su propuesta de valor (máx 40 palabras).
+18. 'categoria_clean': Nombre corto y limpio de la categoría.
 
 Responde ÚNICAMENTE con el objeto JSON válido:
 """
@@ -421,7 +432,7 @@ Responde ÚNICAMENTE con el objeto JSON válido:
             raw_json = match.group(0) if match else re.sub(r"^```(json)?", "", texto, flags=re.MULTILINE).strip("` \n")
             data = json.loads(raw_json)
             if "titular" in data and "servicios" in data and isinstance(data["servicios"], list) and len(data["servicios"]) > 0:
-                print(f"[Gemini Web Structuring] Contenido y diseño UX/UI generados con modelo {modelo_usado}")
+                print(f"[Gemini Web Structuring] Contenido y diseño UX/UI generados con modelo {modelo_usado} (Subnicho: {data.get('subnicho_cultural', 'general')})")
                 for i, s in enumerate(data.get("servicios", [])):
                     if i < len(ig_posts):
                         s["imagen"] = ig_posts[i].get("image_url")
@@ -525,8 +536,41 @@ def generar_web_comercio(lead: Dict[str, Any], cliente_gemini=None, plantilla_se
         arquetipo_forzado=plantilla_seleccionada
     )
 
+    # 3.1 Detección semántica de subnicho cultural / gastronómico y sincronización fotográfica
+    subnicho = web_content.get("subnicho_cultural", "")
+    clean_handle = ig_data.get("username") or handle.lstrip("@").strip("/").split("/")[-1]
+
+    # Si ig_data es un fallback curado o no tiene posts reales de Instagram,
+    # re-sincronizar el catálogo temático con el subnicho cultural y gastronómico exacto detectado por Gemini
+    if ig_data.get("fuente") == "curated_fallback" or not ig_data.get("exito_real") or not ig_data.get("posts"):
+        mock_adaptado = generar_datos_instagram_mock(nombre, categoria, ciudad, clean_handle, subnicho=subnicho)
+        ig_data["posts"] = mock_adaptado.get("posts", [])
+        if not ig_data.get("avatar_url") or not ig_data.get("exito_real"):
+            ig_data["avatar_url"] = mock_adaptado.get("avatar_url")
+            ig_data["avatar"] = mock_adaptado.get("avatar_url")
+        if not ig_data.get("biografia") or not ig_data.get("exito_real"):
+            ig_data["biografia"] = mock_adaptado.get("biografia")
+        # Asignar imágenes adaptadas a los servicios si venían vacías
+        for i, s in enumerate(web_content.get("servicios", [])):
+            if not s.get("imagen") and i < len(ig_data["posts"]):
+                s["imagen"] = ig_data["posts"][i].get("image_url")
+
+    # Asignar fotos Hero y Detalle contextuales basadas en el subnicho o publicaciones
+    if not web_content.get("hero_image_url"):
+        if ig_data.get("posts") and len(ig_data["posts"]) > 0:
+            web_content["hero_image_url"] = ig_data["posts"][0].get("image_url", "")
+    if not web_content.get("detalle_image_url"):
+        if ig_data.get("posts") and len(ig_data["posts"]) > 1:
+            web_content["detalle_image_url"] = ig_data["posts"][1].get("image_url", "")
+        else:
+            web_content["detalle_image_url"] = ig_data.get("avatar_url", "")
+
     # 4. Descargar e incrustar todas las imágenes en Base64 en paralelo (evita bloqueo de CORS/CORP en Chrome)
     urls_a_descargar = []
+    if web_content.get("hero_image_url"):
+        urls_a_descargar.append(web_content["hero_image_url"])
+    if web_content.get("detalle_image_url"):
+        urls_a_descargar.append(web_content["detalle_image_url"])
     if ig_data.get("avatar_url"):
         urls_a_descargar.append(ig_data["avatar_url"])
     if ig_data.get("avatar"):
@@ -540,6 +584,11 @@ def generar_web_comercio(lead: Dict[str, Any], cliente_gemini=None, plantilla_se
 
     # Descarga concurrente ultrarrápida
     b64_map = descargar_imagenes_en_paralelo(urls_a_descargar)
+
+    if web_content.get("hero_image_url") in b64_map:
+        web_content["hero_image_url"] = b64_map[web_content["hero_image_url"]]
+    if web_content.get("detalle_image_url") in b64_map:
+        web_content["detalle_image_url"] = b64_map[web_content["detalle_image_url"]]
 
     if ig_data.get("avatar_url") in b64_map:
         ig_data["avatar_url"] = b64_map[ig_data["avatar_url"]]
@@ -557,6 +606,58 @@ def generar_web_comercio(lead: Dict[str, Any], cliente_gemini=None, plantilla_se
     for s in web_content.get("servicios", []):
         if s.get("imagen") in b64_map:
             s["imagen"] = b64_map[s["imagen"]]
+
+    # 4.1 Garantía absoluta contra imágenes rotas o en blanco:
+    # Si alguna imagen de Instagram falló al descargarse (por DNS efímero de Meta, token expirado o timeout),
+    # o si no empieza con 'data:image', recurrimos inmediatamente al catálogo temático curado y lo incrustamos en Base64.
+    mock_dataset = None
+
+    def obtener_mock():
+        nonlocal mock_dataset
+        if mock_dataset is None:
+            mock_dataset = generar_datos_instagram_mock(nombre, categoria, ciudad, clean_handle, subnicho=subnicho)
+        return mock_dataset
+
+    # Validar avatar
+    avatar_val = ig_data.get("avatar_url") or ig_data.get("avatar") or ""
+    if not avatar_val.startswith("data:image"):
+        fallback_avatar = obtener_mock().get("avatar_url")
+        if fallback_avatar:
+            b64_av = descargar_imagen_a_base64(fallback_avatar, timeout=10)
+            ig_data["avatar_url"] = b64_av
+            ig_data["avatar"] = b64_av
+
+    # Validar posts
+    posts_validos = []
+    for i, p in enumerate(ig_data.get("posts", [])):
+        img = p.get("image_url", "")
+        if not img.startswith("data:image"):
+            mock_posts = obtener_mock().get("posts", [])
+            if mock_posts:
+                fallback_post = mock_posts[i % len(mock_posts)]
+                fallback_img = fallback_post.get("image_url", "")
+                p["image_url"] = descargar_imagen_a_base64(fallback_img, timeout=10)
+                if not p.get("caption"):
+                    p["caption"] = fallback_post.get("caption", "")
+        posts_validos.append(p)
+
+    # Si hay menos de 6 publicaciones, rellenar con el catálogo temático curado
+    if len(posts_validos) < 6:
+        mock_posts = obtener_mock().get("posts", [])
+        for i in range(len(posts_validos), min(8, len(mock_posts))):
+            extra_post = dict(mock_posts[i])
+            extra_post["image_url"] = descargar_imagen_a_base64(extra_post["image_url"], timeout=10)
+            posts_validos.append(extra_post)
+
+    ig_data["posts"] = posts_validos
+
+    # Validar servicios
+    for i, s in enumerate(web_content.get("servicios", [])):
+        if not s.get("imagen", "").startswith("data:image"):
+            mock_posts = obtener_mock().get("posts", [])
+            if mock_posts:
+                fallback_img = mock_posts[i % len(mock_posts)].get("image_url", "")
+                s["imagen"] = descargar_imagen_a_base64(fallback_img, timeout=10)
 
     # 5. Generar enlaces de acción rápida (Teléfono / WhatsApp / Instagram Direct)
     clean_phone = re.sub(r"[^\d+]", "", telefono or "")

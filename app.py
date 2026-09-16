@@ -23,6 +23,7 @@ from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
 
 from web_generator import generar_web_comercio, slugify
+from instagram_extractor import extraer_sitio_web_perfil
 
 # Cargar variables de entorno desde .env
 load_dotenv()
@@ -375,12 +376,18 @@ FALLBACK_OSM_CATEGORIES = {
     "taller de motos": {"key": "shop", "value": "motorcycle"},
     "motos": {"key": "shop", "value": "motorcycle"},
     "custom motos": {"key": "shop", "value": "motorcycle"},
+    "car detailing": {"key": "shop", "value": "car_repair"},
+    "detailing": {"key": "shop", "value": "car_repair"},
+    "pulido de coches": {"key": "shop", "value": "car_repair"},
     "taller mecanico": {"key": "shop", "value": "car_repair"},
     "taller de coches": {"key": "shop", "value": "car_repair"},
     "bicicletas": {"key": "shop", "value": "bicycle"},
     "taller de bicis": {"key": "shop", "value": "bicycle"},
     
     # Nichos Outliers & Artesanía / Oficios de Autor
+    "microcemento": {"key": "craft", "value": "plasterer"},
+    "resina epoxi": {"key": "craft", "value": "floorer"},
+    "reformas integrales": {"key": "craft", "value": "builder"},
     "luthier": {"key": "craft", "value": "luthier"},
     "guitarra": {"key": "craft", "value": "luthier"},
     "instrumentos musicales": {"key": "shop", "value": "musical_instrument"},
@@ -410,6 +417,8 @@ FALLBACK_OSM_CATEGORIES = {
     # Bienestar, Estética & Salud
     "centro de uñas": {"key": "shop", "value": "beauty"},
     "uñas": {"key": "shop", "value": "beauty"},
+    "microblading": {"key": "shop", "value": "beauty"},
+    "micropigmentacion": {"key": "shop", "value": "beauty"},
     "estetica": {"key": "shop", "value": "beauty"},
     "peluqueria": {"key": "shop", "value": "hairdresser"},
     "barberia": {"key": "shop", "value": "hairdresser"},
@@ -431,8 +440,10 @@ FALLBACK_OSM_CATEGORIES = {
     "cafeteria": {"key": "amenity", "value": "cafe"},
     "bar": {"key": "amenity", "value": "bar"},
     "restaurante": {"key": "amenity", "value": "restaurant"},
-    "panaderia": {"key": "shop", "value": "bakery"},
+    "tartas personalizadas": {"key": "shop", "value": "pastry"},
+    "reposteria creativa": {"key": "shop", "value": "pastry"},
     "pasteleria": {"key": "shop", "value": "pastry"},
+    "panaderia": {"key": "shop", "value": "bakery"},
     "floristeria": {"key": "shop", "value": "florist"},
     "tienda de ropa": {"key": "shop", "value": "clothes"},
     "zapateria": {"key": "shop", "value": "shoes"},
@@ -796,6 +807,23 @@ Devuelve ÚNICAMENTE un JSON con esta estructura:
             print(f"[Error Gemini Pitch] {e}. Usando plantilla fallback...")
 
     # Fallback si no hay API key de Gemini o si falla
+    plantilla = construir_pitch_plantilla(
+        nombre_negocio=nombre_negocio,
+        demo_url=demo_url,
+        tiene_ig=tiene_ig,
+        web_existente=web_existente
+    )
+    return {
+        "es_gran_cadena": False,
+        "es_perfil_correcto": True,
+        "razon": "Validación automática heurística",
+        "mensaje_dm_sugerido": plantilla["mensaje_dm"],
+        "mensaje_seguimiento": plantilla["mensaje_seguimiento"]
+    }
+
+
+def construir_pitch_plantilla(nombre_negocio: str, demo_url: str = "", tiene_ig: bool = True, web_existente: str = "") -> dict:
+    """Construye las plantillas estandarizadas de DM y seguimiento según si tiene web o no."""
     link_texto = f" {demo_url}" if demo_url else ""
     firma = (
         "Un saludo,\n"
@@ -809,7 +837,7 @@ Devuelve ÚNICAMENTE un JSON con esta estructura:
     )
 
     if web_existente:
-        pitch_dm_fallback = (
+        pitch_dm = (
             f"¡Hola equipo de {nombre_negocio}!\n\n"
             f"Soy Daniel García. He visto vuestro trabajo y vuestra web actual ({web_existente}), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n"
             f"👉{link_texto}\n"
@@ -817,7 +845,7 @@ Devuelve ÚNICAMENTE un JSON con esta estructura:
             f"¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\n"
             f"{firma}"
         )
-        seguimiento_fallback = (
+        seguimiento = (
             f"¡Hola de nuevo equipo de {nombre_negocio}!\n\n"
             f"Os escribí hace un par de días con la web demo interactiva que preparé para vosotros con el contenido de vuestra página:{link_texto}\n\n"
             f"Os lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n"
@@ -825,7 +853,7 @@ Devuelve ÚNICAMENTE un JSON con esta estructura:
             f"{firma_seguimiento}"
         )
     elif tiene_ig:
-        pitch_dm_fallback = (
+        pitch_dm = (
             f"¡Hola equipo de {nombre_negocio}!\n\n"
             f"Soy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n"
             f"👉{link_texto}\n"
@@ -833,7 +861,7 @@ Devuelve ÚNICAMENTE un JSON con esta estructura:
             f"¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\n"
             f"{firma}"
         )
-        seguimiento_fallback = (
+        seguimiento = (
             f"¡Hola de nuevo equipo de {nombre_negocio}!\n\n"
             f"Os escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil:{link_texto}\n\n"
             f"Os lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n"
@@ -841,7 +869,7 @@ Devuelve ÚNICAMENTE un JSON con esta estructura:
             f"{firma_seguimiento}"
         )
     else:
-        pitch_dm_fallback = (
+        pitch_dm = (
             f"¡Hola equipo de {nombre_negocio}!\n\n"
             f"Soy Daniel García. He visto vuestro trabajo y os he preparado una web demo interactiva adaptada a vuestro negocio para mostraros cómo potenciar vuestra presencia digital y captar clientes desde el móvil:\n\n"
             f"👉{link_texto}\n"
@@ -849,19 +877,17 @@ Devuelve ÚNICAMENTE un JSON con esta estructura:
             f"¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\n"
             f"{firma}"
         )
-        seguimiento_fallback = (
+        seguimiento = (
             f"¡Hola de nuevo equipo de {nombre_negocio}!\n\n"
             f"Os escribí hace un par de días con la propuesta web interactiva que preparé para vosotros:{link_texto}\n\n"
             f"Os lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n"
             f"¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\n"
             f"{firma_seguimiento}"
         )
+
     return {
-        "es_gran_cadena": False,
-        "es_perfil_correcto": True,
-        "razon": "Validación automática heurística",
-        "mensaje_dm_sugerido": pitch_dm_fallback,
-        "mensaje_seguimiento": seguimiento_fallback
+        "mensaje_dm": pitch_dm,
+        "mensaje_seguimiento": seguimiento
     }
 
 
@@ -1165,12 +1191,42 @@ def extraer_handle_ig(url_or_handle: str) -> tuple[str, str]:
     return "", ""
 
 
+# Dominios que NO deben considerarse webs corporativas oficiales
+DOMINIOS_NO_WEB_OFICIAL = [
+    "instagram.com", "facebook.com", "fb.me", "tiktok.com", "twitter.com", "x.com",
+    "threads.net", "wa.me", "whatsapp.com", "api.whatsapp.com", "t.me", "telegram.me",
+    "youtube.com", "youtu.be", "linkedin.com", "pinterest.com", "spotify.com", "twitch.tv",
+    # Agregadores de enlaces y mini-bios
+    "linktr.ee", "linktree.com", "beacons.ai", "beacons.page", "bio.site", "campsite.bio",
+    "taplink.cc", "taplink.at", "carrd.co", "solo.to", "snipfeed.co", "linkin.bio",
+    "lnk.bio", "instabio.cc", "hoo.be", "urlbio.com", "direct.me", "msha.ke",
+    "allmylinks.com", "contactinbio.com", "bento.me", "link.me",
+    # Motores, mapas y directorios/portales
+    "google.com", "maps.google.com", "goo.gl", "maps.app.goo.gl", "tripadvisor.com",
+    "tripadvisor.es", "yelp.com", "yelp.es", "tattooswizard.com", "tattoolove.es",
+    "culturetattoo.com", "downundercafe.com", "trustpilot.com", "cataloxy.es",
+    "paginasamarillas.es", "infobel.com", "cylex.es", "axesor.es", "einforma.com", "qdq.com", "guias.es"
+]
+
+
+def es_dominio_no_web(url: str) -> bool:
+    """Comprueba si una URL pertenece a redes, mensajería, agregadores o directorios."""
+    if not url:
+        return False
+    u = url.lower()
+    return any(d in u for d in DOMINIOS_NO_WEB_OFICIAL)
+
+
 def clasificar_fuente_web(url: str, titulo: str = "") -> dict:
     url_lower = url.lower()
 
     if "instagram.com" in url_lower:
         return {"tipo": "instagram", "label": "Instagram", "icono": "📸", "url": url, "titulo": titulo}
-    elif "facebook.com" in url_lower:
+    elif any(w in url_lower for w in ["wa.me", "whatsapp.com", "api.whatsapp.com"]):
+        return {"tipo": "whatsapp", "label": "WhatsApp", "icono": "💬", "url": url, "titulo": titulo}
+    elif any(lt in url_lower for lt in ["linktr.ee", "linktree.com", "beacons.ai", "bio.site", "taplink", "campsite.bio", "solo.to", "linkin.bio", "lnk.bio", "bento.me"]):
+        return {"tipo": "linktree", "label": "Enlace Bio / Linktree", "icono": "🔗", "url": url, "titulo": titulo}
+    elif "facebook.com" in url_lower or "fb.me" in url_lower:
         return {"tipo": "facebook", "label": "Facebook", "icono": "👥", "url": url, "titulo": titulo}
     elif "doctoralia.es" in url_lower or "doctoralia.com" in url_lower:
         return {"tipo": "doctoralia", "label": "Doctoralia", "icono": "🩺", "url": url, "titulo": titulo}
@@ -1184,9 +1240,12 @@ def clasificar_fuente_web(url: str, titulo: str = "") -> dict:
         "paginasamarillas.es", "qdq.com", "empresite", "einforma.com", "axesor.es",
         "mejoresclinicas.com", "espainfo.com", "geodruid.com", "mapaclinicas.com",
         "citacentrodesalud.com", "centreodontologic", "cylex", "infocif", "vulka",
-        "metropoliabierta", "guias.es", "dentavacation", "medicaltourismco", "eixsagradafamilia"
+        "metropoliabierta", "guias.es", "dentavacation", "medicaltourismco", "eixsagradafamilia",
+        "tattooswizard", "tattoolove", "culturetattoo", "downundercafe", "trustpilot", "cataloxy"
     ]):
         return {"tipo": "directorio", "label": "Directorio Local", "icono": "📁", "url": url, "titulo": titulo}
+    elif es_dominio_no_web(url_lower):
+        return {"tipo": "social", "label": "Enlace Externo", "icono": "🔗", "url": url, "titulo": titulo}
     else:
         return {"tipo": "web", "label": "Sitio Web", "icono": "🌐", "url": url, "titulo": titulo}
 
@@ -1280,7 +1339,7 @@ def investigar_presencia_negocio(nombre: str, ciudad: str, ig_osm: str = "") -> 
                                 urls_en_ig = re.findall(r'(?:https?://|www\.)[a-zA-Z0-9_\-\.]+\.[a-zA-Z]{2,}(?:/[^\s]*)?', title + " " + body)
                                 for u_ig in urls_en_ig:
                                     u_clean = u_ig.strip().rstrip(".,;:/")
-                                    if not any(excl in u_clean.lower() for excl in ["instagram.com", "facebook.com", "threads.net", "wa.me", "whatsapp.com"]):
+                                    if not es_dominio_no_web(u_clean):
                                         if not u_clean.startswith("http"):
                                             u_clean = "https://" + u_clean
                                         if not web_detectada:
@@ -1347,7 +1406,7 @@ def investigar_presencia_negocio(nombre: str, ciudad: str, ig_osm: str = "") -> 
                     fuente["snippet"] = body[:120] if body else ""
 
                     # Si parece ser su propia web oficial (ej. www.rotativetattooshop.com o clinicadentalbarcelona.com)
-                    if fuente["tipo"] == "web" and not web_detectada:
+                    if fuente["tipo"] == "web" and not web_detectada and not es_dominio_no_web(href):
                         domain = urllib.parse.urlparse(href).netloc.lower().replace("www.", "")
                         nom_compacto = re.sub(r"[^a-z0-9]", "", nom_limpio.lower())
                         ig_handle_compacto = re.sub(r"[^a-z0-9]", "", res_ig.get("handle", "").lower())
@@ -1365,7 +1424,7 @@ def investigar_presencia_negocio(nombre: str, ciudad: str, ig_osm: str = "") -> 
                         dominios_mencionados = re.findall(r'(?:https?://|www\.)?([a-zA-Z0-9-]+\.(?:com|es|cat|net|org|eu|barcelona))', texto_completo)
                         for dom in dominios_mencionados:
                             dom_clean = dom.lower().replace("www.", "")
-                            if dom_clean not in ["instagram.com", "facebook.com", "google.com", "trustpilot.com", "cataloxy.es", "paginasamarillas.es", "infobel.com", "cylex.es", "axesor.es", "einforma.com", "qdq.com", "guias.es"]:
+                            if not es_dominio_no_web(dom_clean):
                                 nom_comp = re.sub(r"[^a-z0-9]", "", nom_limpio.lower())
                                 ig_comp = re.sub(r"[^a-z0-9]", "", res_ig.get("handle", "").lower())
                                 if (ig_comp and len(ig_comp) >= 4 and ig_comp in dom_clean) or (nom_comp and len(nom_comp) >= 4 and nom_comp in dom_clean):
@@ -2395,7 +2454,12 @@ async def generate_lead_web(osm_id: str, request: Request):
     target_lead["extraccion_aviso"] = res.get("extraccion_aviso", "")
     target_lead["extraccion_exitosa"] = res.get("exito_real", False)
     
-    sitio_web_detectado = res.get("sitio_web") or res.get("external_url") or target_lead.get("web_detectada", "")
+    sitio_web_detectado = res.get("sitio_web") or ""
+    if not sitio_web_detectado and target_lead.get("web_detectada"):
+        posible = target_lead.get("web_detectada", "")
+        if extraer_sitio_web_perfil({"website": posible}):
+            sitio_web_detectado = posible
+
     if sitio_web_detectado:
         target_lead["tiene_web"] = True
         target_lead["web_detectada"] = sitio_web_detectado
@@ -2410,13 +2474,21 @@ async def generate_lead_web(osm_id: str, request: Request):
                 "snippet": "Página web oficial detectada en su perfil verificado de Instagram"
             })
             target_lead["enlaces_internet"] = enlaces
+    else:
+        target_lead["tiene_web"] = False
+        target_lead["web_detectada"] = ""
+        if "enlaces_internet" in target_lead:
+            target_lead["enlaces_internet"] = [
+                e for e in target_lead["enlaces_internet"]
+                if e.get("tipo") != "web" or extraer_sitio_web_perfil({"website": e.get("url", "")})
+            ]
 
     if target_lead.get("estado") in ["Sin Web", "Tiene Web"]:
         target_lead["estado"] = "Web Generada"
 
-    # Regenerar el pitch comercial incorporando la URL pública de GitHub Pages y propuesta de rediseño si ya tiene web
+    # Regenerar el pitch comercial incorporando la URL pública de GitHub Pages y propuesta de rediseño solo si realmente tiene web
     datos_presencia_pitch = f"Instagram: {target_lead.get('instagram_url', '')} | Categoría: {target_lead.get('categoria', '')}"
-    if target_lead.get("web_detectada"):
+    if target_lead.get("tiene_web") and target_lead.get("web_detectada"):
         datos_presencia_pitch += f" | Web Oficial activa: {target_lead.get('web_detectada')}"
 
     nuevo_pitch = verificar_y_redactar_pitch(
@@ -2425,7 +2497,7 @@ async def generate_lead_web(osm_id: str, request: Request):
         ciudad=target_lead.get("ciudad", ""),
         demo_url=demo_url_publica,
         tiene_ig=bool(target_lead.get("instagram_url")),
-        web_existente=target_lead.get("web_detectada", "")
+        web_existente=target_lead.get("web_detectada", "") if target_lead.get("tiene_web") else ""
     )
     target_lead["mensaje_dm"] = nuevo_pitch.get("mensaje_dm_sugerido", target_lead.get("mensaje_dm", ""))
     target_lead["mensaje_seguimiento"] = nuevo_pitch.get("mensaje_seguimiento", target_lead.get("mensaje_seguimiento", ""))
@@ -2666,6 +2738,106 @@ def verificar_web_lead(osm_id: str):
 class PitchSaveRequest(BaseModel):
     mensaje_dm: str
     mensaje_seguimiento: Optional[str] = ""
+    enfoque_pitch: Optional[str] = None
+    web_detectada: Optional[str] = None
+
+
+class CambiarPitchRequest(BaseModel):
+    enfoque: str = "sin_web"  # "sin_web" o "con_web"
+    descartar_web: bool = False
+    regenerar_ia: bool = False
+    nueva_web: Optional[str] = None
+
+
+@app.post("/leads/{osm_id}/cambiar-enfoque-pitch")
+def cambiar_enfoque_pitch(osm_id: str, req: CambiarPitchRequest):
+    """
+    Permite cambiar el enfoque del DM comercial (Sin Web vs Con Web / Rediseño),
+    opcionalmente descartar una web detectada si es un falso positivo, y regenerar
+    el mensaje con plantilla inmediata o mediante Gemini.
+    """
+    with leads_lock:
+        leads = leer_leads_guardados()
+        target_idx = None
+        target_lead = None
+        for idx, l in enumerate(leads):
+            if str(l.get("osm_id")) == str(osm_id):
+                target_idx = idx
+                target_lead = l
+                break
+
+        if target_lead is None:
+            raise HTTPException(status_code=404, detail="Lead no encontrado.")
+
+        nombre = target_lead.get("nombre", "")
+        ciudad = target_lead.get("ciudad", "Local")
+        demo_url = target_lead.get("demo_url_publica") or target_lead.get("demo_url", "")
+        tiene_ig = bool(target_lead.get("instagram_url"))
+
+        # Si el usuario indica que la web no es real y pide descartarla
+        if req.descartar_web:
+            old_web = target_lead.get("web_detectada", "")
+            target_lead["web_detectada"] = ""
+            target_lead["tiene_web"] = False
+            # Ajustar estado si figuraba como "Tiene Web"
+            if target_lead.get("estado") == "Tiene Web":
+                if target_lead.get("demo_slug") or target_lead.get("demo_url_publica"):
+                    target_lead["estado"] = "Web Generada"
+                else:
+                    target_lead["estado"] = "Sin Web"
+            # Limpiar de enlaces_internet la web falsa
+            enlaces = target_lead.get("enlaces_internet", [])
+            target_lead["enlaces_internet"] = [
+                e for e in enlaces if e.get("tipo") != "web" and e.get("url") != old_web
+            ]
+            target_lead["gemini_razon"] = f"Comercio verificado sin web oficial propia (enlace descartado por el usuario: {old_web})."
+        elif req.nueva_web is not None and req.nueva_web.strip():
+            target_lead["web_detectada"] = req.nueva_web.strip()
+            target_lead["tiene_web"] = True
+
+        web_existente = target_lead.get("web_detectada", "") if req.enfoque == "con_web" else ""
+
+        # Generación de textos (IA o plantilla ultra-rápida)
+        if req.regenerar_ia:
+            datos_presencia_pitch = f"Instagram: {target_lead.get('instagram_url', '')} | Categoría: {target_lead.get('categoria', '')}"
+            if web_existente:
+                datos_presencia_pitch += f" | Web Oficial activa: {web_existente}"
+            res_pitch = verificar_y_redactar_pitch(
+                nombre_negocio=nombre,
+                datos_presencia=datos_presencia_pitch,
+                ciudad=ciudad,
+                demo_url=demo_url,
+                tiene_ig=tiene_ig,
+                web_existente=web_existente
+            )
+            mensaje_dm = res_pitch.get("mensaje_dm_sugerido", "")
+            mensaje_seguimiento = res_pitch.get("mensaje_seguimiento", "")
+        else:
+            plantilla = construir_pitch_plantilla(
+                nombre_negocio=nombre,
+                demo_url=demo_url,
+                tiene_ig=tiene_ig,
+                web_existente=web_existente
+            )
+            mensaje_dm = plantilla["mensaje_dm"]
+            mensaje_seguimiento = plantilla["mensaje_seguimiento"]
+
+        target_lead["mensaje_dm"] = mensaje_dm
+        target_lead["mensaje_seguimiento"] = mensaje_seguimiento
+        target_lead["enfoque_pitch"] = req.enfoque
+
+        leads[target_idx] = target_lead
+        with open(LEADS_FILE, "w", encoding="utf-8") as f:
+            json.dump(leads, f, ensure_ascii=False, indent=2)
+
+        return {
+            "status": "ok",
+            "enfoque": req.enfoque,
+            "descartada_web": req.descartar_web,
+            "mensaje_dm": mensaje_dm,
+            "mensaje_seguimiento": mensaje_seguimiento,
+            "lead": target_lead
+        }
 
 
 @app.post("/leads/{osm_id}/pitch")
@@ -2678,6 +2850,10 @@ def save_lead_pitch(osm_id: str, req: PitchSaveRequest):
                 l["mensaje_dm"] = req.mensaje_dm.strip()
                 if req.mensaje_seguimiento:
                     l["mensaje_seguimiento"] = req.mensaje_seguimiento.strip()
+                if req.enfoque_pitch:
+                    l["enfoque_pitch"] = req.enfoque_pitch
+                if req.web_detectada is not None:
+                    l["web_detectada"] = req.web_detectada.strip()
                 with open(LEADS_FILE, "w", encoding="utf-8") as f:
                     json.dump(leads, f, ensure_ascii=False, indent=2)
                 return {"status": "ok", "lead": l}

@@ -235,7 +235,8 @@
     "campana_id": "camp_init_1_1788888949",
     "campana_ids": [
       "camp_init_1_1788888949"
-    ]
+    ],
+    "enfoque_pitch": "con_web"
   },
   {
     "osm_id": "7525556686",
@@ -265,18 +266,25 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Dental+Nu%C3%B1ez+Barcelona",
     "gemini_verificado": true,
     "gemini_razon": "Clínica dental local independiente verificada en Barcelona.",
-    "mensaje_dm": "¡Hola equipo de Dental Nuñez!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Dental Nuñez!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Sin Web",
-    "demo_slug": "",
-    "demo_url": "",
-    "demo_vibe": "",
-    "demo_url_absoluta": "",
+    "mensaje_dm": "¡Hola equipo de Dental Nuñez!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉 https://dga80.github.io/instaleads/dental-nunez-barcelona/\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Dental Nuñez!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil: https://dga80.github.io/instaleads/dental-nunez-barcelona/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "DM Enviado",
+    "demo_slug": "dental-nunez-barcelona",
+    "demo_url": "https://dga80.github.io/instaleads/dental-nunez-barcelona/",
+    "demo_vibe": "Clinical & Trust (Clínicas Dentales, Fisioterapia & Salud)",
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/dental-nunez-barcelona/",
     "campana_id": "camp_init_1_1788888949",
     "campana_ids": [
       "camp_init_1_1788888949"
     ],
-    "demo_url_publica": ""
+    "demo_url_publica": "https://dga80.github.io/instaleads/dental-nunez-barcelona/",
+    "demo_fecha_creacion": "16/09/2026 22:27",
+    "demo_fecha_ts": 1789590468,
+    "extraccion_fuente": "apify",
+    "extraccion_aviso": "",
+    "extraccion_exitosa": true,
+    "fecha_contacto": "2026-09-16T20:24:40.987645+00:00",
+    "canal_contacto": "Instagram DM"
   },
   {
     "osm_id": "1889913533",
@@ -749,18 +757,27 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Vademotos+Barcelona",
     "gemini_verificado": true,
     "gemini_razon": "Validación automática heurística",
-    "mensaje_dm": "¡Hola equipo de Vademotos!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Vademotos!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Sin Web",
-    "demo_slug": "",
-    "demo_url": "",
-    "demo_vibe": "",
+    "mensaje_dm": "¡Hola equipo de Vademotos!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉 https://dga80.github.io/instaleads/vademotos-barcelona/\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Vademotos!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil: https://dga80.github.io/instaleads/vademotos-barcelona/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "DM Enviado",
+    "demo_slug": "vademotos-barcelona",
+    "demo_url": "https://dga80.github.io/instaleads/vademotos-barcelona/",
+    "demo_vibe": "Urban Edge & Dark Tech (Tatuajes, Barberías, Talleres & Fitness)",
     "campana_id": "camp_1788897477",
     "campana_ids": [
       "camp_init_2_1788888949",
       "camp_1788897477"
     ],
-    "campana_nombre": "Taller De Custom Motos · barcelona"
+    "campana_nombre": "Taller De Custom Motos · barcelona",
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/vademotos-barcelona/",
+    "demo_url_publica": "https://dga80.github.io/instaleads/vademotos-barcelona/",
+    "demo_fecha_creacion": "16/09/2026 20:48",
+    "demo_fecha_ts": 1789584493,
+    "extraccion_fuente": "apify",
+    "extraccion_aviso": "",
+    "extraccion_exitosa": true,
+    "fecha_contacto": "2026-09-16T20:49:38.118822+00:00",
+    "canal_contacto": "Instagram DM"
   },
   {
     "osm_id": "5448091735",
@@ -936,10 +953,18 @@
     "codigo_postal": "",
     "telefono": "",
     "email": "",
-    "tiene_web": false,
+    "tiene_web": true,
     "instagram_url": "https://www.instagram.com/jovanisystem/",
     "instagram_handle": "@jovanisystem",
     "enlaces_internet": [
+      {
+        "tipo": "web",
+        "label": "Web Oficial (Instagram)",
+        "icono": "🌐",
+        "url": "http://www.jovanisystem.com",
+        "titulo": "Web Oficial de Jovani & System Bike",
+        "snippet": "Página web oficial detectada en su perfil verificado de Instagram"
+      },
       {
         "tipo": "instagram",
         "label": "Instagram (@jovanisystem)",
@@ -989,25 +1014,32 @@
         "snippet": "PhD candidate at BMW ProMotion Program · Experiencia: BMW Group · Educación: Universitat Politècnica de Catalunya · Ubic"
       }
     ],
-    "web_detectada": "",
+    "web_detectada": "http://www.jovanisystem.com",
     "google_search_url": "https://www.google.com/search?q=Jovani+%26+System+Bike+Barcelona",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Jovani+%26+System+Bike+Barcelona",
     "gemini_verificado": true,
     "gemini_razon": "Validación automática heurística",
-    "mensaje_dm": "¡Hola equipo de Jovani & System Bike!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Jovani & System Bike!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Sin Web",
-    "demo_slug": "",
-    "demo_url": "",
-    "demo_vibe": "",
+    "mensaje_dm": "¡Hola equipo de Jovani & System Bike!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (http://www.jovanisystem.com), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://dga80.github.io/instaleads/jovani-system-bike-barcelona/\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Jovani & System Bike!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con el contenido de vuestra propia web: https://dga80.github.io/instaleads/jovani-system-bike-barcelona/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "DM Enviado",
+    "demo_slug": "jovani-system-bike-barcelona",
+    "demo_url": "https://dga80.github.io/instaleads/jovani-system-bike-barcelona/",
+    "demo_vibe": "Urban Edge & Dark Tech (Tatuajes, Barberías, Talleres & Fitness)",
     "campana_id": "camp_1788897477",
     "campana_ids": [
       "camp_init_2_1788888949",
       "camp_1788897477"
     ],
-    "demo_url_absoluta": "",
-    "demo_url_publica": "",
-    "campana_nombre": "Taller De Custom Motos · barcelona"
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/jovani-system-bike-barcelona/",
+    "demo_url_publica": "https://dga80.github.io/instaleads/jovani-system-bike-barcelona/",
+    "campana_nombre": "Taller De Custom Motos · barcelona",
+    "demo_fecha_creacion": "16/09/2026 20:51",
+    "demo_fecha_ts": 1789584691,
+    "extraccion_fuente": "apify",
+    "extraccion_aviso": "",
+    "extraccion_exitosa": true,
+    "fecha_contacto": "2026-09-16T19:24:20.579270+00:00",
+    "canal_contacto": "Instagram DM"
   },
   {
     "osm_id": "6152363420",
@@ -1020,16 +1052,16 @@
     "telefono": "+34 932320154",
     "email": "",
     "tiene_web": false,
-    "instagram_url": "https://www.instagram.com/___sol2___/",
-    "instagram_handle": "@___sol2___",
+    "instagram_url": "https://www.instagram.com/acmotos_es/",
+    "instagram_handle": "@acmotos_es",
     "enlaces_internet": [
       {
         "tipo": "instagram",
-        "label": "Instagram (@___sol2___)",
+        "label": "Instagram (@acmotos_es)",
         "icono": "📸",
-        "url": "https://www.instagram.com/___sol2___/",
+        "url": "https://www.instagram.com/acmotos_es/",
         "titulo": "(@___sol2___) • Instagram photos and videos",
-        "snippet": "🍀 𝟤𝟢𝟣𝟦.𝟣𝟣.𝟢𝟫 💍 𝟤𝟢𝟤𝟣.𝟣𝟢.𝟣𝟩 👶🏻 𝟤𝟢𝟤𝟥.𝟢𝟫.𝟢𝟥 @p__yijun133 followers · 518 following. See photos and videos from friends on In"
+        "snippet": "Tienda de Accesorios y Equipación de Moto · Barcelona, España"
       },
       {
         "tipo": "web",
@@ -1077,18 +1109,27 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=SOL2+Barcelona",
     "gemini_verificado": true,
     "gemini_razon": "Validación automática heurística",
-    "mensaje_dm": "¡Hola equipo de SOL2!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de SOL2!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Sin Web",
-    "demo_slug": "",
-    "demo_url": "",
-    "demo_vibe": "",
+    "mensaje_dm": "¡Hola equipo de SOL2!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉 https://dga80.github.io/instaleads/sol2-barcelona/\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de SOL2!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil: https://dga80.github.io/instaleads/sol2-barcelona/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "DM Enviado",
+    "demo_slug": "sol2-barcelona",
+    "demo_url": "https://dga80.github.io/instaleads/sol2-barcelona/",
+    "demo_vibe": "Urban Edge & Dark Tech (Tatuajes, Barberías, Talleres & Fitness)",
     "campana_id": "camp_1788897477",
     "campana_ids": [
       "camp_init_2_1788888949",
       "camp_1788897477"
     ],
-    "campana_nombre": "Taller De Custom Motos · barcelona"
+    "campana_nombre": "Taller De Custom Motos · barcelona",
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/sol2-barcelona/",
+    "demo_url_publica": "https://dga80.github.io/instaleads/sol2-barcelona/",
+    "demo_fecha_creacion": "16/09/2026 20:57",
+    "demo_fecha_ts": 1789585045,
+    "extraccion_fuente": "apify",
+    "extraccion_aviso": "",
+    "extraccion_exitosa": true,
+    "fecha_contacto": "2026-09-16T20:51:16.786913+00:00",
+    "canal_contacto": "Instagram DM"
   },
   {
     "osm_id": "6488829196",
@@ -1512,18 +1553,27 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Oliana+Motos+Barcelona",
     "gemini_verificado": true,
     "gemini_razon": "Validación automática heurística",
-    "mensaje_dm": "¡Hola equipo de Oliana Motos!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Oliana Motos!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Sin Web",
-    "demo_slug": "",
-    "demo_url": "",
-    "demo_vibe": "",
+    "mensaje_dm": "¡Hola equipo de Oliana Motos!\n\nSoy Daniel García, diseñador y desarrollador web aquí en Barcelona. He visto vuestro trabajo en Instagram y he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉 https://dga80.github.io/instaleads/oliana-motos-barcelona/\n*(Enlace 100% seguro para abrir directamente en el navegador, sin descargas ni registros)*.\n\n¿Qué os parece el resultado? Si os encaja, podemos comentarlo 2 minutos sin ningún compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo, equipo de Oliana Motos!\n\nOs escribí hace un par de días por aquí compartiéndoos la web demo interactiva que preparé para vosotros: https://dga80.github.io/instaleads/oliana-motos-barcelona/\n\nOs la vuelvo a dejar a mano por si no pudisteis echarle un ojo en su momento. ¿Tendríais 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "DM Enviado",
+    "demo_slug": "oliana-motos-barcelona",
+    "demo_url": "https://dga80.github.io/instaleads/oliana-motos-barcelona/",
+    "demo_vibe": "Urban Edge & Dark Tech (Tatuajes, Barberías, Talleres & Fitness)",
     "campana_id": "camp_1788897477",
     "campana_ids": [
       "camp_init_2_1788888949",
       "camp_1788897477"
     ],
-    "campana_nombre": "Taller De Custom Motos · barcelona"
+    "campana_nombre": "Taller De Custom Motos · barcelona",
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/oliana-motos-barcelona/",
+    "demo_url_publica": "https://dga80.github.io/instaleads/oliana-motos-barcelona/",
+    "demo_fecha_creacion": "16/09/2026 20:59",
+    "demo_fecha_ts": 1789585179,
+    "extraccion_fuente": "apify",
+    "extraccion_aviso": "",
+    "extraccion_exitosa": true,
+    "fecha_contacto": "2026-09-16T19:05:56.969396+00:00",
+    "canal_contacto": "Instagram DM"
   },
   {
     "osm_id": "9768940617",
@@ -1535,18 +1585,10 @@
     "codigo_postal": "",
     "telefono": "",
     "email": "",
-    "tiene_web": true,
+    "tiene_web": false,
     "instagram_url": "https://www.instagram.com/mundimoto/",
     "instagram_handle": "@mundimoto",
     "enlaces_internet": [
-      {
-        "tipo": "web",
-        "label": "Web Oficial (Instagram Oficial)",
-        "icono": "🌐",
-        "url": "https://linktr.ee/mundimoto",
-        "titulo": "Web Oficial de Mundimoto",
-        "snippet": "Página web oficial verificada mediante Instagram Oficial"
-      },
       {
         "tipo": "instagram",
         "label": "Instagram (@mundimoto)",
@@ -1556,54 +1598,22 @@
         "snippet": "386K Followers, 351 Following, 1,111 Posts - Mundimoto | La tienda de motos de ocasión más grande de Europa (@mundimoto)"
       },
       {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://mototaller.es/taller/mundimoto-barcelona-08020",
-        "titulo": "Mundimoto – Taller de Motos en BARCELONA, Barcelona ...",
-        "snippet": "Mundimoto ; Dirección. C/ Binéfar, 21-25 ; Código Postal. 08020 ; Ciudad. BARCELONA ; Provincia. Barcelona ; Teléfono. —"
-      },
-      {
         "tipo": "linkedin",
         "label": "LinkedIn",
         "icono": "💼",
         "url": "https://es.linkedin.com/company/mundimoto",
         "titulo": "Mundimoto - LinkedIn",
         "snippet": "Sitio web: https://www.mundimoto.com/. Enlace externo para Mundimoto ; Sector: Publicaciones en línea ; Tamaño de la emp"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://es.trustpilot.com/review/mundimoto.com",
-        "titulo": "Lee las opiniones sobre el servicio de mundimoto.com",
-        "snippet": "Valoración 4,3 (3.093) Calle Binefar 21-25, 08020, Barcelona, España. +34 93 271 33 33 · info@mundimoto.com · mundimoto."
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://www.milanuncios.com/tienda/mundimoto-129502.htm",
-        "titulo": "MundiMoto - Binefar 21-25 Barcelona - MIL ANUNCIOS.COM",
-        "snippet": "mundimoto, empresa de compra/venta de motos con más de 1. 000 motos en stock y 10. 000 ventas anuales. situado en barcel"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://barcelona.cataloxy.es/firms/mundimoto.com.htm",
-        "titulo": "Mundimoto Barcelona: página web oficial, dirección, contactos",
-        "snippet": "Mundimoto es la plataforma española de compra, venta y renting de motos que ofrece un servicio 100% online, rápido y con"
       }
     ],
-    "web_detectada": "https://linktr.ee/mundimoto",
+    "web_detectada": "",
     "google_search_url": "https://www.google.com/search?q=Mundimoto+Barcelona",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mundimoto+Barcelona",
     "gemini_verificado": true,
-    "gemini_razon": "Web oficial activa detectada (https://linktr.ee/mundimoto). Propuesta adaptada a rediseño mobile-first.",
-    "mensaje_dm": "¡Hola equipo de Mundimoto!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://linktr.ee/mundimoto), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Mundimoto!\n\nOs escribí hace un par de días con la web demo interactiva que preparé para vosotros con el contenido de vuestra página:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Tiene Web",
+    "gemini_razon": "Comercio verificado sin web propia (descartado enlace no oficial: https://linktr.ee/mundimoto).",
+    "mensaje_dm": "¡Hola equipo de Mundimoto!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Mundimoto!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Sin Web",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
@@ -1612,7 +1622,8 @@
       "camp_init_2_1788888949",
       "camp_1788897477"
     ],
-    "campana_nombre": "Taller De Custom Motos · barcelona"
+    "campana_nombre": "Taller De Custom Motos · barcelona",
+    "enfoque_pitch": "sin_web"
   },
   {
     "osm_id": "9823542619",
@@ -1955,17 +1966,26 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mendizabal+Barcelona",
     "gemini_verificado": true,
     "gemini_razon": "Validación automática heurística",
-    "mensaje_dm": "¡Hola equipo de Mendizabal!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Mendizabal!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Sin Web",
-    "demo_slug": "",
-    "demo_url": "",
-    "demo_vibe": "",
+    "mensaje_dm": "¡Hola equipo de Mendizábal!\n\nSoy Daniel García, diseñador y desarrollador web en Barcelona. He visto vuestro perfil en Instagram y el ambiente y producto tan auténtico que tenéis, y me he animado a prepararos una web demo interactiva utilizando contenido de vuestra propia cuenta, pensada especialmente para potenciar vuestra presencia digital y atraer clientes desde el móvil:\n\n👉 https://dga80.github.io/instaleads/mendizabal-barcelona/\n*(Es un enlace 100% seguro para abrir en el navegador, sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os resulta interesante, podemos comentarlo 2 minutos sin ningún tipo de compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Mendizábal!\n\nOs escribí hace un par de días compartiéndoos la web demo interactiva que diseñé inspirada en vuestro perfil: https://dga80.github.io/instaleads/mendizabal-barcelona/\n\nOs dejo de nuevo el enlace por si no pudisteis echarle un vistazo y os apetece revisarla desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Cerrado",
+    "demo_slug": "mendizabal-barcelona",
+    "demo_url": "https://dga80.github.io/instaleads/mendizabal-barcelona/",
+    "demo_vibe": "Warm Artisan (Cafeterías de Especialidad, Panaderías & Gastro)",
     "campana_id": "camp_1788898547",
     "campana_nombre": "Cafeteria · barcelona",
     "campana_ids": [
       "camp_1788898547"
-    ]
+    ],
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/mendizabal-barcelona/",
+    "demo_url_publica": "https://dga80.github.io/instaleads/mendizabal-barcelona/",
+    "demo_fecha_creacion": "16/09/2026 21:02",
+    "demo_fecha_ts": 1789585332,
+    "extraccion_fuente": "apify",
+    "extraccion_aviso": "",
+    "extraccion_exitosa": true,
+    "fecha_contacto": "2026-09-16T19:08:54.334334+00:00",
+    "canal_contacto": "Instagram DM"
   },
   {
     "osm_id": "499122829",
@@ -2297,10 +2317,18 @@
     "codigo_postal": "",
     "telefono": "",
     "email": "",
-    "tiene_web": false,
+    "tiene_web": true,
     "instagram_url": "https://www.instagram.com/hotdoks_latino/",
     "instagram_handle": "@hotdoks_latino",
     "enlaces_internet": [
+      {
+        "tipo": "web",
+        "label": "Web Oficial (Instagram)",
+        "icono": "🌐",
+        "url": "https://deliveroo.es/es",
+        "titulo": "Web Oficial de HotDoks",
+        "snippet": "Página web oficial detectada en su perfil verificado de Instagram"
+      },
       {
         "tipo": "instagram",
         "label": "Instagram (@hotdoks_latino)",
@@ -2350,24 +2378,29 @@
         "snippet": "HotDoks es un bar icónico en el corazón de Barcelona. Ubicado en Carrer de Sants, ofrece una atmósfera única y relajada."
       }
     ],
-    "web_detectada": "",
+    "web_detectada": "https://deliveroo.es/es",
     "google_search_url": "https://www.google.com/search?q=HotDoks+Barcelona",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=HotDoks+Barcelona",
     "gemini_verificado": true,
     "gemini_razon": "Validación automática heurística",
-    "mensaje_dm": "¡Hola equipo de HotDoks!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de HotDoks!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Sin Web",
-    "demo_slug": "",
-    "demo_url": "",
-    "demo_vibe": "",
+    "mensaje_dm": "¡Hola equipo de HotDoks!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://deliveroo.es/es), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://dga80.github.io/instaleads/hotdoks-barcelona/\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de HotDoks!\n\nOs escribí hace un par de días con la propuesta de rediseño web interactiva que preparé para vosotros: https://dga80.github.io/instaleads/hotdoks-barcelona/\n\nOs la comparto de nuevo por si se os pasó y queréis echarle un vistazo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Cerrado",
+    "demo_slug": "hotdoks-barcelona",
+    "demo_url": "https://dga80.github.io/instaleads/hotdoks-barcelona/",
+    "demo_vibe": "Warm Artisan (Cafeterías de Especialidad, Panaderías & Gastro)",
     "campana_id": "camp_1788898547",
     "campana_nombre": "Cafeteria · barcelona",
     "campana_ids": [
       "camp_1788898547"
     ],
-    "demo_url_absoluta": "",
-    "demo_url_publica": ""
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/hotdoks-barcelona/",
+    "demo_url_publica": "https://dga80.github.io/instaleads/hotdoks-barcelona/",
+    "demo_fecha_creacion": "16/09/2026 22:54",
+    "demo_fecha_ts": 1789592097,
+    "extraccion_fuente": "apify",
+    "extraccion_aviso": "",
+    "extraccion_exitosa": true
   },
   {
     "osm_id": "571920531",
@@ -2619,67 +2652,18 @@
     "codigo_postal": "",
     "telefono": "",
     "email": "",
-    "tiene_web": true,
+    "tiene_web": false,
     "instagram_url": "",
     "instagram_handle": "",
-    "enlaces_internet": [
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://es.restaurantguru.com/Cafe-de-les-Delicies-Barcelona",
-        "titulo": "Cafè de les Delícies, Barcelona - Restaurant Guru",
-        "snippet": "Cafè de les Delícies en Barcelona calificado 4.3 de 5 en Restaurant Guru: 697 reseñas de visitantes, 225 fotos. Explorar"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://www.tripadvisor.es/Restaurant_Review-g187497-d1051027-Reviews-Cafe_de_les_Delicies-Barcelona_Catalonia.html",
-        "titulo": "CAFÈ DE LES DELÍCIES, Barcelona - Carta, fotos y opiniones",
-        "snippet": "En plena rambla del Raval de Barcelona, este pequeó cafè, con un par de mesas fuera. en un viejo edificio, decorado con "
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://www.tripadvisor.com/Restaurant_Review-g187497-d1051027-Reviews-Cafe_de_les_Delicies-Barcelona_Catalonia.html",
-        "titulo": "CAFÈ DE LES DELÍCIES, Barcelona - El Raval - Tripadvisor",
-        "snippet": "Cafè de les Delícies, Barcelona: See 60 unbiased reviews of Cafè de les Delícies, rated 4.0 of 5 on Tripadvisor and rank"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://www.tripadvisor.co.uk/Restaurant_Review-g187497-d1051027-Reviews-Cafe_de_les_Delicies-Barcelona_Catalonia.html",
-        "titulo": "CAFÈ DE LES DELÍCIES, Barcelona - 2026 Reviews & Information",
-        "snippet": "Cafè de les Delícies, Barcelona: See 61 unbiased reviews of Cafè de les Delícies, rated 4.0 of 5 on Tripadvisor and rank"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web Detectado",
-        "icono": "🌐",
-        "url": "https://downundercafe.com/en/cafe/el-caf-de-les-del-cies-barcelona",
-        "titulo": "El cafè de les delícies — Barcelona | Down Under Cafe",
-        "snippet": "Discover El cafè de les delícies in Barcelona, a cozy spot for specialty coffee and pastries in a vibrant atmosphere."
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://menuweb.menu/restaurants/barcelona/cafe-de-les-delicies",
-        "titulo": "Cafè De Les Delícies from Barcelona - menuweb.menu",
-        "snippet": "Reviews, photos, and 23 menu items for Cafè De Les Delícies, Rambla del Raval 47, 08001 Barcelona, ES."
-      }
-    ],
-    "web_detectada": "https://downundercafe.com/en/cafe/el-caf-de-les-del-cies-barcelona",
+    "enlaces_internet": [],
+    "web_detectada": "",
     "google_search_url": "https://www.google.com/search?q=El+caf%C3%A8+de+les+del%C3%ADcies+Barcelona",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=El+caf%C3%A8+de+les+del%C3%ADcies+Barcelona",
     "gemini_verificado": true,
-    "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Sitio Web, Sitio Web Detectado)",
-    "mensaje_dm": "¡Hola equipo de El cafè de les delícies!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://downundercafe.com/en/cafe/el-caf-de-les-del-cies-barcelona), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de El cafè de les delícies!\n\nOs escribí hace un par de días con la web demo interactiva que preparé para vosotros con el contenido de vuestra página:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Tiene Web",
+    "gemini_razon": "Comercio verificado sin web propia (descartado enlace no oficial: https://downundercafe.com/en/cafe/el-caf-de-les-del-cies-barcelona).",
+    "mensaje_dm": "¡Hola equipo de El cafè de les delícies!\n\nSoy Daniel García. He visto vuestro trabajo y os he preparado una web demo interactiva adaptada a vuestro negocio para mostraros cómo potenciar vuestra presencia digital y captar clientes desde el móvil:\n\n👉\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de El cafè de les delícies!\n\nOs escribí hace un par de días con la propuesta web interactiva que preparé para vosotros:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Sin Web",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
@@ -2687,7 +2671,8 @@
     "campana_nombre": "Cafeteria · barcelona",
     "campana_ids": [
       "camp_1788898547"
-    ]
+    ],
+    "enfoque_pitch": "sin_web"
   },
   {
     "osm_id": "606991000",
@@ -3503,18 +3488,10 @@
     "codigo_postal": "08913",
     "telefono": "+34 635 48 36 70",
     "email": "",
-    "tiene_web": true,
+    "tiene_web": false,
     "instagram_url": "https://www.instagram.com/draenortattoo/",
     "instagram_handle": "@draenortattoo",
     "enlaces_internet": [
-      {
-        "tipo": "web",
-        "label": "Web Oficial (Instagram)",
-        "icono": "🌐",
-        "url": "https://wa.me/34635483670?countryCode=34&countryName=ES&phoneNumber=635483670",
-        "titulo": "Web Oficial de Draenor Tattoo Estudio",
-        "snippet": "Página web oficial detectada en su perfil verificado de Instagram"
-      },
       {
         "tipo": "instagram",
         "label": "Instagram (@draenortattoo)",
@@ -3522,56 +3499,16 @@
         "url": "https://www.instagram.com/draenortattoo/",
         "titulo": "Draenor Tattoo Estudio (@draenortattoo) • Instagram photos ...",
         "snippet": "9,013 Followers, 143 Following, 13 Posts - Draenor Tattoo Estudio (@draenortattoo) on Instagram: \"Residentes:@rubengt97 "
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://tatuadoresen.com/draenor-tattoo-badalona/",
-        "titulo": "Draenor Tattoo - Badalona ️ Opiniones, Horario y Dirección | Tatuadores",
-        "snippet": "Estudio de tatuajes en Badalona (Barcelona) que encontrarás en Carrer de Pérez Galdós, 57, 08913 Badalona, Barcelona. Aq"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://tatscout.com/studios/spain/badalona/draenor-tattoo-estudio-badalona",
-        "titulo": "Draenor Tattoo Estudio — tattoo studio in Badalona | TatScout",
-        "snippet": "Draenor Tattoo Estudio in Badalona, Spain. Carrer de Pérez Galdós 57, 08913, Badalona. Address, opening hours and contac"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://dondetatuarme.es/cataluna/barcelona/badalona/draenor-tattoo-estudio-estudio-de-tatuajes-en-badalona/",
-        "titulo": "Draenor Tattoo Estudio | Estudio de tatuajes en Badalona",
-        "snippet": "Draenor Tattoo Estudio, TOP en Badalona, ofrece tatuajes profesionales garantizados por mas de 5 años. Contamos con cien"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web Detectado",
-        "icono": "🌐",
-        "url": "https://www.tattooed.co/shop/18838/draenor-tattoo/",
-        "titulo": "Draenor Tattoo in Badalona, Spain",
-        "snippet": "Draenor Tattoo is a professional tattoo studio delivering considered, skillful work to clients who take their ink seriou"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://localitybiz.es/23687841/draenor-tattoo-shop-badalona",
-        "titulo": "Draenor Tattoo Shop en Carrer de Pérez Galdós, 57, 08913 Badalona ...",
-        "snippet": "Draenor Tattoo Shop en Badalona. ⭐ 4.9/5 (50 opiniones). Ubicado en la activa localidad de Badalona, Draenor Tattoo Shop"
       }
     ],
-    "web_detectada": "https://wa.me/34635483670?countryCode=34&countryName=ES&phoneNumber=635483670",
+    "web_detectada": "",
     "google_search_url": "https://www.google.com/search?q=Draenor+Tattoo+Estudio+Badalona",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Draenor+Tattoo+Estudio+Badalona",
     "gemini_verificado": true,
-    "gemini_razon": "Estudio de tatuajes local en Badalona verificado, sin página web oficial en su perfil de Instagram.",
-    "mensaje_dm": "¡Hola equipo de Draenor Tattoo Estudio!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://wa.me/34635483670?countryCode=34&countryName=ES&phoneNumber=635483670), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://dga80.github.io/instaleads/draenor-tattoo-estudio-badalona/\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Draenor Tattoo Estudio!\n\nOs escribí hace un par de días con la web demo interactiva que preparé para vosotros con el contenido de vuestra página: https://dga80.github.io/instaleads/draenor-tattoo-estudio-badalona/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Web Generada",
+    "gemini_razon": "Comercio verificado sin web propia (descartado enlace no oficial: https://wa.me/34635483670?countryCode=34&countryName=ES&phoneNumber=635483670).",
+    "mensaje_dm": "¡Hola equipo de Draenor Tattoo Estudio!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉 https://dga80.github.io/instaleads/draenor-tattoo-estudio-badalona/\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Draenor Tattoo Estudio!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil: https://dga80.github.io/instaleads/draenor-tattoo-estudio-badalona/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "DM Enviado",
     "demo_slug": "draenor-tattoo-estudio-badalona",
     "demo_url": "https://dga80.github.io/instaleads/draenor-tattoo-estudio-badalona/",
     "demo_vibe": "Urban Edge & Dark Tech (Tatuajes, Barberías, Talleres & Fitness)",
@@ -3587,7 +3524,10 @@
     "demo_fecha_ts": 1789501585,
     "extraccion_fuente": "apify",
     "extraccion_aviso": "",
-    "extraccion_exitosa": true
+    "extraccion_exitosa": true,
+    "enfoque_pitch": "sin_web",
+    "fecha_contacto": "2026-09-16T19:02:30.423111+00:00",
+    "canal_contacto": "Instagram DM"
   },
   {
     "osm_id": "3595412701",
@@ -3753,25 +3693,25 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Rotative+Barcelona",
     "gemini_verificado": true,
     "gemini_razon": "Web oficial activa detectada (https://www.rotativetattooshop.com). Propuesta adaptada a rediseño mobile-first.",
-    "mensaje_dm": "¡Hola equipo de Rotative!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://www.rotativetattooshop.com), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://dga80.github.io/instaleads/rotative-barcelona/\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Rotative!\n\nOs escribí hace un par de días con la web demo interactiva que preparé para vosotros con el contenido de vuestra página: https://dga80.github.io/instaleads/rotative-barcelona/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Web Generada",
-    "demo_slug": "rotative-barcelona",
-    "demo_url": "https://dga80.github.io/instaleads/rotative-barcelona/",
-    "demo_vibe": "Urban Edge & Dark Tech (Tatuajes, Barberías, Talleres & Fitness)",
+    "mensaje_dm": "¡Hola equipo de Rotative!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://www.rotativetattooshop.com), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 \n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Rotative!\n\nOs escribí hace un par de días con la web demo interactiva que preparé para vosotros con el contenido de vuestra página: \n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
     "campana_id": "camp_1789422964",
     "campana_nombre": "Estudio De Tatuajes · barcelona",
     "campana_ids": [
       "camp_1789417840",
       "camp_1789422964"
     ],
-    "demo_url_absoluta": "https://dga80.github.io/instaleads/rotative-barcelona/",
-    "demo_url_publica": "https://dga80.github.io/instaleads/rotative-barcelona/",
-    "demo_fecha_creacion": "15/09/2026 21:47",
-    "demo_fecha_ts": 1789501629,
-    "extraccion_fuente": "apify",
+    "demo_url_absoluta": "",
+    "demo_url_publica": "",
+    "demo_fecha_creacion": "",
+    "demo_fecha_ts": 0,
+    "extraccion_fuente": "",
     "extraccion_aviso": "",
-    "extraccion_exitosa": true
+    "extraccion_exitosa": false
   },
   {
     "osm_id": "5066027726",
@@ -3952,7 +3892,7 @@
     "codigo_postal": "",
     "telefono": "",
     "email": "",
-    "tiene_web": true,
+    "tiene_web": false,
     "instagram_url": "",
     "instagram_handle": "",
     "enlaces_internet": [
@@ -3963,56 +3903,16 @@
         "url": "https://www.cylex.es/barcelona/blessed-art-tattoo-13100901.html",
         "titulo": "▷ Blessed Art Tattoo, Barcelona - Cylex",
         "snippet": "2 jul 2026 · Ver Blessed Art Tattoo en Barcelona, Carrer de Sardenya 224 en Cylex ... Blessed Art Tattoo, Barcelona. Lla"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://es.trustpilot.com/review/blessed-art-tattoo.negocio.site",
-        "titulo": "Opiniones sobre blessed-art-tattoo.negocio.site",
-        "snippet": "Valoración 4,0 (10) Estás de acuerdo con las 4 estrellas de valoración que tiene blessed-art-tattoo.negocio.site? Lee la"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://www.beautymarket.es/estetica/only-tattoo-barcelona-todo-y-solo-artistas-tattoo-estetica-14592.php",
-        "titulo": "Only Tattoo Barcelona, todo y solo artistas Tattoo - Beauty Market",
-        "snippet": "7 mar 2018 · Iván Morant de Blessed Art Tattoo @ivanmorant_tattoo. Este catalán empezó en el mundo del tattoo con 16 año"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web Detectado",
-        "icono": "🌐",
-        "url": "https://culturetattoo.com/tag/tatuajes-realismo/",
-        "titulo": "Tatuajes Realismo – Culture Tattoo",
-        "snippet": "Blessed Art tattoo Estudio de tatuaje en Barcelona Blessed Art Tattoo, ubicado cerca del centro de Barcelona es consider"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://www.mikitattookiller.com/donde-encontrarme/",
-        "titulo": "Donde encontrarme - Miki Tattoo Killer",
-        "snippet": "En 1997 Pro-Arts abrió sus puertas como estudio de tatuajes en Barcelona. ... Blessed Art Tattoo. Estudio de tatuajes en"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://www.sport.es/es/noticias/barca/paulinho-regala-tattoo-6303261",
-        "titulo": "Paulinho se regala un 'tattoo' - SPORT",
-        "snippet": "22 sept 2017 · Paulinho ha visitado este semana el local de 'Blessed Art Tattoo' donde se ha sometido a las manos de Mil"
       }
     ],
-    "web_detectada": "https://culturetattoo.com/tag/tatuajes-realismo/",
+    "web_detectada": "",
     "google_search_url": "https://www.google.com/search?q=Blessed+Art+Tattoo+Barcelona",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Blessed+Art+Tattoo+Barcelona",
     "gemini_verificado": true,
-    "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Directorio Local, Sitio Web, Sitio Web Detectado)",
-    "mensaje_dm": "¡Hola equipo de Blessed Art Tattoo!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://culturetattoo.com/tag/tatuajes-realismo/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Blessed Art Tattoo!\n\nOs escribí hace un par de días con la web demo interactiva que preparé para vosotros con el contenido de vuestra página:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Tiene Web",
+    "gemini_razon": "Comercio verificado sin web propia (descartado enlace no oficial: https://culturetattoo.com/tag/tatuajes-realismo/).",
+    "mensaje_dm": "¡Hola equipo de Blessed Art Tattoo!\n\nSoy Daniel García. He visto vuestro trabajo y os he preparado una web demo interactiva adaptada a vuestro negocio para mostraros cómo potenciar vuestra presencia digital y captar clientes desde el móvil:\n\n👉\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Blessed Art Tattoo!\n\nOs escribí hace un par de días con la propuesta web interactiva que preparé para vosotros:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Sin Web",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
@@ -4021,7 +3921,8 @@
     "campana_ids": [
       "camp_1789417840",
       "camp_1789422964"
-    ]
+    ],
+    "enfoque_pitch": "sin_web"
   },
   {
     "osm_id": "5448091658",
@@ -4093,7 +3994,7 @@
     "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Sitio Web)",
     "mensaje_dm": "¡Hola equipo de Arte Tattoo 2.0 The Art Factory!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉 https://dga80.github.io/instaleads/arte-tattoo-20-the-art-factory-santa-coloma-de-gramenet/\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
     "mensaje_seguimiento": "¡Hola de nuevo equipo de Arte Tattoo 2.0 The Art Factory!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil: https://dga80.github.io/instaleads/arte-tattoo-20-the-art-factory-santa-coloma-de-gramenet/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Web Generada",
+    "estado": "DM Enviado",
     "demo_slug": "arte-tattoo-20-the-art-factory-santa-coloma-de-gramenet",
     "demo_url": "https://dga80.github.io/instaleads/arte-tattoo-20-the-art-factory-santa-coloma-de-gramenet/",
     "demo_vibe": "Urban Edge & Dark Tech (Tatuajes, Barberías, Talleres & Fitness)",
@@ -4109,7 +4010,9 @@
     "demo_fecha_ts": 1789501500,
     "extraccion_fuente": "apify",
     "extraccion_aviso": "",
-    "extraccion_exitosa": true
+    "extraccion_exitosa": true,
+    "fecha_contacto": "2026-09-15T21:14:58.982218+00:00",
+    "canal_contacto": "Instagram DM"
   },
   {
     "osm_id": "5536153347",
@@ -4181,7 +4084,7 @@
     "gemini_razon": "Validación automática heurística",
     "mensaje_dm": "¡Hola equipo de Joker Tatoo!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉 https://dga80.github.io/instaleads/joker-tatoo-barcelona/\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
     "mensaje_seguimiento": "¡Hola de nuevo equipo de Joker Tatoo!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil: https://dga80.github.io/instaleads/joker-tatoo-barcelona/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Web Generada",
+    "estado": "DM Enviado",
     "demo_slug": "joker-tatoo-barcelona",
     "demo_url": "https://dga80.github.io/instaleads/joker-tatoo-barcelona/",
     "demo_vibe": "Urban Edge & Dark Tech (Tatuajes, Barberías, Talleres & Fitness)",
@@ -4197,7 +4100,9 @@
     "demo_fecha_ts": 1789501529,
     "extraccion_fuente": "apify",
     "extraccion_aviso": "",
-    "extraccion_exitosa": true
+    "extraccion_exitosa": true,
+    "fecha_contacto": "2026-09-15T21:15:01.526843+00:00",
+    "canal_contacto": "Instagram DM"
   },
   {
     "osm_id": "6179327354",
@@ -4209,7 +4114,7 @@
     "codigo_postal": "08003",
     "telefono": "",
     "email": "",
-    "tiene_web": true,
+    "tiene_web": false,
     "instagram_url": "https://www.instagram.com/bhorn.tattoo/",
     "instagram_handle": "@bhorn.tattoo",
     "enlaces_internet": [
@@ -4222,54 +4127,22 @@
         "snippet": "112K Followers, 1,010 Following, 8,231 Posts - Bhorn Tattoo Studio Barcelona (@bhorn.tattoo) on Instagram: \"Barcelona’s "
       },
       {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://mejorestatuajes.es/directorio/bhorn-tattoo-design-barcelona/",
-        "titulo": "Bhorn Tattoo & Design (Barcelona) - Mejorestatuajes.es",
-        "snippet": "Ubicado en el vibrante barrio del Born en Barcelona. Bhorn Tattoo & Design se ha consolidado desde 2015 como un epicentr"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web Detectado",
-        "icono": "🌐",
-        "url": "https://tatuadores.tattoolove.es/ProfessionalDetail",
-        "titulo": "Professional Detail | Tattoo Love Artists",
-        "snippet": "Bhorn Tattoo & Design. Estudio. Barcelona, España. Tradicional. Neotradicional. Realismo. Blackwork. Japonés. Acuarela. "
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://www.timeout.es/barcelona/es/tiendas/estudio-de-tattoos-multietnico-en-el-born",
-        "titulo": "¡Nos adentramos en un estudio de tattoos multiétnico en el Born!",
-        "snippet": "29 oct 2024 · Bhorn Tattoo es un verdadero crisol de culturas y estilos. Este estudio, conocido internacionalmente y sit"
-      },
-      {
         "tipo": "directorio",
         "label": "Directorio Local",
         "icono": "📁",
         "url": "https://www.paginasamarillas.es/f/barcelona/bhorn-tattoo-design_229558713_000000001.html",
         "titulo": "Bhorn Tattoo & Design - Barcelona - Carrer Tiradors, 9 | TATUAJES ...",
         "snippet": "Puedes contactar con este negocio en el número de teléfono 936815819, en la web y a través del formulario de contacto. V"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://es.trustpilot.com/review/bhorntattoo.com",
-        "titulo": "Opiniones sobre BHORN TATTOO - Opiniones de Trustpilot",
-        "snippet": "Valoración 4,4 (11) Información de contacto · calle dels tiradors 9, 08003, barcelona, España · +34631282320 · info@bhor"
       }
     ],
-    "web_detectada": "https://tatuadores.tattoolove.es/ProfessionalDetail",
+    "web_detectada": "",
     "google_search_url": "https://www.google.com/search?q=Bhorn+tattoo+%26+design+Barcelona",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bhorn+tattoo+%26+design+Barcelona",
     "gemini_verificado": true,
-    "gemini_razon": "Validación automática heurística",
-    "mensaje_dm": "¡Hola equipo de Bhorn tattoo & design!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://tatuadores.tattoolove.es/ProfessionalDetail), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Bhorn tattoo & design!\n\nOs escribí hace un par de días con la web demo interactiva que preparé para vosotros con el contenido de vuestra página:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Tiene Web",
+    "gemini_razon": "Comercio verificado sin web propia (descartado enlace no oficial: https://tatuadores.tattoolove.es/ProfessionalDetail).",
+    "mensaje_dm": "¡Hola equipo de Bhorn tattoo & design!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Bhorn tattoo & design!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Sin Web",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
@@ -4278,7 +4151,8 @@
     "campana_ids": [
       "camp_1789417840",
       "camp_1789422964"
-    ]
+    ],
+    "enfoque_pitch": "sin_web"
   },
   {
     "osm_id": "6992988850",
@@ -4290,7 +4164,7 @@
     "codigo_postal": "08922",
     "telefono": "",
     "email": "",
-    "tiene_web": true,
+    "tiene_web": false,
     "instagram_url": "",
     "instagram_handle": "",
     "enlaces_internet": [
@@ -4301,56 +4175,16 @@
         "url": "https://www.instagram.com/shyro__ink/",
         "titulo": "𝐭𝐚𝐭𝐭𝐨𝐨𝐚𝐫𝐭𝐢𝐬𝐭 | 𝐣𝐞𝐧𝐧𝐲 (@shyro__ink) • Instagram p...CIRCA TATTOO STUDIO BARCELONA (@circatattoobcn) - InstagramTHE TATTOO SHIRE (@thetattooshire) • Instagram photos and videosInstagramTattoo studio in Barcelona (@sashatattooingbarcelona ...ShantyTattoo (@shantytattoo_) • Instagram photos and videosInstagram",
         "snippet": "27K Followers, 477 Following, 131 Posts - 퐭퐚퐭퐭퐨퐨퐚퐫퐭퐢퐬퐭 | 퐣퐞퐧퐧퐲 (@shyro__ink) on Instagram: \"퐀퐧퐢퐦퐞 퐚퐧퐝 퐃퐚퐫퐤퐟퐞퐦 퐓퐚퐭퐭퐨퐨퐬 퐁퐨"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://www.nomas900.org/the-shyro-tattoo-628176",
-        "titulo": "The shyro tattoo - Tatuajes y Piercings",
-        "snippet": "The shyro tattoo Tatuajes y Piercings en Santa Coloma de Gramenet Tatuajes y piercings The shyro tattoo es una empresa l"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://www.yelp.com/search?cflt=tattoo&find_loc=Barcelona",
-        "titulo": "THE BEST 10 Tattoo in BARCELONA, SPAIN - Yelp",
-        "snippet": "My fiancé and I have been wanting our names tattoo'd on each other for a while now, so we decided, \"why not do it in Bar"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://barcelonasecreta.com/en/best-tattoo-artists-barcelona/",
-        "titulo": "Here Are The Best Tattoo Shops And Tattooists In Barcelona",
-        "snippet": "Apr 29, 2024 · With over 20 artists from around the world, the studio covers all styles of tattooing, standing out for i"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://www.timeout.com/barcelona/things-to-do/best-tattoo-shops-and-studios-in-barcelona",
-        "titulo": "Best tattoo shops and studios in Barcelona - Time Out",
-        "snippet": "Oct 20, 2017 · Whether you call it a tattoo shop, studio or parlour, and whatever your reason for getting one, these are"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web Detectado",
-        "icono": "🌐",
-        "url": "https://www.tattooswizard.com/locations/spain/barcelona",
-        "titulo": "Tattoo Artists & Studios in barcelona, spain - tattooswizard.com",
-        "snippet": "Find tattoo artists and studios near you. Browse portfolios, compare styles, and book with confidence."
       }
     ],
-    "web_detectada": "https://www.tattooswizard.com/locations/spain/barcelona",
+    "web_detectada": "",
     "google_search_url": "https://www.google.com/search?q=The+Shyro+Tattoo+Studios+Barcelona",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=The+Shyro+Tattoo+Studios+Barcelona",
     "gemini_verificado": false,
-    "gemini_razon": "El perfil de Instagram detectado (@shyro__ink) corresponde a un artista en Stuttgart, Alemania, no al negocio 'The Shyro Tattoo Studios' en Barcelona.",
-    "mensaje_dm": "",
-    "mensaje_seguimiento": "",
-    "estado": "Tiene Web",
+    "gemini_razon": "Comercio verificado sin web propia (descartado enlace no oficial: https://www.tattooswizard.com/locations/spain/barcelona).",
+    "mensaje_dm": "¡Hola equipo de The Shyro Tattoo Studios!\n\nSoy Daniel García. He visto vuestro trabajo y os he preparado una web demo interactiva adaptada a vuestro negocio para mostraros cómo potenciar vuestra presencia digital y captar clientes desde el móvil:\n\n👉\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de The Shyro Tattoo Studios!\n\nOs escribí hace un par de días con la propuesta web interactiva que preparé para vosotros:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Sin Web",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
@@ -4359,7 +4193,8 @@
     "campana_ids": [
       "camp_1789417840",
       "camp_1789422964"
-    ]
+    ],
+    "enfoque_pitch": "sin_web"
   },
   {
     "osm_id": "7003296912",
@@ -4371,18 +4206,10 @@
     "codigo_postal": "",
     "telefono": "",
     "email": "",
-    "tiene_web": true,
+    "tiene_web": false,
     "instagram_url": "https://www.instagram.com/esmeraldaink/",
     "instagram_handle": "@esmeraldaink",
     "enlaces_internet": [
-      {
-        "tipo": "web",
-        "label": "Web Oficial (Instagram)",
-        "icono": "🌐",
-        "url": "http://linktr.ee/esmeraldaalonso",
-        "titulo": "Web Oficial de Esmeralda Ink",
-        "snippet": "Página web oficial detectada en su perfil verificado de Instagram"
-      },
       {
         "tipo": "instagram",
         "label": "Instagram (@esmeraldaink)",
@@ -4390,56 +4217,16 @@
         "url": "https://www.instagram.com/esmeraldaink/",
         "titulo": "Barcelona Tattoo Studio (@esmeraldaink) • Instagram photos ...",
         "snippet": "66K Followers, 736 Following, 229 Posts - Barcelona Tattoo Studio (@esmeraldaink) on Instagram: \" ☠️ @esmeralda.a.c13 @j"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://zokko.es/servicios/estudios-de-tatuajes/barcelona/esmeralda-ink-tattoo-studio-497990",
-        "titulo": "Esmeralda Ink Tattoo Studio — Estudio de tatuajes en Barcelona",
-        "snippet": "Esmeralda Ink Tattoo Studio es un estudio de tatuajes en Barcelona. Puedes encontrarlo en Carrer de Margarit, 9. Consult"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://www.limousinecc.com/xxi-barcelona-tattoo-expo-2018/",
-        "titulo": "XXI BARCELONA TATTOO EXPO 2018 - Limousine CC",
-        "snippet": "25 sept 2018 · Eduardo Sánchez Estudio: EXTREME INK TATTOO Ciudad: Granada Esmeralda Alonso Estudio: ESMERALDA INK Ciuda"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://www.boe.es/diario_borme/txt.php",
-        "titulo": "BORME-A-2015-9-08 BARCELONA - BOE.es",
-        "snippet": "Capital: 100.000,00 Euros. Nombramientos. ADM.UNICO: LEON PEREZ ARAN. APODERAD.SOL: SERRANO OUTES ESMERALDA SARA;ROMERO "
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://www.berok.es/resultados-de-busqueda",
-        "titulo": "Resultados de búsqueda - Berok",
-        "snippet": "Descripción: Graffitis de flor del Olivo y cara de chica surrealista con flores y plantas en persiana de Barcelona. Graf"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://www.infobel.com/es/spain/business-near/100900/tatuajes_y_piercings/badalona",
-        "titulo": "Tatuajes Y Piercings en Badalona, ES - Infobel",
-        "snippet": "Esmeralda Ink Tattoo Studio. Carrer de Margarit 9 08004 Barcelona. Mostrar teléfono. STA8Lbh5MCkhyknZbqJVYQC5AivvXLcn. E"
       }
     ],
-    "web_detectada": "http://linktr.ee/esmeraldaalonso",
+    "web_detectada": "",
     "google_search_url": "https://www.google.com/search?q=Esmeralda+Ink+Barcelona",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Esmeralda+Ink+Barcelona",
     "gemini_verificado": true,
-    "gemini_razon": "Validación automática heurística",
-    "mensaje_dm": "¡Hola equipo de Esmeralda Ink!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (http://linktr.ee/esmeraldaalonso), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://dga80.github.io/instaleads/esmeralda-ink-barcelona/\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Esmeralda Ink!\n\nOs escribí hace un par de días con la web demo interactiva que preparé para vosotros con el contenido de vuestra página: https://dga80.github.io/instaleads/esmeralda-ink-barcelona/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Web Generada",
+    "gemini_razon": "Comercio verificado sin web propia (descartado enlace no oficial: http://linktr.ee/esmeraldaalonso).",
+    "mensaje_dm": "¡Hola equipo de Esmeralda Ink!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉 https://dga80.github.io/instaleads/esmeralda-ink-barcelona/\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Esmeralda Ink!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil: https://dga80.github.io/instaleads/esmeralda-ink-barcelona/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "DM Enviado",
     "demo_slug": "esmeralda-ink-barcelona",
     "demo_url": "https://dga80.github.io/instaleads/esmeralda-ink-barcelona/",
     "demo_vibe": "Urban Edge & Dark Tech (Tatuajes, Barberías, Talleres & Fitness)",
@@ -4455,7 +4242,10 @@
     "demo_fecha_ts": 1789501694,
     "extraccion_fuente": "apify",
     "extraccion_aviso": "",
-    "extraccion_exitosa": true
+    "extraccion_exitosa": true,
+    "enfoque_pitch": "sin_web",
+    "fecha_contacto": "2026-09-16T19:02:34.449459+00:00",
+    "canal_contacto": "Instagram DM"
   },
   {
     "osm_id": "7003408119",

@@ -54,11 +54,20 @@ def extraer_sitio_web_perfil(item: Dict[str, Any]) -> str:
         urls_bio = re.findall(r'(?:https?://|www\.)[a-zA-Z0-9_\-\.]+\.[a-zA-Z]{2,}(?:/[^\s]*)?', bio_texto)
         candidatos.extend([u.strip() for u in urls_bio])
 
-    # Dominios de redes sociales y mensajería a excluir (NO son un sitio web propio)
+    # Dominios de redes sociales, mensajería, agregadores y directorios a excluir (NO son un sitio web propio)
     dominios_excluidos = [
         "instagram.com", "facebook.com", "fb.me", "tiktok.com", "twitter.com", "x.com",
-        "threads.net", "wa.me", "whatsapp.com", "t.me", "telegram.me", "youtube.com",
-        "youtu.be", "linkedin.com", "pinterest.com", "spotify.com", "twitch.tv"
+        "threads.net", "wa.me", "whatsapp.com", "api.whatsapp.com", "t.me", "telegram.me",
+        "youtube.com", "youtu.be", "linkedin.com", "pinterest.com", "spotify.com", "twitch.tv",
+        # Agregadores de enlaces y mini-bios
+        "linktr.ee", "linktree.com", "beacons.ai", "beacons.page", "bio.site", "campsite.bio",
+        "taplink.cc", "taplink.at", "carrd.co", "solo.to", "snipfeed.co", "linkin.bio",
+        "lnk.bio", "instabio.cc", "hoo.be", "urlbio.com", "direct.me", "msha.ke",
+        "allmylinks.com", "contactinbio.com", "bento.me", "link.me",
+        # Motores de búsqueda, mapas y directorios
+        "google.com", "maps.google.com", "goo.gl", "maps.app.goo.gl", "tripadvisor.com",
+        "tripadvisor.es", "yelp.com", "yelp.es", "tattooswizard.com", "tattoolove.es",
+        "culturetattoo.com", "downundercafe.com"
     ]
 
     for cand in candidatos:
@@ -222,16 +231,72 @@ def extraer_con_apify(username: str, api_token: str) -> Optional[Dict[str, Any]]
         print(f"[Apify Posts Error] {e}")
     return None
 
-def generar_datos_instagram_mock(nombre_negocio: str, categoria: str, ciudad: str, handle: str) -> Dict[str, Any]:
+def generar_datos_instagram_mock(nombre_negocio: str, categoria: str, ciudad: str, handle: str, subnicho: str = "") -> Dict[str, Any]:
     """
-    Genera un conjunto de datos enriquecidos representativos basados en el negocio,
-    utilizando imágenes temáticas profesionales de Unsplash para garantizar que la demo
-    sea visualmente impactante y única de inmediato.
+    Genera un conjunto de datos enriquecidos representativos basados en el negocio y su nicho cultural/gastronómico,
+    utilizando imágenes temáticas profesionales adaptadas específicamente para garantizar que la demo
+    sea visualmente consecuente con la identidad real del local.
     """
     clean_cat = categoria.lower()
+    text_corpus = f"{clean_cat} {nombre_negocio.lower()} {handle.lower()} {subnicho.lower()}"
     
     # Selección de imágenes de stock curadas y temáticas por nicho
-    if any(k in clean_cat for k in ["dental", "dentist", "odontol", "dientes", "sonrisa"]):
+    if any(k in clean_cat for k in ["detail", "pulido", "car detailing", "coating", "detailing"]):
+        avatar = "https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=300&auto=format&fit=crop&q=80"
+        tematicas = [
+            {"img": "https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=1000&auto=format&fit=crop&q=80", "caption": "Corrección de pintura en varias etapas y sellado cerámico de máxima dureza y brillo espejo."},
+            {"img": "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=800&auto=format&fit=crop&q=80", "caption": "Limpieza técnica de interiores, nutrición de cuero e higienización profesional con ozono."},
+            {"img": "https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=800&auto=format&fit=crop&q=80", "caption": "Tratamiento hidrofóbico en cristales y protección PPF contra impactos y microarañazos."},
+            {"img": "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&auto=format&fit=crop&q=80", "caption": "Detallado de llantas y pasos de rueda con coating resistente a altas temperaturas."},
+            {"img": "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800&auto=format&fit=crop&q=80", "caption": "Lavado artesanal a mano sin fricción con champú de pH neutro y secado por aire caliente."},
+            {"img": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&auto=format&fit=crop&q=80", "caption": "El acabado showroom que tu vehículo merece en {ciudad}. Pide tu valoración sin compromiso."}
+        ]
+        bio = f"Especialistas en Car Detailing y tratamiento cerámico en {ciudad}. Corrección de pintura, protección PPF y cuidado artesanal de alta gama."
+    elif any(k in clean_cat for k in ["canin", "perr", "mascot", "grooming"]):
+        avatar = "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=300&auto=format&fit=crop&q=80"
+        tematicas = [
+            {"img": "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=1000&auto=format&fit=crop&q=80", "caption": "Corte a tijera según estándar de raza y estilismo personalizado con mimo y calma."},
+            {"img": "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=800&auto=format&fit=crop&q=80", "caption": "Baños relajantes con cosmética natural vegana adaptada al tipo de piel y manto."},
+            {"img": "https://images.unsplash.com/photo-1541599540903-216a46ca1dc0?w=800&auto=format&fit=crop&q=80", "caption": "Deslanado profesional y eliminación de pelo muerto para mantener un manto sano y ligero."},
+            {"img": "https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?w=800&auto=format&fit=crop&q=80", "caption": "Cuidado e higiene de almohadillas, corte de uñas y limpieza auricular respetuosa."},
+            {"img": "https://images.unsplash.com/photo-1548767797-d8c844163c4c?w=800&auto=format&fit=crop&q=80", "caption": "Ambiente tranquilo y libre de jaulas para que su visita sea una experiencia positiva."},
+            {"img": "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=800&auto=format&fit=crop&q=80", "caption": "Tu peluquería canina de confianza en {ciudad}. ¡Pide tu cita previa!"}
+        ]
+        bio = f"Peluquería y estilismo canino respetuoso en {ciudad}. Baños terapéuticos, corte a tijera y trato con amor sin jaulas 🐶✂️"
+    elif any(k in clean_cat for k in ["tarta", "reposteria", "pastel", "cake", "dulce"]):
+        avatar = "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&auto=format&fit=crop&q=80"
+        tematicas = [
+            {"img": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=1000&auto=format&fit=crop&q=80", "caption": "Tartas de autor personalizadas para bodas, cumpleaños y celebraciones únicas."},
+            {"img": "https://images.unsplash.com/photo-1535141192574-5d4897c13136?w=800&auto=format&fit=crop&q=80", "caption": "Diseños temáticos con flores naturales, detalles en pan de oro y texturas modernas."},
+            {"img": "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=800&auto=format&fit=crop&q=80", "caption": "Bizcochos esponjosos y rellenos gourmet con ingredientes 100% naturales."},
+            {"img": "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=800&auto=format&fit=crop&q=80", "caption": "Cupcakes, galletas decoradas y mesas dulces que deslumbran en cualquier evento."},
+            {"img": "https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?w=800&auto=format&fit=crop&q=80", "caption": "Modelado artesanal y acabados limpios pensados para sorprender al primer vistazo."},
+            {"img": "https://images.unsplash.com/photo-1557925923-cd4648e211a0?w=800&auto=format&fit=crop&q=80", "caption": "Creamos la tarta de tus sueños en {ciudad}. Encarga tu diseño con antelación 🎂✨"}
+        ]
+        bio = f"Obrador de tartas personalizadas y repostería creativa en {ciudad}. Diseños exclusivos y sabor inolvidable para momentos especiales 🎂"
+    elif any(k in clean_cat for k in ["microblading", "micropigmentacion", "pmu", "brow"]):
+        avatar = "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=300&auto=format&fit=crop&q=80"
+        tematicas = [
+            {"img": "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=1000&auto=format&fit=crop&q=80", "caption": "Microblading pelo a pelo de máxima naturalidad y diseño morfológico según tus facciones."},
+            {"img": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&auto=format&fit=crop&q=80", "caption": "Micropigmentación efecto polvo (Powder Brows) para unas cejas tupidas y elegantes."},
+            {"img": "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&auto=format&fit=crop&q=80", "caption": "Micropigmentación labial (Aquarelle Lips) para dar color, definición y volumen sutil."},
+            {"img": "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&auto=format&fit=crop&q=80", "caption": "Pigmentos orgánicos certificados por Sanidad UE y material estéril 100% desechable."},
+            {"img": "https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?w=800&auto=format&fit=crop&q=80", "caption": "Lifting de pestañas y laminado de cejas para potenciar tu mirada sin necesidad de maquillaje."},
+            {"img": "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=800&auto=format&fit=crop&q=80", "caption": "Especialista certificada en belleza de la mirada en {ciudad}. Pide tu diagnóstico previo ✨"}
+        ]
+        bio = f"Especialista en Microblading, Powder Brows y Micropigmentación en {ciudad}. Realza tu belleza natural con técnica hiperrealista ✨"
+    elif any(k in clean_cat for k in ["microcemento", "pavimento continuo", "resina epoxi", "suelo continuo"]):
+        avatar = "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=300&auto=format&fit=crop&q=80"
+        tematicas = [
+            {"img": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1000&auto=format&fit=crop&q=80", "caption": "Pavimentos continuos de microcemento sin juntas para un diseño contemporáneo y luminoso."},
+            {"img": "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&auto=format&fit=crop&q=80", "caption": "Reformas de baños integrales en microcemento impermeable y antideslizante de fácil limpieza."},
+            {"img": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&auto=format&fit=crop&q=80", "caption": "Encimeras de cocina y mobiliario revestido con acabados satinados y ultra resistentes."},
+            {"img": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&auto=format&fit=crop&q=80", "caption": "Revestimiento de paredes interiores y exteriores con texturas rústicas o pulidas."},
+            {"img": "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=800&auto=format&fit=crop&q=80", "caption": "Amplia carta de colores minerales y barnices selladores de poliuretano de alta resistencia."},
+            {"img": "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&auto=format&fit=crop&q=80", "caption": "Aplicación artesanal con máxima garantía en {ciudad}. Solicita presupuesto sin compromiso."}
+        ]
+        bio = f"Aplicación profesional de microcemento en {ciudad}. Pavimentos continuos sin juntas, baños y reformas de alta gama con máxima resistencia."
+    elif any(k in clean_cat for k in ["dental", "dentist", "odontol", "dientes", "sonrisa"]):
         avatar = "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=300&auto=format&fit=crop&q=80"
         tematicas = [
             {"img": "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1000&auto=format&fit=crop&q=80", "caption": "Tecnología de diagnóstico 3D y odontología mínimamente invasiva. Tu salud dental en las mejores manos."},
@@ -297,6 +362,62 @@ def generar_datos_instagram_mock(nombre_negocio: str, categoria: str, ciudad: st
             {"img": "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=800&auto=format&fit=crop&q=80", "caption": "Reserva tu turno y luce tu mejor versión en {ciudad}."}
         ]
         bio = f"Cortes de autor, degradados limpios, color y cuidado capilar en {ciudad}. Reserva tu cita y vive la experiencia."
+    # Detección y fotos temáticas específicas por gastronomía / cultura internacional
+    elif any(k in text_corpus for k in ["colomb", "arepa", "empanada", "latino", "paisa", "bogota", "medellin"]):
+        avatar = "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=400&auto=format&fit=crop&q=80"
+        tematicas = [
+            {"img": "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=1000&auto=format&fit=crop&q=80", "caption": "Nuestras auténticas arepas de maíz doradas con queso fundido y carnes tradicionales en {ciudad}."},
+            {"img": "https://images.unsplash.com/photo-1541544741938-0af808871cc0?w=800&auto=format&fit=crop&q=80", "caption": "Empanadas criollas crocantes con relleno jugoso y ají casero recién preparado."},
+            {"img": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&auto=format&fit=crop&q=80", "caption": "Café 100% colombiano de origen, aroma intenso y cuerpo balanceado."},
+            {"img": "https://images.unsplash.com/photo-1615870216519-2f9fa575fa5c?w=800&auto=format&fit=crop&q=80", "caption": "Platos criollos completos y generosos: frijoles, arroz, plátano maduro y sazón tradicional."},
+            {"img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&auto=format&fit=crop&q=80", "caption": "Tu rincón acogedor en {ciudad} para disfrutar de los auténticos sabores de nuestra tierra."},
+            {"img": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&auto=format&fit=crop&q=80", "caption": "Desayunos típicos, perritos criollos y sopas del día. ¡Ven a vernos o pide a domicilio!"}
+        ]
+        bio = f"El auténtico sabor de Colombia en {ciudad}. Arepas caseras, empanadas criollas, platos típicos y café de origen. ¡Pasa a vernos o pide a domicilio! 🇨🇴✨"
+    elif any(k in text_corpus for k in ["mexic", "taco", "taquer"]):
+        avatar = "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=400&auto=format&fit=crop&q=80"
+        tematicas = [
+            {"img": "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=1000&auto=format&fit=crop&q=80", "caption": "Tacos al pastor tradicionales con piña asada, cilantro y cebolla fresca en {ciudad}."},
+            {"img": "https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?w=800&auto=format&fit=crop&q=80", "caption": "Quesadillas artesanales con queso fundido y salsas caseras de chiles tatemados."},
+            {"img": "https://images.unsplash.com/photo-1599974579688-8dbdd335c77f?w=800&auto=format&fit=crop&q=80", "caption": "Guacamole fresco preparado al momento con totopos crujientes de maíz."},
+            {"img": "https://images.unsplash.com/photo-1541544741938-0af808871cc0?w=800&auto=format&fit=crop&q=80", "caption": "Especialidades mexicanas al plato con tortillas de maíz recién hechas."},
+            {"img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&auto=format&fit=crop&q=80", "caption": "Ambiente festivo y la mejor música para compartir con amigos en {ciudad}."},
+            {"img": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&auto=format&fit=crop&q=80", "caption": "Margaritas y aguas frescas de sabores naturales para acompañar tus tacos."}
+        ]
+        bio = f"Auténtica taquería mexicana en {ciudad}. Tacos al pastor, quesadillas, guacamole y sabor tradicional. ¡Viva México! 🌮🇲🇽"
+    elif any(k in text_corpus for k in ["pizz", "trattoria", "pasta", "italian"]):
+        avatar = "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&auto=format&fit=crop&q=80"
+        tematicas = [
+            {"img": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1000&auto=format&fit=crop&q=80", "caption": "Pizza napolitana auténtica en horno de leña, masa fermentada 48h e ingredientes DOP en {ciudad}."},
+            {"img": "https://images.unsplash.com/photo-1621996346565-e3d5d6281691?w=800&auto=format&fit=crop&q=80", "caption": "Pasta fresca artesana elaborada cada mañana con sémola de trigo duro."},
+            {"img": "https://images.unsplash.com/photo-1579684947550-22e945225d9a?w=800&auto=format&fit=crop&q=80", "caption": "Burrata cremosa con tomates cherry maduros y albahaca fresca."},
+            {"img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&auto=format&fit=crop&q=80", "caption": "Atmósfera de trattoria italiana con selección de vinos y trato familiar."},
+            {"img": "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=800&auto=format&fit=crop&q=80", "caption": "Antipasti para compartir y postres tradicionales como el clásico tiramisú."},
+            {"img": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&auto=format&fit=crop&q=80", "caption": "Reserva tu mesa y disfruta de la verdadera cocina de Italia en {ciudad}."}
+        ]
+        bio = f"Auténtica cucina italiana en {ciudad}. Pizza napolitana al horno de leña, pasta fresca artesanal y postres caseros. Buon appetito! 🍕🇮🇹"
+    elif any(k in text_corpus for k in ["sushi", "ramen", "japones", "nikkei", "asian"]):
+        avatar = "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=400&auto=format&fit=crop&q=80"
+        tematicas = [
+            {"img": "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=1000&auto=format&fit=crop&q=80", "caption": "Nigiris y uramakis de autor con pescado fresco de lonja y arroz calibrado en {ciudad}."},
+            {"img": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=800&auto=format&fit=crop&q=80", "caption": "Ramen artesanal con caldo tonkotsu cocinado a fuego lento durante 12 horas."},
+            {"img": "https://images.unsplash.com/photo-1611143669185-af224c5e3252?w=800&auto=format&fit=crop&q=80", "caption": "Gyozas crujientes a la plancha y entrantes asiáticos tradicionales."},
+            {"img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&auto=format&fit=crop&q=80", "caption": "Espacio zen contemporáneo diseñado para una experiencia culinaria inmersiva."},
+            {"img": "https://images.unsplash.com/photo-1553621042-f6e147245754?w=800&auto=format&fit=crop&q=80", "caption": "Sashimi de corte limpio con salmón y atún rojo de primera calidad."},
+            {"img": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&auto=format&fit=crop&q=80", "caption": "Reserva tu mesa o pide para llevar y vive Japón en {ciudad}."}
+        ]
+        bio = f"Gastronomía japonesa de autor en {ciudad}. Sushi fresco, ramen artesanal y bocados de alta cocina nipona. 🍣🥢"
+    elif any(k in text_corpus for k in ["burger", "hamburgues"]):
+        avatar = "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&auto=format&fit=crop&q=80"
+        tematicas = [
+            {"img": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1000&auto=format&fit=crop&q=80", "caption": "Smash burgers gourmet con costra perfecta, queso fundido y pan brioche artesano en {ciudad}."},
+            {"img": "https://images.unsplash.com/photo-1550547660-d9450f859349?w=800&auto=format&fit=crop&q=80", "caption": "Patatas rústicas sazonadas, bacon crujiente y salsas caseras secretas."},
+            {"img": "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=800&auto=format&fit=crop&q=80", "caption": "Carne 100% vacuno seleccionada y madurada para el máximo sabor y jugosidad."},
+            {"img": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&auto=format&fit=crop&q=80", "caption": "Ambiente desenfadado, buena música y cerveza fría para disfrutar."},
+            {"img": "https://images.unsplash.com/photo-1550317138-10000687a72b?w=800&auto=format&fit=crop&q=80", "caption": "Opciones de pollo crujiente con rebozado especiado y dips caseros."},
+            {"img": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&auto=format&fit=crop&q=80", "caption": "Ven a probar la hamburguesa de la que todos hablan en {ciudad}."}
+        ]
+        bio = f"Smash burgers artesanales en {ciudad}. Carne madurada, pan brioche tierno y salsas caseras. ¡Pide la tuya! 🍔🍟"
     elif any(k in clean_cat for k in ["cafe", "restaurante", "bar", "panaderia", "pasteleria", "gastro"]):
         avatar = "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=300&auto=format&fit=crop&q=80"
         tematicas = [

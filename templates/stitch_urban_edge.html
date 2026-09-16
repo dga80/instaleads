@@ -305,8 +305,7 @@
   Atención personalizada en {{ negocio.direccion or negocio.ciudad }}. Solicita tu cita o consulta disponibilidad para recibir asesoramiento directo.
 </p>
 </div>
-<!-- Location Map Visual -->
-<div class="w-full h-56 rounded bg-cover bg-center border border-surface-container-high relative overflow-hidden" data-location="Poligono Industrial Neotech, Nave 04, Madrid, Espana" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAUAh7keXT9_LtaVK63W4cBZ2XTDFzqVxi7pRoM2UEO3PtYECS6Iiu3A-iykpQl_H-ioLCgJ6kxmkywI48sb4k2a_wyRk1gr0qdgyA77mw_DWaRsSn6jRcCx75KMsrgVhHH6bCk5WYpJXAJ2ePKICvpVsFwKPmTZ7QeAx1LF9HvAP-tzYDVi4cbsKj7_bOE1pLSOaPxWt2XJPdxwrvnRSO4eOYCPKyEQheKzRVNqDFfLlgs-xm4Y0JY')">
+<div class="w-full h-56 rounded bg-cover bg-center border border-surface-container-high relative overflow-hidden" data-location="{{ negocio.direccion or negocio.ciudad }}" style="background-image: url('{{ (ig.posts[1].image_url if (ig.posts and ig.posts|length > 1) else 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=1200&q=80') }}')">
 <!-- Map overlay pin badge -->
 <div class="absolute inset-0 bg-surface-container-lowest/40 backdrop-blur-[2px] flex items-center justify-center">
 <div class="p-space-sm rounded-lg bg-surface-container-lowest/95 border border-primary-container flex items-center gap-space-sm shadow-[0_0_20px_rgba(249,115,22,0.3)]">

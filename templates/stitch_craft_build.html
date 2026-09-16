@@ -97,18 +97,18 @@
 <div class="relative h-80 sm:h-96 w-full flex">
 <!-- Left Half (Before) -->
 <div class="w-1/2 h-full relative overflow-hidden">
-<img alt="Estado de demolición y obra previa" class="w-full h-full object-cover object-center scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMyqeaVEH6x-gIBx2E2xgfxGSDE57HHGYBdUdCarjURe-k-WeBzZ4D1hn6WHJttSRtqU8-YnjytrVHneeJ2VjYT5hoxAsYB5FWWjFIS6gYASyz8UXoIenZh0k85lDztROQsk8YbvlhBVbdGTreYqpriTNaiRrEztHcq3_BiOjz7xjkFmZImajV4t71k2Muc9UuPNqwspbXZzPokKYA9vdvBfyaogtM1WwSK9BhS8WhERKUuE0UfrIT"/>
+<img alt="Estado de obra previa" class="w-full h-full object-cover object-center scale-105" src="{{ (ig.posts[1].image_url if ig.posts|length > 1 and ig.posts[1].image_url else 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1000&auto=format&fit=crop&q=80') }}"/>
 <div class="absolute inset-0 bg-on-background/30"></div>
 <div class="absolute top-3 left-3 bg-inverse-surface/85 backdrop-blur-sm text-inverse-on-surface px-space-xs py-1 rounded font-label-technical text-label-technical tracking-wider uppercase">
                 Estado Previo
               </div>
 <div class="absolute bottom-3 left-3 right-3 text-inverse-on-surface text-[12px] font-body-sm leading-tight bg-on-background/70 p-2 rounded backdrop-blur-sm">
-                Tabiquería obsoleta, vigas expuestas, falta total de luz natural.
+                Espacio previo y fase de reforma integral.
               </div>
 </div>
 <!-- Right Half (After) -->
 <div class="w-1/2 h-full relative overflow-hidden">
-<img alt="Vivienda de lujo reformada con isla de mármol e iluminación perimetral cálida" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeh_swyOwLW4IkW8XrDxztV4pO1ZPvzc_LKhNrv2NUOv14NhRPI6l5JiTZ4fT-S9nH-amFUIkWCFWS3qBhXN-YI8mcEa1nfRleZ727Js586t6DN6zMiNCuGYZIYeQ4DgLYfX_Qy6Vx0lfNhDC6QSWk_PID0JbtOpZwNoGP_zgwZ-cziFXApLK5V6oA37DLnr4I0yvht-U3jLDcEBNUzfP4qpk-TPiM8tFnOJFivmNEtEvXJf3gbF3x"/>
+<img alt="Proyecto finalizado {{ negocio.nombre }}" class="w-full h-full object-cover object-center" src="{{ (ig.posts[0].image_url if ig.posts and ig.posts[0].image_url else (ig.avatar_url or 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&auto=format&fit=crop&q=80')) }}"/>
 <div class="absolute top-3 right-3 bg-primary text-on-primary px-space-xs py-1 rounded font-label-technical text-label-technical tracking-wider uppercase shadow">
                 Obra Finalizada
               </div>
@@ -171,12 +171,12 @@
 <div class="relative w-full rounded-xl overflow-hidden shadow-xl bg-surface-container-low select-none" id="beforeAfterWidget">
 <div class="relative w-full aspect-[16/9] max-h-[640px] overflow-hidden">
 <!-- Background: After Image (Full Width Base) -->
-<img alt="Reforma completada de salón y cocina abierta de alta gama con acabados de nogal e isla de mármol" class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeh_swyOwLW4IkW8XrDxztV4pO1ZPvzc_LKhNrv2NUOv14NhRPI6l5JiTZ4fT-S9nH-amFUIkWCFWS3qBhXN-YI8mcEa1nfRleZ727Js586t6DN6zMiNCuGYZIYeQ4DgLYfX_Qy6Vx0lfNhDC6QSWk_PID0JbtOpZwNoGP_zgwZ-cziFXApLK5V6oA37DLnr4I0yvht-U3jLDcEBNUzfP4qpk-TPiM8tFnOJFivmNEtEvXJf3gbF3x"/>
+<img alt="Proyecto terminado {{ negocio.nombre }}" class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none" src="{{ (ig.posts[0].image_url if ig.posts and ig.posts[0].image_url else (ig.avatar_url or 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&auto=format&fit=crop&q=80')) }}"/>
 <!-- Foreground Cliped: Before Image -->
 <div class="absolute inset-0 h-full overflow-hidden pointer-events-none" id="beforeImageClip" style="width: 50%;">
 <div class="relative w-[200%] max-w-none h-full" style="width: 100vw; max-width: none;">
 <!-- Container keeps image proportional at 100% slider parent -->
-<img alt="Demolición inicial con tabiques picados e instalación eléctrica vista" class="absolute top-0 left-0 h-full object-cover object-center pointer-events-none" id="beforeImgRef" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMyqeaVEH6x-gIBx2E2xgfxGSDE57HHGYBdUdCarjURe-k-WeBzZ4D1hn6WHJttSRtqU8-YnjytrVHneeJ2VjYT5hoxAsYB5FWWjFIS6gYASyz8UXoIenZh0k85lDztROQsk8YbvlhBVbdGTreYqpriTNaiRrEztHcq3_BiOjz7xjkFmZImajV4t71k2Muc9UuPNqwspbXZzPokKYA9vdvBfyaogtM1WwSK9BhS8WhERKUuE0UfrIT"/>
+<img alt="Estado inicial de obra previa" class="absolute top-0 left-0 h-full object-cover object-center pointer-events-none" id="beforeImgRef" src="{{ (ig.posts[1].image_url if ig.posts|length > 1 and ig.posts[1].image_url else 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1000&auto=format&fit=crop&q=80') }}"/>
 </div>
 <!-- Before Dark Overlay & Label -->
 <div class="absolute inset-0 bg-on-background/20 pointer-events-none"></div>

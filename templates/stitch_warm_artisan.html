@@ -41,7 +41,7 @@
 <div class="lg:col-span-7 flex flex-col items-start gap-space-md z-10">
 <div class="inline-flex items-center gap-space-xs px-3.5 py-1.5 rounded-full bg-primary-fixed/60 text-on-primary-fixed shadow-sm">
 <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
-<span class="font-label-caps text-label-caps uppercase tracking-wider">🥐 Elaborado a Diario • Café de Especialidad</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider">{{ web.hero_badge_pill or 'Elaborado a Diario • Sabor & Pasión' }}</span>
 </div>
 <h1 class="font-display-hero text-headline-xl lg:text-display-hero text-on-surface tracking-tight leading-tight">
   {{ web.titular or ('Tu espacio gastronómico de confianza en ' ~ negocio.ciudad) }}
@@ -62,8 +62,8 @@
 <!-- Social Proof Highlights -->
 <div class="flex flex-wrap items-center gap-6 pt-4 text-on-surface-variant font-label-md text-label-md">
 <div class="flex items-center gap-2 bg-surface-container-low px-3 py-1.5 rounded-lg">
-<span class="material-symbols-outlined text-primary text-[18px]">bakery_dining</span>
-<span class="font-bold text-on-surface">+1.200</span> panes horneados al mes
+<span class="material-symbols-outlined text-primary text-[18px]">{{ web.hero_stat_icon or 'verified' }}</span>
+<span class="font-bold text-on-surface">{{ web.hero_stat_number or '+1.000' }}</span> {{ web.hero_stat_label or 'clientes satisfechos' }}
             </div>
 <div class="flex items-center gap-2 bg-surface-container-low px-3 py-1.5 rounded-lg">
 <div class="flex text-primary">
@@ -80,20 +80,20 @@
 <!-- Right Column: Asymmetric Editorial Visual -->
 <div class="lg:col-span-5 relative mt-8 lg:mt-0">
 <div class="relative w-full aspect-[4/5] rounded-3xl overflow-hidden shadow-xl bg-surface-container">
-<img alt="Obrador de Origen y Miga en pleno servicio" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZOZSW9Cnz5YYr2B_yvrq4q2u6nMaZziqxJ1YedYxf1Fy8eMIvEcqb0bRNx14ilQR2Lblgh4e2gVg9qVqxROWYUZNi8xG1pYaXn0ORfJKCg4oA_YWRSvvQPbN0-6lHIYYAZ-EqxgFo-p622naSu7HfxurYtn2-Xy2FY2s3_ZMaZ30KFxK-3XM9QRbsjmzWiLJYd3RXYZlTYcPtdYYlvhkWAvAENx9cxf0Js0AK6cBoik7kXitPr4CB"/>
+<img alt="{{ web.hero_alt or negocio.nombre }}" class="w-full h-full object-cover" src="{{ web.hero_image_url or (ig.posts[0].image_url if ig.posts and ig.posts[0].image_url else 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200&q=80') }}"/>
 <div class="absolute inset-0 bg-gradient-to-t from-on-background/60 via-transparent to-transparent"></div>
 <!-- Inset Badge with Latent Pour -->
 <div class="absolute -bottom-4 -left-4 sm:bottom-6 sm:left-6 max-w-[240px] p-3 rounded-2xl bg-surface-container-lowest/95 backdrop-blur-md shadow-xl flex items-center gap-3">
-<img alt="Detalle de Barista vertiendo flat white" class="w-16 h-16 rounded-xl object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmPeAP-6-lTm_6DEvYMgenGkHDOVjit5RiHeIwb5OrtotFX14wM8A9WoQS9uxNWJvO4HlInvoTlJGot1EjIf6jN_Abzi65c0YWd9x3rl35mFFZeOEjGFBKQ6L9PAW4HA-BB1jTotwDnKbPVFC0Q-v3ZVm-ODrDLmDADb912K4o_WAksbHe7JyPtN2Sex2RLnp0jB-ptoRD5YNXzxPoZoIVOleZPI9_vB_UVjBBVUNxiA1bbElFBKo2"/>
+<img alt="{{ web.hero_float_title or negocio.nombre }}" class="w-16 h-16 rounded-xl object-cover shrink-0" src="{{ web.detalle_image_url or (ig.posts[1].image_url if ig.posts|length > 1 and ig.posts[1].image_url else (ig.avatar_url or 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?w=600&q=80')) }}"/>
 <div class="flex flex-col">
-<span class="font-label-caps text-label-caps text-secondary uppercase">Recién Extraído</span>
-<span class="font-headline-sm text-sm text-on-surface leading-snug">Espresso Doble &amp; Sedosa Leche de Pastoreo</span>
+<span class="font-label-caps text-label-caps text-secondary uppercase">{{ web.hero_float_tag or 'Especialidad' }}</span>
+<span class="font-headline-sm text-sm text-on-surface leading-snug">{{ web.hero_float_title or (web.servicios[0].nombre if web.servicios else 'Especialidades de la Casa') }}</span>
 </div>
 </div>
 <!-- Fresh Roast Pill -->
 <div class="absolute top-4 right-4 bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1.5 rounded-full shadow-sm flex items-center gap-2">
 <span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
-<span class="font-label-md text-label-md text-on-surface">Hornada 08:30 lista</span>
+<span class="font-label-md text-label-md text-on-surface">{{ web.hero_status_pill or 'Abierto hoy' }}</span>
 </div>
 </div>
 </div>
