@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="es"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-secondary-fixed-variant":"#832600","primary-fixed-dim":"#ffb77d","on-secondary-fixed":"#390c00","outline-variant":"#dbc2b0","on-surface-variant":"#554336","surface-tint":"#904d00","on-tertiary":"#ffffff","inverse-surface":"#33302d","primary-container":"#b15f00","on-background":"#1e1b19","inverse-primary":"#ffb77d","surface-container":"#f4ece8","primary-fixed":"#ffdcc3","on-error-container":"#93000a","on-tertiary-container":"#fffbff","on-primary-fixed":"#2f1500","on-secondary":"#ffffff","surface-container-lowest":"#ffffff","outline":"#887364","secondary":"#ac3400","surface-container-high":"#eee7e3","error-container":"#ffdad6","secondary-fixed":"#ffdbd0","tertiary":"#904821","on-primary-container":"#fffbff","surface-variant":"#e9e1dd","error":"#ba1a1a","tertiary-fixed-dim":"#ffb693","on-tertiary-fixed":"#351000","inverse-on-surface":"#f7efeb","primary":"#8d4b00","on-error":"#ffffff","on-surface":"#1e1b19","secondary-fixed-dim":"#ffb59d","on-primary-fixed-variant":"#6e3900","on-secondary-container":"#5d1900","surface":"#fff8f5","secondary-container":"#fd6b36","surface-bright":"#fff8f5","tertiary-container":"#af5f36","surface-container-highest":"#e9e1dd","on-primary":"#ffffff","tertiary-fixed":"#ffdbcc","surface-container-low":"#faf2ee","surface-dim":"#e0d8d5","background":"#fff8f5","on-tertiary-fixed-variant":"#76330d"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-md":"1rem",margin:"3rem","space-xl":"2.5rem","margin-tablet":"2rem","margin-mobile":"1.25rem",gutter:"1.5rem","gutter-mobile":"1rem","space-sm":"0.5rem","space-xs":"0.25rem","space-lg":"1.5rem"},fontFamily:{"headline-lg":["Bricolage Grotesque"],"display-hero":["Bricolage Grotesque"],"label-md":["Manrope"],"headline-sm":["Bricolage Grotesque"],"body-sm":["Manrope"],"body-lg":["Manrope"],"label-lg":["Manrope"],"display-hero-mobile":["Bricolage Grotesque"],"headline-xl":["Bricolage Grotesque"],"title-editorial":["Bricolage Grotesque"],"headline-xl-mobile":["Bricolage Grotesque"],"body-md":["Manrope"],"headline-md":["Bricolage Grotesque"],"label-caps":["Manrope"]},fontSize:{"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.015em",fontWeight:"600"}],"display-hero":["56px",{lineHeight:"64px",letterSpacing:"-0.03em",fontWeight:"700"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.04em",fontWeight:"600"}],"headline-sm":["20px",{lineHeight:"28px",letterSpacing:"0em",fontWeight:"600"}],"body-sm":["14px",{lineHeight:"20px",letterSpacing:"0em",fontWeight:"400"}],"body-lg":["18px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"400"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.02em",fontWeight:"600"}],"display-hero-mobile":["38px",{lineHeight:"44px",letterSpacing:"-0.02em",fontWeight:"700"}],"headline-xl":["40px",{lineHeight:"48px",letterSpacing:"-0.02em",fontWeight:"700"}],"title-editorial":["18px",{lineHeight:"26px",letterSpacing:"0.01em",fontWeight:"500"}],"headline-xl-mobile":["30px",{lineHeight:"38px",letterSpacing:"-0.02em",fontWeight:"700"}],"body-md":["16px",{lineHeight:"24px",letterSpacing:"0em",fontWeight:"400"}],"headline-md":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"600"}],"label-caps":["11px",{lineHeight:"14px",letterSpacing:"0.08em",fontWeight:"700"}]}}}};</script><style>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-secondary-fixed-variant":"#832600","primary-fixed-dim":"#ffb77d","on-secondary-fixed":"#390c00","outline-variant":"#dbc2b0","on-surface-variant":"#554336","surface-tint":"#904d00","on-tertiary":"#ffffff","inverse-surface":"#33302d","primary-container":"{{ design.primary_container or design.color_seed or '#b15f00' }}","on-background":"#1e1b19","inverse-primary":"#ffb77d","surface-container":"#f4ece8","primary-fixed":"#ffdcc3","on-error-container":"#93000a","on-tertiary-container":"#fffbff","on-primary-fixed":"#2f1500","on-secondary":"#ffffff","surface-container-lowest":"#ffffff","outline":"#887364","secondary":"#ac3400","surface-container-high":"#eee7e3","error-container":"#ffdad6","secondary-fixed":"#ffdbd0","tertiary":"#904821","on-primary-container":"#fffbff","surface-variant":"#e9e1dd","error":"#ba1a1a","tertiary-fixed-dim":"#ffb693","on-tertiary-fixed":"#351000","inverse-on-surface":"#f7efeb","primary":"{{ design.primary or '#8d4b00' }}","on-error":"#ffffff","on-surface":"#1e1b19","secondary-fixed-dim":"#ffb59d","on-primary-fixed-variant":"#6e3900","on-secondary-container":"#5d1900","surface":"#fff8f5","secondary-container":"#fd6b36","surface-bright":"#fff8f5","tertiary-container":"#af5f36","surface-container-highest":"#e9e1dd","on-primary":"#ffffff","tertiary-fixed":"#ffdbcc","surface-container-low":"#faf2ee","surface-dim":"#e0d8d5","background":"#fff8f5","on-tertiary-fixed-variant":"#76330d"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-md":"1rem",margin:"3rem","space-xl":"2.5rem","margin-tablet":"2rem","margin-mobile":"1.25rem",gutter:"1.5rem","gutter-mobile":"1rem","space-sm":"0.5rem","space-xs":"0.25rem","space-lg":"1.5rem"},fontFamily:{"headline-lg":["Bricolage Grotesque"],"display-hero":["Bricolage Grotesque"],"label-md":["Manrope"],"headline-sm":["Bricolage Grotesque"],"body-sm":["Manrope"],"body-lg":["Manrope"],"label-lg":["Manrope"],"display-hero-mobile":["Bricolage Grotesque"],"headline-xl":["Bricolage Grotesque"],"title-editorial":["Bricolage Grotesque"],"headline-xl-mobile":["Bricolage Grotesque"],"body-md":["Manrope"],"headline-md":["Bricolage Grotesque"],"label-caps":["Manrope"]},fontSize:{"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.015em",fontWeight:"600"}],"display-hero":["56px",{lineHeight:"64px",letterSpacing:"-0.03em",fontWeight:"700"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.04em",fontWeight:"600"}],"headline-sm":["20px",{lineHeight:"28px",letterSpacing:"0em",fontWeight:"600"}],"body-sm":["14px",{lineHeight:"20px",letterSpacing:"0em",fontWeight:"400"}],"body-lg":["18px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"400"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.02em",fontWeight:"600"}],"display-hero-mobile":["38px",{lineHeight:"44px",letterSpacing:"-0.02em",fontWeight:"700"}],"headline-xl":["40px",{lineHeight:"48px",letterSpacing:"-0.02em",fontWeight:"700"}],"title-editorial":["18px",{lineHeight:"26px",letterSpacing:"0.01em",fontWeight:"500"}],"headline-xl-mobile":["30px",{lineHeight:"38px",letterSpacing:"-0.02em",fontWeight:"700"}],"body-md":["16px",{lineHeight:"24px",letterSpacing:"0em",fontWeight:"400"}],"headline-md":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"600"}],"label-caps":["11px",{lineHeight:"14px",letterSpacing:"0.08em",fontWeight:"700"}]}}}};</script><style>
   :root {
     --sat: env(safe-area-inset-top, 0px);
     --sab: env(safe-area-inset-bottom, 0px);
@@ -23,14 +23,15 @@
     } catch(e) {}
   })();
 </script>
-</head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));"><div class="h-20 max-w-[1360px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-sm" href="#inicio">{% if ig.avatar_url or ig.avatar %}<img alt="{{ negocio.nombre }}" class="h-9 w-9 rounded-full object-cover border border-primary/30 shrink-0" src="{{ ig.avatar_url or ig.avatar }}"/>{% else %}<div class="w-9 h-9 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-sm shrink-0">✨</div>{% endif %}<div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-tight truncate max-w-[170px] sm:max-w-xs md:max-w-none">{{ negocio.nombre }}</span><span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">{{ negocio.categoria_clean or 'Artesanal & Autor' }}</span></div></a><div class="hidden xl:flex items-center gap-space-xs px-3 py-1 bg-surface-container rounded-full"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="font-label-md text-label-md text-on-surface-variant">Atención en {{ negocio.ciudad }}</span></div></div><nav class="hidden lg:flex items-center gap-space-md" data-active-classes="bg-primary-container text-on-primary-container font-bold rounded-lg">
-      <a class="font-label-lg text-label-lg px-3 py-2 text-on-surface-variant hover:text-primary transition-colors" href="#filosofia">Filosofía</a>
-      <a class="font-label-lg text-label-lg px-3 py-2 text-on-surface-variant hover:text-primary transition-colors" href="#carta">Carta &amp; Servicios</a>
-      <a class="font-label-lg text-label-lg px-3 py-2 text-on-surface-variant hover:text-primary transition-colors" href="#comunidad">Galería</a>
-      <a class="font-label-lg text-label-lg px-3 py-2 text-on-surface-variant hover:text-primary transition-colors" href="#ubicacion">Ubicación</a>
-    </nav><div class="flex items-center gap-space-sm"><a class="hidden sm:inline-flex items-center justify-center px-space-md py-2.5 bg-primary text-on-primary hover:bg-secondary transition-all rounded-lg font-label-lg text-label-lg" href="https://www.google.com/maps/search/?api=1&query={{ (negocio.nombre ~ ' ' ~ (negocio.direccion or negocio.ciudad))|urlencode }}" target="_blank" rel="noopener">Cómo Llegar</a><button onclick="abrirModalPresupuesto()" class="inline-flex items-center justify-center px-4 py-2.5 bg-secondary text-on-secondary hover:bg-primary transition-all rounded-lg font-label-lg text-xs uppercase font-bold tracking-wider cursor-pointer">Pedir Cita</button><div class="hidden sm:flex w-8 h-8 rounded-full bg-primary items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div>
+</head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl border-b border-primary-container/20 shadow-[0_1px_8px_rgba(0,0,0,0.04)]" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));"><div class="h-20 max-w-[1360px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin flex items-center justify-between gap-space-sm md:gap-space-md flex-nowrap"><div class="flex items-center gap-space-sm md:gap-space-md shrink-0"><a class="flex items-center gap-space-sm shrink-0" href="#inicio">{% if ig.avatar_url or ig.avatar %}<img alt="{{ negocio.nombre }}" class="h-9 w-9 rounded-full object-cover border border-primary/30 shrink-0" src="{{ ig.avatar_url or ig.avatar }}"/>{% else %}<div class="w-9 h-9 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-sm shrink-0">✨</div>{% endif %}<div class="flex flex-col shrink-0"><span class="font-headline-sm text-headline-sm text-on-surface leading-tight truncate max-w-[140px] xs:max-w-[170px] sm:max-w-xs md:max-w-none whitespace-nowrap">{{ negocio.nombre }}</span><span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider whitespace-nowrap">{{ negocio.categoria_clean or 'Artesanal & Autor' }}</span></div></a><div class="hidden xl:flex items-center gap-space-xs px-3 py-1 bg-surface-container rounded-full shrink-0"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="font-label-md text-label-md text-on-surface-variant whitespace-nowrap">Abierto hoy en {{ negocio.ciudad }}</span></div></div><nav class="hidden lg:flex items-center gap-1 xl:gap-space-sm whitespace-nowrap shrink-0" data-active-classes="bg-primary-container text-on-primary-container font-bold rounded-lg">
+      <a class="font-label-lg text-sm px-2.5 xl:px-3 py-2 text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#carta">Carta &amp; Especialidades</a>
+      <a class="font-label-lg text-sm px-2.5 xl:px-3 py-2 text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#reserva-mesa">Reservar Mesa</a>
+      <a class="font-label-lg text-sm px-2.5 xl:px-3 py-2 text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#comunidad">Galería</a>
+      <a class="font-label-lg text-sm px-2.5 xl:px-3 py-2 text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#faq">FAQ</a>
+      <a class="font-label-lg text-sm px-2.5 xl:px-3 py-2 text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#ubicacion">Ubicación</a>
+    </nav><div class="flex items-center gap-2 sm:gap-space-sm shrink-0"><button onclick="abrirModalPresupuesto('Reserva de Mesa')" class="inline-flex items-center justify-center px-4 py-2.5 bg-primary hover:bg-secondary text-on-primary transition-all rounded-xl font-label-lg text-xs uppercase font-bold tracking-wider cursor-pointer whitespace-nowrap shrink-0 shadow-md">Reservar Mesa</button><div class="hidden sm:flex w-8 h-8 rounded-full bg-primary items-center justify-center shrink-0">{% if ig.avatar_url or ig.avatar %}<img src="{{ ig.avatar_url or ig.avatar }}" alt="{{ negocio.nombre }}" class="w-full h-full object-cover rounded-full" />{% else %}<span class="material-symbols-outlined text-on-primary text-[18px]">person</span>{% endif %}</div>
       <!-- Mobile Hamburger Button (On the RIGHT) -->
-      <button id="hamburger-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-on-surface hover:bg-surface-container transition flex items-center justify-center border border-outline-variant/40 ml-1" aria-label="Abrir Menú" aria-expanded="false">
+      <button id="hamburger-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-xl text-on-surface hover:bg-surface-container transition flex items-center justify-center border border-outline-variant/40 shrink-0 ml-1" aria-label="Abrir Menú" aria-expanded="false">
         <span class="material-symbols-outlined text-[24px]">menu</span>
       </button></div></div></header><main class="w-full bg-surface" style="padding-top: calc(6.5rem + var(--sat, env(safe-area-inset-top, 0px)));"><div class="flex flex-col w-full">
 <!-- HERO SECTION -->
@@ -325,6 +326,129 @@
 </div>
 </div>
 </section>
+
+<!-- ============================================================ -->
+<!-- CALCULADOR INTERACTIVO DE RESERVA DE MESA & EXPERIENCIA      -->
+<!-- ============================================================ -->
+<section id="reserva-mesa" class="w-full py-16 bg-surface-container-lowest border-y border-primary-container/20 scroll-mt-24">
+  <div class="max-w-[1360px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin">
+    <div class="rounded-3xl bg-surface p-6 sm:p-10 border border-primary-container/30 shadow-xl relative overflow-hidden">
+      <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-primary-container/10 blur-3xl pointer-events-none"></div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <!-- Izquierda: Selectores -->
+        <div class="lg:col-span-7 flex flex-col gap-4">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-caps text-xs uppercase tracking-wider w-fit">
+            <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+            <span>Reserva Inmediata de Mesa</span>
+          </div>
+
+          <h3 class="font-headline-lg text-2xl sm:text-3xl text-on-surface font-bold">
+            Planifica tu experiencia gastronómica en {{ negocio.ciudad }}
+          </h3>
+          <p class="font-body-md text-on-surface-variant text-sm sm:text-base">
+            Elige el número de comensales, tu zona favorita del local y la franja horaria para preparar tu mesa al detalle.
+          </p>
+
+          <!-- 1. Comensales -->
+          <div class="mt-2 flex flex-col gap-2">
+            <div class="flex items-center justify-between font-label-lg text-sm">
+              <span class="text-on-surface-variant font-medium">Número de personas:</span>
+              <span id="txtComensales" class="text-primary font-bold text-lg">2 personas</span>
+            </div>
+            <input 
+              id="sliderComensales" 
+              type="range" 
+              min="1" 
+              max="12" 
+              step="1" 
+              value="2" 
+              oninput="actualizarReservaMesa()" 
+              class="w-full h-2.5 bg-surface-container rounded-lg appearance-none cursor-pointer accent-primary"
+            />
+            <div class="flex justify-between text-xs text-on-surface-variant/70 font-label-md">
+              <span>1 persona (Barra)</span>
+              <span>4-6 (Mesa estándar)</span>
+              <span>12 (Grupo)</span>
+            </div>
+          </div>
+
+          <!-- 2. Zona del Local -->
+          <div class="flex flex-col gap-2 mt-2">
+            <span class="font-label-caps text-xs text-on-surface-variant uppercase tracking-wider font-bold">Ambiente deseado:</span>
+            <div class="grid grid-cols-3 gap-2">
+              <button onclick="cambiarZonaMesa('Terraza Exterior', this)" class="zona-btn py-2.5 px-3 rounded-xl border border-primary-container/30 bg-surface-container text-on-surface-variant font-label-caps text-xs uppercase font-medium hover:bg-surface-container-high transition cursor-pointer">
+                🌿 Terraza
+              </button>
+              <button onclick="cambiarZonaMesa('Sala Principal', this)" class="zona-btn py-2.5 px-3 rounded-xl border-2 border-primary bg-primary-container/20 text-on-surface font-label-caps text-xs uppercase font-bold transition cursor-pointer">
+                🕯️ Sala Interior
+              </button>
+              <button onclick="cambiarZonaMesa('Barra Gastronómica', this)" class="zona-btn py-2.5 px-3 rounded-xl border border-primary-container/30 bg-surface-container text-on-surface-variant font-label-caps text-xs uppercase font-medium hover:bg-surface-container-high transition cursor-pointer">
+                ☕ Barra &amp; Vistas
+              </button>
+            </div>
+          </div>
+
+          <!-- 3. Franja Horaria -->
+          <div class="flex flex-col gap-2 mt-2">
+            <span class="font-label-caps text-xs text-on-surface-variant uppercase tracking-wider font-bold">Turno preferido:</span>
+            <div class="flex flex-wrap gap-2">
+              <button onclick="cambiarTurnoMesa('Desayuno / Brunch (09:30 - 12:30)', this)" class="turno-btn py-2 px-4 rounded-full border border-primary-container/30 bg-surface-container text-on-surface-variant font-label-caps text-xs uppercase font-medium transition cursor-pointer">
+                Brunch (09:30 - 12:30)
+              </button>
+              <button onclick="cambiarTurnoMesa('Almuerzo (13:30 - 16:00)', this)" class="turno-btn py-2 px-4 rounded-full border-2 border-primary bg-primary-container/20 text-on-surface font-label-caps text-xs uppercase font-bold transition cursor-pointer">
+                Almuerzo (13:30 - 16:00)
+              </button>
+              <button onclick="cambiarTurnoMesa('Cena (20:30 - 23:30)', this)" class="turno-btn py-2 px-4 rounded-full border border-primary-container/30 bg-surface-container text-on-surface-variant font-label-caps text-xs uppercase font-medium transition cursor-pointer">
+                Cena (20:30 - 23:30)
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Derecha: Resumen y Confirmación Directa -->
+        <div class="lg:col-span-5 rounded-2xl bg-surface-container-lowest border border-primary-container/30 p-6 sm:p-8 flex flex-col justify-between shadow-lg">
+          <div>
+            <div class="flex items-center justify-between border-b border-surface-container pb-3 mb-4">
+              <span class="font-label-caps text-xs text-primary uppercase font-bold tracking-wider">RESUMEN DE RESERVA</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 text-[11px] font-bold">DISPONIBILIDAD HOY</span>
+            </div>
+
+            <div class="space-y-3 font-body-sm text-sm">
+              <div class="flex items-center justify-between">
+                <span class="text-on-surface-variant">Negocio:</span>
+                <span class="font-bold text-on-surface">{{ negocio.nombre }}</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-on-surface-variant">Comensales:</span>
+                <span id="resumenComensales" class="font-bold text-primary">2 comensales</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-on-surface-variant">Ubicación mesa:</span>
+                <span id="resumenZona" class="font-bold text-on-surface">Sala Interior</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-on-surface-variant">Turno:</span>
+                <span id="resumenTurno" class="font-bold text-on-surface">Almuerzo (13:30 - 16:00)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-6 mt-6 border-t border-surface-container flex flex-col gap-3">
+            <button onclick="confirmarReservaMesaWhatsApp()" class="w-full py-4 rounded-xl bg-primary hover:bg-secondary text-on-primary font-label-lg text-sm font-bold shadow-md transition flex items-center justify-center gap-2 cursor-pointer">
+              <span class="material-symbols-outlined text-[20px]">restaurant</span>
+              <span>Confirmar Reserva por WhatsApp</span>
+            </button>
+            <p class="text-center text-xs text-on-surface-variant/70">
+              Confirmación inmediata sin costes de gestión ni tarjeta requerida.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- COMUNIDAD / INSTAGRAM MOMENTS -->
 <section id="comunidad" class="w-full py-16 bg-surface-container-low scroll-mt-24">
 <div class="max-w-[1360px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin">
@@ -470,6 +594,68 @@
 </div>
 </div>
 </section>
+
+<!-- ============================================================ -->
+<!-- PREGUNTAS FRECUENTES (FAQ ACCORDION)                         -->
+<!-- ============================================================ -->
+<section id="faq" class="w-full py-16 bg-surface-container-low border-t border-primary-container/20 scroll-mt-24">
+  <div class="max-w-3xl mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin flex flex-col gap-6">
+    <div class="flex flex-col items-center text-center gap-1">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-caps text-xs uppercase tracking-wider">
+        <span>Dudas Habituales</span>
+      </div>
+      <h2 class="font-headline-lg text-2xl sm:text-3xl text-on-surface font-bold mt-1">
+        Todo sobre nuestra carta y reservas
+      </h2>
+      <p class="font-body-md text-on-surface-variant text-sm max-w-lg">
+        Ingredientes, opciones alimentarias y detalles para disfrutar de tu visita al máximo.
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-3 mt-4">
+      <div class="faq-item rounded-2xl bg-surface-container-lowest border border-primary-container/20 overflow-hidden transition-all shadow-sm">
+        <button onclick="toggleFaq(this)" class="w-full px-6 py-4 flex items-center justify-between text-left font-headline-sm text-sm sm:text-base font-semibold text-on-surface hover:text-primary transition cursor-pointer">
+          <span>¿Disponéis de opciones para celíacos, vegetarianos o intolerancias?</span>
+          <span class="material-symbols-outlined faq-icon text-primary transition-transform">expand_more</span>
+        </button>
+        <div class="faq-content hidden px-6 pb-4 text-xs sm:text-sm text-on-surface-variant font-body-sm border-t border-primary-container/10 pt-3 leading-relaxed">
+          Sí. Contamos con carta de alérgenos exhaustiva y opciones vegetarianas y sin gluten en cada una de las secciones de nuestra carta. Indícanos cualquier alergia al reservar y adaptaremos el servicio.
+        </div>
+      </div>
+
+      <div class="faq-item rounded-2xl bg-surface-container-lowest border border-primary-container/20 overflow-hidden transition-all shadow-sm">
+        <button onclick="toggleFaq(this)" class="w-full px-6 py-4 flex items-center justify-between text-left font-headline-sm text-sm sm:text-base font-semibold text-on-surface hover:text-primary transition cursor-pointer">
+          <span>¿Cómo funciona la política de reservas de mesa y grupos?</span>
+          <span class="material-symbols-outlined faq-icon text-primary transition-transform">expand_more</span>
+        </button>
+        <div class="faq-content hidden px-6 pb-4 text-xs sm:text-sm text-on-surface-variant font-body-sm border-t border-primary-container/10 pt-3 leading-relaxed">
+          Las reservas por la web o WhatsApp se confirman de forma ágil y sin costes de gestión. Para celebraciones o mesas de más de 8 personas, disponemos de propuestas de menú cerrado y espacio reservado.
+        </div>
+      </div>
+
+      <div class="faq-item rounded-2xl bg-surface-container-lowest border border-primary-container/20 overflow-hidden transition-all shadow-sm">
+        <button onclick="toggleFaq(this)" class="w-full px-6 py-4 flex items-center justify-between text-left font-headline-sm text-sm sm:text-base font-semibold text-on-surface hover:text-primary transition cursor-pointer">
+          <span>¿Cuál es el origen de vuestra materia prima e ingredientes?</span>
+          <span class="material-symbols-outlined faq-icon text-primary transition-transform">expand_more</span>
+        </button>
+        <div class="faq-content hidden px-6 pb-4 text-xs sm:text-sm text-on-surface-variant font-body-sm border-t border-primary-container/10 pt-3 leading-relaxed">
+          Apostamos por la proximidad: harinas ecológicas de molienda tradicional, café de especialidad de origen ético, lácteos de granja y producto de mercado seleccionado a diario.
+        </div>
+      </div>
+
+      <div class="faq-item rounded-2xl bg-surface-container-lowest border border-primary-container/20 overflow-hidden transition-all shadow-sm">
+        <button onclick="toggleFaq(this)" class="w-full px-6 py-4 flex items-center justify-between text-left font-headline-sm text-sm sm:text-base font-semibold text-on-surface hover:text-primary transition cursor-pointer">
+          <span>¿Hacéis pedidos para llevar (take-away) o encargos especiales?</span>
+          <span class="material-symbols-outlined faq-icon text-primary transition-transform">expand_more</span>
+        </button>
+        <div class="faq-content hidden px-6 pb-4 text-xs sm:text-sm text-on-surface-variant font-body-sm border-t border-primary-container/10 pt-3 leading-relaxed">
+          Sí. Puedes pedir para llevar directamente en el local o encargarnos con antelación tartas enteras, cajas de repostería o lotes para eventos a través de nuestro WhatsApp.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 </div>
 <script>
   function switchTab(category) {
@@ -490,18 +676,31 @@
       }
     });
   }
-</script></main><footer class="w-full bg-surface-container-low mt-space-xl"><div class="max-w-[1360px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin py-margin"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter"><div class="lg:col-span-4 flex flex-col gap-space-sm"><div class="flex items-center gap-space-sm">{% if ig.avatar_url or ig.avatar %}<img alt="{{ negocio.nombre }}" class="h-8 w-8 rounded-full object-cover border border-primary/30" src="{{ ig.avatar_url or ig.avatar }}"/>{% else %}<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-xs">✨</div>{% endif %}<span class="font-headline-sm text-headline-sm text-on-surface">{{ negocio.nombre }}</span></div><p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">{{ web.subtitulo or ('Calidad de autor, atención personalizada y máxima dedicación en ' ~ negocio.ciudad ~ '.') }}</p><div class="flex items-center gap-space-sm pt-space-xs"><a aria-label="Instagram" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-primary-container hover:text-on-primary-container transition-colors" href="{{ negocio.instagram_url or ('https://instagram.com/' ~ ig.username) }}" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined text-[18px]">photo_camera</span></a><a aria-label="WhatsApp" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-primary-container hover:text-on-primary-container transition-colors" href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined text-[18px]">chat</span></a>{% if negocio.telefono %}<a aria-label="Teléfono" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-primary-container hover:text-on-primary-container transition-colors" href="tel:{{ negocio.telefono }}"><span class="material-symbols-outlined text-[18px]">call</span></a>{% endif %}</div></div><div class="lg:col-span-4 flex flex-col gap-space-xs"><h4 class="font-label-caps text-label-caps text-secondary uppercase tracking-wider mb-space-xs">Ubicación &amp; Horarios</h4><div class="flex flex-col gap-space-xs text-on-surface-variant font-body-sm text-body-sm"><span>{{ negocio.direccion or negocio.ciudad }}</span><a href="https://www.google.com/maps/search/?api=1&query={{ (negocio.nombre ~ ' ' ~ (negocio.direccion or negocio.ciudad))|urlencode }}" target="_blank" rel="noopener" class="text-primary hover:underline font-label-md inline-flex items-center gap-1"><span>Ver cómo llegar en Google Maps</span><span class="material-symbols-outlined text-[14px]">open_in_new</span></a><div class="pt-space-sm"><span class="font-label-md text-label-md text-on-surface block">Atención al Cliente</span><span>Lunes a Viernes: 09:00 – 20:00</span><span>Sábados: 10:00 – 14:00</span></div></div></div><div class="lg:col-span-4 flex flex-col gap-space-sm"><h4 class="font-headline-sm text-headline-sm text-on-surface">Pide Cita o Consulta</h4><p class="font-body-sm text-body-sm text-on-surface-variant">¿Tienes alguna duda o quieres consultar disponibilidad directa con {{ negocio.nombre }}?</p><div class="flex flex-col sm:flex-row gap-2 mt-1"><button onclick="abrirModalPresupuesto()" class="px-5 py-2.5 bg-primary text-on-primary hover:bg-secondary font-label-lg text-xs font-bold uppercase tracking-wider rounded-lg transition-colors cursor-pointer">Pedir Cita Online</button><a href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" rel="noopener" class="px-5 py-2.5 bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-xs font-semibold rounded-lg transition-colors flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-[16px]">chat</span><span>WhatsApp</span></a></div></div></div><div class="mt-margin pt-space-md flex flex-col sm:flex-row items-center justify-between gap-space-sm"><span class="font-body-sm text-body-sm text-on-surface-variant">© 2026 {{ negocio.nombre }}. Todos los derechos reservados.</span><div class="flex items-center gap-space-md font-label-md text-label-md text-on-surface-variant"><a class="hover:text-on-surface transition-colors" href="#inicio">Inicio</a><a class="hover:text-on-surface transition-colors" href="#carta">Servicios</a><a class="hover:text-on-surface transition-colors" href="#ubicacion">Ubicación</a></div></div></div></footer><!-- Fixed Mobile Bottom Bar -->
-<div class="fixed bottom-0 inset-x-0 z-50 md:hidden p-3 bg-surface/95 backdrop-blur-md border-t border-primary/20 shadow-lg" style="padding-bottom: max(0.75rem, env(safe-area-inset-bottom, 0px));">
-  <div class="flex items-center justify-between gap-3">
-    <div class="flex flex-col">
-      <span class="font-headline-sm text-xs font-bold text-on-surface">{{ negocio.nombre }}</span>
-      <span class="text-[11px] text-on-surface-variant">{{ negocio.ciudad }}</span>
-    </div>
-    <a class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-on-primary font-label-lg text-xs font-bold shadow-md" href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" rel="noopener">
-      <span class="material-symbols-outlined text-[16px]">chat</span>
-      <span>WhatsApp Carta</span>
-    </a>
-  </div>
+
+  function toggleFaq(button) {
+    const item = button.parentElement;
+    const content = item.querySelector('.faq-content');
+    const icon = item.querySelector('.faq-icon');
+    content.classList.toggle('hidden');
+    icon.classList.toggle('rotate-180');
+  }
+</script></main><footer class="w-full bg-surface-container-low mt-space-xl"><div class="max-w-[1360px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin py-margin"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter"><div class="lg:col-span-4 flex flex-col gap-space-sm"><div class="flex items-center gap-space-sm">{% if ig.avatar_url or ig.avatar %}<img alt="{{ negocio.nombre }}" class="h-8 w-8 rounded-full object-cover border border-primary/30" src="{{ ig.avatar_url or ig.avatar }}"/>{% else %}<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-xs">✨</div>{% endif %}<span class="font-headline-sm text-headline-sm text-on-surface">{{ negocio.nombre }}</span></div><p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">{{ web.subtitulo or ('Calidad de autor, atención personalizada y máxima dedicación en ' ~ negocio.ciudad ~ '.') }}</p><div class="flex items-center gap-space-sm pt-space-xs"><a aria-label="Instagram" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-primary-container hover:text-on-primary-container transition-colors" href="{{ negocio.instagram_url or ('https://instagram.com/' ~ ig.username) }}" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined text-[18px]">photo_camera</span></a><a aria-label="WhatsApp" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-primary-container hover:text-on-primary-container transition-colors" href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined text-[18px]">chat</span></a>{% if negocio.telefono %}<a aria-label="Teléfono" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-primary-container hover:text-on-primary-container transition-colors" href="tel:{{ negocio.telefono }}"><span class="material-symbols-outlined text-[18px]">call</span></a>{% endif %}</div></div><div class="lg:col-span-4 flex flex-col gap-space-xs"><h4 class="font-label-caps text-label-caps text-secondary uppercase tracking-wider mb-space-xs">Ubicación &amp; Horarios</h4><div class="flex flex-col gap-space-xs text-on-surface-variant font-body-sm text-body-sm"><span>{{ negocio.direccion or negocio.ciudad }}</span><a href="https://www.google.com/maps/search/?api=1&query={{ (negocio.nombre ~ ' ' ~ (negocio.direccion or negocio.ciudad))|urlencode }}" target="_blank" rel="noopener" class="text-primary hover:underline font-label-md inline-flex items-center gap-1"><span>Ver cómo llegar en Google Maps</span><span class="material-symbols-outlined text-[14px]">open_in_new</span></a><div class="pt-space-sm"><span class="font-label-md text-label-md text-on-surface block">Atención al Cliente</span><span>Lunes a Viernes: 09:00 – 20:00</span><span>Sábados: 10:00 – 14:00</span></div></div></div><div class="lg:col-span-4 flex flex-col gap-space-sm"><h4 class="font-headline-sm text-headline-sm text-on-surface">Pide Cita o Consulta</h4><p class="font-body-sm text-body-sm text-on-surface-variant">¿Tienes alguna duda o quieres consultar disponibilidad directa con {{ negocio.nombre }}?</p><div class="flex flex-col sm:flex-row gap-2 mt-1"><button onclick="abrirModalPresupuesto('Consulta')" class="px-5 py-2.5 bg-primary text-on-primary hover:bg-secondary font-label-lg text-xs font-bold uppercase tracking-wider rounded-lg transition-colors cursor-pointer">Pedir Cita Online</button><a href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" rel="noopener" class="px-5 py-2.5 bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-xs font-semibold rounded-lg transition-colors flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-[16px]">chat</span><span>WhatsApp</span></a></div></div></div><div class="mt-margin pt-space-md flex flex-col sm:flex-row items-center justify-between gap-space-sm"><span class="font-body-sm text-body-sm text-on-surface-variant">© 2026 {{ negocio.nombre }}. Todos los derechos reservados.</span><div class="flex items-center gap-space-md font-label-md text-label-md text-on-surface-variant"><a class="hover:text-on-surface transition-colors" href="#inicio">Inicio</a><a class="hover:text-on-surface transition-colors" href="#carta">Servicios</a><a class="hover:text-on-surface transition-colors" href="#ubicacion">Ubicación</a></div></div></div></footer>
+
+<!-- Fixed Mobile Bottom Action Dock (High-Conversion 3-Button Standard) -->
+<div class="fixed bottom-0 inset-x-0 z-50 md:hidden p-2.5 bg-surface/95 backdrop-blur-xl border-t border-primary/20 shadow-2xl flex items-center justify-between gap-2" style="padding-bottom: max(0.65rem, env(safe-area-inset-bottom, 0px));">
+  {% if negocio.telefono %}
+  <a href="tel:{{ negocio.telefono }}" class="flex-1 py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-label-caps font-bold flex items-center justify-center gap-1 border border-outline-variant/40 transition">
+    <span class="material-symbols-outlined text-[16px] text-primary">call</span>
+    <span>Llamar</span>
+  </a>
+  {% endif %}
+  <button onclick="abrirModalPresupuesto('Reserva de Mesa Móvil')" class="flex-[1.4] py-2.5 rounded-xl bg-primary hover:bg-secondary text-on-primary text-xs font-label-caps font-bold flex items-center justify-center gap-1.5 shadow-md transition cursor-pointer">
+    <span class="material-symbols-outlined text-[16px]">restaurant</span>
+    <span>Reservar Mesa</span>
+  </button>
+  <a href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" rel="noopener" class="w-10 h-10 rounded-xl bg-[#25D366] text-white flex items-center justify-center shrink-0 shadow-md">
+    <span class="material-symbols-outlined text-[19px]">chat</span>
+  </a>
 </div>
 
 <!-- ============================================================ -->
@@ -737,6 +936,57 @@
       window.open(targetUrl, '_blank');
       setTimeout(() => cerrarModalPresupuesto(), 1200);
     }, 400);
+  }
+
+  // Interactive Table Booking Logic
+  let numComensales = 2;
+  let zonaMesa = 'Sala Interior';
+  let turnoMesa = 'Almuerzo (13:30 - 16:00)';
+
+  function actualizarReservaMesa() {
+    const slider = document.getElementById('sliderComensales');
+    const txt = document.getElementById('txtComensales');
+    const resTxt = document.getElementById('resumenComensales');
+    if (!slider) return;
+    numComensales = slider.value;
+    const personaLabel = numComensales == 1 ? '1 persona' : `${numComensales} personas`;
+    if (txt) txt.innerText = personaLabel;
+    if (resTxt) resTxt.innerText = `${numComensales} comensales`;
+  }
+
+  function cambiarZonaMesa(zona, btn) {
+    zonaMesa = zona;
+    document.querySelectorAll('.zona-btn').forEach(b => {
+      b.classList.remove('border-2', 'border-primary', 'bg-primary-container/20', 'text-on-surface', 'font-bold');
+      b.classList.add('border', 'border-primary-container/30', 'bg-surface-container', 'text-on-surface-variant', 'font-medium');
+    });
+    btn.classList.add('border-2', 'border-primary', 'bg-primary-container/20', 'text-on-surface', 'font-bold');
+    btn.classList.remove('text-on-surface-variant', 'font-medium');
+    const resZona = document.getElementById('resumenZona');
+    if (resZona) resZona.innerText = zona;
+  }
+
+  function cambiarTurnoMesa(turno, btn) {
+    turnoMesa = turno;
+    document.querySelectorAll('.turno-btn').forEach(b => {
+      b.classList.remove('border-2', 'border-primary', 'bg-primary-container/20', 'text-on-surface', 'font-bold');
+      b.classList.add('border', 'border-primary-container/30', 'bg-surface-container', 'text-on-surface-variant', 'font-medium');
+    });
+    btn.classList.add('border-2', 'border-primary', 'bg-primary-container/20', 'text-on-surface', 'font-bold');
+    btn.classList.remove('text-on-surface-variant', 'font-medium');
+    const resTurno = document.getElementById('resumenTurno');
+    if (resTurno) resTurno.innerText = turno;
+  }
+
+  function confirmarReservaMesaWhatsApp() {
+    const msg = encodeURIComponent(`¡Hola equipo de {{ negocio.nombre }}! Me gustaría reservar mesa para *${numComensales} comensales* en la zona *${zonaMesa}*, turno de *${turnoMesa}*. ¿Tenéis disponibilidad? ¡Gracias!`);
+    const waBase = '{{ negocio.whatsapp_url or ("https://wa.me/" ~ negocio.telefono) }}';
+    let targetUrl = waBase;
+    if (waBase.includes('wa.me') || waBase.includes('whatsapp.com')) {
+      const sep = waBase.includes('?') ? '&' : '?';
+      targetUrl = waBase + sep + 'text=' + msg;
+    }
+    window.open(targetUrl, '_blank');
   }
 </script>
 
