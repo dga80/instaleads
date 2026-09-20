@@ -68,7 +68,8 @@ def extraer_contenido_web_existente(url_web: str) -> Dict[str, Any]:
     - Título del sitio y meta-descripción.
     - Encabezados (h1, h2, h3) con nombres de servicios y propuesta de valor.
     - Párrafos principales (sobre nosotros, historia, especialidades).
-    - Imágenes destacadas y teléfonos de contacto.
+    - Imágenes destacadas, logo y teléfonos de contacto.
+    - Emails, dirección y productos/precios detectados.
     """
     if not url_web or not isinstance(url_web, str) or not url_web.startswith("http"):
         return {}
@@ -80,14 +81,25 @@ def extraer_contenido_web_existente(url_web: str) -> Dict[str, Any]:
     }
 
     try:
-        resp = requests.get(url_web, headers=headers, timeout=8, verify=False)
+        resp = requests.get(url_web, headers=headers, timeout=10, verify=False)
         if resp.status_code != 200 or not resp.text:
             return {}
 
         from bs4 import BeautifulSoup
         soup = BeautifulSoup(resp.text, "html.parser")
 
-        # Eliminar scripts, estilos y elementos irrelevantes
+        # Extraer enlaces a páginas clave como contacto o taller si existen en el mismo dominio
+        sub_urls = []
+        for a in soup.find_all("a", href=True):
+            href = a["href"].strip()
+            if any(k in href.lower() for k in ["contacto", "contact", "taller", "servicios"]):
+                full_sub = urllib.parse.urljoin(url_web, href)
+                if urllib.parse.urlparse(full_sub).netloc == urllib.parse.urlparse(url_web).netloc and full_sub not in sub_urls:
+                    sub_urls.append(full_sub)
+            if len(sub_urls) >= 2:
+                break
+
+        # Eliminar scripts y elementos irrelevantes
         for tag in soup(["script", "style", "noscript", "svg", "iframe"]):
             tag.decompose()
 
@@ -112,7 +124,7 @@ def extraer_contenido_web_existente(url_web: str) -> Dict[str, Any]:
             if txt and len(txt) > 25 and len(txt) < 350 and txt not in parrafos:
                 parrafos.append(txt)
 
-        # Imágenes (og:image o imágenes con alt relevante)
+        # Imágenes (og:image, logos o imágenes destacadas)
         imagenes = []
         og_img = soup.find("meta", attrs={"property": "og:image"})
         if og_img and og_img.get("content"):
@@ -123,11 +135,15 @@ def extraer_contenido_web_existente(url_web: str) -> Dict[str, Any]:
             if src and not src.startswith("data:"):
                 full_img = urllib.parse.urljoin(url_web, src)
                 if full_img not in imagenes and any(ext in full_img.lower() for ext in [".jpg", ".jpeg", ".png", ".webp"]):
+                    # Evitar iconos diminutos o tracking pixels
+                    w = img.get("width")
+                    if w and w.isdigit() and int(w) < 50:
+                        continue
                     imagenes.append(full_img)
-            if len(imagenes) >= 6:
+            if len(imagenes) >= 10:
                 break
 
-        # Teléfonos detectados en la web
+        # Teléfonos detectados en la web (href="tel:" y patrones en texto)
         telefonos = []
         tel_links = soup.find_all("a", href=re.compile(r"^tel:", re.I))
         for t in tel_links:
@@ -135,15 +151,41 @@ def extraer_contenido_web_existente(url_web: str) -> Dict[str, Any]:
             if raw_tel and raw_tel not in telefonos:
                 telefonos.append(raw_tel)
 
-        print(f"[Web Extractor] ✓ Extraído de {url_web}: {len(encabezados)} títulos, {len(parrafos)} párrafos, {len(imagenes)} imágenes")
+        # Emails detectados en la web
+        emails = []
+        mail_links = soup.find_all("a", href=re.compile(r"^mailto:", re.I))
+        for m in mail_links:
+            raw_mail = m["href"].replace("mailto:", "").split("?")[0].strip()
+            if raw_mail and "@" in raw_mail and raw_mail not in emails:
+                emails.append(raw_mail)
+
+        # Si encontramos página de contacto, consultar teléfonos o emails adicionales
+        if sub_urls and (not telefonos or not emails):
+            try:
+                sub_resp = requests.get(sub_urls[0], headers=headers, timeout=6, verify=False)
+                if sub_resp.status_code == 200:
+                    sub_soup = BeautifulSoup(sub_resp.text, "html.parser")
+                    for t in sub_soup.find_all("a", href=re.compile(r"^tel:", re.I)):
+                        raw = t["href"].replace("tel:", "").strip()
+                        if raw and raw not in telefonos:
+                            telefonos.append(raw)
+                    for m in sub_soup.find_all("a", href=re.compile(r"^mailto:", re.I)):
+                        raw = m["href"].replace("mailto:", "").split("?")[0].strip()
+                        if raw and "@" in raw and raw not in emails:
+                            emails.append(raw)
+            except Exception:
+                pass
+
+        print(f"[Web Extractor] ✓ Extraído de {url_web}: {len(encabezados)} títulos, {len(parrafos)} párrafos, {len(imagenes)} imágenes, {len(telefonos)} teléfonos, {len(emails)} emails")
         return {
             "url": url_web,
             "titulo": titulo,
             "meta_descripcion": meta_desc,
-            "encabezados": encabezados[:8],
-            "parrafos": parrafos[:6],
-            "imagenes": imagenes[:6],
-            "telefonos": telefonos
+            "encabezados": encabezados[:10],
+            "parrafos": parrafos[:8],
+            "imagenes": imagenes[:10],
+            "telefonos": telefonos,
+            "emails": emails
         }
     except Exception as e:
         print(f"[Web Extractor Warning] No se pudo extraer datos de {url_web}: {e}")
@@ -494,13 +536,26 @@ def generar_web_comercio(lead: Dict[str, Any], cliente_gemini=None, plantilla_se
                 break
     telefono = lead.get("telefono", "")
 
-    # 1. Si el comercio tiene página web oficial detectada, extraer su contenido real para la propuesta de rediseño
+    # 1. Si el comercio tiene página web oficial detectada o en enlaces de internet, extraer su contenido real para el rediseño
     web_existente = lead.get("web_detectada", "")
+    if not web_existente and lead.get("enlaces_internet"):
+        for enl in lead["enlaces_internet"]:
+            if enl.get("tipo") == "web" and enl.get("url"):
+                url_enl = enl["url"].lower()
+                if not any(ign in url_enl for ign in ["google.", "maps.", "boe.es", "wikipedia", "facebook.com", "instagram.com", "linkedin.com"]):
+                    web_existente = enl["url"]
+                    lead["web_detectada"] = web_existente
+                    lead["tiene_web"] = True
+                    break
+
     web_info = {}
     if web_existente:
         web_info = extraer_contenido_web_existente(web_existente)
         if not telefono and web_info.get("telefonos"):
             telefono = web_info["telefonos"][0]
+            lead["telefono"] = telefono
+        if not lead.get("email") and web_info.get("emails"):
+            lead["email"] = web_info["emails"][0]
 
     # 2. Extraer datos del perfil de Instagram
     ig_data = obtener_datos_completos_instagram(handle, nombre, categoria, ciudad)

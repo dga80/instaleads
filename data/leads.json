@@ -69,7 +69,7 @@
     "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Sitio Web, Doctoralia, Directorio Local)",
     "mensaje_dm": "¡Hola equipo de Gesclident!\n\nSoy Daniel García. He visto vuestro trabajo y os he preparado una web demo interactiva adaptada a vuestro negocio para mostraros cómo potenciar vuestra presencia digital y captar clientes desde el móvil:\n\n👉\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
     "mensaje_seguimiento": "¡Hola de nuevo equipo de Gesclident!\n\nOs escribí hace un par de días con la propuesta web interactiva que preparé para vosotros:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Sin Web",
+    "estado": "No Generar",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
@@ -149,7 +149,7 @@
     "gemini_razon": "El enlace detectado corresponde a una página genérica de contenido popular en Instagram y no al perfil oficial y específico del negocio local en Barcelona.",
     "mensaje_dm": "",
     "mensaje_seguimiento": "",
-    "estado": "Sin Web",
+    "estado": "No Generar",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
@@ -1245,16 +1245,16 @@
   {
     "osm_id": "7002869604",
     "nombre": "Elliott Motos",
-    "categoria": "taller de custom motos (shop:motorcycle)",
-    "direccion": "",
+    "categoria": "Concesionario Multimarca & Taller de Motos",
+    "direccion": "C. Consell De Cent, 83-85",
     "ciudad": "Barcelona",
     "provincia": "Barcelona",
-    "codigo_postal": "",
-    "telefono": "",
-    "email": "",
-    "tiene_web": false,
-    "instagram_url": "",
-    "instagram_handle": "",
+    "codigo_postal": "08015",
+    "telefono": "93 226 34 00",
+    "email": "ventas@elliotmotorsbcn.com",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/elliotmotors/",
+    "instagram_handle": "elliotmotors",
     "enlaces_internet": [
       {
         "tipo": "web",
@@ -1266,62 +1266,45 @@
       },
       {
         "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://www.boe.es/diario_borme/txt.php",
-        "titulo": "BORME-A-2021-37-08 BARCELONA - BOE.es",
-        "snippet": "Domicilio: CL NAVAS DE TOLOSA NUM.316 P.2 (BARCELONA). Capital: 60.000,00 Euros. Nombramientos. ADM.UNICO: JUNCAL FAJIN "
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
+        "label": "Contacto",
+        "icono": "📍",
         "url": "https://www.elliotmotorsbcn.com/contacto/",
         "titulo": "Contacto - Elliot Motors Barcelona",
         "snippet": "ELLIOT MOTORS S.L. · CONTACTO · +34 93 226 34 00 · HORARIO · TALLER · ADMINISTRACIÓN Y VENTAS: LUNES a VIERNES de 10:00 "
       },
       {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://www.mundodeportivo.com/futbol/fc-barcelona/20260904/1004223268/elliott-apunta-barca-rioja-mantiene-duda.html",
-        "titulo": "Elliott se apunta al Barça y Rioja mantiene la duda",
-        "snippet": "hace 4 días · El inglés se ejercitó con normalidad y estará disponible para debutar ante el conjunto azulgrana, mientras"
-      },
-      {
-        "tipo": "linkedin",
-        "label": "LinkedIn",
-        "icono": "💼",
-        "url": "https://es.linkedin.com/in/thomasstrudwick",
-        "titulo": "Thomas Strudwick - British motorcycle racer and experienced ...",
-        "snippet": "British motorcycle racer and experienced website developer. · · Experiencia: ThisWebDesign · Educación: University of Ch"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://producciocientifica.uv.es/documentos/5eb09f56299952764113f0c3",
-        "titulo": "El teatro como recurso para afrontar los retos de la adolescencia",
-        "snippet": "Abstract. The present study, using qualitative research methodology, tries to deepen in the implicit beliefs and percept"
+        "tipo": "instagram",
+        "label": "Instagram",
+        "icono": "📸",
+        "url": "https://www.instagram.com/elliotmotors/",
+        "titulo": "Instagram Oficial Elliot Motors",
+        "snippet": "@elliotmotors Concesionario y taller multimarca en Barcelona"
       }
     ],
-    "web_detectada": "",
+    "web_detectada": "https://www.elliotmotorsbcn.com/",
     "google_search_url": "https://www.google.com/search?q=Elliott+Motos+Barcelona",
-    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Elliott+Motos+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Elliott+Motos+Consell+de+Cent+83+Barcelona",
     "gemini_verificado": true,
-    "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Sitio Web, LinkedIn)",
-    "mensaje_dm": "¡Hola equipo de Elliott Motos!\n\nSoy Daniel García. He visto vuestro trabajo y os he preparado una web demo interactiva adaptada a vuestro negocio para mostraros cómo potenciar vuestra presencia digital y captar clientes desde el móvil:\n\n👉\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Elliott Motos!\n\nOs escribí hace un par de días con la propuesta web interactiva que preparé para vosotros:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Sin Web",
-    "demo_slug": "",
-    "demo_url": "",
-    "demo_vibe": "",
+    "gemini_razon": "Sitio web oficial activo (elliotmotorsbcn.com) con catálogo, precios, taller y opiniones reales.",
+    "mensaje_dm": "¡Hola equipo de Elliot Motors!\n\nSoy Daniel García, diseñador UX/UI y desarrollador web en Barcelona. Conozco vuestro concesionario y taller en Consell de Cent.\n\nHe estado revisando vuestra web actual (elliotmotorsbcn.com) y, para mostraros el salto de calidad visual y comercial que podéis dar para captar más ventas de scooters y citas de taller directamente desde el móvil, os he preparado una propuesta de rediseño UX/UI interactiva a medida con vuestro catálogo, precios y servicios reales:\n\n👉 https://dga80.github.io/instaleads/elliott-motos-barcelona/\n*(Es un enlace 100% seguro y optimizado para móvil que podéis abrir directamente en el navegador sin descargas)*.\n\nIncluye catálogo interactivo (Honda PCX, Forza, Peugeot Tweet, Piaggio...), llamada y WhatsApp directo, reserva de cita de taller con moto de cortesía y calculadora de financiación.\n\n¿Qué os parece la propuesta? Si os gusta, podemos comentarlo 2 minutos sin ningún compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo, equipo de Elliot Motors!\n\nOs escribí hace un par de días para compartiros la propuesta de rediseño UX/UI que preparé para vuestro concesionario y taller: https://dga80.github.io/instaleads/elliott-motos-barcelona/\n\nOs la vuelvo a dejar por aquí por si no tuvisteis tiempo de revisarla desde el móvil. La idea es modernizar vuestra imagen y multiplicar la conversión de clientes interesados en motos nuevas/ocasión y citas de taller.\n\n¿Os apetecería que lo comentáramos brevemente esta semana sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Web Generada",
+    "demo_slug": "elliott-motos-barcelona",
+    "demo_url": "https://dga80.github.io/instaleads/elliott-motos-barcelona/",
+    "demo_vibe": "Rediseño UX/UI Premium (Concesionario & Taller Oficial)",
     "campana_id": "camp_1788897477",
     "campana_ids": [
       "camp_init_2_1788888949",
       "camp_1788897477"
     ],
-    "campana_nombre": "Taller De Custom Motos · barcelona"
+    "campana_nombre": "Concesionarios & Talleres Motos · Barcelona",
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/elliott-motos-barcelona/",
+    "demo_url_publica": "https://dga80.github.io/instaleads/elliott-motos-barcelona/",
+    "demo_fecha_creacion": "20/09/2026 21:12",
+    "demo_fecha_ts": 1789931530,
+    "extraccion_fuente": "sitio_web_oficial",
+    "extraccion_aviso": "Web generada a partir del restyling UX/UI completo de su sitio web oficial (elliotmotorsbcn.com) con catálogo, fotos, precios, opiniones y servicios reales.",
+    "extraccion_exitosa": true
   },
   {
     "osm_id": "7107839692",
@@ -1695,7 +1678,7 @@
     "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Sitio Web, Directorio Local)",
     "mensaje_dm": "¡Hola equipo de Motoralia!\n\nSoy Daniel García. He visto vuestro trabajo y os he preparado una web demo interactiva adaptada a vuestro negocio para mostraros cómo potenciar vuestra presencia digital y captar clientes desde el móvil:\n\n👉\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
     "mensaje_seguimiento": "¡Hola de nuevo equipo de Motoralia!\n\nOs escribí hace un par de días con la propuesta web interactiva que preparé para vosotros:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Sin Web",
+    "estado": "No Generar",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
@@ -2029,22 +2012,6 @@
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://www.tripadvisor.es/LocationPhotoDirectLink-g187497-d10244908-i361018940-The_New_Orleans_Coffee_Tea_Compagny-Barcelona_Catalonia.html",
-        "titulo": "Foto de : The New Orleans Coffee & Tea Compagny - Tripadvisor",
-        "snippet": "Un buen lugar para desayunar a buen precio. Lugar de la visita: The New Orleans Coffee & Tea Company Fecha de la visita:"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://www.tripadvisor.es/Restaurant_Review-g187497-d10244908-Reviews-The_New_Orleans_Coffee_Tea_Compagny-Barcelona_Catalonia.html",
-        "titulo": "THE NEW ORLEANS COFFEE & TEA COMPAGNY, Barcelona",
-        "snippet": "Valoración 4,1 (28) · €€ - €€€ Genial local. Tiene dos plantas, cuenta con muchos sitios para parejas, grupos, familias."
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
         "url": "https://www.toppingsandsalads.es/restaurante-de-desayunos/the-new-orleans-coffee-tea-company/",
         "titulo": "The New Orleans Coffee & Tea Company",
         "snippet": "Ubicado en el número 10 de la calle Pere d'Artés, junto a la agradable Plaza de Can Basté, este establecimiento destaca "
@@ -2055,17 +2022,24 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=The+New+Orleans+Coffee+%26+Tea+Company+Barcelona",
     "gemini_verificado": true,
     "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Sitio Web, LinkedIn)",
-    "mensaje_dm": "¡Hola equipo de The New Orleans Coffee & Tea Company!\n\nSoy Daniel García. He visto vuestro trabajo y os he preparado una web demo interactiva adaptada a vuestro negocio para mostraros cómo potenciar vuestra presencia digital y captar clientes desde el móvil:\n\n👉\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de The New Orleans Coffee & Tea Company!\n\nOs escribí hace un par de días con la propuesta web interactiva que preparé para vosotros:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Sin Web",
-    "demo_slug": "",
-    "demo_url": "",
-    "demo_vibe": "",
+    "mensaje_dm": "¡Hola! Os escribo porque he estado viendo vuestro perfil en Instagram y me encanta la propuesta de The New Orleans Coffee & Tea Company aquí en Barcelona.\n\nSoy Daniel García, diseñador y desarrollador web. Al ver que no tenéis una web propia activa, me he tomado la libertad de preparar una web demo interactiva utilizando contenido de vuestro propio perfil, pensada especialmente para potenciar vuestra imagen de marca y captar clientes desde el móvil:\n\n👉 https://dga80.github.io/instaleads/the-new-orleans-coffee-tea-company-barcelona/\n*(Es un enlace 100% seguro, se abre directamente en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os gusta, podemos comentarlo 2 minutos sin ningún compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo!\n\nOs escribo rápidamente para dar seguimiento al mensaje que os envié hace un par de días. Quería saber si habíais tenido un momento para echar un vistazo a la web demo interactiva que os preparé: https://dga80.github.io/instaleads/the-new-orleans-coffee-tea-company-barcelona/\n\n¿Os vendría bien que lo comentemos 2 minutos sin compromiso esta semana?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Web Generada",
+    "demo_slug": "the-new-orleans-coffee-tea-company-barcelona",
+    "demo_url": "https://dga80.github.io/instaleads/the-new-orleans-coffee-tea-company-barcelona/",
+    "demo_vibe": "Warm Artisan (Cafeterías de Especialidad, Panaderías & Gastro)",
     "campana_id": "camp_1788898547",
     "campana_nombre": "Cafeteria · barcelona",
     "campana_ids": [
       "camp_1788898547"
-    ]
+    ],
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/the-new-orleans-coffee-tea-company-barcelona/",
+    "demo_url_publica": "https://dga80.github.io/instaleads/the-new-orleans-coffee-tea-company-barcelona/",
+    "demo_fecha_creacion": "20/09/2026 21:05",
+    "demo_fecha_ts": 1789931155,
+    "extraccion_fuente": "curated_fallback",
+    "extraccion_aviso": "No se pudieron extraer fotos reales de Instagram (@The New Orleans Coffee & Tea Company). Se ha generado la web con fotos de catálogo temáticas adaptadas a cafeteria (amenity:cafe).",
+    "extraccion_exitosa": false
   },
   {
     "osm_id": "506202703",
@@ -2743,7 +2717,7 @@
     "gemini_razon": "Validación automática heurística",
     "mensaje_dm": "¡Hola equipo de Bar Seco!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉 https://dga80.github.io/instaleads/bar-seco-barcelona/\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
     "mensaje_seguimiento": "¡Hola de nuevo equipo de Bar Seco!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil: https://dga80.github.io/instaleads/bar-seco-barcelona/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Web Generada",
+    "estado": "DM Enviado",
     "demo_slug": "bar-seco-barcelona",
     "demo_url": "https://dga80.github.io/instaleads/bar-seco-barcelona/",
     "demo_vibe": "Warm Artisan (Cafeterías de Especialidad, Panaderías & Gastro)",
@@ -2758,7 +2732,9 @@
     "demo_fecha_ts": 1789653692,
     "extraccion_fuente": "apify",
     "extraccion_aviso": "",
-    "extraccion_exitosa": true
+    "extraccion_exitosa": true,
+    "fecha_contacto": "2026-09-20T18:48:01.770656+00:00",
+    "canal_contacto": "Instagram DM"
   },
   {
     "osm_id": "638346221",
@@ -2910,7 +2886,7 @@
     "gemini_razon": "Validación automática heurística",
     "mensaje_dm": "¡Hola! He estado echando un ojo a vuestro perfil de Instagram de La Figuera en Badalona y me encanta lo que hacéis.\n\nSoy Daniel García, diseñador y desarrollador web en Barcelona. He preparado una web demo interactiva utilizando el contenido de vuestro propio perfil, pensada especialmente para potenciar vuestra imagen digital y facilitar que os encuentren y contacten desde el móvil:\n\n👉 https://dga80.github.io/instaleads/joan-figuera-badalona/\n*(Es un enlace 100% seguro, se abre directamente en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os gusta, podemos comentarlo 2 minutos sin ningún compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
     "mensaje_seguimiento": "¡Hola de nuevo!\n\nOs escribí hace un par de días para enseñaros la web demo interactiva que os preparé con vuestro contenido: https://dga80.github.io/instaleads/joan-figuera-badalona/\n\nOs la vuelvo a dejar por aquí por si no tuvisteis tiempo de verla. Se visualiza perfectamente desde el móvil.\n\n¿Os apetecería que lo comentáramos 2 minutos esta semana sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Web Generada",
+    "estado": "DM Enviado",
     "demo_slug": "joan-figuera-badalona",
     "demo_url": "https://dga80.github.io/instaleads/joan-figuera-badalona/",
     "demo_vibe": "Warm Artisan (Cafeterías de Especialidad, Panaderías & Gastro)",
@@ -2925,7 +2901,9 @@
     "demo_fecha_ts": 1789653989,
     "extraccion_fuente": "apify",
     "extraccion_aviso": "",
-    "extraccion_exitosa": true
+    "extraccion_exitosa": true,
+    "fecha_contacto": "2026-09-20T18:49:44.149618+00:00",
+    "canal_contacto": "Instagram DM"
   },
   {
     "osm_id": "660100527",
@@ -3389,7 +3367,7 @@
     "gemini_razon": "Validación automática heurística",
     "mensaje_dm": "¡Hola! He estado echando un vistazo a vuestro perfil de Instagram y me encanta el ambiente de Cafe d'Annunzio.\n\nSoy Daniel García, diseñador y desarrollador web en Barcelona. He preparado una web demo interactiva utilizando el contenido de vuestro propio perfil, pensada especialmente para potenciar vuestra imagen digital y facilitar que los clientes os encuentren y consulten vuestra carta desde el móvil:\n\n👉 https://dga80.github.io/instaleads/cafe-dannunzio-barcelona/\n\nEs un enlace 100% seguro para abrir en el navegador, sin descargas ni registros. ¿Qué os parece la propuesta? Si os gusta, podemos comentarlo 2 minutos sin ningún compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
     "mensaje_seguimiento": "¡Hola de nuevo! Paso por aquí para recordaros brevemente la web demo interactiva que os preparé con vuestro contenido: https://dga80.github.io/instaleads/cafe-dannunzio-barcelona/\n\n¿Habéis tenido un momento para echarle un vistazo desde el móvil?\n\nSi os cuadra, me encantaría comentarlo 2 minutos sin compromiso.\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Web Generada",
+    "estado": "DM Enviado",
     "demo_slug": "cafe-dannunzio-barcelona",
     "demo_url": "https://dga80.github.io/instaleads/cafe-dannunzio-barcelona/",
     "demo_vibe": "Warm Artisan (Cafeterías de Especialidad, Panaderías & Gastro)",
@@ -3404,7 +3382,9 @@
     "demo_fecha_ts": 1789654066,
     "extraccion_fuente": "apify",
     "extraccion_aviso": "",
-    "extraccion_exitosa": true
+    "extraccion_exitosa": true,
+    "fecha_contacto": "2026-09-20T18:51:06.247940+00:00",
+    "canal_contacto": "Instagram DM"
   },
   {
     "osm_id": "673967678",
@@ -3476,7 +3456,7 @@
     "gemini_razon": "Validación automática heurística",
     "mensaje_dm": "¡Hola equipo de Chelo!\n\nSoy Daniel García. He visto vuestro gran trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada especialmente para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉 https://dga80.github.io/instaleads/chelo-barcelona/\n*(Es un enlace 100% seguro para visualizarlo directamente en el navegador, sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os gusta, podemos comentarlo 2 minutos sin ningún compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
     "mensaje_seguimiento": "¡Hola de nuevo equipo de Chelo!\n\nOs escribí hace un par de días y os compartí la web demo interactiva que preparé con el contenido de vuestro perfil: https://dga80.github.io/instaleads/chelo-barcelona/\n\nOs la vuelvo a dejar por aquí por si no tuvisteis ocasión de verla cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo de forma rápida y sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Web Generada",
+    "estado": "DM Enviado",
     "demo_slug": "chelo-barcelona",
     "demo_url": "https://dga80.github.io/instaleads/chelo-barcelona/",
     "demo_vibe": "Warm Artisan (Cafeterías de Especialidad, Panaderías & Gastro)",
@@ -3491,7 +3471,9 @@
     "demo_fecha_ts": 1789654142,
     "extraccion_fuente": "apify",
     "extraccion_aviso": "",
-    "extraccion_exitosa": true
+    "extraccion_exitosa": true,
+    "fecha_contacto": "2026-09-20T18:53:08.830923+00:00",
+    "canal_contacto": "Instagram DM"
   },
   {
     "osm_id": "3548547497",
@@ -3614,7 +3596,7 @@
     "gemini_razon": "Coincide el negocio y ubicación (Delucas Tatoo en Badalona)",
     "mensaje_dm": "¡Hola equipo de La barberia tatoo shop!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉 https://dga80.github.io/instaleads/la-barberia-tatoo-shop-badalona/\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
     "mensaje_seguimiento": "¡Hola de nuevo equipo de La barberia tatoo shop!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil: https://dga80.github.io/instaleads/la-barberia-tatoo-shop-badalona/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Web Generada",
+    "estado": "DM Enviado",
     "demo_slug": "la-barberia-tatoo-shop-badalona",
     "demo_url": "https://dga80.github.io/instaleads/la-barberia-tatoo-shop-badalona/",
     "demo_vibe": "Urban Edge & Dark Tech (Tatuajes, Barberías, Talleres & Fitness)",
@@ -3630,7 +3612,9 @@
     "demo_fecha_ts": 1789654266,
     "extraccion_fuente": "apify",
     "extraccion_aviso": "",
-    "extraccion_exitosa": true
+    "extraccion_exitosa": true,
+    "fecha_contacto": "2026-09-20T18:53:48.481351+00:00",
+    "canal_contacto": "Instagram DM"
   },
   {
     "osm_id": "4009003930",
@@ -3782,7 +3766,7 @@
     "gemini_razon": "Coincide el negocio y ubicación, sin web oficial detectada",
     "mensaje_dm": "¡Hola! He estado viendo vuestro trabajo en Pepe Tattoo y la verdad es que tenéis unos diseños brutales en Instagram.\n\nComo diseñador web aquí en Barcelona, me he tomado la libertad de prepararos una web demo interactiva utilizando vuestro propio contenido de Instagram. Está pensada especialmente para móviles, buscando potenciar vuestra marca y facilitar que os reserven citas directamente:\n\n👉 https://dga80.github.io/instaleads/pepe-tattoo-barcelona/\n*(Es un enlace 100% seguro, se abre directamente en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os gusta, podemos comentarlo 2 minutos sin ningún compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
     "mensaje_seguimiento": "¡Hola de nuevo!\n\nOs escribo por aquí para asegurar que os llegó el mensaje anterior. Os había preparado esta web demo interactiva con vuestro contenido para Pepe Tattoo: https://dga80.github.io/instaleads/pepe-tattoo-barcelona/\n\n¿Habéis podido echarle un vistazo desde el móvil? Si os cuadra la idea, ¿tenéis 2 minutos esta semana para comentarlo rápidamente sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Web Generada",
+    "estado": "DM Enviado",
     "demo_slug": "pepe-tattoo-barcelona",
     "demo_url": "https://dga80.github.io/instaleads/pepe-tattoo-barcelona/",
     "demo_vibe": "Urban Edge & Dark Tech (Tatuajes, Barberías, Talleres & Fitness)",
@@ -3798,7 +3782,9 @@
     "demo_fecha_ts": 1789654237,
     "extraccion_fuente": "apify",
     "extraccion_aviso": "",
-    "extraccion_exitosa": true
+    "extraccion_exitosa": true,
+    "fecha_contacto": "2026-09-20T18:54:44.098438+00:00",
+    "canal_contacto": "Instagram DM"
   },
   {
     "osm_id": "5218828492",
@@ -4769,7 +4755,7 @@
     "gemini_razon": "Coincide el negocio y ubicación, no se detecta web oficial.",
     "mensaje_dm": "¡Hola equipo de Bluck tatto!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
     "mensaje_seguimiento": "¡Hola de nuevo equipo de Bluck tatto!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Sin Web",
+    "estado": "DM Enviado",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
@@ -4777,7 +4763,9 @@
     "campana_nombre": "Estudio De Tatuajes · barcelona, barcelona",
     "campana_ids": [
       "camp_1789417840"
-    ]
+    ],
+    "fecha_contacto": "2026-09-20T18:56:36.211127+00:00",
+    "canal_contacto": "Instagram DM"
   },
   {
     "osm_id": "9823596020",
