@@ -99,6 +99,22 @@ def extraer_contenido_web_existente(url_web: str) -> Dict[str, Any]:
             if len(sub_urls) >= 2:
                 break
 
+        # Extraer color de marca corporativo desde meta tags o variables CSS del sitio
+        color_marca = ""
+        theme_tag = soup.find("meta", attrs={"name": "theme-color"})
+        if theme_tag and theme_tag.get("content"):
+            color_marca = theme_tag["content"].strip()
+        
+        if not color_marca:
+            for s in soup.find_all("style"):
+                css_text = s.get_text()
+                m_color = re.search(r'--(?:primary|brand|main|header)[-_]color\s*:\s*(#[0-9a-fA-F]{3,6})', css_text, re.I)
+                if not m_color:
+                    m_color = re.search(r'\.(?:header-bg-color|header-bg|brand-bg)\s*\{[^}]*background(?:-color)?\s*:\s*(#[0-9a-fA-F]{3,6})', css_text, re.I)
+                if m_color:
+                    color_marca = m_color.group(1).upper()
+                    break
+
         # Eliminar scripts y elementos irrelevantes
         for tag in soup(["script", "style", "noscript", "svg", "iframe"]):
             tag.decompose()
@@ -176,7 +192,7 @@ def extraer_contenido_web_existente(url_web: str) -> Dict[str, Any]:
             except Exception:
                 pass
 
-        print(f"[Web Extractor] ✓ Extraído de {url_web}: {len(encabezados)} títulos, {len(parrafos)} párrafos, {len(imagenes)} imágenes, {len(telefonos)} teléfonos, {len(emails)} emails")
+        print(f"[Web Extractor] ✓ Extraído de {url_web}: {len(encabezados)} títulos, {len(parrafos)} párrafos, {len(imagenes)} imágenes, {len(telefonos)} teléfonos, {len(emails)} emails, color marca: {color_marca or 'no detectado'}")
         return {
             "url": url_web,
             "titulo": titulo,
@@ -185,7 +201,8 @@ def extraer_contenido_web_existente(url_web: str) -> Dict[str, Any]:
             "parrafos": parrafos[:8],
             "imagenes": imagenes[:10],
             "telefonos": telefonos,
-            "emails": emails
+            "emails": emails,
+            "color_marca": color_marca
         }
     except Exception as e:
         print(f"[Web Extractor Warning] No se pudo extraer datos de {url_web}: {e}")
@@ -419,17 +436,18 @@ def estructurar_contenido_con_gemini(
         if web_info:
             encabezados_str = ", ".join(web_info.get("encabezados", []))
             parrafos_str = "\n".join([f"  • {p}" for p in web_info.get("parrafos", [])[:4]])
+            color_marca_str = f"- Color de marca corporativo detectado: {web_info.get('color_marca')}\n" if web_info.get("color_marca") else ""
             web_context_prompt = f"""
 INFORMACIÓN REAL EXTRAÍDA DE SU SITIO WEB OFICIAL ACTUAL ({web_info.get('url', '')}):
 - Título actual de su web: {web_info.get('titulo', '')}
-- Meta-descripción actual: {web_info.get('meta_descripcion', '')}
+{color_marca_str}- Meta-descripción actual: {web_info.get('meta_descripcion', '')}
 - Secciones/Servicios reales detectados en su web: {encabezados_str}
 - Contenido textual y propuesta de valor de su web:
 {parrafos_str}
 
 REGLA CRÍTICA DE REDISEÑO:
 Este proyecto es una PROPUESTA DE REDISEÑO de su página web oficial actual.
-Debes tomar y respetar los SERVICIOS REALES, textos y especialidades extraídas de su página web oficial para adaptarlos a la nueva arquitectura mobile-first moderna de alta conversión.
+Debes tomar y respetar los SERVICIOS REALES, color corporativo, textos y especialidades extraídas de su página web oficial para adaptarlos a la nueva arquitectura mobile-first moderna de alta conversión.
 """
 
         prompt = f"""
@@ -590,6 +608,11 @@ def generar_web_comercio(lead: Dict[str, Any], cliente_gemini=None, plantilla_se
         sugerencia_gemini=web_content,
         arquetipo_forzado=plantilla_seleccionada
     )
+
+    # Si la web original tiene un color de marca corporativo detectado, priorizarlo en los tokens
+    if web_info.get("color_marca"):
+        design_tokens["color_seed"] = web_info["color_marca"]
+        design_tokens["primary_container"] = web_info["color_marca"]
 
     # 3.1 Detección semántica de subnicho cultural / gastronómico y sincronización fotográfica
     subnicho = web_content.get("subnicho_cultural", "")
