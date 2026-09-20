@@ -134,6 +134,25 @@
       bottom: 0;
       box-shadow: 0 0 3px rgba(0, 122, 255, 0.4);
     }
+
+    /* Ultra-Modern Progress Bar Shimmer & Glow */
+    @keyframes progressShimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.9; filter: drop-shadow(0 0 3px rgba(14, 165, 233, 0.4)); }
+      50% { opacity: 1; filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.75)); }
+    }
+    .progress-bar-glow {
+      background: linear-gradient(90deg, #0284c7 0%, #38bdf8 25%, #818cf8 50%, #c084fc 75%, #0284c7 100%);
+      background-size: 200% 100%;
+      animation: progressShimmer 2s linear infinite, pulseGlow 2s ease-in-out infinite;
+    }
+    .progress-bar-completed {
+      background: linear-gradient(90deg, #10b981 0%, #34d399 100%);
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+    }
   </style>
 </head>
 <body class="h-screen w-screen overflow-hidden bg-mac-panel text-mac-textPrimary font-sans antialiased flex flex-col select-none">
@@ -1093,6 +1112,27 @@
     <span id="toast-msg" class="font-medium">Mensaje copiado al portapapeles</span>
   </div>
 
+  <!-- FLOATING GLOBAL PROGRESS PILL -->
+  <div id="global-progress-pill" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 hidden transition-all duration-300 cursor-pointer" onclick="cambiarPestana('progreso')">
+    <div class="flex items-center gap-3 px-4 py-2.5 rounded-full bg-neutral-900/95 text-white shadow-2xl border border-white/15 backdrop-blur-xl hover:scale-105 transition-transform">
+      <span class="relative flex h-2.5 w-2.5 shrink-0">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-sky-500"></span>
+      </span>
+      <div class="flex flex-col text-left">
+        <div class="flex items-center gap-2 text-xs font-semibold">
+          <span id="global-progress-title" class="truncate max-w-[140px]">Generando web...</span>
+          <span id="global-progress-pct" class="font-mono text-sky-400 font-bold">0%</span>
+        </div>
+        <span id="global-progress-step" class="text-[10px] font-mono text-neutral-400 truncate max-w-[180px]">Iniciando...</span>
+      </div>
+      <div class="w-20 h-2 bg-white/15 rounded-full overflow-hidden p-0.5">
+        <div id="global-progress-bar" class="h-full progress-bar-glow rounded-full transition-all duration-200" style="width: 0%;"></div>
+      </div>
+      <span class="text-[11px] font-mono text-sky-400 font-bold ml-1">Ver &rarr;</span>
+    </div>
+  </div>
+
 <script>
 
     // -------------------------------------------------------------
@@ -1929,20 +1969,29 @@
 
         let webDemoCol = '';
         if (isGenerating) {
+          const isDone = activeJob.status === 'completed';
           webDemoCol = `
-            <div class="flex flex-col items-center justify-center min-w-[124px] max-w-[140px] space-y-1 mx-auto pointer-events-none">
-              <div class="flex items-center justify-between w-full text-[10px] font-medium text-mac-textSecondary">
-                <span class="flex items-center gap-1 overflow-hidden">
-                  <svg class="w-2.5 h-2.5 shrink-0 animate-spin text-mac-accent" fill="none" viewBox="0 0 24 24">
-                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                  </svg>
-                  <span id="gen-step-${lead.osm_id}" class="truncate text-[9.5px]">${activeJob.stepText || 'Iniciando...'}</span>
+            <div class="flex flex-col items-center justify-center min-w-[145px] max-w-[165px] space-y-1.5 mx-auto pointer-events-none p-1.5 rounded-lg bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 shadow-inner">
+              <div class="flex items-center justify-between w-full text-[10px]">
+                <span class="flex items-center gap-1.5 overflow-hidden text-mac-textPrimary font-medium">
+                  ${isDone ? `
+                    <span class="text-emerald-500 font-bold text-[11px]">✓</span>
+                  ` : `
+                    <span class="relative flex h-2 w-2 shrink-0">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
+                    </span>
+                  `}
+                  <span id="gen-step-${lead.osm_id}" class="truncate text-[9.5px] text-slate-700 dark:text-slate-300">${activeJob.stepText || 'Iniciando...'}</span>
                 </span>
-                <span id="gen-pct-${lead.osm_id}" class="font-mono text-[9px] text-mac-accent font-bold ml-1 shrink-0">${activeJob.currentPct || 0}%</span>
+                <span id="gen-pct-${lead.osm_id}" class="font-mono text-[10px] font-bold ${isDone ? 'text-emerald-500' : 'text-sky-500 dark:text-sky-400'} ml-1 shrink-0">${activeJob.currentPct || 0}%</span>
               </div>
-              <div class="w-full h-1.5 bg-black/10 rounded-full overflow-hidden">
-                <div id="gen-bar-${lead.osm_id}" class="h-full bg-mac-accent rounded-full transition-all duration-100 ease-out" style="width: ${activeJob.currentPct || 0}%;"></div>
+              <div class="w-full h-2 bg-black/10 dark:bg-white/10 rounded-full overflow-hidden p-0.5 relative">
+                <div id="gen-bar-${lead.osm_id}" class="h-full ${isDone ? 'progress-bar-completed' : 'progress-bar-glow'} rounded-full transition-all duration-200 ease-out" style="width: ${activeJob.currentPct || 0}%;"></div>
+              </div>
+              <div class="flex items-center justify-between w-full text-[8.5px] font-mono text-mac-textTertiary px-0.5">
+                <span id="gen-time-${lead.osm_id}">${Math.round((Date.now() - (activeJob.startTime || Date.now())) / 1000)}s</span>
+                <span>IA · Stitch · CDN</span>
               </div>
             </div>
           `;
@@ -2152,6 +2201,126 @@
     // -------------------------------------------------------------
     // GESTOR DE GENERACIÓN CONCURRENTE EN SEGUNDO PLANO
     // -------------------------------------------------------------
+    
+    // -------------------------------------------------------------
+    // ENGINE DE PROGRESO MULTI-FASE & TICKER EN TIEMPO REAL
+    // -------------------------------------------------------------
+    let webGenTickerInterval = null;
+
+    const FASES_GENERACION_WEB = [
+      { maxSec: 2.5,  maxPct: 22, step: "🔍 Conectando con fuentes & perfil..." },
+      { maxSec: 6.5,  maxPct: 48, step: "📸 Extrayendo fotos reales y catálogo..." },
+      { maxSec: 11.0, maxPct: 70, step: "🎨 Diseñando arquetipo Stitch & tokens..." },
+      { maxSec: 16.0, maxPct: 86, step: "✨ Estructurando contenido con Gemini AI..." },
+      { maxSec: 22.0, maxPct: 94, step: "⚡ Compilando web mobile-first & widgets..." },
+      { maxSec: 999,  maxPct: 98, step: "🚀 Sincronizando con GitHub Pages CDN..." }
+    ];
+
+    function calcularProgresoTrabajo(startTime) {
+      const elapsed = (Date.now() - startTime) / 1000;
+      let pct = 8;
+      let stepText = "Iniciando proceso...";
+
+      for (let i = 0; i < FASES_GENERACION_WEB.length; i++) {
+        const fase = FASES_GENERACION_WEB[i];
+        const prevSec = i === 0 ? 0 : FASES_GENERACION_WEB[i - 1].maxSec;
+        const prevPct = i === 0 ? 8 : FASES_GENERACION_WEB[i - 1].maxPct;
+
+        if (elapsed <= fase.maxSec) {
+          const ratio = Math.min(1, Math.max(0, (elapsed - prevSec) / (fase.maxSec - prevSec)));
+          pct = Math.round(prevPct + ratio * (fase.maxPct - prevPct));
+          stepText = fase.step;
+          break;
+        }
+      }
+
+      pct = Math.min(98, Math.max(8, pct));
+      return { pct, stepText, elapsed: Math.round(elapsed) };
+    }
+
+    function actualizarPillGlobal(job, totalRunning = 0) {
+      const pill = document.getElementById('global-progress-pill');
+      if (!pill) return;
+
+      if (!job || totalRunning === 0 || pestanaActual === 'progreso') {
+        pill.classList.add('hidden');
+        return;
+      }
+
+      pill.classList.remove('hidden');
+      const titleEl = document.getElementById('global-progress-title');
+      const pctEl = document.getElementById('global-progress-pct');
+      const stepEl = document.getElementById('global-progress-step');
+      const barEl = document.getElementById('global-progress-bar');
+
+      if (titleEl) {
+        titleEl.innerText = totalRunning > 1 
+          ? `Generando ${totalRunning} webs (${job.nombre})`
+          : `Generando: ${job.nombre}`;
+      }
+      if (pctEl) pctEl.innerText = `${job.currentPct || 0}%`;
+      if (stepEl) stepEl.innerText = job.stepText || 'Iniciando...';
+      if (barEl) barEl.style.width = `${job.currentPct || 0}%`;
+    }
+
+    function arrancarTickerGeneracion() {
+      if (webGenTickerInterval) return;
+
+      webGenTickerInterval = setInterval(() => {
+        let runningJobs = [];
+        activeWebGenerations.forEach(job => {
+          if (job.status === 'running') runningJobs.push(job);
+        });
+
+        if (runningJobs.length === 0) {
+          clearInterval(webGenTickerInterval);
+          webGenTickerInterval = null;
+          actualizarPillGlobal(null, 0);
+          return;
+        }
+
+        // Actualizar cada tarea activa en tiempo real
+        runningJobs.forEach(job => {
+          const { pct, stepText, elapsed } = calcularProgresoTrabajo(job.startTime);
+          job.currentPct = pct;
+          job.stepText = stepText;
+
+          // 1. Actualizar elementos en tabla
+          const barEl = document.getElementById(`gen-bar-${job.osmId}`);
+          const pctEl = document.getElementById(`gen-pct-${job.osmId}`);
+          const stepEl = document.getElementById(`gen-step-${job.osmId}`);
+          const timeEl = document.getElementById(`gen-time-${job.osmId}`);
+          if (barEl) barEl.style.width = `${pct}%`;
+          if (pctEl) pctEl.innerText = `${pct}%`;
+          if (stepEl) stepEl.innerText = stepText;
+          if (timeEl) timeEl.innerText = `${elapsed}s`;
+
+          // 2. Actualizar elementos en pestaña de progreso
+          const cardBar = document.getElementById(`card-bar-${job.osmId}`);
+          const cardPct = document.getElementById(`card-pct-${job.osmId}`);
+          const cardStep = document.getElementById(`card-step-${job.osmId}`);
+          const cardTime = document.getElementById(`card-time-${job.osmId}`);
+          if (cardBar) cardBar.style.width = `${pct}%`;
+          if (cardPct) cardPct.innerText = `${pct}%`;
+          if (cardStep) cardStep.innerText = stepText;
+          if (cardTime) cardTime.innerText = `⏱️ ${elapsed}s transcurridos`;
+
+          // 3. Actualizar elementos en Kanban
+          const kanbanBar = document.getElementById(`kanban-bar-${job.osmId}`);
+          const kanbanPct = document.getElementById(`kanban-pct-${job.osmId}`);
+          const kanbanStep = document.getElementById(`kanban-step-${job.osmId}`);
+          if (kanbanBar) kanbanBar.style.width = `${pct}%`;
+          if (kanbanPct) kanbanPct.innerText = `${pct}%`;
+          if (kanbanStep) kanbanStep.innerText = stepText;
+        });
+
+        // 4. Actualizar floating pill con el trabajo más reciente
+        if (runningJobs.length > 0) {
+          actualizarPillGlobal(runningJobs[runningJobs.length - 1], runningJobs.length);
+        }
+      }, 120);
+    }
+
     async function iniciarGeneracionWeb(osmId, customNombre, customCiudad, customCat, selectedPlantilla = null) {
       const osmIdStr = String(osmId);
       let lead = todosLosLeads.find(l => String(l.osm_id) === osmIdStr);
@@ -2182,6 +2351,7 @@
 
       activeWebGenerations.set(osmIdStr, job);
       actualizarEstadisticas(todosLosLeads);
+      arrancarTickerGeneracion();
 
       if (pestanaActual === 'progreso') {
         renderizarVistaProgreso();
@@ -2203,9 +2373,24 @@
         if (res.ok) {
           job.status = 'completed';
           job.currentPct = 100;
-          job.stepText = '¡Lista! ✨';
+          job.stepText = '¡Lista en GitHub Pages! ✨';
+          job.endTime = Date.now();
           const slug = data.lead?.demo_slug || data.demo?.slug;
           job.demoUrl = data.lead?.demo_url_publica || data.lead?.demo_url_absoluta || data.demo?.demo_url || (slug ? `/demos/${slug}/` : '');
+
+          // Actualizar barra inmediatamente al 100% verde brillante
+          const barEl = document.getElementById(`gen-bar-${osmIdStr}`);
+          const pctEl = document.getElementById(`gen-pct-${osmIdStr}`);
+          const stepEl = document.getElementById(`gen-step-${osmIdStr}`);
+          if (barEl) {
+            barEl.style.width = '100%';
+            barEl.className = 'h-full progress-bar-completed rounded-full transition-all duration-200';
+          }
+          if (pctEl) {
+            pctEl.innerText = '100%';
+            pctEl.className = 'font-mono text-[10px] font-bold text-emerald-500 ml-1 shrink-0';
+          }
+          if (stepEl) stepEl.innerText = '¡Lista! ✨';
           
           mostrarToast(`¡Web Demo creada para ${nombre}! 📱 Lista en local (propagándose en GitHub Pages).`);
           
@@ -2349,13 +2534,29 @@
                     `)}
                   </div>
 
-                  <div class="space-y-1 pt-1">
-                    <div class="flex items-center justify-between text-[11px] font-mono text-mac-textSecondary">
-                      <span id="card-step-${job.osmId}" class="truncate text-[10px]">${job.stepText || 'Iniciando...'}</span>
-                      <span id="card-pct-${job.osmId}" class="font-bold text-mac-accent">${job.currentPct || 0}%</span>
+                  <div class="space-y-2 pt-1.5">
+                    <div class="flex items-center justify-between text-xs font-mono">
+                      <div class="flex items-center gap-1.5 overflow-hidden">
+                        ${isRunning ? `
+                          <span class="relative flex h-2 w-2 shrink-0">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
+                          </span>
+                        ` : (isCompleted ? `
+                          <span class="text-emerald-500 font-bold text-xs">✓</span>
+                        ` : `
+                          <span class="text-red-500 font-bold text-xs">✕</span>
+                        `)}
+                        <span id="card-step-${job.osmId}" class="truncate text-[11px] font-medium text-mac-textPrimary">${job.stepText || (isCompleted ? '¡Lista en GitHub Pages! ✨' : 'Iniciando...')}</span>
+                      </div>
+                      <span id="card-pct-${job.osmId}" class="font-mono font-bold text-xs ${isCompleted ? 'text-emerald-500' : 'text-sky-500 dark:text-sky-400'}">${job.currentPct || (isCompleted ? 100 : 0)}%</span>
                     </div>
-                    <div class="w-full h-1.5 bg-black/10 rounded-full overflow-hidden">
-                      <div id="card-bar-${job.osmId}" class="h-full bg-mac-accent rounded-full transition-all duration-100 ease-out" style="width: ${job.currentPct || 0}%;"></div>
+                    <div class="w-full h-2.5 bg-black/10 dark:bg-white/10 rounded-full overflow-hidden p-0.5 relative shadow-inner">
+                      <div id="card-bar-${job.osmId}" class="h-full ${isCompleted ? 'progress-bar-completed' : 'progress-bar-glow'} rounded-full transition-all duration-200 ease-out" style="width: ${job.currentPct || (isCompleted ? 100 : 0)}%;"></div>
+                    </div>
+                    <div class="flex items-center justify-between text-[10px] font-mono text-mac-textTertiary">
+                      <span id="card-time-${job.osmId}">⏱️ ${Math.round(((job.endTime || Date.now()) - job.startTime) / 1000)}s transcurridos</span>
+                      <span>${isCompleted ? 'Desplegada en CDN' : 'Procesando en segundo plano'}</span>
                     </div>
                   </div>
                 </div>
@@ -2473,7 +2674,15 @@
 
               <div class="flex items-center justify-between pt-1.5 hairline-t text-[11px]">
                 ${isGenerating ? `
-                  <span class="text-[10px] text-mac-accent font-medium">Compilando...</span>
+                  <div class="w-full space-y-1 my-1 p-1 rounded bg-black/5 dark:bg-white/5">
+                    <div class="flex items-center justify-between text-[9px] font-mono text-mac-textSecondary">
+                      <span id="kanban-step-${lead.osm_id}" class="truncate text-[8.5px]">${activeJob.stepText || 'Generando...'}</span>
+                      <span id="kanban-pct-${lead.osm_id}" class="font-bold text-sky-500">${activeJob.currentPct || 0}%</span>
+                    </div>
+                    <div class="w-full h-1.5 bg-black/10 dark:bg-white/10 rounded-full overflow-hidden">
+                      <div id="kanban-bar-${lead.osm_id}" class="h-full progress-bar-glow rounded-full transition-all duration-200" style="width: ${activeJob.currentPct || 0}%;"></div>
+                    </div>
+                  </div>
                 ` : (lead.demo_slug ? `
                   <button onclick="abrirSimulador('${demoUrl}', '${lead.nombre.replace(/'/g, "\\'")}')" class="text-mac-accent hover:underline text-[10px] font-medium inline-flex items-center space-x-1">
                     <svg class="w-3 h-3 text-current shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="3"/><line x1="12" y1="18" x2="12.01" y2="18" stroke-width="2.5" stroke-linecap="round"/></svg>
