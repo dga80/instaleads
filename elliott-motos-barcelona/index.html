@@ -125,53 +125,52 @@
   </div>
 
   <!-- ========================================================================= -->
-  <!-- HEADER & NAVEGACIÓN PRINCIPAL                                            -->
   <!-- ========================================================================= -->
-  <header class="glass-nav sticky top-0 z-40 w-full transition-all">
+  <!-- HEADER & NAVEGACIÓN PRINCIPAL (ROJO CORPORATIVO ELLIOT MOTORS)            -->
+  <!-- ========================================================================= -->
+  <header class="sticky top-0 z-40 w-full transition-all bg-gradient-to-r from-[#B91423] via-[#DC182D] to-[#B91423] text-white shadow-xl shadow-red-950/30 border-b border-red-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-3 xl:gap-4 flex-nowrap">
       
-      <!-- LOGO OFICIAL -->
+      <!-- LOGO OFICIAL SOBRE FONDO ROJO CORPORATIVO -->
       <a href="#inicio" class="flex items-center gap-2.5 sm:gap-3 shrink-0 group">
-        <div class="bg-black/80 px-2 py-1.5 rounded-lg border border-white/10 group-hover:border-brand-red/50 transition shrink-0">
-          <img 
-            src="https://www.elliotmotorsbcn.com/wp-content/uploads/2019/10/Logo-elliot.png" 
-            alt="Elliot Motors Barcelona" 
-            class="h-8 sm:h-9 w-auto object-contain brightness-105"
-          />
-        </div>
+        <img 
+          src="https://www.elliotmotorsbcn.com/wp-content/uploads/2019/10/Logo-elliot.png" 
+          alt="Elliot Motors Barcelona" 
+          class="h-8 sm:h-9 w-auto object-contain brightness-110 drop-shadow-md group-hover:scale-105 transition"
+        />
         <div class="hidden sm:flex flex-col whitespace-nowrap shrink-0">
-          <span class="font-display font-bold text-xs sm:text-sm tracking-wider text-white flex items-center gap-1.5 whitespace-nowrap">
+          <span class="font-display font-bold text-xs sm:text-sm tracking-wider text-white flex items-center gap-1.5 whitespace-nowrap drop-shadow-sm">
             ELLIOT MOTORS
-            <span class="text-[9px] sm:text-[10px] uppercase font-mono px-1.5 py-0.5 rounded bg-brand-red/20 text-brand-accent border border-brand-red/30">BCN</span>
+            <span class="text-[9px] sm:text-[10px] uppercase font-mono px-1.5 py-0.5 rounded bg-black/30 text-white border border-white/25">BCN</span>
           </span>
-          <span class="hidden xl:block text-[11px] text-slate-400 whitespace-nowrap">Concesionario & Taller Oficial</span>
+          <span class="hidden xl:block text-[11px] text-red-100 whitespace-nowrap">Concesionario & Taller Oficial</span>
         </div>
       </a>
 
-      <!-- ENLACES DE NAVEGACIÓN DESKTOP (SIN SALTOS DE LÍNEA) -->
-      <nav class="hidden lg:flex items-center gap-3.5 xl:gap-6 text-xs xl:text-sm font-medium text-slate-300 whitespace-nowrap">
-        <a href="#inicio" class="hover:text-white hover:text-brand-accent transition py-1 whitespace-nowrap">Inicio</a>
-        <a href="#catalogo" class="hover:text-white hover:text-brand-accent transition py-1 whitespace-nowrap">Motos Nuevas</a>
-        <a href="#segunda-mano" class="hover:text-white hover:text-brand-accent transition py-1 whitespace-nowrap">Ocasión</a>
-        <a href="#taller" class="hover:text-white hover:text-brand-accent transition py-1 whitespace-nowrap">Taller</a>
-        <a href="#ventajas" class="hover:text-white hover:text-brand-accent transition py-1 whitespace-nowrap">Ventajas</a>
-        <a href="#opiniones" class="hover:text-white hover:text-brand-accent transition py-1 whitespace-nowrap">Opiniones</a>
-        <a href="#contacto" class="hover:text-white hover:text-brand-accent transition py-1 whitespace-nowrap">Contacto</a>
+      <!-- ENLACES DE NAVEGACIÓN DESKTOP (BLANCO ALTO CONTRASTE SOBRE ROJO) -->
+      <nav class="hidden lg:flex items-center gap-1 xl:gap-2 text-xs xl:text-sm font-medium whitespace-nowrap">
+        <a href="#inicio" class="text-white hover:bg-white/15 px-3 py-1.5 rounded-lg transition whitespace-nowrap">Inicio</a>
+        <a href="#catalogo" class="text-white hover:bg-white/15 px-3 py-1.5 rounded-lg transition whitespace-nowrap">Motos Nuevas</a>
+        <a href="#segunda-mano" class="text-white hover:bg-white/15 px-3 py-1.5 rounded-lg transition whitespace-nowrap">Ocasión</a>
+        <a href="#taller" class="text-white hover:bg-white/15 px-3 py-1.5 rounded-lg transition whitespace-nowrap">Taller</a>
+        <a href="#ventajas" class="text-white hover:bg-white/15 px-3 py-1.5 rounded-lg transition whitespace-nowrap">Ventajas</a>
+        <a href="#opiniones" class="text-white hover:bg-white/15 px-3 py-1.5 rounded-lg transition whitespace-nowrap">Opiniones</a>
+        <a href="#contacto" class="text-white hover:bg-white/15 px-3 py-1.5 rounded-lg transition whitespace-nowrap">Contacto</a>
       </nav>
 
-      <!-- BOTONES DE ACCIÓN RÁPIDA (BLINDADOS CONTRA SALTOS DE LÍNEA) -->
+      <!-- BOTONES DE ACCIÓN RÁPIDA (ALTO CONTRASTE SOBRE ROJO) -->
       <div class="flex items-center gap-2.5 sm:gap-3 shrink-0">
-        <button onclick="abrirModalCita('Presupuesto y Cita Taller')" class="hidden sm:inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2.5 rounded-xl bg-gradient-to-r from-brand-red to-rose-600 hover:from-rose-600 hover:to-brand-red text-white text-xs font-semibold tracking-wide shadow-lg shadow-brand-red/25 hover:shadow-brand-red/40 transition transform active:scale-95 whitespace-nowrap shrink-0">
-          <span class="material-symbols-outlined text-[17px] shrink-0">build</span>
+        <button onclick="abrirModalCita('Presupuesto y Cita Taller')" class="hidden sm:inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-2.5 rounded-xl bg-white hover:bg-slate-100 text-[#DC182D] text-xs font-bold tracking-wide shadow-lg shadow-black/20 transition transform active:scale-95 whitespace-nowrap shrink-0">
+          <span class="material-symbols-outlined text-[17px] text-[#DC182D] shrink-0">build</span>
           <span class="whitespace-nowrap">Pedir Cita Taller</span>
         </button>
 
-        <a href="tel:+34932263400" class="flex items-center justify-center w-10 h-10 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white transition shrink-0" title="Llamar directamente">
-          <span class="material-symbols-outlined text-[20px] text-emerald-400">call</span>
+        <a href="tel:+34932263400" class="flex items-center justify-center w-10 h-10 rounded-xl bg-black/20 hover:bg-black/30 border border-white/20 text-white transition shrink-0" title="Llamar directamente">
+          <span class="material-symbols-outlined text-[20px] text-white">call</span>
         </a>
 
         <!-- Botón menú móvil -->
-        <button id="mobileMenuBtn" class="lg:hidden flex items-center justify-center w-10 h-10 rounded-xl bg-white/5 border border-white/10 text-white shrink-0">
+        <button id="mobileMenuBtn" class="lg:hidden flex items-center justify-center w-10 h-10 rounded-xl bg-black/20 border border-white/20 text-white shrink-0">
           <span class="material-symbols-outlined text-[24px]">menu</span>
         </button>
       </div>
@@ -179,15 +178,15 @@
     </div>
 
     <!-- Menú desplegable móvil -->
-    <div id="mobileMenu" class="hidden lg:hidden border-t border-white/10 bg-[#0E1017] px-6 py-5 space-y-4 animate-fadeIn">
-      <a href="#catalogo" class="block text-slate-200 hover:text-brand-accent font-medium py-1">Motos en Stock</a>
-      <a href="#segunda-mano" class="block text-slate-200 hover:text-brand-accent font-medium py-1">Motos Segunda Mano</a>
-      <a href="#taller" class="block text-slate-200 hover:text-brand-accent font-medium py-1">Taller con Moto de Cortesía</a>
-      <a href="#ventajas" class="block text-slate-200 hover:text-brand-accent font-medium py-1">Ventajas y Garantías</a>
-      <a href="#opiniones" class="block text-slate-200 hover:text-brand-accent font-medium py-1">Opiniones de Clientes</a>
-      <a href="#contacto" class="block text-slate-200 hover:text-brand-accent font-medium py-1">Ubicación y Horarios</a>
-      <div class="pt-3 border-t border-white/10 flex flex-col gap-2">
-        <button onclick="abrirModalCita('Consulta General')" class="w-full py-3 rounded-xl bg-brand-red text-white text-sm font-semibold flex items-center justify-center gap-2">
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-red-800 bg-[#99101C] px-6 py-5 space-y-3 animate-fadeIn">
+      <a href="#catalogo" class="block text-white hover:bg-white/10 px-3 py-2 rounded-lg font-medium">Motos en Stock</a>
+      <a href="#segunda-mano" class="block text-white hover:bg-white/10 px-3 py-2 rounded-lg font-medium">Motos Segunda Mano</a>
+      <a href="#taller" class="block text-white hover:bg-white/10 px-3 py-2 rounded-lg font-medium">Taller con Moto de Cortesía</a>
+      <a href="#ventajas" class="block text-white hover:bg-white/10 px-3 py-2 rounded-lg font-medium">Ventajas y Garantías</a>
+      <a href="#opiniones" class="block text-white hover:bg-white/10 px-3 py-2 rounded-lg font-medium">Opiniones de Clientes</a>
+      <a href="#contacto" class="block text-white hover:bg-white/10 px-3 py-2 rounded-lg font-medium">Ubicación y Horarios</a>
+      <div class="pt-2 border-t border-red-700/50 flex flex-col gap-2">
+        <button onclick="abrirModalCita('Consulta General')" class="w-full py-3 rounded-xl bg-white text-[#DC182D] text-sm font-bold flex items-center justify-center gap-2 shadow-md">
           <span class="material-symbols-outlined text-[18px]">calendar_today</span>
           Reservar Cita Previa
         </button>
@@ -208,15 +207,15 @@
         style="animation-duration: 10s;"
       />
       <div class="absolute inset-0 bg-gradient-to-t from-[#0B0C10] via-[#0B0C10]/80 to-transparent"></div>
-      <div class="absolute inset-0 bg-radial-at-c from-brand-red/10 via-transparent to-transparent"></div>
+      <div class="absolute inset-0 bg-radial-at-c from-brand-red/20 via-brand-red/5 to-transparent"></div>
     </div>
 
     <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 text-center">
       
       <!-- Pills de confianza superior -->
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-6 animate-fadeIn">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-red/10 border border-brand-red/30 backdrop-blur-md mb-6 animate-fadeIn">
         <span class="w-2 h-2 rounded-full bg-brand-red animate-ping"></span>
-        <span class="text-xs font-mono font-medium text-slate-300">Concesionario Multimarca & Taller Oficial en Barcelona</span>
+        <span class="text-xs font-mono font-medium text-slate-200">Concesionario Multimarca & Taller Oficial en Barcelona</span>
         <span class="hidden md:inline text-slate-500">•</span>
         <span class="hidden md:flex items-center text-amber-400 text-xs font-semibold">
           ★ 4.9/5 en Google Reviews
@@ -225,7 +224,7 @@
 
       <!-- Título principal -->
       <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white max-w-4xl mx-auto leading-[1.08] mb-6">
-        Tu moto nueva u ocasión en Barcelona con <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-rose-200 to-brand-red">garantía total</span> y taller propio
+        Tu moto nueva u ocasión en Barcelona con <span class="text-[#DC182D] underline decoration-brand-red/30 underline-offset-8">garantía total</span> y taller propio
       </h1>
 
       <!-- Subtítulo -->
@@ -235,7 +234,7 @@
 
       <!-- Llamadas a la acción (CTAs) -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-        <a href="#catalogo" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-red hover:bg-rose-600 text-white font-semibold text-sm tracking-wide shadow-xl shadow-brand-red/30 transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+        <a href="#catalogo" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#DC182D] hover:bg-rose-600 text-white font-semibold text-sm tracking-wide shadow-xl shadow-brand-red/40 transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
           <span class="material-symbols-outlined text-[20px]">two_wheeler</span>
           Ver Catálogo en Stock
         </a>
@@ -245,43 +244,43 @@
         </button>
       </div>
 
-      <!-- 4 PILARES DE VALOR DIFERENCIAL (REALES DE ELLIOT MOTORS) -->
+      <!-- 4 PILARES DE VALOR DIFERENCIAL (ROJOS CORPORATIVOS ELLIOT MOTORS) -->
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 text-left max-w-5xl mx-auto">
         
         <!-- Pilar 1: Moto de sustitución -->
-        <div class="glass-card p-4 rounded-2xl transition duration-300">
-          <div class="w-10 h-10 rounded-xl bg-brand-red/15 border border-brand-red/30 flex items-center justify-center text-brand-accent mb-3">
+        <div class="bg-gradient-to-br from-[#DC182D] to-[#A81020] text-white p-4 sm:p-5 rounded-2xl shadow-xl shadow-red-950/30 border border-red-500/40 transition duration-300 transform hover:-translate-y-1">
+          <div class="w-10 h-10 rounded-xl bg-black/25 border border-white/25 flex items-center justify-center text-white mb-3">
             <span class="material-symbols-outlined text-[22px]">two_wheeler</span>
           </div>
           <h4 class="font-display font-bold text-sm text-white mb-1">Motos de Sustitución</h4>
-          <p class="text-xs text-slate-400 leading-snug">Vehículo de cortesía durante las reparaciones para no detener tu día.</p>
+          <p class="text-xs text-red-100 leading-snug">Vehículo de cortesía durante las reparaciones para no detener tu día.</p>
         </div>
 
         <!-- Pilar 2: Garantía oficial -->
-        <div class="glass-card p-4 rounded-2xl transition duration-300">
-          <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-3">
+        <div class="bg-gradient-to-br from-[#DC182D] to-[#A81020] text-white p-4 sm:p-5 rounded-2xl shadow-xl shadow-red-950/30 border border-red-500/40 transition duration-300 transform hover:-translate-y-1">
+          <div class="w-10 h-10 rounded-xl bg-black/25 border border-white/25 flex items-center justify-center text-white mb-3">
             <span class="material-symbols-outlined text-[22px]">verified_user</span>
           </div>
           <h4 class="font-display font-bold text-sm text-white mb-1">Garantía desde 2 Años</h4>
-          <p class="text-xs text-slate-400 leading-snug">Cobertura total, recambios originales y revisión de 100 puntos en ocasión.</p>
+          <p class="text-xs text-red-100 leading-snug">Cobertura total, recambios originales y revisión de 100 puntos en ocasión.</p>
         </div>
 
         <!-- Pilar 3: Entrega a domicilio -->
-        <div class="glass-card p-4 rounded-2xl transition duration-300">
-          <div class="w-10 h-10 rounded-xl bg-blue-500/15 border border-blue-500/30 flex items-center justify-center text-blue-400 mb-3">
+        <div class="bg-gradient-to-br from-[#DC182D] to-[#A81020] text-white p-4 sm:p-5 rounded-2xl shadow-xl shadow-red-950/30 border border-red-500/40 transition duration-300 transform hover:-translate-y-1">
+          <div class="w-10 h-10 rounded-xl bg-black/25 border border-white/25 flex items-center justify-center text-white mb-3">
             <span class="material-symbols-outlined text-[22px]">local_shipping</span>
           </div>
           <h4 class="font-display font-bold text-sm text-white mb-1">Entrega a Domicilio</h4>
-          <p class="text-xs text-slate-400 leading-snug">No importa dónde estés en España: enviamos tu moto lista para rodar.</p>
+          <p class="text-xs text-red-100 leading-snug">No importa dónde estés en España: enviamos tu moto lista para rodar.</p>
         </div>
 
         <!-- Pilar 4: Taller especializado -->
-        <div class="glass-card p-4 rounded-2xl transition duration-300">
-          <div class="w-10 h-10 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 mb-3">
+        <div class="bg-gradient-to-br from-[#DC182D] to-[#A81020] text-white p-4 sm:p-5 rounded-2xl shadow-xl shadow-red-950/30 border border-red-500/40 transition duration-300 transform hover:-translate-y-1">
+          <div class="w-10 h-10 rounded-xl bg-black/25 border border-white/25 flex items-center justify-center text-white mb-3">
             <span class="material-symbols-outlined text-[22px]">precision_manufacturing</span>
           </div>
           <h4 class="font-display font-bold text-sm text-white mb-1">Taller Especializado</h4>
-          <p class="text-xs text-slate-400 leading-snug">Diagnosis multimarca, mecánicos con formación continua en Barcelona.</p>
+          <p class="text-xs text-red-100 leading-snug">Diagnosis multimarca, mecánicos con formación continua en Barcelona.</p>
         </div>
 
       </div>
@@ -383,7 +382,7 @@
               <span class="text-2xl font-mono font-bold text-white">3.360 €</span>
               <span class="text-[10px] text-emerald-400 block">o desde ~69 €/mes</span>
             </div>
-            <button onclick="abrirModalCita('Interés en HONDA PCX 125 (3.360€)')" class="px-4 py-2 rounded-xl bg-brand-red/20 hover:bg-brand-red text-white text-xs font-semibold border border-brand-red/30 transition">
+            <button onclick="abrirModalCita('Interés en HONDA PCX 125 (3.360€)')" class="px-4 py-2 rounded-xl bg-[#DC182D] hover:bg-rose-600 text-white text-xs font-semibold shadow-md shadow-brand-red/25 transition">
               Solicitar Oferta
             </button>
           </div>
@@ -429,7 +428,7 @@
               <span class="text-2xl font-mono font-bold text-white">5.430 €</span>
               <span class="text-[10px] text-emerald-400 block">o desde ~105 €/mes</span>
             </div>
-            <button onclick="abrirModalCita('Interés en HONDA FORZA 125 (5.430€)')" class="px-4 py-2 rounded-xl bg-brand-red/20 hover:bg-brand-red text-white text-xs font-semibold border border-brand-red/30 transition">
+            <button onclick="abrirModalCita('Interés en HONDA FORZA 125 (5.430€)')" class="px-4 py-2 rounded-xl bg-[#DC182D] hover:bg-rose-600 text-white text-xs font-semibold shadow-md shadow-brand-red/25 transition">
               Solicitar Oferta
             </button>
           </div>
@@ -567,7 +566,7 @@
               <span class="text-2xl font-mono font-bold text-white">3.899 €</span>
               <span class="text-[10px] text-emerald-400 block">Consultar promociones</span>
             </div>
-            <button onclick="abrirModalCita('Interés en KYMCO Super Dink 125')" class="px-4 py-2 rounded-xl bg-brand-red/20 hover:bg-brand-red text-white text-xs font-semibold border border-brand-red/30 transition">
+            <button onclick="abrirModalCita('Interés en KYMCO Super Dink 125')" class="px-4 py-2 rounded-xl bg-[#DC182D] hover:bg-rose-600 text-white text-xs font-semibold shadow-md shadow-brand-red/25 transition">
               Solicitar Oferta
             </button>
           </div>
@@ -613,7 +612,7 @@
               <span class="text-2xl font-mono font-bold text-white">2.499 €</span>
               <span class="text-[10px] text-emerald-400 block">o desde ~55 €/mes</span>
             </div>
-            <button onclick="abrirModalCita('Interés en SYM Symphony SR 125')" class="px-4 py-2 rounded-xl bg-brand-red/20 hover:bg-brand-red text-white text-xs font-semibold border border-brand-red/30 transition">
+            <button onclick="abrirModalCita('Interés en SYM Symphony SR 125')" class="px-4 py-2 rounded-xl bg-[#DC182D] hover:bg-rose-600 text-white text-xs font-semibold shadow-md shadow-brand-red/25 transition">
               Solicitar Oferta
             </button>
           </div>
