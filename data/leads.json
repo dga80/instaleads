@@ -1288,7 +1288,7 @@
     "gemini_razon": "Sitio web oficial activo (elliotmotorsbcn.com) con catálogo, precios, taller y opiniones reales.",
     "mensaje_dm": "¡Hola equipo de Elliot Motors!\n\nSoy Daniel García, diseñador UX/UI y desarrollador web en Barcelona. Conozco vuestro concesionario y taller en Consell de Cent.\n\nHe estado revisando vuestra web actual (elliotmotorsbcn.com) y, para mostraros el salto de calidad visual y comercial que podéis dar para captar más ventas de scooters y citas de taller directamente desde el móvil, os he preparado una propuesta de rediseño UX/UI interactiva a medida con vuestro catálogo, precios y servicios reales:\n\n👉 https://dga80.github.io/instaleads/elliott-motos-barcelona/\n*(Es un enlace 100% seguro y optimizado para móvil que podéis abrir directamente en el navegador sin descargas)*.\n\nIncluye catálogo interactivo (Honda PCX, Forza, Peugeot Tweet, Piaggio...), llamada y WhatsApp directo, reserva de cita de taller con moto de cortesía y calculadora de financiación.\n\n¿Qué os parece la propuesta? Si os gusta, podemos comentarlo 2 minutos sin ningún compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
     "mensaje_seguimiento": "¡Hola de nuevo, equipo de Elliot Motors!\n\nOs escribí hace un par de días para compartiros la propuesta de rediseño UX/UI que preparé para vuestro concesionario y taller: https://dga80.github.io/instaleads/elliott-motos-barcelona/\n\nOs la vuelvo a dejar por aquí por si no tuvisteis tiempo de revisarla desde el móvil. La idea es modernizar vuestra imagen y multiplicar la conversión de clientes interesados en motos nuevas/ocasión y citas de taller.\n\n¿Os apetecería que lo comentáramos brevemente esta semana sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Web Generada",
+    "estado": "DM Enviado",
     "demo_slug": "elliott-motos-barcelona",
     "demo_url": "https://dga80.github.io/instaleads/elliott-motos-barcelona/",
     "demo_vibe": "Rediseño UX/UI Premium (Concesionario & Taller Oficial)",
@@ -1304,7 +1304,9 @@
     "demo_fecha_ts": 1789931530,
     "extraccion_fuente": "sitio_web_oficial",
     "extraccion_aviso": "Web generada a partir del restyling UX/UI completo de su sitio web oficial (elliotmotorsbcn.com) con catálogo, fotos, precios, opiniones y servicios reales.",
-    "extraccion_exitosa": true
+    "extraccion_exitosa": true,
+    "fecha_contacto": "2026-09-20T19:50:17.219485+00:00",
+    "canal_contacto": "Instagram DM"
   },
   {
     "osm_id": "7107839692",
@@ -4689,7 +4691,7 @@
     "osm_id": "9695204268",
     "nombre": "Bluck tatto",
     "categoria": "estudio de tatuajes (shop:tattoo)",
-    "direccion": "",
+    "direccion": "Carrer de Dante Alighieri, 37, Horta-Guinardó, 08032 Barcelona",
     "ciudad": "Barcelona",
     "provincia": "Barcelona",
     "codigo_postal": "",
@@ -4706,14 +4708,6 @@
         "url": "https://www.instagram.com/blucktattoobcn/",
         "titulo": "BLUCKTATTOO VEGAN STUDIO BARCELONA (@blucktattoobcn) - Instagram",
         "snippet": "5,845 Followers, 670 Following, 524 Posts - See Instagram photos and videos from BLUCKTATTOO VEGAN STUDIO BARCELONA (@bl"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://www.bing.com/aclick?ld=e8XXAT7_d5A5fUsNyaEabYOzVUCUxfz2awbMX_u6EkrmhFVWD5ffcgr9Ay34cnhuFMllYFHjtgg-ZvgaS_kuwlqY3HUY49h-tQj4jUP6OWxySAWp2hLoYteYsT8Vkb6_2xLTHxlKMPZJ5t9OlIw1VVKUJ3-cQl0sMjWpf5jXh3Scy8rDaeIwf_i3pI_KtAfHRCOXf8ELYhdpESL0_q9KvyW4w6r3Q&u=aHR0cHMlM2ElMmYlMmZ3d3cuZ3JvdXBvbi5jb20lMmZsb2NhbCUyZnRhdHRvbyUzZmFkc2FmZSUzZHRydWUlMjZ1dG1fY2FtcGFpZ24lM2RjXzU2OTMzMzc4OCUyNnV0bV9jb250ZW50JTNkNzQyMTczNTM4NzAyNDglMjZ1dG1fc291cmNlJTNkYmluZyUyNnV0bV9tZWRpdW0lM2RjcGMlMjZtc2Nsa2lkJTNkOGI2Y2Q0NmZiOTU5MTcxMTA1Y2ZiZWM3ZTU4Mzc0NDE&rlid=8b6cd46fb959171105cfbec7e5837441",
-        "titulo": "Tattoo Special Discounts - Eyebrow Tattoo Deals - Tattoo Salons",
-        "snippet": "4.0 (68559 reviews) Discover the best tattoo artists with exclusive offers and limited-time deals. Book your tattoo sess"
       },
       {
         "tipo": "web",
@@ -4753,19 +4747,26 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bluck+tatto+Barcelona",
     "gemini_verificado": true,
     "gemini_razon": "Coincide el negocio y ubicación, no se detecta web oficial.",
-    "mensaje_dm": "¡Hola equipo de Bluck tatto!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Bluck tatto!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_dm": "¡Hola equipo de Bluck Tattoo!\n\nSoy Daniel García, diseñador UX/UI y desarrollador web en Barcelona. He estado siguiendo vuestro trabajo en Instagram (@blucktattoobcn) y vuestro compromiso con los santuarios y el tatuaje 100% vegano.\n\nPara mostraros cómo podéis potenciar vuestra imagen y facilitar que los clientes organicen su idea y reserven cita directamente desde el móvil, os he preparado una propuesta de web interactiva a medida con vuestro portfolio y filosofía real:\n\n👉 https://dga80.github.io/instaleads/bluck-tatto-barcelona/\n*(Es un enlace 100% seguro y optimizado para móvil que podéis abrir directamente en el navegador sin descargas)*.\n\nIncluye estimador interactivo de tamaño y estilo para calcular tiempos de sesión, galería de trabajos con lightbox, sección de bioseguridad y filosofía vegana, y contacto directo por WhatsApp.\n\n¿Qué os parece la propuesta? Si os gusta, podemos comentarlo 2 minutos sin ningún compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Bluck Tattoo!\n\nOs escribí hace un par de días para compartiros la propuesta de web interactiva que preparé para vuestro estudio vegano: https://dga80.github.io/instaleads/bluck-tatto-barcelona/\n\nOs la recuerdo por aquí por si no pudisteis verla con calma desde el móvil. La idea es transmitir vuestros valores éticos y multiplicar las consultas de clientes cualificados directamente a vuestro WhatsApp.\n\n¿Tenéis 2 minutos esta semana para comentarlo brevemente sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
     "estado": "DM Enviado",
-    "demo_slug": "",
-    "demo_url": "",
-    "demo_vibe": "",
+    "demo_slug": "bluck-tatto-barcelona",
+    "demo_url": "https://dga80.github.io/instaleads/bluck-tatto-barcelona/",
+    "demo_vibe": "Estudio Boutique Vegano & Solidario (Tatuaje de Autor, Piercing & Micropigmentación)",
     "campana_id": "camp_1789417840",
     "campana_nombre": "Estudio De Tatuajes · barcelona, barcelona",
     "campana_ids": [
       "camp_1789417840"
     ],
     "fecha_contacto": "2026-09-20T18:56:36.211127+00:00",
-    "canal_contacto": "Instagram DM"
+    "canal_contacto": "Instagram DM",
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/bluck-tatto-barcelona/",
+    "demo_url_publica": "https://dga80.github.io/instaleads/bluck-tatto-barcelona/",
+    "demo_fecha_creacion": "20/09/2026 21:51",
+    "demo_fecha_ts": 1789933884,
+    "extraccion_fuente": "instagram_bespoke",
+    "extraccion_aviso": "Web demo a medida generada con portfolio real, compromiso 100% vegano, estimador interactivo de tatuaje y bioseguridad clínica.",
+    "extraccion_exitosa": true
   },
   {
     "osm_id": "9823596020",

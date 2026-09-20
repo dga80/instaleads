@@ -148,6 +148,12 @@ def sincronizar_gh_pages(
                 demo_folder = tmp_worktree / slug
                 demo_folder.mkdir(parents=True, exist_ok=True)
                 (demo_folder / "index.html").write_text(html_content, encoding="utf-8")
+                local_demo_images = BASE_DIR / "demos" / slug / "images"
+                if local_demo_images.exists():
+                    target_images = demo_folder / "images"
+                    if target_images.exists():
+                        shutil.rmtree(target_images)
+                    shutil.copytree(local_demo_images, target_images)
                 commit_msg = f"feat(demo): publicar demo {slug} en GitHub Pages"
             elif accion == "borrar" and slug:
                 demo_folder = tmp_worktree / slug

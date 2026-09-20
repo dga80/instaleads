@@ -24,10 +24,23 @@
     } catch(e) {}
   })();
 </script>
-</head><body class="bg-surface-container-lowest font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest/95 backdrop-blur-md border-b border-surface-container-high" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));"><div class="h-16 w-full px-gutter-mobile lg:px-margin flex items-center justify-between gap-space-sm lg:gap-space-md flex-nowrap"><div class="flex items-center gap-space-md shrink-0"><a class="flex items-center gap-space-sm group shrink-0" data-path="the-works" href="#inicio"><div class="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center shrink-0">{% if ig.avatar_url or ig.avatar %}<img src="{{ ig.avatar_url or ig.avatar }}" alt="{{ negocio.nombre }}" class="w-full h-full object-cover border border-primary/40 shadow-sm" />{% else %}<div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center text-on-primary-container font-headline-md text-headline-md leading-none shadow-[0_0_16px_rgba(249,115,22,0.35)]">⚡</div>{% endif %}</div><div class="flex flex-col shrink-0"><span class="font-headline-md text-body-md font-bold tracking-tight text-on-surface uppercase truncate max-w-[140px] xs:max-w-[170px] sm:max-w-xs md:max-w-none whitespace-nowrap">{{ negocio.nombre }}</span><span class="font-label-sm text-label-sm tracking-widest text-primary font-semibold -mt-1 whitespace-nowrap">// ATELIER</span></div></a><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-surface-container-low border border-surface-container-high shrink-0"><span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span><span class="font-label-sm text-label-sm text-secondary font-medium tracking-wider uppercase whitespace-nowrap">BOX ABIERTO / CITAS DISPONIBLES</span></div></div><nav class="hidden md:flex items-center gap-2 lg:gap-space-sm xl:gap-space-md whitespace-nowrap shrink-0" data-active-classes="bg-primary-container text-on-primary-container font-bold rounded-lg">
+</head><body class="bg-surface-container-lowest font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container">
+{% set cat_lower = (negocio.categoria or '')|lower %}
+{% set nom_lower = (negocio.nombre or '')|lower %}
+{% set es_taller = ('taller' in cat_lower or 'moto' in cat_lower or 'coche' in cat_lower or 'mecanic' in cat_lower or 'auto' in cat_lower or 'vehicul' in cat_lower or 'recambio' in cat_lower) %}
+{% set es_tattoo = ('tattoo' in cat_lower or 'tatuaj' in cat_lower or 'ink' in nom_lower or 'piercing' in cat_lower) %}
+{% set es_barber = ('barber' in cat_lower or 'peluquer' in cat_lower or 'estilist' in cat_lower) %}<header class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest/95 backdrop-blur-md border-b border-surface-container-high" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));"><div class="h-16 w-full px-gutter-mobile lg:px-margin flex items-center justify-between gap-space-sm lg:gap-space-md flex-nowrap"><div class="flex items-center gap-space-md shrink-0"><a class="flex items-center gap-space-sm group shrink-0" data-path="the-works" href="#inicio"><div class="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center shrink-0">{% if ig.avatar_url or ig.avatar %}<img src="{{ ig.avatar_url or ig.avatar }}" alt="{{ negocio.nombre }}" class="w-full h-full object-cover border border-primary/40 shadow-sm" />{% else %}<div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center text-on-primary-container font-headline-md text-headline-md leading-none shadow-[0_0_16px_rgba(249,115,22,0.35)]">⚡</div>{% endif %}</div><div class="flex flex-col shrink-0"><span class="font-headline-md text-body-md font-bold tracking-tight text-on-surface uppercase truncate max-w-[140px] xs:max-w-[170px] sm:max-w-xs md:max-w-none whitespace-nowrap">{{ negocio.nombre }}</span><span class="font-label-sm text-label-sm tracking-widest text-primary font-semibold -mt-1 whitespace-nowrap">// ATELIER</span></div></a><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-surface-container-low border border-surface-container-high shrink-0"><span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span><span class="font-label-sm text-label-sm text-secondary font-medium tracking-wider uppercase whitespace-nowrap">BOX ABIERTO / CITAS DISPONIBLES</span></div></div><nav class="hidden md:flex items-center gap-2 lg:gap-space-sm xl:gap-space-md whitespace-nowrap shrink-0" data-active-classes="bg-primary-container text-on-primary-container font-bold rounded-lg">
       <a class="px-2 lg:px-space-sm py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#galeria">The Works</a>
       <a class="px-2 lg:px-space-sm py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#servicios">Tarifas</a>
+      {% if es_taller %}
       <a class="px-2 lg:px-space-sm py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#financiacion">Financiación</a>
+      {% elif es_tattoo %}
+      <a class="px-2 lg:px-space-sm py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#estimador">Estimador Tattoo</a>
+      {% elif es_barber %}
+      <a class="px-2 lg:px-space-sm py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#estimador">Selector Estilo</a>
+      {% else %}
+      <a class="px-2 lg:px-space-sm py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#estimador">Presupuesto</a>
+      {% endif %}
       <a class="px-2 lg:px-space-sm py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#faq">FAQ</a>
       <a class="px-2 lg:px-space-sm py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#contacto">Contacto</a>
     </nav><div class="flex items-center gap-2 lg:gap-space-md shrink-0"><button onclick="abrirModalPresupuesto('Consulta General')" class="hidden sm:inline-flex items-center justify-center px-3.5 lg:px-space-lg py-2 lg:py-space-sm rounded-lg bg-primary-container text-on-primary-container font-label-md text-xs lg:text-label-md uppercase tracking-wider font-bold shadow-[0_0_20px_rgba(249,115,22,0.35)] hover:bg-primary-fixed hover:text-on-primary-fixed transition-all whitespace-nowrap shrink-0 cursor-pointer"><span>{{ 'Solicitar Presupuesto' if ('whatsapp' in negocio.whatsapp_url or 'phone=' in negocio.whatsapp_url) else 'Contactar Directo' }}</span></button><div class="hidden sm:flex w-8 h-8 rounded-full bg-primary items-center justify-center overflow-hidden shrink-0">{% if ig.avatar_url or ig.avatar %}<img src="{{ ig.avatar_url or ig.avatar }}" alt="{{ negocio.nombre }}" class="w-full h-full object-cover" />{% else %}<span class="material-symbols-outlined text-on-primary text-[18px]">person</span>{% endif %}</div>
@@ -286,9 +299,9 @@
 </div>
 </section>
 
-<!-- ============================================================ -->
-<!-- FINANCING & MAINTENANCE ESTIMATOR                             -->
-<!-- ============================================================ -->
+<!-- INTERACTIVE ESTIMATOR & FINANCING ADAPTIVE ENGINE -->
+{% if es_taller %}
+<!-- VEHICLE FINANCING SIMULATOR -->
 <section id="financiacion" class="w-full px-gutter-mobile lg:px-margin py-space-xl bg-surface-container-lowest border-t border-surface-container-high scroll-mt-20">
   <div class="max-w-[1400px] mx-auto">
     <div class="rounded-2xl bg-surface-container border border-surface-container-high p-6 lg:p-10 shadow-2xl relative overflow-hidden">
@@ -361,6 +374,173 @@
     </div>
   </div>
 </section>
+
+{% elif es_tattoo %}
+<!-- TATTOO STYLE & TIME ESTIMATOR -->
+<section id="estimador" class="w-full px-gutter-mobile lg:px-margin py-space-xl bg-surface-container-lowest border-t border-surface-container-high scroll-mt-20">
+  <div class="max-w-[1400px] mx-auto">
+    <div class="rounded-2xl bg-surface-container border border-surface-container-high p-6 lg:p-10 shadow-2xl relative overflow-hidden">
+      <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-primary-container/10 blur-3xl pointer-events-none"></div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7 flex flex-col gap-4">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-surface-container-low border border-surface-container-high w-fit font-mono text-xs text-primary font-bold uppercase">
+            <span class="material-symbols-outlined text-[16px]">tune</span>
+            <span>ESTIMADOR DE TATUAJE & ESTILO</span>
+          </div>
+          <h3 class="font-headline-lg text-2xl lg:text-3xl font-bold uppercase text-on-surface tracking-tight">
+            Planifica tu pieza antes de entrar al box
+          </h3>
+          <p class="font-body-md text-secondary text-sm lg:text-base max-w-xl">
+            Selecciona el tamaño y estilo de tu diseño para estimar el tiempo aproximado de sesión y recibir asesoramiento directo en {{ negocio.ciudad }}.
+          </p>
+
+          <!-- Selector Tamaño -->
+          <div class="flex flex-col gap-2 mt-2">
+            <span class="font-mono text-xs text-secondary uppercase">Tamaño estimado:</span>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              <button onclick="setTattooTamano('Micro (<5cm)', '45m - 1h 15m', this)" class="tattoo-tamano-btn p-3 rounded font-mono text-xs border-2 border-primary-container bg-primary-container/20 text-on-surface font-bold transition text-left">
+                <div>Micro</div>
+                <div class="text-[10px] text-primary">&lt; 5 cm</div>
+              </button>
+              <button onclick="setTattooTamano('Mediano (5-15cm)', '1h 30m - 2h 30m', this)" class="tattoo-tamano-btn p-3 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface transition text-left">
+                <div>Mediano</div>
+                <div class="text-[10px] text-outline">5 - 15 cm</div>
+              </button>
+              <button onclick="setTattooTamano('Grande (15-25cm)', '3h - 4h 30m', this)" class="tattoo-tamano-btn p-3 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface transition text-left">
+                <div>Grande</div>
+                <div class="text-[10px] text-outline">15 - 25 cm</div>
+              </button>
+              <button onclick="setTattooTamano('Proyecto / Manga (25cm+)', 'Sesiones múltiples', this)" class="tattoo-tamano-btn p-3 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface transition text-left">
+                <div>Manga</div>
+                <div class="text-[10px] text-outline">25+ cm</div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Selector Estilo -->
+          <div class="flex flex-col gap-2 mt-2">
+            <span class="font-mono text-xs text-secondary uppercase">Estilo técnico:</span>
+            <div class="flex flex-wrap gap-2">
+              <button onclick="setTattooEstilo('Fineline / Trazo Fino', this)" class="tattoo-estilo-btn px-3 py-1.5 rounded font-mono text-xs border-2 border-primary-container bg-primary-container/20 text-on-surface font-bold transition">Fineline</button>
+              <button onclick="setTattooEstilo('Blackwork / Sombras', this)" class="tattoo-estilo-btn px-3 py-1.5 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface transition">Blackwork</button>
+              <button onclick="setTattooEstilo('Ilustración / Dotwork', this)" class="tattoo-estilo-btn px-3 py-1.5 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface transition">Ilustración</button>
+              <button onclick="setTattooEstilo('Cover-Up / Cobertura', this)" class="tattoo-estilo-btn px-3 py-1.5 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface transition">Cover-Up</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna Resumen Estimador -->
+        <div class="lg:col-span-5 rounded-xl bg-surface-container-lowest border border-surface-container-high p-6 flex flex-col items-center justify-center text-center gap-4 shadow-xl">
+          <span class="font-mono text-xs text-outline uppercase tracking-widest">TIEMPO ESTIMADO EN BOX</span>
+          <div class="flex items-baseline gap-1">
+            <span id="tattooTiempoEl" class="text-3xl lg:text-4xl font-mono font-bold text-on-surface">45m - 1h 15m</span>
+          </div>
+          <span id="tattooDetalleEl" class="text-xs font-mono text-primary">Fineline / Trazo Fino</span>
+          <span class="text-[11px] font-mono text-secondary">Material 100% esterilizado monopack • Asesoramiento previo</span>
+          
+          <button onclick="consultarTattooWhatsApp()" class="w-full mt-2 py-3.5 rounded bg-primary-container hover:bg-primary-fixed text-on-primary-container font-label-lg uppercase tracking-wider font-bold shadow-lg transition flex items-center justify-center gap-2 cursor-pointer">
+            <span class="material-symbols-outlined text-[18px]">chat</span>
+            <span>Consultar Esta Idea por WhatsApp</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% elif es_barber %}
+<!-- BARBER SERVICE SELECTOR -->
+<section id="estimador" class="w-full px-gutter-mobile lg:px-margin py-space-xl bg-surface-container-lowest border-t border-surface-container-high scroll-mt-20">
+  <div class="max-w-[1400px] mx-auto">
+    <div class="rounded-2xl bg-surface-container border border-surface-container-high p-6 lg:p-10 shadow-2xl relative overflow-hidden">
+      <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-primary-container/10 blur-3xl pointer-events-none"></div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7 flex flex-col gap-4">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-surface-container-low border border-surface-container-high w-fit font-mono text-xs text-primary font-bold uppercase">
+            <span class="material-symbols-outlined text-[16px]">content_cut</span>
+            <span>SELECTOR DE SERVICIO & RITUAL</span>
+          </div>
+          <h3 class="font-headline-lg text-2xl lg:text-3xl font-bold uppercase text-on-surface tracking-tight">
+            Elige tu corte o ritual de barba
+          </h3>
+          <p class="font-body-md text-secondary text-sm lg:text-base max-w-xl">
+            Corte clásico, degradados fade milimétricos y afeitado tradicional a navaja con toalla caliente en {{ negocio.ciudad }}.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
+            <button onclick="setBarberServicio('Corte Clásico / Fade', '30-40 min', this)" class="barber-btn p-3 rounded font-mono text-xs border-2 border-primary-container bg-primary-container/20 text-on-surface font-bold text-left transition">
+              <div class="font-bold">Corte Clásico / Fade</div>
+              <div class="text-[11px] text-primary">Degradado a tijera o máquina</div>
+            </button>
+            <button onclick="setBarberServicio('Arreglo de Barba Ritual', '25-35 min', this)" class="barber-btn p-3 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface text-left transition">
+              <div class="font-bold">Arreglo de Barba</div>
+              <div class="text-[11px] text-outline">Perfilado &amp; toalla caliente</div>
+            </button>
+            <button onclick="setBarberServicio('Combo Completo Corte + Barba', '50-60 min', this)" class="barber-btn p-3 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface text-left transition">
+              <div class="font-bold">Combo Corte + Barba</div>
+              <div class="text-[11px] text-outline">Experiencia integral premium</div>
+            </button>
+            <button onclick="setBarberServicio('Tratamiento Capilar & Peinado', '20-30 min', this)" class="barber-btn p-3 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface text-left transition">
+              <div class="font-bold">Tratamiento &amp; Peinado</div>
+              <div class="text-[11px] text-outline">Lavado, masaje y fijación</div>
+            </button>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 rounded-xl bg-surface-container-lowest border border-surface-container-high p-6 flex flex-col items-center justify-center text-center gap-4 shadow-xl">
+          <span class="font-mono text-xs text-outline uppercase tracking-widest">SERVICIO SELECCIONADO</span>
+          <div id="barberServicioEl" class="text-xl lg:text-2xl font-mono font-bold text-on-surface">Corte Clásico / Fade</div>
+          <span id="barberTiempoEl" class="text-xs font-mono text-primary">Duración estimada: 30-40 min</span>
+          <span class="text-[11px] font-mono text-secondary">Atención puntual sin esperas con cita previa</span>
+          
+          <button onclick="reservarBarberWhatsApp()" class="w-full mt-2 py-3.5 rounded bg-primary-container hover:bg-primary-fixed text-on-primary-container font-label-lg uppercase tracking-wider font-bold shadow-lg transition flex items-center justify-center gap-2 cursor-pointer">
+            <span class="material-symbols-outlined text-[18px]">calendar_month</span>
+            <span>Reservar Este Servicio</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% else %}
+<!-- GENERAL ESTIMATOR -->
+<section id="estimador" class="w-full px-gutter-mobile lg:px-margin py-space-xl bg-surface-container-lowest border-t border-surface-container-high scroll-mt-20">
+  <div class="max-w-[1400px] mx-auto">
+    <div class="rounded-2xl bg-surface-container border border-surface-container-high p-6 lg:p-10 shadow-2xl relative overflow-hidden">
+      <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-primary-container/10 blur-3xl pointer-events-none"></div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7 flex flex-col gap-4">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-surface-container-low border border-surface-container-high w-fit font-mono text-xs text-primary font-bold uppercase">
+            <span class="material-symbols-outlined text-[16px]">verified</span>
+            <span>VALORACIÓN & ASESORAMIENTO DIRECTO</span>
+          </div>
+          <h3 class="font-headline-lg text-2xl lg:text-3xl font-bold uppercase text-on-surface tracking-tight">
+            Consulta disponibilidad y presupuesto a medida
+          </h3>
+          <p class="font-body-md text-secondary text-sm lg:text-base max-w-xl">
+            Respuesta rápida sin compromiso en {{ negocio.ciudad }}. Cuéntanos tu proyecto y te responderemos con opciones y fechas disponibles.
+          </p>
+        </div>
+
+        <div class="lg:col-span-5 rounded-xl bg-surface-container-lowest border border-surface-container-high p-6 flex flex-col items-center justify-center text-center gap-4 shadow-xl">
+          <span class="font-mono text-xs text-outline uppercase tracking-widest">ATENCIÓN DIRECTA</span>
+          <div class="text-2xl font-mono font-bold text-on-surface">{{ negocio.nombre }}</div>
+          <span class="text-xs font-mono text-primary">Atención personalizada en {{ negocio.ciudad }}</span>
+          
+          <button onclick="abrirModalPresupuesto('Consulta General')" class="w-full mt-2 py-3.5 rounded bg-primary-container hover:bg-primary-fixed text-on-primary-container font-label-lg uppercase tracking-wider font-bold shadow-lg transition flex items-center justify-center gap-2 cursor-pointer">
+            <span class="material-symbols-outlined text-[18px]">chat</span>
+            <span>Pedir Información por WhatsApp</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
 <!-- 05 // BOX HEADQUARTERS & CONTACT SPLIT -->
 <section class="w-full px-gutter-mobile lg:px-margin py-space-xl bg-surface-container-lowest border-t border-surface-container-high" id="contacto">
 <div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
@@ -520,11 +700,27 @@
 
       <div class="faq-item rounded-lg bg-surface-container border border-surface-container-high overflow-hidden transition-all">
         <button onclick="toggleFaq(this)" class="w-full px-5 py-4 flex items-center justify-between text-left font-headline-sm text-sm sm:text-base font-semibold text-on-surface hover:text-primary transition cursor-pointer">
+          {% if es_taller %}
           <span>¿Disponéis de opciones de financiación o pago a plazos?</span>
+          {% elif es_tattoo %}
+          <span>¿Cómo calculáis el presupuesto y tiempo de un tatuaje?</span>
+          {% elif es_barber %}
+          <span>¿Es necesario reservar cita previa o atendéis sin reserva?</span>
+          {% else %}
+          <span>¿Cómo se realiza el presupuesto y reserva de fecha?</span>
+          {% endif %}
           <span class="material-symbols-outlined faq-icon text-primary transition-transform">expand_more</span>
         </button>
         <div class="faq-content hidden px-5 pb-4 text-xs sm:text-sm text-secondary font-body-sm border-t border-surface-container-high/50 pt-3">
+          {% if es_taller %}
           Sí. Ofrecemos planes de financiación a medida en cómodas cuotas de 12 a 60 meses con condiciones muy ventajosas y respuesta de aprobación en menos de 24 horas.
+          {% elif es_tattoo %}
+          El presupuesto se valora en función del tamaño, nivel de detalle técnico, zona corporal y horas estimadas de sesión en box. Puedes usar nuestro estimador o escribirnos por WhatsApp para recibir una valoración personalizada sin compromiso.
+          {% elif es_barber %}
+          Trabajamos prioritariamente con cita previa concertada para garantizar puntualidad sin tiempos muertos de espera, aunque si tenemos un hueco libre en agenda estaremos encantados de atenderte.
+          {% else %}
+          Contactamos directamente contigo para valorar los detalles de tu solicitud y te enviamos una propuesta cerrada y transparente con fechas disponibles.
+          {% endif %}
         </div>
       </div>
     </div>
@@ -947,6 +1143,56 @@
       content.classList.remove('hidden');
       if (icon) icon.style.transform = 'rotate(180deg)';
     }
+  }
+
+  
+  // Adaptive Tattoo Estimator Helpers
+  let tattooTamanoActual = 'Micro (<5cm)';
+  let tattooEstiloActual = 'Fineline / Trazo Fino';
+
+  function setTattooTamano(tamano, tiempo, btn) {
+    tattooTamanoActual = tamano;
+    document.querySelectorAll('.tattoo-tamano-btn').forEach(b => {
+      b.className = 'tattoo-tamano-btn p-3 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface transition text-left';
+    });
+    btn.className = 'tattoo-tamano-btn p-3 rounded font-mono text-xs border-2 border-primary-container bg-primary-container/20 text-on-surface font-bold transition text-left';
+    const tEl = document.getElementById('tattooTiempoEl');
+    if (tEl) tEl.innerText = tiempo;
+  }
+
+  function setTattooEstilo(estilo, btn) {
+    tattooEstiloActual = estilo;
+    document.querySelectorAll('.tattoo-estilo-btn').forEach(b => {
+      b.className = 'tattoo-estilo-btn px-3 py-1.5 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface transition';
+    });
+    btn.className = 'tattoo-estilo-btn px-3 py-1.5 rounded font-mono text-xs border-2 border-primary-container bg-primary-container/20 text-on-surface font-bold transition';
+    const dEl = document.getElementById('tattooDetalleEl');
+    if (dEl) dEl.innerText = estilo;
+  }
+
+  function consultarTattooWhatsApp() {
+    const msg = `Hola! Me gustaría consultar disponibilidad para un tatuaje estilo ${tattooEstiloActual}, tamaño aproximado ${tattooTamanoActual}. ¿Tenéis hueco disponible en agenda?`;
+    window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
+  }
+
+  // Adaptive Barber Selector Helpers
+  let barberServicioActual = 'Corte Clásico / Fade';
+
+  function setBarberServicio(nombre, tiempo, btn) {
+    barberServicioActual = nombre;
+    document.querySelectorAll('.barber-btn').forEach(b => {
+      b.className = 'barber-btn p-3 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface text-left transition';
+    });
+    btn.className = 'barber-btn p-3 rounded font-mono text-xs border-2 border-primary-container bg-primary-container/20 text-on-surface font-bold text-left transition';
+    const sEl = document.getElementById('barberServicioEl');
+    const tEl = document.getElementById('barberTiempoEl');
+    if (sEl) sEl.innerText = nombre;
+    if (tEl) tEl.innerText = 'Duración estimada: ' + tiempo;
+  }
+
+  function reservarBarberWhatsApp() {
+    const msg = `Hola! Me gustaría reservar cita para el servicio: ${barberServicioActual}. ¿Qué horarios tenéis disponibles esta semana?`;
+    window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
   }
 
   // Financing Simulator
