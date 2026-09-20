@@ -1,5 +1,40 @@
 [
   {
+    "id": "camp_1789934973",
+    "nombre": "Car Detailing · barcelona",
+    "categoria": "car detailing",
+    "ubicacion": "barcelona",
+    "created_at": "2026-09-20T20:09:33.368077+00:00",
+    "leads_count": 16,
+    "lead_ids": [
+      "1630365485",
+      "4400960925",
+      "4726080092",
+      "4728103490",
+      "4893899321",
+      "5093510580",
+      "5790143555",
+      "8263475319",
+      "9121704841",
+      "9913409040",
+      "10175898598",
+      "11228943103",
+      "11343832479",
+      "11343839233",
+      "12284899402",
+      "241726324"
+    ]
+  },
+  {
+    "id": "camp_1789934621",
+    "nombre": "Car Detailing · barcelona",
+    "categoria": "car detailing",
+    "ubicacion": "barcelona",
+    "created_at": "2026-09-20T20:03:41.949644+00:00",
+    "leads_count": 0,
+    "lead_ids": []
+  },
+  {
     "id": "camp_1789422964",
     "nombre": "Estudio De Tatuajes · barcelona",
     "categoria": "estudio de tatuajes",

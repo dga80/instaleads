@@ -69,7 +69,7 @@
     "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Sitio Web, Doctoralia, Directorio Local)",
     "mensaje_dm": "¡Hola equipo de Gesclident!\n\nSoy Daniel García. He visto vuestro trabajo y os he preparado una web demo interactiva adaptada a vuestro negocio para mostraros cómo potenciar vuestra presencia digital y captar clientes desde el móvil:\n\n👉\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
     "mensaje_seguimiento": "¡Hola de nuevo equipo de Gesclident!\n\nOs escribí hace un par de días con la propuesta web interactiva que preparé para vosotros:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "No Generar",
+    "estado": "Contactado",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
@@ -77,7 +77,8 @@
     "campana_id": "camp_init_1_1788888949",
     "campana_ids": [
       "camp_init_1_1788888949"
-    ]
+    ],
+    "enfoque_pitch": "dolor"
   },
   {
     "osm_id": "4728093794",
@@ -4926,6 +4927,1035 @@
     "campana_nombre": "Estudio De Tatuajes · barcelona",
     "campana_ids": [
       "camp_1789422964"
+    ]
+  },
+  {
+    "osm_id": "1630365485",
+    "nombre": "BRIGHT SERVICE",
+    "categoria": "car detailing (amenity:car_wash)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@bebrightbarcelona)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/bebrightbarcelona/",
+        "titulo": "Login • Instagram",
+        "snippet": "Welcome back to Instagram. Sign in to check out what your friends, family & interests have been capturing & sharing arou"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.dieselogasolina.com/Buscador/Ficha/2026",
+        "titulo": "Gasolinera BRIGHT SERVICE, CALLE CARRETERA REIAL, 62 en SANT JUST DESVERN (BARCELONA). Precio de los carburantes,horario,dirección",
+        "snippet": "Gasolinera BRIGHT SERVICE, CALLE CARRETERA REIAL, 62 en SANT JUST DESVERN (BARCELONA). Precio de los carburantes,horario"
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://empresite.eleconomista.es/BRIGHT-SERVICE.html",
+        "titulo": "Bright Service Sa - Teléfono y dirección | Empresite",
+        "snippet": "Regístrate en eInforma y te regalamos el Informe Ampliado de esta empresa. Ver Informe Ampliado de Bright Service Sa · C"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.iberinform.es/empresa/807800/bright-service",
+        "titulo": "BRIGHT SERVICE SA: CIF, Dirección y Ventas - Iberinform",
+        "snippet": "Opera principalmente en Comercio ... Sa usa el código 4730. Se ubica en Carretera Reial, en el municipio de Sant Just De"
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://www.einforma.com/informacion-empresa/bright-service",
+        "titulo": "Bright Service SA: consulte teléfono, CIF y dirección",
+        "snippet": "BRIGHT SERVICE SA tiene su sede y Domicilio social en la provincia de Barcelona, en la localidad de SANT JUST DESVERN."
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://www.qdq.com/bright-service-sa-73485",
+        "titulo": "Bright Service, S.A., Talleres de automóviles en Sant Just Desvern, Barcelona - qdq",
+        "snippet": "Encuentra toda la información de Bright Service, S.A., Talleres de automóviles en Sant Just Desvern, Barcelona"
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=BRIGHT+SERVICE+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=BRIGHT+SERVICE+Barcelona",
+    "gemini_verificado": false,
+    "gemini_razon": "El perfil de Instagram detectado (bebrightbarcelona) no corresponde a la empresa local Bright Service (taller y estación de servicio en Sant Just Desvern / Barcelona).",
+    "mensaje_dm": "",
+    "mensaje_seguimiento": "",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789934973",
+    "campana_nombre": "Car Detailing · barcelona",
+    "campana_ids": [
+      "camp_1789934973"
+    ]
+  },
+  {
+    "osm_id": "4400960925",
+    "nombre": "Premwash",
+    "categoria": "car detailing (amenity:car_wash)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://lawash.es/primera-lavanderia-la-wash-prime-en-barcelona/",
+        "titulo": "Primera lavandería La Wash Prime en Barcelona | La Wash",
+        "snippet": "March 25, 2025 - Nos complace anunciar que desde el 25 de marzo de 2025, está abierta al público la primera lavandería L"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://spain-streets.openalfa.com/barcelona_barcelones/car-services",
+        "titulo": "Services for cars in Barcelona, Barcelonès",
+        "snippet": "Homecarwash Carrer de Mandri, 52 ... 34 08018 · Mister Wash Carrer de Vinyals, 36 Phone: +34633330101 · Premwash Carrer "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.homecarwashbcn.com/",
+        "titulo": "Homecarwash: Inicio - Barcelona",
+        "snippet": "February 16, 2026 - “Llevaba mucho tiempo buscando un lugar en el centro Barcelona donde poder limpiar la moto y por fin"
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/lawashprovensals/",
+        "titulo": "La Wash Provençals | Barcelona | Facebook",
+        "snippet": "Provençals 251, Barcelona, Spain · lawash.es/lavanderia/barcelona/provencals-251-261 · Open now · Price Range · $ Not ye"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.ecologiccarwash.es/centro-ecologic-car-wash-premium-diagonal-barcelona/",
+        "titulo": "Centro Ecologic Car Wash Premium Diagonal (Barcelona)",
+        "snippet": "May 25, 2026 - Confía en nuestro equipo de Ecologic Car Wash Premium Barcelona el lavado y tratamiento de tu coche."
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/HomeCarWashBcn/",
+        "titulo": "HOMECARWASH | Barcelona | Facebook",
+        "snippet": "Calle Mallorca, 59, Barcelona, Spain · +34 934 10 57 96 · atencion.cliente@homecarwashbcn.com · homecarwashbcn.com · Ope"
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Premwash+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Premwash+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Sitio Web, Facebook)",
+    "mensaje_dm": "¡Hola equipo de Premwash!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉 https://...\n*(Enlace 100% seguro para verlo directamente en el navegador sin registros ni descargas)*.\n\n¿Qué os parece la propuesta? Si os resulta interesante, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Premwash!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil: https://...\n\nOs lo comparto de nuevo por si no pudisteis verlo y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789934973",
+    "campana_nombre": "Car Detailing · barcelona",
+    "campana_ids": [
+      "camp_1789934973"
+    ]
+  },
+  {
+    "osm_id": "4726080092",
+    "nombre": "Mister Wash",
+    "categoria": "car detailing (amenity:car_wash)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "+34633330101",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/misterwash24/",
+    "instagram_handle": "@misterwash24",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@misterwash24)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/misterwash24/",
+        "titulo": "MisterWash (@misterwash24) • Instagram photos and videos",
+        "snippet": "2 Followers, 0 Following, 15 Posts - MisterWash (@misterwash24) on Instagram: \"¡El mejor CarWash a domicilio!\""
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.autoyas.com/ES/Barcelona/1506023073025000/Mister-WASH",
+        "titulo": "Mister WASH, Barcelona (2025) - autoyas.com",
+        "snippet": "¿Quieres que tu empresa sea el Empresa De Automóviles mas cotizado en Barcelona?"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://es.locale.online/mister-wash-1502479078.html",
+        "titulo": "Míster Wash | Automotive | Barcelona",
+        "snippet": "Míster Wash in Barcelona - Contact details, Address Map, Photos, offers, Real time Reviews and Ratings"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.furniture1000.com/ES/Barcelona/1506023073025000/Mister-WASH",
+        "titulo": "Mister WASH, Barcelona (2026) - furniture1000.com",
+        "snippet": "Sé el primero en enterarse y déjanos enviarle un correo electrónico cuando Mister WASH publique noticias y promociones. "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://www.misterlavaggio.com/home/?lang=en",
+        "titulo": "Quality Home Car Wash - Mister Wash",
+        "snippet": "Mister Wash is the first home car wash that can be booked via app. You choose where and when to wash the car, we come to"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://mapcarta.com/N4726080092",
+        "titulo": "Mister Wash Map - Car wash - Horta-Guinardó, Barcelona ...",
+        "snippet": "Mister Wash is a car wash in Horta-Guinardó, Barcelona, Catalonia. Mister Wash is situated nearby to the community cente"
+      }
+    ],
+    "web_detectada": "https://www.misterlavaggio.com/home/?lang=en",
+    "google_search_url": "https://www.google.com/search?q=Mister+Wash+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mister+Wash+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Comercio local con web oficial activa (https://www.misterlavaggio.com/home/?lang=en)",
+    "mensaje_dm": "¡Hola equipo de Mister Wash!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://www.misterlavaggio.com/home/?lang=en), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Mister Wash!\n\nOs escribí hace un par de días con la propuesta de rediseño web demo interactiva que preparé a partir de vuestra página actual: https://...\n\nOs la comparto de nuevo por si se os pasó y queréis echarle un vistazo desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789934973",
+    "campana_nombre": "Car Detailing · barcelona",
+    "campana_ids": [
+      "camp_1789934973"
+    ]
+  },
+  {
+    "osm_id": "4728103490",
+    "nombre": "Ar-Limp",
+    "categoria": "car detailing (amenity:car_wash)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@popular)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/popular/",
+        "titulo": "Limp Bizkit Barcelona",
+        "snippet": "Welcome back to Instagram. Sign in to see what your friends, family and interests have been capturing and sharing around"
+      },
+      {
+        "tipo": "instagram",
+        "label": "Instagram",
+        "icono": "📸",
+        "url": "https://www.instagram.com/arlimpvr/",
+        "titulo": "ARLIMP (@arlimpvr) • Instagram photos and videos",
+        "snippet": "72 Followers, 34 Following, 47 Posts - ARLIMP (@arlimpvr) on Instagram: \"🌀 Ar Limp | Ar-Condicionado Mais saúde, mais co"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://mapcarta.com/es/N4728103490",
+        "titulo": "Ar-Limp - Mapa - Lavado autoservicio - Distrito de San Martín ...",
+        "snippet": "Ar-Limp es un lavado autoservicio en Distrito de San Martín, Barcelona, Cataluña. Ar-Limp está situada circa de Plaça de"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://mapy.com/en/?source=osm&id=1075403238",
+        "titulo": "Ar-Limp (Car wash) • Mapy.com",
+        "snippet": "Ar-Limp (Car wash) Map - detailed map of the area (base, outdoor, aerial, panorama, etc.), route planning, GPS, and much"
+      },
+      {
+        "tipo": "instagram",
+        "label": "Instagram",
+        "icono": "📸",
+        "url": "https://www.instagram.com/arlimp__/",
+        "titulo": "AR LIMP / Higienização em Ar-condicionado (@arlimp ... - Instagram",
+        "snippet": "882 Followers, 1,634 Following, 184 Posts - See Instagram photos and videos from AR LIMP / Higienização em Ar-condiciona"
+      },
+      {
+        "tipo": "instagram",
+        "label": "Instagram",
+        "icono": "📸",
+        "url": "https://www.instagram.com/_arlimp/",
+        "titulo": "Ar Limp (@_arlimp) • Instagram photos and videos",
+        "snippet": "0 Followers, 3 Following, 2 Posts - Ar Limp (@_arlimp) on Instagram: \"\""
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Ar-Limp+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Ar-Limp+Barcelona",
+    "gemini_verificado": false,
+    "gemini_razon": "El perfil de Instagram detectado no corresponde al negocio local (se detectó Limp Bizkit / perfiles ajenos de aire acondicionado en Brasil en lugar del lavado de coches de Barcelona).",
+    "mensaje_dm": "",
+    "mensaje_seguimiento": "",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789934973",
+    "campana_nombre": "Car Detailing · barcelona",
+    "campana_ids": [
+      "camp_1789934973"
+    ]
+  },
+  {
+    "osm_id": "4893899321",
+    "nombre": "LIMAF",
+    "categoria": "car detailing (amenity:car_wash)",
+    "direccion": "Avinguda Meridiana 34",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "08018",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@limafliga)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/limafliga/",
+        "titulo": "Limaf Liga (@limafliga) • Instagram photos and videos",
+        "snippet": "297 Followers, 137 Following, 13 Posts - Limaf Liga (@limafliga) on Instagram: \"\""
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.flylevel.com/es-es/vuelos/vuelos-directos-de-lima-a-barcelona",
+        "titulo": "Vuelos directos de Lima (LIM) a Barcelona (BCN) con LEVEL",
+        "snippet": "Sí, LEVEL ofrece vuelos directos entre el Aeroport Internacional Jorge Chávez (LIM) y el Josep Tarradellas Barcelona-El "
+      },
+      {
+        "tipo": "social",
+        "label": "Enlace Externo",
+        "icono": "🔗",
+        "url": "https://www.google.com/travel/flights/flights-from-lima-to-barcelona.html",
+        "titulo": "Find Cheap Flights from Lima to Barcelona (LIM - BCN ... - Google",
+        "snippet": "Use Google Flights to find cheap flights from Lima to Barcelona, and book tickets for your next trip."
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.flylevel.com/en-us/flights/lima-barcelona-direct-flight",
+        "titulo": "Direct flights from Lima (LIM) to Barcelona (BCN) with LEVEL",
+        "snippet": "Yes, LEVEL offers direct flights between Jorge Chávez International Airport (LIM) and Josep Tarradellas Barcelona-El Pra"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.flightconnections.com/flights-from-lim-to-bcn",
+        "titulo": "Flights from Lima to Barcelona: LIM to BCN Flights + Flight ...",
+        "snippet": "2 days ago · All direct (non-stop) flights from Lima to Barcelona. See airlines, aircrafts, flight time and distance, fl"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.skyscanner.es/rutas-aereas/lim/bcn/lima-a-barcelona.html",
+        "titulo": "Vuelos baratos de Lima (LIM) a Barcelona (BCN) | Skyscanner",
+        "snippet": "¿Estás buscando vuelos baratos de Lima a Barcelona? Compara y encuentra las mejores opciones en el buscador de vuelos Sk"
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=LIMAF+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=LIMAF+Barcelona",
+    "gemini_verificado": false,
+    "gemini_razon": "No se puede verificar la correspondencia del negocio en Barcelona; los enlaces detectados corresponden a vuelos entre Lima y Barcelona y el perfil de Instagram carece de datos concluyentes de ubicación.",
+    "mensaje_dm": "",
+    "mensaje_seguimiento": "",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789934973",
+    "campana_nombre": "Car Detailing · barcelona",
+    "campana_ids": [
+      "camp_1789934973"
+    ]
+  },
+  {
+    "osm_id": "5093510580",
+    "nombre": "HomeCarWash",
+    "categoria": "car detailing (amenity:car_wash)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/homecarwashbcn/",
+    "instagram_handle": "@homecarwashbcn",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@homecarwashbcn)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/homecarwashbcn/",
+        "titulo": "HOMECARWASH (@homecarwashbcn) • Instagram photos and videos",
+        "snippet": "3,917 Followers, 3,565 Following, 639 Posts - HOMECARWASH (@homecarwashbcn) on Instagram: \"📍2 centros en #Barcelona 🚗 & "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://www.homecarwashbcn.com/",
+        "titulo": "Inicio - Homecarwash",
+        "snippet": "Centro de lavado de coches y motos en Barcelona. Referentes en la limpieza de vehículos gracias a la oferta personalizad"
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/HomeCarWashBcn/",
+        "titulo": "HOMECARWASH | Barcelona - FacebookLavadero HOMECARWASH en Barcelona - lavaduu.comServicios - HomecarwashHOMECARWASH, Calle Mallorca, 59, Barcelona (2026)Homecarwash - lavaderosdecoches.comHOMECARWASH (@homecarwashbcn) • Instagram photos and videos",
+        "snippet": "En Home Car Wash BCN realizamos una limpieza profunda de tapicerías utilizando productos específicos para limpiar, higie"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://lavaduu.com/lavadero-coches/servicio-de-lavado-de-coches-homecarwash-barcelona/",
+        "titulo": "Lavadero HOMECARWASH en Barcelona - lavaduu.com",
+        "snippet": "Homecarwash son centros de lavado automatico de vehiculos ubicados en el centro de Barcelona. Nuestro objetivo principal"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.homecarwashbcn.com/servicios/",
+        "titulo": "Servicios - Homecarwash",
+        "snippet": "“Llevaba mucho tiempo buscando un lugar en el centro Barcelona donde poder limpiar la moto y por fin lo he encontrado! Y"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.autoyas.com/ES/Barcelona/408338866039239/HOMECARWASH",
+        "titulo": "HOMECARWASH, Calle Mallorca, 59, Barcelona (2026)Homecarwash - lavaderosdecoches.comHOMECARWASH (@homecarwashbcn) • Instagram photos and videos",
+        "snippet": "Jul 9, 2026 · En Home Car Wash BCN realizamos una limpieza profunda de tapicerías utilizando productos específicos para "
+      }
+    ],
+    "web_detectada": "https://www.homecarwashbcn.com/",
+    "google_search_url": "https://www.google.com/search?q=HomeCarWash+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=HomeCarWash+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Comercio local con web oficial activa (https://www.homecarwashbcn.com/)",
+    "mensaje_dm": "¡Hola equipo de HomeCarWash!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://www.homecarwashbcn.com/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de HomeCarWash!\n\nOs escribí hace un par de días con la propuesta de rediseño web demo interactiva que preparé a partir de vuestra página actual: https://...\n\nOs lo comparto de nuevo por si no pudisteis verlo y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789934973",
+    "campana_nombre": "Car Detailing · barcelona",
+    "campana_ids": [
+      "camp_1789934973"
+    ]
+  },
+  {
+    "osm_id": "5790143555",
+    "nombre": "Auto rentat Navas",
+    "categoria": "car detailing (amenity:car_wash)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@navasrentalcars)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/navasrentalcars/",
+        "titulo": "Navas Rental Cars (@navasrentalcars) - Instagram",
+        "snippet": "13 Followers, 14 Following, 20 Posts - Navas Rental Cars (@navasrentalcars) on Instagram: \"Navas Rental Cars su mejor op"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://mapcarta.com/es/N5790143555",
+        "titulo": "Auto rentat Navas - Mapa - Lavado autoservicio - Distrito de ...",
+        "snippet": "Auto rentat Navas es un lavado autoservicio en Distrito de San Martín, Barcelona, Cataluña. Auto rentat Navas se encuent"
+      },
+      {
+        "tipo": "social",
+        "label": "Enlace Externo",
+        "icono": "🔗",
+        "url": "https://yandex.com/maps/org/auto_rentat_navas/203161479641/",
+        "titulo": "Auto Rentat Navas, car wash, Comunidad Autònoma de ... - Yandex",
+        "snippet": "Car wash Auto Rentat Navas Comunidad Autònoma de Cataluña, Barcelona, Carrer de Mallorca, ☎️ +34 934 08 54 97. View work"
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/autolavadonavas/",
+        "titulo": "Autolavado Navas | Barcelona - FacebookAutolavado Navas (Barcelona) | RusticarAuto rentat Navas Map - Car wash - Sant Martí, Barcelona ...Lavadero Autolavado Navas en Barcelona - lavaduu.comCómo llegar a Auto Rentat Navas en España, Catalunya ...Car Rental in Barcelona with Navas",
+        "snippet": "Dec 27, 2017 · Autolavado Navas Autolavado Navas es un centre de rentat i manteniment del... Jun 10, 2024 · Descubre Aut"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://rusticar.es/servicio-coches/autolavado-navas-barcelona/",
+        "titulo": "Autolavado Navas (Barcelona) | RusticarAuto rentat Navas Map - Car wash - Sant Martí, Barcelona ...Lavadero Autolavado Navas en Barcelona - lavaduu.comCómo llegar a Auto Rentat Navas en España, Catalunya ...",
+        "snippet": "Jun 10, 2024 · Descubre Autolavado Navas, tu lugar de confianza para el cuidado y limpieza de tu vehículo en Barcelona. "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://mapcarta.com/N5790143555",
+        "titulo": "Auto rentat Navas Map - Car wash - Sant Martí, Barcelona ...",
+        "snippet": "Auto rentat Navas is a car wash in Sant Martí, Barcelona, Catalonia. Auto rentat Navas is situated nearby to the school "
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Auto+rentat+Navas+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Auto+rentat+Navas+Barcelona",
+    "gemini_verificado": false,
+    "gemini_razon": "El perfil de Instagram detectado corresponde a una empresa de alquiler de coches (Navas Rental Cars) y no al autolavado local Auto rentat Navas en Barcelona.",
+    "mensaje_dm": "",
+    "mensaje_seguimiento": "",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789934973",
+    "campana_nombre": "Car Detailing · barcelona",
+    "campana_ids": [
+      "camp_1789934973"
+    ]
+  },
+  {
+    "osm_id": "12284899402",
+    "nombre": "Hanna",
+    "categoria": "car detailing (amenity:car_wash)",
+    "direccion": "Carrer de València 378",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://hanna.cat/es/",
+        "titulo": "Hanna - Tu centro de lavado de coches cerca de mí",
+        "snippet": "Líderes en el servicio de limpieza de vehículos en Barcelona, llevamos más de 35 años de experiencia en el sector del la"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://hanna.cat/es/centros-de-lavado",
+        "titulo": "Centros de lavado de coches en Barcelona - hanna.cat",
+        "snippet": "Encuentra tu centro de lavado de coche en Barcelona: Sarrià, Diagonal, Aragó y Ronda 6. Abierto todos los días de lunes "
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/hanna.barcelona.798/",
+        "titulo": "Hanna Barcelona - Facebook",
+        "snippet": "Hanna Barcelona. 2,702 likes · 4 talking about this. 햙햍햊 햑햆햘햙 했햗햚햘햆행햊 햋햔햗 햞햔햚햗 햇햑햔햔행 ⚔️ 懶 ️⚔️"
+      },
+      {
+        "tipo": "social",
+        "label": "Enlace Externo",
+        "icono": "🔗",
+        "url": "https://www.yelp.com/biz/lavado-suave-hanna-barcelona-5",
+        "titulo": "Lavado Suave Hanna - Barcelona, B - Yelp",
+        "snippet": "Established in 1980. Lavado Suave Hanna nació hace más de 30 años ofreciendo el servicio de lavado de vehículos en Barce"
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/hannalavadosuave/",
+        "titulo": "Lavado Suave Hanna - Facebook",
+        "snippet": "Lavado Suave Hanna. 1,321 likes · 30 talking about this · 75 were here. Expertos en lavado de coche en Barcelona. Lavamo"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.findglocal.com/ES/Barcelona/146780662031660/Lavado-Suave-Hanna",
+        "titulo": "Lavado Suave Hanna, Barcelona (2026) - Find Local Businesses",
+        "snippet": "En Hanna usamos agua osmotizada en el aclarado final para reducir marcas, mejorar el brillo y dejar un acabado más limpi"
+      }
+    ],
+    "web_detectada": "https://hanna.cat/es/",
+    "google_search_url": "https://www.google.com/search?q=Hanna+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Hanna+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Sitio Web Detectado, Sitio Web, Facebook, Enlace Externo)",
+    "mensaje_dm": "¡Hola equipo de Hanna!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://hanna.cat/es/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Hanna!\n\nOs escribí hace un par de días con la propuesta de rediseño y modernización mobile-first para vuestra web actual (https://hanna.cat/es/):\n\n👉 https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789934973",
+    "campana_nombre": "Car Detailing · barcelona",
+    "campana_ids": [
+      "camp_1789934973"
+    ]
+  },
+  {
+    "osm_id": "9121704841",
+    "nombre": "Ecochelimpio.es",
+    "categoria": "car detailing (amenity:car_wash)",
+    "direccion": "Avinguda de Josep Anselm Clavé 11",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/ecochelimpio.es/",
+    "instagram_handle": "@ecochelimpio.es",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@ecochelimpio.es)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/ecochelimpio.es/",
+        "titulo": "Ecochelimpio (@ecochelimpio.es) • Instagram photos and videosEcochelimpio (@ecochelimpio.es) • Instagram photos and videosInstagramEcochelimpio | Además de dar brillo y cuidar la carrocería ...Ecochelimpio | Echas de menos los reflejos en la carrocería ...Ecochelimpio | Nuestro día a día. Tanto si quieres una sesión ...Ecochelimpio | Tanto como para limpiezas básicas, como para ...",
+        "snippet": "3,067 Followers, 2,291 Following, 345 Posts - Ecochelimpio (@ecochelimpio.es) on Instagram: \"El placer de #EseOloraNuevo"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://ecochelimpio.es/",
+        "titulo": "Inicio - Ecochelimpio.es",
+        "snippet": "En Ecochelimpio.es no trabajamos con una lógica de lavado rápido, básico y sin criterio. Primero entendemos qué necesita"
+      },
+      {
+        "tipo": "reserva",
+        "label": "Citas Online",
+        "icono": "📅",
+        "url": "https://ecochelimpio.es/mis-reservas/",
+        "titulo": "mis reservas - Ecochelimpio.es",
+        "snippet": "Consulta tus próximas citas, revisa los detalles de tu reserva y gestiona cambios disponibles desde tu panel de cliente."
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/ecochelimpio/",
+        "titulo": "Ecochelimpio.es | Martorell - FacebookEcochelimpio.es, Plaza Joan serrats, 6 (2025) - AutoYasEcochelimpio.es - Ya puedes reservar para nuestro centro ...Ecochelimpio.es - LinkedIn",
+        "snippet": "Jan 29, 2024 · Reserva tu cita en https://ecochelimpio.es. Tanto como para limpiezas básicas, como para limpiezas a fond"
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/ecochelimpio/posts/ya-puedes-reservar-para-nuestro-centro-ecochelimpioes-el-prat-httpselpratecochel/2283046128586911/",
+        "titulo": "Ecochelimpio.es - Ya puedes reservar para nuestro centro ...",
+        "snippet": "Jun 3, 2019 · Ya puedes reservar para nuestro centro ecochelimpio.es EL PRAT. https://elprat.ecochelimpio.es"
+      },
+      {
+        "tipo": "linkedin",
+        "label": "LinkedIn",
+        "icono": "💼",
+        "url": "https://www.linkedin.com/company/ecochelimpio-es",
+        "titulo": "Ecochelimpio.es - LinkedIn",
+        "snippet": "Company size 11-50 employees Headquarters Martorell, Barcelona Type Public Company Founded 2000 Specialties lavado de ve"
+      }
+    ],
+    "web_detectada": "https://ecochelimpio.es",
+    "google_search_url": "https://www.google.com/search?q=Ecochelimpio.es+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Ecochelimpio.es+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Comercio local con web oficial activa (https://ecochelimpio.es)",
+    "mensaje_dm": "¡Hola equipo de Ecochelimpio.es!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://ecochelimpio.es), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Ecochelimpio.es!\n\nOs escribí hace un par de días con la web demo interactiva que preparé, basada en el contenido de vuestra propia web actual (https://ecochelimpio.es):\n\n👉 https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789934973",
+    "campana_nombre": "Car Detailing · barcelona",
+    "campana_ids": [
+      "camp_1789934973"
+    ]
+  },
+  {
+    "osm_id": "9913409040",
+    "nombre": "Centros de Lavado Bravo. Hospitalet",
+    "categoria": "car detailing (amenity:car_wash)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Centros+de+Lavado+Bravo.+Hospitalet+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Centros+de+Lavado+Bravo.+Hospitalet+Barcelona",
+    "gemini_verificado": false,
+    "gemini_razon": "Sin Instagram ni presencia web detectada",
+    "mensaje_dm": "",
+    "mensaje_seguimiento": "",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789934973",
+    "campana_nombre": "Car Detailing · barcelona",
+    "campana_ids": [
+      "camp_1789934973"
+    ]
+  },
+  {
+    "osm_id": "10175898598",
+    "nombre": "Rentat suau",
+    "categoria": "car detailing (amenity:car_wash)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/suaubarcelona/",
+    "instagram_handle": "@suaubarcelona",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@suaubarcelona)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/suaubarcelona/",
+        "titulo": "Suau Barcelona (@suaubarcelona) • Instagram photos and videos",
+        "snippet": "663 Followers, 317 Following, 62 Posts - Suau Barcelona (@suaubarcelona) on Instagram: \"\""
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://rusticar.es/servicio-coches/rentat-suau-barcelona/",
+        "titulo": "Rentat Suau (Barcelona) | RusticarRentat Suau, Avinguda de Cerdanyola, 89, Barcelona, teléfono ...RENTAT SUAU ⇨ Tren de rentat de cotxes Sant Cugat del VallèsRentat Suau ⇨ Lavado de coches Sant Cugat del VallèsRentat Suau Hanna és l'empresa líder en la neteja de cotxes a ...Llençol de sota cotó rentat 135/140 cm - Casa | MANGO OUTLET ...Norval Bark Pack - BUFF",
+        "snippet": "Jun 10, 2024 · Rentat Suau es un servicio de lavado de coches ubicado en la Avinguda de Cerdanyola, 89, en Barcelona. Co"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://esopiniones.com/catalonia/rentat-suau-1744120",
+        "titulo": "Rentat Suau, Avinguda de Cerdanyola, 89, Barcelona, teléfono ...RENTAT SUAU ⇨ Tren de rentat de cotxes Sant Cugat del VallèsRentat Suau ⇨ Lavado de coches Sant Cugat del VallèsRentat Suau Hanna és l'empresa líder en la neteja de cotxes a ...Llençol de sota cotó rentat 135/140 cm - Casa | MANGO OUTLET ...Norval Bark Pack - BUFF",
+        "snippet": "Rentat Suau, Catalunya, Comentarios de clientes, mapa de ubicación, números de teléfono, horas de trabajo Nov 11, 2023 ·"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://rentatsuau.cat/",
+        "titulo": "RENTAT SUAU ⇨ Tren de rentat de cotxes Sant Cugat del Vallès",
+        "snippet": "Nov 11, 2023 · ☝ Túnel de Rentat 🗺️ Avda. de Cerdanyola, 89. Servei de recollida i lliurament a domicili. Rentat integra"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://rentatsuau.cat/es/",
+        "titulo": "Rentat Suau ⇨ Lavado de coches Sant Cugat del Vallès",
+        "snippet": "Nov 11, 2023 · CENTRO DE LAVADO EN SANT CUGAT Rentat Suau PRELAVADO Y SECADO MANUAL SEXTO LAVADO GRATUITO RECOGIDA Y ENT"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://hanna.cat/ca/content/4-sobre-nosaltres",
+        "titulo": "Rentat Suau Hanna és l'empresa líder en la neteja de cotxes a ...",
+        "snippet": "Hanna és líder en la neteja de cotxes a Barcelona amb 500.000 rentats a l'any, es basa en la qualitat, la rapidesa i el "
+      }
+    ],
+    "web_detectada": "https://rentatsuau.cat/",
+    "google_search_url": "https://www.google.com/search?q=Rentat+suau+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Rentat+suau+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Comercio local con web oficial activa (https://rentatsuau.cat/)",
+    "mensaje_dm": "¡Hola equipo de Rentat suau!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://rentatsuau.cat/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Rentat suau!\n\nOs escribí hace un par de días con la propuesta de rediseño interactivo que preparé para vuestra web: https://...\n\nOs la comparto de nuevo por si se os pasó y queréis revisarla cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789934973",
+    "campana_nombre": "Car Detailing · barcelona",
+    "campana_ids": [
+      "camp_1789934973"
+    ]
+  },
+  {
+    "osm_id": "11228943103",
+    "nombre": "Sprint Lavado",
+    "categoria": "car detailing (amenity:car_wash)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "https://www.instagram.com/sprint_lavadero/",
+    "instagram_handle": "@sprint_lavadero",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@sprint_lavadero)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/sprint_lavadero/",
+        "titulo": "Lavado y Estética Vehicular (@sprint_lavadero) - Instagram",
+        "snippet": "106 Followers, 169 Following, 37 Posts - See Instagram photos and videos from Lavado y Estética Vehicular (@sprint_lavad"
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Sprint+Lavado+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sprint+Lavado+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Comercio local independiente de lavado y estética vehicular en Barcelona, identificado en Instagram sin página web oficial activa.",
+    "mensaje_dm": "¡Hola! He estado viendo vuestro perfil de Instagram y el gran trabajo que hacéis con la estética y lavado de vehículos en Barcelona.\n\nMe he tomado la libertad de preparar una web demo interactiva utilizando el contenido de vuestra propia cuenta, pensada específicamente para potenciar vuestra imagen de marca y facilitar que los clientes os reserven o contacten directamente desde el móvil:\n\n👉 https://sprintlavado-demo.netlify.app\n*(Es un enlace 100% seguro para ver la propuesta en el navegador, sin descargas ni registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin ningún compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo!\n\nOs escribí hace un par de días y os compartí la web demo interactiva que preparé para Sprint Lavado: https://sprintlavado-demo.netlify.app\n\nOs la vuelvo a dejar por aquí por si no tuvisteis tiempo de echarle un vistazo desde el móvil.\n\n¿Os vendría bien que lo comentemos 2 minutos esta semana sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789934973",
+    "campana_nombre": "Car Detailing · barcelona",
+    "campana_ids": [
+      "camp_1789934973"
+    ]
+  },
+  {
+    "osm_id": "11343832479",
+    "nombre": "Cotxes",
+    "categoria": "car detailing (amenity:car_wash)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://es.wikipedia.org/wiki/Corte_de_Barcelona_(1599)",
+        "titulo": "Corte de Barcelona (1599)",
+        "snippet": "La Corte de Barcelona (1599) —también denominada muy frecuentemente como Cortes de Barcelona (1599)— fue una convocatori"
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Cotxes+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Cotxes+Barcelona",
+    "gemini_verificado": false,
+    "gemini_razon": "Sin Instagram. Presencia online detectada (1 fuentes: Sitio Web)",
+    "mensaje_dm": "",
+    "mensaje_seguimiento": "",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789934973",
+    "campana_nombre": "Car Detailing · barcelona",
+    "campana_ids": [
+      "camp_1789934973"
+    ]
+  },
+  {
+    "osm_id": "11343839233",
+    "nombre": "Tren de Rentat Letamendi",
+    "categoria": "car detailing (amenity:car_wash)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Tren+de+Rentat+Letamendi+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Tren+de+Rentat+Letamendi+Barcelona",
+    "gemini_verificado": false,
+    "gemini_razon": "Sin Instagram ni presencia web detectada",
+    "mensaje_dm": "¡Hola! Me pongo en contacto con vosotros porque he estado siguiendo vuestro trabajo en Instagram y me parece excelente la calidad que ofrecéis en Tren de Rentat Letamendi.\n\nSoy Daniel García, diseñador y desarrollador web en Barcelona. He preparado una web demo interactiva utilizando contenido de vuestro propio perfil de Instagram, pensada específicamente para potenciar vuestra imagen profesional y facilitar que los clientes os localicen y contacten directamente desde el móvil:\n\n👉 https://dga80.github.io/instaleads/tren-de-rentat-letamendi-barcelona/\n*(Es un enlace 100% seguro, libre de descargas o registros, para visualizar la propuesta directamente en el navegador)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin ningún tipo de compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo!\n\nOs escribo de forma muy breve para dar seguimiento al mensaje que os envié hace un par de días. Quería saber si habéis tenido un momento para echar un vistazo a la web demo interactiva que os preparé para Tren de Rentat Letamendi:\n\n👉 https://dga80.github.io/instaleads/tren-de-rentat-letamendi-barcelona/\n\n¿Os vendría bien que lo comentemos un par de minutos esta semana sin ningún compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Web Generada",
+    "demo_slug": "tren-de-rentat-letamendi-barcelona",
+    "demo_url": "https://dga80.github.io/instaleads/tren-de-rentat-letamendi-barcelona/",
+    "demo_vibe": "Urban Edge & Dark Tech (Tatuajes, Barberías, Talleres & Fitness)",
+    "campana_id": "camp_1789934973",
+    "campana_nombre": "Car Detailing · barcelona",
+    "campana_ids": [
+      "camp_1789934973"
+    ],
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/tren-de-rentat-letamendi-barcelona/",
+    "demo_url_publica": "https://dga80.github.io/instaleads/tren-de-rentat-letamendi-barcelona/",
+    "demo_fecha_creacion": "20/09/2026 22:19",
+    "demo_fecha_ts": 1789935570,
+    "extraccion_fuente": "curated_fallback",
+    "extraccion_aviso": "No se pudieron extraer fotos reales de Instagram (@Tren de Rentat Letamendi). Se ha generado la web con fotos de catálogo temáticas adaptadas a car detailing (amenity:car_wash).",
+    "extraccion_exitosa": false
+  },
+  {
+    "osm_id": "241726324",
+    "nombre": "Autolavado Entenza",
+    "categoria": "car detailing (amenity:car_wash)",
+    "direccion": "Carrer d'Entença 166",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "08029",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/autolavadoentenza/",
+    "instagram_handle": "@autolavadoentenza",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@autolavadoentenza)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/autolavadoentenza/",
+        "titulo": "𝗔𝗨𝗧𝗢𝗟𝗔𝗩𝗔𝗗𝗢 𝗘𝗡𝗧𝗘𝗡𝗭𝗔 | Cuidamos su vehículo como si fuera nuestro.# ...",
+        "snippet": "6 likes, 0 comments - autolavadoentenza on April 28, 2025: \"Cuidamos su vehículo como si fuera nuestro.#autolavado #carw"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://autolavadoentenza.com/",
+        "titulo": "Autolavado Entenza | Lavado de coches en Barcelona",
+        "snippet": "En Autolavado Entenza somos profesionales en el lavado de coches en Barcelona. Llevamos 25 años dedicando a tu coche el "
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/autolavadoentenza/",
+        "titulo": "Autolavado Entenza | Barcelona - FacebookServicios y precios - Autolavado EntenzaLavado de coches y Detailing en Barcelona | Autolavado ...Autolavado Entenza | Lavadero de coches y Limpieza de ...AutoLavado Entenza S.L. — Lavado de autos em BarcelonaAutolavado Entenza, Carrer d’Entença , 166, Barcelona (2026)",
+        "snippet": "Apr 24, 2026 · Autolavado Entenza, Barcelona. 1,063 likes · 34 were here. Autolavado Entenza es un centro privado especi"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://autolavadoentenza.com/servicios-y-precios",
+        "titulo": "Servicios y precios - Autolavado Entenza",
+        "snippet": "Servicios y precios Autolavado Entenza. Consulta nuestros servicios relacionados con la limpieza de vehículos. ¡Calidad "
+      },
+      {
+        "tipo": "reserva",
+        "label": "Citas Online",
+        "icono": "📅",
+        "url": "https://anothertool.es/reservas/autolavado-entenza-lavadero-de-coches-y-limpieza-de-vehiculo",
+        "titulo": "Lavado de coches y Detailing en Barcelona | Autolavado ...",
+        "snippet": "Reserva online en Autolavado Entenza | Lavadero de coches y Limpieza de vehículos, especializado en lavado de coches y d"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://rusticar.es/servicio-coches/autolavado-entenza-lavadero-de-coches-y-limpieza-de-vehiculos-barcelona/",
+        "titulo": "Autolavado Entenza | Lavadero de coches y Limpieza de ...AutoLavado Entenza S.L. — Lavado de autos em BarcelonaAutolavado Entenza, Carrer d’Entença , 166, Barcelona (2026)",
+        "snippet": "Jun 10, 2024 · Situado en el corazón de Barcelona, en la Calle Entenza, 166, en el barrio de Eixample, este servicio de "
+      }
+    ],
+    "web_detectada": "https://autolavadoentenza.com/",
+    "google_search_url": "https://www.google.com/search?q=Autolavado+Entenza+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Autolavado+Entenza+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Comercio local con web oficial activa (https://autolavadoentenza.com/)",
+    "mensaje_dm": "¡Hola equipo de Autolavado Entenza!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://autolavadoentenza.com/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Autolavado Entenza!\n\nOs escribí hace un par de días con la propuesta de rediseño y modernización mobile-first que preparé para vuestra web: https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis echarle un vistazo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789934973",
+    "campana_nombre": "Car Detailing · barcelona",
+    "campana_ids": [
+      "camp_1789934973"
     ]
   }
 ]
