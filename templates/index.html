@@ -3541,25 +3541,6 @@
       }
     }
 
-    function filtrarTabla() {
-      const q = document.getElementById('filtro-tabla').value.toLowerCase().trim();
-      let filtrados = todosLosLeads;
-      if (q) {
-        filtrados = todosLosLeads.filter(l => 
-          (l.nombre && l.nombre.toLowerCase().includes(q)) ||
-          (l.ciudad && l.ciudad.toLowerCase().includes(q)) ||
-          (l.provincia && l.provincia.toLowerCase().includes(q)) ||
-          (l.categoria && l.categoria.toLowerCase().includes(q)) ||
-          (l.codigo_postal && l.codigo_postal.includes(q))
-        );
-      }
-      if (vistaActual === 'kanban') {
-        renderizarKanban(filtrados);
-      } else {
-        renderizarTabla(filtrados);
-      }
-    }
-
     async function iniciarEscaneo(e) {
       e.preventDefault();
       const elLoc = document.getElementById('localidad');

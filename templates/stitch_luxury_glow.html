@@ -189,7 +189,7 @@
 </div>
 <!-- Dynamic Bento Grid from Instagram & Gemini -->
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter">
-  {% for s in web.servicios %}
+  {% for s in (web.servicios or []) %}
   <div class="{% if loop.first %}lg:col-span-7{% elif loop.index == 2 %}lg:col-span-5{% elif loop.index == 3 %}lg:col-span-5{% else %}lg:col-span-7{% endif %} flex flex-col justify-between p-space-lg sm:p-space-xl rounded-[24px] bg-surface-container-lowest border border-primary-container/30 shadow-[0_12px_36px_-10px_rgba(212,151,87,0.18)] relative overflow-hidden group">
     <div>
       <div class="flex items-center justify-between gap-2 mb-space-sm">
@@ -317,7 +317,7 @@
 </div>
 <!-- Dynamic Visual Grid from Instagram -->
 <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-space-sm sm:gap-gutter">
-  {% for post in ig.posts[:8] %}
+  {% for post in (ig.posts or [])[:8] %}
   <div class="group relative rounded-[20px] overflow-hidden aspect-[4/5] border border-primary-container/25 shadow-sm bg-surface-container cursor-pointer hover:border-primary-container/60 transition-all" onclick="abrirLightbox('{{ post.image_url }}', '{{ (post.caption or negocio.nombre)|replace('\'', '\\\'')|replace('\"', '&quot;') }}')">
     <img alt="{{ post.caption[:40] if post.caption else negocio.nombre }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" src="{{ post.image_url }}" loading="lazy" />
     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 sm:p-4">
@@ -658,7 +658,7 @@
         <label class="font-label-caps text-[11px] text-primary uppercase tracking-wider">Servicio o Tratamiento</label>
         <select name="servicio" id="modal-service-select" class="px-4 py-2.5 rounded-xl bg-[#24201c] border border-primary-container/30 text-on-surface text-sm focus:outline-none focus:border-primary transition">
           <option value="Consulta General">Asesoramiento / Diagnóstico Personalizado</option>
-          {% for s in web.servicios %}
+          {% for s in (web.servicios or []) %}
           <option value="{{ s.nombre }}">{{ s.nombre }}</option>
           {% endfor %}
         </select>

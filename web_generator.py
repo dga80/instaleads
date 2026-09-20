@@ -466,7 +466,7 @@ Publicaciones recientes en Instagram:
 
 Tu misión como Director de Diseño y Copywriting es decidir y estructurar el contenido en JSON:
 1. 'tema_predeterminado': Modo visual inicial ideal ("light" o "dark").
-2. 'arquetipo_diseno': Arquetipo visual más idóneo ("luxury_glow", "urban_edge", "warm_artisan", "clinical_trust", "craft_build").
+2. 'arquetipo_diseno': Arquetipo visual más idóneo: "urban_edge" (talleres, coches, motos, detailing, lavado, barberías, tatuajes, fitness/gimnasios), "luxury_glow" (estética, uñas, pestañas, alta cosmética, joyería, moda), "warm_artisan" (cafeterías, panaderías, restaurantes, bistrós), "clinical_trust" (dentistas, clínicas médicas, fisioterapia, veterinarias), "craft_build" (reformas, construcción, fontanería, carpintería).
 3. 'subnicho_cultural': Identifica el concepto cultural, gastronómico o especialidad exacta (ej. "colombiano", "mexicano", "italiano", "japones", "hamburgueseria", "panaderia_artesanal", "cafeteria_especialidad", "taller_motos", "taller_coches", "clinica_dental", "barberia", "peluqueria", "estetica_unas", "tatuajes", "reformas", "general").
 4. 'badge_status': Una frase de estado con emoji para el header (ej. "⚡ BOX DE TALLER ACTIVO • CITA RÁPIDA", "✨ CITAS ABIERTAS • AGENDA ONLINE").
 5. 'hero_badge_pill': Frase corta para la píldora superior del Hero adaptada exactamente a la especialidad u origen del negocio (ej. "🇨🇴 SABOR AUTÉNTICO COLOMBIANO • HECHO CON AMOR", "🥖 MASA MADRE & FERMENTACIÓN LENTA").

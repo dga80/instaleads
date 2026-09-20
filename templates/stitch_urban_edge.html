@@ -27,12 +27,15 @@
 </head><body class="bg-surface-container-lowest font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container">
 {% set cat_lower = (negocio.categoria or '')|lower %}
 {% set nom_lower = (negocio.nombre or '')|lower %}
-{% set es_taller = ('taller' in cat_lower or 'moto' in cat_lower or 'coche' in cat_lower or 'mecanic' in cat_lower or 'auto' in cat_lower or 'vehicul' in cat_lower or 'recambio' in cat_lower) %}
+{% set es_detailing = ('detail' in cat_lower or 'wash' in cat_lower or 'lavad' in cat_lower or 'tintad' in cat_lower or 'pulid' in cat_lower or 'vinil' in cat_lower or 'ppf' in cat_lower or 'detail' in nom_lower or 'rentat' in nom_lower or 'lavado' in nom_lower) %}
+{% set es_taller = ('taller' in cat_lower or 'moto' in cat_lower or 'coche' in cat_lower or 'mecanic' in cat_lower or 'auto' in cat_lower or 'vehicul' in cat_lower or 'recambio' in cat_lower) and not es_detailing %}
 {% set es_tattoo = ('tattoo' in cat_lower or 'tatuaj' in cat_lower or 'ink' in nom_lower or 'piercing' in cat_lower) %}
-{% set es_barber = ('barber' in cat_lower or 'peluquer' in cat_lower or 'estilist' in cat_lower) %}<header class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest/95 backdrop-blur-md border-b border-surface-container-high" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));"><div class="h-16 w-full px-gutter-mobile lg:px-margin flex items-center justify-between gap-space-sm lg:gap-space-md flex-nowrap"><div class="flex items-center gap-space-md shrink-0"><a class="flex items-center gap-space-sm group shrink-0" data-path="the-works" href="#inicio"><div class="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center shrink-0">{% if ig.avatar_url or ig.avatar %}<img src="{{ ig.avatar_url or ig.avatar }}" alt="{{ negocio.nombre }}" class="w-full h-full object-cover border border-primary/40 shadow-sm" />{% else %}<div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center text-on-primary-container font-headline-md text-headline-md leading-none shadow-[0_0_16px_rgba(249,115,22,0.35)]">⚡</div>{% endif %}</div><div class="flex flex-col shrink-0"><span class="font-headline-md text-body-md font-bold tracking-tight text-on-surface uppercase truncate max-w-[140px] xs:max-w-[170px] sm:max-w-xs md:max-w-none whitespace-nowrap">{{ negocio.nombre }}</span><span class="font-label-sm text-label-sm tracking-widest text-primary font-semibold -mt-1 whitespace-nowrap">// ATELIER</span></div></a><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-surface-container-low border border-surface-container-high shrink-0"><span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span><span class="font-label-sm text-label-sm text-secondary font-medium tracking-wider uppercase whitespace-nowrap">BOX ABIERTO / CITAS DISPONIBLES</span></div></div><nav class="hidden md:flex items-center gap-2 lg:gap-space-sm xl:gap-space-md whitespace-nowrap shrink-0" data-active-classes="bg-primary-container text-on-primary-container font-bold rounded-lg">
+{% set es_barber = ('barber' in cat_lower or 'peluquer' in cat_lower or 'estilist' in cat_lower) %}<header class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest/95 backdrop-blur-md border-b border-surface-container-high" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));"><div class="h-16 w-full px-gutter-mobile lg:px-margin flex items-center justify-between gap-space-sm lg:gap-space-md flex-nowrap"><div class="flex items-center gap-space-md shrink-0"><a class="flex items-center gap-space-sm group shrink-0" data-path="the-works" href="#inicio"><div class="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center shrink-0">{% if ig.avatar_url or ig.avatar %}<img src="{{ ig.avatar_url or ig.avatar }}" alt="{{ negocio.nombre }}" class="w-full h-full object-cover border border-primary/40 shadow-sm" />{% else %}<div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center text-on-primary-container font-headline-md text-headline-md leading-none shadow-[0_0_16px_rgba(249,115,22,0.35)]">⚡</div>{% endif %}</div><div class="flex flex-col shrink-0"><span class="font-headline-md text-body-md font-bold tracking-tight text-on-surface uppercase truncate max-w-[140px] xs:max-w-[170px] sm:max-w-xs md:max-w-none whitespace-nowrap">{{ negocio.nombre }}</span><span class="font-label-sm text-label-sm tracking-widest text-primary font-semibold -mt-1 whitespace-nowrap">// {{ 'CAR DETAILING' if es_detailing else ('STUDIO' if es_tattoo else ('TALLER' if es_taller else ('BARBERSHOP' if es_barber else 'PROFESIONAL'))) }}</span></div></a><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-surface-container-low border border-surface-container-high shrink-0"><span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span><span class="font-label-sm text-label-sm text-secondary font-medium tracking-wider uppercase whitespace-nowrap">{{ 'BOX DETAILING // CITAS ABIERTAS' if es_detailing else ('BOX ABIERTO / CITAS DISPONIBLES' if (es_taller or es_tattoo) else ('SILLÓN DISPONIBLE / CITA PREVIA' if es_barber else 'AGENDA ABIERTA / CITAS DISPONIBLES')) }}</span></div></div><nav class="hidden md:flex items-center gap-2 lg:gap-space-sm xl:gap-space-md whitespace-nowrap shrink-0" data-active-classes="bg-primary-container text-on-primary-container font-bold rounded-lg">
       <a class="px-2 lg:px-space-sm py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#galeria">The Works</a>
       <a class="px-2 lg:px-space-sm py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#servicios">Tarifas</a>
-      {% if es_taller %}
+      {% if es_detailing %}
+      <a class="px-2 lg:px-space-sm py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#estimador">Tratamientos &amp; PPF</a>
+      {% elif es_taller %}
       <a class="px-2 lg:px-space-sm py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#financiacion">Financiación</a>
       {% elif es_tattoo %}
       <a class="px-2 lg:px-space-sm py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#estimador">Estimador Tattoo</a>
@@ -43,7 +46,7 @@
       {% endif %}
       <a class="px-2 lg:px-space-sm py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#faq">FAQ</a>
       <a class="px-2 lg:px-space-sm py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#contacto">Contacto</a>
-    </nav><div class="flex items-center gap-2 lg:gap-space-md shrink-0"><button onclick="abrirModalPresupuesto('Consulta General')" class="hidden sm:inline-flex items-center justify-center px-3.5 lg:px-space-lg py-2 lg:py-space-sm rounded-lg bg-primary-container text-on-primary-container font-label-md text-xs lg:text-label-md uppercase tracking-wider font-bold shadow-[0_0_20px_rgba(249,115,22,0.35)] hover:bg-primary-fixed hover:text-on-primary-fixed transition-all whitespace-nowrap shrink-0 cursor-pointer"><span>{{ 'Solicitar Presupuesto' if ('whatsapp' in negocio.whatsapp_url or 'phone=' in negocio.whatsapp_url) else 'Contactar Directo' }}</span></button><div class="hidden sm:flex w-8 h-8 rounded-full bg-primary items-center justify-center overflow-hidden shrink-0">{% if ig.avatar_url or ig.avatar %}<img src="{{ ig.avatar_url or ig.avatar }}" alt="{{ negocio.nombre }}" class="w-full h-full object-cover" />{% else %}<span class="material-symbols-outlined text-on-primary text-[18px]">person</span>{% endif %}</div>
+    </nav><div class="flex items-center gap-2 lg:gap-space-md shrink-0"><button onclick="abrirModalPresupuesto('Consulta General')" class="hidden sm:inline-flex items-center justify-center px-3.5 lg:px-space-lg py-2 lg:py-space-sm rounded-lg bg-primary-container text-on-primary-container font-label-md text-xs lg:text-label-md uppercase tracking-wider font-bold shadow-[0_0_20px_rgba(249,115,22,0.35)] hover:bg-primary-fixed hover:text-on-primary-fixed transition-all whitespace-nowrap shrink-0 cursor-pointer"><span>{{ 'Solicitar Presupuesto' if ('whatsapp' in (negocio.whatsapp_url or '') or 'phone=' in (negocio.whatsapp_url or '')) else 'Contactar Directo' }}</span></button><div class="hidden sm:flex w-8 h-8 rounded-full bg-primary items-center justify-center overflow-hidden shrink-0">{% if ig.avatar_url or ig.avatar %}<img src="{{ ig.avatar_url or ig.avatar }}" alt="{{ negocio.nombre }}" class="w-full h-full object-cover" />{% else %}<span class="material-symbols-outlined text-on-primary text-[18px]">person</span>{% endif %}</div>
       <!-- Mobile Hamburger Button (On the RIGHT) -->
       <button id="hamburger-btn" onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition flex items-center justify-center border border-surface-container-high shadow-sm shrink-0 ml-1" aria-label="Abrir Menú" aria-expanded="false">
         <span class="material-symbols-outlined text-[24px]">menu</span>
@@ -74,7 +77,7 @@
 <!-- Dual CTA Row -->
 <div class="flex flex-wrap items-center gap-space-md mt-space-sm w-full sm:w-auto">
 <a class="inline-flex items-center justify-center gap-space-xs px-space-xl py-3.5 rounded-lg bg-primary-container text-on-primary-container font-label-lg text-label-lg uppercase tracking-wider font-bold shadow-[0_0_24px_rgba(249,115,22,0.3)] hover:bg-primary-fixed hover:text-on-primary-fixed hover:shadow-[0_0_32px_rgba(249,115,22,0.45)] transition-all" href="{{ negocio.whatsapp_url }}" target="_blank" rel="noopener">
-<span>{{ 'Solicitar Presupuesto Directo' if ('whatsapp' in negocio.whatsapp_url or 'phone=' in negocio.whatsapp_url) else 'Enviar Mensaje Directo' }}</span>
+<span>{{ 'Solicitar Presupuesto Directo' if ('whatsapp' in (negocio.whatsapp_url or '') or 'phone=' in (negocio.whatsapp_url or '')) else 'Enviar Mensaje Directo' }}</span>
 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
 </a>
 <a class="inline-flex items-center justify-center gap-space-xs px-space-lg py-3.5 rounded-lg bg-surface-container border border-surface-container-high text-on-surface font-label-lg text-label-lg uppercase tracking-wider font-semibold hover:border-primary-container hover:text-primary transition-all" href="{{ negocio.instagram_url or ('https://instagram.com/' ~ ig.username) }}" rel="noopener noreferrer" target="_blank">
@@ -219,8 +222,8 @@
 <div class="flex flex-wrap items-center gap-1.5 p-1 rounded-lg bg-surface-container border border-surface-container-high" id="portfolio-filters">
 <button onclick="filtrarGaleria('todos', this)" class="gallery-filter-btn px-3 py-1.5 rounded font-label-sm text-label-sm uppercase font-bold bg-primary-container text-on-primary-container transition-all">Todos</button>
 {% if web.servicios and web.servicios|length > 0 %}
-  {% for s in web.servicios[:3] %}
-  <button onclick="filtrarGaleria('cat-{{ loop.index }}', this)" class="gallery-filter-btn px-3 py-1.5 rounded font-label-sm text-label-sm uppercase font-semibold text-secondary hover:text-on-surface transition-colors">{{ s.nombre[:18] }}</button>
+  {% for s in (web.servicios or [])[:3] %}
+  <button onclick="filtrarGaleria('cat-{{ loop.index }}', this)" class="gallery-filter-btn px-3 py-1.5 rounded font-label-sm text-label-sm uppercase font-semibold text-secondary hover:text-on-surface transition-colors">{{ s.nombre }}</button>
   {% endfor %}
 {% else %}
   <button onclick="filtrarGaleria('cat-1', this)" class="gallery-filter-btn px-3 py-1.5 rounded font-label-sm text-label-sm uppercase font-semibold text-secondary hover:text-on-surface transition-colors">Destacados</button>
@@ -231,9 +234,9 @@
 </div>
 <!-- Dynamic Portfolio Cards from Instagram -->
 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-space-sm sm:gap-gutter" id="gallery-grid">
-  {% for post in ig.posts[:8] %}
+  {% for post in (ig.posts or [])[:8] %}
   <div class="gallery-card group relative aspect-[4/5] rounded-lg overflow-hidden bg-surface-container border border-surface-container-high hover:border-primary-container/60 transition-all duration-300 shadow-md cursor-pointer" data-category="cat-{{ (loop.index0 % 3) + 1 }}" onclick="abrirLightbox('{{ post.image_url }}', '{{ (post.caption or negocio.nombre)|replace('\'', '\\\'')|replace('\"', '&quot;') }}')">
-    <img alt="{{ post.caption[:30] if post.caption else negocio.nombre }}" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" src="{{ post.image_url }}" loading="lazy" />
+    <img alt="{{ post.caption[:40] if post.caption else negocio.nombre }}" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" src="{{ post.image_url }}" loading="lazy" />
     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent p-space-sm sm:p-space-md flex flex-col justify-end opacity-90 group-hover:opacity-100 transition-opacity">
       <div class="flex items-center justify-between text-primary font-mono text-[10px] sm:text-xs uppercase tracking-widest mb-1">
         <span>// ARCHIVE 0{{ loop.index }}</span>
@@ -264,7 +267,7 @@
 </div>
 <!-- Dynamic Pricing Matrix from Gemini -->
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter items-stretch">
-  {% for s in web.servicios[:3] %}
+  {% for s in (web.servicios or [])[:3] %}
   <div class="p-space-lg rounded-lg bg-surface-container {% if loop.index == 2 %}border-2 border-primary-container shadow-[0_0_32px_rgba(249,115,22,0.18)] relative transform lg:-translate-y-2{% else %}border border-surface-container-high{% endif %} flex flex-col justify-between">
     {% if loop.index == 2 %}
     <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-space-md py-0.5 rounded bg-primary-container text-on-primary-container font-label-sm text-label-sm font-bold uppercase tracking-widest">
@@ -273,7 +276,7 @@
     {% endif %}
     <div class="flex flex-col gap-space-md">
       <div class="flex items-center justify-between border-b border-surface-container-high pb-space-sm">
-        <span class="font-label-sm text-label-sm text-primary font-mono font-bold uppercase">TIER 0{{ loop.index }} // {{ s.nombre[:18]|upper }}</span>
+        <span class="font-label-sm text-label-sm text-primary font-mono font-bold uppercase">TIER 0{{ loop.index }} // {{ s.nombre|upper }}</span>
         <span class="px-2 py-0.5 rounded bg-surface-container-lowest font-label-sm text-[10px] text-secondary font-mono">STANDARDS</span>
       </div>
       <div>
@@ -503,6 +506,76 @@
       </div>
     </div>
   </div>
+{% elif es_detailing %}
+<!-- DETAILING TREATMENT & PROTECTION ESTIMATOR -->
+<section id="estimador" class="w-full px-gutter-mobile lg:px-margin py-space-xl bg-surface-container-lowest border-t border-surface-container-high scroll-mt-20">
+  <div class="max-w-[1400px] mx-auto">
+    <div class="rounded-2xl bg-surface-container border border-surface-container-high p-6 lg:p-10 shadow-2xl relative overflow-hidden">
+      <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-primary-container/10 blur-3xl pointer-events-none"></div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7 flex flex-col gap-4">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-surface-container-low border border-surface-container-high w-fit font-mono text-xs text-primary font-bold uppercase">
+            <span class="material-symbols-outlined text-[16px]">verified</span>
+            <span>CONFIGURADOR DE TRATAMIENTO &amp; PROTECCIÓN</span>
+          </div>
+          <h3 class="font-headline-lg text-2xl lg:text-3xl font-bold uppercase text-on-surface tracking-tight">
+            Selecciona el nivel de cuidado para tu vehículo
+          </h3>
+          <p class="font-body-md text-secondary text-sm lg:text-base max-w-xl">
+            Desde corrección de microarañazos en pintura hasta sellado cerámico 9H o film protector PPF de máxima durabilidad en {{ negocio.ciudad }}.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
+            <button onclick="setDetailingTratamiento('Tratamiento Cerámico 9H', '2-3 días', 'Desde 450 €', this)" class="detailing-btn p-3.5 rounded font-mono text-xs border-2 border-primary-container bg-primary-container/20 text-on-surface font-bold text-left transition">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-sm">Cerámico 9H</span>
+                <span class="text-primary font-bold">Desde 450 €</span>
+              </div>
+              <div class="text-[11px] text-secondary mt-1">Brillo cristalino e hidrofobia 3-5 años</div>
+            </button>
+            <button onclick="setDetailingTratamiento('Corrección de Pintura (Paint Correction)', '1-2 días', 'Desde 280 €', this)" class="detailing-btn p-3.5 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface text-left transition">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-sm">Corrección Pintura</span>
+                <span class="text-outline font-bold">Desde 280 €</span>
+              </div>
+              <div class="text-[11px] text-outline mt-1">Eliminación de swirls y marcas de lavado</div>
+            </button>
+            <button onclick="setDetailingTratamiento('Protección PPF (Film Autorregenerable)', '2-4 días', 'A medida', this)" class="detailing-btn p-3.5 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface text-left transition">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-sm">Protección PPF</span>
+                <span class="text-outline font-bold">A medida</span>
+              </div>
+              <div class="text-[11px] text-outline mt-1">Lámina autorregenerable contra chinazos</div>
+            </button>
+            <button onclick="setDetailingTratamiento('Detallado Interior & Tapicería', '1 día', 'Desde 120 €', this)" class="detailing-btn p-3.5 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface text-left transition">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-sm">Detallado Interior</span>
+                <span class="text-outline font-bold">Desde 120 €</span>
+              </div>
+              <div class="text-[11px] text-outline mt-1">Nutrición de cuero, ozono y desinfección</div>
+            </button>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 rounded-xl bg-surface-container-lowest border border-surface-container-high p-6 flex flex-col items-center justify-center text-center gap-4 shadow-xl">
+          <span class="font-mono text-xs text-outline uppercase tracking-widest">TRATAMIENTO SELECCIONADO</span>
+          <div id="detailingServicioEl" class="text-xl lg:text-2xl font-mono font-bold text-on-surface">Tratamiento Cerámico 9H</div>
+          <div class="flex items-center gap-2">
+            <span id="detailingPrecioEl" class="text-lg font-mono font-bold text-primary">Desde 450 €</span>
+            <span class="text-surface-container-high">|</span>
+            <span id="detailingTiempoEl" class="text-xs font-mono text-secondary">Duración: 2-3 días</span>
+          </div>
+          <span class="text-[11px] font-mono text-secondary">Instalación certificada en cabina limpia con secado infrarrojo</span>
+          
+          <button onclick="consultarDetailingWhatsApp()" class="w-full mt-2 py-3.5 rounded bg-primary-container hover:bg-primary-fixed text-on-primary-container font-label-lg uppercase tracking-wider font-bold shadow-lg transition flex items-center justify-center gap-2 cursor-pointer">
+            <span class="material-symbols-outlined text-[18px]">chat</span>
+            <span>Consultar Disponibilidad en Box</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 {% else %}
@@ -700,7 +773,9 @@
 
       <div class="faq-item rounded-lg bg-surface-container border border-surface-container-high overflow-hidden transition-all">
         <button onclick="toggleFaq(this)" class="w-full px-5 py-4 flex items-center justify-between text-left font-headline-sm text-sm sm:text-base font-semibold text-on-surface hover:text-primary transition cursor-pointer">
-          {% if es_taller %}
+          {% if es_detailing %}
+          <span>¿Cuánto tiempo dura un tratamiento cerámico o de detallado completo?</span>
+          {% elif es_taller %}
           <span>¿Disponéis de opciones de financiación o pago a plazos?</span>
           {% elif es_tattoo %}
           <span>¿Cómo calculáis el presupuesto y tiempo de un tatuaje?</span>
@@ -712,7 +787,9 @@
           <span class="material-symbols-outlined faq-icon text-primary transition-transform">expand_more</span>
         </button>
         <div class="faq-content hidden px-5 pb-4 text-xs sm:text-sm text-secondary font-body-sm border-t border-surface-container-high/50 pt-3">
-          {% if es_taller %}
+          {% if es_detailing %}
+          El tiempo oscila entre 1 jornada de trabajo para un detallado interior/exterior integral y de 2 a 3 días meticulosos para correcciones completas de pintura, descontaminado férrico y curado térmico de recubrimientos cerámicos 9H o films PPF.
+          {% elif es_taller %}
           Sí. Ofrecemos planes de financiación a medida en cómodas cuotas de 12 a 60 meses con condiciones muy ventajosas y respuesta de aprobación en menos de 24 horas.
           {% elif es_tattoo %}
           El presupuesto se valora en función del tamaño, nivel de detalle técnico, zona corporal y horas estimadas de sesión en box. Puedes usar nuestro estimador o escribirnos por WhatsApp para recibir una valoración personalizada sin compromiso.
@@ -743,7 +820,7 @@
 </div>
 </div>
 </section>
-</div></main><footer class="w-full bg-surface-container-low border-t border-surface-container-high"><div class="w-full px-gutter-mobile lg:px-margin py-space-xl flex flex-col md:flex-row items-center justify-between gap-space-lg"><div class="flex flex-col gap-space-xs"><span class="font-headline-md text-headline-md tracking-tight text-on-surface uppercase">{{ negocio.nombre }}</span><span class="font-label-sm text-label-sm text-secondary">{{ negocio.categoria_clean|upper }} // ATELIER PROFESIONAL EN {{ negocio.ciudad|upper }}</span></div><div class="flex items-center gap-space-md font-label-sm text-label-sm text-on-surface-variant uppercase"><a class="hover:text-on-surface" data-path="the-works" href="#galeria">Portfolio</a><a class="hover:text-on-surface" data-path="servicios-y-tarifas" href="#servicios">Servicios</a><a class="hover:text-on-surface" data-path="box-hq" href="#box-hq">Garantías</a><a class="hover:text-on-surface" data-path="contacto" href="#contacto">Contacto</a></div><div class="font-label-sm text-label-sm text-secondary">© 2026 {{ negocio.nombre }}. TODOS LOS DERECHOS RESERVADOS.</div></div></footer>
+</div></main><footer class="w-full bg-surface-container-low border-t border-surface-container-high"><div class="w-full px-gutter-mobile lg:px-margin py-space-xl flex flex-col md:flex-row items-center justify-between gap-space-lg"><div class="flex flex-col gap-space-xs"><span class="font-headline-md text-headline-md tracking-tight text-on-surface uppercase">{{ negocio.nombre }}</span><span class="font-label-sm text-label-sm text-secondary">{{ negocio.categoria_clean|upper }} // {{ 'CENTRO DE DETAILING & ESTÉTICA' if es_detailing else ('ATELIER DE TATUAJE' if es_tattoo else ('TALLER ESPECIALIZADO' if es_taller else ('BARBERSHOP' if es_barber else 'ESPACIO PROFESIONAL'))) }} EN {{ negocio.ciudad|upper }}</span></div><div class="flex items-center gap-space-md font-label-sm text-label-sm text-on-surface-variant uppercase"><a class="hover:text-on-surface" data-path="the-works" href="#galeria">Portfolio</a><a class="hover:text-on-surface" data-path="servicios-y-tarifas" href="#servicios">Servicios</a><a class="hover:text-on-surface" data-path="box-hq" href="#box-hq">Garantías</a><a class="hover:text-on-surface" data-path="contacto" href="#contacto">Contacto</a></div><div class="font-label-sm text-label-sm text-secondary">© 2026 {{ negocio.nombre }}. TODOS LOS DERECHOS RESERVADOS.</div></div></footer>
 
 <!-- Fixed Mobile Bottom Action Dock (High-Conversion 3-Button Standard) -->
 <div class="fixed bottom-0 inset-x-0 z-50 md:hidden p-2.5 bg-surface-container-lowest/95 backdrop-blur-xl border-t border-surface-container-high shadow-2xl flex items-center justify-between gap-2" style="padding-bottom: max(0.65rem, env(safe-area-inset-bottom, 0px));">
@@ -815,7 +892,7 @@
       {% if negocio.whatsapp_url %}
       <a href="{{ negocio.whatsapp_url }}" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-primary-container text-on-primary-container font-bold text-xs uppercase tracking-wider shadow-md transition-all">
         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-        <span>{{ 'Escribir por WhatsApp' if ('whatsapp' in negocio.whatsapp_url or 'phone=' in negocio.whatsapp_url) else 'Mensaje en Instagram' }}</span>
+        <span>{{ 'Escribir por WhatsApp' if ('whatsapp' in (negocio.whatsapp_url or '') or 'phone=' in (negocio.whatsapp_url or '')) else 'Mensaje en Instagram' }}</span>
       </a>
       {% endif %}
 
@@ -899,7 +976,7 @@
         <label class="font-label-sm text-[11px] text-outline uppercase font-mono">Servicio de Interés</label>
         <select name="servicio" id="modal-service-select" class="px-3 py-2 rounded-lg bg-surface-container border border-surface-container-high text-on-surface text-sm focus:outline-none focus:border-primary transition">
           <option value="Consulta General">Consulta General / Asesoramiento</option>
-          {% for s in web.servicios %}
+          {% for s in (web.servicios or []) %}
           <option value="{{ s.nombre }}">{{ s.nombre }}</option>
           {% endfor %}
         </select>
@@ -1193,6 +1270,40 @@
   function reservarBarberWhatsApp() {
     const msg = `Hola! Me gustaría reservar cita para el servicio: ${barberServicioActual}. ¿Qué horarios tenéis disponibles esta semana?`;
     window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
+  }
+
+  // Adaptive Detailing Estimator Helpers
+  let detailingServicioActual = 'Tratamiento Cerámico 9H';
+  let detailingPrecioActual = 'Desde 450 €';
+  let detailingTiempoActual = '2-3 días';
+
+  function setDetailingTratamiento(nombre, tiempo, precio, btn) {
+    detailingServicioActual = nombre;
+    detailingTiempoActual = tiempo;
+    detailingPrecioActual = precio;
+    document.querySelectorAll('.detailing-btn').forEach(b => {
+      b.className = 'detailing-btn p-3.5 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface text-left transition';
+    });
+    btn.className = 'detailing-btn p-3.5 rounded font-mono text-xs border-2 border-primary-container bg-primary-container/20 text-on-surface font-bold text-left transition';
+    const sEl = document.getElementById('detailingServicioEl');
+    const pEl = document.getElementById('detailingPrecioEl');
+    const tEl = document.getElementById('detailingTiempoEl');
+    if (sEl) sEl.innerText = nombre;
+    if (pEl) pEl.innerText = precio;
+    if (tEl) tEl.innerText = 'Duración: ' + tiempo;
+  }
+
+  function consultarDetailingWhatsApp() {
+    const msg = `¡Hola! Me gustaría consultar disponibilidad en box para el servicio: ${detailingServicioActual} (${detailingPrecioActual}, duración aproximada: ${detailingTiempoActual}). ¿Qué fechas tenéis libres?`;
+    const waBase = '{{ negocio.whatsapp_url or ("https://wa.me/" ~ negocio.telefono) }}';
+    let targetUrl = waBase;
+    if (waBase.includes('wa.me') || waBase.includes('whatsapp.com')) {
+      const sep = waBase.includes('?') ? '&' : '?';
+      targetUrl = waBase + sep + 'text=' + encodeURIComponent(msg);
+    } else {
+      targetUrl = `https://wa.me/?text=${encodeURIComponent(msg)}`;
+    }
+    window.open(targetUrl, '_blank');
   }
 
   // Financing Simulator

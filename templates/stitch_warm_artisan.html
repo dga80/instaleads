@@ -85,7 +85,7 @@
 <div class="absolute inset-0 bg-gradient-to-t from-on-background/60 via-transparent to-transparent"></div>
 <!-- Inset Badge with Latent Pour -->
 <div class="absolute -bottom-4 -left-4 sm:bottom-6 sm:left-6 max-w-[240px] p-3 rounded-2xl bg-surface-container-lowest/95 backdrop-blur-md shadow-xl flex items-center gap-3">
-<img alt="{{ web.hero_float_title or negocio.nombre }}" class="w-16 h-16 rounded-xl object-cover shrink-0" src="{{ web.detalle_image_url or (ig.posts[1].image_url if ig.posts|length > 1 and ig.posts[1].image_url else (ig.avatar_url or 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?w=600&q=80')) }}"/>
+<img alt="{{ web.hero_float_title or negocio.nombre }}" class="w-16 h-16 rounded-xl object-cover shrink-0" src="{{ web.detalle_image_url or (ig.posts[1].image_url if (ig.posts or [])|length > 1 and ig.posts[1].image_url else (ig.avatar_url or 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?w=600&q=80')) }}"/>
 <div class="flex flex-col">
 <span class="font-label-caps text-label-caps text-secondary uppercase">{{ web.hero_float_tag or 'Especialidad' }}</span>
 <span class="font-headline-sm text-sm text-on-surface leading-snug">{{ web.hero_float_title or (web.servicios[0].nombre if web.servicios else 'Especialidades de la Casa') }}</span>
@@ -465,7 +465,7 @@
 <!-- Dynamic Instagram Grid -->
 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
   {% if ig.posts %}
-    {% for post in ig.posts[:8] %}
+    {% for post in (ig.posts or [])[:8] %}
     <div onclick="abrirLightbox('{{ post.image_url }}', '{{ (post.caption or negocio.nombre)|replace('\'', '\\\'')|replace('\n', ' ') }}')" class="relative group rounded-2xl overflow-hidden aspect-square bg-surface-container shadow-sm border border-outline-variant/20 cursor-pointer">
       <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="{{ post.caption[:30] if post.caption else negocio.nombre }}" src="{{ post.image_url }}" loading="lazy" />
       <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3 sm:p-4">
@@ -1054,7 +1054,7 @@
         <label class="font-label-caps text-[11px] text-on-surface-variant uppercase font-semibold">Servicio o Encargo</label>
         <select name="servicio" id="modal-service-select" class="px-4 py-2.5 rounded-xl bg-surface-container-lowest border border-outline-variant/40 text-on-surface text-sm focus:outline-none focus:border-primary transition">
           <option value="Consulta General">Consulta General / Información</option>
-          {% for s in web.servicios %}
+          {% for s in (web.servicios or []) %}
           <option value="{{ s.nombre }}">{{ s.nombre }}</option>
           {% endfor %}
         </select>

@@ -262,18 +262,18 @@ def sintetizar_design_system(
     # 1. Selección de Arquetipo Base (Prioridad máxima: elección manual del usuario)
     if arquetipo_forzado and arquetipo_forzado in DESIGN_ARCHETYPES:
         tokens = dict(DESIGN_ARCHETYPES[arquetipo_forzado])
-    elif sugerencia_gemini and sugerencia_gemini.get("arquetipo_diseno") in DESIGN_ARCHETYPES:
-        tokens = dict(DESIGN_ARCHETYPES[sugerencia_gemini["arquetipo_diseno"]])
-    elif any(k in cat for k in ["reforma", "obra", "construc", "carpinter", "fontaner", "electric", "pladur", "climatiz", "pintor", "albanil", "cristal", "persiana", "mueble"]):
-        tokens = dict(DESIGN_ARCHETYPES["craft_build"])
-    elif any(k in cat for k in ["moto", "taller", "mecanic", "coche", "automov", "neumatico", "tattoo", "tatuaje", "piercing", "barber", "fitness", "gimnasio", "crossfit", "detailing"]):
+    elif any(k in cat for k in ["moto", "taller", "mecanic", "coche", "automov", "neumatico", "tattoo", "tatuaje", "piercing", "barber", "fitness", "gimnasio", "crossfit", "detailing", "rentat", "lavado", "car wash", "pulido", "tintado", "chapa"]):
         tokens = dict(DESIGN_ARCHETYPES["urban_edge"])
     elif any(k in cat for k in ["dental", "dentist", "clinic", "salud", "fisioterap", "osteopat", "podolog", "optica", "farmacia", "veterinar", "psicolog", "medico"]):
         tokens = dict(DESIGN_ARCHETYPES["clinical_trust"])
     elif any(k in cat for k in ["cafe", "panaderia", "pasteleria", "restaurante", "bar", "tapas", "gastro", "bistro", "brunch", "bakery", "pizzeria", "hamburgues"]):
         tokens = dict(DESIGN_ARCHETYPES["warm_artisan"])
+    elif any(k in cat for k in ["reforma", "obra", "construc", "carpinter", "fontaner", "electric", "pladur", "climatiz", "pintor", "albanil", "cristal", "persiana", "mueble"]):
+        tokens = dict(DESIGN_ARCHETYPES["craft_build"])
     elif any(k in cat for k in ["uña", "estetica", "belleza", "nail", "lash", "pestaña", "spa", "joyer", "moda", "peluqueria"]):
         tokens = dict(DESIGN_ARCHETYPES["luxury_glow"])
+    elif sugerencia_gemini and sugerencia_gemini.get("arquetipo_diseno") in DESIGN_ARCHETYPES:
+        tokens = dict(DESIGN_ARCHETYPES[sugerencia_gemini["arquetipo_diseno"]])
     else:
         tokens = dict(DESIGN_ARCHETYPES["luxury_glow"])
 
