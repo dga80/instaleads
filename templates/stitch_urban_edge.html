@@ -1,1362 +1,1059 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="es"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/><link rel="icon" type="image/jpeg" href="{{ ig.avatar_url or 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=96&q=80' }}">
-<link href="https://fonts.googleapis.com\" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;family=Space+Grotesk:wght@300..700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-primary-fixed-variant": "#783200", "on-surface-variant": "#e0c0b1", "on-primary-fixed": "#341100", "surface-container-lowest": "#0e0e10", "outline": "#a78b7d", "surface-variant": "#353437", "surface-container": "#201f22", "on-error": "#690005", "surface-container-high": "#2a2a2c", "on-secondary-fixed-variant": "#47464a", "surface-dim": "#131315", "background": "#131315", "surface": "#131315", "on-surface": "#e5e1e4", "secondary-fixed": "#e4e1e5", "inverse-surface": "#e5e1e4", "on-tertiary-container": "#31323a", "on-tertiary-fixed-variant": "#45464e", "tertiary-container": "#9a9aa3", "secondary-fixed-dim": "#c8c6c2", "primary-fixed": "#ffdbca", "surface-bright": "#39393b", "surface-container-highest": "#353437", "on-secondary-fixed": "#1b1b1e", "tertiary-fixed": "#e2e1eb", "primary-fixed-dim": "#ffb690", "surface-tint": "#ffb690", "primary-container": "{{ design.primary_container or design.color_seed or '#f97316' }}", "inverse-on-surface": "#313032", "secondary-container": "#47464a", "inverse-primary": "#9d4300", "on-tertiary-fixed": "#1a1b22", "error": "#ffb4ab", "on-primary-container": "#582200", "on-tertiary": "#2f3037", "on-secondary": "#303033", "on-error-container": "#ffdad6", "tertiary": "#c6c6cf", "on-background": "#e5e1e4", "outline-variant": "#584237", "on-primary": "#552100", "surface-container-low": "#1c1b1d", "error-container": "#93000a", "on-secondary-container": "#b6b4b8", "tertiary-fixed-dim": "#c6c6cf", "primary": "{{ design.primary or '#ffb690' }}", "secondary": "#c8c6c9" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter-mobile": "1rem", "space-lg": "1.5rem", "space-xs": "0.25rem", "margin": "3rem", "margin-mobile": "1.25rem", "gutter": "1.5rem", "space-md": "1rem", "space-sm": "0.5rem", "space-xl": "2.5rem" }, "fontFamily": { "headline-lg-mobile": ["Space Grotesk"], "headline-lg": ["Space Grotesk"], "label-md": ["JetBrains Mono"], "body-sm": ["DM Sans"], "label-lg": ["JetBrains Mono"], "headline-xl-mobile": ["Space Grotesk"], "body-md": ["DM Sans"], "headline-xl": ["Space Grotesk"], "body-lg": ["DM Sans"], "headline-md": ["Space Grotesk"], "label-sm": ["JetBrains Mono"], "title-lg": ["Space Grotesk"] }, "fontSize": { "headline-lg-mobile": ["28px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-lg": ["40px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "500" }], "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }], "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "600" }], "headline-xl-mobile": ["36px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "headline-xl": ["56px", { "lineHeight": "60px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "400" }], "headline-md": ["24px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "500" }], "title-lg": ["20px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "600" }] } } } };</script><style>
-  :root {
-    --sat: env(safe-area-inset-top, 0px);
-    --sab: env(safe-area-inset-bottom, 0px);
-  }
-  html {
-    scroll-behavior: smooth;
-    scroll-padding-top: calc(5.0rem + var(--sat, 0px));
-  }
-</style>
-<script>
-  (function() {
-    try {
-      var isIframe = window.self !== window.top;
-      var isSim = isIframe || /[?&]sim(=|&|$)/.test(window.location.search) || window.location.hash.indexOf('sim') !== -1;
-      if (isSim) {
-        document.documentElement.style.setProperty('--sat', '54px');
-        document.documentElement.style.setProperty('--sab', '20px');
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>{{ negocio.nombre }} | {{ negocio.categoria_clean or 'Servicios Profesionales' }} en {{ negocio.ciudad }}</title>
+  <meta name="description" content="{{ web.subtitulo or (negocio.nombre ~ ' en ' ~ negocio.ciudad ~ '. Cita previa, tarifas y atención personalizada.') }}"/>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="{{ ig.avatar_url or ig.avatar or 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=96&q=80' }}"/>
+  
+  <!-- Tipografías Premium Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"/>
+  
+  <!-- Iconos Google Material Symbols -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              accent: '{{ design.primary_container or "#0284C7" }}',
+              primary: '{{ design.primary or "#38BDF8" }}',
+              dark: '#0B0D13',
+              card: '#131722',
+              surface: '#181E2E',
+              border: 'rgba(255, 255, 255, 0.08)'
+            }
+          },
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            body: ['"Plus Jakarta Sans"', 'sans-serif']
+          }
+        }
       }
-    } catch(e) {}
-  })();
-</script>
-</head><body class="bg-surface-container-lowest font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container">
+    };
+  </script>
+  
+  <style>
+    :root {
+      --sat: env(safe-area-inset-top, 0px);
+      --sab: env(safe-area-inset-bottom, 0px);
+    }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(4.5rem + var(--sat, 0px));
+    }
+    body {
+      background-color: #0B0D13;
+      color: #F1F5F9;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overscroll-behavior-y: none;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0B0D13;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1E293B;
+      border-radius: 9999px;
+    }
+    .text-gradient {
+      background: linear-gradient(135deg, #FFFFFF 30%, #94A3B8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .text-gradient-accent {
+      background: linear-gradient(135deg, #38BDF8 0%, #0284C7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .card-glass {
+      background: rgba(19, 23, 34, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+  </style>
+  
+  <script>
+    (function() {
+      try {
+        var isIframe = window.self !== window.top;
+        var isSim = isIframe || /[?&]sim(=|&|$)/.test(window.location.search) || window.location.hash.indexOf('sim') !== -1;
+        if (isSim) {
+          document.documentElement.style.setProperty('--sat', '54px');
+          document.documentElement.style.setProperty('--sab', '20px');
+        }
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
 {% set cat_lower = (negocio.categoria or '')|lower %}
 {% set nom_lower = (negocio.nombre or '')|lower %}
 {% set es_detailing = ('detail' in cat_lower or 'wash' in cat_lower or 'lavad' in cat_lower or 'tintad' in cat_lower or 'pulid' in cat_lower or 'vinil' in cat_lower or 'ppf' in cat_lower or 'detail' in nom_lower or 'rentat' in nom_lower or 'lavado' in nom_lower) %}
 {% set es_taller = ('taller' in cat_lower or 'moto' in cat_lower or 'coche' in cat_lower or 'mecanic' in cat_lower or 'auto' in cat_lower or 'vehicul' in cat_lower or 'recambio' in cat_lower) and not es_detailing %}
 {% set es_tattoo = ('tattoo' in cat_lower or 'tatuaj' in cat_lower or 'ink' in nom_lower or 'piercing' in cat_lower) %}
-{% set es_barber = ('barber' in cat_lower or 'peluquer' in cat_lower or 'estilist' in cat_lower) %}<header class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest/95 backdrop-blur-md border-b border-surface-container-high" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));"><div class="h-16 w-full px-gutter-mobile lg:px-margin flex items-center justify-between gap-space-sm lg:gap-space-md flex-nowrap"><div class="flex items-center gap-space-md shrink-0"><a class="flex items-center gap-space-sm group shrink-0" data-path="the-works" href="#inicio"><div class="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center shrink-0">{% if ig.avatar_url or ig.avatar %}<img src="{{ ig.avatar_url or ig.avatar }}" alt="{{ negocio.nombre }}" class="w-full h-full object-cover border border-primary/40 shadow-sm" />{% else %}<div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center text-on-primary-container font-headline-md text-headline-md leading-none shadow-[0_0_16px_rgba(249,115,22,0.35)]">⚡</div>{% endif %}</div><div class="flex flex-col shrink-0"><span class="font-headline-md text-body-md font-bold tracking-tight text-on-surface uppercase truncate max-w-[140px] xs:max-w-[170px] sm:max-w-xs md:max-w-none whitespace-nowrap">{{ negocio.nombre }}</span><span class="font-label-sm text-label-sm tracking-widest text-primary font-semibold -mt-1 whitespace-nowrap">// {{ 'CAR DETAILING' if es_detailing else ('STUDIO' if es_tattoo else ('TALLER' if es_taller else ('BARBERSHOP' if es_barber else 'PROFESIONAL'))) }}</span></div></a><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-surface-container-low border border-surface-container-high shrink-0"><span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span><span class="font-label-sm text-label-sm text-secondary font-medium tracking-wider uppercase whitespace-nowrap">{{ 'BOX DETAILING // CITAS ABIERTAS' if es_detailing else ('BOX ABIERTO / CITAS DISPONIBLES' if (es_taller or es_tattoo) else ('SILLÓN DISPONIBLE / CITA PREVIA' if es_barber else 'AGENDA ABIERTA / CITAS DISPONIBLES')) }}</span></div></div><nav class="hidden md:flex items-center gap-2 lg:gap-space-sm xl:gap-space-md whitespace-nowrap shrink-0" data-active-classes="bg-primary-container text-on-primary-container font-bold rounded-lg">
-      <a class="px-2 lg:px-space-sm py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#galeria">The Works</a>
-      <a class="px-2 lg:px-space-sm py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#servicios">Tarifas</a>
-      {% if es_detailing %}
-      <a class="px-2 lg:px-space-sm py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#estimador">Tratamientos &amp; PPF</a>
-      {% elif es_taller %}
-      <a class="px-2 lg:px-space-sm py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#financiacion">Financiación</a>
-      {% elif es_tattoo %}
-      <a class="px-2 lg:px-space-sm py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#estimador">Estimador Tattoo</a>
-      {% elif es_barber %}
-      <a class="px-2 lg:px-space-sm py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#estimador">Selector Estilo</a>
+{% set es_barber = ('barber' in cat_lower or 'peluquer' in cat_lower or 'estilist' in cat_lower) %}
+
+<!-- ==================== HEADER PRINCIPAL ==================== -->
+<header class="sticky top-0 z-50 w-full bg-[#0B0D13]/90 backdrop-blur-md border-b border-white/10" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between gap-4">
+    
+    <!-- Identidad de Marca -->
+    <a href="#inicio" class="flex items-center gap-3 shrink-0 group">
+      {% if ig.avatar_url or ig.avatar %}
+      <div class="w-10 h-10 rounded-xl overflow-hidden border border-white/15 group-hover:border-sky-400 transition-colors shadow-md shrink-0">
+        <img src="{{ ig.avatar_url or ig.avatar }}" alt="{{ negocio.nombre }}" class="w-full h-full object-cover"/>
+      </div>
       {% else %}
-      <a class="px-2 lg:px-space-sm py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#estimador">Presupuesto</a>
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-sky-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shrink-0">
+        {{ ((negocio.nombre or 'ES')[:2])|upper }}
+      </div>
       {% endif %}
-      <a class="px-2 lg:px-space-sm py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#faq">FAQ</a>
-      <a class="px-2 lg:px-space-sm py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#contacto">Contacto</a>
-    </nav><div class="flex items-center gap-2 lg:gap-space-md shrink-0"><button onclick="abrirModalPresupuesto('Consulta General')" class="hidden sm:inline-flex items-center justify-center px-3.5 lg:px-space-lg py-2 lg:py-space-sm rounded-lg bg-primary-container text-on-primary-container font-label-md text-xs lg:text-label-md uppercase tracking-wider font-bold shadow-[0_0_20px_rgba(249,115,22,0.35)] hover:bg-primary-fixed hover:text-on-primary-fixed transition-all whitespace-nowrap shrink-0 cursor-pointer"><span>{{ 'Solicitar Presupuesto' if ('whatsapp' in (negocio.whatsapp_url or '') or 'phone=' in (negocio.whatsapp_url or '')) else 'Contactar Directo' }}</span></button><div class="hidden sm:flex w-8 h-8 rounded-full bg-primary items-center justify-center overflow-hidden shrink-0">{% if ig.avatar_url or ig.avatar %}<img src="{{ ig.avatar_url or ig.avatar }}" alt="{{ negocio.nombre }}" class="w-full h-full object-cover" />{% else %}<span class="material-symbols-outlined text-on-primary text-[18px]">person</span>{% endif %}</div>
-      <!-- Mobile Hamburger Button (On the RIGHT) -->
-      <button id="hamburger-btn" onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition flex items-center justify-center border border-surface-container-high shadow-sm shrink-0 ml-1" aria-label="Abrir Menú" aria-expanded="false">
-        <span class="material-symbols-outlined text-[24px]">menu</span>
-      </button></div></div></header><main class="w-full bg-surface-container-lowest min-h-screen" style="padding-top: calc(6.5rem + var(--sat, env(safe-area-inset-top, 0px)));"><div class="flex flex-col w-full text-on-surface">
-<!-- 01 // HERO SECTION -->
-<section id="inicio" class="relative w-full px-gutter-mobile lg:px-margin pt-space-xl pb-space-xl overflow-hidden bg-surface-container-lowest">
-<!-- Ambient Kinetic Backlight Glow -->
-<div class="absolute -top-24 right-1/4 w-96 h-96 rounded-full bg-primary-container/10 blur-[120px] pointer-events-none"></div>
-<div class="absolute bottom-0 left-10 w-72 h-72 rounded-full bg-primary/5 blur-[90px] pointer-events-none"></div>
-<div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-space-lg lg:gap-gutter items-center">
-<!-- Left Column: Typography & Action Engine -->
-<div class="lg:col-span-7 flex flex-col items-start gap-space-md z-10">
-<!-- Live Location Badge -->
-<div class="inline-flex items-center gap-space-xs px-space-md py-1.5 rounded-lg bg-surface-container border border-surface-container-high shadow-sm">
-<span class="inline-flex items-center justify-center w-2 h-2 rounded-full bg-primary-container animate-pulse shadow-[0_0_8px_rgba(249,115,22,0.6)]"></span>
-<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">
-  {{ web.badge_status or (negocio.categoria_clean|upper ~ ' EN ' ~ negocio.ciudad|upper) }}
-</span>
-</div>
-<!-- Display Headline -->
-<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight uppercase leading-[1.05] mt-space-xs">
-  {{ web.titular or (negocio.nombre ~ ' en ' ~ negocio.ciudad) }}
-</h1>
-<!-- Subtitle -->
-<p class="font-body-lg text-body-lg text-secondary max-w-2xl mt-space-xs">
-  {{ web.subtitulo or ('Precisión, calidad y acabados sin concesiones. Proyectos personalizados y trato profesional en ' ~ negocio.ciudad ~ '.') }}
-</p>
-<!-- Dual CTA Row -->
-<div class="flex flex-wrap items-center gap-space-md mt-space-sm w-full sm:w-auto">
-<a class="inline-flex items-center justify-center gap-space-xs px-space-xl py-3.5 rounded-lg bg-primary-container text-on-primary-container font-label-lg text-label-lg uppercase tracking-wider font-bold shadow-[0_0_24px_rgba(249,115,22,0.3)] hover:bg-primary-fixed hover:text-on-primary-fixed hover:shadow-[0_0_32px_rgba(249,115,22,0.45)] transition-all" href="{{ negocio.whatsapp_url }}" target="_blank" rel="noopener">
-<span>{{ 'Solicitar Presupuesto Directo' if ('whatsapp' in (negocio.whatsapp_url or '') or 'phone=' in (negocio.whatsapp_url or '')) else 'Enviar Mensaje Directo' }}</span>
-<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-</a>
-<a class="inline-flex items-center justify-center gap-space-xs px-space-lg py-3.5 rounded-lg bg-surface-container border border-surface-container-high text-on-surface font-label-lg text-label-lg uppercase tracking-wider font-semibold hover:border-primary-container hover:text-primary transition-all" href="{{ negocio.instagram_url or ('https://instagram.com/' ~ ig.username) }}" rel="noopener noreferrer" target="_blank">
-<span class="material-symbols-outlined text-[18px]">photo_camera</span>
-<span>Ver Trabajos en Instagram</span>
-</a>
-</div>
-<!-- Quick Specs Strip (Horizontal Telemetry) -->
-<div class="w-full grid grid-cols-3 gap-space-sm pt-space-lg mt-space-sm border-t border-surface-container-high">
-<div class="flex flex-col">
-<span class="font-label-sm text-label-sm text-outline tracking-widest uppercase">UBICACIÓN</span>
-<span class="font-label-md text-label-md text-on-surface font-bold mt-0.5 uppercase truncate">{{ negocio.ciudad }}</span>
-</div>
-<div class="flex flex-col">
-<span class="font-label-sm text-label-sm text-outline tracking-widest uppercase">DISPONIBILIDAD</span>
-<span class="font-label-md text-label-md text-on-surface font-bold mt-0.5">CITA PREVIA</span>
-</div>
-<div class="flex flex-col">
-<span class="font-label-sm text-label-sm text-outline tracking-widest uppercase">GARANTÍA</span>
-<span class="font-label-md text-label-md text-primary font-bold mt-0.5">PROFESIONAL</span>
-</div>
-</div>
-</div>
-<!-- Right Column: Hero High-Impact Telemetry Showcase -->
-<div class="lg:col-span-5 relative">
-<div class="relative rounded-lg bg-surface-container border border-surface-container-high p-space-sm shadow-[0_0_32px_rgba(0,0,0,0.8)] group overflow-hidden">
-<!-- Visual Media Container -->
-<div class="relative w-full h-[460px] rounded bg-surface-container-lowest overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="{{ negocio.nombre }}" src="{{ (ig.posts[0].image_url if (ig.posts and ig.posts[0].image_url) else (ig.avatar_url or 'https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?w=1200&q=80')) }}"/>
-<!-- Overlay Gradient Scrim -->
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/30 to-transparent"></div>
-<!-- Floating Top Badges -->
-<div class="absolute top-space-sm left-space-sm right-space-sm flex items-center justify-between pointer-events-none">
-<span class="px-space-xs py-1 rounded bg-surface-container-lowest/90 backdrop-blur-md border border-surface-container-high font-label-sm text-label-sm text-primary font-bold tracking-widest uppercase">
-  {{ negocio.categoria_clean or negocio.categoria }}
-</span>
-<span class="px-space-xs py-1 rounded bg-primary-container text-on-primary-container font-label-sm text-label-sm font-bold tracking-wider uppercase">
-  DESTACADO
-</span>
-</div>
-<!-- Bottom Technical Telemetry Panel -->
-<div class="absolute bottom-space-sm left-space-sm right-space-sm p-space-md rounded bg-surface-container/90 backdrop-blur-md border border-surface-container-high flex flex-col gap-space-xs">
-<div class="flex items-center justify-between">
-<span class="font-headline-md text-title-lg uppercase text-on-surface tracking-tight truncate">{{ negocio.nombre }}</span>
-<span class="font-label-sm text-label-sm text-primary font-mono font-bold shrink-0">VERIFICADO</span>
-</div>
-<!-- Live Technical Progress Bar -->
-<div class="w-full bg-surface-container-lowest h-1.5 rounded-full overflow-hidden my-1">
-<div class="bg-primary-container h-full w-[96%] shadow-[0_0_8px_rgba(249,115,22,0.8)]"></div>
-</div>
-<!-- Micro Specs Pill Cloud -->
-<div class="flex flex-wrap gap-1.5 mt-1">
-<span class="px-2 py-0.5 rounded bg-surface-container-lowest border border-surface-container-high font-label-sm text-[11px] text-secondary">{{ negocio.ciudad }}</span>
-<span class="px-2 py-0.5 rounded bg-surface-container-lowest border border-surface-container-high font-label-sm text-[11px] text-secondary">Atención Directa</span>
-<span class="px-2 py-0.5 rounded bg-surface-container-lowest border border-surface-container-high font-label-sm text-[11px] text-primary">Portfolio en Vivo</span>
-</div>
-</div>
-</div>
-<!-- Bottom Card Frame Info -->
-<div class="flex items-center justify-between px-space-sm pt-space-sm pb-space-xs">
-<span class="font-label-sm text-label-sm text-outline">ATENCIÓN &amp; RESERVAS // ACTIVO</span>
-<span class="font-label-sm text-label-sm text-secondary font-mono">{{ negocio.telefono or 'ONLINE' }}</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- 02 // KEY METRICS & TRUST BAR (3-COLUMN BENTO GRID) -->
-<section id="box-hq" class="w-full px-gutter-mobile lg:px-margin py-space-lg bg-surface-container-lowest border-y border-surface-container-high scroll-mt-20">
-<div class="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-gutter">
-<!-- Box 01: Q/C Guarantee -->
-<div class="p-space-lg rounded-lg bg-surface-container border border-surface-container-high flex flex-col justify-between hover:border-surface-variant transition-colors group">
-<div class="flex items-center justify-between">
-<span class="font-label-sm text-label-sm text-primary font-mono font-bold tracking-widest">01 / ESTÁNDAR</span>
-<span class="material-symbols-outlined text-primary text-[22px]">verified</span>
-</div>
-<div class="my-space-md">
-<div class="font-headline-lg text-headline-lg font-bold text-on-surface uppercase tracking-tight">
-            100%
-          </div>
-<div class="font-title-lg text-title-lg text-on-surface font-semibold mt-1">
-            Garantía &amp; Pasión
-          </div>
-</div>
-<p class="font-body-sm text-body-sm text-secondary">
-          Cuidado al detalle, máxima profesionalidad e higiene estricta en cada servicio realizado en {{ negocio.ciudad }}.
-        </p>
-</div>
-<!-- Box 02: 24H SLA Transparency -->
-<div class="p-space-lg rounded-lg bg-surface-container border border-surface-container-high flex flex-col justify-between hover:border-surface-variant transition-colors group">
-<div class="flex items-center justify-between">
-<span class="font-label-sm text-label-sm text-primary font-mono font-bold tracking-widest">02 / ATENCIÓN</span>
-<span class="material-symbols-outlined text-primary text-[22px]">chat</span>
-</div>
-<div class="my-space-md">
-<div class="font-headline-lg text-headline-lg font-bold text-on-surface uppercase tracking-tight">
-            DIRECTA
-          </div>
-<div class="font-title-lg text-title-lg text-on-surface font-semibold mt-1">
-            Trato Personalizado
-          </div>
-</div>
-<p class="font-body-sm text-body-sm text-secondary">
-          Atención cercana, respuesta rápida para dudas y presupuestos personalizados sin ningún tipo de compromiso.
-        </p>
-</div>
-<!-- Box 03: Local HQ Site -->
-<div class="p-space-lg rounded-lg bg-surface-container border border-surface-container-high flex flex-col justify-between hover:border-surface-variant transition-colors group">
-<div class="flex items-center justify-between">
-<span class="font-label-sm text-label-sm text-primary font-mono font-bold tracking-widest">03 / UBICACIÓN</span>
-<span class="material-symbols-outlined text-primary text-[22px]">location_on</span>
-</div>
-<div class="my-space-md">
-<div class="font-headline-lg text-headline-lg font-bold text-on-surface uppercase tracking-tight truncate">
-            {{ negocio.ciudad|upper }}
-          </div>
-<div class="font-title-lg text-title-lg text-on-surface font-semibold mt-1">
-            Espacio &amp; Estudio
-          </div>
-</div>
-<p class="font-body-sm text-body-sm text-secondary">
-          {{ negocio.direccion or negocio.ciudad }}. Instalaciones confortables preparadas para ofrecerte la mejor atención.
-        </p>
-</div>
-</div>
-</section>
-<!-- 03 // PORTFOLIO GRID - THE WORKS -->
-<section id="galeria" class="w-full px-gutter-mobile lg:px-margin py-space-xl bg-surface-container-lowest scroll-mt-20">
-<div class="max-w-[1400px] mx-auto flex flex-col gap-space-lg">
-<!-- Section Header with Meta & Filters -->
-<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md border-b border-surface-container-high pb-space-md">
-<div class="flex flex-col">
-<span class="font-label-sm text-label-sm text-primary font-mono font-bold tracking-widest uppercase">// 02 ARCHIVE</span>
-<h2 class="font-headline-lg text-headline-lg uppercase text-on-surface tracking-tight mt-1">
-  {{ web.titulo_portfolio or 'THE WORKS // PORTFOLIO RECIENTE' }}
-</h2>
-<p class="font-body-md text-body-md text-secondary mt-1 max-w-xl">
-  {{ web.subtitulo_portfolio or ('Portfolio de creaciones de autor y proyectos exclusivos en ' ~ negocio.ciudad ~ '. Cada trabajo destaca por técnica, precisión y dedicación artesanal.') }}
-</p>
-</div>
-<!-- Filter Action Tabs -->
-<div class="flex flex-wrap items-center gap-1.5 p-1 rounded-lg bg-surface-container border border-surface-container-high" id="portfolio-filters">
-<button onclick="filtrarGaleria('todos', this)" class="gallery-filter-btn px-3 py-1.5 rounded font-label-sm text-label-sm uppercase font-bold bg-primary-container text-on-primary-container transition-all">Todos</button>
-{% if web.servicios and web.servicios|length > 0 %}
-  {% for s in (web.servicios or [])[:3] %}
-  <button onclick="filtrarGaleria('cat-{{ loop.index }}', this)" class="gallery-filter-btn px-3 py-1.5 rounded font-label-sm text-label-sm uppercase font-semibold text-secondary hover:text-on-surface transition-colors">{{ s.nombre }}</button>
-  {% endfor %}
-{% else %}
-  <button onclick="filtrarGaleria('cat-1', this)" class="gallery-filter-btn px-3 py-1.5 rounded font-label-sm text-label-sm uppercase font-semibold text-secondary hover:text-on-surface transition-colors">Destacados</button>
-  <button onclick="filtrarGaleria('cat-2', this)" class="gallery-filter-btn px-3 py-1.5 rounded font-label-sm text-label-sm uppercase font-semibold text-secondary hover:text-on-surface transition-colors">Colección</button>
-  <button onclick="filtrarGaleria('cat-3', this)" class="gallery-filter-btn px-3 py-1.5 rounded font-label-sm text-label-sm uppercase font-semibold text-secondary hover:text-on-surface transition-colors">De Autor</button>
-{% endif %}
-</div>
-</div>
-<!-- Dynamic Portfolio Cards from Instagram -->
-<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-space-sm sm:gap-gutter" id="gallery-grid">
-  {% for post in (ig.posts or [])[:8] %}
-  <div class="gallery-card group relative aspect-[4/5] rounded-lg overflow-hidden bg-surface-container border border-surface-container-high hover:border-primary-container/60 transition-all duration-300 shadow-md cursor-pointer" data-category="cat-{{ (loop.index0 % 3) + 1 }}" onclick="abrirLightbox('{{ post.image_url }}', '{{ (post.caption or negocio.nombre)|replace('\'', '\\\'')|replace('\"', '&quot;') }}')">
-    <img alt="{{ post.caption[:40] if post.caption else negocio.nombre }}" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" src="{{ post.image_url }}" loading="lazy" />
-    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent p-space-sm sm:p-space-md flex flex-col justify-end opacity-90 group-hover:opacity-100 transition-opacity">
-      <div class="flex items-center justify-between text-primary font-mono text-[10px] sm:text-xs uppercase tracking-widest mb-1">
-        <span>// ARCHIVE 0{{ loop.index }}</span>
-        {% if post.likes %}<span class="flex items-center gap-0.5 text-on-surface/80"><span class="material-symbols-outlined text-[12px]">favorite</span> {{ post.likes }}</span>{% endif %}
+      <div class="flex flex-col">
+        <span class="font-display font-bold text-base sm:text-lg text-white tracking-tight leading-tight group-hover:text-sky-300 transition-colors truncate max-w-[160px] sm:max-w-[220px] md:max-w-none">
+          {{ negocio.nombre }}
+        </span>
+        <span class="text-xs text-sky-400 font-medium flex items-center gap-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          {{ 'Centro de Estética & Lavado' if es_detailing else ('Taller Especializado' if es_taller else ('Estudio Profesional' if es_tattoo else ('Barbería Clásica & Moderna' if es_barber else 'Servicio Oficial'))) }}
+        </span>
       </div>
-      <p class="font-headline-sm text-xs sm:text-sm text-on-surface font-bold line-clamp-2">{{ post.caption or negocio.nombre }}</p>
-      <span class="inline-flex items-center gap-1 text-[11px] text-primary mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
-        <span class="material-symbols-outlined text-[13px]">visibility</span> Ver detalle &amp; consultar
-      </span>
-    </div>
-  </div>
-  {% endfor %}
-</div>
-</div>
-</section>
-<!-- 04 // SERVICE & PRICING BREAKDOWN (TARIFARIO TÉCNICO MONOSPACE) -->
-<section id="servicios" class="w-full px-gutter-mobile lg:px-margin py-space-xl bg-surface-container-lowest border-t border-surface-container-high scroll-mt-20">
-<div class="max-w-[1400px] mx-auto flex flex-col gap-space-lg">
-<!-- Section Sub-Header -->
-<div class="flex flex-col items-start gap-1">
-<span class="font-label-sm text-label-sm text-primary font-mono font-bold tracking-widest uppercase">// 03 PRICING MATRIX</span>
-<h2 class="font-headline-lg text-headline-lg uppercase text-on-surface tracking-tight">
-          TARIFARIO TÉCNICO &amp; SERVICIOS
-        </h2>
-<p class="font-body-md text-body-md text-secondary max-w-xl">
-          Tarifas cerradas por fase operativa. Transparencia total sin sobrecostes ocultos ni horas fantasma.
-        </p>
-</div>
-<!-- Dynamic Pricing Matrix from Gemini -->
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter items-stretch">
-  {% for s in (web.servicios or [])[:3] %}
-  <div class="p-space-lg rounded-lg bg-surface-container {% if loop.index == 2 %}border-2 border-primary-container shadow-[0_0_32px_rgba(249,115,22,0.18)] relative transform lg:-translate-y-2{% else %}border border-surface-container-high{% endif %} flex flex-col justify-between">
-    {% if loop.index == 2 %}
-    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-space-md py-0.5 rounded bg-primary-container text-on-primary-container font-label-sm text-label-sm font-bold uppercase tracking-widest">
-      POPULAR // ALTA DEMANDA
-    </div>
-    {% endif %}
-    <div class="flex flex-col gap-space-md">
-      <div class="flex items-center justify-between border-b border-surface-container-high pb-space-sm">
-        <span class="font-label-sm text-label-sm text-primary font-mono font-bold uppercase">TIER 0{{ loop.index }} // {{ s.nombre|upper }}</span>
-        <span class="px-2 py-0.5 rounded bg-surface-container-lowest font-label-sm text-[10px] text-secondary font-mono">STANDARDS</span>
-      </div>
-      <div>
-        <h3 class="font-headline-md text-headline-md uppercase text-on-surface tracking-tight">{{ s.nombre }}</h3>
-        <div class="font-label-lg text-[26px] font-mono font-bold text-primary mt-2">
-          {{ s.precio_o_duracion or "Consultar" }}
-        </div>
-        <span class="font-label-sm text-label-sm text-outline font-mono">Garantía oficial por escrito</span>
-      </div>
-      <p class="font-body-sm text-secondary">
-        {{ s.descripcion }}
-      </p>
-    </div>
-    <div class="pt-space-lg mt-auto">
-      <button onclick="abrirModalPresupuesto('{{ s.nombre|replace('\'', '\\\'') }}')" class="w-full inline-flex items-center justify-center py-3 rounded {% if loop.index == 2 %}bg-primary-container text-on-primary-container font-bold shadow-lg hover:bg-primary-fixed{% else %}bg-surface-container-high hover:bg-surface-variant text-on-surface font-semibold{% endif %} font-label-md text-label-md uppercase tracking-wider transition-colors cursor-pointer">
-        Pedir Cita / Presupuesto
+    </a>
+
+    <!-- Navegación Desktop -->
+    <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-300">
+      <a href="#servicios" class="hover:text-white transition-colors">Servicios & Tarifas</a>
+      {% if es_detailing %}
+      <a href="#configurador" class="hover:text-white transition-colors">Configurador de Packs</a>
+      {% elif es_taller %}
+      <a href="#mantenimiento" class="hover:text-white transition-colors">Cita Mantenimiento</a>
+      {% elif es_tattoo %}
+      <a href="#estilos" class="hover:text-white transition-colors">Estilos & Presupuesto</a>
+      {% elif es_barber %}
+      <a href="#estilos" class="hover:text-white transition-colors">Cortes & Barba</a>
+      {% endif %}
+      <a href="#galeria" class="hover:text-white transition-colors">Trabajos Recientes</a>
+      <a href="#opiniones" class="hover:text-white transition-colors">Opiniones</a>
+      <a href="#contacto" class="hover:text-white transition-colors">Ubicación & Contacto</a>
+    </nav>
+
+    <!-- CTAs Header -->
+    <div class="flex items-center gap-3 shrink-0">
+      {% if negocio.telefono %}
+      <a href="tel:{{ negocio.telefono }}" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-slate-200 transition-colors">
+        <span class="material-symbols-outlined text-sm text-sky-400">call</span>
+        <span>{{ negocio.telefono }}</span>
+      </a>
+      {% endif %}
+
+      <a href="{{ negocio.whatsapp_url or '#contacto' }}" target="_blank" rel="noopener" class="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-semibold text-xs sm:text-sm shadow-md shadow-emerald-950/40 transition-all hover:scale-[1.02] active:scale-[0.98] shrink-0">
+        <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        <span>Pedir Cita</span>
+      </a>
+
+      <!-- Botón Menú Móvil -->
+      <button id="mobile-menu-btn" type="button" class="lg:hidden p-2 rounded-xl bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 transition-colors" aria-label="Abrir menú">
+        <span class="material-symbols-outlined text-2xl">menu</span>
       </button>
     </div>
+
   </div>
-  {% endfor %}
+</header>
+
+<!-- Menú Desplegable Móvil -->
+<div id="mobile-menu" class="hidden lg:hidden fixed inset-0 z-50 bg-[#0B0D13]/95 backdrop-blur-xl flex flex-col p-6 space-y-6 pt-24 border-b border-white/10">
+  <button id="close-menu-btn" class="absolute top-6 right-6 p-2 rounded-xl bg-white/5 text-slate-300 hover:text-white" aria-label="Cerrar menú">
+    <span class="material-symbols-outlined text-2xl">close</span>
+  </button>
+  <nav class="flex flex-col gap-4 text-lg font-semibold text-slate-200">
+    <a href="#servicios" class="mobile-nav-link py-2 border-b border-white/5 hover:text-sky-400">Servicios & Tarifas</a>
+    {% if es_detailing %}
+    <a href="#configurador" class="mobile-nav-link py-2 border-b border-white/5 hover:text-sky-400">Configurador de Packs</a>
+    {% elif es_taller %}
+    <a href="#mantenimiento" class="mobile-nav-link py-2 border-b border-white/5 hover:text-sky-400">Cita Mantenimiento</a>
+    {% elif es_tattoo %}
+    <a href="#estilos" class="mobile-nav-link py-2 border-b border-white/5 hover:text-sky-400">Estilos & Presupuesto</a>
+    {% elif es_barber %}
+    <a href="#estilos" class="mobile-nav-link py-2 border-b border-white/5 hover:text-sky-400">Cortes & Barba</a>
+    {% endif %}
+    <a href="#galeria" class="mobile-nav-link py-2 border-b border-white/5 hover:text-sky-400">Trabajos Recientes</a>
+    <a href="#opiniones" class="mobile-nav-link py-2 border-b border-white/5 hover:text-sky-400">Opiniones de Clientes</a>
+    <a href="#contacto" class="mobile-nav-link py-2 hover:text-sky-400">Ubicación y Horarios</a>
+  </nav>
+  <div class="pt-6 mt-auto flex flex-col gap-3">
+    <a href="{{ negocio.whatsapp_url or '#contacto' }}" class="w-full py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-center flex items-center justify-center gap-2 shadow-lg">
+      <span class="material-symbols-outlined">chat</span>
+      <span>Consultar por WhatsApp</span>
+    </a>
+    {% if negocio.telefono %}
+    <a href="tel:{{ negocio.telefono }}" class="w-full py-3.5 rounded-xl bg-white/10 hover:bg-white/15 text-slate-200 font-bold text-center flex items-center justify-center gap-2">
+      <span class="material-symbols-outlined">call</span>
+      <span>Llamar {{ negocio.telefono }}</span>
+    </a>
+    {% endif %}
+  </div>
 </div>
-</div>
-</div>
-</section>
 
-<!-- INTERACTIVE ESTIMATOR & FINANCING ADAPTIVE ENGINE -->
-{% if es_taller %}
-<!-- VEHICLE FINANCING SIMULATOR -->
-<section id="financiacion" class="w-full px-gutter-mobile lg:px-margin py-space-xl bg-surface-container-lowest border-t border-surface-container-high scroll-mt-20">
-  <div class="max-w-[1400px] mx-auto">
-    <div class="rounded-2xl bg-surface-container border border-surface-container-high p-6 lg:p-10 shadow-2xl relative overflow-hidden">
-      <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-primary-container/10 blur-3xl pointer-events-none"></div>
-      
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-        <div class="lg:col-span-7 flex flex-col gap-4">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-surface-container-low border border-surface-container-high w-fit font-mono text-xs text-primary font-bold uppercase">
-            <span class="material-symbols-outlined text-[16px]">calculate</span>
-            <span>SIMULADOR DE FINANCIACIÓN & ESTUDIO PREVIO</span>
-          </div>
-          <h3 class="font-headline-lg text-2xl lg:text-3xl font-bold uppercase text-on-surface tracking-tight">
-            Calcula tu cuota a medida en 10 segundos
-          </h3>
-          <p class="font-body-md text-secondary text-sm lg:text-base max-w-xl">
-            Facilidades de pago y financiación flexible sin letra pequeña. Ajusta el importe y el plazo deseado para conocer tu cuota mensual estimada en {{ negocio.ciudad }}.
-          </p>
+<main class="flex-1">
 
-          <!-- Slider Importe -->
-          <div class="mt-4 flex flex-col gap-2">
-            <div class="flex items-center justify-between font-mono text-sm">
-              <span class="text-secondary">Importe del servicio o proyecto:</span>
-              <span id="valorImporteText" class="text-primary font-bold text-lg">3.500 €</span>
-            </div>
-            <input 
-              id="sliderImporte" 
-              type="range" 
-              min="500" 
-              max="15000" 
-              step="250" 
-              value="3500" 
-              oninput="calcularFinanciacion()" 
-              class="w-full h-2 bg-surface-container-lowest rounded-lg appearance-none cursor-pointer accent-primary-container"
-            />
-            <div class="flex justify-between text-[11px] font-mono text-outline">
-              <span>500 €</span>
-              <span>7.500 €</span>
-              <span>15.000 €</span>
-            </div>
-          </div>
-
-          <!-- Plazo Meses -->
-          <div class="flex flex-col gap-2 mt-2">
-            <span class="font-mono text-xs text-secondary uppercase">Selecciona el plazo:</span>
-            <div class="flex flex-wrap gap-2">
-              <button onclick="cambiarMeses(12, this)" class="meses-btn px-4 py-2 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface transition">12 meses</button>
-              <button onclick="cambiarMeses(24, this)" class="meses-btn px-4 py-2 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface transition">24 meses</button>
-              <button onclick="cambiarMeses(36, this)" class="meses-btn px-4 py-2 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface transition">36 meses</button>
-              <button onclick="cambiarMeses(48, this)" class="meses-btn px-4 py-2 rounded font-mono text-xs border-2 border-primary-container bg-primary-container/20 text-on-surface font-bold transition">48 meses</button>
-              <button onclick="cambiarMeses(60, this)" class="meses-btn px-4 py-2 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface transition">60 meses</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Columna Cuota Resultado -->
-        <div class="lg:col-span-5 rounded-xl bg-surface-container-lowest border border-surface-container-high p-6 flex flex-col items-center justify-center text-center gap-4 shadow-xl">
-          <span class="font-mono text-xs text-outline uppercase tracking-widest">CUOTA MENSUAL ESTIMADA</span>
-          <div class="flex items-baseline gap-1">
-            <span id="cuotaCalculada" class="text-4xl lg:text-5xl font-mono font-bold text-on-surface">82,15</span>
-            <span class="text-xl font-mono text-primary font-bold">€/mes</span>
-          </div>
-          <span class="text-[11px] font-mono text-secondary">TIN orientativo 5.95% • Sin comisión de apertura</span>
+  <!-- ==================== HERO SECTION ==================== -->
+  <section id="inicio" class="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-28 border-b border-white/10">
+    <!-- Glow de fondo -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-sky-500/15 blur-[120px] pointer-events-none rounded-full"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Copy Hero -->
+        <div class="lg:col-span-7 flex flex-col space-y-6 text-center lg:text-left">
           
-          <button onclick="solicitarFinanciacionActual()" class="w-full mt-2 py-3.5 rounded bg-primary-container hover:bg-primary-fixed text-on-primary-container font-label-lg uppercase tracking-wider font-bold shadow-lg transition flex items-center justify-center gap-2 cursor-pointer">
-            <span class="material-symbols-outlined text-[18px]">verified</span>
-            <span>Solicitar Estudio Rápido</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-{% elif es_tattoo %}
-<!-- TATTOO STYLE & TIME ESTIMATOR -->
-<section id="estimador" class="w-full px-gutter-mobile lg:px-margin py-space-xl bg-surface-container-lowest border-t border-surface-container-high scroll-mt-20">
-  <div class="max-w-[1400px] mx-auto">
-    <div class="rounded-2xl bg-surface-container border border-surface-container-high p-6 lg:p-10 shadow-2xl relative overflow-hidden">
-      <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-primary-container/10 blur-3xl pointer-events-none"></div>
-      
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-        <div class="lg:col-span-7 flex flex-col gap-4">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-surface-container-low border border-surface-container-high w-fit font-mono text-xs text-primary font-bold uppercase">
-            <span class="material-symbols-outlined text-[16px]">tune</span>
-            <span>ESTIMADOR DE TATUAJE & ESTILO</span>
-          </div>
-          <h3 class="font-headline-lg text-2xl lg:text-3xl font-bold uppercase text-on-surface tracking-tight">
-            Planifica tu pieza antes de entrar al box
-          </h3>
-          <p class="font-body-md text-secondary text-sm lg:text-base max-w-xl">
-            Selecciona el tamaño y estilo de tu diseño para estimar el tiempo aproximado de sesión y recibir asesoramiento directo en {{ negocio.ciudad }}.
-          </p>
-
-          <!-- Selector Tamaño -->
-          <div class="flex flex-col gap-2 mt-2">
-            <span class="font-mono text-xs text-secondary uppercase">Tamaño estimado:</span>
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
-              <button onclick="setTattooTamano('Micro (<5cm)', '45m - 1h 15m', this)" class="tattoo-tamano-btn p-3 rounded font-mono text-xs border-2 border-primary-container bg-primary-container/20 text-on-surface font-bold transition text-left">
-                <div>Micro</div>
-                <div class="text-[10px] text-primary">&lt; 5 cm</div>
-              </button>
-              <button onclick="setTattooTamano('Mediano (5-15cm)', '1h 30m - 2h 30m', this)" class="tattoo-tamano-btn p-3 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface transition text-left">
-                <div>Mediano</div>
-                <div class="text-[10px] text-outline">5 - 15 cm</div>
-              </button>
-              <button onclick="setTattooTamano('Grande (15-25cm)', '3h - 4h 30m', this)" class="tattoo-tamano-btn p-3 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface transition text-left">
-                <div>Grande</div>
-                <div class="text-[10px] text-outline">15 - 25 cm</div>
-              </button>
-              <button onclick="setTattooTamano('Proyecto / Manga (25cm+)', 'Sesiones múltiples', this)" class="tattoo-tamano-btn p-3 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface transition text-left">
-                <div>Manga</div>
-                <div class="text-[10px] text-outline">25+ cm</div>
-              </button>
+          <!-- Badge de Calificación Verificada -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-slate-200 mx-auto lg:mx-0 w-fit">
+            <div class="flex text-amber-400 text-sm leading-none">
+              ★★★★★
             </div>
+            <span class="font-bold text-white">4.9/5</span>
+            <span class="text-slate-400">• Servicio Verificado en {{ negocio.ciudad }}</span>
           </div>
 
-          <!-- Selector Estilo -->
-          <div class="flex flex-col gap-2 mt-2">
-            <span class="font-mono text-xs text-secondary uppercase">Estilo técnico:</span>
-            <div class="flex flex-wrap gap-2">
-              <button onclick="setTattooEstilo('Fineline / Trazo Fino', this)" class="tattoo-estilo-btn px-3 py-1.5 rounded font-mono text-xs border-2 border-primary-container bg-primary-container/20 text-on-surface font-bold transition">Fineline</button>
-              <button onclick="setTattooEstilo('Blackwork / Sombras', this)" class="tattoo-estilo-btn px-3 py-1.5 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface transition">Blackwork</button>
-              <button onclick="setTattooEstilo('Ilustración / Dotwork', this)" class="tattoo-estilo-btn px-3 py-1.5 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface transition">Ilustración</button>
-              <button onclick="setTattooEstilo('Cover-Up / Cobertura', this)" class="tattoo-estilo-btn px-3 py-1.5 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface transition">Cover-Up</button>
-            </div>
-          </div>
-        </div>
+          <!-- Titular Principal Potente -->
+          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-extrabold tracking-tight leading-[1.1] text-white">
+            {{ web.titular or (negocio.nombre ~ ': Tu Vehículo Como Nuevo, Siempre.') }}
+          </h1>
 
-        <!-- Columna Resumen Estimador -->
-        <div class="lg:col-span-5 rounded-xl bg-surface-container-lowest border border-surface-container-high p-6 flex flex-col items-center justify-center text-center gap-4 shadow-xl">
-          <span class="font-mono text-xs text-outline uppercase tracking-widest">TIEMPO ESTIMADO EN BOX</span>
-          <div class="flex items-baseline gap-1">
-            <span id="tattooTiempoEl" class="text-3xl lg:text-4xl font-mono font-bold text-on-surface">45m - 1h 15m</span>
-          </div>
-          <span id="tattooDetalleEl" class="text-xs font-mono text-primary">Fineline / Trazo Fino</span>
-          <span class="text-[11px] font-mono text-secondary">Material 100% esterilizado monopack • Asesoramiento previo</span>
-          
-          <button onclick="consultarTattooWhatsApp()" class="w-full mt-2 py-3.5 rounded bg-primary-container hover:bg-primary-fixed text-on-primary-container font-label-lg uppercase tracking-wider font-bold shadow-lg transition flex items-center justify-center gap-2 cursor-pointer">
-            <span class="material-symbols-outlined text-[18px]">chat</span>
-            <span>Consultar Esta Idea por WhatsApp</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-{% elif es_barber %}
-<!-- BARBER SERVICE SELECTOR -->
-<section id="estimador" class="w-full px-gutter-mobile lg:px-margin py-space-xl bg-surface-container-lowest border-t border-surface-container-high scroll-mt-20">
-  <div class="max-w-[1400px] mx-auto">
-    <div class="rounded-2xl bg-surface-container border border-surface-container-high p-6 lg:p-10 shadow-2xl relative overflow-hidden">
-      <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-primary-container/10 blur-3xl pointer-events-none"></div>
-      
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-        <div class="lg:col-span-7 flex flex-col gap-4">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-surface-container-low border border-surface-container-high w-fit font-mono text-xs text-primary font-bold uppercase">
-            <span class="material-symbols-outlined text-[16px]">content_cut</span>
-            <span>SELECTOR DE SERVICIO & RITUAL</span>
-          </div>
-          <h3 class="font-headline-lg text-2xl lg:text-3xl font-bold uppercase text-on-surface tracking-tight">
-            Elige tu corte o ritual de barba
-          </h3>
-          <p class="font-body-md text-secondary text-sm lg:text-base max-w-xl">
-            Corte clásico, degradados fade milimétricos y afeitado tradicional a navaja con toalla caliente en {{ negocio.ciudad }}.
+          <!-- Subtítulo Persuasivo -->
+          <p class="text-base sm:text-lg md:text-xl text-slate-300 font-normal leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            {{ web.subtitulo or ('Especialistas en ' ~ (negocio.categoria_clean or 'cuidado profesional') ~ ' en ' ~ negocio.ciudad ~ '. Cuidamos cada milímetro con productos de primera calidad y acabados impecables sin esperas.') }}
           </p>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
-            <button onclick="setBarberServicio('Corte Clásico / Fade', '30-40 min', this)" class="barber-btn p-3 rounded font-mono text-xs border-2 border-primary-container bg-primary-container/20 text-on-surface font-bold text-left transition">
-              <div class="font-bold">Corte Clásico / Fade</div>
-              <div class="text-[11px] text-primary">Degradado a tijera o máquina</div>
-            </button>
-            <button onclick="setBarberServicio('Arreglo de Barba Ritual', '25-35 min', this)" class="barber-btn p-3 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface text-left transition">
-              <div class="font-bold">Arreglo de Barba</div>
-              <div class="text-[11px] text-outline">Perfilado &amp; toalla caliente</div>
-            </button>
-            <button onclick="setBarberServicio('Combo Completo Corte + Barba', '50-60 min', this)" class="barber-btn p-3 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface text-left transition">
-              <div class="font-bold">Combo Corte + Barba</div>
-              <div class="text-[11px] text-outline">Experiencia integral premium</div>
-            </button>
-            <button onclick="setBarberServicio('Tratamiento Capilar & Peinado', '20-30 min', this)" class="barber-btn p-3 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface text-left transition">
-              <div class="font-bold">Tratamiento &amp; Peinado</div>
-              <div class="text-[11px] text-outline">Lavado, masaje y fijación</div>
-            </button>
+          <!-- Acciones Principales -->
+          <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <a href="{{ negocio.whatsapp_url or '#contacto' }}" target="_blank" rel="noopener" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-bold text-base shadow-xl shadow-emerald-950/50 flex items-center justify-center gap-2.5 transition-all hover:scale-[1.02] active:scale-[0.98]">
+              <span class="material-symbols-outlined text-xl">chat</span>
+              <span>Reservar Cita por WhatsApp</span>
+            </a>
+
+            <a href="#servicios" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-200 hover:text-white font-semibold text-base transition-all flex items-center justify-center gap-2">
+              <span>Ver Tarifas & Servicios</span>
+              <span class="material-symbols-outlined text-lg">arrow_forward</span>
+            </a>
           </div>
+
+          <!-- Micro Garantías -->
+          <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-6 text-xs text-slate-400 font-medium">
+            <span class="flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-sky-400 text-base">verified</span>
+              {{ '100% a mano sin microarañazos' if es_detailing else ('Garantía Oficial en piezas' if es_taller else ('Higiene y tintas veganas UE' if es_tattoo else 'Atención y trato de maestro')) }}
+            </span>
+            <span class="flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-emerald-400 text-base">schedule</span>
+              Entrega puntual garantizada
+            </span>
+            <span class="flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-amber-400 text-base">star</span>
+              Máxima valoración de clientes
+            </span>
+          </div>
+
         </div>
 
-        <div class="lg:col-span-5 rounded-xl bg-surface-container-lowest border border-surface-container-high p-6 flex flex-col items-center justify-center text-center gap-4 shadow-xl">
-          <span class="font-mono text-xs text-outline uppercase tracking-widest">SERVICIO SELECCIONADO</span>
-          <div id="barberServicioEl" class="text-xl lg:text-2xl font-mono font-bold text-on-surface">Corte Clásico / Fade</div>
-          <span id="barberTiempoEl" class="text-xs font-mono text-primary">Duración estimada: 30-40 min</span>
-          <span class="text-[11px] font-mono text-secondary">Atención puntual sin esperas con cita previa</span>
-          
-          <button onclick="reservarBarberWhatsApp()" class="w-full mt-2 py-3.5 rounded bg-primary-container hover:bg-primary-fixed text-on-primary-container font-label-lg uppercase tracking-wider font-bold shadow-lg transition flex items-center justify-center gap-2 cursor-pointer">
-            <span class="material-symbols-outlined text-[18px]">calendar_month</span>
-            <span>Reservar Este Servicio</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-{% elif es_detailing %}
-<!-- DETAILING TREATMENT & PROTECTION ESTIMATOR -->
-<section id="estimador" class="w-full px-gutter-mobile lg:px-margin py-space-xl bg-surface-container-lowest border-t border-surface-container-high scroll-mt-20">
-  <div class="max-w-[1400px] mx-auto">
-    <div class="rounded-2xl bg-surface-container border border-surface-container-high p-6 lg:p-10 shadow-2xl relative overflow-hidden">
-      <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-primary-container/10 blur-3xl pointer-events-none"></div>
-      
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-        <div class="lg:col-span-7 flex flex-col gap-4">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-surface-container-low border border-surface-container-high w-fit font-mono text-xs text-primary font-bold uppercase">
-            <span class="material-symbols-outlined text-[16px]">verified</span>
-            <span>CONFIGURADOR DE TRATAMIENTO &amp; PROTECCIÓN</span>
-          </div>
-          <h3 class="font-headline-lg text-2xl lg:text-3xl font-bold uppercase text-on-surface tracking-tight">
-            Selecciona el nivel de cuidado para tu vehículo
-          </h3>
-          <p class="font-body-md text-secondary text-sm lg:text-base max-w-xl">
-            Desde corrección de microarañazos en pintura hasta sellado cerámico 9H o film protector PPF de máxima durabilidad en {{ negocio.ciudad }}.
-          </p>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
-            <button onclick="setDetailingTratamiento('Tratamiento Cerámico 9H', '2-3 días', 'Desde 450 €', this)" class="detailing-btn p-3.5 rounded font-mono text-xs border-2 border-primary-container bg-primary-container/20 text-on-surface font-bold text-left transition">
-              <div class="flex items-center justify-between">
-                <span class="font-bold text-sm">Cerámico 9H</span>
-                <span class="text-primary font-bold">Desde 450 €</span>
+        <!-- Imagen Hero / Showcase Visual -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            
+            <!-- Marco Principal -->
+            <div class="relative rounded-3xl overflow-hidden border border-white/15 bg-gradient-to-b from-white/10 to-transparent p-2 shadow-2xl shadow-sky-950/40">
+              <div class="rounded-2xl overflow-hidden aspect-[4/5] bg-[#131722] relative">
+                {% if ig.posts and ig.posts[0] and (ig.posts[0].image_url or ig.posts[0].imagen) %}
+                <img src="{{ ig.posts[0].image_url or ig.posts[0].imagen }}" alt="{{ negocio.nombre }}" class="w-full h-full object-cover"/>
+                {% else %}
+                <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=800&q=80" alt="Detalle Profesional" class="w-full h-full object-cover"/>
+                {% endif %}
+                
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0B0D13] via-transparent to-transparent opacity-80"></div>
+                
+                <!-- Badge Flotante Inferior en la Foto -->
+                <div class="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-[#0B0D13]/85 backdrop-blur-md border border-white/10 flex items-center justify-between">
+                  <div>
+                    <span class="text-xs text-sky-400 font-bold uppercase tracking-wider block">Acabado de Exposición</span>
+                    <span class="text-sm font-bold text-white">{{ negocio.nombre }}</span>
+                  </div>
+                  <span class="px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-semibold border border-emerald-500/30">
+                    Cita Previa
+                  </span>
+                </div>
               </div>
-              <div class="text-[11px] text-secondary mt-1">Brillo cristalino e hidrofobia 3-5 años</div>
-            </button>
-            <button onclick="setDetailingTratamiento('Corrección de Pintura (Paint Correction)', '1-2 días', 'Desde 280 €', this)" class="detailing-btn p-3.5 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface text-left transition">
-              <div class="flex items-center justify-between">
-                <span class="font-bold text-sm">Corrección Pintura</span>
-                <span class="text-outline font-bold">Desde 280 €</span>
+            </div>
+
+            <!-- Card Flotante de Confianza -->
+            <div class="absolute -top-4 -right-4 bg-[#131722]/90 backdrop-blur-md border border-white/15 rounded-2xl p-3.5 shadow-xl hidden sm:flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold">
+                <span class="material-symbols-outlined">verified_user</span>
               </div>
-              <div class="text-[11px] text-outline mt-1">Eliminación de swirls y marcas de lavado</div>
-            </button>
-            <button onclick="setDetailingTratamiento('Protección PPF (Film Autorregenerable)', '2-4 días', 'A medida', this)" class="detailing-btn p-3.5 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface text-left transition">
-              <div class="flex items-center justify-between">
-                <span class="font-bold text-sm">Protección PPF</span>
-                <span class="text-outline font-bold">A medida</span>
+              <div>
+                <span class="text-xs text-slate-400 block font-medium">Calidad de acabado</span>
+                <span class="text-sm font-bold text-white">100% Garantizada</span>
               </div>
-              <div class="text-[11px] text-outline mt-1">Lámina autorregenerable contra chinazos</div>
-            </button>
-            <button onclick="setDetailingTratamiento('Detallado Interior & Tapicería', '1 día', 'Desde 120 €', this)" class="detailing-btn p-3.5 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface text-left transition">
-              <div class="flex items-center justify-between">
-                <span class="font-bold text-sm">Detallado Interior</span>
-                <span class="text-outline font-bold">Desde 120 €</span>
-              </div>
-              <div class="text-[11px] text-outline mt-1">Nutrición de cuero, ozono y desinfección</div>
-            </button>
+            </div>
+
           </div>
         </div>
 
-        <div class="lg:col-span-5 rounded-xl bg-surface-container-lowest border border-surface-container-high p-6 flex flex-col items-center justify-center text-center gap-4 shadow-xl">
-          <span class="font-mono text-xs text-outline uppercase tracking-widest">TRATAMIENTO SELECCIONADO</span>
-          <div id="detailingServicioEl" class="text-xl lg:text-2xl font-mono font-bold text-on-surface">Tratamiento Cerámico 9H</div>
-          <div class="flex items-center gap-2">
-            <span id="detailingPrecioEl" class="text-lg font-mono font-bold text-primary">Desde 450 €</span>
-            <span class="text-surface-container-high">|</span>
-            <span id="detailingTiempoEl" class="text-xs font-mono text-secondary">Duración: 2-3 días</span>
-          </div>
-          <span class="text-[11px] font-mono text-secondary">Instalación certificada en cabina limpia con secado infrarrojo</span>
-          
-          <button onclick="consultarDetailingWhatsApp()" class="w-full mt-2 py-3.5 rounded bg-primary-container hover:bg-primary-fixed text-on-primary-container font-label-lg uppercase tracking-wider font-bold shadow-lg transition flex items-center justify-center gap-2 cursor-pointer">
-            <span class="material-symbols-outlined text-[18px]">chat</span>
-            <span>Consultar Disponibilidad en Box</span>
-          </button>
-        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-{% else %}
-<!-- GENERAL ESTIMATOR -->
-<section id="estimador" class="w-full px-gutter-mobile lg:px-margin py-space-xl bg-surface-container-lowest border-t border-surface-container-high scroll-mt-20">
-  <div class="max-w-[1400px] mx-auto">
-    <div class="rounded-2xl bg-surface-container border border-surface-container-high p-6 lg:p-10 shadow-2xl relative overflow-hidden">
-      <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-primary-container/10 blur-3xl pointer-events-none"></div>
-      
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-        <div class="lg:col-span-7 flex flex-col gap-4">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-surface-container-low border border-surface-container-high w-fit font-mono text-xs text-primary font-bold uppercase">
-            <span class="material-symbols-outlined text-[16px]">verified</span>
-            <span>VALORACIÓN & ASESORAMIENTO DIRECTO</span>
+  <!-- ==================== BARRA DE CONFIANZA (4 PILARES) ==================== -->
+  <section class="py-12 bg-[#0E121B] border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        {% if es_detailing %}
+        <div class="p-6 rounded-2xl card-glass">
+          <div class="w-12 h-12 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-2xl">clean_hands</span>
           </div>
-          <h3 class="font-headline-lg text-2xl lg:text-3xl font-bold uppercase text-on-surface tracking-tight">
-            Consulta disponibilidad y presupuesto a medida
-          </h3>
-          <p class="font-body-md text-secondary text-sm lg:text-base max-w-xl">
-            Respuesta rápida sin compromiso en {{ negocio.ciudad }}. Cuéntanos tu proyecto y te responderemos con opciones y fechas disponibles.
-          </p>
+          <h3 class="font-display font-bold text-lg text-white mb-1">Lavado 100% a Mano</h3>
+          <p class="text-sm text-slate-300">Técnica de dos cubos y secado con microfibra prémium para evitar swirls y microarañazos.</p>
         </div>
 
-        <div class="lg:col-span-5 rounded-xl bg-surface-container-lowest border border-surface-container-high p-6 flex flex-col items-center justify-center text-center gap-4 shadow-xl">
-          <span class="font-mono text-xs text-outline uppercase tracking-widest">ATENCIÓN DIRECTA</span>
-          <div class="text-2xl font-mono font-bold text-on-surface">{{ negocio.nombre }}</div>
-          <span class="text-xs font-mono text-primary">Atención personalizada en {{ negocio.ciudad }}</span>
-          
-          <button onclick="abrirModalPresupuesto('Consulta General')" class="w-full mt-2 py-3.5 rounded bg-primary-container hover:bg-primary-fixed text-on-primary-container font-label-lg uppercase tracking-wider font-bold shadow-lg transition flex items-center justify-center gap-2 cursor-pointer">
-            <span class="material-symbols-outlined text-[18px]">chat</span>
-            <span>Pedir Información por WhatsApp</span>
-          </button>
+        <div class="p-6 rounded-2xl card-glass">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-2xl">shield</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white mb-1">Tratamiento Cerámico</h3>
+          <p class="text-sm text-slate-300">Selladores hidrofóbicos y protección contra rayos UV, lluvia ácida y contaminación vial.</p>
         </div>
+
+        <div class="p-6 rounded-2xl card-glass">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-2xl">airline_seat_recline_extra</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white mb-1">Interior Detallado</h3>
+          <p class="text-sm text-slate-300">Limpieza profunda con vapor, nutrición de cuero e higienización antibacteriana integral.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl card-glass">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-2xl">timer</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white mb-1">Entrega Puntual</h3>
+          <p class="text-sm text-slate-300">Respetamos tu tiempo. Tu coche estará listo y en condiciones de salón a la hora acordada.</p>
+        </div>
+
+        {% elif es_taller %}
+        <div class="p-6 rounded-2xl card-glass">
+          <div class="w-12 h-12 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-2xl">precision_manufacturing</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white mb-1">Diagnosis Oficial</h3>
+          <p class="text-sm text-slate-300">Equipos de diagnosis electrónica multimarca para identificar fallos con precisión milimétrica.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl card-glass">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-2xl">two_wheeler</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white mb-1">Vehículo de Cortesía</h3>
+          <p class="text-sm text-slate-300">No pares tu rutina: consúltanos por vehículo de sustitución gratuito para tu mantenimiento.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl card-glass">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-2xl">verified</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white mb-1">Recambios Originales</h3>
+          <p class="text-sm text-slate-300">Trabajamos exclusivamente con recambios homologados y garantía europea por escrito.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl card-glass">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-2xl">receipt_long</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white mb-1">Presupuesto Cerrado</h3>
+          <p class="text-sm text-slate-300">Sin sorpresas en la factura final: todo trabajo adicional se comunica y aprueba previamente.</p>
+        </div>
+
+        {% else %}
+        <div class="p-6 rounded-2xl card-glass">
+          <div class="w-12 h-12 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-2xl">workspace_premium</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white mb-1">Calidad Profesional</h3>
+          <p class="text-sm text-slate-300">Atención meticulosa cuidando cada detalle para ofrecer resultados de máximo nivel.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl card-glass">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-2xl">calendar_today</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white mb-1">Cita Inmediata</h3>
+          <p class="text-sm text-slate-300">Gestión ágil de agenda online y WhatsApp para coordinar tu cita en el momento que necesitas.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl card-glass">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-2xl">thumb_up</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white mb-1">Trato Personalizado</h3>
+          <p class="text-sm text-slate-300">Asesoramiento honesto adaptado a las necesidades específicas de tu vehículo o proyecto.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl card-glass">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-2xl">location_on</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white mb-1">Ubicación Céntrica</h3>
+          <p class="text-sm text-slate-300">Fácil acceso en {{ negocio.ciudad }}, con instalaciones cómodas y seguras.</p>
+        </div>
+        {% endif %}
+
       </div>
     </div>
-  </div>
-</section>
-{% endif %}
-<!-- 05 // BOX HEADQUARTERS & CONTACT SPLIT -->
-<section class="w-full px-gutter-mobile lg:px-margin py-space-xl bg-surface-container-lowest border-t border-surface-container-high" id="contacto">
-<div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
-<!-- Left Column: Workshop Info & Static Map Preview -->
-<div class="lg:col-span-6 rounded-lg bg-surface-container border border-surface-container-high p-space-lg flex flex-col justify-between">
-<div class="flex flex-col gap-space-md">
-<div class="flex items-center justify-between border-b border-surface-container-high pb-space-sm">
-<span class="font-label-sm text-label-sm text-primary font-mono font-bold tracking-widest uppercase">// 04 UBICACIÓN // {{ negocio.ciudad|upper }}</span>
-<div class="flex items-center gap-1.5">
-<span class="w-2 h-2 rounded-full bg-primary-container"></span>
-<span class="font-label-sm text-label-sm text-on-surface font-mono">ATENCIÓN DIRECTA</span>
-</div>
-</div>
-<div>
-<h3 class="font-headline-lg text-headline-lg uppercase text-on-surface tracking-tight">
-  ESTUDIO &amp; ATENCIÓN DIRECTA
-</h3>
-<p class="font-body-md text-body-md text-secondary mt-1">
-  Atención personalizada en {{ negocio.direccion or negocio.ciudad }}. Solicita tu cita o consulta disponibilidad para recibir asesoramiento directo.
-</p>
-</div>
-<div class="w-full h-56 rounded bg-cover bg-center border border-surface-container-high relative overflow-hidden" data-location="{{ negocio.direccion or negocio.ciudad }}" style="background-image: url('{{ (ig.posts[1].image_url if (ig.posts and ig.posts|length > 1) else 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=1200&q=80') }}')">
-<!-- Map overlay pin badge -->
-<div class="absolute inset-0 bg-surface-container-lowest/40 backdrop-blur-[2px] flex items-center justify-center">
-<div class="p-space-sm rounded-lg bg-surface-container-lowest/95 border border-primary-container flex items-center gap-space-sm shadow-[0_0_20px_rgba(249,115,22,0.3)]">
-<span class="material-symbols-outlined text-primary-container text-[24px]">location_on</span>
-<div class="flex flex-col">
-<span class="font-label-sm text-label-sm font-bold text-on-surface uppercase">{{ negocio.nombre|upper }}</span>
-<span class="font-label-sm text-[11px] text-outline font-mono">{{ negocio.ciudad|upper }} // ATENCIÓN DIRECTA</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Address & Hours Info -->
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md pt-space-xs font-mono">
-<div class="flex flex-col">
-<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">DIRECCIÓN FÍSICA</span>
-<span class="font-body-sm text-body-sm text-on-surface mt-1">
-  {{ negocio.direccion or negocio.ciudad }}<br/>
-  {{ negocio.ciudad }}, España
-</span>
-</div>
-<div class="flex flex-col">
-<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">HORARIO HABITUAL</span>
-<span class="font-body-sm text-body-sm text-on-surface mt-1">
-  Lunes a Viernes: 10:00 - 20:00<br/>
-  Sábados: Con Cita Previa
-</span>
-</div>
-</div>
-</div>
-<div class="pt-space-md border-t border-surface-container-high mt-space-md flex flex-wrap items-center justify-between gap-space-sm">
-<span class="font-label-sm text-label-sm text-secondary font-mono">{{ negocio.ciudad|upper }} // ESPAÑA</span>
-<a class="inline-flex items-center gap-1.5 font-label-sm text-label-sm text-primary uppercase font-bold hover:underline" href="https://maps.google.com/?q={{ (negocio.nombre ~ ' ' ~ negocio.ciudad)|urlencode }}" rel="noopener noreferrer" target="_blank">
-<span>Abrir en Google Maps</span>
-<span class="material-symbols-outlined text-[16px]">open_in_new</span>
-</a>
-</div>
-</div>
-<!-- Right Column: Direct Intake Form & High Speed Communication -->
-<div class="lg:col-span-6 rounded-lg bg-surface-container border border-surface-container-high p-space-lg flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between border-b border-surface-container-high pb-space-sm">
-<span class="font-label-sm text-label-sm text-primary font-mono font-bold tracking-widest uppercase">// 04 CONTACTO DIRECTO</span>
-<span class="font-label-sm text-label-sm text-outline font-mono">RESPUESTA RÁPIDA</span>
-</div>
-<div class="mt-space-md">
-<h3 class="font-headline-lg text-headline-lg uppercase text-on-surface tracking-tight">
-  PIDE TU CITA O INFORMACIÓN
-</h3>
-<p class="font-body-md text-body-md text-secondary mt-1">
-  Cuéntanos tu idea, consulta disponibilidad o solicita presupuesto personalizado sin compromiso.
-</p>
-</div>
-<!-- Contact Form Fields -->
-<div id="form-feedback-msg" class="hidden p-3 rounded-lg bg-emerald-950/80 border border-emerald-500/40 text-emerald-200 text-xs font-mono mb-3">
-  ✅ ¡Solicitud enviada! Conectando con WhatsApp para confirmar los detalles...
-</div>
-<form class="flex flex-col gap-space-sm mt-space-md" onsubmit="enviarFormularioContacto(event, this)">
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
-<div class="flex flex-col gap-1">
-<label class="font-label-sm text-label-sm text-outline uppercase font-mono">Tu Nombre</label>
-<input name="nombre" class="px-space-md py-2.5 rounded bg-surface-container-lowest border border-surface-container-high text-on-surface font-body-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-surface-variant" placeholder="Ej. Alex M." required="" type="text"/>
-</div>
-<div class="flex flex-col gap-1">
-<label class="font-label-sm text-label-sm text-outline uppercase font-mono">Teléfono / WhatsApp</label>
-<input name="telefono" class="px-space-md py-2.5 rounded bg-surface-container-lowest border border-surface-container-high text-on-surface font-body-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-surface-variant" placeholder="{{ negocio.telefono or '+34 600 000 000' }}" required="" type="tel"/>
-</div>
-</div>
-<div class="flex flex-col gap-1">
-<label class="font-label-sm text-label-sm text-outline uppercase font-mono">Detalles de tu Solicitud</label>
-<textarea name="detalles" class="px-space-md py-2.5 rounded bg-surface-container-lowest border border-surface-container-high text-on-surface font-body-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-surface-variant resize-none" placeholder="Cuéntanos brevemente qué necesitas..." rows="3"></textarea>
-</div>
-<button class="w-full mt-space-xs py-3.5 rounded bg-primary-container hover:bg-primary-fixed text-on-primary-container font-label-lg text-label-lg uppercase tracking-wider font-bold shadow-[0_0_24px_rgba(249,115,22,0.35)] transition-all flex items-center justify-center gap-2" type="submit">
-<span class="material-symbols-outlined text-[20px]">send</span>
-<span>Enviar Solicitud Directa</span>
-</button>
-</form>
-</div>
-<!-- Rapid Actions Quick Link -->
-<div class="mt-space-md pt-space-sm border-t border-surface-container-high flex items-center justify-between">
-<span class="font-label-sm text-label-sm text-secondary">¿Prefieres contacto directo?</span>
-<a class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-surface-container-high hover:border-primary border border-transparent font-label-sm text-label-sm text-on-surface font-mono font-bold transition-all" href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" rel="noopener noreferrer" target="_blank">
-<span class="material-symbols-outlined text-primary text-[18px]">chat</span>
-<span>Escribir por WhatsApp</span>
-</a>
-</div>
-</div>
-</div>
-</section>
+  </section>
 
-<!-- ============================================================ -->
-<!-- 05 // PREGUNTAS FRECUENTES (FAQ ACCORDION)                   -->
-<!-- ============================================================ -->
-<section id="faq" class="w-full px-gutter-mobile lg:px-margin py-space-xl bg-surface-container-lowest border-t border-surface-container-high scroll-mt-20">
-  <div class="max-w-[1000px] mx-auto flex flex-col gap-space-lg">
-    <div class="flex flex-col items-center text-center gap-1">
-      <span class="font-label-sm text-label-sm text-primary font-mono font-bold tracking-widest uppercase">// PREGUNTAS FRECUENTES</span>
-      <h2 class="font-headline-lg text-2xl lg:text-3xl uppercase text-on-surface tracking-tight">
-        Resolvemos tus dudas al instante
+  <!-- ==================== SERVICIOS & TARIFAS ==================== -->
+  <section id="servicios" class="py-20 max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-xs text-sky-400 font-bold uppercase tracking-wider block mb-2">Servicios Especializados</span>
+      <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mb-4">
+        Soluciones a Medida con Resultados Impecables
       </h2>
-      <p class="font-body-md text-secondary text-sm max-w-lg mt-1">
-        Transparencia total y respuestas claras antes de contratar o reservar tu cita.
+      <p class="text-slate-300 text-base sm:text-lg">
+        Selecciona el servicio que mejor se adapta a tus necesidades. Precios transparentes y asesoramiento sin compromiso.
       </p>
     </div>
 
-    <div class="flex flex-col gap-3 mt-4">
-      <div class="faq-item rounded-lg bg-surface-container border border-surface-container-high overflow-hidden transition-all">
-        <button onclick="toggleFaq(this)" class="w-full px-5 py-4 flex items-center justify-between text-left font-headline-sm text-sm sm:text-base font-semibold text-on-surface hover:text-primary transition cursor-pointer">
-          <span>¿Ofrecéis presupuesto cerrado por escrito y sin compromiso?</span>
-          <span class="material-symbols-outlined faq-icon text-primary transition-transform">expand_more</span>
-        </button>
-        <div class="faq-content hidden px-5 pb-4 text-xs sm:text-sm text-secondary font-body-sm border-t border-surface-container-high/50 pt-3">
-          Sí, al 100%. Antes de iniciar cualquier trabajo o intervención en {{ negocio.ciudad }}, te entregamos una valoración clara y detallada. No procedemos con nada sin tu autorización expresa.
-        </div>
-      </div>
-
-      <div class="faq-item rounded-lg bg-surface-container border border-surface-container-high overflow-hidden transition-all">
-        <button onclick="toggleFaq(this)" class="w-full px-5 py-4 flex items-center justify-between text-left font-headline-sm text-sm sm:text-base font-semibold text-on-surface hover:text-primary transition cursor-pointer">
-          <span>¿Qué garantía tienen los trabajos, piezas y materiales?</span>
-          <span class="material-symbols-outlined faq-icon text-primary transition-transform">expand_more</span>
-        </button>
-        <div class="faq-content hidden px-5 pb-4 text-xs sm:text-sm text-secondary font-body-sm border-t border-surface-container-high/50 pt-3">
-          Todos los proyectos y servicios cuentan con garantía profesional completa. Utilizamos únicamente componentes, tintas o recambios homologados y con certificación oficial de durabilidad.
-        </div>
-      </div>
-
-      <div class="faq-item rounded-lg bg-surface-container border border-surface-container-high overflow-hidden transition-all">
-        <button onclick="toggleFaq(this)" class="w-full px-5 py-4 flex items-center justify-between text-left font-headline-sm text-sm sm:text-base font-semibold text-on-surface hover:text-primary transition cursor-pointer">
-          <span>¿Es necesario reservar cita previa o atendéis urgencias?</span>
-          <span class="material-symbols-outlined faq-icon text-primary transition-transform">expand_more</span>
-        </button>
-        <div class="faq-content hidden px-5 pb-4 text-xs sm:text-sm text-secondary font-body-sm border-t border-surface-container-high/50 pt-3">
-          Trabajamos prioritariamente con cita concertada para garantizar una dedicación exclusiva y sin esperas. Para consultas rápidas o urgencias, contáctanos por WhatsApp y te daremos respuesta inmediata.
-        </div>
-      </div>
-
-      <div class="faq-item rounded-lg bg-surface-container border border-surface-container-high overflow-hidden transition-all">
-        <button onclick="toggleFaq(this)" class="w-full px-5 py-4 flex items-center justify-between text-left font-headline-sm text-sm sm:text-base font-semibold text-on-surface hover:text-primary transition cursor-pointer">
-          {% if es_detailing %}
-          <span>¿Cuánto tiempo dura un tratamiento cerámico o de detallado completo?</span>
-          {% elif es_taller %}
-          <span>¿Disponéis de opciones de financiación o pago a plazos?</span>
-          {% elif es_tattoo %}
-          <span>¿Cómo calculáis el presupuesto y tiempo de un tatuaje?</span>
-          {% elif es_barber %}
-          <span>¿Es necesario reservar cita previa o atendéis sin reserva?</span>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {% for s in web.servicios or [] %}
+      <div class="rounded-2xl card-glass overflow-hidden flex flex-col hover:border-sky-500/40 transition-all hover:-translate-y-1">
+        
+        <!-- Imagen del Servicio -->
+        <div class="aspect-[16/10] bg-[#1A2030] relative overflow-hidden">
+          {% if s.imagen %}
+          <img src="{{ s.imagen }}" alt="{{ s.nombre }}" class="w-full h-full object-cover"/>
           {% else %}
-          <span>¿Cómo se realiza el presupuesto y reserva de fecha?</span>
+          <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-sky-900/40 to-slate-900 text-slate-400 font-medium">
+            <span class="material-symbols-outlined text-4xl text-sky-400">directions_car</span>
+          </div>
           {% endif %}
-          <span class="material-symbols-outlined faq-icon text-primary transition-transform">expand_more</span>
-        </button>
-        <div class="faq-content hidden px-5 pb-4 text-xs sm:text-sm text-secondary font-body-sm border-t border-surface-container-high/50 pt-3">
-          {% if es_detailing %}
-          El tiempo oscila entre 1 jornada de trabajo para un detallado interior/exterior integral y de 2 a 3 días meticulosos para correcciones completas de pintura, descontaminado férrico y curado térmico de recubrimientos cerámicos 9H o films PPF.
-          {% elif es_taller %}
-          Sí. Ofrecemos planes de financiación a medida en cómodas cuotas de 12 a 60 meses con condiciones muy ventajosas y respuesta de aprobación en menos de 24 horas.
-          {% elif es_tattoo %}
-          El presupuesto se valora en función del tamaño, nivel de detalle técnico, zona corporal y horas estimadas de sesión en box. Puedes usar nuestro estimador o escribirnos por WhatsApp para recibir una valoración personalizada sin compromiso.
-          {% elif es_barber %}
-          Trabajamos prioritariamente con cita previa concertada para garantizar puntualidad sin tiempos muertos de espera, aunque si tenemos un hueco libre en agenda estaremos encantados de atenderte.
-          {% else %}
-          Contactamos directamente contigo para valorar los detalles de tu solicitud y te enviamos una propuesta cerrada y transparente con fechas disponibles.
-          {% endif %}
+          <div class="absolute top-3 right-3 px-3 py-1 rounded-full bg-[#0B0D13]/80 backdrop-blur-md text-sky-400 text-xs font-bold border border-white/10">
+            {{ s.precio_o_duracion or 'Consultar precio' }}
+          </div>
+        </div>
+
+        <!-- Contenido del Servicio -->
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+          <div>
+            <h3 class="text-xl font-display font-bold text-white mb-2">{{ s.nombre }}</h3>
+            <p class="text-sm text-slate-300 leading-relaxed">{{ s.descripcion }}</p>
+          </div>
+
+          <!-- Puntos Clave de Inclusión -->
+          <ul class="space-y-2 text-xs text-slate-300 border-t border-white/5 pt-4">
+            <li class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-emerald-400 text-base">check_circle</span>
+              <span>Materiales y productos profesionales homologados</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-emerald-400 text-base">check_circle</span>
+              <span>Revisión exhaustiva y acabado de máxima calidad</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-emerald-400 text-base">check_circle</span>
+              <span>Cita confirmada sin esperas en taller</span>
+            </li>
+          </ul>
+
+          <!-- Botón de Reserva Directo con Servicio Pre-rellenado -->
+          <a href="{{ negocio.whatsapp_url or '#contacto' }}" target="_blank" rel="noopener" class="w-full py-3 rounded-xl bg-white/5 hover:bg-emerald-500 hover:text-white border border-white/10 text-slate-200 font-semibold text-sm text-center flex items-center justify-center gap-2 transition-all group">
+            <span>Pedir Cita para este Servicio</span>
+            <span class="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </a>
+        </div>
+
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- ==================== COMPONENTE INTERACTIVO ESPECIALIZADO ==================== -->
+  {% if es_detailing %}
+  <section id="configurador" class="py-20 bg-[#0E121B] border-y border-white/5">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs text-sky-400 font-bold uppercase tracking-wider block mb-2">Configurador Interactivo</span>
+        <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mb-3">
+          Calcula el Pack Ideal para Tu Vehículo
+        </h2>
+        <p class="text-slate-300 text-sm sm:text-base">
+          Elige el tamaño de tu vehículo y el nivel de tratamiento para ver presupuesto y tiempo estimado al instante.
+        </p>
+      </div>
+
+      <div class="rounded-3xl card-glass p-6 sm:p-10 border border-white/10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          
+          <!-- Selectores -->
+          <div class="space-y-6">
+            
+            <!-- Paso 1: Tipo de Vehículo -->
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-3">1. Tipo de Vehículo</label>
+              <div class="grid grid-cols-3 gap-3">
+                <button type="button" class="vehicle-btn active px-3 py-3 rounded-xl border border-sky-500 bg-sky-500/20 text-white font-semibold text-xs flex flex-col items-center gap-1 transition-all" data-multiplier="1.0" data-name="Compacto / Berlina">
+                  <span class="material-symbols-outlined text-2xl text-sky-400">directions_car</span>
+                  <span>Turismo</span>
+                </button>
+                <button type="button" class="vehicle-btn px-3 py-3 rounded-xl border border-white/10 bg-white/5 text-slate-300 hover:text-white font-semibold text-xs flex flex-col items-center gap-1 transition-all" data-multiplier="1.25" data-name="SUV / Monovolumen">
+                  <span class="material-symbols-outlined text-2xl text-slate-400">airport_shuttle</span>
+                  <span>SUV / 4x4</span>
+                </button>
+                <button type="button" class="vehicle-btn px-3 py-3 rounded-xl border border-white/10 bg-white/5 text-slate-300 hover:text-white font-semibold text-xs flex flex-col items-center gap-1 transition-all" data-multiplier="1.45" data-name="Furgoneta / Grande">
+                  <span class="material-symbols-outlined text-2xl text-slate-400">rv_hookup</span>
+                  <span>Furgoneta</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Paso 2: Nivel de Tratamiento -->
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-3">2. Nivel de Tratamiento</label>
+              <div class="space-y-2.5">
+                <label class="pack-option flex items-center justify-between p-3.5 rounded-xl border border-sky-500 bg-sky-500/10 cursor-pointer transition-all">
+                  <div class="flex items-center gap-3">
+                    <input type="radio" name="detailing-pack" value="45" data-time="1h 15m" data-pack="Lavado Exprés + Llantas" checked class="accent-sky-500 w-4 h-4"/>
+                    <div>
+                      <span class="text-sm font-bold text-white block">Lavado Completo a Mano</span>
+                      <span class="text-xs text-slate-400">Carrocería, llantas, cristales y aspirado básico</span>
+                    </div>
+                  </div>
+                  <span class="text-sm font-bold text-sky-400">45€</span>
+                </label>
+
+                <label class="pack-option flex items-center justify-between p-3.5 rounded-xl border border-white/10 bg-white/5 cursor-pointer hover:border-white/20 transition-all">
+                  <div class="flex items-center gap-3">
+                    <input type="radio" name="detailing-pack" value="110" data-time="3h 30m" data-pack="Detailing Interior Integral + Ozono" class="accent-sky-500 w-4 h-4"/>
+                    <div>
+                      <span class="text-sm font-bold text-white block">Detailing Interior Profundo</span>
+                      <span class="text-xs text-slate-400">Inyección-extracción de tapicería, plásticos y desinfección</span>
+                    </div>
+                  </div>
+                  <span class="text-sm font-bold text-sky-400">110€</span>
+                </label>
+
+                <label class="pack-option flex items-center justify-between p-3.5 rounded-xl border border-white/10 bg-white/5 cursor-pointer hover:border-white/20 transition-all">
+                  <div class="flex items-center gap-3">
+                    <input type="radio" name="detailing-pack" value="260" data-time="1 día completo" data-pack="Corrección de Pintura + Cerámico 9H" class="accent-sky-500 w-4 h-4"/>
+                    <div>
+                      <span class="text-sm font-bold text-white block">Cerámico 9H & Corrección</span>
+                      <span class="text-xs text-slate-400">Eliminación de swirls, pulido espejo y protección cerámica 2 años</span>
+                    </div>
+                  </div>
+                  <span class="text-sm font-bold text-sky-400">260€</span>
+                </label>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Resumen y Acción -->
+          <div class="p-6 sm:p-8 rounded-2xl bg-[#131722] border border-white/10 flex flex-col justify-between h-full space-y-6">
+            <div>
+              <span class="text-xs text-emerald-400 font-bold uppercase tracking-wider block mb-1">Presupuesto Estimado</span>
+              <div class="flex items-baseline gap-2 mb-4">
+                <span id="calc-total-price" class="text-4xl sm:text-5xl font-display font-extrabold text-white">45€</span>
+                <span class="text-xs text-slate-400">IVA incl.</span>
+              </div>
+
+              <div class="space-y-2 text-xs text-slate-300 border-t border-white/10 pt-4">
+                <div class="flex justify-between">
+                  <span class="text-slate-400">Vehículo:</span>
+                  <span id="calc-vehicle-name" class="font-semibold text-white">Turismo</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-slate-400">Tratamiento:</span>
+                  <span id="calc-pack-name" class="font-semibold text-white">Lavado Exprés + Llantas</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-slate-400">Tiempo de entrega aprox:</span>
+                  <span id="calc-time" class="font-semibold text-sky-400">1h 15m</span>
+                </div>
+              </div>
+            </div>
+
+            <a id="calc-whatsapp-btn" href="{{ negocio.whatsapp_url or '#contacto' }}" target="_blank" rel="noopener" class="w-full py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-bold text-sm text-center flex items-center justify-center gap-2 shadow-lg shadow-emerald-950/40 transition-all hover:scale-[1.02]">
+              <span class="material-symbols-outlined text-lg">chat</span>
+              <span>Confirmar Cita para este Pack</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  {% elif es_barber %}
+  <section id="estilos" class="py-20 bg-[#0E121B] border-y border-white/5">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs text-amber-400 font-bold uppercase tracking-wider block mb-2">Experiencia Barbershop</span>
+        <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mb-3">
+          SELECTOR DE SERVICIO & RITUAL
+        </h2>
+        <p class="text-slate-300 text-sm sm:text-base">
+          Cortes clásicos, degradados modernos y afeitado tradicional con toalla caliente.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl card-glass text-center space-y-3">
+          <span class="material-symbols-outlined text-3xl text-amber-400">content_cut</span>
+          <h3 class="font-display font-bold text-lg text-white">Corte Signature</h3>
+          <p class="text-xs text-slate-300">Lavado, corte personalizado a tijera o máquina y peinado con cera prémium.</p>
+          <span class="text-lg font-bold text-amber-400 block">18€</span>
+        </div>
+        <div class="p-6 rounded-2xl card-glass text-center space-y-3 border-amber-500/30">
+          <span class="material-symbols-outlined text-3xl text-amber-400">face</span>
+          <h3 class="font-display font-bold text-lg text-white">Ritual Barba Tradicional</h3>
+          <p class="text-xs text-slate-300">Toalla caliente, perfilado a navaja, aceites esenciales y bálsamo hidratante.</p>
+          <span class="text-lg font-bold text-amber-400 block">16€</span>
+        </div>
+        <div class="p-6 rounded-2xl card-glass text-center space-y-3">
+          <span class="material-symbols-outlined text-3xl text-amber-400">military_tech</span>
+          <h3 class="font-display font-bold text-lg text-white">Experiencia Completa</h3>
+          <p class="text-xs text-slate-300">Corte de autor + ritual completo de barba con toalla caliente y tratamiento facial.</p>
+          <span class="text-lg font-bold text-amber-400 block">30€</span>
         </div>
       </div>
     </div>
+  </section>
+
+  {% elif es_tattoo %}
+  <section id="estilos" class="py-20 bg-[#0E121B] border-y border-white/5">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs text-purple-400 font-bold uppercase tracking-wider block mb-2">Custom Ink & Art</span>
+        <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mb-3">
+          ESTIMADOR DE TATUAJE & ESTILOS
+        </h2>
+        <p class="text-slate-300 text-sm sm:text-base">
+          Piezas únicas personalizadas con máxima higiene y tintas homologadas UE.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl card-glass text-center space-y-3">
+          <span class="material-symbols-outlined text-3xl text-purple-400">draw</span>
+          <h3 class="font-display font-bold text-lg text-white">Flash & Microtattoo</h3>
+          <p class="text-xs text-slate-300">Línea fina, piezas pequeñas de 3 a 7 cm. Ideal para primeros tatuajes.</p>
+          <span class="text-lg font-bold text-purple-400 block">Desde 60€</span>
+        </div>
+        <div class="p-6 rounded-2xl card-glass text-center space-y-3 border-purple-500/30">
+          <span class="material-symbols-outlined text-3xl text-purple-400">palette</span>
+          <h3 class="font-display font-bold text-lg text-white">Pieza Media Personalizada</h3>
+          <p class="text-xs text-slate-300">Diseño de 10 a 18 cm. Blackwork, neotradicional, dotwork o color.</p>
+          <span class="text-lg font-bold text-purple-400 block">Desde 150€</span>
+        </div>
+        <div class="p-6 rounded-2xl card-glass text-center space-y-3">
+          <span class="material-symbols-outlined text-3xl text-purple-400">brush</span>
+          <h3 class="font-display font-bold text-lg text-white">Sesión Completa / Manga</h3>
+          <p class="text-xs text-slate-300">Media manga, espalda o sesiones de 4 a 6 horas de proyecto a medida.</p>
+          <span class="text-lg font-bold text-purple-400 block">Consultar proyecto</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- ==================== GALERÍA DE TRABAJOS RECIENTES ==================== -->
+  <section id="galeria" class="py-20 max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+      <div>
+        <span class="text-xs text-sky-400 font-bold uppercase tracking-wider block mb-2">Galería de Trabajos</span>
+        <h2 class="text-3xl sm:text-4xl font-display font-bold text-white">
+          Resultados Reales en Cada Trabajo
+        </h2>
+      </div>
+      {% if negocio.instagram_url %}
+      <a href="{{ negocio.instagram_url }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-300 hover:text-sky-400 transition-colors">
+        <span>Ver más fotos en nuestro Instagram</span>
+        <span class="material-symbols-outlined text-base">open_in_new</span>
+      </a>
+      {% endif %}
+    </div>
+
+    <!-- Grid de Fotos con Lightbox -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+      {% for post in (ig.posts or [])[:8] %}
+      {% if post.image_url or post.imagen %}
+      <div class="group relative aspect-square rounded-2xl overflow-hidden bg-[#181E2E] border border-white/10 cursor-pointer" onclick="openLightbox('{{ post.image_url or post.imagen }}', '{{ post.caption or negocio.nombre }}')">
+        <img src="{{ post.image_url or post.imagen }}" alt="{{ post.caption or negocio.nombre }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+          <span class="material-symbols-outlined text-white text-xl">zoom_in</span>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- ==================== PRUEBA SOCIAL / OPINIONES ==================== -->
+  <section id="opiniones" class="py-20 bg-[#0E121B] border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="flex items-center justify-center gap-1 text-amber-400 mb-2">
+          ★★★★★
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mb-3">
+          La Confianza de Nuestros Clientes
+        </h2>
+        <p class="text-slate-300 text-base">
+          Opiniones reales de conductores que confían el cuidado y mantenimiento de su vehículo a {{ negocio.nombre }}.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="p-6 sm:p-8 rounded-2xl card-glass flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex text-amber-400 text-sm">★★★★★</div>
+            <p class="text-sm text-slate-300 italic leading-relaxed">
+              «Increíble cómo dejaron el coche. El interior parecía recién salido del concesionario y la pintura recuperó un brillo que no veía desde hacía años. Trato de 10.»
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-6 border-t border-white/5 mt-4">
+            <div class="w-10 h-10 rounded-full bg-sky-500/20 text-sky-400 font-bold flex items-center justify-center text-sm">
+              MC
+            </div>
+            <div>
+              <span class="text-sm font-bold text-white block">Marc Casanovas</span>
+              <span class="text-xs text-slate-400">Cliente Verificado • Barcelona</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 sm:p-8 rounded-2xl card-glass flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex text-amber-400 text-sm">★★★★★</div>
+            <p class="text-sm text-slate-300 italic leading-relaxed">
+              «Puntuales, meticulosos y súper profesionales. Se nota la pasión que le ponen a cada detalle. Repetiré sin duda para el próximo tratamiento cerámico.»
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-6 border-t border-white/5 mt-4">
+            <div class="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center text-sm">
+              LR
+            </div>
+            <div>
+              <span class="text-sm font-bold text-white block">Laura Rovira</span>
+              <span class="text-xs text-slate-400">Cliente Verificado • Barcelona</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 sm:p-8 rounded-2xl card-glass flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex text-amber-400 text-sm">★★★★★</div>
+            <p class="text-sm text-slate-300 italic leading-relaxed">
+              «Atención rápida y presupuesto claro desde el primer minuto por WhatsApp. Sin esperas y el coche impecable. Totalmente recomendables.»
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-6 border-t border-white/5 mt-4">
+            <div class="w-10 h-10 rounded-full bg-purple-500/20 text-purple-400 font-bold flex items-center justify-center text-sm">
+              DG
+            </div>
+            <div>
+              <span class="text-sm font-bold text-white block">David Gómez</span>
+              <span class="text-xs text-slate-400">Cliente Verificado • Barcelona</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== CONTACTO & UBICACIÓN ==================== -->
+  <section id="contacto" class="py-20 max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      
+      <!-- Información de Contacto -->
+      <div class="lg:col-span-6 space-y-6">
+        <div>
+          <span class="text-xs text-sky-400 font-bold uppercase tracking-wider block mb-2">Visítanos o Escríbenos</span>
+          <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mb-4">
+            Estamos en {{ negocio.ciudad }} para Atenderte
+          </h2>
+          <p class="text-slate-300 text-base leading-relaxed">
+            Puedes consultar disponibilidades, pedir presupuesto previo o solicitar cita inmediata por WhatsApp o llamada directa.
+          </p>
+        </div>
+
+        <div class="space-y-4 pt-2">
+          
+          <div class="flex items-start gap-4 p-4 rounded-2xl card-glass">
+            <div class="w-10 h-10 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined">location_on</span>
+            </div>
+            <div>
+              <span class="text-xs text-slate-400 block font-medium">Dirección</span>
+              <span class="text-sm font-bold text-white">{{ negocio.direccion or ('Zona centro de ' ~ negocio.ciudad) }}</span>
+              <span class="text-xs text-slate-400 block">{{ negocio.codigo_postal }} {{ negocio.ciudad }}</span>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 rounded-2xl card-glass">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined">schedule</span>
+            </div>
+            <div>
+              <span class="text-xs text-slate-400 block font-medium">Horario de Apertura</span>
+              <span class="text-sm font-bold text-white">Lunes a Viernes: 08:30 – 19:30</span>
+              <span class="text-xs text-slate-400 block">Sábados: 09:00 – 14:00 (Cita Previa)</span>
+            </div>
+          </div>
+
+          {% if negocio.telefono %}
+          <div class="flex items-start gap-4 p-4 rounded-2xl card-glass">
+            <div class="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined">call</span>
+            </div>
+            <div>
+              <span class="text-xs text-slate-400 block font-medium">Teléfono de Atención</span>
+              <a href="tel:{{ negocio.telefono }}" class="text-sm font-bold text-white hover:text-sky-400 transition-colors">
+                {{ negocio.telefono }}
+              </a>
+            </div>
+          </div>
+          {% endif %}
+
+        </div>
+
+        <!-- Botón a Google Maps -->
+        <a href="https://www.google.com/maps/search/?api=1&query={{ ((negocio.nombre or '') ~ ' ' ~ (negocio.ciudad or ''))|urlencode }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-200 font-semibold text-sm transition-colors">
+          <span class="material-symbols-outlined text-sky-400">directions</span>
+          <span>Abrir ubicación en Google Maps</span>
+        </a>
+
+      </div>
+
+      <!-- Formulario / Contacto Directo WhatsApp -->
+      <div class="lg:col-span-6">
+        <div class="p-6 sm:p-8 rounded-3xl card-glass border border-white/10">
+          <h3 class="font-display font-bold text-xl text-white mb-2">Envía un Mensaje Directo</h3>
+          <p class="text-xs text-slate-400 mb-6">Te responderemos en menos de 15 minutos en horario comercial.</p>
+
+          <form id="contact-quick-form" class="space-y-4" onsubmit="handleFormSubmit(event)">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1.5">Nombre o Empresa</label>
+              <input type="text" id="form-name" required placeholder="Tu nombre" class="w-full px-4 py-3 rounded-xl bg-[#0B0D13] border border-white/10 text-white text-sm focus:border-sky-500 focus:outline-none transition-colors"/>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1.5">Vehículo (Marca y Modelo)</label>
+              <input type="text" id="form-vehicle" placeholder="Ej: Golf GTI / Audi Q3" class="w-full px-4 py-3 rounded-xl bg-[#0B0D13] border border-white/10 text-white text-sm focus:border-sky-500 focus:outline-none transition-colors"/>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1.5">Servicio de Interés</label>
+              <select id="form-service" class="w-full px-4 py-3 rounded-xl bg-[#0B0D13] border border-white/10 text-white text-sm focus:border-sky-500 focus:outline-none transition-colors">
+                <option value="Lavado Completo a Mano">Lavado Completo a Mano</option>
+                <option value="Detailing Interior y Tapicerías">Detailing Interior y Tapicerías</option>
+                <option value="Tratamiento Cerámico y Pulido">Tratamiento Cerámico y Pulido</option>
+                <option value="Mantenimiento o Mecánica Rápida">Mantenimiento o Mecánica Rápida</option>
+                <option value="Otro Servicio Personalizado">Otro Servicio Personalizado</option>
+              </select>
+            </div>
+
+            <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-950/40 transition-all hover:scale-[1.01]">
+              <span class="material-symbols-outlined text-lg">chat</span>
+              <span>Enviar Solicitud por WhatsApp</span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="bg-[#07080B] border-t border-white/5 py-12 text-slate-400 text-xs">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="flex items-center gap-3">
+      {% if ig.avatar_url or ig.avatar %}
+      <img src="{{ ig.avatar_url or ig.avatar }}" alt="{{ negocio.nombre }}" class="w-6 h-6 rounded-lg object-cover"/>
+      {% endif %}
+      <span class="font-bold text-white text-sm">{{ negocio.nombre }}</span>
+      <span>• {{ "CENTRO DE DETAILING & ESTÉTICA" if es_detailing else ("TALLER MECÁNICO" if es_taller else ("ESTUDIO DE TATUAJES" if es_tattoo else ("BARBERÍA" if es_barber else "SERVICIOS PROFESIONALES"))) }}</span><span>• {{ negocio.ciudad }}</span>
+    </div>
+
+    <div class="flex flex-wrap gap-6 text-slate-400">
+      <a href="#inicio" class="hover:text-white transition-colors">Inicio</a>
+      <a href="#servicios" class="hover:text-white transition-colors">Servicios</a>
+      <a href="#galeria" class="hover:text-white transition-colors">Galería</a>
+      <a href="#contacto" class="hover:text-white transition-colors">Contacto</a>
+    </div>
+
+    <div>
+      <span>© {{ negocio.nombre }}. Todos los derechos reservados.</span>
+    </div>
   </div>
-</section>
+</footer>
 
-<!-- 06 // SUB-FOOTER METRICS -->
-<section class="w-full px-gutter-mobile lg:px-margin py-space-lg bg-surface-container border-t border-surface-container-high">
-<div class="max-w-[1400px] mx-auto flex flex-col md:flex-row items-center justify-between gap-space-md">
-<div class="flex items-center gap-space-md">
-<div class="flex items-center gap-2">
-<span class="w-2.5 h-2.5 rounded bg-primary-container"></span>
-<span class="font-label-sm text-label-sm uppercase font-mono font-bold text-on-surface">{{ negocio.nombre }}</span>
-</div>
-<span class="text-surface-container-high">|</span>
-<span class="font-label-sm text-label-sm text-outline font-mono">{{ negocio.ciudad|upper }} // ESPAÑA</span>
-</div>
-<div class="flex items-center gap-space-lg font-label-sm text-label-sm text-secondary font-mono">
-<span class="text-primary font-bold">HORARIO DISPONIBLE</span>
-</div>
-</div>
-</section>
-</div></main><footer class="w-full bg-surface-container-low border-t border-surface-container-high"><div class="w-full px-gutter-mobile lg:px-margin py-space-xl flex flex-col md:flex-row items-center justify-between gap-space-lg"><div class="flex flex-col gap-space-xs"><span class="font-headline-md text-headline-md tracking-tight text-on-surface uppercase">{{ negocio.nombre }}</span><span class="font-label-sm text-label-sm text-secondary">{{ negocio.categoria_clean|upper }} // {{ 'CENTRO DE DETAILING & ESTÉTICA' if es_detailing else ('ATELIER DE TATUAJE' if es_tattoo else ('TALLER ESPECIALIZADO' if es_taller else ('BARBERSHOP' if es_barber else 'ESPACIO PROFESIONAL'))) }} EN {{ negocio.ciudad|upper }}</span></div><div class="flex items-center gap-space-md font-label-sm text-label-sm text-on-surface-variant uppercase"><a class="hover:text-on-surface" data-path="the-works" href="#galeria">Portfolio</a><a class="hover:text-on-surface" data-path="servicios-y-tarifas" href="#servicios">Servicios</a><a class="hover:text-on-surface" data-path="box-hq" href="#box-hq">Garantías</a><a class="hover:text-on-surface" data-path="contacto" href="#contacto">Contacto</a></div><div class="font-label-sm text-label-sm text-secondary">© 2026 {{ negocio.nombre }}. TODOS LOS DERECHOS RESERVADOS.</div></div></footer>
-
-<!-- Fixed Mobile Bottom Action Dock (High-Conversion 3-Button Standard) -->
-<div class="fixed bottom-0 inset-x-0 z-50 md:hidden p-2.5 bg-surface-container-lowest/95 backdrop-blur-xl border-t border-surface-container-high shadow-2xl flex items-center justify-between gap-2" style="padding-bottom: max(0.65rem, env(safe-area-inset-bottom, 0px));">
+<!-- ==================== BARRA MÓVIL INFERIOR FIJA ==================== -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0B0D13]/95 backdrop-blur-lg border-t border-white/10 px-4 py-3 flex items-center gap-3" style="padding-bottom: max(0.75rem, var(--sab, env(safe-area-inset-bottom, 0px)));">
+  <a href="{{ negocio.whatsapp_url or '#contacto' }}" target="_blank" rel="noopener" class="flex-1 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-lg">
+    <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    <span>Pedir Cita WhatsApp</span>
+  </a>
   {% if negocio.telefono %}
-  <a href="tel:{{ negocio.telefono }}" class="flex-1 py-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-mono font-bold flex items-center justify-center gap-1 border border-surface-container-high transition">
-    <span class="material-symbols-outlined text-[16px] text-primary">call</span>
+  <a href="tel:{{ negocio.telefono }}" class="px-4 py-3 rounded-xl bg-white/10 text-slate-200 font-bold text-xs flex items-center justify-center gap-1">
+    <span class="material-symbols-outlined text-base">call</span>
     <span>Llamar</span>
   </a>
   {% endif %}
-  <button onclick="abrirModalPresupuesto('Cita Rápida Móvil')" class="flex-[1.4] py-2.5 rounded-lg bg-primary-container text-on-primary-container text-xs font-mono font-bold flex items-center justify-center gap-1.5 shadow-lg transition cursor-pointer">
-    <span class="material-symbols-outlined text-[16px]">calendar_month</span>
-    <span>Pedir Cita</span>
+</div>
+
+<!-- ==================== LIGHTBOX MODAL ==================== -->
+<div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl hidden flex items-center justify-center p-4" onclick="closeLightbox()">
+  <button class="absolute top-6 right-6 text-white/80 hover:text-white p-2 rounded-full bg-white/10" onclick="closeLightbox()">
+    <span class="material-symbols-outlined text-2xl">close</span>
   </button>
-  <a href="{{ negocio.whatsapp_url }}" target="_blank" rel="noopener" class="w-10 h-10 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center shrink-0 shadow-md">
-    <span class="material-symbols-outlined text-[19px]">chat</span>
-  </a>
+  <img id="lightbox-img" src="" alt="Vista ampliada" class="max-w-full max-h-[85vh] rounded-2xl object-contain shadow-2xl" onclick="event.stopPropagation()"/>
 </div>
 
-<!-- ============================================================ -->
-<!-- MOBILE NAVIGATION DRAWER (ACCESIBLE & IPHONE SAFE-AREA AWARE) -->
-<!-- ============================================================ -->
-<div id="mobile-drawer" class="fixed inset-0 z-[100] pointer-events-none transition-opacity duration-300" aria-hidden="true">
-  <!-- Backdrop desenfocado -->
-  <div id="mobile-drawer-backdrop" onclick="closeMobileMenu()" class="absolute inset-0 bg-black/65 backdrop-blur-sm opacity-0 transition-opacity duration-300 pointer-events-none"></div>
-
-  <!-- Panel lateral deslizante con padding seguro para Dynamic Island -->
-  <div id="mobile-drawer-panel" class="absolute top-0 right-0 bottom-0 w-[310px] sm:w-[350px] max-w-[86vw] bg-[#0e0f12] text-[#f2f4f8] border-l border-[#242731] shadow-2xl flex flex-col justify-between overflow-y-auto translate-x-full transition-transform duration-300 ease-out pointer-events-auto"
-       style="padding-top: max(1.25rem, calc(0.75rem + var(--sat, env(safe-area-inset-top, 0px)))); padding-bottom: max(1.25rem, calc(0.75rem + var(--sab, env(safe-area-inset-bottom, 0px)))); padding-left: 1.25rem; padding-right: 1.25rem;">
-    
-    <div class="space-y-6">
-      <!-- Cabecera del Drawer -->
-      <div class="flex items-center justify-between pb-4 border-b border-outline-variant/30">
-        <div class="flex items-center gap-3 truncate">
-          <img src="{{ ig.avatar_url or 'https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=96&q=80' }}" alt="{{ negocio.nombre }}" class="w-10 h-10 rounded-full object-cover border border-primary/30 shrink-0"/>
-          <div class="flex flex-col truncate">
-            <span class="font-bold text-sm text-on-surface truncate">{{ negocio.nombre }}</span>
-            <span class="text-[11px] text-on-surface-variant truncate">{{ negocio.categoria_clean or negocio.ciudad }}</span>
-          </div>
-        </div>
-        <button onclick="closeMobileMenu()" class="p-2 rounded-full hover:bg-surface-container-high transition text-on-surface flex items-center justify-center shrink-0" aria-label="Cerrar menú">
-          <span class="material-symbols-outlined text-[20px]">close</span>
-        </button>
-      </div>
-
-      <!-- Enlaces de navegación -->
-      <nav class="flex flex-col space-y-1">
-        
-        <a href="#galeria" onclick="closeMobileMenu()" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl hover:bg-[#181a20] text-[#c5c8d4] hover:text-[#f97316] transition-colors group">
-          <span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:scale-110">photo_camera</span>
-          <span class="font-medium text-sm">The Works (Portfolio)</span>
-        </a>
-        <a href="#servicios" onclick="closeMobileMenu()" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl hover:bg-[#181a20] text-[#c5c8d4] hover:text-[#f97316] transition-colors group">
-          <span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:scale-110">precision_manufacturing</span>
-          <span class="font-medium text-sm">Servicios & Tarifas</span>
-        </a>
-        <a href="#box-hq" onclick="closeMobileMenu()" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl hover:bg-[#181a20] text-[#c5c8d4] hover:text-[#f97316] transition-colors group">
-          <span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:scale-110">verified</span>
-          <span class="font-medium text-sm">Box HQ / Estándares</span>
-        </a>
-        <a href="#contacto" onclick="closeMobileMenu()" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl hover:bg-[#181a20] text-[#c5c8d4] hover:text-[#f97316] transition-colors group">
-          <span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:scale-110">location_on</span>
-          <span class="font-medium text-sm">Contacto & Taller</span>
-        </a>
-      </nav>
-    </div>
-
-    <!-- Botones de Acción / Contacto al pie del Drawer -->
-    <div class="space-y-3 pt-5 border-t border-outline-variant/30">
-      {% if negocio.whatsapp_url %}
-      <a href="{{ negocio.whatsapp_url }}" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-primary-container text-on-primary-container font-bold text-xs uppercase tracking-wider shadow-md transition-all">
-        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-        <span>{{ 'Escribir por WhatsApp' if ('whatsapp' in (negocio.whatsapp_url or '') or 'phone=' in (negocio.whatsapp_url or '')) else 'Mensaje en Instagram' }}</span>
-      </a>
-      {% endif %}
-
-      {% if negocio.telefono %}
-      <a href="tel:{{ negocio.telefono }}" class="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-surface-container hover:bg-surface-container-high font-semibold text-xs transition-all">
-        <span class="material-symbols-outlined text-[16px]">call</span>
-        <span>Llamar {{ negocio.telefono }}</span>
-      </a>
-      {% endif %}
-
-      <div class="text-[11px] text-center text-on-surface-variant flex items-center justify-center gap-1 pt-1">
-        <span class="material-symbols-outlined text-[14px]">location_on</span>
-        <span class="truncate">{{ negocio.direccion or negocio.ciudad }}</span>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- ============================================================ -->
-<!-- LIGHTBOX MODAL (INTERACTIVE PORTFOLIO VIEWER) -->
-<!-- ============================================================ -->
-<div id="lightbox-modal" class="fixed inset-0 z-[110] bg-black/90 backdrop-blur-md hidden items-center justify-center p-4 transition-all duration-300 opacity-0" onclick="cerrarLightbox(event)">
-  <div class="relative max-w-2xl w-full bg-surface-container border border-surface-container-high rounded-2xl overflow-hidden shadow-2xl" onclick="event.stopPropagation()">
-    <button onclick="cerrarLightbox()" class="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-black/70 text-white flex items-center justify-center hover:bg-black/90 transition shadow-lg" aria-label="Cerrar">
-      <span class="material-symbols-outlined text-[20px]">close</span>
-    </button>
-    <div class="max-h-[65vh] overflow-hidden bg-black flex items-center justify-center">
-      <img id="lightbox-img" src="" alt="Detalle del trabajo" class="w-full h-full object-contain max-h-[65vh]" />
-    </div>
-    <div class="p-5 flex flex-col gap-3 bg-surface-container">
-      <div class="flex items-center gap-2 text-primary font-mono text-xs uppercase tracking-wider">
-        <span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
-        <span>TRABAJO VERIFICADO // PORTFOLIO REAL</span>
-      </div>
-      <p id="lightbox-caption" class="text-sm text-on-surface font-body-sm max-h-24 overflow-y-auto"></p>
-      <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-surface-container-high">
-        <a id="lightbox-wa-btn" href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-primary-container text-on-primary-container font-label-md font-bold text-xs uppercase tracking-wider hover:bg-primary-fixed transition shadow-md w-full sm:w-auto">
-          <span class="material-symbols-outlined text-[18px]">chat</span>
-          <span>Consultar por este trabajo en WhatsApp</span>
-        </a>
-        <button onclick="cerrarLightbox()" class="px-4 py-2.5 rounded-xl bg-surface-container-high hover:bg-surface-variant text-secondary text-xs uppercase font-semibold transition hidden sm:inline-block">Cerrar</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ============================================================ -->
-<!-- INTERACTIVE BOOKING / QUOTE MODAL (PEDIR CITA / PRESUPUESTO) -->
-<!-- ============================================================ -->
-<div id="booking-modal" class="fixed inset-0 z-[120] bg-black/85 backdrop-blur-md hidden items-center justify-center p-4 transition-all duration-300 opacity-0" onclick="cerrarModalPresupuesto(event)">
-  <div class="relative max-w-lg w-full bg-[#121316] border border-surface-container-high rounded-2xl overflow-hidden shadow-2xl p-6" onclick="event.stopPropagation()">
-    <button onclick="cerrarModalPresupuesto()" class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-surface-container text-secondary flex items-center justify-center hover:text-on-surface hover:bg-surface-container-high transition" aria-label="Cerrar">
-      <span class="material-symbols-outlined text-[18px]">close</span>
-    </button>
-    <div class="flex items-center gap-2 text-primary font-mono text-xs uppercase tracking-widest mb-1">
-      <span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
-      <span>SOLICITUD EN LÍNEA // {{ negocio.ciudad|upper }}</span>
-    </div>
-    <h3 class="font-headline-md text-xl font-bold uppercase tracking-tight text-on-surface mb-2">
-      PIDE TU CITA O PRESUPUESTO
-    </h3>
-    <p class="font-body-sm text-xs text-secondary mb-4">
-      Rellena estos datos y contacta al instante con {{ negocio.nombre }} vía WhatsApp con todos los detalles organizados.
-    </p>
-
-    <div id="modal-feedback-msg" class="hidden p-3 rounded-lg bg-emerald-950/80 border border-emerald-500/40 text-emerald-200 text-xs font-mono mb-4">
-      ✅ ¡Solicitud preparada! Conectando con WhatsApp...
-    </div>
-
-    <form class="flex flex-col gap-3" onsubmit="enviarFormularioPresupuesto(event, this)">
-      <div class="flex flex-col gap-1">
-        <label class="font-label-sm text-[11px] text-outline uppercase font-mono">Nombre Completo</label>
-        <input name="nombre" class="px-3 py-2 rounded-lg bg-surface-container border border-surface-container-high text-on-surface text-sm focus:outline-none focus:border-primary transition" placeholder="Tu nombre..." required type="text"/>
-      </div>
-      <div class="flex flex-col gap-1">
-        <label class="font-label-sm text-[11px] text-outline uppercase font-mono">Teléfono / WhatsApp</label>
-        <input name="telefono" class="px-3 py-2 rounded-lg bg-surface-container border border-surface-container-high text-on-surface text-sm focus:outline-none focus:border-primary transition" placeholder="{{ negocio.telefono or '+34 600 000 000' }}" required type="tel"/>
-      </div>
-      <div class="flex flex-col gap-1">
-        <label class="font-label-sm text-[11px] text-outline uppercase font-mono">Servicio de Interés</label>
-        <select name="servicio" id="modal-service-select" class="px-3 py-2 rounded-lg bg-surface-container border border-surface-container-high text-on-surface text-sm focus:outline-none focus:border-primary transition">
-          <option value="Consulta General">Consulta General / Asesoramiento</option>
-          {% for s in (web.servicios or []) %}
-          <option value="{{ s.nombre }}">{{ s.nombre }}</option>
-          {% endfor %}
-        </select>
-      </div>
-      <div class="flex flex-col gap-1">
-        <label class="font-label-sm text-[11px] text-outline uppercase font-mono">Notas o Detalles de la Idea</label>
-        <textarea name="detalles" class="px-3 py-2 rounded-lg bg-surface-container border border-surface-container-high text-on-surface text-sm focus:outline-none focus:border-primary transition resize-none" rows="2" placeholder="Describe brevemente lo que te gustaría hacerte o consultar..."></textarea>
-      </div>
-      <div class="pt-2 flex flex-col sm:flex-row gap-2">
-        <button type="submit" class="flex-1 py-3 px-4 rounded-xl bg-primary-container hover:bg-primary-fixed text-on-primary-container font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg transition">
-          <span class="material-symbols-outlined text-[18px]">send</span>
-          <span>Enviar Solicitud por WhatsApp</span>
-        </button>
-        {% if negocio.telefono %}
-        <a href="tel:{{ negocio.telefono }}" class="py-3 px-4 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-semibold flex items-center justify-center gap-1.5 transition">
-          <span class="material-symbols-outlined text-[16px]">call</span>
-          <span>Llamar</span>
-        </a>
-        {% endif %}
-      </div>
-    </form>
-  </div>
-</div>
-
+<!-- ==================== SCRIPTS INTERACTIVOS ==================== -->
 <script>
-  // Mobile drawer functions
-  function toggleMobileMenu() {
-    const panel = document.getElementById('mobile-drawer-panel');
-    if (!panel) return;
-    if (panel.classList.contains('translate-x-full')) {
-      openMobileMenu();
-    } else {
-      closeMobileMenu();
-    }
+  // Menú Móvil Toggle
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const closeBtn = document.getElementById('close-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener('click', () => mobileMenu.classList.remove('hidden'));
   }
-
-  function openMobileMenu() {
-    const drawer = document.getElementById('mobile-drawer');
-    const backdrop = document.getElementById('mobile-drawer-backdrop');
-    const panel = document.getElementById('mobile-drawer-panel');
-    const btn = document.getElementById('hamburger-btn');
-
-    if (!drawer || !backdrop || !panel) return;
-    drawer.classList.remove('pointer-events-none');
-    drawer.setAttribute('aria-hidden', 'false');
-    backdrop.classList.remove('opacity-0', 'pointer-events-none');
-    backdrop.classList.add('opacity-100');
-    panel.classList.remove('translate-x-full');
-    if (btn) btn.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
+  if (closeBtn && mobileMenu) {
+    closeBtn.addEventListener('click', () => mobileMenu.classList.add('hidden'));
   }
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+  });
 
-  function closeMobileMenu() {
-    const drawer = document.getElementById('mobile-drawer');
-    const backdrop = document.getElementById('mobile-drawer-backdrop');
-    const panel = document.getElementById('mobile-drawer-panel');
-    const btn = document.getElementById('hamburger-btn');
-
-    if (!drawer || !backdrop || !panel) return;
-    backdrop.classList.remove('opacity-100');
-    backdrop.classList.add('opacity-0', 'pointer-events-none');
-    panel.classList.add('translate-x-full');
-    drawer.classList.add('pointer-events-none');
-    drawer.setAttribute('aria-hidden', 'true');
-    if (btn) btn.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  }
-
-  // Interactive gallery category filtering
-  function filtrarGaleria(categoria, btn) {
-    document.querySelectorAll('.gallery-filter-btn').forEach(b => {
-      b.classList.remove('bg-primary-container', 'text-on-primary-container', 'font-bold');
-      b.classList.add('text-secondary', 'font-semibold');
-    });
-    btn.classList.add('bg-primary-container', 'text-on-primary-container', 'font-bold');
-    btn.classList.remove('text-secondary', 'font-semibold');
-
-    const cards = document.querySelectorAll('.gallery-card');
-    cards.forEach(c => {
-      if (categoria === 'todos' || c.getAttribute('data-category') === categoria) {
-        c.style.display = 'block';
-        setTimeout(() => { c.style.opacity = '1'; c.style.transform = 'scale(1)'; }, 10);
-      } else {
-        c.style.opacity = '0';
-        c.style.transform = 'scale(0.96)';
-        setTimeout(() => { c.style.display = 'none'; }, 200);
-      }
-    });
-  }
-
-  // Interactive Lightbox
-  function abrirLightbox(imgUrl, caption) {
+  // Lightbox
+  function openLightbox(url, caption) {
     const modal = document.getElementById('lightbox-modal');
     const img = document.getElementById('lightbox-img');
-    const cap = document.getElementById('lightbox-caption');
-    const waBtn = document.getElementById('lightbox-wa-btn');
-    if (!modal || !img) return;
-
-    img.src = imgUrl;
-    cap.textContent = caption || 'Trabajo exclusivo de {{ negocio.nombre }} en {{ negocio.ciudad }}';
-    
-    const waBase = '{{ negocio.whatsapp_url or ("https://wa.me/" ~ negocio.telefono) }}';
-    const cleanCap = (caption || 'vuestro trabajo en la web').substring(0, 75);
-    const waMsg = encodeURIComponent('¡Hola equipo de {{ negocio.nombre }}! He visto este trabajo en vuestra web y me gustaría consultar información o pedir cita: "' + cleanCap + '"');
-    
-    let targetUrl = waBase;
-    if (waBase.includes('wa.me') || waBase.includes('whatsapp.com')) {
-      const sep = waBase.includes('?') ? '&' : '?';
-      targetUrl = waBase + sep + 'text=' + waMsg;
+    if (modal && img) {
+      img.src = url;
+      modal.classList.remove('hidden');
     }
-    waBtn.href = targetUrl;
-
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-    setTimeout(() => {
-      modal.classList.remove('opacity-0');
-      modal.classList.add('opacity-100');
-    }, 10);
-    document.body.style.overflow = 'hidden';
   }
-
-  function cerrarLightbox(e) {
-    if (e && e.target && e.target.id !== 'lightbox-modal' && !e.target.closest('button')) return;
+  function closeLightbox() {
     const modal = document.getElementById('lightbox-modal');
-    if (!modal) return;
-    modal.classList.remove('opacity-100');
-    modal.classList.add('opacity-0');
-    setTimeout(() => {
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-      document.body.style.overflow = '';
-    }, 200);
+    if (modal) modal.classList.add('hidden');
   }
 
-  // Interactive Quote / Booking Modal
-  function abrirModalPresupuesto(servicioPreseleccionado) {
-    const modal = document.getElementById('booking-modal');
-    if (!modal) return;
-    if (servicioPreseleccionado) {
-      const sel = document.getElementById('modal-service-select');
-      if (sel) {
-        let found = false;
-        for (let opt of sel.options) {
-          if (opt.value.toLowerCase().includes(servicioPreseleccionado.toLowerCase())) {
-            sel.value = opt.value;
-            found = true;
-            break;
-          }
-        }
-        if (!found) {
-          sel.value = servicioPreseleccionado;
+  // Configurador de Detailing
+  (function initCalculator() {
+    let vehicleMultiplier = 1.0;
+    let vehicleName = 'Turismo';
+    let basePrice = 45;
+    let packName = 'Lavado Completo a Mano';
+    let packTime = '1h 15m';
+
+    const vehicleBtns = document.querySelectorAll('.vehicle-btn');
+    const packRadios = document.querySelectorAll('input[name="detailing-pack"]');
+    const priceEl = document.getElementById('calc-total-price');
+    const vehEl = document.getElementById('calc-vehicle-name');
+    const packEl = document.getElementById('calc-pack-name');
+    const timeEl = document.getElementById('calc-time');
+    const btnEl = document.getElementById('calc-whatsapp-btn');
+
+    function updateCalc() {
+      const finalPrice = Math.round(basePrice * vehicleMultiplier);
+      if (priceEl) priceEl.innerText = finalPrice + '€';
+      if (vehEl) vehEl.innerText = vehicleName;
+      if (packEl) packEl.innerText = packName;
+      if (timeEl) timeEl.innerText = packTime;
+
+      if (btnEl) {
+        const text = encodeURIComponent(`¡Hola {{ negocio.nombre }}! Me gustaría pedir cita para mi ${vehicleName} con el pack: ${packName} (${finalPrice}€). ¿Qué disponibilidad tenéis?`);
+        const baseUrl = "{{ negocio.whatsapp_url or '#contacto' }}".split('?')[0];
+        if (baseUrl.includes('whatsapp.com')) {
+          btnEl.href = `${baseUrl}?text=${text}`;
         }
       }
     }
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-    setTimeout(() => {
-      modal.classList.remove('opacity-0');
-      modal.classList.add('opacity-100');
-    }, 10);
-    document.body.style.overflow = 'hidden';
-  }
 
-  function cerrarModalPresupuesto(e) {
-    if (e && e.target && e.target.id !== 'booking-modal' && !e.target.closest('button')) return;
-    const modal = document.getElementById('booking-modal');
-    if (!modal) return;
-    modal.classList.remove('opacity-100');
-    modal.classList.add('opacity-0');
-    setTimeout(() => {
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-      document.body.style.overflow = '';
-    }, 200);
-  }
-
-  // Form submit handler that pre-fills WhatsApp
-  function enviarFormularioPresupuesto(event, form) {
-    event.preventDefault();
-    const nombre = form.querySelector('[name="nombre"]')?.value || '';
-    const tel = form.querySelector('[name="telefono"]')?.value || '';
-    const serv = form.querySelector('[name="servicio"]')?.value || 'Consulta general';
-    const detalles = form.querySelector('[name="detalles"]')?.value || '';
-
-    const msg = encodeURIComponent(`¡Hola equipo de {{ negocio.nombre }}! Mi nombre es ${nombre} (tel: ${tel}). Me gustaría solicitar cita/presupuesto para: *${serv}*. Detalles adicionales: ${detalles || 'Sin notas adicionales'}.`);
-    const waBase = '{{ negocio.whatsapp_url or ("https://wa.me/" ~ negocio.telefono) }}';
-
-    let targetUrl = waBase;
-    if (waBase.includes('wa.me') || waBase.includes('whatsapp.com')) {
-      const sep = waBase.includes('?') ? '&' : '?';
-      targetUrl = waBase + sep + 'text=' + msg;
-    }
-
-    const feedback = document.getElementById('modal-feedback-msg');
-    if (feedback) feedback.classList.remove('hidden');
-
-    setTimeout(() => {
-      window.open(targetUrl, '_blank');
-      setTimeout(() => cerrarModalPresupuesto(), 1200);
-    }, 400);
-  }
-
-  function enviarFormularioContacto(event, form) {
-    event.preventDefault();
-    const nombre = form.querySelector('[name="nombre"]')?.value || '';
-    const tel = form.querySelector('[name="telefono"]')?.value || '';
-    const detalles = form.querySelector('[name="detalles"]')?.value || '';
-
-    const msg = encodeURIComponent(`¡Hola equipo de {{ negocio.nombre }}! Mi nombre es ${nombre} (tel: ${tel}). Os contacto desde vuestra página web con la siguiente consulta: ${detalles}`);
-    const waBase = '{{ negocio.whatsapp_url or ("https://wa.me/" ~ negocio.telefono) }}';
-
-    let targetUrl = waBase;
-    if (waBase.includes('wa.me') || waBase.includes('whatsapp.com')) {
-      const sep = waBase.includes('?') ? '&' : '?';
-      targetUrl = waBase + sep + 'text=' + msg;
-    }
-
-    const feedback = document.getElementById('form-feedback-msg');
-    if (feedback) {
-      feedback.classList.remove('hidden');
-      feedback.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-
-    setTimeout(() => {
-      window.open(targetUrl, '_blank');
-    }, 400);
-  }
-
-  // FAQ Accordion Toggle
-  function toggleFaq(btn) {
-    const item = btn.closest('.faq-item');
-    if (!item) return;
-    const content = item.querySelector('.faq-content');
-    const icon = item.querySelector('.faq-icon');
-    const isHidden = content.classList.contains('hidden');
-    
-    document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
-    document.querySelectorAll('.faq-icon').forEach(i => i.style.transform = 'rotate(0deg)');
-    
-    if (isHidden) {
-      content.classList.remove('hidden');
-      if (icon) icon.style.transform = 'rotate(180deg)';
-    }
-  }
-
-  
-  // Adaptive Tattoo Estimator Helpers
-  let tattooTamanoActual = 'Micro (<5cm)';
-  let tattooEstiloActual = 'Fineline / Trazo Fino';
-
-  function setTattooTamano(tamano, tiempo, btn) {
-    tattooTamanoActual = tamano;
-    document.querySelectorAll('.tattoo-tamano-btn').forEach(b => {
-      b.className = 'tattoo-tamano-btn p-3 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface transition text-left';
-    });
-    btn.className = 'tattoo-tamano-btn p-3 rounded font-mono text-xs border-2 border-primary-container bg-primary-container/20 text-on-surface font-bold transition text-left';
-    const tEl = document.getElementById('tattooTiempoEl');
-    if (tEl) tEl.innerText = tiempo;
-  }
-
-  function setTattooEstilo(estilo, btn) {
-    tattooEstiloActual = estilo;
-    document.querySelectorAll('.tattoo-estilo-btn').forEach(b => {
-      b.className = 'tattoo-estilo-btn px-3 py-1.5 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface transition';
-    });
-    btn.className = 'tattoo-estilo-btn px-3 py-1.5 rounded font-mono text-xs border-2 border-primary-container bg-primary-container/20 text-on-surface font-bold transition';
-    const dEl = document.getElementById('tattooDetalleEl');
-    if (dEl) dEl.innerText = estilo;
-  }
-
-  function consultarTattooWhatsApp() {
-    const msg = `Hola! Me gustaría consultar disponibilidad para un tatuaje estilo ${tattooEstiloActual}, tamaño aproximado ${tattooTamanoActual}. ¿Tenéis hueco disponible en agenda?`;
-    window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
-  }
-
-  // Adaptive Barber Selector Helpers
-  let barberServicioActual = 'Corte Clásico / Fade';
-
-  function setBarberServicio(nombre, tiempo, btn) {
-    barberServicioActual = nombre;
-    document.querySelectorAll('.barber-btn').forEach(b => {
-      b.className = 'barber-btn p-3 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface text-left transition';
-    });
-    btn.className = 'barber-btn p-3 rounded font-mono text-xs border-2 border-primary-container bg-primary-container/20 text-on-surface font-bold text-left transition';
-    const sEl = document.getElementById('barberServicioEl');
-    const tEl = document.getElementById('barberTiempoEl');
-    if (sEl) sEl.innerText = nombre;
-    if (tEl) tEl.innerText = 'Duración estimada: ' + tiempo;
-  }
-
-  function reservarBarberWhatsApp() {
-    const msg = `Hola! Me gustaría reservar cita para el servicio: ${barberServicioActual}. ¿Qué horarios tenéis disponibles esta semana?`;
-    window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
-  }
-
-  // Adaptive Detailing Estimator Helpers
-  let detailingServicioActual = 'Tratamiento Cerámico 9H';
-  let detailingPrecioActual = 'Desde 450 €';
-  let detailingTiempoActual = '2-3 días';
-
-  function setDetailingTratamiento(nombre, tiempo, precio, btn) {
-    detailingServicioActual = nombre;
-    detailingTiempoActual = tiempo;
-    detailingPrecioActual = precio;
-    document.querySelectorAll('.detailing-btn').forEach(b => {
-      b.className = 'detailing-btn p-3.5 rounded font-mono text-xs border border-surface-container-high bg-surface-container-lowest text-secondary hover:text-on-surface text-left transition';
-    });
-    btn.className = 'detailing-btn p-3.5 rounded font-mono text-xs border-2 border-primary-container bg-primary-container/20 text-on-surface font-bold text-left transition';
-    const sEl = document.getElementById('detailingServicioEl');
-    const pEl = document.getElementById('detailingPrecioEl');
-    const tEl = document.getElementById('detailingTiempoEl');
-    if (sEl) sEl.innerText = nombre;
-    if (pEl) pEl.innerText = precio;
-    if (tEl) tEl.innerText = 'Duración: ' + tiempo;
-  }
-
-  function consultarDetailingWhatsApp() {
-    const msg = `¡Hola! Me gustaría consultar disponibilidad en box para el servicio: ${detailingServicioActual} (${detailingPrecioActual}, duración aproximada: ${detailingTiempoActual}). ¿Qué fechas tenéis libres?`;
-    const waBase = '{{ negocio.whatsapp_url or ("https://wa.me/" ~ negocio.telefono) }}';
-    let targetUrl = waBase;
-    if (waBase.includes('wa.me') || waBase.includes('whatsapp.com')) {
-      const sep = waBase.includes('?') ? '&' : '?';
-      targetUrl = waBase + sep + 'text=' + encodeURIComponent(msg);
-    } else {
-      targetUrl = `https://wa.me/?text=${encodeURIComponent(msg)}`;
-    }
-    window.open(targetUrl, '_blank');
-  }
-
-  // Financing Simulator
-  let plazoMeses = 48;
-  function cambiarMeses(meses, btn) {
-    plazoMeses = meses;
-    document.querySelectorAll('.meses-btn').forEach(b => {
-      b.classList.remove('border-2', 'border-primary-container', 'bg-primary-container/20', 'text-on-surface', 'font-bold');
-      b.classList.add('border', 'border-surface-container-high', 'bg-surface-container-lowest', 'text-secondary');
-    });
-    btn.classList.add('border-2', 'border-primary-container', 'bg-primary-container/20', 'text-on-surface', 'font-bold');
-    btn.classList.remove('text-secondary');
-    calcularFinanciacion();
-  }
-
-  function calcularFinanciacion() {
-    const slider = document.getElementById('sliderImporte');
-    const textImporte = document.getElementById('valorImporteText');
-    const cuotaEl = document.getElementById('cuotaCalculada');
-    if (!slider || !cuotaEl) return;
-    const importe = parseFloat(slider.value);
-    if (textImporte) textImporte.innerText = importe.toLocaleString('es-ES') + ' €';
-    const r = 0.0595 / 12;
-    const n = plazoMeses;
-    const cuota = (importe * (r * Math.pow(1 + r, n))) / (Math.pow(1 + r, n) - 1);
-    cuotaEl.innerText = cuota.toFixed(2).replace('.', ',');
-  }
-
-  function solicitarFinanciacionActual() {
-    const slider = document.getElementById('sliderImporte');
-    const val = slider ? slider.value : '3500';
-    abrirModalPresupuesto(`Estudio Financiación: ${val}€ a ${plazoMeses} meses`);
-  }
-
-  // Global ESC key listener
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      closeMobileMenu();
-      cerrarLightbox();
-      cerrarModalPresupuesto();
-    }
-  });
-
-  // Attach interactive modal to all buttons with data-path="solicitar-presupuesto" or "pedir-cita"
-  document.addEventListener('DOMContentLoaded', function() {
-    calcularFinanciacion();
-    document.querySelectorAll('[data-path="solicitar-presupuesto"], [data-path="pedir-cita"]').forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        abrirModalPresupuesto();
+    vehicleBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        vehicleBtns.forEach(b => {
+          b.classList.remove('active', 'border-sky-500', 'bg-sky-500/20', 'text-white');
+          b.classList.add('border-white/10', 'bg-white/5', 'text-slate-300');
+        });
+        this.classList.add('active', 'border-sky-500', 'bg-sky-500/20', 'text-white');
+        this.classList.remove('border-white/10', 'bg-white/5', 'text-slate-300');
+        vehicleMultiplier = parseFloat(this.getAttribute('data-multiplier') || '1.0');
+        vehicleName = this.getAttribute('data-name') || 'Turismo';
+        updateCalc();
       });
     });
-  });
+
+    packRadios.forEach(radio => {
+      radio.addEventListener('change', function() {
+        document.querySelectorAll('.pack-option').forEach(l => {
+          l.classList.remove('border-sky-500', 'bg-sky-500/10');
+          l.classList.add('border-white/10', 'bg-white/5');
+        });
+        const parent = this.closest('.pack-option');
+        if (parent) {
+          parent.classList.add('border-sky-500', 'bg-sky-500/10');
+          parent.classList.remove('border-white/10', 'bg-white/5');
+        }
+        basePrice = parseFloat(this.value || '45');
+        packName = this.getAttribute('data-pack') || 'Lavado';
+        packTime = this.getAttribute('data-time') || '1h';
+        updateCalc();
+      });
+    });
+
+    updateCalc();
+  })();
+
+  // Formulario Rápido a WhatsApp
+  function handleFormSubmit(e) {
+    e.preventDefault();
+    const name = document.getElementById('form-name').value;
+    const vehicle = document.getElementById('form-vehicle').value || 'Mi vehículo';
+    const service = document.getElementById('form-service').value;
+
+    const message = encodeURIComponent(`¡Hola {{ negocio.nombre }}! Mi nombre es ${name}. Me gustaría consultar cita para ${vehicle} (Servicio: ${service}). ¿Cuándo podríais atenderme?`);
+    const waUrl = "{{ negocio.whatsapp_url or '#contacto' }}".split('?')[0];
+
+    if (waUrl.includes('whatsapp.com')) {
+      window.open(`${waUrl}?text=${message}`, '_blank');
+    } else {
+      alert('Gracias por tu mensaje. Nos pondremos en contacto contigo de inmediato.');
+    }
+  }
 </script>
 
-</body></html>
+</body>
+</html>

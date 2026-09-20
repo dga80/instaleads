@@ -1,1240 +1,628 @@
 <!DOCTYPE html>
-
-<html lang="es"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link rel="icon" type="image/jpeg" href="{{ ig.avatar_url or 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=96&q=80' }}">
-<link href="https://fonts.googleapis.com\" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {"darkMode":"class","theme":{"extend":{"colors":{"on-surface-variant":"#554336","tertiary":"#006c49","primary-fixed":"#ffdcc3","on-primary-fixed":"#2f1500","surface-variant":"#d3e4fe","surface-dim":"#cbdbf5","outline-variant":"#dbc2b0","error":"#ba1a1a","secondary-container":"#dae2fd","secondary":"#565e74","tertiary-fixed":"#6ffbbe","secondary-fixed-dim":"#bec6e0","on-tertiary-fixed-variant":"#005236","on-secondary-fixed":"#131b2e","on-secondary-fixed-variant":"#3f465c","primary-container":"{{ design.primary_container or design.color_seed or '#b15f00' }}","background":"#f8f9ff","outline":"#887364","on-secondary-container":"#5c647a","surface-tint":"#904d00","on-error-container":"#93000a","on-primary-fixed-variant":"#6e3900","on-background":"#0b1c30","on-primary-container":"#fffbff","on-tertiary":"#ffffff","error-container":"#ffdad6","surface-container-highest":"#d3e4fe","secondary-fixed":"#dae2fd","surface-container-high":"#dce9ff","surface-container-lowest":"#ffffff","surface-container":"#e5eeff","surface-bright":"#f8f9ff","inverse-on-surface":"#eaf1ff","on-secondary":"#ffffff","on-primary":"#ffffff","on-tertiary-container":"#00311f","on-tertiary-fixed":"#002113","inverse-primary":"#ffb77d","surface-container-low":"#eff4ff","tertiary-fixed-dim":"#4edea3","on-surface":"#0b1c30","primary":"{{ design.primary or '#8d4b00' }}","inverse-surface":"#213145","primary-fixed-dim":"#ffb77d","surface":"#f8f9ff","on-error":"#ffffff","tertiary-container":"#00a572"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-sm":"0.5rem","space-2xl":"4rem","space-lg":"1.5rem","margin-mobile":"1.25rem","space-xl":"2.5rem","gutter":"1.5rem","space-xs":"0.25rem","margin":"3rem","space-md":"1rem","gutter-mobile":"1rem"},"fontFamily":{"display-hero":["Outfit"],"headline-lg":["Outfit"],"body-md":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"headline-sm":["Outfit"],"display-hero-mobile":["Outfit"],"label-lg":["Plus Jakarta Sans"],"label-technical":["Outfit"],"headline-md":["Outfit"],"headline-lg-mobile":["Outfit"],"body-sm":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"]},"fontSize":{"display-hero":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"800"}],"headline-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-md":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"label-md":["13px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"600"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"0em","fontWeight":"600"}],"display-hero-mobile":["36px",{"lineHeight":"42px","letterSpacing":"-0.02em","fontWeight":"800"}],"label-lg":["16px",{"lineHeight":"20px","letterSpacing":"0.02em","fontWeight":"600"}],"label-technical":["11px",{"lineHeight":"14px","letterSpacing":"0.08em","fontWeight":"700"}],"headline-md":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg-mobile":["28px",{"lineHeight":"34px","letterSpacing":"-0.01em","fontWeight":"700"}],"body-sm":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"400"}],"body-lg":["18px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"400"}]}}}}</script><style>
-  :root {
-    --sat: env(safe-area-inset-top, 0px);
-    --sab: env(safe-area-inset-bottom, 0px);
-  }
-  html {
-    scroll-behavior: smooth;
-    scroll-padding-top: calc(7.5rem + var(--sat, 0px));
-  }
-</style>
-<script>
-  (function() {
-    try {
-      var isIframe = window.self !== window.top;
-      var isSim = isIframe || /[?&]sim(=|&|$)/.test(window.location.search) || window.location.hash.indexOf('sim') !== -1;
-      if (isSim) {
-        document.documentElement.style.setProperty('--sat', '54px');
-        document.documentElement.style.setProperty('--sab', '20px');
-      }
-    } catch(e) {}
-  })();
-</script>
-</head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));"><div class="bg-inverse-surface text-inverse-on-surface text-label-technical font-label-technical"><div class="max-w-7xl mx-auto px-gutter flex flex-col md:flex-row items-center justify-between py-space-xs gap-space-xs"><div class="flex items-center gap-space-sm overflow-hidden text-ellipsis whitespace-nowrap"><span class="material-symbols-outlined text-[14px] text-tertiary-fixed">verified_user</span><span>Empresa Acreditada • Máxima Garantía en {{ negocio.ciudad }}</span></div><div class="flex items-center gap-space-md"><span class="hidden lg:inline text-inverse-on-surface/80">Atención personalizada en {{ negocio.ciudad }} y alrededores</span>{% if negocio.telefono %}<a class="flex items-center gap-space-xs font-bold text-primary-fixed-dim hover:text-on-primary transition-colors" href="tel:{{ negocio.telefono }}"><span class="material-symbols-outlined text-[16px]">call</span><span>{{ negocio.telefono }}</span></a>{% else %}<a class="flex items-center gap-space-xs font-bold text-primary-fixed-dim hover:text-on-primary transition-colors" href="{{ negocio.whatsapp_url }}" target="_blank"><span class="material-symbols-outlined text-[16px]">chat</span><span>WhatsApp</span></a>{% endif %}</div></div></div><div class="h-20 max-w-7xl mx-auto px-gutter flex items-center justify-between gap-2 sm:gap-4 flex-nowrap"><a class="flex items-center gap-space-sm min-w-0 shrink-0" data-path="landing-principal" href="#inicio">{% if ig.avatar_url or ig.avatar %}<img alt="{{ negocio.nombre }}" class="h-10 w-10 rounded-lg object-cover border border-primary/30 shrink-0" src="{{ ig.avatar_url or ig.avatar }}"/>{% else %}<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[24px]">apartment</span></div>{% endif %}<div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm uppercase tracking-tight text-on-surface leading-tight truncate max-w-[125px] xs:max-w-[160px] sm:max-w-xs md:max-w-none whitespace-nowrap">{{ negocio.nombre|upper }}</span><span class="font-label-technical text-label-technical text-on-surface-variant uppercase tracking-wider truncate">{{ negocio.categoria_clean or 'Servicios Profesionales' }}</span></div></a><nav class="hidden lg:flex items-center gap-1 xl:gap-space-xs whitespace-nowrap shrink-0" data-active-classes="bg-surface-container text-primary font-bold rounded-lg">
-      <a class="px-space-sm xl:px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-md transition-colors whitespace-nowrap" href="#garantias">Garantías</a>
-      <a class="px-space-sm xl:px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-md transition-colors whitespace-nowrap" href="#servicios-tecnicos">Servicios</a>
-      <a class="px-space-sm xl:px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-md transition-colors whitespace-nowrap" href="#calculador-reformas">Calculador m²</a>
-      <a class="px-space-sm xl:px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-md transition-colors whitespace-nowrap" href="#faq">FAQ</a>
-      <a class="px-space-sm xl:px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-md transition-colors whitespace-nowrap" href="#solicitar-presupuesto">Contacto</a>
-    </nav><div class="flex items-center gap-1.5 sm:gap-space-md shrink-0"><button onclick="abrirModalPresupuesto('Presupuesto Reforma')" class="hidden sm:inline-flex items-center justify-center px-3.5 lg:px-space-lg py-2 lg:py-space-sm rounded-full bg-primary hover:bg-primary-container text-on-primary transition-all font-label-lg text-xs lg:text-label-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)] hover:shadow-lg whitespace-nowrap shrink-0 cursor-pointer" data-path="calculador">Pedir Presupuesto (Gratis)</button><button onclick="abrirModalPresupuesto('Presupuesto Móvil')" class="sm:hidden inline-flex items-center justify-center px-2.5 py-1.5 rounded-lg bg-primary text-on-primary font-bold text-xs shadow-sm transition-all whitespace-nowrap shrink-0 cursor-pointer">Presupuesto</button><div class="hidden sm:flex w-8 h-8 rounded-full bg-primary items-center justify-center shrink-0">{% if ig.avatar_url or ig.avatar %}<img src="{{ ig.avatar_url or ig.avatar }}" alt="{{ negocio.nombre }}" class="w-full h-full object-cover rounded-full" />{% else %}<span class="material-symbols-outlined text-on-primary text-[18px]">person</span>{% endif %}</div>
-      <!-- Mobile Hamburger Button (On the RIGHT) -->
-      <button id="hamburger-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-on-surface hover:bg-surface-container transition flex items-center justify-center border border-outline/20 ml-1 shrink-0" aria-label="Abrir Menú" aria-expanded="false">
-        <span class="material-symbols-outlined text-[24px]">menu</span>
-      </button></div></div></header><main class="w-full pb-20 lg:pb-0 bg-surface min-h-screen" style="padding-top: calc(8.5rem + var(--sat, env(safe-area-inset-top, 0px)));"><div class="flex flex-col w-full">
-<!-- Top Trust & Conversion Hero Section -->
-<section id="inicio" class="relative w-full overflow-hidden bg-surface-container-low px-gutter py-space-xl lg:py-space-2xl">
-<!-- Architectural subtle blueprint grid background -->
-<div class="pointer-events-none absolute inset-0 opacity-[0.035] [background-image:radial-gradient(#0b1c30_1px,transparent_1px)] [background-size:24px_24px]"></div>
-<div class="relative max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-space-xl">
-<!-- Left Column: High-Credibility Value Proposition -->
-<div class="w-full lg:w-7/12 flex flex-col items-start space-y-space-md">
-<!-- Top Micro-Badge -->
-<div class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-primary-fixed text-on-primary-fixed font-label-technical text-label-technical uppercase tracking-wider shadow-sm">
-<span class="material-symbols-outlined text-[15px] text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
-<span>Presupuesto Cerrado por Escrito • Garantía 2 Años Certificada</span>
-</div>
-<!-- Headline -->
-<h1 class="font-display-hero text-display-hero text-on-surface">
-  {{ web.titular or ('Reformas e instalaciones profesionales en ' ~ negocio.ciudad) }}
-</h1>
-<!-- Subtitle -->
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
-  {{ web.subtitulo or ('Convertimos tus ideas en proyectos reales con presupuesto claro, seriedad y garantía en ' ~ negocio.ciudad ~ '.') }}
-</p>
-<!-- CTA Action Cluster -->
-<div class="w-full pt-space-xs flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md">
-<a class="inline-flex items-center justify-center px-space-lg py-space-md rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg shadow-md hover:shadow-xl transition-all duration-200 text-center" href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" rel="noopener">
-<span class="material-symbols-outlined mr-space-xs text-[20px]">assignment_turned_in</span>
-<span>Pedir Presupuesto Gratuito</span>
-</a>
-<a class="inline-flex items-center justify-center px-space-lg py-space-md rounded-lg bg-inverse-surface hover:bg-on-background text-inverse-on-surface font-label-lg text-label-lg shadow-sm transition-all duration-200 text-center" href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" rel="noopener noreferrer" target="_blank">
-<span class="material-symbols-outlined mr-space-xs text-[20px] text-tertiary-fixed">chat</span>
-<span>WhatsApp Directo</span>
-</a>
-</div>
-<!-- Trust Signals Bar -->
-<div class="w-full pt-space-md">
-<div class="flex flex-wrap items-center gap-y-space-xs gap-x-space-md text-on-surface-variant font-label-md text-label-md">
-<div class="flex items-center gap-1 text-primary">
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="font-bold text-on-surface">4.9/5 en Google</span>
-<span class="text-on-surface-variant text-label-technical">(184 reseñas)</span>
-</div>
-<span class="text-outline-variant">•</span>
-<div class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-[16px] text-tertiary">check_circle</span>
-<span>280+ Obras a tiempo</span>
-</div>
-<span class="text-outline-variant">•</span>
-<div class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-[16px] text-tertiary">shield</span>
-<span>RC 600.000€ Allianz</span>
-</div>
-<span class="text-outline-variant">•</span>
-<div class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-[16px] text-primary">handyman</span>
-<span>Porcelanosa &amp; Knauf</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Right Column: Visual Proof Impact Showcase (Before / After Real Preview) -->
-<div class="w-full lg:w-5/12 flex flex-col">
-<div class="relative w-full rounded-xl overflow-hidden shadow-xl bg-surface-container-lowest">
-<div class="relative h-80 sm:h-96 w-full flex">
-<!-- Left Half (Before) -->
-<div class="w-1/2 h-full relative overflow-hidden">
-<img alt="Estado de obra previa" class="w-full h-full object-cover object-center scale-105" src="{{ (ig.posts[1].image_url if (ig.posts or [])|length > 1 and ig.posts[1].image_url else 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1000&auto=format&fit=crop&q=80') }}"/>
-<div class="absolute inset-0 bg-on-background/30"></div>
-<div class="absolute top-3 left-3 bg-inverse-surface/85 backdrop-blur-sm text-inverse-on-surface px-space-xs py-1 rounded font-label-technical text-label-technical tracking-wider uppercase">
-                Estado Previo
-              </div>
-<div class="absolute bottom-3 left-3 right-3 text-inverse-on-surface text-[12px] font-body-sm leading-tight bg-on-background/70 p-2 rounded backdrop-blur-sm">
-                Espacio previo y fase de reforma integral.
-              </div>
-</div>
-<!-- Right Half (After) -->
-<div class="w-1/2 h-full relative overflow-hidden">
-<img alt="Proyecto finalizado {{ negocio.nombre }}" class="w-full h-full object-cover object-center" src="{{ (ig.posts[0].image_url if ig.posts and ig.posts[0].image_url else (ig.avatar_url or 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&auto=format&fit=crop&q=80')) }}"/>
-<div class="absolute top-3 right-3 bg-primary text-on-primary px-space-xs py-1 rounded font-label-technical text-label-technical tracking-wider uppercase shadow">
-                Obra Finalizada
-              </div>
-<div class="absolute bottom-3 left-3 right-3 text-inverse-on-surface text-[12px] font-body-sm leading-tight bg-on-background/75 p-2 rounded backdrop-blur-sm">
-                Concepto abierto 68m², foseados LED cálidos e isla Calacatta.
-              </div>
-</div>
-<!-- Center Divider Badge Line -->
-<div class="absolute inset-y-0 left-1/2 -translate-x-1/2 w-1 bg-surface-container-lowest flex items-center justify-center">
-<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-lg text-[13px] font-bold">
-                VS
-              </div>
-</div>
-</div>
-<!-- Bottom Micro-Bar -->
-<div class="p-space-sm bg-surface-container flex items-center justify-between font-label-technical text-label-technical text-on-surface">
-<span class="flex items-center gap-1 text-tertiary">
-<span class="material-symbols-outlined text-[14px]">calendar_month</span> Plazo: 7 semanas (2 días antes)
-            </span>
-<span class="font-bold text-primary">Barrio Salamanca • 48.500€</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Interactive Before / After Showcase Section -->
-<section id="antes-y-despues" class="w-full bg-surface px-gutter py-space-2xl scroll-mt-28">
-<div class="max-w-7xl mx-auto flex flex-col space-y-space-xl">
-<!-- Section Title & Taxonomy Filter -->
-<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
-<div class="space-y-space-xs">
-<div class="flex items-center gap-space-xs text-primary font-label-technical text-label-technical tracking-widest uppercase">
-<span class="material-symbols-outlined text-[14px]">architecture</span>
-<span>Portafolio Técnico Certificado</span>
-</div>
-<h2 class="font-headline-lg text-headline-lg text-on-surface">
-            Resultados Reales: Calidad de Ejecución sin Filtros
-          </h2>
-<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
-            Desliza el divisor central para inspeccionar la precisión geométrica, la carpintería enrasada y los encuentros de materiales.
-          </p>
-</div>
-<!-- Filter Pill Tabs -->
-<div class="flex flex-wrap gap-space-xs">
-<button class="px-space-md py-space-xs rounded-full bg-primary text-on-primary font-label-md text-label-md shadow-sm" type="button">
-            Cocina &amp; Salón Abierto
-          </button>
-<button class="px-space-md py-space-xs rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-label-md text-label-md transition-colors" type="button">
-            Baño Principal Suite
-          </button>
-<button class="px-space-md py-space-xs rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-label-md text-label-md transition-colors" type="button">
-            Ático con Terraza
-          </button>
-<button class="px-space-md py-space-xs rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-label-md text-label-md transition-colors" type="button">
-            Vivienda Completa 110m²
-          </button>
-</div>
-</div>
-<!-- Main Interactive Slider Container -->
-<div class="relative w-full rounded-xl overflow-hidden shadow-xl bg-surface-container-low select-none" id="beforeAfterWidget">
-<div class="relative w-full aspect-[16/9] max-h-[640px] overflow-hidden">
-<!-- Background: After Image (Full Width Base) -->
-<img alt="Proyecto terminado {{ negocio.nombre }}" class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none" src="{{ (ig.posts[0].image_url if ig.posts and ig.posts[0].image_url else (ig.avatar_url or 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&auto=format&fit=crop&q=80')) }}"/>
-<!-- Foreground Cliped: Before Image -->
-<div class="absolute inset-0 h-full overflow-hidden pointer-events-none" id="beforeImageClip" style="width: 50%;">
-<div class="relative w-[200%] max-w-none h-full" style="width: 100vw; max-width: none;">
-<!-- Container keeps image proportional at 100% slider parent -->
-<img alt="Estado inicial de obra previa" class="absolute top-0 left-0 h-full object-cover object-center pointer-events-none" id="beforeImgRef" src="{{ (ig.posts[1].image_url if (ig.posts or [])|length > 1 and ig.posts[1].image_url else 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1000&auto=format&fit=crop&q=80') }}"/>
-</div>
-<!-- Before Dark Overlay & Label -->
-<div class="absolute inset-0 bg-on-background/20 pointer-events-none"></div>
-<div class="absolute top-space-md left-space-md bg-inverse-surface/85 backdrop-blur text-inverse-on-surface font-label-technical text-label-technical px-space-sm py-1 rounded shadow pointer-events-none uppercase tracking-wider">
-              Estado Previo (Demolición)
-            </div>
-<div class="absolute bottom-space-md left-space-md bg-surface-container-lowest/90 backdrop-blur p-space-sm rounded-lg max-w-xs shadow-md hidden sm:block pointer-events-none">
-<span class="font-label-technical text-label-technical text-error block uppercase tracking-wide">Patologías Solucionadas</span>
-<p class="font-body-sm text-body-sm text-on-surface mt-0.5">Tabiquería obsoleta, fontanería con fugas y aislamiento térmico deficiente.</p>
-</div>
-</div>
-<!-- After Fixed Tag -->
-<div class="absolute top-space-md right-space-md bg-primary text-on-primary font-label-technical text-label-technical px-space-sm py-1 rounded shadow uppercase tracking-wider pointer-events-none">
-            Obra Finalizada (Llave en Mano)
-          </div>
-<div class="absolute bottom-space-md right-space-md bg-surface-container-lowest/90 backdrop-blur p-space-sm rounded-lg max-w-xs shadow-md hidden sm:block pointer-events-none text-right">
-<span class="font-label-technical text-label-technical text-tertiary block uppercase tracking-wide">Solución Ejecutada</span>
-<p class="font-body-sm text-body-sm text-on-surface mt-0.5">Concepto abierto 68m², isla Calacatta, iluminación foseada LED y Climalit Plus.</p>
-</div>
-<!-- Draggable Divider Bar -->
-<div class="absolute top-0 bottom-0 -ml-4 w-8 flex items-center justify-center cursor-ew-resize z-20" id="sliderHandle" style="left: 50%;">
-<div class="w-1 h-full bg-surface-container-lowest shadow-2xl"></div>
-<div class="absolute w-10 h-10 rounded-full bg-surface-container-lowest shadow-xl flex items-center justify-center text-primary transition-transform hover:scale-110 active:scale-95">
-<span class="material-symbols-outlined text-[20px]">swap_horiz</span>
-</div>
-</div>
-<!-- Range slider input overlay for smooth cross-device accessibility -->
-<input aria-label="Comparativa de estado anterior y posterior de reforma" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-30 m-0 p-0" id="sliderInput" max="100" min="0" type="range" value="50"/>
-</div>
-<!-- Project Certificate Ledger Bottom Strip -->
-<div class="p-space-md bg-surface-container flex flex-col md:flex-row md:items-center justify-between gap-space-sm text-on-surface">
-<div class="flex items-center gap-space-md">
-<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary">
-<span class="material-symbols-outlined text-[22px]">verified</span>
-</div>
-<div>
-<p class="font-label-md text-label-md font-bold text-on-surface">Expediente Técnico: Ref. VTC-SALAMANCA-2024</p>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Reforma Integral 118 m² en C/ Hermosilla • Dirección Colegiada COAM</p>
-</div>
-</div>
-<div class="flex items-center gap-space-lg font-label-md text-label-md">
-<div class="text-right">
-<span class="font-label-technical text-label-technical text-on-surface-variant block uppercase">Plazo de Entrega</span>
-<span class="font-bold text-tertiary">7 semanas (2 días de adelanto)</span>
-</div>
-<div class="text-right">
-<span class="font-label-technical text-label-technical text-on-surface-variant block uppercase">Presupuesto Pactado</span>
-<span class="font-bold text-primary">48.500€ (0€ Sobrecostes)</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Transparent Pricing & Scope Packages (4 Modular Bento Cards) -->
-<section id="servicios-tecnicos" class="w-full bg-surface-container-low px-gutter py-space-2xl scroll-mt-28">
-<div class="max-w-7xl mx-auto flex flex-col space-y-space-xl">
-<!-- Section Header -->
-<div class="text-center max-w-3xl mx-auto space-y-space-xs">
-<span class="font-label-technical text-label-technical text-primary uppercase tracking-widest">
-          Transparencia y Seguridad Contractual
-        </span>
-<h2 class="font-headline-lg text-headline-lg text-on-surface">
-          Servicios Principales y Tarifas Transparentes
-        </h2>
-<p class="font-body-md text-body-md text-on-surface-variant">
-          Sin partidas ocultas ni presupuestos que se inflan a mitad de obra. Cada precio incluye mano de obra cualificada, materiales y dirección técnica.
-        </p>
-</div>
-<!-- Dynamic Work Packages from Gemini -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
-  {% for s in (web.servicios or []) %}
-  <div class="p-6 rounded-xl bg-surface-container-lowest border border-outline-variant/40 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
-    <div>
-      <div class="flex items-center justify-between mb-3">
-        <span class="font-label-technical text-primary font-bold uppercase tracking-wider">PAQUETE 0{{ loop.index }}</span>
-        <span class="text-xs text-secondary font-semibold">{{ s.precio_o_duracion or "A medida" }}</span>
-      </div>
-      <h3 class="font-headline-sm text-lg text-on-surface font-bold mb-2">{{ s.nombre }}</h3>
-      <p class="font-body-sm text-secondary leading-relaxed mb-4">
-        {{ s.descripcion }}
-      </p>
-      {% if s.imagen %}
-      <div class="w-full h-36 rounded-lg overflow-hidden mb-4 border border-outline-variant/30">
-        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="{{ s.imagen }}" alt="{{ s.nombre }}" />
-      </div>
-      {% endif %}
-    </div>
-    <div class="pt-4 border-t border-outline-variant/30 mt-auto">
-      <button type="button" onclick="abrirModalPresupuesto('{{ s.nombre|replace('\'', '\\\'') }}')" class="w-full inline-flex items-center justify-center gap-1.5 py-2.5 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary text-on-surface font-semibold text-xs transition-colors cursor-pointer">
-        <span>Pedir Presupuesto</span>
-        <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
-      </button>
-    </div>
-  </div>
-  {% endfor %}
-</div>
-</div>
-</div>
-</section>
-<!-- Legal Security Checklist & Warranties ("Por Qué Trabajar con Nosotros") -->
-<section id="garantias" class="w-full bg-surface px-gutter py-space-2xl scroll-mt-28">
-<div class="max-w-7xl mx-auto flex flex-col space-y-space-xl">
-<div class="text-center max-w-2xl mx-auto space-y-space-xs">
-<span class="font-label-technical text-label-technical text-tertiary uppercase tracking-widest">
-          Blindaje Contractual Total
-        </span>
-<h2 class="font-headline-lg text-headline-lg text-on-surface">
-          Por Qué Elegir Vértice: Cero Sorpresas, Cero Retrasos
-        </h2>
-<p class="font-body-md text-body-md text-on-surface-variant">
-          Protegemos tu inversión con compromisos legales claros desde el primer día. Lo que firmamos en la oficina es exactamente lo que se cumple en obra.
-        </p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
-<!-- Pillar 1 -->
-<div class="bg-surface-container rounded-xl p-space-lg space-y-space-sm shadow-sm hover:shadow-md transition-shadow">
-<div class="w-12 h-12 rounded-lg bg-primary-fixed flex items-center justify-center text-primary">
-<span class="material-symbols-outlined text-[28px]">receipt_long</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface">Presupuesto Cerrado al Céntimo</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-            Medición técnica in situ realizada por un aparejador colegiado. Si encontramos imprevistos durante la demolición técnica, asumimos nosotros la diferencia.
-          </p>
-<div class="pt-space-xs text-primary font-label-technical text-label-technical uppercase flex items-center gap-1">
-<span class="material-symbols-outlined text-[15px]">done_all</span> Cláusula Anti-Sobrecostes
-          </div>
-</div>
-<!-- Pillar 2 -->
-<div class="bg-surface-container rounded-xl p-space-lg space-y-space-sm shadow-sm hover:shadow-md transition-shadow">
-<div class="w-12 h-12 rounded-lg bg-primary-fixed flex items-center justify-center text-primary">
-<span class="material-symbols-outlined text-[28px]">gavel</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface">Penalización 100€/Día en Contrato</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-            Fecha de finalización fijada por escrito con fianza bancaria. Si nos retrasamos un solo día laborable sobre la entrega, descontamos 100€ diarios directamente de tu factura final.
-          </p>
-<div class="pt-space-xs text-primary font-label-technical text-label-technical uppercase flex items-center gap-1">
-<span class="material-symbols-outlined text-[15px]">done_all</span> Plazo Notarial Certificado
-          </div>
-</div>
-<!-- Pillar 3 -->
-<div class="bg-surface-container rounded-xl p-space-lg space-y-space-sm shadow-sm hover:shadow-md transition-shadow">
-<div class="w-12 h-12 rounded-lg bg-primary-fixed flex items-center justify-center text-primary">
-<span class="material-symbols-outlined text-[28px]">security</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface">Seguro RC 600.000€ Allianz</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-            Póliza integral que protege tu inmueble, elementos comunes del edificio y viviendas colindantes. Todos nuestros operarios están en nómina y dados de alta en el REA.
-          </p>
-<div class="pt-space-xs text-primary font-label-technical text-label-technical uppercase flex items-center gap-1">
-<span class="material-symbols-outlined text-[15px]">done_all</span> Registro REA Oficial
-          </div>
-</div>
-<!-- Pillar 4 -->
-<div class="bg-surface-container rounded-xl p-space-lg space-y-space-sm shadow-sm hover:shadow-md transition-shadow">
-<div class="w-12 h-12 rounded-lg bg-primary-fixed flex items-center justify-center text-primary">
-<span class="material-symbols-outlined text-[28px]">key</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface">Gestión Integral Llave en Mano</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-            Nos encargamos de la tasa de residuos, contenedores, permisos con la comunidad de vecinos, protección de rellano y ascensor, y limpieza final exhaustiva.
-          </p>
-<div class="pt-space-xs text-primary font-label-technical text-label-technical uppercase flex items-center gap-1">
-<span class="material-symbols-outlined text-[15px]">done_all</span> Entrar a Vivir Directo
-          </div>
-</div>
-</div>
-</div>
-</section>
-<!-- Verified Testimonials (Social Proof) -->
-<section id="opiniones" class="w-full bg-surface-container-low px-gutter py-space-2xl scroll-mt-28">
-<div class="max-w-7xl mx-auto flex flex-col space-y-space-xl">
-<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
-<div class="space-y-space-xs">
-<span class="font-label-technical text-label-technical text-primary uppercase tracking-widest">
-            Opiniones Reales en Google Maps &amp; Habitissimo
-          </span>
-<h2 class="font-headline-lg text-headline-lg text-on-surface">
-            Hablamos con Hechos: Opiniones de Clientes Reales
-          </h2>
-</div>
-<div class="flex items-center gap-space-sm bg-surface-container-lowest px-space-md py-space-xs rounded-full shadow-sm">
-<span class="font-bold text-on-surface font-label-md text-label-md">Puntuación Media: 4.9</span>
-<div class="flex text-primary">
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-</div>
-<span class="text-on-surface-variant text-label-technical">(184 opiniones)</span>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
-<!-- Review 1 -->
-<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between space-y-space-md">
-<div class="space-y-space-sm">
-<div class="flex items-center gap-1 text-primary">
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface italic">
-              "Teníamos pánico a las reformas por malas experiencias previas con otras empresas. Con Vértice firmamos presupuesto cerrado y no subió ni un solo euro. Entregaron la cocina y el salón 3 días antes de Navidad. La dirección de obra técnica fue sobresaliente."
-            </p>
-</div>
-<div class="pt-space-md border-t border-surface-container flex items-center gap-space-sm">
-<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold">
-              EC
-            </div>
-<div>
-<p class="font-label-md text-label-md font-bold text-on-surface">Elena &amp; Carlos</p>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Reforma Integral • C/ Orense, Madrid</p>
-</div>
-</div>
-</div>
-<!-- Review 2 -->
-<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between space-y-space-md">
-<div class="space-y-space-sm">
-<div class="flex items-center gap-1 text-primary">
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface italic">
-              "Impecables en la limpieza diaria en el portal y el ascensor; los vecinos no tuvieron ni una queja durante los 2 meses. La dirección de obra técnica se nota especialmente en los remates de carpintería y los encuentros entre porcelánico y tarima."
-            </p>
-</div>
-<div class="pt-space-md border-t border-surface-container flex items-center gap-space-sm">
-<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold">
-              MS
-            </div>
-<div>
-<p class="font-label-md text-label-md font-bold text-on-surface">Marcos Santamaría</p>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Piso 95m² • Chamberí, Madrid</p>
-</div>
-</div>
-</div>
-<!-- Review 3 -->
-<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between space-y-space-md">
-<div class="space-y-space-sm">
-<div class="flex items-center gap-1 text-primary">
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface italic">
-              "Nos diseñaron el 3D previo con total realismo y el resultado final fue exactamente idéntico al render. Además se encargaron de toda la tramitación de licencia urbanística sin que tuviéramos que mover un papel. Muy recomendables."
-            </p>
-</div>
-<div class="pt-space-md border-t border-surface-container flex items-center gap-space-sm">
-<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold">
-              BG
-            </div>
-<div>
-<p class="font-label-md text-label-md font-bold text-on-surface">Beatriz Gómez</p>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Chalet Pareado • Las Rozas</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- ============================================================ -->
-<!-- ESTIMADOR INTERACTIVO DE REFORMAS & METROS CUADRADOS -->
-<!-- ============================================================ -->
-<section id="calculador-reformas" class="w-full bg-surface-container-low px-gutter py-space-2xl scroll-mt-28 border-y border-outline-variant/30">
-  <div class="max-w-5xl mx-auto flex flex-col space-y-space-xl">
-    <div class="text-center max-w-2xl mx-auto space-y-space-xs">
-      <span class="font-label-technical text-label-technical text-primary uppercase tracking-widest flex items-center justify-center gap-1">
-        <span class="material-symbols-outlined text-[16px]">calculate</span>
-        Herramienta de Estimación Rápida
-      </span>
-      <h2 class="font-headline-lg text-headline-lg text-on-surface">
-        Calcula el Presupuesto de tu Proyecto
-      </h2>
-      <p class="font-body-md text-body-md text-on-surface-variant">
-        Ajusta los metros cuadrados, el tipo de obra y la gama de materiales para obtener una estimación técnica orientativa en segundos.
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-stretch">
-      <!-- Controls Column (7 Cols) -->
-      <div class="lg:col-span-7 bg-surface-container-lowest p-6 sm:p-8 rounded-2xl border border-outline-variant/40 shadow-md flex flex-col justify-between space-y-6">
-        <!-- 1. Superficie Slider -->
-        <div class="space-y-3">
-          <div class="flex items-center justify-between">
-            <label class="font-label-md text-sm font-bold text-on-surface flex items-center gap-1.5">
-              <span class="material-symbols-outlined text-primary text-[20px]">square_foot</span>
-              <span>Superficie de la Vivienda o Local</span>
-            </label>
-            <span id="display-m2" class="font-headline-sm text-lg font-extrabold text-primary bg-primary/10 px-3 py-1 rounded-xl">80 m²</span>
-          </div>
-          <input id="slider-m2" type="range" min="20" max="200" step="5" value="80" oninput="calcularPresupuestoReforma()" class="w-full h-2 bg-surface-container-high rounded-lg appearance-none cursor-pointer accent-primary" />
-          <div class="flex justify-between text-[11px] font-label-technical text-on-surface-variant">
-            <span>20 m² (Piso / Local pequeño)</span>
-            <span>100 m² (Medio)</span>
-            <span>200 m² (Chalet / Planta completa)</span>
-          </div>
-        </div>
-
-        <!-- 2. Tipo de Intervención -->
-        <div class="space-y-2">
-          <label class="font-label-md text-xs font-bold text-on-surface-variant uppercase tracking-wider block">
-            Tipo de Proyecto
-          </label>
-          <div class="grid grid-cols-3 gap-2">
-            <button type="button" onclick="seleccionarAlcanceReforma('integral', this)" class="alcance-btn active p-3 rounded-xl border-2 border-primary bg-primary/5 text-center transition cursor-pointer">
-              <span class="font-headline-sm text-xs font-bold text-on-surface block">Integral</span>
-              <span class="font-label-technical text-[10px] text-on-surface-variant block">Todo incluido</span>
-            </button>
-            <button type="button" onclick="seleccionarAlcanceReforma('humedas', this)" class="alcance-btn p-3 rounded-xl border-2 border-outline-variant/50 bg-surface-container-low text-center transition hover:border-primary/50 cursor-pointer">
-              <span class="font-headline-sm text-xs font-bold text-on-surface block">Cocina / Baños</span>
-              <span class="font-label-technical text-[10px] text-on-surface-variant block">Zonas húmedas</span>
-            </button>
-            <button type="button" onclick="seleccionarAlcanceReforma('acabados', this)" class="alcance-btn p-3 rounded-xl border-2 border-outline-variant/50 bg-surface-container-low text-center transition hover:border-primary/50 cursor-pointer">
-              <span class="font-headline-sm text-xs font-bold text-on-surface block">Parcial / Pintura</span>
-              <span class="font-label-technical text-[10px] text-on-surface-variant block">Suelos & paredes</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- 3. Gama de Acabados -->
-        <div class="space-y-2">
-          <label class="font-label-md text-xs font-bold text-on-surface-variant uppercase tracking-wider block">
-            Nivel de Acabados & Calidades
-          </label>
-          <div class="grid grid-cols-3 gap-2">
-            <button type="button" onclick="seleccionarCalidadReforma('estandar', this)" class="calidad-btn p-3 rounded-xl border-2 border-outline-variant/50 bg-surface-container-low text-center transition hover:border-primary/50 cursor-pointer">
-              <span class="font-headline-sm text-xs font-bold text-on-surface block">Rentabilidad</span>
-              <span class="font-label-technical text-[10px] text-on-surface-variant block">Alquiler / Básica</span>
-            </button>
-            <button type="button" onclick="seleccionarCalidadReforma('confort', this)" class="calidad-btn active p-3 rounded-xl border-2 border-primary bg-primary/5 text-center transition cursor-pointer">
-              <span class="font-headline-sm text-xs font-bold text-on-surface block">Confort</span>
-              <span class="font-label-technical text-[10px] text-on-surface-variant block">Equilibrio ideal</span>
-            </button>
-            <button type="button" onclick="seleccionarCalidadReforma('premium', this)" class="calidad-btn p-3 rounded-xl border-2 border-outline-variant/50 bg-surface-container-low text-center transition hover:border-primary/50 cursor-pointer">
-              <span class="font-headline-sm text-xs font-bold text-on-surface block">Alta Gama</span>
-              <span class="font-label-technical text-[10px] text-on-surface-variant block">Porcelanosa / Diseño</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Result Card (5 Cols) -->
-      <div class="lg:col-span-5 bg-inverse-surface text-inverse-on-surface p-6 sm:p-8 rounded-2xl shadow-xl flex flex-col justify-between border border-primary/30 relative overflow-hidden">
-        <div class="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-primary/20 blur-2xl pointer-events-none"></div>
-        <div class="space-y-4 relative z-10">
-          <div class="flex items-center justify-between pb-2 border-b border-surface-variant/20">
-            <span class="font-label-technical text-xs uppercase tracking-wider text-primary-fixed-dim">Estimación Preliminar</span>
-            <span class="font-label-technical text-xs text-tertiary-fixed flex items-center gap-1">
-              <span class="material-symbols-outlined text-[14px]">verified</span> Sin sorpresas
-            </span>
-          </div>
-
-          <div>
-            <span class="font-label-md text-xs text-on-surface-variant text-inverse-on-surface/70 block">Rango de Inversión Estimado</span>
-            <div id="calculador-rango" class="font-display-hero text-2xl sm:text-3xl font-extrabold text-white mt-1">
-              46.500€ - 54.000€
-            </div>
-            <span class="text-[11px] text-inverse-on-surface/60 font-label-technical block mt-0.5">*Mano de obra, materiales y dirección técnica incluidos</span>
-          </div>
-
-          <div class="grid grid-cols-2 gap-2 pt-2">
-            <div class="bg-surface-container-lowest/10 p-3 rounded-xl backdrop-blur-sm">
-              <span class="text-[10px] text-inverse-on-surface/70 uppercase block font-label-technical">Plazo Estimado</span>
-              <span id="calculador-plazo" class="font-headline-sm text-sm font-bold text-white">8 - 11 semanas</span>
-            </div>
-            <div class="bg-surface-container-lowest/10 p-3 rounded-xl backdrop-blur-sm">
-              <span class="text-[10px] text-inverse-on-surface/70 uppercase block font-label-technical">Garantía Escrita</span>
-              <span class="font-headline-sm text-sm font-bold text-tertiary-fixed">2 Años Oficial</span>
-            </div>
-          </div>
-
-          <div class="space-y-1.5 pt-1 text-xs text-inverse-on-surface/80">
-            <div class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-tertiary-fixed text-[16px]">check_circle</span>
-              <span>Medición técnica láser in situ gratuita</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-tertiary-fixed text-[16px]">check_circle</span>
-              <span>Presupuesto cerrado con penalización por retraso</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="pt-6 relative z-10">
-          <button type="button" onclick="solicitarVisitaCalculador()" class="w-full py-3.5 px-4 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-bold text-xs uppercase tracking-wider shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer">
-            <span class="material-symbols-outlined text-[18px]">engineering</span>
-            <span>Solicitar Visita Técnica Gratuita</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Conversion Form Section (High Conversion Lead Capture) -->
-<section class="w-full bg-surface px-gutter py-space-2xl scroll-mt-28" id="solicitar-presupuesto">
-<div class="max-w-5xl mx-auto rounded-xl bg-surface-container-lowest p-space-lg sm:p-space-xl shadow-xl">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
-<!-- Left Column: Context & Guarantees -->
-<div class="lg:col-span-5 space-y-space-md">
-<span class="font-label-technical text-label-technical text-primary uppercase tracking-widest block">
-            Respuesta en menos de 24 horas
-          </span>
-<h2 class="font-headline-lg text-headline-lg text-on-surface">
-            Solicita tu Visita Técnica y Presupuesto Gratuito
-          </h2>
-<p class="font-body-md text-body-md text-on-surface-variant">
-            Uno de nuestros aparejadores o arquitectos técnicos acudirá a tu vivienda en Madrid para tomar medidas precisas, resolver dudas estructurales y entregarte una propuesta desglosada sin coste ni compromiso.
-          </p>
-<div class="p-space-md rounded-lg bg-surface-container-low space-y-space-xs text-body-sm font-body-sm text-on-surface">
-<div class="flex items-center gap-space-xs text-tertiary font-bold">
-<span class="material-symbols-outlined text-[18px]">verified_user</span>
-<span>Compromiso Anti-Comercial Agresivo</span>
-</div>
-<p class="text-on-surface-variant">
-              Trato estrictamente técnico. No te llamará ningún teleoperador comercial: hablarás siempre con el técnico que gestionará la ejecución de tu obra.
-            </p>
-</div>
-<div class="space-y-space-xs pt-space-xs font-label-technical text-label-technical text-on-surface-variant">
-<p class="flex items-center gap-2">
-<span class="material-symbols-outlined text-tertiary text-[16px]">check_circle</span> Medición láser in situ gratuita
-            </p>
-<p class="flex items-center gap-2">
-<span class="material-symbols-outlined text-tertiary text-[16px]">check_circle</span> Memoria de calidades desglosada por partidas
-            </p>
-<p class="flex items-center gap-2">
-<span class="material-symbols-outlined text-tertiary text-[16px]">check_circle</span> Asesoramiento en distribución e iluminación LED
-            </p>
-</div>
-</div>
-<!-- Right Column: Interactive Form -->
-<div class="lg:col-span-7 bg-surface-container-low p-space-md sm:p-space-lg rounded-xl">
-<form class="space-y-space-md" id="quoteForm" onsubmit="enviarFormularioPresupuesto(event, this)">
-<!-- Form Header -->
-<div class="flex items-center justify-between pb-space-xs">
-<span class="font-label-lg text-label-lg font-bold text-on-surface">Datos de la Vivienda o Proyecto</span>
-<span class="font-label-technical text-label-technical text-tertiary">Paso 1 de 1</span>
-</div>
-<!-- Field: Tipo de Reforma -->
-<div class="space-y-1">
-<label class="block font-label-md text-label-md text-on-surface">Tipo de Intervención</label>
-<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs">
-<label class="cursor-pointer">
-<input checked="" class="peer sr-only" name="scope" type="radio" value="Reforma Integral"/>
-<div class="p-space-xs text-center rounded bg-surface-container-lowest text-on-surface peer-checked:bg-primary-fixed peer-checked:text-on-primary-fixed peer-checked:font-bold font-label-technical text-label-technical transition-all">
-                    Integral
-                  </div>
-</label>
-<label class="cursor-pointer">
-<input class="peer sr-only" name="scope" type="radio" value="Cocina / Baño"/>
-<div class="p-space-xs text-center rounded bg-surface-container-lowest text-on-surface peer-checked:bg-primary-fixed peer-checked:text-on-primary-fixed peer-checked:font-bold font-label-technical text-label-technical transition-all">
-                    Cocina/Baño
-                  </div>
-</label>
-<label class="cursor-pointer">
-<input class="peer sr-only" name="scope" type="radio" value="Estructura / Fachada"/>
-<div class="p-space-xs text-center rounded bg-surface-container-lowest text-on-surface peer-checked:bg-primary-fixed peer-checked:text-on-primary-fixed peer-checked:font-bold font-label-technical text-label-technical transition-all">
-                    Estructura
-                  </div>
-</label>
-<label class="cursor-pointer">
-<input class="peer sr-only" name="scope" type="radio" value="Local / Oficina"/>
-<div class="p-space-xs text-center rounded bg-surface-container-lowest text-on-surface peer-checked:bg-primary-fixed peer-checked:text-on-primary-fixed peer-checked:font-bold font-label-technical text-label-technical transition-all">
-                    Local/Oficina
-                  </div>
-</label>
-</div>
-</div>
-<!-- Fields Row: Name and Phone -->
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
-<div class="space-y-1">
-<label class="block font-label-md text-label-md text-on-surface" for="contactName">Nombre y Apellidos</label>
-<input name="nombre" class="w-full h-11 px-space-md rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" id="contactName" placeholder="Tu nombre..." required="" type="text"/>
-</div>
-<div class="space-y-1">
-<label class="block font-label-md text-label-md text-on-surface" for="contactPhone">Teléfono / WhatsApp</label>
-<input name="telefono" class="w-full h-11 px-space-md rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" id="contactPhone" placeholder="{{ negocio.telefono or '+34 600 000 000' }}" required="" type="tel"/>
-</div>
-</div>
-<!-- Fields Row: Square Meters and Location -->
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
-<div class="space-y-1">
-<label class="block font-label-md text-label-md text-on-surface" for="contactM2">Metros Cuadrados Aprox.</label>
-<input name="m2" class="w-full h-11 px-space-md rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" id="contactM2" min="5" placeholder="Ej. 85 m²" type="number"/>
-</div>
-<div class="space-y-1">
-<label class="block font-label-md text-label-md text-on-surface" for="contactLocation">Zona o Población</label>
-<input name="zona" class="w-full h-11 px-space-md rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" id="contactLocation" placeholder="{{ negocio.ciudad }}" type="text"/>
-</div>
-</div>
-<!-- Brief Notes -->
-<div class="space-y-1">
-<label class="block font-label-md text-label-md text-on-surface" for="contactNotes">¿Qué cambios tienes en mente? (Opcional)</label>
-<textarea name="notas" class="w-full p-space-sm rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" id="contactNotes" placeholder="Describe brevemente la idea del proyecto..." rows="2"></textarea>
-</div>
-<!-- Submit Button -->
-<button class="w-full py-space-md rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg shadow-md hover:shadow-xl transition-all flex items-center justify-center gap-space-xs cursor-pointer" type="submit">
-<span class="material-symbols-outlined text-[20px]">send</span>
-<span>Enviar Solicitud de Presupuesto por WhatsApp</span>
-</button>
-<!-- Micro-Privacy -->
-<p class="font-label-technical text-label-technical text-on-surface-variant text-center">
-              🔒 Presupuesto directo sin intermediarios ni compromiso.
-            </p>
-</form>
-<!-- Success Feedback State -->
-<div class="hidden py-space-xl px-space-md text-center space-y-space-md" id="formSuccessMessage">
-<div class="w-16 h-16 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant mx-auto flex items-center justify-center">
-<span class="material-symbols-outlined text-[36px]">verified</span>
-</div>
-<h3 class="font-headline-md text-headline-md text-on-surface">¡Solicitud Preparada con Éxito!</h3>
-<p class="font-body-md text-body-md text-on-surface-variant max-w-md mx-auto">
-  Conectando con {{ negocio.nombre }} vía WhatsApp para coordinar tu presupuesto y visita técnica...
-</p>
-{% if negocio.telefono %}
-<div class="pt-space-xs">
-<a class="inline-flex items-center gap-space-xs font-label-lg text-label-lg text-primary font-bold" href="tel:{{ negocio.telefono }}">
-<span class="material-symbols-outlined text-[18px]">call</span>
-<span>Llamar directamente: {{ negocio.telefono }}</span>
-</a>
-</div>
-{% endif %}
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Floating Comparison Logic Script -->
-<script>
-    (function () {
-      const sliderInput = document.getElementById('sliderInput');
-      const beforeImageClip = document.getElementById('beforeImageClip');
-      const sliderHandle = document.getElementById('sliderHandle');
-      const beforeImgRef = document.getElementById('beforeImgRef');
-      const beforeAfterWidget = document.getElementById('beforeAfterWidget');
-
-      if (!sliderInput || !beforeImageClip || !sliderHandle) return;
-
-      function updateSliderPosition(val) {
-        beforeImageClip.style.width = val + '%';
-        sliderHandle.style.left = val + '%';
-      }
-
-      function syncImgWidth() {
-        if (beforeAfterWidget && beforeImgRef) {
-          const containerWidth = beforeAfterWidget.clientWidth;
-          beforeImgRef.style.width = containerWidth + 'px';
-          beforeImgRef.style.maxWidth = containerWidth + 'px';
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>{{ negocio.nombre }} | {{ negocio.categoria_clean or 'Reformas & Construcción' }} en {{ negocio.ciudad }}</title>
+  <meta name="description" content="{{ web.subtitulo or (negocio.nombre ~ ' en ' ~ negocio.ciudad ~ '. Presupuesto cerrado, reformas y proyectos de obra.') }}"/>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="{{ ig.avatar_url or ig.avatar or 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=96&q=80' }}"/>
+  
+  <!-- Tipografías Premium Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"/>
+  
+  <!-- Iconos Google Material Symbols -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              amber: '#F59E0B',
+              gold: '#D97706',
+              dark: '#0F141C',
+              card: '#18202E',
+              surface: '#202B3D',
+              border: 'rgba(245, 158, 11, 0.2)'
+            }
+          },
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            body: ['"Plus Jakarta Sans"', 'sans-serif']
+          }
         }
       }
-
-      sliderInput.addEventListener('input', function (e) {
-        updateSliderPosition(e.target.value);
-      });
-
-      window.addEventListener('resize', syncImgWidth);
-      window.addEventListener('DOMContentLoaded', syncImgWidth);
-      syncImgWidth();
-    })();
-
-    function enviarFormularioPresupuesto(event, form) {
-      event.preventDefault();
-      const scope = form.querySelector('[name="scope"]:checked')?.value || 'Reforma';
-      const nombre = form.querySelector('[name="nombre"]')?.value || '';
-      const tel = form.querySelector('[name="telefono"]')?.value || '';
-      const m2 = form.querySelector('[name="m2"]')?.value || '';
-      const zona = form.querySelector('[name="zona"]')?.value || '{{ negocio.ciudad }}';
-      const notas = form.querySelector('[name="notas"]')?.value || '';
-
-      const msg = encodeURIComponent(`¡Hola equipo de {{ negocio.nombre }}! Mi nombre es ${nombre} (tel: ${tel}). Quisiera pedir presupuesto para un proyecto de tipo *${scope}* en ${zona} (${m2 ? m2 + ' m²' : 'a valorar'}). Detalles: ${notas || 'Sin notas adicionales'}.`);
-      const waBase = '{{ negocio.whatsapp_url or ("https://wa.me/" ~ negocio.telefono) }}';
-
-      let targetUrl = waBase;
-      if (waBase.includes('wa.me') || waBase.includes('whatsapp.com')) {
-        const sep = waBase.includes('?') ? '&' : '?';
-        targetUrl = waBase + sep + 'text=' + msg;
-      }
-
-      const success = document.getElementById('formSuccessMessage');
-      if (success) {
-        form.classList.add('hidden');
-        success.classList.remove('hidden');
-      }
-
-      setTimeout(() => {
-        window.open(targetUrl, '_blank');
-      }, 400);
-    }
+    };
   </script>
+  
+  <style>
+    :root {
+      --sat: env(safe-area-inset-top, 0px);
+      --sab: env(safe-area-inset-bottom, 0px);
+    }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(4.5rem + var(--sat, 0px));
+    }
+    body {
+      background-color: #0B0E14;
+      color: #F1F5F9;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overscroll-behavior-y: none;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0B0E14;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1E293B;
+      border-radius: 9999px;
+    }
+    .card-craft {
+      background: rgba(24, 32, 46, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(245, 158, 11, 0.18);
+    }
+  </style>
+  
+  <script>
+    (function() {
+      try {
+        var isIframe = window.self !== window.top;
+        var isSim = isIframe || /[?&]sim(=|&|$)/.test(window.location.search) || window.location.hash.indexOf('sim') !== -1;
+        if (isSim) {
+          document.documentElement.style.setProperty('--sat', '54px');
+          document.documentElement.style.setProperty('--sab', '20px');
+        }
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
 
-  <!-- ============================================================ -->
-  <!-- PREGUNTAS FRECUENTES (FAQ REFORMAS Y OBRAS) -->
-  <!-- ============================================================ -->
-  <section id="faq" class="w-full bg-surface px-gutter py-space-2xl scroll-mt-28 border-t border-outline-variant/30">
-    <div class="max-w-4xl mx-auto flex flex-col space-y-space-xl">
-      <div class="text-center max-w-2xl mx-auto space-y-space-xs">
-        <span class="font-label-technical text-label-technical text-primary uppercase tracking-widest flex items-center justify-center gap-1">
-          <span class="material-symbols-outlined text-[16px]">help_outline</span>
-          Dudas Frecuentes
-        </span>
-        <h2 class="font-headline-lg text-headline-lg text-on-surface">
-          Preguntas Frecuentes sobre Obras & Reformas
-        </h2>
-        <p class="font-body-md text-body-md text-on-surface-variant">
-          Respuestas claras a las dudas más habituales antes de iniciar tu proyecto en {{ negocio.ciudad }}.
-        </p>
+<!-- ==================== HEADER PRINCIPAL ==================== -->
+<header class="sticky top-0 z-50 w-full bg-[#0B0E14]/90 backdrop-blur-md border-b border-amber-500/15" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between gap-4">
+    
+    <!-- Identidad de Marca -->
+    <a href="#inicio" class="flex items-center gap-3 shrink-0 group">
+      {% if ig.avatar_url or ig.avatar %}
+      <div class="w-10 h-10 rounded-xl overflow-hidden border border-amber-400/30 group-hover:border-amber-400 transition-colors shadow-md shrink-0">
+        <img src="{{ ig.avatar_url or ig.avatar }}" alt="{{ negocio.nombre }}" class="w-full h-full object-cover"/>
       </div>
+      {% else %}
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center text-white font-display font-bold text-lg shadow-lg shrink-0">
+        {{ ((negocio.nombre or 'RF')[:2])|upper }}
+      </div>
+      {% endif %}
+      <div class="flex flex-col">
+        <span class="font-display font-bold text-base sm:text-lg text-white tracking-tight leading-tight group-hover:text-amber-300 transition-colors truncate max-w-[160px] sm:max-w-[220px] md:max-w-none">
+          {{ negocio.nombre }}
+        </span>
+        <span class="text-xs text-amber-400 font-medium flex items-center gap-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          Reformas & Obras • Presupuesto Cerrado
+        </span>
+      </div>
+    </a>
 
-      <div class="flex flex-col space-y-3">
-        <!-- FAQ 1 -->
-        <div class="rounded-xl bg-surface-container-lowest border border-outline-variant/40 overflow-hidden shadow-sm transition-all">
-          <button type="button" onclick="toggleFaq(0)" class="w-full flex items-center justify-between p-5 text-left font-headline-sm text-base font-bold text-on-surface hover:text-primary transition cursor-pointer">
-            <span class="flex items-center gap-3">
-              <span class="w-7 h-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-xs font-bold shrink-0">1</span>
-              <span>¿Cómo garantizáis que el presupuesto no sufrirá sobrecostes?</span>
+    <!-- Navegación Desktop -->
+    <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-300">
+      <a href="#servicios" class="hover:text-white transition-colors">Servicios & Proyectos</a>
+      <a href="#compromiso" class="hover:text-white transition-colors">Compromiso & Garantías</a>
+      <a href="#proyectos" class="hover:text-white transition-colors">Obras Realizadas</a>
+      <a href="#opiniones" class="hover:text-white transition-colors">Opiniones</a>
+      <a href="#contacto" class="hover:text-white transition-colors">Presupuesto & Contacto</a>
+    </nav>
+
+    <!-- CTAs Header -->
+    <div class="flex items-center gap-3 shrink-0">
+      {% if negocio.telefono %}
+      <a href="tel:{{ negocio.telefono }}" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-amber-500/20 text-xs font-semibold text-amber-100 transition-colors">
+        <span class="material-symbols-outlined text-sm text-amber-400">call</span>
+        <span>{{ negocio.telefono }}</span>
+      </a>
+      {% endif %}
+
+      <a href="{{ negocio.whatsapp_url or '#contacto' }}" target="_blank" rel="noopener" class="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-semibold text-xs sm:text-sm shadow-md shadow-emerald-950/40 transition-all hover:scale-[1.02] shrink-0">
+        <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        <span>Pedir Presupuesto</span>
+      </a>
+
+      <!-- Botón Menú Móvil -->
+      <button id="mobile-menu-btn" type="button" class="lg:hidden p-2 rounded-xl bg-white/5 border border-amber-500/20 text-amber-200 hover:text-white transition-colors" aria-label="Abrir menú">
+        <span class="material-symbols-outlined text-2xl">menu</span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- Menú Desplegable Móvil -->
+<div id="mobile-menu" class="hidden lg:hidden fixed inset-0 z-50 bg-[#0B0E14]/95 backdrop-blur-xl flex flex-col p-6 space-y-6 pt-24 border-b border-amber-500/20">
+  <button id="close-menu-btn" class="absolute top-6 right-6 p-2 rounded-xl bg-white/5 text-slate-300 hover:text-white" aria-label="Cerrar menú">
+    <span class="material-symbols-outlined text-2xl">close</span>
+  </button>
+  <nav class="flex flex-col gap-4 text-lg font-semibold text-slate-200">
+    <a href="#servicios" class="mobile-nav-link py-2 border-b border-white/5 hover:text-amber-400">Servicios & Proyectos</a>
+    <a href="#compromiso" class="mobile-nav-link py-2 border-b border-white/5 hover:text-amber-400">Compromiso & Garantías</a>
+    <a href="#proyectos" class="mobile-nav-link py-2 border-b border-white/5 hover:text-amber-400">Obras Realizadas</a>
+    <a href="#opiniones" class="mobile-nav-link py-2 border-b border-white/5 hover:text-amber-400">Opiniones</a>
+    <a href="#contacto" class="mobile-nav-link py-2 hover:text-amber-400">Presupuesto & Contacto</a>
+  </nav>
+  <div class="pt-6 mt-auto flex flex-col gap-3">
+    <a href="{{ negocio.whatsapp_url or '#contacto' }}" class="w-full py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-center flex items-center justify-center gap-2 shadow-lg">
+      <span class="material-symbols-outlined">chat</span>
+      <span>Pedir Presupuesto por WhatsApp</span>
+    </a>
+    {% if negocio.telefono %}
+    <a href="tel:{{ negocio.telefono }}" class="w-full py-3.5 rounded-xl bg-white/10 text-slate-200 font-semibold text-center flex items-center justify-center gap-2">
+      <span class="material-symbols-outlined">call</span>
+      <span>Llamar {{ negocio.telefono }}</span>
+    </a>
+    {% endif %}
+  </div>
+</div>
+
+<main class="flex-1">
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section id="inicio" class="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-28 border-b border-amber-500/10">
+    <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-amber-500/10 blur-[130px] pointer-events-none rounded-full"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Copy Hero -->
+        <div class="lg:col-span-7 flex flex-col space-y-6 text-center lg:text-left">
+          
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/25 text-xs font-semibold text-amber-300 mx-auto lg:mx-0 w-fit">
+            <span class="text-amber-400">★★★★★</span>
+            <span class="font-bold text-white">4.9/5</span>
+            <span class="text-amber-200/70">• Obras Entregadas en Plazo en {{ negocio.ciudad }}</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight leading-[1.1] text-white">
+            {{ web.titular or (negocio.nombre ~ ': Tu Proyecto en Manos Profesionales.') }}
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            {{ web.subtitulo or ('Especialistas en ' ~ (negocio.categoria_clean or 'reformas y obras') ~ ' en ' ~ negocio.ciudad ~ '. Presupuesto cerrado por contrato, materiales de máxima durabilidad y plazos garantizados.') }}
+          </p>
+
+          <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <a href="{{ negocio.whatsapp_url or '#contacto' }}" target="_blank" rel="noopener" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-semibold text-base shadow-xl shadow-emerald-950/40 flex items-center justify-center gap-2.5 transition-all hover:scale-[1.02]">
+              <span class="material-symbols-outlined text-xl">receipt_long</span>
+              <span>Solicitar Presupuesto Gratis</span>
+            </a>
+
+            <a href="#servicios" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-white/5 hover:bg-white/10 border border-amber-500/20 text-amber-200 hover:text-white font-semibold text-base transition-all flex items-center justify-center gap-2">
+              <span>Ver Servicios & Proyectos</span>
+              <span class="material-symbols-outlined text-lg">arrow_forward</span>
+            </a>
+          </div>
+
+          <!-- Micro Garantías -->
+          <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-6 text-xs text-amber-200/60 font-medium">
+            <span class="flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-amber-400 text-base">verified</span>
+              Presupuesto cerrado por contrato
             </span>
-            <span id="faq-icon-0" class="material-symbols-outlined text-on-surface-variant transition-transform duration-300">expand_more</span>
-          </button>
-          <div id="faq-answer-0" class="hidden px-5 pb-5 pt-1 text-sm text-on-surface-variant leading-relaxed border-t border-outline-variant/20">
-            Realizamos siempre una medición previa técnica in situ y un estudio exhaustivo del estado de las instalaciones. Firmamos un contrato con presupuesto cerrado al céntimo por partidas; si surge cualquier imprevisto durante la demolición técnica, lo asumimos nosotros sin repercutirlo en tu factura.
+            <span class="flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-emerald-400 text-base">security</span>
+              2 años de garantía oficial
+            </span>
+            <span class="flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-sky-400 text-base">event_available</span>
+              Plazos de entrega por escrito
+            </span>
+          </div>
+
+        </div>
+
+        <!-- Imagen Hero Reformas -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            <div class="relative rounded-3xl overflow-hidden border border-amber-400/25 bg-gradient-to-b from-amber-400/15 to-transparent p-2 shadow-2xl shadow-amber-950/50">
+              <div class="rounded-2xl overflow-hidden aspect-[4/5] bg-[#18202E] relative">
+                {% if ig.posts and ig.posts[0] and (ig.posts[0].image_url or ig.posts[0].imagen) %}
+                <img src="{{ ig.posts[0].image_url or ig.posts[0].imagen }}" alt="{{ negocio.nombre }}" class="w-full h-full object-cover"/>
+                {% else %}
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="Reformas y Construcción" class="w-full h-full object-cover"/>
+                {% endif %}
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0B0E14] via-transparent to-transparent opacity-80"></div>
+                
+                <div class="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-[#0B0E14]/85 backdrop-blur-md border border-amber-500/20 flex items-center justify-between">
+                  <div>
+                    <span class="text-xs text-amber-300 font-bold tracking-wider uppercase block">Calidad Certificada</span>
+                    <span class="text-sm font-bold text-white">{{ negocio.nombre }}</span>
+                  </div>
+                  <span class="px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-semibold border border-emerald-500/30">
+                    Garantía 2 Años
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- FAQ 2 -->
-        <div class="rounded-xl bg-surface-container-lowest border border-outline-variant/40 overflow-hidden shadow-sm transition-all">
-          <button type="button" onclick="toggleFaq(1)" class="w-full flex items-center justify-between p-5 text-left font-headline-sm text-base font-bold text-on-surface hover:text-primary transition cursor-pointer">
-            <span class="flex items-center gap-3">
-              <span class="w-7 h-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-xs font-bold shrink-0">2</span>
-              <span>¿Tiene algún coste o compromiso la visita técnica previa?</span>
-            </span>
-            <span id="faq-icon-1" class="material-symbols-outlined text-on-surface-variant transition-transform duration-300">expand_more</span>
-          </button>
-          <div id="faq-answer-1" class="hidden px-5 pb-5 pt-1 text-sm text-on-surface-variant leading-relaxed border-t border-outline-variant/20">
-            Ninguno. Un arquitecto técnico o aparejador de nuestro equipo se desplazará a tu inmueble para tomar mediciones láser, escuchar tus ideas y asesorarte de forma 100% gratuita y sin ningún compromiso de contratación.
-          </div>
-        </div>
-
-        <!-- FAQ 3 -->
-        <div class="rounded-xl bg-surface-container-lowest border border-outline-variant/40 overflow-hidden shadow-sm transition-all">
-          <button type="button" onclick="toggleFaq(2)" class="w-full flex items-center justify-between p-5 text-left font-headline-sm text-base font-bold text-on-surface hover:text-primary transition cursor-pointer">
-            <span class="flex items-center gap-3">
-              <span class="w-7 h-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-xs font-bold shrink-0">3</span>
-              <span>¿Gestionáis las licencias y permisos con el ayuntamiento?</span>
-            </span>
-            <span id="faq-icon-2" class="material-symbols-outlined text-on-surface-variant transition-transform duration-300">expand_more</span>
-          </button>
-          <div id="faq-answer-2" class="hidden px-5 pb-5 pt-1 text-sm text-on-surface-variant leading-relaxed border-t border-outline-variant/20">
-            Sí. Nos encargamos de redactar la memoria técnica, tramitar las comunicaciones previas o licencias de obra mayor/menor, gestión de tasas municipales y ocupación de vía pública para contenedores de escombros.
-          </div>
-        </div>
-
-        <!-- FAQ 4 -->
-        <div class="rounded-xl bg-surface-container-lowest border border-outline-variant/40 overflow-hidden shadow-sm transition-all">
-          <button type="button" onclick="toggleFaq(3)" class="w-full flex items-center justify-between p-5 text-left font-headline-sm text-base font-bold text-on-surface hover:text-primary transition cursor-pointer">
-            <span class="flex items-center gap-3">
-              <span class="w-7 h-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-xs font-bold shrink-0">4</span>
-              <span>¿Qué garantías y seguros respaldan la obra?</span>
-            </span>
-            <span id="faq-icon-3" class="material-symbols-outlined text-on-surface-variant transition-transform duration-300">expand_more</span>
-          </button>
-          <div id="faq-answer-3" class="hidden px-5 pb-5 pt-1 text-sm text-on-surface-variant leading-relaxed border-t border-outline-variant/20">
-            Entregamos certificado de garantía por escrito de 2 años en todas las partidas ejecutadas y disponemos de póliza de Responsabilidad Civil de 600.000€ para proteger la vivienda, zonas comunes del edificio y vecinos en todo momento.
-          </div>
-        </div>
       </div>
     </div>
   </section>
-</div></main><footer class="w-full bg-surface-container-low text-on-surface-variant"><div class="max-w-7xl mx-auto px-gutter py-space-2xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-xl mb-space-2xl"><div class="space-y-space-md"><div class="flex items-center gap-space-sm">{% if ig.avatar_url or ig.avatar %}<img alt="{{ negocio.nombre }}" class="h-8 w-8 rounded-lg object-cover border border-primary/30" src="{{ ig.avatar_url or ig.avatar }}"/>{% else %}<div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[20px]">apartment</span></div>{% endif %}<span class="font-headline-sm text-headline-sm uppercase tracking-tight text-on-surface"><span class="truncate max-w-[170px] sm:max-w-xs md:max-w-none">{{ negocio.nombre|upper }}</span></span></div><p class="font-body-sm text-body-sm text-on-surface-variant">{{ web.subtitulo or ('Soluciones profesionales y reformas de calidad con presupuesto cerrado y garantía certificada en ' ~ negocio.ciudad ~ '.') }}</p><div class="flex items-center gap-space-xs text-tertiary font-label-technical text-label-technical"><span class="material-symbols-outlined text-[16px]">verified</span><span>Empresa Verificada en {{ negocio.ciudad }}</span></div></div><div class="space-y-space-sm"><h4 class="font-headline-sm text-headline-sm text-on-surface">Servicios</h4><ul class="space-y-space-xs font-body-sm text-body-sm">{% for s in (web.servicios or []) %}<li class="hover:text-on-surface transition-colors cursor-pointer"><a href="#solicitar-presupuesto">{{ s.nombre }}</a></li>{% endfor %}{% if not web.servicios %}<li class="hover:text-on-surface transition-colors cursor-pointer"><a href="#solicitar-presupuesto">Reformas Integrales</a></li><li class="hover:text-on-surface transition-colors cursor-pointer"><a href="#solicitar-presupuesto">Proyectos &amp; Obras</a></li>{% endif %}</ul></div><div class="space-y-space-sm"><h4 class="font-headline-sm text-headline-sm text-on-surface">Garantías</h4><div class="space-y-space-xs font-body-sm text-body-sm"><p class="flex items-start gap-space-xs"><span class="material-symbols-outlined text-primary text-[18px]">gavel</span><span>Presupuesto cerrado sin imprevistos</span></p><p class="flex items-start gap-space-xs"><span class="material-symbols-outlined text-primary text-[18px]">shield</span><span>Garantía de ejecución y satisfacción</span></p><p class="flex items-start gap-space-xs"><span class="material-symbols-outlined text-primary text-[18px]">assignment_turned_in</span><span>Técnicos cualificados en {{ negocio.ciudad }}</span></p></div></div><div class="space-y-space-sm"><h4 class="font-headline-sm text-headline-sm text-on-surface">Contacto Directo</h4><p class="font-body-sm text-body-sm text-on-surface-variant">{{ negocio.direccion or negocio.ciudad }}</p>{% if negocio.telefono %}<p class="font-label-md text-label-md text-on-surface">Teléfono: <a href="tel:{{ negocio.telefono }}" class="hover:text-primary transition-colors">{{ negocio.telefono }}</a></p>{% endif %}<p class="font-label-technical text-label-technical text-on-surface-variant"><a href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" class="hover:text-primary transition-colors">WhatsApp de Atención Inmediata</a></p><a class="mt-space-sm inline-flex items-center justify-center w-full px-space-md py-space-sm rounded-full bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md transition-all" data-path="calculador" href="#solicitar-presupuesto">Solicitar Estudio Gratuito</a></div></div><div class="pt-space-lg bg-surface-container text-on-surface-variant text-label-technical font-label-technical rounded-lg p-space-md flex flex-col md:flex-row items-center justify-between gap-space-md"><div>© 2026 {{ negocio.nombre }}. Todos los derechos reservados.</div><div class="flex items-center gap-space-md"><a href="#inicio" class="hover:underline">Inicio</a><a href="#solicitar-presupuesto" class="hover:underline">Presupuesto</a><a href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" class="hover:underline">WhatsApp</a></div></div></div></footer><!-- Sticky Mobile Conversion Bar (3 buttons) -->
-<div class="fixed bottom-0 inset-x-0 z-50 lg:hidden p-2.5 bg-surface-container-lowest/95 backdrop-blur-lg border-t border-outline-variant/40 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]" style="padding-bottom: max(0.65rem, env(safe-area-inset-bottom, 0px));">
-  <div class="grid grid-cols-3 gap-2">
-    {% if negocio.telefono %}
-    <a class="inline-flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl bg-surface-container text-on-surface font-semibold text-xs border border-outline-variant/30 transition hover:bg-surface-container-high" href="tel:{{ negocio.telefono }}">
-      <span class="material-symbols-outlined text-[16px]">call</span>
-      <span class="truncate">Llamar</span>
-    </a>
-    {% else %}
-    <a class="inline-flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl bg-surface-container text-on-surface font-semibold text-xs border border-outline-variant/30 transition hover:bg-surface-container-high" href="#garantias">
-      <span class="material-symbols-outlined text-[16px]">verified</span>
-      <span class="truncate">Garantías</span>
-    </a>
-    {% endif %}
-    <button onclick="abrirModalPresupuesto('Presupuesto Móvil')" class="inline-flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl bg-primary text-on-primary font-bold text-xs shadow-sm transition hover:bg-primary-container cursor-pointer">
-      <span class="material-symbols-outlined text-[16px]">assignment_turned_in</span>
-      <span class="truncate">Presupuesto</span>
-    </button>
-    <a class="inline-flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl bg-[#25D366] text-white font-bold text-xs shadow-md transition hover:opacity-95" href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" rel="noopener">
-      <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-      <span class="truncate">WhatsApp</span>
-    </a>
-  </div>
-</div>
 
-<!-- ============================================================ -->
-<!-- MOBILE NAVIGATION DRAWER (ACCESIBLE & IPHONE SAFE-AREA AWARE) -->
-<!-- ============================================================ -->
-<div id="mobile-drawer" class="fixed inset-0 z-[100] pointer-events-none transition-opacity duration-300" aria-hidden="true">
-  <!-- Backdrop desenfocado -->
-  <div id="mobile-drawer-backdrop" onclick="closeMobileMenu()" class="absolute inset-0 bg-black/65 backdrop-blur-sm opacity-0 transition-opacity duration-300 pointer-events-none"></div>
+  <!-- ==================== BARRA DE COMPROMISO (4 PILARES) ==================== -->
+  <section id="compromiso" class="py-12 bg-[#0F141E] border-b border-amber-500/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="p-6 rounded-2xl card-craft">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-2xl">contract</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white mb-1">Precio Cerrado</h3>
+          <p class="text-sm text-slate-300">Presupuesto detallado partida por partida sin costes imprevistos ni añadidos.</p>
+        </div>
 
-  <!-- Panel lateral deslizante con padding seguro para Dynamic Island -->
-  <div id="mobile-drawer-panel" class="absolute top-0 right-0 bottom-0 w-[310px] sm:w-[350px] max-w-[86vw] bg-surface border-l border-outline-variant/40 shadow-2xl flex flex-col justify-between overflow-y-auto translate-x-full transition-transform duration-300 ease-out pointer-events-auto"
-       style="padding-top: max(1.25rem, calc(0.75rem + var(--sat, env(safe-area-inset-top, 0px)))); padding-bottom: max(1.25rem, calc(0.75rem + var(--sab, env(safe-area-inset-bottom, 0px)))); padding-left: 1.25rem; padding-right: 1.25rem;">
-    
-    <div class="space-y-6">
-      <!-- Cabecera del Drawer -->
-      <div class="flex items-center justify-between pb-4 border-b border-outline-variant/30">
-        <div class="flex items-center gap-3 truncate">
-          <img src="{{ ig.avatar_url or 'https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=96&q=80' }}" alt="{{ negocio.nombre }}" class="w-10 h-10 rounded-full object-cover border border-primary/30 shrink-0"/>
-          <div class="flex flex-col truncate">
-            <span class="font-bold text-sm text-on-surface truncate">{{ negocio.nombre }}</span>
-            <span class="text-[11px] text-on-surface-variant truncate">{{ negocio.categoria_clean or negocio.ciudad }}</span>
+        <div class="p-6 rounded-2xl card-craft">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-2xl">verified_user</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white mb-1">2 Años de Garantía</h3>
+          <p class="text-sm text-slate-300">Cobertura total sobre acabados e instalaciones con respuesta técnica inmediata.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl card-craft">
+          <div class="w-12 h-12 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-2xl">handyman</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white mb-1">Equipo Especializado</h3>
+          <p class="text-sm text-slate-300">Oficiales de primera en fontanería, albañilería, electricidad y carpintería.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl card-craft">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-2xl">event_available</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white mb-1">Plazos Garantizados</h3>
+          <p class="text-sm text-slate-300">Compromiso de entrega de llaves en la fecha estipulada bajo contrato.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SERVICIOS & PROYECTOS ==================== -->
+  <section id="servicios" class="py-20 max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-xs text-amber-400 font-bold uppercase tracking-wider block mb-2">Especialidades Técnicas</span>
+      <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mb-4">
+        Soluciones Profesionales para Tu Espacio
+      </h2>
+      <p class="text-slate-300 text-base sm:text-lg">
+        Desde reformas integrales hasta adecuaciones técnicas específicas con acabados de primera línea.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {% for s in web.servicios or [] %}
+      <div class="rounded-2xl card-craft overflow-hidden flex flex-col hover:border-amber-400/40 transition-all hover:-translate-y-1">
+        
+        <div class="aspect-[16/10] bg-[#1E293B] relative overflow-hidden">
+          {% if s.imagen %}
+          <img src="{{ s.imagen }}" alt="{{ s.nombre }}" class="w-full h-full object-cover"/>
+          {% else %}
+          <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-amber-950/40 to-[#0F141C] text-amber-400">
+            <span class="material-symbols-outlined text-4xl">home_repair_service</span>
+          </div>
+          {% endif %}
+          <div class="absolute top-3 right-3 px-3 py-1 rounded-full bg-[#0B0E14]/85 backdrop-blur-md text-amber-300 text-xs font-bold border border-amber-400/20">
+            {{ s.precio_o_duracion or 'Presupuesto a medida' }}
           </div>
         </div>
-        <button onclick="closeMobileMenu()" class="p-2 rounded-full hover:bg-surface-container-high transition text-on-surface flex items-center justify-center shrink-0" aria-label="Cerrar menú">
-          <span class="material-symbols-outlined text-[20px]">close</span>
-        </button>
-      </div>
 
-      <!-- Enlaces de navegación -->
-      <nav class="flex flex-col space-y-1">
-        
-        <a href="#inicio" onclick="closeMobileMenu()" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl hover:bg-surface-container text-on-surface hover:text-primary transition-colors group">
-          <span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:scale-110">home</span>
-          <span class="font-medium text-sm">Inicio</span>
-        </a>
-        <a href="#servicios" onclick="closeMobileMenu()" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl hover:bg-surface-container text-on-surface hover:text-primary transition-colors group">
-          <span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:scale-110">handyman</span>
-          <span class="font-medium text-sm">Servicios & Reformas</span>
-        </a>
-        <a href="#antes-y-despues" onclick="closeMobileMenu()" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl hover:bg-surface-container text-on-surface hover:text-primary transition-colors group">
-          <span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:scale-110">compare</span>
-          <span class="font-medium text-sm">Antes y Después</span>
-        </a>
-        <a href="#garantias" onclick="closeMobileMenu()" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl hover:bg-surface-container text-on-surface hover:text-primary transition-colors group">
-          <span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:scale-110">verified</span>
-          <span class="font-medium text-sm">Garantías & Seguro RC</span>
-        </a>
-        <a href="#opiniones" onclick="closeMobileMenu()" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl hover:bg-surface-container text-on-surface hover:text-primary transition-colors group">
-          <span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:scale-110">rate_review</span>
-          <span class="font-medium text-sm">Proyectos & Opiniones</span>
-        </a>
-        <a href="#solicitar-presupuesto" onclick="closeMobileMenu()" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl hover:bg-surface-container text-on-surface hover:text-primary transition-colors group">
-          <span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:scale-110">calculate</span>
-          <span class="font-medium text-sm">Calculador Presupuesto</span>
-        </a>
-      </nav>
-    </div>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+          <div>
+            <h3 class="text-xl font-display font-bold text-white mb-2">{{ s.nombre }}</h3>
+            <p class="text-sm text-slate-300 leading-relaxed">{{ s.descripcion }}</p>
+          </div>
 
-    <!-- Botones de Acción / Contacto al pie del Drawer -->
-    <div class="space-y-3 pt-5 border-t border-outline-variant/30">
-      {% if negocio.whatsapp_url %}
-      <a href="{{ negocio.whatsapp_url }}" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-primary text-on-primary font-bold text-xs uppercase tracking-wider shadow-md transition-all">
-        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-        <span>Escribir por WhatsApp</span>
-      </a>
-      {% endif %}
+          <ul class="space-y-2 text-xs text-slate-300 border-t border-white/5 pt-4">
+            <li class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-emerald-400 text-base">check_circle</span>
+              <span>Medición y asesoramiento técnico sin coste</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-emerald-400 text-base">check_circle</span>
+              <span>Materiales certificados y gestión de residuos</span>
+            </li>
+          </ul>
 
-      {% if negocio.telefono %}
-      <a href="tel:{{ negocio.telefono }}" class="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-surface-container hover:bg-surface-container-high font-semibold text-xs transition-all">
-        <span class="material-symbols-outlined text-[16px]">call</span>
-        <span>Llamar {{ negocio.telefono }}</span>
-      </a>
-      {% endif %}
-
-      <div class="text-[11px] text-center text-on-surface-variant flex items-center justify-center gap-1 pt-1">
-        <span class="material-symbols-outlined text-[14px]">location_on</span>
-        <span class="truncate">{{ negocio.direccion or negocio.ciudad }}</span>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<script>
-  function toggleMobileMenu() {
-    const panel = document.getElementById('mobile-drawer-panel');
-    if (!panel) return;
-    if (panel.classList.contains('translate-x-full')) {
-      openMobileMenu();
-    } else {
-      closeMobileMenu();
-    }
-  }
-
-  function openMobileMenu() {
-    const drawer = document.getElementById('mobile-drawer');
-    const backdrop = document.getElementById('mobile-drawer-backdrop');
-    const panel = document.getElementById('mobile-drawer-panel');
-    const btn = document.getElementById('hamburger-btn');
-
-    if (!drawer || !backdrop || !panel) return;
-    drawer.classList.remove('pointer-events-none');
-    drawer.setAttribute('aria-hidden', 'false');
-    backdrop.classList.remove('opacity-0', 'pointer-events-none');
-    backdrop.classList.add('opacity-100');
-    panel.classList.remove('translate-x-full');
-    if (btn) btn.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeMobileMenu() {
-    const drawer = document.getElementById('mobile-drawer');
-    const backdrop = document.getElementById('mobile-drawer-backdrop');
-    const panel = document.getElementById('mobile-drawer-panel');
-    const btn = document.getElementById('hamburger-btn');
-
-    if (!drawer || !backdrop || !panel) return;
-    backdrop.classList.remove('opacity-100');
-    backdrop.classList.add('opacity-0', 'pointer-events-none');
-    panel.classList.add('translate-x-full');
-    drawer.classList.add('pointer-events-none');
-    drawer.setAttribute('aria-hidden', 'true');
-    if (btn) btn.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  }
-
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      closeMobileMenu();
-      cerrarModalPresupuesto();
-    }
-  });
-
-  // Calculador Interactivo de Reformas
-  let alcanceActual = 'integral';
-  let calidadActual = 'confort';
-
-  const preciosBase = {
-    integral: { baseMin: 580, baseMax: 680, semanas: '8 - 12 semanas' },
-    humedas: { baseMin: 420, baseMax: 520, semanas: '4 - 6 semanas' },
-    acabados: { baseMin: 180, baseMax: 260, semanas: '2 - 3 semanas' }
-  };
-
-  const multiplicadoresCalidad = {
-    estandar: 0.85,
-    confort: 1.0,
-    premium: 1.35
-  };
-
-  function seleccionarAlcanceReforma(alcance, btn) {
-    alcanceActual = alcance;
-    document.querySelectorAll('.alcance-btn').forEach(b => {
-      b.classList.remove('active', 'border-primary', 'bg-primary/5');
-      b.classList.add('border-outline-variant/50', 'bg-surface-container-low');
-    });
-    btn.classList.remove('border-outline-variant/50', 'bg-surface-container-low');
-    btn.classList.add('active', 'border-primary', 'bg-primary/5');
-    calcularPresupuestoReforma();
-  }
-
-  function seleccionarCalidadReforma(calidad, btn) {
-    calidadActual = calidad;
-    document.querySelectorAll('.calidad-btn').forEach(b => {
-      b.classList.remove('active', 'border-primary', 'bg-primary/5');
-      b.classList.add('border-outline-variant/50', 'bg-surface-container-low');
-    });
-    btn.classList.remove('border-outline-variant/50', 'bg-surface-container-low');
-    btn.classList.add('active', 'border-primary', 'bg-primary/5');
-    calcularPresupuestoReforma();
-  }
-
-  function calcularPresupuestoReforma() {
-    const slider = document.getElementById('slider-m2');
-    const displayM2 = document.getElementById('display-m2');
-    const displayRango = document.getElementById('calculador-rango');
-    const displayPlazo = document.getElementById('calculador-plazo');
-    if (!slider || !displayM2) return;
-
-    const m2 = parseInt(slider.value, 10) || 80;
-    displayM2.textContent = m2 + ' m²';
-
-    const base = preciosBase[alcanceActual] || preciosBase.integral;
-    const mult = multiplicadoresCalidad[calidadActual] || 1.0;
-
-    const totalMin = Math.round((m2 * base.baseMin * mult) / 500) * 500;
-    const totalMax = Math.round((m2 * base.baseMax * mult) / 500) * 500;
-
-    if (displayRango) {
-      displayRango.textContent = totalMin.toLocaleString('es-ES') + '€ - ' + totalMax.toLocaleString('es-ES') + '€';
-    }
-    if (displayPlazo) {
-      displayPlazo.textContent = base.semanas;
-    }
-  }
-
-  function solicitarVisitaCalculador() {
-    const slider = document.getElementById('slider-m2');
-    const m2 = slider ? slider.value : '80';
-    const servicio = `Estudio Reforma: ${m2}m² (${alcanceActual.toUpperCase()} - Calidad ${calidadActual.toUpperCase()})`;
-    abrirModalPresupuesto(servicio);
-  }
-
-  // FAQ Accordion
-  function toggleFaq(index) {
-    const ans = document.getElementById('faq-answer-' + index);
-    const icon = document.getElementById('faq-icon-' + index);
-    if (!ans) return;
-
-    const isHidden = ans.classList.contains('hidden');
-    for (let i = 0; i < 4; i++) {
-      const a = document.getElementById('faq-answer-' + i);
-      const ic = document.getElementById('faq-icon-' + i);
-      if (a) a.classList.add('hidden');
-      if (ic) ic.style.transform = 'rotate(0deg)';
-    }
-
-    if (isHidden) {
-      ans.classList.remove('hidden');
-      if (icon) icon.style.transform = 'rotate(180deg)';
-    }
-  }
-
-  // Modal Presupuesto
-  function abrirModalPresupuesto(servicio) {
-    const modal = document.getElementById('booking-modal');
-    if (!modal) return;
-    if (servicio) {
-      const sel = document.getElementById('modal-service-select');
-      if (sel) {
-        let found = false;
-        for (let opt of sel.options) {
-          if (opt.value.toLowerCase().includes(servicio.toLowerCase())) {
-            sel.value = opt.value;
-            found = true;
-            break;
-          }
-        }
-        if (!found) sel.value = servicio;
-      }
-    }
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-    setTimeout(() => {
-      modal.classList.remove('opacity-0');
-      modal.classList.add('opacity-100');
-    }, 10);
-    document.body.style.overflow = 'hidden';
-  }
-
-  function cerrarModalPresupuesto(e) {
-    if (e && e.target && e.target.id !== 'booking-modal' && !e.target.closest('button')) return;
-    const modal = document.getElementById('booking-modal');
-    if (!modal) return;
-    modal.classList.remove('opacity-100');
-    modal.classList.add('opacity-0');
-    setTimeout(() => {
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-      document.body.style.overflow = '';
-    }, 200);
-  }
-
-  function enviarFormularioPresupuestoModal(event, form) {
-    event.preventDefault();
-    const nombre = form.querySelector('[name="nombre"]')?.value || '';
-    const tel = form.querySelector('[name="telefono"]')?.value || '';
-    const serv = form.querySelector('[name="servicio"]')?.value || 'Presupuesto obra';
-    const m2 = form.querySelector('[name="m2"]')?.value || '';
-    const detalles = form.querySelector('[name="detalles"]')?.value || '';
-
-    const msg = encodeURIComponent(`¡Hola equipo de {{ negocio.nombre }}! Mi nombre es ${nombre} (tel: ${tel}). Quisiera pedir presupuesto para: *${serv}* ${m2 ? '(' + m2 + ' m² aprox.)' : ''}. ${detalles ? 'Detalles: ' + detalles : ''}`);
-    const waBase = '{{ negocio.whatsapp_url or ("https://wa.me/" ~ negocio.telefono) }}';
-
-    let targetUrl = waBase;
-    if (waBase.includes('wa.me') || waBase.includes('whatsapp.com')) {
-      const sep = waBase.includes('?') ? '&' : '?';
-      targetUrl = waBase + sep + 'text=' + msg;
-    }
-
-    const fb = document.getElementById('modal-feedback-msg');
-    if (fb) fb.classList.remove('hidden');
-
-    setTimeout(() => {
-      window.open(targetUrl, '_blank');
-      cerrarModalPresupuesto();
-    }, 500);
-  }
-</script>
-
-<!-- ============================================================ -->
-<!-- INTERACTIVE BOOKING / QUOTE MODAL -->
-<!-- ============================================================ -->
-<div id="booking-modal" class="fixed inset-0 z-[120] bg-black/75 backdrop-blur-sm hidden items-center justify-center p-4 transition-all duration-300 opacity-0" onclick="cerrarModalPresupuesto(event)">
-  <div class="relative max-w-lg w-full bg-surface-container-lowest border border-outline-variant/40 rounded-2xl overflow-hidden shadow-2xl p-6 sm:p-7" onclick="event.stopPropagation()">
-    <button onclick="cerrarModalPresupuesto()" class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center hover:text-primary hover:bg-surface-container-high transition" aria-label="Cerrar">
-      <span class="material-symbols-outlined text-[18px]">close</span>
-    </button>
-    <div class="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-wider mb-1">
-      <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-      <span>ESTUDIO TÉCNICO // {{ negocio.ciudad|upper }}</span>
-    </div>
-    <h3 class="font-headline-sm text-xl font-bold text-on-surface mb-2">
-      Solicitar Visita & Presupuesto
-    </h3>
-    <p class="font-body-sm text-xs text-on-surface-variant mb-4">
-      Conecta con los técnicos de {{ negocio.nombre }} para coordinar una medición in situ y memoria de calidades sin coste.
-    </p>
-
-    <div id="modal-feedback-msg" class="hidden p-3 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-800 text-xs font-medium mb-4">
-      ✅ ¡Solicitud preparada! Abriendo WhatsApp...
-    </div>
-
-    <form class="flex flex-col gap-3" onsubmit="enviarFormularioPresupuestoModal(event, this)">
-      <div class="flex flex-col gap-1">
-        <label class="font-label-technical text-[11px] text-on-surface-variant uppercase font-bold">Nombre y Apellidos</label>
-        <input name="nombre" class="px-3.5 py-2.5 rounded-xl bg-surface-container-low border border-outline-variant/40 text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary transition" placeholder="Tu nombre..." required type="text"/>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <div class="flex flex-col gap-1">
-          <label class="font-label-technical text-[11px] text-on-surface-variant uppercase font-bold">Teléfono Móvil (WhatsApp)</label>
-          <input name="telefono" class="px-3.5 py-2.5 rounded-xl bg-surface-container-low border border-outline-variant/40 text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary transition" placeholder="{{ negocio.telefono or '+34 600 000 000' }}" required type="tel"/>
+          <a href="{{ negocio.whatsapp_url or '#contacto' }}" target="_blank" rel="noopener" class="w-full py-3 rounded-xl bg-white/5 hover:bg-emerald-500 hover:text-white border border-amber-500/20 text-amber-100 font-semibold text-sm text-center flex items-center justify-center gap-2 transition-all group">
+            <span>Pedir Presupuesto para este Servicio</span>
+            <span class="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </a>
         </div>
-        <div class="flex flex-col gap-1">
-          <label class="font-label-technical text-[11px] text-on-surface-variant uppercase font-bold">Metros Cuadrados Aprox.</label>
-          <input name="m2" class="px-3.5 py-2.5 rounded-xl bg-surface-container-low border border-outline-variant/40 text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary transition" placeholder="Ej. 85 m²" type="text"/>
+
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- ==================== PROYECTOS / GALERÍA ==================== -->
+  <section id="proyectos" class="py-20 bg-[#0F141E] border-t border-amber-500/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+        <div>
+          <span class="text-xs text-amber-400 font-bold uppercase tracking-wider block mb-2">Portfolio de Obras</span>
+          <h2 class="text-3xl sm:text-4xl font-display font-bold text-white">
+            Resultados Reales en Cada Proyecto
+          </h2>
         </div>
-      </div>
-      <div class="flex flex-col gap-1">
-        <label class="font-label-technical text-[11px] text-on-surface-variant uppercase font-bold">Tipo de Proyecto / Servicio</label>
-        <select name="servicio" id="modal-service-select" class="px-3.5 py-2.5 rounded-xl bg-surface-container-low border border-outline-variant/40 text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary transition">
-          <option value="Reforma Integral">Reforma Integral de Vivienda</option>
-          <option value="Reforma Cocina / Baños">Reforma de Cocina y Baños</option>
-          <option value="Local u Oficina">Reforma de Local Comercial / Oficina</option>
-          {% for s in (web.servicios or []) %}
-          <option value="{{ s.nombre }}">{{ s.nombre }}</option>
-          {% endfor %}
-        </select>
-      </div>
-      <div class="flex flex-col gap-1">
-        <label class="font-label-technical text-[11px] text-on-surface-variant uppercase font-bold">Ubicación o detalles de la idea</label>
-        <textarea name="detalles" class="px-3.5 py-2 rounded-xl bg-surface-container-low border border-outline-variant/40 text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary transition resize-none" rows="2" placeholder="Zona de {{ negocio.ciudad }}, cambios que quieres hacer..."></textarea>
-      </div>
-      <div class="pt-2 flex flex-col sm:flex-row gap-2">
-        <button type="submit" class="flex-1 py-3 px-4 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md transition cursor-pointer">
-          <span class="material-symbols-outlined text-[18px]">send</span>
-          <span>Pedir Presupuesto por WhatsApp</span>
-        </button>
-        {% if negocio.telefono %}
-        <a href="tel:{{ negocio.telefono }}" class="py-3 px-4 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-semibold flex items-center justify-center gap-1.5 transition">
-          <span class="material-symbols-outlined text-[16px]">call</span>
-          <span>Llamar</span>
+        {% if negocio.instagram_url %}
+        <a href="{{ negocio.instagram_url }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-semibold text-amber-300 hover:text-white transition-colors">
+          <span>Ver más obras en Instagram</span>
+          <span class="material-symbols-outlined text-base">open_in_new</span>
         </a>
         {% endif %}
       </div>
-    </form>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        {% for post in (ig.posts or [])[:8] %}
+        {% if post.image_url or post.imagen %}
+        <div class="group relative aspect-square rounded-2xl overflow-hidden bg-[#18202E] border border-amber-500/20 cursor-pointer" onclick="openLightbox('{{ post.image_url or post.imagen }}')">
+          <img src="{{ post.image_url or post.imagen }}" alt="{{ post.caption or negocio.nombre }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+            <span class="material-symbols-outlined text-white text-xl">zoom_in</span>
+          </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== OPINIONES DE CLIENTES ==================== -->
+  <section id="opiniones" class="py-20 max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <div class="flex items-center justify-center gap-1 text-amber-400 mb-2">
+        ★★★★★
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mb-3">
+        La Satisfacción de Nuestros Clientes
+      </h2>
+      <p class="text-slate-300 text-base">
+        Opiniones de propietarios y empresas que han confiado sus reformas a {{ negocio.nombre }}.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <div class="p-6 sm:p-8 rounded-2xl card-craft flex flex-col justify-between">
+        <div class="space-y-3">
+          <div class="flex text-amber-400 text-sm">★★★★★</div>
+          <p class="text-sm text-slate-300 italic leading-relaxed">
+            «Cumplieron el presupuesto al céntimo y entregaron la reforma 3 días antes de lo pactado. Gran profesionalidad y limpieza durante toda la obra.»
+          </p>
+        </div>
+        <div class="flex items-center gap-3 pt-6 border-t border-white/5 mt-4">
+          <div class="w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center text-sm">
+            XT
+          </div>
+          <div>
+            <span class="text-sm font-bold text-white block">Xavier Torrent</span>
+            <span class="text-xs text-slate-400">Reforma Integral • Barcelona</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-6 sm:p-8 rounded-2xl card-craft flex flex-col justify-between">
+        <div class="space-y-3">
+          <div class="flex text-amber-400 text-sm">★★★★★</div>
+          <p class="text-sm text-slate-300 italic leading-relaxed">
+            «Muy satisfecho con la reforma del baño y la cocina. Acabados impecables, asesoramiento constante y comunicación fluida por WhatsApp.»
+          </p>
+        </div>
+        <div class="flex items-center gap-3 pt-6 border-t border-white/5 mt-4">
+          <div class="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center text-sm">
+            BP
+          </div>
+          <div>
+            <span class="text-sm font-bold text-white block">Berta Pons</span>
+            <span class="text-xs text-slate-400">Cliente Verificada • Barcelona</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-6 sm:p-8 rounded-2xl card-craft flex flex-col justify-between">
+        <div class="space-y-3">
+          <div class="flex text-amber-400 text-sm">★★★★★</div>
+          <p class="text-sm text-slate-300 italic leading-relaxed">
+            «Da gusto trabajar con gente seria que cumple lo que promete. Materiales de primera calidad y un resultado que superó nuestras expectativas.»
+          </p>
+        </div>
+        <div class="flex items-center gap-3 pt-6 border-t border-white/5 mt-4">
+          <div class="w-10 h-10 rounded-full bg-sky-500/20 text-sky-400 font-bold flex items-center justify-center text-sm">
+            RG
+          </div>
+          <div>
+            <span class="text-sm font-bold text-white block">Raül Giménez</span>
+            <span class="text-xs text-slate-400">Cliente Verificado • Barcelona</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== CONTACTO & PRESUPUESTO ==================== -->
+  <section id="contacto" class="py-20 bg-[#0F141E] border-t border-amber-500/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-6 space-y-6">
+          <span class="text-xs text-amber-400 font-bold uppercase tracking-wider block">Presupuesto Sin Compromiso</span>
+          <h2 class="text-3xl sm:text-4xl font-display font-bold text-white">
+            Hablemos de Tu Proyecto en {{ negocio.ciudad }}
+          </h2>
+          <p class="text-slate-300 text-base leading-relaxed">
+            Escríbenos por WhatsApp o llámanos para coordinar una visita técnica sin coste y facilitarte una valoración cerrada y sin sorpresas.
+          </p>
+
+          <div class="space-y-4 pt-2">
+            <div class="flex items-start gap-4 p-4 rounded-2xl card-craft">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined">location_on</span>
+              </div>
+              <div>
+                <span class="text-xs text-slate-400 block">Oficina & Taller</span>
+                <span class="text-sm font-bold text-white">{{ negocio.direccion or ('Zona céntrica de ' ~ negocio.ciudad) }}</span>
+                <span class="text-xs text-slate-400 block">{{ negocio.codigo_postal }} {{ negocio.ciudad }}</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 rounded-2xl card-craft">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined">schedule</span>
+              </div>
+              <div>
+                <span class="text-xs text-slate-400 block">Horario de Atención</span>
+                <span class="text-sm font-bold text-white">Lunes a Viernes: 08:00 – 19:00</span>
+                <span class="text-xs text-slate-400 block">Sábados: 09:00 – 13:00 (Visitas concertadas)</span>
+              </div>
+            </div>
+
+            {% if negocio.telefono %}
+            <div class="flex items-start gap-4 p-4 rounded-2xl card-craft">
+              <div class="w-10 h-10 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined">call</span>
+              </div>
+              <div>
+                <span class="text-xs text-slate-400 block">Teléfono Directo</span>
+                <a href="tel:{{ negocio.telefono }}" class="text-sm font-bold text-white hover:text-amber-400 transition-colors">
+                  {{ negocio.telefono }}
+                </a>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="lg:col-span-6">
+          <div class="p-8 rounded-3xl card-craft text-center space-y-6">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center text-white mx-auto shadow-lg shadow-amber-950/40">
+              <span class="material-symbols-outlined text-3xl">chat</span>
+            </div>
+            <div>
+              <h3 class="text-2xl font-display font-bold text-white mb-2">Consulta Tu Presupuesto Directo</h3>
+              <p class="text-sm text-slate-300 max-w-md mx-auto">
+                Explícanos brevemente qué necesitas reformar o instalar y te facilitaremos una estimación rápida sin compromiso.
+              </p>
+            </div>
+
+            <a href="{{ negocio.whatsapp_url or '#contacto' }}" target="_blank" rel="noopener" class="w-full py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-bold text-base flex items-center justify-center gap-2 shadow-xl shadow-emerald-950/40 transition-all hover:scale-[1.02]">
+              <span class="material-symbols-outlined text-xl">receipt_long</span>
+              <span>Solicitar Presupuesto por WhatsApp</span>
+            </a>
+
+            <a href="https://www.google.com/maps/search/?api=1&query={{ ((negocio.nombre or '') ~ ' ' ~ (negocio.ciudad or ''))|urlencode }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-xs font-semibold text-amber-300 hover:text-white transition-colors">
+              <span class="material-symbols-outlined text-sm">directions</span>
+              <span>Ver ubicación en Google Maps</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="bg-[#07090D] border-t border-amber-500/10 py-12 text-slate-400 text-xs">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="flex items-center gap-3">
+      {% if ig.avatar_url or ig.avatar %}
+      <img src="{{ ig.avatar_url or ig.avatar }}" alt="{{ negocio.nombre }}" class="w-6 h-6 rounded-lg object-cover"/>
+      {% endif %}
+      <span class="font-bold text-white text-sm">{{ negocio.nombre }}</span>
+      <span>• {{ negocio.ciudad }}</span>
+    </div>
+
+    <div class="flex flex-wrap gap-6 text-slate-400">
+      <a href="#inicio" class="hover:text-white transition-colors">Inicio</a>
+      <a href="#servicios" class="hover:text-white transition-colors">Servicios</a>
+      <a href="#proyectos" class="hover:text-white transition-colors">Proyectos</a>
+      <a href="#contacto" class="hover:text-white transition-colors">Contacto</a>
+    </div>
+
+    <div>
+      <span>© {{ negocio.nombre }}. Reformas & Construcción Profesional.</span>
+    </div>
   </div>
+</footer>
+
+<!-- ==================== BARRA MÓVIL INFERIOR FIJA ==================== -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0B0E14]/95 backdrop-blur-lg border-t border-amber-500/20 px-4 py-3 flex items-center gap-3" style="padding-bottom: max(0.75rem, var(--sab, env(safe-area-inset-bottom, 0px)));">
+  <a href="{{ negocio.whatsapp_url or '#contacto' }}" target="_blank" rel="noopener" class="flex-1 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-lg">
+    <span class="material-symbols-outlined text-base">chat</span>
+    <span>Pedir Presupuesto WhatsApp</span>
+  </a>
+  {% if negocio.telefono %}
+  <a href="tel:{{ negocio.telefono }}" class="px-4 py-3 rounded-xl bg-white/10 text-slate-200 font-bold text-xs flex items-center justify-center gap-1">
+    <span class="material-symbols-outlined text-base">call</span>
+    <span>Llamar</span>
+  </a>
+  {% endif %}
 </div>
 
-</body></html>
+<!-- ==================== LIGHTBOX MODAL ==================== -->
+<div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl hidden flex items-center justify-center p-4" onclick="closeLightbox()">
+  <button class="absolute top-6 right-6 text-white/80 hover:text-white p-2 rounded-full bg-white/10" onclick="closeLightbox()">
+    <span class="material-symbols-outlined text-2xl">close</span>
+  </button>
+  <img id="lightbox-img" src="" alt="Vista ampliada" class="max-w-full max-h-[85vh] rounded-2xl object-contain shadow-2xl" onclick="event.stopPropagation()"/>
+</div>
+
+<script>
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const closeBtn = document.getElementById('close-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener('click', () => mobileMenu.classList.remove('hidden'));
+  }
+  if (closeBtn && mobileMenu) {
+    closeBtn.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+  }
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+  });
+
+  function openLightbox(url) {
+    const modal = document.getElementById('lightbox-modal');
+    const img = document.getElementById('lightbox-img');
+    if (modal && img) {
+      img.src = url;
+      modal.classList.remove('hidden');
+    }
+  }
+  function closeLightbox() {
+    const modal = document.getElementById('lightbox-modal');
+    if (modal) modal.classList.add('hidden');
+  }
+</script>
+
+</body>
+</html>

@@ -1,1082 +1,628 @@
 <!DOCTYPE html>
-
-<html lang="es"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-secondary-fixed-variant":"#832600","primary-fixed-dim":"#ffb77d","on-secondary-fixed":"#390c00","outline-variant":"#dbc2b0","on-surface-variant":"#554336","surface-tint":"#904d00","on-tertiary":"#ffffff","inverse-surface":"#33302d","primary-container":"{{ design.primary_container or design.color_seed or '#b15f00' }}","on-background":"#1e1b19","inverse-primary":"#ffb77d","surface-container":"#f4ece8","primary-fixed":"#ffdcc3","on-error-container":"#93000a","on-tertiary-container":"#fffbff","on-primary-fixed":"#2f1500","on-secondary":"#ffffff","surface-container-lowest":"#ffffff","outline":"#887364","secondary":"#ac3400","surface-container-high":"#eee7e3","error-container":"#ffdad6","secondary-fixed":"#ffdbd0","tertiary":"#904821","on-primary-container":"#fffbff","surface-variant":"#e9e1dd","error":"#ba1a1a","tertiary-fixed-dim":"#ffb693","on-tertiary-fixed":"#351000","inverse-on-surface":"#f7efeb","primary":"{{ design.primary or '#8d4b00' }}","on-error":"#ffffff","on-surface":"#1e1b19","secondary-fixed-dim":"#ffb59d","on-primary-fixed-variant":"#6e3900","on-secondary-container":"#5d1900","surface":"#fff8f5","secondary-container":"#fd6b36","surface-bright":"#fff8f5","tertiary-container":"#af5f36","surface-container-highest":"#e9e1dd","on-primary":"#ffffff","tertiary-fixed":"#ffdbcc","surface-container-low":"#faf2ee","surface-dim":"#e0d8d5","background":"#fff8f5","on-tertiary-fixed-variant":"#76330d"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-md":"1rem",margin:"3rem","space-xl":"2.5rem","margin-tablet":"2rem","margin-mobile":"1.25rem",gutter:"1.5rem","gutter-mobile":"1rem","space-sm":"0.5rem","space-xs":"0.25rem","space-lg":"1.5rem"},fontFamily:{"headline-lg":["Bricolage Grotesque"],"display-hero":["Bricolage Grotesque"],"label-md":["Manrope"],"headline-sm":["Bricolage Grotesque"],"body-sm":["Manrope"],"body-lg":["Manrope"],"label-lg":["Manrope"],"display-hero-mobile":["Bricolage Grotesque"],"headline-xl":["Bricolage Grotesque"],"title-editorial":["Bricolage Grotesque"],"headline-xl-mobile":["Bricolage Grotesque"],"body-md":["Manrope"],"headline-md":["Bricolage Grotesque"],"label-caps":["Manrope"]},fontSize:{"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.015em",fontWeight:"600"}],"display-hero":["56px",{lineHeight:"64px",letterSpacing:"-0.03em",fontWeight:"700"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.04em",fontWeight:"600"}],"headline-sm":["20px",{lineHeight:"28px",letterSpacing:"0em",fontWeight:"600"}],"body-sm":["14px",{lineHeight:"20px",letterSpacing:"0em",fontWeight:"400"}],"body-lg":["18px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"400"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.02em",fontWeight:"600"}],"display-hero-mobile":["38px",{lineHeight:"44px",letterSpacing:"-0.02em",fontWeight:"700"}],"headline-xl":["40px",{lineHeight:"48px",letterSpacing:"-0.02em",fontWeight:"700"}],"title-editorial":["18px",{lineHeight:"26px",letterSpacing:"0.01em",fontWeight:"500"}],"headline-xl-mobile":["30px",{lineHeight:"38px",letterSpacing:"-0.02em",fontWeight:"700"}],"body-md":["16px",{lineHeight:"24px",letterSpacing:"0em",fontWeight:"400"}],"headline-md":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"600"}],"label-caps":["11px",{lineHeight:"14px",letterSpacing:"0.08em",fontWeight:"700"}]}}}};</script><style>
-  :root {
-    --sat: env(safe-area-inset-top, 0px);
-    --sab: env(safe-area-inset-bottom, 0px);
-  }
-  html {
-    scroll-behavior: smooth;
-    scroll-padding-top: calc(5.5rem + var(--sat, 0px));
-  }
-</style>
-<script>
-  (function() {
-    try {
-      var isIframe = window.self !== window.top;
-      var isSim = isIframe || /[?&]sim(=|&|$)/.test(window.location.search) || window.location.hash.indexOf('sim') !== -1;
-      if (isSim) {
-        document.documentElement.style.setProperty('--sat', '54px');
-        document.documentElement.style.setProperty('--sab', '20px');
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>{{ negocio.nombre }} | {{ negocio.categoria_clean or 'Gastronomía & Café' }} en {{ negocio.ciudad }}</title>
+  <meta name="description" content="{{ web.subtitulo or (negocio.nombre ~ ' en ' ~ negocio.ciudad ~ '. Carta, especialidades artesanales y reserva de mesa.') }}"/>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="{{ ig.avatar_url or ig.avatar or 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=96&q=80' }}"/>
+  
+  <!-- Tipografías Premium Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap" rel="stylesheet"/>
+  
+  <!-- Iconos Google Material Symbols -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              terracotta: '#C2410C',
+              warm: '#F97316',
+              espresso: '#1A1412',
+              card: '#241D1A',
+              surface: '#2E2521',
+              border: 'rgba(249, 115, 22, 0.2)'
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'serif'],
+            body: ['"Outfit"', 'sans-serif']
+          }
+        }
       }
-    } catch(e) {}
-  })();
-</script>
-</head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl border-b border-primary-container/20 shadow-[0_1px_8px_rgba(0,0,0,0.04)]" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));"><div class="h-20 max-w-[1360px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin flex items-center justify-between gap-space-sm md:gap-space-md flex-nowrap"><div class="flex items-center gap-space-sm md:gap-space-md shrink-0"><a class="flex items-center gap-space-sm shrink-0" href="#inicio">{% if ig.avatar_url or ig.avatar %}<img alt="{{ negocio.nombre }}" class="h-9 w-9 rounded-full object-cover border border-primary/30 shrink-0" src="{{ ig.avatar_url or ig.avatar }}"/>{% else %}<div class="w-9 h-9 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-sm shrink-0">✨</div>{% endif %}<div class="flex flex-col shrink-0"><span class="font-headline-sm text-headline-sm text-on-surface leading-tight truncate max-w-[140px] xs:max-w-[170px] sm:max-w-xs md:max-w-none whitespace-nowrap">{{ negocio.nombre }}</span><span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider whitespace-nowrap">{{ negocio.categoria_clean or 'Artesanal & Autor' }}</span></div></a><div class="hidden xl:flex items-center gap-space-xs px-3 py-1 bg-surface-container rounded-full shrink-0"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="font-label-md text-label-md text-on-surface-variant whitespace-nowrap">Abierto hoy en {{ negocio.ciudad }}</span></div></div><nav class="hidden lg:flex items-center gap-1 xl:gap-space-sm whitespace-nowrap shrink-0" data-active-classes="bg-primary-container text-on-primary-container font-bold rounded-lg">
-      <a class="font-label-lg text-sm px-2.5 xl:px-3 py-2 text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#carta">Carta &amp; Especialidades</a>
-      <a class="font-label-lg text-sm px-2.5 xl:px-3 py-2 text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#reserva-mesa">Reservar Mesa</a>
-      <a class="font-label-lg text-sm px-2.5 xl:px-3 py-2 text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#comunidad">Galería</a>
-      <a class="font-label-lg text-sm px-2.5 xl:px-3 py-2 text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#faq">FAQ</a>
-      <a class="font-label-lg text-sm px-2.5 xl:px-3 py-2 text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#ubicacion">Ubicación</a>
-    </nav><div class="flex items-center gap-2 sm:gap-space-sm shrink-0"><button onclick="abrirModalPresupuesto('Reserva de Mesa')" class="inline-flex items-center justify-center px-4 py-2.5 bg-primary hover:bg-secondary text-on-primary transition-all rounded-xl font-label-lg text-xs uppercase font-bold tracking-wider cursor-pointer whitespace-nowrap shrink-0 shadow-md">Reservar Mesa</button><div class="hidden sm:flex w-8 h-8 rounded-full bg-primary items-center justify-center shrink-0">{% if ig.avatar_url or ig.avatar %}<img src="{{ ig.avatar_url or ig.avatar }}" alt="{{ negocio.nombre }}" class="w-full h-full object-cover rounded-full" />{% else %}<span class="material-symbols-outlined text-on-primary text-[18px]">person</span>{% endif %}</div>
-      <!-- Mobile Hamburger Button (On the RIGHT) -->
-      <button id="hamburger-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-xl text-on-surface hover:bg-surface-container transition flex items-center justify-center border border-outline-variant/40 shrink-0 ml-1" aria-label="Abrir Menú" aria-expanded="false">
-        <span class="material-symbols-outlined text-[24px]">menu</span>
-      </button></div></div></header><main class="w-full bg-surface" style="padding-top: calc(6.5rem + var(--sat, env(safe-area-inset-top, 0px)));"><div class="flex flex-col w-full">
-<!-- HERO SECTION -->
-<section id="inicio" class="relative w-full overflow-hidden bg-surface pt-6 pb-16 lg:pt-10 lg:pb-24">
-<div class="max-w-[1360px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
-<!-- Left Column: Copy & CTAs -->
-<div class="lg:col-span-7 flex flex-col items-start gap-space-md z-10">
-<div class="inline-flex items-center gap-space-xs px-3.5 py-1.5 rounded-full bg-primary-fixed/60 text-on-primary-fixed shadow-sm">
-<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
-<span class="font-label-caps text-label-caps uppercase tracking-wider">{{ web.hero_badge_pill or 'Elaborado a Diario • Sabor & Pasión' }}</span>
-</div>
-<h1 class="font-display-hero text-headline-xl lg:text-display-hero text-on-surface tracking-tight leading-tight">
-  {{ web.titular or ('Tu espacio gastronómico de confianza en ' ~ negocio.ciudad) }}
-</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl leading-relaxed">
-  {{ web.subtitulo or ('Elaborado a diario con ingredientes frescos, producto de proximidad y dedicación artesanal en ' ~ negocio.ciudad ~ '.') }}
-</p>
-<div class="flex flex-wrap items-center gap-space-sm pt-2 w-full sm:w-auto">
-<a class="px-6 py-3.5 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg shadow-md hover:bg-secondary transition-all hover:scale-[0.99] flex items-center justify-center gap-2" href="#carta">
-<span>Ver Carta Digital &amp; Especialidades</span>
-<span class="material-symbols-outlined text-[18px]">restaurant_menu</span>
-</a>
-<a class="px-6 py-3.5 rounded-xl bg-surface-container-lowest text-primary font-label-lg text-label-lg shadow-sm hover:bg-surface-container-low transition-all flex items-center justify-center gap-2" href="#ubicacion">
-<span class="material-symbols-outlined text-[18px]">explore</span>
-<span>Cómo Llegar al Local</span>
-</a>
-</div>
-<!-- Social Proof Highlights -->
-<div class="flex flex-wrap items-center gap-6 pt-4 text-on-surface-variant font-label-md text-label-md">
-<div class="flex items-center gap-2 bg-surface-container-low px-3 py-1.5 rounded-lg">
-<span class="material-symbols-outlined text-primary text-[18px]">{{ web.hero_stat_icon or 'verified' }}</span>
-<span class="font-bold text-on-surface">{{ web.hero_stat_number or '+1.000' }}</span> {{ web.hero_stat_label or 'clientes satisfechos' }}
-            </div>
-<div class="flex items-center gap-2 bg-surface-container-low px-3 py-1.5 rounded-lg">
-<div class="flex text-primary">
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-</div>
-<span class="font-bold text-on-surface">4.9 / 5</span> en Google (420+ reseñas)
-            </div>
-</div>
-</div>
-<!-- Right Column: Asymmetric Editorial Visual -->
-<div class="lg:col-span-5 relative mt-8 lg:mt-0">
-<div class="relative w-full aspect-[4/5] rounded-3xl overflow-hidden shadow-xl bg-surface-container">
-<img alt="{{ web.hero_alt or negocio.nombre }}" class="w-full h-full object-cover" src="{{ web.hero_image_url or (ig.posts[0].image_url if ig.posts and ig.posts[0].image_url else 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200&q=80') }}"/>
-<div class="absolute inset-0 bg-gradient-to-t from-on-background/60 via-transparent to-transparent"></div>
-<!-- Inset Badge with Latent Pour -->
-<div class="absolute -bottom-4 -left-4 sm:bottom-6 sm:left-6 max-w-[240px] p-3 rounded-2xl bg-surface-container-lowest/95 backdrop-blur-md shadow-xl flex items-center gap-3">
-<img alt="{{ web.hero_float_title or negocio.nombre }}" class="w-16 h-16 rounded-xl object-cover shrink-0" src="{{ web.detalle_image_url or (ig.posts[1].image_url if (ig.posts or [])|length > 1 and ig.posts[1].image_url else (ig.avatar_url or 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?w=600&q=80')) }}"/>
-<div class="flex flex-col">
-<span class="font-label-caps text-label-caps text-secondary uppercase">{{ web.hero_float_tag or 'Especialidad' }}</span>
-<span class="font-headline-sm text-sm text-on-surface leading-snug">{{ web.hero_float_title or (web.servicios[0].nombre if web.servicios else 'Especialidades de la Casa') }}</span>
-</div>
-</div>
-<!-- Fresh Roast Pill -->
-<div class="absolute top-4 right-4 bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1.5 rounded-full shadow-sm flex items-center gap-2">
-<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
-<span class="font-label-md text-label-md text-on-surface">{{ web.hero_status_pill or 'Abierto hoy' }}</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- VALUE PILLARS -->
-<section id="filosofia" class="w-full py-16 bg-surface-container-low scroll-mt-24">
-<div class="max-w-[1360px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin">
-<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-<div>
-<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest block mb-1">Nuestra Esencia</span>
-<h2 class="font-headline-xl text-headline-xl text-on-surface">El mimo por cada detalle artesano</h2>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
-          Creemos en la pausa gastronómica, en la fermentación respetada y en la trazabilidad completa desde la finca al pocillo.
-        </p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-<!-- Pillar 1 -->
-<div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
-<div class="flex flex-col gap-4">
-<div class="w-14 h-14 rounded-xl bg-primary-fixed flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
-<span class="material-symbols-outlined text-[30px]">grain</span>
-</div>
-<h3 class="font-headline-md text-headline-md text-on-surface">Ingredientes de Proximidad</h3>
-<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-              Harinas ecológicas molidas a la piedra, mantequilla francesa de pastoreo y leche fresca de granja local de la sierra madrileña. 100% natural, sin aditivos ni ultraprocesados.
-            </p>
-</div>
-<div class="mt-6 pt-4 flex items-center gap-2 text-primary font-label-lg text-label-lg">
-<span>Harinas de molino de piedra</span>
-<span class="material-symbols-outlined text-[16px]">check_circle</span>
-</div>
-</div>
-<!-- Pillar 2 -->
-<div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
-<div class="flex flex-col gap-4">
-<div class="w-14 h-14 rounded-xl bg-primary-fixed flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
-<span class="material-symbols-outlined text-[30px]">local_cafe</span>
-</div>
-<h3 class="font-headline-md text-headline-md text-on-surface">Extracción &amp; Tueste Perfecto</h3>
-<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-              Lotes de micro-productores en Etiopía, Colombia y Honduras tostados con perfil medio para ensalzar notas florales, frutas de hueso y una acidez luminosa y limpia.
-            </p>
-</div>
-<div class="mt-6 pt-4 flex items-center gap-2 text-primary font-label-lg text-label-lg">
-<span>SCA Score +86 Puntos</span>
-<span class="material-symbols-outlined text-[16px]">check_circle</span>
-</div>
-</div>
-<!-- Pillar 3 -->
-<div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
-<div class="flex flex-col gap-4">
-<div class="w-14 h-14 rounded-xl bg-primary-fixed flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
-<span class="material-symbols-outlined text-[30px]">pets</span>
-</div>
-<h3 class="font-headline-md text-headline-md text-on-surface">Espacio Pet-Friendly &amp; Wi-Fi</h3>
-<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-              Bañado por luz natural matinal, mesas de roble recuperado, ambiente acústico relajado para teletrabajar y agua fresca con galleta artesanal para tu compañero de cuatro patas.
-            </p>
-</div>
-<div class="mt-6 pt-4 flex items-center gap-2 text-primary font-label-lg text-label-lg">
-<span>Mascotas siempre bienvenidas</span>
-<span class="material-symbols-outlined text-[16px]">check_circle</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- TABBED DIGITAL MENU -->
-<section id="carta" class="w-full py-20 bg-surface scroll-mt-24">
-<div class="max-w-[1360px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin">
-<div class="text-center max-w-2xl mx-auto mb-12 flex flex-col items-center">
-<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest mb-2">Pizarras &amp; Vitrina</span>
-<h2 class="font-headline-xl text-headline-xl text-on-surface mb-3">La Carta Diaria del Obrador</h2>
-<p class="font-body-md text-body-md text-on-surface-variant">
-          Nuestras recetas cambian al ritmo de la temporada y las hornadas se suceden a las 08:30 y a las 11:00.
-        </p>
-<!-- Category Tab Buttons -->
-<div class="flex flex-wrap justify-center gap-2 p-1.5 bg-surface-container rounded-2xl mt-8">
-<button class="px-5 py-2.5 rounded-xl font-label-lg text-label-lg transition-all bg-surface-container-lowest text-on-surface shadow-sm" id="tab-btn-cafes" onclick="switchTab('cafes')">
-            ☕ Cafés &amp; Bebidas
-          </button>
-<button class="px-5 py-2.5 rounded-xl font-label-lg text-label-lg transition-all text-on-surface-variant hover:text-on-surface" id="tab-btn-brunch" onclick="switchTab('brunch')">
-            🥑 Brunch &amp; Tostas
-          </button>
-<button class="px-5 py-2.5 rounded-xl font-label-lg text-label-lg transition-all text-on-surface-variant hover:text-on-surface" id="tab-btn-dulce" onclick="switchTab('dulce')">
-            🥐 Dulce &amp; Horno
-          </button>
-</div>
-</div>
-<!-- Tab Content: Cafés -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter transition-opacity duration-300" id="tab-content-cafes">
-<!-- Item 1 -->
-<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
-<div>
-<div class="flex items-start justify-between gap-4 mb-2">
-<h3 class="font-headline-sm text-headline-sm text-on-surface">Flat White Etiopía Yirgacheffe</h3>
-<span class="font-title-editorial text-title-editorial text-primary font-bold">3.20€</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
-              Doble shot de espresso con notas a jazmín, flor de azahar, bergamota y melocotón maduro. Texturizado con microespuma sedosa.
-            </p>
-</div>
-<div class="flex items-center gap-2 flex-wrap pt-2">
-<span class="px-2.5 py-1 rounded-full bg-surface-container font-label-md text-label-md text-on-surface-variant">Origen Único</span>
-<span class="px-2.5 py-1 rounded-full bg-primary-fixed/40 font-label-md text-label-md text-primary">Leche Bio / Avena</span>
-</div>
-</div>
-<!-- Item 2 -->
-<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
-<div>
-<div class="flex items-start justify-between gap-4 mb-2">
-<h3 class="font-headline-sm text-headline-sm text-on-surface">Batch Brew Geisha Colombia</h3>
-<span class="font-title-editorial text-title-editorial text-primary font-bold">3.80€</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
-              Filtrado en goteo térmico Moccamaster. Cata aterciopelada, extraordinariamente limpia con aromas a papaya, té negro y miel de acacia.
-            </p>
-</div>
-<div class="flex items-center gap-2 flex-wrap pt-2">
-<span class="px-2.5 py-1 rounded-full bg-surface-container font-label-md text-label-md text-on-surface-variant">Filtro Manual</span>
-<span class="px-2.5 py-1 rounded-full bg-secondary-fixed/50 font-label-md text-label-md text-secondary">Edición Limitada</span>
-</div>
-</div>
-<!-- Item 3 -->
-<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
-<div>
-<div class="flex items-start justify-between gap-4 mb-2">
-<h3 class="font-headline-sm text-headline-sm text-on-surface">Cold Brew Nitro &amp; Orange</h3>
-<span class="font-title-editorial text-title-editorial text-primary font-bold">4.20€</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
-              Maceración en frío durante 18h con nitrógeno inyectado y piel de naranja confitada artesanalmente. Textura similar a una stout cremosa.
-            </p>
-</div>
-<div class="flex items-center gap-2 flex-wrap pt-2">
-<span class="px-2.5 py-1 rounded-full bg-surface-container font-label-md text-label-md text-on-surface-variant">100% Vegano</span>
-<span class="px-2.5 py-1 rounded-full bg-primary-fixed/40 font-label-md text-label-md text-primary">Sin Azúcares</span>
-</div>
-</div>
-</div>
-<!-- Tab Content: Brunch -->
-<div class="hidden grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-gutter transition-opacity duration-300" id="tab-content-brunch">
-<!-- Item 4 -->
-<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
-<div>
-<div class="flex items-start justify-between gap-4 mb-2">
-<h3 class="font-headline-sm text-headline-sm text-on-surface">Tosta de Hogaza con Aguacate, Huevo Poché &amp; Za'atar</h3>
-<span class="font-title-editorial text-title-editorial text-primary font-bold">8.50€</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
-              Rebanada gruesa de nuestra hogaza de trigo y centeno de 48h, aguacate madurado aliñado con lima, huevo campero poché a baja temperatura, escamas de sal maldon y mezcla de especias libanesas.
-            </p>
-</div>
-<div class="flex items-center gap-2 flex-wrap pt-2">
-<span class="px-2.5 py-1 rounded-full bg-surface-container font-label-md text-label-md text-on-surface-variant">Opción Vegetariana</span>
-<span class="px-2.5 py-1 rounded-full bg-primary-fixed/40 font-label-md text-label-md text-primary">Huevos Camperos</span>
-</div>
-</div>
-<!-- Item 5 -->
-<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
-<div>
-<div class="flex items-start justify-between gap-4 mb-2">
-<h3 class="font-headline-sm text-headline-sm text-on-surface">Brioche Tostado de Salmón Ahumado &amp; Queso Labneh</h3>
-<span class="font-title-editorial text-title-editorial text-primary font-bold">9.80€</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
-              Pan brioche de mantequilla dorada a la plancha, labneh de yogur artesano con eneldo fresco, lonchas de salmón noruego ahumado con roble, alcaparras baby y pepino crujiente.
-            </p>
-</div>
-<div class="flex items-center gap-2 flex-wrap pt-2">
-<span class="px-2.5 py-1 rounded-full bg-surface-container font-label-md text-label-md text-on-surface-variant">Favorito del Obrador</span>
-<span class="px-2.5 py-1 rounded-full bg-secondary-fixed/50 font-label-md text-label-md text-secondary">Brioche de la Casa</span>
-</div>
-</div>
-</div>
-<!-- Tab Content: Dulce -->
-<div class="hidden grid-cols-1 md:grid-cols-3 gap-gutter transition-opacity duration-300" id="tab-content-dulce">
-<!-- Item 6 -->
-<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
-<div>
-<div class="flex items-start justify-between gap-4 mb-2">
-<h3 class="font-headline-sm text-headline-sm text-on-surface">Croissant Clásico Francés</h3>
-<span class="font-title-editorial text-title-editorial text-primary font-bold">2.40€</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
-              Hojaldrado de 36 capas con mantequilla pura francesa de pastoreo AOP. Crujiente exterior sonoro y alveolado interior vaporoso.
-            </p>
-</div>
-<div class="flex items-center gap-2 flex-wrap pt-2">
-<span class="px-2.5 py-1 rounded-full bg-surface-container font-label-md text-label-md text-on-surface-variant">Hornada Diaria</span>
-<span class="px-2.5 py-1 rounded-full bg-primary-fixed/40 font-label-md text-label-md text-primary">Mantequilla AOP</span>
-</div>
-</div>
-<!-- Item 7 -->
-<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
-<div>
-<div class="flex items-start justify-between gap-4 mb-2">
-<h3 class="font-headline-sm text-headline-sm text-on-surface">Cinnamon Roll con Mascarpone</h3>
-<span class="font-title-editorial text-title-editorial text-primary font-bold">3.60€</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
-              Masa enriquecida fermentada lentamente, rellena de canela de Ceylán ecológica, semillas de cardamomo machacado y frosting cremoso de mascarpone.
-            </p>
-</div>
-<div class="flex items-center gap-2 flex-wrap pt-2">
-<span class="px-2.5 py-1 rounded-full bg-surface-container font-label-md text-label-md text-on-surface-variant">Especias Ecológicas</span>
-<span class="px-2.5 py-1 rounded-full bg-secondary-fixed/50 font-label-md text-label-md text-secondary">Receta Sueca</span>
-</div>
-</div>
-<!-- Item 8 -->
-<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
-<div>
-<div class="flex items-start justify-between gap-4 mb-2">
-<h3 class="font-headline-sm text-headline-sm text-on-surface">Babka de Chocolate 70% &amp; Avellanas</h3>
-<span class="font-title-editorial text-title-editorial text-primary font-bold">4.00€</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
-              Trenza tierna de masa madre con remolino de ganache de cacao criollo al 70%, avellanas tostadas de Reus y almíbar de azahar.
-            </p>
-</div>
-<div class="flex items-center gap-2 flex-wrap pt-2">
-<span class="px-2.5 py-1 rounded-full bg-surface-container font-label-md text-label-md text-on-surface-variant">Chocolate Criollo</span>
-<span class="px-2.5 py-1 rounded-full bg-primary-fixed/40 font-label-md text-label-md text-primary">Horneado Lento</span>
-</div>
-</div>
-</div>
-</div>
-</section>
+    };
+  </script>
+  
+  <style>
+    :root {
+      --sat: env(safe-area-inset-top, 0px);
+      --sab: env(safe-area-inset-bottom, 0px);
+    }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(4.5rem + var(--sat, 0px));
+    }
+    body {
+      background-color: #14100E;
+      color: #FAF5F0;
+      font-family: 'Outfit', sans-serif;
+      overscroll-behavior-y: none;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #14100E;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2E2521;
+      border-radius: 9999px;
+    }
+    .card-artisan {
+      background: rgba(36, 29, 26, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(249, 115, 22, 0.2);
+    }
+  </style>
+  
+  <script>
+    (function() {
+      try {
+        var isIframe = window.self !== window.top;
+        var isSim = isIframe || /[?&]sim(=|&|$)/.test(window.location.search) || window.location.hash.indexOf('sim') !== -1;
+        if (isSim) {
+          document.documentElement.style.setProperty('--sat', '54px');
+          document.documentElement.style.setProperty('--sab', '20px');
+        }
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
 
-<!-- ============================================================ -->
-<!-- CALCULADOR INTERACTIVO DE RESERVA DE MESA & EXPERIENCIA      -->
-<!-- ============================================================ -->
-<section id="reserva-mesa" class="w-full py-16 bg-surface-container-lowest border-y border-primary-container/20 scroll-mt-24">
-  <div class="max-w-[1360px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin">
-    <div class="rounded-3xl bg-surface p-6 sm:p-10 border border-primary-container/30 shadow-xl relative overflow-hidden">
-      <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-primary-container/10 blur-3xl pointer-events-none"></div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-        <!-- Izquierda: Selectores -->
-        <div class="lg:col-span-7 flex flex-col gap-4">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-caps text-xs uppercase tracking-wider w-fit">
-            <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
-            <span>Reserva Inmediata de Mesa</span>
-          </div>
-
-          <h3 class="font-headline-lg text-2xl sm:text-3xl text-on-surface font-bold">
-            Planifica tu experiencia gastronómica en {{ negocio.ciudad }}
-          </h3>
-          <p class="font-body-md text-on-surface-variant text-sm sm:text-base">
-            Elige el número de comensales, tu zona favorita del local y la franja horaria para preparar tu mesa al detalle.
-          </p>
-
-          <!-- 1. Comensales -->
-          <div class="mt-2 flex flex-col gap-2">
-            <div class="flex items-center justify-between font-label-lg text-sm">
-              <span class="text-on-surface-variant font-medium">Número de personas:</span>
-              <span id="txtComensales" class="text-primary font-bold text-lg">2 personas</span>
-            </div>
-            <input 
-              id="sliderComensales" 
-              type="range" 
-              min="1" 
-              max="12" 
-              step="1" 
-              value="2" 
-              oninput="actualizarReservaMesa()" 
-              class="w-full h-2.5 bg-surface-container rounded-lg appearance-none cursor-pointer accent-primary"
-            />
-            <div class="flex justify-between text-xs text-on-surface-variant/70 font-label-md">
-              <span>1 persona (Barra)</span>
-              <span>4-6 (Mesa estándar)</span>
-              <span>12 (Grupo)</span>
-            </div>
-          </div>
-
-          <!-- 2. Zona del Local -->
-          <div class="flex flex-col gap-2 mt-2">
-            <span class="font-label-caps text-xs text-on-surface-variant uppercase tracking-wider font-bold">Ambiente deseado:</span>
-            <div class="grid grid-cols-3 gap-2">
-              <button onclick="cambiarZonaMesa('Terraza Exterior', this)" class="zona-btn py-2.5 px-3 rounded-xl border border-primary-container/30 bg-surface-container text-on-surface-variant font-label-caps text-xs uppercase font-medium hover:bg-surface-container-high transition cursor-pointer">
-                🌿 Terraza
-              </button>
-              <button onclick="cambiarZonaMesa('Sala Principal', this)" class="zona-btn py-2.5 px-3 rounded-xl border-2 border-primary bg-primary-container/20 text-on-surface font-label-caps text-xs uppercase font-bold transition cursor-pointer">
-                🕯️ Sala Interior
-              </button>
-              <button onclick="cambiarZonaMesa('Barra Gastronómica', this)" class="zona-btn py-2.5 px-3 rounded-xl border border-primary-container/30 bg-surface-container text-on-surface-variant font-label-caps text-xs uppercase font-medium hover:bg-surface-container-high transition cursor-pointer">
-                ☕ Barra &amp; Vistas
-              </button>
-            </div>
-          </div>
-
-          <!-- 3. Franja Horaria -->
-          <div class="flex flex-col gap-2 mt-2">
-            <span class="font-label-caps text-xs text-on-surface-variant uppercase tracking-wider font-bold">Turno preferido:</span>
-            <div class="flex flex-wrap gap-2">
-              <button onclick="cambiarTurnoMesa('Desayuno / Brunch (09:30 - 12:30)', this)" class="turno-btn py-2 px-4 rounded-full border border-primary-container/30 bg-surface-container text-on-surface-variant font-label-caps text-xs uppercase font-medium transition cursor-pointer">
-                Brunch (09:30 - 12:30)
-              </button>
-              <button onclick="cambiarTurnoMesa('Almuerzo (13:30 - 16:00)', this)" class="turno-btn py-2 px-4 rounded-full border-2 border-primary bg-primary-container/20 text-on-surface font-label-caps text-xs uppercase font-bold transition cursor-pointer">
-                Almuerzo (13:30 - 16:00)
-              </button>
-              <button onclick="cambiarTurnoMesa('Cena (20:30 - 23:30)', this)" class="turno-btn py-2 px-4 rounded-full border border-primary-container/30 bg-surface-container text-on-surface-variant font-label-caps text-xs uppercase font-medium transition cursor-pointer">
-                Cena (20:30 - 23:30)
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Derecha: Resumen y Confirmación Directa -->
-        <div class="lg:col-span-5 rounded-2xl bg-surface-container-lowest border border-primary-container/30 p-6 sm:p-8 flex flex-col justify-between shadow-lg">
-          <div>
-            <div class="flex items-center justify-between border-b border-surface-container pb-3 mb-4">
-              <span class="font-label-caps text-xs text-primary uppercase font-bold tracking-wider">RESUMEN DE RESERVA</span>
-              <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 text-[11px] font-bold">DISPONIBILIDAD HOY</span>
-            </div>
-
-            <div class="space-y-3 font-body-sm text-sm">
-              <div class="flex items-center justify-between">
-                <span class="text-on-surface-variant">Negocio:</span>
-                <span class="font-bold text-on-surface">{{ negocio.nombre }}</span>
-              </div>
-              <div class="flex items-center justify-between">
-                <span class="text-on-surface-variant">Comensales:</span>
-                <span id="resumenComensales" class="font-bold text-primary">2 comensales</span>
-              </div>
-              <div class="flex items-center justify-between">
-                <span class="text-on-surface-variant">Ubicación mesa:</span>
-                <span id="resumenZona" class="font-bold text-on-surface">Sala Interior</span>
-              </div>
-              <div class="flex items-center justify-between">
-                <span class="text-on-surface-variant">Turno:</span>
-                <span id="resumenTurno" class="font-bold text-on-surface">Almuerzo (13:30 - 16:00)</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="pt-6 mt-6 border-t border-surface-container flex flex-col gap-3">
-            <button onclick="confirmarReservaMesaWhatsApp()" class="w-full py-4 rounded-xl bg-primary hover:bg-secondary text-on-primary font-label-lg text-sm font-bold shadow-md transition flex items-center justify-center gap-2 cursor-pointer">
-              <span class="material-symbols-outlined text-[20px]">restaurant</span>
-              <span>Confirmar Reserva por WhatsApp</span>
-            </button>
-            <p class="text-center text-xs text-on-surface-variant/70">
-              Confirmación inmediata sin costes de gestión ni tarjeta requerida.
-            </p>
-          </div>
-        </div>
+<!-- ==================== HEADER PRINCIPAL ==================== -->
+<header class="sticky top-0 z-50 w-full bg-[#14100E]/90 backdrop-blur-md border-b border-orange-500/15" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between gap-4">
+    
+    <!-- Identidad de Marca -->
+    <a href="#inicio" class="flex items-center gap-3 shrink-0 group">
+      {% if ig.avatar_url or ig.avatar %}
+      <div class="w-10 h-10 rounded-full overflow-hidden border border-orange-400/30 group-hover:border-orange-400 transition-colors shadow-md shrink-0">
+        <img src="{{ ig.avatar_url or ig.avatar }}" alt="{{ negocio.nombre }}" class="w-full h-full object-cover"/>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- COMUNIDAD / INSTAGRAM MOMENTS -->
-<section id="comunidad" class="w-full py-16 bg-surface-container-low scroll-mt-24">
-<div class="max-w-[1360px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin">
-<div class="flex flex-col md:flex-row items-start md:items-end justify-between mb-10 gap-4">
-<div>
-<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest block mb-1">Comunidad // Galería</span>
-<h2 class="font-headline-xl text-headline-xl text-on-surface">Vivido en {{ negocio.nombre }}</h2>
-</div>
-<a class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-surface-container-lowest text-on-surface font-label-md text-label-md hover:text-primary transition-colors shadow-sm" href="{{ negocio.instagram_url }}" rel="noopener noreferrer" target="_blank">
-<span class="material-symbols-outlined text-[18px]">photo_camera</span>
-<span>@{{ ig.username or (negocio.nombre|lower|replace(' ', '')) }} • Síguenos en Instagram</span>
-</a>
-</div>
-<!-- Dynamic Instagram Grid -->
-<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-  {% if ig.posts %}
-    {% for post in (ig.posts or [])[:8] %}
-    <div onclick="abrirLightbox('{{ post.image_url }}', '{{ (post.caption or negocio.nombre)|replace('\'', '\\\'')|replace('\n', ' ') }}')" class="relative group rounded-2xl overflow-hidden aspect-square bg-surface-container shadow-sm border border-outline-variant/20 cursor-pointer">
-      <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="{{ post.caption[:30] if post.caption else negocio.nombre }}" src="{{ post.image_url }}" loading="lazy" />
-      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3 sm:p-4">
-        <span class="text-white font-label-md text-xs line-clamp-2">{{ post.caption or negocio.nombre }}</span>
-        <span class="text-primary-container text-[11px] font-bold mt-1 flex items-center gap-1">
-          <span class="material-symbols-outlined text-[14px]">zoom_in</span> Ver en detalle
+      {% else %}
+      <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-600 to-orange-700 flex items-center justify-center text-white font-serif font-bold text-lg shadow-lg shrink-0">
+        {{ ((negocio.nombre or 'ES')[:2])|upper }}
+      </div>
+      {% endif %}
+      <div class="flex flex-col">
+        <span class="font-serif font-bold text-lg sm:text-xl text-white tracking-wide leading-tight group-hover:text-amber-300 transition-colors truncate max-w-[160px] sm:max-w-[220px] md:max-w-none">
+          {{ negocio.nombre }}
+        </span>
+        <span class="text-xs text-orange-400 font-medium flex items-center gap-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          Elaboración Artesanal Diaria
         </span>
       </div>
+    </a>
+
+    <!-- Navegación Desktop -->
+    <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-amber-100/70">
+      <a href="#carta" class="hover:text-white transition-colors">Carta & Especialidades</a>
+      <a href="#filosofia" class="hover:text-white transition-colors">Nuestra Filosofía</a>
+      <a href="#galeria" class="hover:text-white transition-colors">Galería</a>
+      <a href="#opiniones" class="hover:text-white transition-colors">Opiniones</a>
+      <a href="#contacto" class="hover:text-white transition-colors">Horarios & Reserva</a>
+    </nav>
+
+    <!-- CTAs Header -->
+    <div class="flex items-center gap-3 shrink-0">
+      {% if negocio.telefono %}
+      <a href="tel:{{ negocio.telefono }}" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 border border-orange-500/20 text-xs font-semibold text-amber-100 transition-colors">
+        <span class="material-symbols-outlined text-sm text-orange-400">call</span>
+        <span>{{ negocio.telefono }}</span>
+      </a>
+      {% endif %}
+
+      <a href="{{ negocio.whatsapp_url or '#contacto' }}" target="_blank" rel="noopener" class="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-semibold text-xs sm:text-sm shadow-md shadow-emerald-950/40 transition-all hover:scale-[1.02] shrink-0">
+        <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        <span>Reservar Mesa</span>
+      </a>
+
+      <!-- Botón Menú Móvil -->
+      <button id="mobile-menu-btn" type="button" class="lg:hidden p-2 rounded-xl bg-white/5 border border-orange-500/20 text-amber-200 hover:text-white transition-colors" aria-label="Abrir menú">
+        <span class="material-symbols-outlined text-2xl">menu</span>
+      </button>
     </div>
-    {% endfor %}
-  {% else %}
-    <div class="relative group rounded-2xl overflow-hidden aspect-square bg-surface-container shadow-sm">
-      <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Artisanal Work" src="{{ ig.avatar_url or 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=80' }}" />
-    </div>
-  {% endif %}
-</div>
-</div>
-</section>
-<!-- DÓNDE ENCONTRARNOS & RESERVAS -->
-<section id="ubicacion" class="w-full py-20 bg-surface scroll-mt-24">
-<div class="max-w-[1360px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
-<!-- Left: Location Details -->
-<div class="lg:col-span-6 flex flex-col gap-6">
-<div>
-<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest block mb-1">Visítanos</span>
-<h2 class="font-headline-xl text-headline-xl text-on-surface">En {{ negocio.ciudad }}</h2>
-<p class="font-body-md text-body-md text-on-surface-variant mt-2">
-              Un espacio de máxima confianza y dedicación artesanal para disfrutar del mejor servicio en {{ negocio.ciudad }}.
-            </p>
-</div>
-<!-- Cards Stack -->
-<div class="flex flex-col gap-4">
-<a href="https://www.google.com/maps/search/?api=1&query={{ (negocio.nombre ~ ' ' ~ (negocio.direccion or negocio.ciudad))|urlencode }}" target="_blank" rel="noopener" class="p-5 rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex items-start gap-4 group">
-<div class="w-10 h-10 rounded-xl bg-primary-fixed flex items-center justify-center text-primary shrink-0 group-hover:bg-primary group-hover:text-on-primary transition-colors">
-<span class="material-symbols-outlined">pin_drop</span>
-</div>
-<div class="flex flex-col">
-<span class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-1.5">
-  <span>Dirección &amp; Ubicación</span>
-  <span class="material-symbols-outlined text-[16px] text-primary">open_in_new</span>
-</span>
-<span class="font-body-md text-body-md text-on-surface-variant">{{ negocio.direccion or negocio.ciudad }}</span>
-<span class="font-label-md text-label-md text-primary mt-1 flex items-center gap-1">
-  <span class="material-symbols-outlined text-[16px]">navigation</span> Abrir en Google Maps
-</span>
-</div>
-</a>
-<div class="p-5 rounded-2xl bg-surface-container-lowest shadow-sm flex items-start gap-4">
-<div class="w-10 h-10 rounded-xl bg-primary-fixed flex items-center justify-center text-primary shrink-0">
-<span class="material-symbols-outlined">schedule</span>
-</div>
-<div class="flex flex-col w-full">
-<span class="font-headline-sm text-headline-sm text-on-surface mb-1">Horarios de Atención</span>
-<div class="flex justify-between font-body-sm text-body-sm text-on-surface-variant py-0.5">
-<span>Lunes a Viernes</span>
-<span class="font-bold text-on-surface">09:00 – 20:00</span>
-</div>
-<div class="flex justify-between font-body-sm text-body-sm text-on-surface-variant py-0.5">
-<span>Sábados</span>
-<span class="font-bold text-on-surface">10:00 – 14:00</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Map View Link Component -->
-<a href="https://www.google.com/maps/search/?api=1&query={{ (negocio.nombre ~ ' ' ~ (negocio.direccion or negocio.ciudad))|urlencode }}" target="_blank" rel="noopener" class="block w-full h-56 rounded-2xl bg-cover bg-center shadow-sm overflow-hidden relative group" style="background-image: url('https://images.unsplash.com/photo-1524661135-423995f22d0b?w=900&q=80')">
-<div class="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all flex items-center justify-center">
-  <div class="bg-surface-container-lowest/95 backdrop-blur-md px-5 py-2.5 rounded-xl text-on-surface font-label-md text-label-md shadow-md flex items-center gap-2 group-hover:scale-105 transition-transform">
-    <span class="material-symbols-outlined text-primary text-[20px]">map</span>
-    <span class="font-bold">Ver Mapa en Tiempo Real</span>
+
+  </div>
+</header>
+
+<!-- Menú Desplegable Móvil -->
+<div id="mobile-menu" class="hidden lg:hidden fixed inset-0 z-50 bg-[#14100E]/95 backdrop-blur-xl flex flex-col p-6 space-y-6 pt-24 border-b border-orange-500/20">
+  <button id="close-menu-btn" class="absolute top-6 right-6 p-2 rounded-xl bg-white/5 text-slate-300 hover:text-white" aria-label="Cerrar menú">
+    <span class="material-symbols-outlined text-2xl">close</span>
+  </button>
+  <nav class="flex flex-col gap-4 text-lg font-serif font-bold text-amber-100">
+    <a href="#carta" class="mobile-nav-link py-2 border-b border-white/5 hover:text-orange-400">Carta & Especialidades</a>
+    <a href="#filosofia" class="mobile-nav-link py-2 border-b border-white/5 hover:text-orange-400">Nuestra Filosofía</a>
+    <a href="#galeria" class="mobile-nav-link py-2 border-b border-white/5 hover:text-orange-400">Galería</a>
+    <a href="#opiniones" class="mobile-nav-link py-2 border-b border-white/5 hover:text-orange-400">Opiniones</a>
+    <a href="#contacto" class="mobile-nav-link py-2 hover:text-orange-400">Horarios & Reserva</a>
+  </nav>
+  <div class="pt-6 mt-auto flex flex-col gap-3">
+    <a href="{{ negocio.whatsapp_url or '#contacto' }}" class="w-full py-3.5 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-center flex items-center justify-center gap-2 shadow-lg">
+      <span class="material-symbols-outlined">chat</span>
+      <span>Reservar Mesa por WhatsApp</span>
+    </a>
+    {% if negocio.telefono %}
+    <a href="tel:{{ negocio.telefono }}" class="w-full py-3.5 rounded-full bg-white/10 text-amber-100 font-semibold text-center flex items-center justify-center gap-2">
+      <span class="material-symbols-outlined">call</span>
+      <span>Llamar {{ negocio.telefono }}</span>
+    </a>
+    {% endif %}
   </div>
 </div>
-<div class="absolute bottom-3 left-3 bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1.5 rounded-lg text-on-surface font-label-md text-label-md shadow-sm flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-[18px]">location_on</span>
-<span>{{ negocio.direccion or negocio.ciudad }}</span>
-</div>
-</a>
-</div>
-<!-- Right: Reservation & Take-away Card -->
-<div class="lg:col-span-6">
-<div class="bg-surface-container-lowest p-8 lg:p-10 rounded-3xl shadow-xl flex flex-col justify-between h-full">
-<div>
-<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-caps text-label-caps uppercase tracking-wider mb-4">
-<span>Atención Inmediata</span>
-</div>
-<h3 class="font-headline-lg text-headline-lg text-on-surface mb-3">Reserva de Cita &amp; Pedidos Directos</h3>
-<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
-  ¿Quieres solicitar cita, encargo o consultar dudas sobre nuestros servicios? Escríbenos directamente y te atenderemos al instante.
-</p>
-<!-- Reservation Perks -->
-<div class="space-y-3 mb-8">
-<div class="flex items-center gap-3 text-on-surface font-body-sm text-body-sm">
-<span class="material-symbols-outlined text-primary text-[20px]">check</span>
-<span>Atención directa y personalizada por WhatsApp</span>
-</div>
-<div class="flex items-center gap-3 text-on-surface font-body-sm text-body-sm">
-<span class="material-symbols-outlined text-primary text-[20px]">check</span>
-<span>Presupuesto sin compromiso previo</span>
-</div>
-<div class="flex items-center gap-3 text-on-surface font-body-sm text-body-sm">
-<span class="material-symbols-outlined text-primary text-[20px]">check</span>
-<span>Garantía y seguimiento de cada trabajo</span>
-</div>
-</div>
-</div>
-<!-- WhatsApp Trigger & Call CTA -->
-<div class="flex flex-col sm:flex-row items-center gap-3 pt-4">
-<button onclick="abrirModalPresupuesto()" class="w-full sm:flex-1 py-4 px-6 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg shadow-md hover:bg-secondary transition-all flex items-center justify-center gap-2 font-bold cursor-pointer">
-<span class="material-symbols-outlined text-[20px]">event</span>
-<span>Pedir Cita Online</span>
-</button>
-<a class="w-full sm:flex-1 py-4 px-6 rounded-xl bg-[#25D366] text-[#FFFFFF] font-label-lg text-label-lg shadow-md hover:opacity-95 transition-all flex items-center justify-center gap-2 font-bold" href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" rel="noopener noreferrer" target="_blank">
-<span class="material-symbols-outlined text-[20px]">chat</span>
-<span>WhatsApp Directo</span>
-</a>
-{% if negocio.telefono %}
-<a class="w-full sm:w-auto p-4 rounded-xl bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors flex items-center justify-center gap-2 font-label-lg text-label-lg" href="tel:{{ negocio.telefono }}">
-<span class="material-symbols-outlined text-[20px]">call</span>
-<span>Llamar</span>
-</a>
-{% endif %}
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
 
-<!-- ============================================================ -->
-<!-- PREGUNTAS FRECUENTES (FAQ ACCORDION)                         -->
-<!-- ============================================================ -->
-<section id="faq" class="w-full py-16 bg-surface-container-low border-t border-primary-container/20 scroll-mt-24">
-  <div class="max-w-3xl mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin flex flex-col gap-6">
-    <div class="flex flex-col items-center text-center gap-1">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-caps text-xs uppercase tracking-wider">
-        <span>Dudas Habituales</span>
+<main class="flex-1">
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section id="inicio" class="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-28 border-b border-orange-500/10">
+    <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-orange-500/10 blur-[130px] pointer-events-none rounded-full"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Copy Hero -->
+        <div class="lg:col-span-7 flex flex-col space-y-6 text-center lg:text-left">
+          
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/25 text-xs font-semibold text-orange-300 mx-auto lg:mx-0 w-fit">
+            <span class="text-amber-400">★★★★★</span>
+            <span class="font-bold text-white">4.9/5</span>
+            <span class="text-amber-200/70">• Sabores Genuinos en {{ negocio.ciudad }}</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl md:text-6xl font-serif font-bold tracking-tight leading-[1.1] text-white">
+            {{ web.titular or (negocio.nombre ~ ': Pasión por el Buen Sabor.') }}
+          </h1>
+
+          <p class="text-base sm:text-lg text-amber-100/80 font-normal leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            {{ web.subtitulo or ('Cocina honesta y artesanal en ' ~ negocio.ciudad ~ '. Ingredientes de proximidad, recetas elaboradas con esmero y el ambiente acogedor que buscas para cada momento.') }}
+          </p>
+
+          <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <a href="{{ negocio.whatsapp_url or '#contacto' }}" target="_blank" rel="noopener" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-semibold text-base shadow-xl shadow-emerald-950/40 flex items-center justify-center gap-2.5 transition-all hover:scale-[1.02]">
+              <span class="material-symbols-outlined text-xl">restaurant</span>
+              <span>Reservar Mesa por WhatsApp</span>
+            </a>
+
+            <a href="#carta" class="w-full sm:w-auto px-7 py-4 rounded-full bg-white/5 hover:bg-white/10 border border-orange-500/20 text-amber-100 hover:text-white font-semibold text-base transition-all flex items-center justify-center gap-2">
+              <span>Ver Nuestra Carta</span>
+              <span class="material-symbols-outlined text-lg">arrow_forward</span>
+            </a>
+          </div>
+
+          <!-- Micro Garantías -->
+          <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-6 text-xs text-amber-200/60 font-medium">
+            <span class="flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-orange-400 text-base">eco</span>
+              Ingredientes 100% naturales
+            </span>
+            <span class="flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-emerald-400 text-base">skillet</span>
+              Elaboración artesanal diaria
+            </span>
+            <span class="flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-amber-400 text-base">table_restaurant</span>
+              Reserva de mesa garantizada
+            </span>
+          </div>
+
+        </div>
+
+        <!-- Imagen Hero Gastronomía -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            <div class="relative rounded-3xl overflow-hidden border border-orange-400/25 bg-gradient-to-b from-orange-400/15 to-transparent p-2.5 shadow-2xl shadow-orange-950/50">
+              <div class="rounded-2xl overflow-hidden aspect-[4/5] bg-[#241D1A] relative">
+                {% if ig.posts and ig.posts[0] and (ig.posts[0].image_url or ig.posts[0].imagen) %}
+                <img src="{{ ig.posts[0].image_url or ig.posts[0].imagen }}" alt="{{ negocio.nombre }}" class="w-full h-full object-cover"/>
+                {% else %}
+                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&q=80" alt="Gastronomía Artesanal" class="w-full h-full object-cover"/>
+                {% endif %}
+                <div class="absolute inset-0 bg-gradient-to-t from-[#14100E] via-transparent to-transparent opacity-80"></div>
+                
+                <div class="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-[#14100E]/85 backdrop-blur-md border border-orange-500/20 flex items-center justify-between">
+                  <div>
+                    <span class="text-xs text-orange-400 font-serif tracking-wider uppercase block">Especialidad de la Casa</span>
+                    <span class="text-sm font-bold text-white">{{ negocio.nombre }}</span>
+                  </div>
+                  <span class="px-3 py-1 rounded-full bg-orange-400/20 text-orange-300 text-xs font-semibold border border-orange-400/30">
+                    Hecho Hoy
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
-      <h2 class="font-headline-lg text-2xl sm:text-3xl text-on-surface font-bold mt-1">
-        Todo sobre nuestra carta y reservas
+    </div>
+  </section>
+
+  <!-- ==================== FILOSOFÍA ARTESANA (4 PILARES) ==================== -->
+  <section id="filosofia" class="py-12 bg-[#1B1513] border-b border-orange-500/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="p-6 rounded-2xl card-artisan">
+          <div class="w-12 h-12 rounded-xl bg-orange-500/20 text-orange-400 flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-2xl">local_florist</span>
+          </div>
+          <h3 class="font-serif font-bold text-xl text-white mb-1">Producto Local</h3>
+          <p class="text-sm text-amber-100/70">Trabajamos con productores y huertas de proximidad para garantizar máxima frescura.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl card-artisan">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-2xl">bakery_dining</span>
+          </div>
+          <h3 class="font-serif font-bold text-xl text-white mb-1">Elaboración Diaria</h3>
+          <p class="text-sm text-amber-100/70">Masa madre, fermentación lenta y recetas tradicionales hechas a fuego lento.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl card-artisan">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-2xl">favorite</span>
+          </div>
+          <h3 class="font-serif font-bold text-xl text-white mb-1">Opciones Saludables</h3>
+          <p class="text-sm text-amber-100/70">Alternativas veganas, vegetarianas y sin gluten pensadas con el mismo cariño.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl card-artisan">
+          <div class="w-12 h-12 rounded-xl bg-rose-500/20 text-rose-300 flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-2xl">local_cafe</span>
+          </div>
+          <h3 class="font-serif font-bold text-xl text-white mb-1">Ambiente Cercano</h3>
+          <p class="text-sm text-amber-100/70">Un rincón para compartir, charlar y disfrutar sin prisas en el corazón de la ciudad.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CARTA & ESPECIALIDADES ==================== -->
+  <section id="carta" class="py-20 max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-xs text-orange-400 font-bold uppercase tracking-wider block mb-2">Nuestra Selección</span>
+      <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white mb-4">
+        Especialidades Hechas para Disfrutar
       </h2>
-      <p class="font-body-md text-on-surface-variant text-sm max-w-lg">
-        Ingredientes, opciones alimentarias y detalles para disfrutar de tu visita al máximo.
+      <p class="text-amber-100/70 text-base sm:text-lg">
+        Platos elaborados con ingredientes de primera calidad para deleitar todos los paladares.
       </p>
     </div>
 
-    <div class="flex flex-col gap-3 mt-4">
-      <div class="faq-item rounded-2xl bg-surface-container-lowest border border-primary-container/20 overflow-hidden transition-all shadow-sm">
-        <button onclick="toggleFaq(this)" class="w-full px-6 py-4 flex items-center justify-between text-left font-headline-sm text-sm sm:text-base font-semibold text-on-surface hover:text-primary transition cursor-pointer">
-          <span>¿Disponéis de opciones para celíacos, vegetarianos o intolerancias?</span>
-          <span class="material-symbols-outlined faq-icon text-primary transition-transform">expand_more</span>
-        </button>
-        <div class="faq-content hidden px-6 pb-4 text-xs sm:text-sm text-on-surface-variant font-body-sm border-t border-primary-container/10 pt-3 leading-relaxed">
-          Sí. Contamos con carta de alérgenos exhaustiva y opciones vegetarianas y sin gluten en cada una de las secciones de nuestra carta. Indícanos cualquier alergia al reservar y adaptaremos el servicio.
-        </div>
-      </div>
-
-      <div class="faq-item rounded-2xl bg-surface-container-lowest border border-primary-container/20 overflow-hidden transition-all shadow-sm">
-        <button onclick="toggleFaq(this)" class="w-full px-6 py-4 flex items-center justify-between text-left font-headline-sm text-sm sm:text-base font-semibold text-on-surface hover:text-primary transition cursor-pointer">
-          <span>¿Cómo funciona la política de reservas de mesa y grupos?</span>
-          <span class="material-symbols-outlined faq-icon text-primary transition-transform">expand_more</span>
-        </button>
-        <div class="faq-content hidden px-6 pb-4 text-xs sm:text-sm text-on-surface-variant font-body-sm border-t border-primary-container/10 pt-3 leading-relaxed">
-          Las reservas por la web o WhatsApp se confirman de forma ágil y sin costes de gestión. Para celebraciones o mesas de más de 8 personas, disponemos de propuestas de menú cerrado y espacio reservado.
-        </div>
-      </div>
-
-      <div class="faq-item rounded-2xl bg-surface-container-lowest border border-primary-container/20 overflow-hidden transition-all shadow-sm">
-        <button onclick="toggleFaq(this)" class="w-full px-6 py-4 flex items-center justify-between text-left font-headline-sm text-sm sm:text-base font-semibold text-on-surface hover:text-primary transition cursor-pointer">
-          <span>¿Cuál es el origen de vuestra materia prima e ingredientes?</span>
-          <span class="material-symbols-outlined faq-icon text-primary transition-transform">expand_more</span>
-        </button>
-        <div class="faq-content hidden px-6 pb-4 text-xs sm:text-sm text-on-surface-variant font-body-sm border-t border-primary-container/10 pt-3 leading-relaxed">
-          Apostamos por la proximidad: harinas ecológicas de molienda tradicional, café de especialidad de origen ético, lácteos de granja y producto de mercado seleccionado a diario.
-        </div>
-      </div>
-
-      <div class="faq-item rounded-2xl bg-surface-container-lowest border border-primary-container/20 overflow-hidden transition-all shadow-sm">
-        <button onclick="toggleFaq(this)" class="w-full px-6 py-4 flex items-center justify-between text-left font-headline-sm text-sm sm:text-base font-semibold text-on-surface hover:text-primary transition cursor-pointer">
-          <span>¿Hacéis pedidos para llevar (take-away) o encargos especiales?</span>
-          <span class="material-symbols-outlined faq-icon text-primary transition-transform">expand_more</span>
-        </button>
-        <div class="faq-content hidden px-6 pb-4 text-xs sm:text-sm text-on-surface-variant font-body-sm border-t border-primary-container/10 pt-3 leading-relaxed">
-          Sí. Puedes pedir para llevar directamente en el local o encargarnos con antelación tartas enteras, cajas de repostería o lotes para eventos a través de nuestro WhatsApp.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-</div>
-<script>
-  function switchTab(category) {
-    const tabs = ['cafes', 'brunch', 'dulce'];
-    tabs.forEach(t => {
-      const content = document.getElementById('tab-content-' + t);
-      const btn = document.getElementById('tab-btn-' + t);
-      if (t === category) {
-        content.classList.remove('hidden');
-        content.classList.add('grid');
-        btn.classList.add('bg-surface-container-lowest', 'text-on-surface', 'shadow-sm');
-        btn.classList.remove('text-on-surface-variant');
-      } else {
-        content.classList.add('hidden');
-        content.classList.remove('grid');
-        btn.classList.remove('bg-surface-container-lowest', 'text-on-surface', 'shadow-sm');
-        btn.classList.add('text-on-surface-variant');
-      }
-    });
-  }
-
-  function toggleFaq(button) {
-    const item = button.parentElement;
-    const content = item.querySelector('.faq-content');
-    const icon = item.querySelector('.faq-icon');
-    content.classList.toggle('hidden');
-    icon.classList.toggle('rotate-180');
-  }
-</script></main><footer class="w-full bg-surface-container-low mt-space-xl"><div class="max-w-[1360px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin py-margin"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter"><div class="lg:col-span-4 flex flex-col gap-space-sm"><div class="flex items-center gap-space-sm">{% if ig.avatar_url or ig.avatar %}<img alt="{{ negocio.nombre }}" class="h-8 w-8 rounded-full object-cover border border-primary/30" src="{{ ig.avatar_url or ig.avatar }}"/>{% else %}<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-xs">✨</div>{% endif %}<span class="font-headline-sm text-headline-sm text-on-surface">{{ negocio.nombre }}</span></div><p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">{{ web.subtitulo or ('Calidad de autor, atención personalizada y máxima dedicación en ' ~ negocio.ciudad ~ '.') }}</p><div class="flex items-center gap-space-sm pt-space-xs"><a aria-label="Instagram" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-primary-container hover:text-on-primary-container transition-colors" href="{{ negocio.instagram_url or ('https://instagram.com/' ~ ig.username) }}" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined text-[18px]">photo_camera</span></a><a aria-label="WhatsApp" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-primary-container hover:text-on-primary-container transition-colors" href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined text-[18px]">chat</span></a>{% if negocio.telefono %}<a aria-label="Teléfono" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-primary-container hover:text-on-primary-container transition-colors" href="tel:{{ negocio.telefono }}"><span class="material-symbols-outlined text-[18px]">call</span></a>{% endif %}</div></div><div class="lg:col-span-4 flex flex-col gap-space-xs"><h4 class="font-label-caps text-label-caps text-secondary uppercase tracking-wider mb-space-xs">Ubicación &amp; Horarios</h4><div class="flex flex-col gap-space-xs text-on-surface-variant font-body-sm text-body-sm"><span>{{ negocio.direccion or negocio.ciudad }}</span><a href="https://www.google.com/maps/search/?api=1&query={{ (negocio.nombre ~ ' ' ~ (negocio.direccion or negocio.ciudad))|urlencode }}" target="_blank" rel="noopener" class="text-primary hover:underline font-label-md inline-flex items-center gap-1"><span>Ver cómo llegar en Google Maps</span><span class="material-symbols-outlined text-[14px]">open_in_new</span></a><div class="pt-space-sm"><span class="font-label-md text-label-md text-on-surface block">Atención al Cliente</span><span>Lunes a Viernes: 09:00 – 20:00</span><span>Sábados: 10:00 – 14:00</span></div></div></div><div class="lg:col-span-4 flex flex-col gap-space-sm"><h4 class="font-headline-sm text-headline-sm text-on-surface">Pide Cita o Consulta</h4><p class="font-body-sm text-body-sm text-on-surface-variant">¿Tienes alguna duda o quieres consultar disponibilidad directa con {{ negocio.nombre }}?</p><div class="flex flex-col sm:flex-row gap-2 mt-1"><button onclick="abrirModalPresupuesto('Consulta')" class="px-5 py-2.5 bg-primary text-on-primary hover:bg-secondary font-label-lg text-xs font-bold uppercase tracking-wider rounded-lg transition-colors cursor-pointer">Pedir Cita Online</button><a href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" rel="noopener" class="px-5 py-2.5 bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-xs font-semibold rounded-lg transition-colors flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-[16px]">chat</span><span>WhatsApp</span></a></div></div></div><div class="mt-margin pt-space-md flex flex-col sm:flex-row items-center justify-between gap-space-sm"><span class="font-body-sm text-body-sm text-on-surface-variant">© 2026 {{ negocio.nombre }}. Todos los derechos reservados.</span><div class="flex items-center gap-space-md font-label-md text-label-md text-on-surface-variant"><a class="hover:text-on-surface transition-colors" href="#inicio">Inicio</a><a class="hover:text-on-surface transition-colors" href="#carta">Servicios</a><a class="hover:text-on-surface transition-colors" href="#ubicacion">Ubicación</a></div></div></div></footer>
-
-<!-- Fixed Mobile Bottom Action Dock (High-Conversion 3-Button Standard) -->
-<div class="fixed bottom-0 inset-x-0 z-50 md:hidden p-2.5 bg-surface/95 backdrop-blur-xl border-t border-primary/20 shadow-2xl flex items-center justify-between gap-2" style="padding-bottom: max(0.65rem, env(safe-area-inset-bottom, 0px));">
-  {% if negocio.telefono %}
-  <a href="tel:{{ negocio.telefono }}" class="flex-1 py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-label-caps font-bold flex items-center justify-center gap-1 border border-outline-variant/40 transition">
-    <span class="material-symbols-outlined text-[16px] text-primary">call</span>
-    <span>Llamar</span>
-  </a>
-  {% endif %}
-  <button onclick="abrirModalPresupuesto('Reserva de Mesa Móvil')" class="flex-[1.4] py-2.5 rounded-xl bg-primary hover:bg-secondary text-on-primary text-xs font-label-caps font-bold flex items-center justify-center gap-1.5 shadow-md transition cursor-pointer">
-    <span class="material-symbols-outlined text-[16px]">restaurant</span>
-    <span>Reservar Mesa</span>
-  </button>
-  <a href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" rel="noopener" class="w-10 h-10 rounded-xl bg-[#25D366] text-white flex items-center justify-center shrink-0 shadow-md">
-    <span class="material-symbols-outlined text-[19px]">chat</span>
-  </a>
-</div>
-
-<!-- ============================================================ -->
-<!-- MOBILE NAVIGATION DRAWER (ACCESIBLE & IPHONE SAFE-AREA AWARE) -->
-<!-- ============================================================ -->
-<div id="mobile-drawer" class="fixed inset-0 z-[100] pointer-events-none transition-opacity duration-300" aria-hidden="true">
-  <!-- Backdrop desenfocado -->
-  <div id="mobile-drawer-backdrop" onclick="closeMobileMenu()" class="absolute inset-0 bg-black/65 backdrop-blur-sm opacity-0 transition-opacity duration-300 pointer-events-none"></div>
-
-  <!-- Panel lateral deslizante con padding seguro para Dynamic Island -->
-  <div id="mobile-drawer-panel" class="absolute top-0 right-0 bottom-0 w-[310px] sm:w-[350px] max-w-[86vw] bg-surface border-l border-outline-variant/30 shadow-2xl flex flex-col justify-between overflow-y-auto translate-x-full transition-transform duration-300 ease-out pointer-events-auto"
-       style="padding-top: max(1.25rem, calc(0.75rem + var(--sat, env(safe-area-inset-top, 0px)))); padding-bottom: max(1.25rem, calc(0.75rem + var(--sab, env(safe-area-inset-bottom, 0px)))); padding-left: 1.25rem; padding-right: 1.25rem;">
-    
-    <div class="space-y-6">
-      <!-- Cabecera del Drawer -->
-      <div class="flex items-center justify-between pb-4 border-b border-outline-variant/30">
-        <div class="flex items-center gap-3 truncate">
-          <img src="{{ ig.avatar_url or 'https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=96&q=80' }}" alt="{{ negocio.nombre }}" class="w-10 h-10 rounded-full object-cover border border-primary/30 shrink-0"/>
-          <div class="flex flex-col truncate">
-            <span class="font-bold text-sm text-on-surface truncate">{{ negocio.nombre }}</span>
-            <span class="text-[11px] text-on-surface-variant truncate">{{ negocio.categoria_clean or negocio.ciudad }}</span>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {% for s in web.servicios or [] %}
+      <div class="rounded-3xl card-artisan overflow-hidden flex flex-col hover:border-orange-400/40 transition-all hover:-translate-y-1">
+        
+        <div class="aspect-[16/10] bg-[#2E2521] relative overflow-hidden">
+          {% if s.imagen %}
+          <img src="{{ s.imagen }}" alt="{{ s.nombre }}" class="w-full h-full object-cover"/>
+          {% else %}
+          <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-amber-950/40 to-[#1A1412] text-orange-400">
+            <span class="material-symbols-outlined text-4xl">restaurant_menu</span>
+          </div>
+          {% endif %}
+          <div class="absolute top-3 right-3 px-3 py-1 rounded-full bg-[#14100E]/85 backdrop-blur-md text-orange-300 text-xs font-bold border border-orange-400/20">
+            {{ s.precio_o_duracion or 'Consultar carta' }}
           </div>
         </div>
-        <button onclick="closeMobileMenu()" class="p-2 rounded-full hover:bg-surface-container-high transition text-on-surface flex items-center justify-center shrink-0" aria-label="Cerrar menú">
-          <span class="material-symbols-outlined text-[20px]">close</span>
-        </button>
-      </div>
 
-      <!-- Enlaces de navegación -->
-      <nav class="flex flex-col space-y-1">
-        
-        <a href="#filosofia" onclick="closeMobileMenu()" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl hover:bg-surface-container text-on-surface hover:text-primary transition-colors group">
-          <span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:scale-110">bakery_dining</span>
-          <span class="font-medium text-sm">Filosofía & Origen</span>
-        </a>
-        <a href="#carta" onclick="closeMobileMenu()" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl hover:bg-surface-container text-on-surface hover:text-primary transition-colors group">
-          <span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:scale-110">restaurant_menu</span>
-          <span class="font-medium text-sm">Carta Digital</span>
-        </a>
-        <a href="#comunidad" onclick="closeMobileMenu()" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl hover:bg-surface-container text-on-surface hover:text-primary transition-colors group">
-          <span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:scale-110">photo_camera</span>
-          <span class="font-medium text-sm">Comunidad & Fotos</span>
-        </a>
-        <a href="#ubicacion" onclick="closeMobileMenu()" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl hover:bg-surface-container text-on-surface hover:text-primary transition-colors group">
-          <span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:scale-110">storefront</span>
-          <span class="font-medium text-sm">Ubicación & Reservas</span>
-        </a>
-      </nav>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+          <div>
+            <h3 class="text-2xl font-serif font-bold text-white mb-2">{{ s.nombre }}</h3>
+            <p class="text-sm text-amber-100/70 leading-relaxed">{{ s.descripcion }}</p>
+          </div>
+
+          <ul class="space-y-2 text-xs text-amber-100/80 border-t border-white/5 pt-4">
+            <li class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-emerald-400 text-base">check_circle</span>
+              <span>Elaborado al momento en nuestra cocina</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-emerald-400 text-base">check_circle</span>
+              <span>Posibilidad de encargar para llevar</span>
+            </li>
+          </ul>
+
+          <a href="{{ negocio.whatsapp_url or '#contacto' }}" target="_blank" rel="noopener" class="w-full py-3 rounded-full bg-white/5 hover:bg-emerald-500 hover:text-white border border-orange-500/20 text-amber-100 font-semibold text-sm text-center flex items-center justify-center gap-2 transition-all group">
+            <span>Consultar o Pedir este Plato</span>
+            <span class="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </a>
+        </div>
+
+      </div>
+      {% endfor %}
     </div>
+  </section>
 
-    <!-- Botones de Acción / Contacto al pie del Drawer -->
-    <div class="space-y-3 pt-5 border-t border-outline-variant/30">
-      {% if negocio.whatsapp_url %}
-      <a href="{{ negocio.whatsapp_url }}" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-primary text-on-primary font-bold text-xs uppercase tracking-wider shadow-md transition-all">
-        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-        <span>Escribir por WhatsApp</span>
-      </a>
-      {% endif %}
-
-      {% if negocio.telefono %}
-      <a href="tel:{{ negocio.telefono }}" class="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-surface-container hover:bg-surface-container-high font-semibold text-xs transition-all">
-        <span class="material-symbols-outlined text-[16px]">call</span>
-        <span>Llamar {{ negocio.telefono }}</span>
-      </a>
-      {% endif %}
-
-      <div class="text-[11px] text-center text-on-surface-variant flex items-center justify-center gap-1 pt-1">
-        <span class="material-symbols-outlined text-[14px]">location_on</span>
-        <span class="truncate">{{ negocio.direccion or negocio.ciudad }}</span>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<script>
-  function toggleMobileMenu() {
-    const panel = document.getElementById('mobile-drawer-panel');
-    if (!panel) return;
-    if (panel.classList.contains('translate-x-full')) {
-      openMobileMenu();
-    } else {
-      closeMobileMenu();
-    }
-  }
-
-  function openMobileMenu() {
-    const drawer = document.getElementById('mobile-drawer');
-    const backdrop = document.getElementById('mobile-drawer-backdrop');
-    const panel = document.getElementById('mobile-drawer-panel');
-    const btn = document.getElementById('hamburger-btn');
-
-    if (!drawer || !backdrop || !panel) return;
-    drawer.classList.remove('pointer-events-none');
-    drawer.setAttribute('aria-hidden', 'false');
-    backdrop.classList.remove('opacity-0', 'pointer-events-none');
-    backdrop.classList.add('opacity-100');
-    panel.classList.remove('translate-x-full');
-    if (btn) btn.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeMobileMenu() {
-    const drawer = document.getElementById('mobile-drawer');
-    const backdrop = document.getElementById('mobile-drawer-backdrop');
-    const panel = document.getElementById('mobile-drawer-panel');
-    const btn = document.getElementById('hamburger-btn');
-
-    if (!drawer || !backdrop || !panel) return;
-    backdrop.classList.remove('opacity-100');
-    backdrop.classList.add('opacity-0', 'pointer-events-none');
-    panel.classList.add('translate-x-full');
-    drawer.classList.add('pointer-events-none');
-    drawer.setAttribute('aria-hidden', 'true');
-    if (btn) btn.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  }
-
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      closeMobileMenu();
-      cerrarLightbox();
-      cerrarModalPresupuesto();
-    }
-  });
-
-  // Lightbox
-  function abrirLightbox(imgUrl, caption) {
-    const modal = document.getElementById('lightbox-modal');
-    const img = document.getElementById('lightbox-img');
-    const cap = document.getElementById('lightbox-caption');
-    const waBtn = document.getElementById('lightbox-wa-btn');
-    if (!modal || !img) return;
-
-    img.src = imgUrl;
-    cap.textContent = caption || 'Trabajo exclusivo de {{ negocio.nombre }} en {{ negocio.ciudad }}';
-    
-    const waBase = '{{ negocio.whatsapp_url or ("https://wa.me/" ~ negocio.telefono) }}';
-    const cleanCap = (caption || 'vuestro trabajo artesanal').substring(0, 75);
-    const waMsg = encodeURIComponent('¡Hola equipo de {{ negocio.nombre }}! He visto este trabajo en vuestra web y me gustaría información o reservar: "' + cleanCap + '"');
-    
-    let targetUrl = waBase;
-    if (waBase.includes('wa.me') || waBase.includes('whatsapp.com')) {
-      const sep = waBase.includes('?') ? '&' : '?';
-      targetUrl = waBase + sep + 'text=' + waMsg;
-    }
-    waBtn.href = targetUrl;
-
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-    setTimeout(() => {
-      modal.classList.remove('opacity-0');
-      modal.classList.add('opacity-100');
-    }, 10);
-    document.body.style.overflow = 'hidden';
-  }
-
-  function cerrarLightbox(e) {
-    if (e && e.target && e.target.id !== 'lightbox-modal' && !e.target.closest('button')) return;
-    const modal = document.getElementById('lightbox-modal');
-    if (!modal) return;
-    modal.classList.remove('opacity-100');
-    modal.classList.add('opacity-0');
-    setTimeout(() => {
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-      document.body.style.overflow = '';
-    }, 200);
-  }
-
-  // Booking Modal
-  function abrirModalPresupuesto(servicioPreseleccionado) {
-    const modal = document.getElementById('booking-modal');
-    if (!modal) return;
-    if (servicioPreseleccionado) {
-      const sel = document.getElementById('modal-service-select');
-      if (sel) {
-        let found = false;
-        for (let opt of sel.options) {
-          if (opt.value.toLowerCase().includes(servicioPreseleccionado.toLowerCase())) {
-            sel.value = opt.value;
-            found = true;
-            break;
-          }
-        }
-        if (!found) {
-          sel.value = servicioPreseleccionado;
-        }
-      }
-    }
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-    setTimeout(() => {
-      modal.classList.remove('opacity-0');
-      modal.classList.add('opacity-100');
-    }, 10);
-    document.body.style.overflow = 'hidden';
-  }
-
-  function cerrarModalPresupuesto(e) {
-    if (e && e.target && e.target.id !== 'booking-modal' && !e.target.closest('button')) return;
-    const modal = document.getElementById('booking-modal');
-    if (!modal) return;
-    modal.classList.remove('opacity-100');
-    modal.classList.add('opacity-0');
-    setTimeout(() => {
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-      document.body.style.overflow = '';
-    }, 200);
-  }
-
-  function enviarFormularioPresupuesto(event, form) {
-    event.preventDefault();
-    const nombre = form.querySelector('[name="nombre"]')?.value || '';
-    const tel = form.querySelector('[name="telefono"]')?.value || '';
-    const serv = form.querySelector('[name="servicio"]')?.value || 'Consulta general';
-    const detalles = form.querySelector('[name="detalles"]')?.value || '';
-
-    const msg = encodeURIComponent(`¡Hola equipo de {{ negocio.nombre }}! Mi nombre es ${nombre} (tel: ${tel}). Me gustaría reservar cita para: *${serv}*. Notas: ${detalles || 'Sin notas adicionales'}.`);
-    const waBase = '{{ negocio.whatsapp_url or ("https://wa.me/" ~ negocio.telefono) }}';
-
-    let targetUrl = waBase;
-    if (waBase.includes('wa.me') || waBase.includes('whatsapp.com')) {
-      const sep = waBase.includes('?') ? '&' : '?';
-      targetUrl = waBase + sep + 'text=' + msg;
-    }
-
-    const feedback = document.getElementById('modal-feedback-msg');
-    if (feedback) feedback.classList.remove('hidden');
-
-    setTimeout(() => {
-      window.open(targetUrl, '_blank');
-      setTimeout(() => cerrarModalPresupuesto(), 1200);
-    }, 400);
-  }
-
-  // Interactive Table Booking Logic
-  let numComensales = 2;
-  let zonaMesa = 'Sala Interior';
-  let turnoMesa = 'Almuerzo (13:30 - 16:00)';
-
-  function actualizarReservaMesa() {
-    const slider = document.getElementById('sliderComensales');
-    const txt = document.getElementById('txtComensales');
-    const resTxt = document.getElementById('resumenComensales');
-    if (!slider) return;
-    numComensales = slider.value;
-    const personaLabel = numComensales == 1 ? '1 persona' : `${numComensales} personas`;
-    if (txt) txt.innerText = personaLabel;
-    if (resTxt) resTxt.innerText = `${numComensales} comensales`;
-  }
-
-  function cambiarZonaMesa(zona, btn) {
-    zonaMesa = zona;
-    document.querySelectorAll('.zona-btn').forEach(b => {
-      b.classList.remove('border-2', 'border-primary', 'bg-primary-container/20', 'text-on-surface', 'font-bold');
-      b.classList.add('border', 'border-primary-container/30', 'bg-surface-container', 'text-on-surface-variant', 'font-medium');
-    });
-    btn.classList.add('border-2', 'border-primary', 'bg-primary-container/20', 'text-on-surface', 'font-bold');
-    btn.classList.remove('text-on-surface-variant', 'font-medium');
-    const resZona = document.getElementById('resumenZona');
-    if (resZona) resZona.innerText = zona;
-  }
-
-  function cambiarTurnoMesa(turno, btn) {
-    turnoMesa = turno;
-    document.querySelectorAll('.turno-btn').forEach(b => {
-      b.classList.remove('border-2', 'border-primary', 'bg-primary-container/20', 'text-on-surface', 'font-bold');
-      b.classList.add('border', 'border-primary-container/30', 'bg-surface-container', 'text-on-surface-variant', 'font-medium');
-    });
-    btn.classList.add('border-2', 'border-primary', 'bg-primary-container/20', 'text-on-surface', 'font-bold');
-    btn.classList.remove('text-on-surface-variant', 'font-medium');
-    const resTurno = document.getElementById('resumenTurno');
-    if (resTurno) resTurno.innerText = turno;
-  }
-
-  function confirmarReservaMesaWhatsApp() {
-    const msg = encodeURIComponent(`¡Hola equipo de {{ negocio.nombre }}! Me gustaría reservar mesa para *${numComensales} comensales* en la zona *${zonaMesa}*, turno de *${turnoMesa}*. ¿Tenéis disponibilidad? ¡Gracias!`);
-    const waBase = '{{ negocio.whatsapp_url or ("https://wa.me/" ~ negocio.telefono) }}';
-    let targetUrl = waBase;
-    if (waBase.includes('wa.me') || waBase.includes('whatsapp.com')) {
-      const sep = waBase.includes('?') ? '&' : '?';
-      targetUrl = waBase + sep + 'text=' + msg;
-    }
-    window.open(targetUrl, '_blank');
-  }
-</script>
-
-<!-- ============================================================ -->
-<!-- LIGHTBOX MODAL (INTERACTIVE PORTFOLIO VIEWER) -->
-<!-- ============================================================ -->
-<div id="lightbox-modal" class="fixed inset-0 z-[110] bg-black/90 backdrop-blur-md hidden items-center justify-center p-4 transition-all duration-300 opacity-0" onclick="cerrarLightbox(event)">
-  <div class="relative max-w-2xl w-full bg-surface-container-lowest border border-outline-variant/30 rounded-3xl overflow-hidden shadow-2xl" onclick="event.stopPropagation()">
-    <button onclick="cerrarLightbox()" class="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-black/70 text-white flex items-center justify-center hover:bg-black/90 transition shadow-lg" aria-label="Cerrar">
-      <span class="material-symbols-outlined text-[20px]">close</span>
-    </button>
-    <div class="max-h-[65vh] overflow-hidden bg-black flex items-center justify-center">
-      <img id="lightbox-img" src="" alt="Detalle del trabajo" class="w-full h-full object-contain max-h-[65vh]" />
-    </div>
-    <div class="p-6 flex flex-col gap-3 bg-surface">
-      <div class="flex items-center gap-2 text-primary font-label-caps text-xs uppercase tracking-widest">
-        <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-        <span>TRABAJO ARTESANAL // {{ negocio.nombre|upper }}</span>
-      </div>
-      <p id="lightbox-caption" class="text-sm text-on-surface-variant font-body-sm max-h-24 overflow-y-auto leading-relaxed"></p>
-      <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-outline-variant/20">
-        <a id="lightbox-wa-btn" href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-on-primary font-label-md text-xs uppercase tracking-wider hover:bg-secondary transition shadow-md w-full sm:w-auto font-bold">
-          <span class="material-symbols-outlined text-[18px]">chat</span>
-          <span>Consultar por este producto en WhatsApp</span>
-        </a>
-        <button onclick="cerrarLightbox()" class="px-5 py-3 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface-variant text-xs uppercase font-semibold transition hidden sm:inline-block">Cerrar</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ============================================================ -->
-<!-- INTERACTIVE BOOKING / QUOTE MODAL (PEDIR CITA) -->
-<!-- ============================================================ -->
-<div id="booking-modal" class="fixed inset-0 z-[120] bg-black/80 backdrop-blur-md hidden items-center justify-center p-4 transition-all duration-300 opacity-0" onclick="cerrarModalPresupuesto(event)">
-  <div class="relative max-w-lg w-full bg-surface border border-outline-variant/30 rounded-3xl overflow-hidden shadow-2xl p-6 sm:p-8" onclick="event.stopPropagation()">
-    <button onclick="cerrarModalPresupuesto()" class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center hover:text-on-surface hover:bg-surface-container-high transition" aria-label="Cerrar">
-      <span class="material-symbols-outlined text-[18px]">close</span>
-    </button>
-    <div class="flex items-center gap-2 text-primary font-label-caps text-xs uppercase tracking-widest mb-1">
-      <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-      <span>ATENCIÓN DIRECTA // {{ negocio.ciudad|upper }}</span>
-    </div>
-    <h3 class="font-headline-sm text-2xl font-bold text-on-surface mb-2 tracking-tight">
-      Pedir Cita o Encargo
-    </h3>
-    <p class="font-body-sm text-xs text-on-surface-variant mb-5">
-      Completa tus datos y nos pondremos en contacto contigo de inmediato a través de WhatsApp sin compromiso.
-    </p>
-
-    <div id="modal-feedback-msg" class="hidden p-3.5 rounded-xl bg-emerald-950/80 border border-emerald-500/40 text-emerald-200 text-xs mb-4">
-      🥖 ¡Petición lista! Redirigiendo a WhatsApp...
-    </div>
-
-    <form class="flex flex-col gap-3.5" onsubmit="enviarFormularioPresupuesto(event, this)">
-      <div class="flex flex-col gap-1">
-        <label class="font-label-caps text-[11px] text-on-surface-variant uppercase font-semibold">Tu Nombre</label>
-        <input name="nombre" class="px-4 py-2.5 rounded-xl bg-surface-container-lowest border border-outline-variant/40 text-on-surface text-sm focus:outline-none focus:border-primary transition" placeholder="Nombre completo..." required type="text"/>
-      </div>
-      <div class="flex flex-col gap-1">
-        <label class="font-label-caps text-[11px] text-on-surface-variant uppercase font-semibold">Teléfono / WhatsApp</label>
-        <input name="telefono" class="px-4 py-2.5 rounded-xl bg-surface-container-lowest border border-outline-variant/40 text-on-surface text-sm focus:outline-none focus:border-primary transition" placeholder="{{ negocio.telefono or '+34 600 000 000' }}" required type="tel"/>
-      </div>
-      <div class="flex flex-col gap-1">
-        <label class="font-label-caps text-[11px] text-on-surface-variant uppercase font-semibold">Servicio o Encargo</label>
-        <select name="servicio" id="modal-service-select" class="px-4 py-2.5 rounded-xl bg-surface-container-lowest border border-outline-variant/40 text-on-surface text-sm focus:outline-none focus:border-primary transition">
-          <option value="Consulta General">Consulta General / Información</option>
-          {% for s in (web.servicios or []) %}
-          <option value="{{ s.nombre }}">{{ s.nombre }}</option>
-          {% endfor %}
-        </select>
-      </div>
-      <div class="flex flex-col gap-1">
-        <label class="font-label-caps text-[11px] text-on-surface-variant uppercase font-semibold">Observaciones o Fecha preferida</label>
-        <textarea name="detalles" class="px-4 py-2.5 rounded-xl bg-surface-container-lowest border border-outline-variant/40 text-on-surface text-sm focus:outline-none focus:border-primary transition resize-none" rows="2" placeholder="Ej: Reserva para 2 personas o encargo especial..."></textarea>
-      </div>
-      <div class="pt-2 flex flex-col sm:flex-row gap-2">
-        <button type="submit" class="flex-1 py-3 px-5 rounded-xl bg-primary hover:bg-secondary text-on-primary font-label-caps font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md transition">
-          <span class="material-symbols-outlined text-[18px]">send</span>
-          <span>Enviar Solicitud por WhatsApp</span>
-        </button>
-        {% if negocio.telefono %}
-        <a href="tel:{{ negocio.telefono }}" class="py-3 px-5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-semibold flex items-center justify-center gap-1.5 transition border border-outline-variant/30">
-          <span class="material-symbols-outlined text-[16px]">call</span>
-          <span>Llamar</span>
+  <!-- ==================== GALERÍA GASTRONÓMICA ==================== -->
+  <section id="galeria" class="py-20 bg-[#1B1513] border-t border-orange-500/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+        <div>
+          <span class="text-xs text-orange-400 font-bold uppercase tracking-wider block mb-2">Imágenes del Día a Día</span>
+          <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white">
+            Nuestros Platos y Espacio
+          </h2>
+        </div>
+        {% if negocio.instagram_url %}
+        <a href="{{ negocio.instagram_url }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-semibold text-amber-200 hover:text-orange-400 transition-colors">
+          <span>Síguenos en Instagram</span>
+          <span class="material-symbols-outlined text-base">open_in_new</span>
         </a>
         {% endif %}
       </div>
-    </form>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        {% for post in (ig.posts or [])[:8] %}
+        {% if post.image_url or post.imagen %}
+        <div class="group relative aspect-square rounded-2xl overflow-hidden bg-[#241D1A] border border-orange-500/20 cursor-pointer" onclick="openLightbox('{{ post.image_url or post.imagen }}')">
+          <img src="{{ post.image_url or post.imagen }}" alt="{{ post.caption or negocio.nombre }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+            <span class="material-symbols-outlined text-amber-200 text-xl">zoom_in</span>
+          </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== OPINIONES ==================== -->
+  <section id="opiniones" class="py-20 max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <div class="flex items-center justify-center gap-1 text-amber-400 mb-2">
+        ★★★★★
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white mb-3">
+        La Experiencia de Quienes Nos Visitan
+      </h2>
+      <p class="text-amber-100/70 text-base">
+        Cada bocado cuenta una historia y nuestros clientes lo confirman día a día.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <div class="p-6 sm:p-8 rounded-3xl card-artisan flex flex-col justify-between">
+        <div class="space-y-3">
+          <div class="flex text-amber-400 text-sm">★★★★★</div>
+          <p class="text-sm text-amber-100/80 italic leading-relaxed font-serif text-base">
+            «La comida es espectacular, casera y con un sabor auténtico que cuesta encontrar. El ambiente es súper acogedor y el servicio impecable.»
+          </p>
+        </div>
+        <div class="flex items-center gap-3 pt-6 border-t border-white/5 mt-4">
+          <div class="w-10 h-10 rounded-full bg-orange-500/20 text-orange-400 font-bold flex items-center justify-center text-sm">
+            SG
+          </div>
+          <div>
+            <span class="text-sm font-bold text-white block">Sergi Garcia</span>
+            <span class="text-xs text-amber-200/50">Cliente Verificado • Barcelona</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-6 sm:p-8 rounded-3xl card-artisan flex flex-col justify-between">
+        <div class="space-y-3">
+          <div class="flex text-amber-400 text-sm">★★★★★</div>
+          <p class="text-sm text-amber-100/80 italic leading-relaxed font-serif text-base">
+            «El café de especialidad y la repostería artesanal son de otro planeta. Es mi lugar favorito para desayunar o merendar tranquilo.»
+          </p>
+        </div>
+        <div class="flex items-center gap-3 pt-6 border-t border-white/5 mt-4">
+          <div class="w-10 h-10 rounded-full bg-amber-500/20 text-amber-300 font-bold flex items-center justify-center text-sm">
+            MV
+          </div>
+          <div>
+            <span class="text-sm font-bold text-white block">Marina Vidal</span>
+            <span class="text-xs text-amber-200/50">Cliente Habitual • Barcelona</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-6 sm:p-8 rounded-3xl card-artisan flex flex-col justify-between">
+        <div class="space-y-3">
+          <div class="flex text-amber-400 text-sm">★★★★★</div>
+          <p class="text-sm text-amber-100/80 italic leading-relaxed font-serif text-base">
+            «Reservamos mesa por WhatsApp y todo estuvo listo a nuestra llegada. Gran relación calidad-precio y trato inmejorable.»
+          </p>
+        </div>
+        <div class="flex items-center gap-3 pt-6 border-t border-white/5 mt-4">
+          <div class="w-10 h-10 rounded-full bg-rose-500/20 text-rose-300 font-bold flex items-center justify-center text-sm">
+            PA
+          </div>
+          <div>
+            <span class="text-sm font-bold text-white block">Pol Alarcón</span>
+            <span class="text-xs text-amber-200/50">Cliente Verificado • Barcelona</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== CONTACTO & HORARIOS ==================== -->
+  <section id="contacto" class="py-20 bg-[#1B1513] border-t border-orange-500/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-6 space-y-6">
+          <span class="text-xs text-orange-400 font-bold uppercase tracking-wider block">Te Esperamos</span>
+          <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white">
+            Ven a Conocernos en {{ negocio.ciudad }}
+          </h2>
+          <p class="text-amber-100/70 text-base leading-relaxed">
+            Puedes reservar tu mesa cómodamente por WhatsApp o llamarnos para pedidos o consultas especiales.
+          </p>
+
+          <div class="space-y-4 pt-2">
+            <div class="flex items-start gap-4 p-4 rounded-2xl card-artisan">
+              <div class="w-10 h-10 rounded-xl bg-orange-500/20 text-orange-400 flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined">location_on</span>
+              </div>
+              <div>
+                <span class="text-xs text-amber-200/60 block">Ubicación</span>
+                <span class="text-sm font-bold text-white">{{ negocio.direccion or ('Zona céntrica de ' ~ negocio.ciudad) }}</span>
+                <span class="text-xs text-amber-200/60 block">{{ negocio.codigo_postal }} {{ negocio.ciudad }}</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 rounded-2xl card-artisan">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined">schedule</span>
+              </div>
+              <div>
+                <span class="text-xs text-amber-200/60 block">Horario de Cocina</span>
+                <span class="text-sm font-bold text-white">Martes a Domingo: 09:00 – 23:30</span>
+                <span class="text-xs text-amber-200/60 block">Lunes: Descanso semanal</span>
+              </div>
+            </div>
+
+            {% if negocio.telefono %}
+            <div class="flex items-start gap-4 p-4 rounded-2xl card-artisan">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined">call</span>
+              </div>
+              <div>
+                <span class="text-xs text-amber-200/60 block">Teléfono de Reservas</span>
+                <a href="tel:{{ negocio.telefono }}" class="text-sm font-bold text-white hover:text-orange-400 transition-colors">
+                  {{ negocio.telefono }}
+                </a>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="lg:col-span-6">
+          <div class="p-8 rounded-3xl card-artisan text-center space-y-6">
+            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-orange-500 to-amber-600 flex items-center justify-center text-white mx-auto shadow-lg shadow-orange-950/40">
+              <span class="material-symbols-outlined text-3xl">table_bar</span>
+            </div>
+            <div>
+              <h3 class="text-2xl font-serif font-bold text-white mb-2">Reserva Tu Mesa Directamente</h3>
+              <p class="text-sm text-amber-100/70 max-w-md mx-auto">
+                Escríbenos con el número de comensales y la hora deseada. Te confirmamos al instante por WhatsApp.
+              </p>
+            </div>
+
+            <a href="{{ negocio.whatsapp_url or '#contacto' }}" target="_blank" rel="noopener" class="w-full py-4 rounded-full bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-bold text-base flex items-center justify-center gap-2 shadow-xl shadow-emerald-950/40 transition-all hover:scale-[1.02]">
+              <span class="material-symbols-outlined text-xl">chat</span>
+              <span>Reservar Mesa por WhatsApp</span>
+            </a>
+
+            <a href="https://www.google.com/maps/search/?api=1&query={{ ((negocio.nombre or '') ~ ' ' ~ (negocio.ciudad or ''))|urlencode }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-xs font-semibold text-amber-200/80 hover:text-orange-400 transition-colors">
+              <span class="material-symbols-outlined text-sm">directions</span>
+              <span>Cómo llegar en Google Maps</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="bg-[#0E0B0A] border-t border-orange-500/10 py-12 text-amber-200/60 text-xs">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="flex items-center gap-3">
+      {% if ig.avatar_url or ig.avatar %}
+      <img src="{{ ig.avatar_url or ig.avatar }}" alt="{{ negocio.nombre }}" class="w-6 h-6 rounded-full object-cover"/>
+      {% endif %}
+      <span class="font-serif font-bold text-white text-base">{{ negocio.nombre }}</span>
+      <span>• {{ negocio.ciudad }}</span>
+    </div>
+
+    <div class="flex flex-wrap gap-6 text-amber-200/60">
+      <a href="#inicio" class="hover:text-white transition-colors">Inicio</a>
+      <a href="#carta" class="hover:text-white transition-colors">Carta</a>
+      <a href="#galeria" class="hover:text-white transition-colors">Galería</a>
+      <a href="#contacto" class="hover:text-white transition-colors">Contacto</a>
+    </div>
+
+    <div>
+      <span>© {{ negocio.nombre }}. Elaboración Artesanal.</span>
+    </div>
   </div>
+</footer>
+
+<!-- ==================== BARRA MÓVIL INFERIOR FIJA ==================== -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#14100E]/95 backdrop-blur-lg border-t border-orange-500/20 px-4 py-3 flex items-center gap-3" style="padding-bottom: max(0.75rem, var(--sab, env(safe-area-inset-bottom, 0px)));">
+  <a href="{{ negocio.whatsapp_url or '#contacto' }}" target="_blank" rel="noopener" class="flex-1 py-3 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-lg">
+    <span class="material-symbols-outlined text-base">chat</span>
+    <span>Reservar por WhatsApp</span>
+  </a>
+  {% if negocio.telefono %}
+  <a href="tel:{{ negocio.telefono }}" class="px-4 py-3 rounded-full bg-white/10 text-amber-100 font-bold text-xs flex items-center justify-center gap-1">
+    <span class="material-symbols-outlined text-base">call</span>
+    <span>Llamar</span>
+  </a>
+  {% endif %}
 </div>
 
-</body></html>
+<!-- ==================== LIGHTBOX MODAL ==================== -->
+<div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl hidden flex items-center justify-center p-4" onclick="closeLightbox()">
+  <button class="absolute top-6 right-6 text-white/80 hover:text-white p-2 rounded-full bg-white/10" onclick="closeLightbox()">
+    <span class="material-symbols-outlined text-2xl">close</span>
+  </button>
+  <img id="lightbox-img" src="" alt="Vista ampliada" class="max-w-full max-h-[85vh] rounded-2xl object-contain shadow-2xl" onclick="event.stopPropagation()"/>
+</div>
+
+<script>
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const closeBtn = document.getElementById('close-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener('click', () => mobileMenu.classList.remove('hidden'));
+  }
+  if (closeBtn && mobileMenu) {
+    closeBtn.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+  }
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+  });
+
+  function openLightbox(url) {
+    const modal = document.getElementById('lightbox-modal');
+    const img = document.getElementById('lightbox-img');
+    if (modal && img) {
+      img.src = url;
+      modal.classList.remove('hidden');
+    }
+  }
+  function closeLightbox() {
+    const modal = document.getElementById('lightbox-modal');
+    if (modal) modal.classList.add('hidden');
+  }
+</script>
+
+</body>
+</html>

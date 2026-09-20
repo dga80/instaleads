@@ -5788,17 +5788,24 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sprint+Lavado+Barcelona",
     "gemini_verificado": true,
     "gemini_razon": "Comercio local independiente de lavado y estética vehicular en Barcelona, identificado en Instagram sin página web oficial activa.",
-    "mensaje_dm": "¡Hola! He estado viendo vuestro perfil de Instagram y el gran trabajo que hacéis con la estética y lavado de vehículos en Barcelona.\n\nMe he tomado la libertad de preparar una web demo interactiva utilizando el contenido de vuestra propia cuenta, pensada específicamente para potenciar vuestra imagen de marca y facilitar que los clientes os reserven o contacten directamente desde el móvil:\n\n👉 https://sprintlavado-demo.netlify.app\n*(Es un enlace 100% seguro para ver la propuesta en el navegador, sin descargas ni registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin ningún compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo!\n\nOs escribí hace un par de días y os compartí la web demo interactiva que preparé para Sprint Lavado: https://sprintlavado-demo.netlify.app\n\nOs la vuelvo a dejar por aquí por si no tuvisteis tiempo de echarle un vistazo desde el móvil.\n\n¿Os vendría bien que lo comentemos 2 minutos esta semana sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Sin Web",
-    "demo_slug": "",
-    "demo_url": "",
-    "demo_vibe": "",
+    "mensaje_dm": "¡Hola equipo de Sprint Lavado!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉 https://dga80.github.io/instaleads/sprint-lavado-barcelona/\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Sprint Lavado!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil: https://dga80.github.io/instaleads/sprint-lavado-barcelona/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Web Generada",
+    "demo_slug": "sprint-lavado-barcelona",
+    "demo_url": "https://dga80.github.io/instaleads/sprint-lavado-barcelona/",
+    "demo_vibe": "Urban Edge & Dark Tech (Tatuajes, Barberías, Talleres & Fitness)",
     "campana_id": "camp_1789934973",
     "campana_nombre": "Car Detailing · barcelona",
     "campana_ids": [
       "camp_1789934973"
-    ]
+    ],
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/sprint-lavado-barcelona/",
+    "demo_url_publica": "https://dga80.github.io/instaleads/sprint-lavado-barcelona/",
+    "demo_fecha_creacion": "20/09/2026 22:40",
+    "demo_fecha_ts": 1789936821,
+    "extraccion_fuente": "apify",
+    "extraccion_aviso": "",
+    "extraccion_exitosa": true
   },
   {
     "osm_id": "11343832479",

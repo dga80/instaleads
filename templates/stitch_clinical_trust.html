@@ -1,1498 +1,628 @@
 <!DOCTYPE html>
-
-<html lang="es"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link rel="icon" type="image/jpeg" href="{{ ig.avatar_url or 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=96&q=80' }}">
-<link href="https://fonts.googleapis.com\" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-primary-container": "#003751", "primary-fixed-dim": "#89ceff", "surface-container": "#e2efff", "tertiary-fixed": "#6ffbbe", "on-surface-variant": "#3e4850", "secondary": "#006399", "outline": "#6e7881", "on-background": "#001d32", "on-error": "#ffffff", "outline-variant": "#bec8d2", "surface-dim": "#bddeff", "error": "#ba1a1a", "on-error-container": "#93000a", "tertiary-container": "#00b17b", "inverse-on-surface": "#e7f2ff", "on-surface": "#001d32", "surface-variant": "#cde5ff", "surface-container-highest": "#cde5ff", "on-tertiary-container": "#003b26", "on-tertiary": "#ffffff", "on-secondary-fixed-variant": "#004b74", "surface-container-lowest": "#ffffff", "primary-fixed": "#c9e6ff", "tertiary-fixed-dim": "#4edea3", "on-primary-fixed-variant": "#004c6e", "secondary-fixed-dim": "#94ccff", "on-secondary-fixed": "#001d32", "on-tertiary-fixed-variant": "#005236", "on-primary-fixed": "#001e2f", "secondary-container": "#7bc2ff", "secondary-fixed": "#cde5ff", "on-secondary-container": "#004f7b", "surface-tint": "#006591", "on-tertiary-fixed": "#002113", "surface-bright": "#f7f9ff", "on-secondary": "#ffffff", "background": "#f7f9ff", "surface-container-high": "#d8eaff", "inverse-surface": "#0e334d", "primary": "{{ design.primary or '#006591' }}", "surface": "#f7f9ff", "error-container": "#ffdad6", "on-primary": "#ffffff", "primary-container": "{{ design.primary_container or design.color_seed or '#0ea5e9' }}", "inverse-primary": "#89ceff", "surface-container-low": "#edf4ff", "tertiary": "#006c49" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter-mobile": "1rem", "gutter": "1.5rem", "margin-mobile": "1.25rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "space-md": "1rem", "space-lg": "1.5rem", "space-xl": "2.5rem", "margin": "3rem" }, "fontFamily": { "headline-md": ["Plus Jakarta Sans"], "label-md": ["Inter"], "body-md": ["Inter"], "display": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "title-md": ["Plus Jakarta Sans"], "display-mobile": ["Plus Jakarta Sans"], "label-lg": ["Inter"], "title-lg": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "headline-lg-mobile": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "caption": ["Inter"] }, "fontSize": { "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }], "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "display": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.025em", "fontWeight": "700" }], "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "title-md": ["16px", { "lineHeight": "22px", "fontWeight": "600" }], "display-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "title-lg": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "headline-sm": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }], "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "caption": ["11px", { "lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "500" }] } } } };</script><style>
-  :root {
-    --sat: env(safe-area-inset-top, 0px);
-    --sab: env(safe-area-inset-bottom, 0px);
-  }
-  html {
-    scroll-behavior: smooth;
-    scroll-padding-top: calc(8.0rem + var(--sat, 0px));
-  }
-</style>
-<script>
-  (function() {
-    try {
-      var isIframe = window.self !== window.top;
-      var isSim = isIframe || /[?&]sim(=|&|$)/.test(window.location.search) || window.location.hash.indexOf('sim') !== -1;
-      if (isSim) {
-        document.documentElement.style.setProperty('--sat', '54px');
-        document.documentElement.style.setProperty('--sab', '20px');
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>{{ negocio.nombre }} | {{ negocio.categoria_clean or 'Clínica & Salud' }} en {{ negocio.ciudad }}</title>
+  <meta name="description" content="{{ web.subtitulo or (negocio.nombre ~ ' en ' ~ negocio.ciudad ~ '. Cita previa, cuadro médico y atención personalizada.') }}"/>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="{{ ig.avatar_url or ig.avatar or 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=96&q=80' }}"/>
+  
+  <!-- Tipografías Premium Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"/>
+  
+  <!-- Iconos Google Material Symbols -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              teal: '#0D9488',
+              cyan: '#0284C7',
+              navy: '#0B132B',
+              card: '#111D3E',
+              surface: '#172554',
+              border: 'rgba(14, 165, 233, 0.18)'
+            }
+          },
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            body: ['"Plus Jakarta Sans"', 'sans-serif']
+          }
+        }
       }
-    } catch(e) {}
-  })();
-</script>
-</head><body class="bg-background font-body-md text-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary"><header class="fixed top-0 left-0 w-full z-50 bg-surface/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));"><div class="w-full bg-surface-container-low"><div class="max-w-[1280px] mx-auto px-gutter h-10 flex items-center justify-between font-label-md text-label-md"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs text-on-surface"><span class="material-symbols-outlined text-primary text-[16px]">call</span><span class="font-semibold">Atención &amp; Citas:</span>{% if negocio.telefono %}<a class="text-primary hover:underline" href="tel:{{ negocio.telefono }}">{{ negocio.telefono }}</a>{% else %}<a class="text-primary hover:underline" href="{{ negocio.whatsapp_url }}" target="_blank">WhatsApp Directo</a>{% endif %}</div><div class="hidden md:flex items-center gap-space-xs text-on-surface-variant"><span class="material-symbols-outlined text-[16px]">location_on</span><a href="https://www.google.com/maps/search/?api=1&query={{ (negocio.nombre ~ ' ' ~ (negocio.direccion or negocio.ciudad))|urlencode }}" target="_blank" rel="noopener" class="hover:underline">{{ negocio.direccion or negocio.ciudad }}</a></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs"><span class="inline-block w-2 h-2 rounded-full bg-tertiary-container animate-pulse"></span><span class="text-on-surface font-medium">Atención en {{ negocio.ciudad }}</span></div></div></div></div><div class="max-w-[1280px] mx-auto px-gutter h-20 flex items-center justify-between gap-2 sm:gap-4 flex-nowrap"><div class="flex items-center gap-space-sm sm:gap-space-md min-w-0 shrink-0">{% if ig.avatar_url or ig.avatar %}<img alt="{{ negocio.nombre }}" class="h-9 w-9 rounded-full object-cover border border-primary/30 shrink-0" src="{{ ig.avatar_url or ig.avatar }}"/>{% else %}<div class="w-9 h-9 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold text-sm shrink-0">🏥</div>{% endif %}<span class="font-title-lg text-title-lg text-on-surface font-bold tracking-tight truncate max-w-[125px] xs:max-w-[160px] sm:max-w-xs md:max-w-none whitespace-nowrap">{{ negocio.nombre }}</span></div><nav class="hidden lg:flex items-center gap-1 xl:gap-space-xs whitespace-nowrap shrink-0" data-active-classes="bg-surface-container text-primary font-title-md">
-      <a class="px-space-sm xl:px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-md transition-colors whitespace-nowrap" href="#garantias">Garantías</a>
-      <a class="px-space-sm xl:px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-md transition-colors whitespace-nowrap" href="#servicios-clinicos">Especialidades</a>
-      <a class="px-space-sm xl:px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-md transition-colors whitespace-nowrap" href="#triaje-clinico">1ª Visita</a>
-      <a class="px-space-sm xl:px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-md transition-colors whitespace-nowrap" href="#faq">FAQ</a>
-      <a class="px-space-sm xl:px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-md transition-colors whitespace-nowrap" href="#cita-online">Contacto</a>
-    </nav><div class="flex items-center gap-1.5 sm:gap-space-md shrink-0"><button onclick="abrirModalPresupuesto('Cita Online')" class="hidden sm:inline-flex items-center gap-space-xs bg-primary-container text-on-primary hover:bg-primary px-3.5 lg:px-space-lg py-2 lg:py-space-sm rounded-xl font-label-lg text-xs lg:text-label-lg shadow-[0_4px_14px_rgba(14,165,233,0.35)] transition-all whitespace-nowrap shrink-0 cursor-pointer" data-path="pedir-cita"><span class="material-symbols-outlined text-[18px]">calendar_month</span><span>Pedir Cita Online</span></button><button onclick="abrirModalPresupuesto('Cita Móvil')" class="sm:hidden inline-flex items-center gap-1 bg-primary-container text-on-primary hover:bg-primary px-2.5 py-1.5 rounded-lg font-semibold text-xs shadow-sm transition-all whitespace-nowrap shrink-0 cursor-pointer"><span class="material-symbols-outlined text-[15px]">calendar_month</span><span>Pedir Cita</span></button><div class="hidden sm:flex w-8 h-8 rounded-full bg-primary items-center justify-center shrink-0">{% if ig.avatar_url or ig.avatar %}<img src="{{ ig.avatar_url or ig.avatar }}" alt="{{ negocio.nombre }}" class="w-full h-full object-cover rounded-full" />{% else %}<span class="material-symbols-outlined text-on-primary text-[18px]">person</span>{% endif %}</div>
-      <!-- Mobile Hamburger Button (On the RIGHT) -->
-      <button id="hamburger-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-xl text-primary hover:bg-surface-container transition flex items-center justify-center border border-outline/20 shrink-0 ml-1" aria-label="Abrir Menú" aria-expanded="false">
-        <span class="material-symbols-outlined text-[24px]">menu</span>
-      </button></div></div></header><main class="w-full bg-background min-h-screen" style="padding-top: calc(9rem + var(--sat, env(safe-area-inset-top, 0px)));"><div class="flex flex-col w-full">
-<!-- HERO SECTION -->
-<section class="relative w-full overflow-hidden bg-gradient-to-b from-surface-container-low via-background to-surface py-space-xl">
-<!-- Ambient glowing backdrop effect -->
-<div class="absolute top-0 right-1/4 w-96 h-96 rounded-full bg-secondary-container/20 blur-3xl pointer-events-none -z-0"></div>
-<div class="absolute bottom-10 left-10 w-72 h-72 rounded-full bg-tertiary-fixed/30 blur-2xl pointer-events-none -z-0"></div>
-<div class="max-w-[1280px] mx-auto px-gutter relative z-10">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
-<!-- Left Editorial Content (7 Cols) -->
-<div class="lg:col-span-7 flex flex-col gap-space-md">
-<!-- Trust Pill Badge -->
-<div class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container-lowest text-on-surface shadow-sm self-start">
-<span class="material-symbols-outlined text-primary text-[18px]">medical_services</span>
-<span class="font-label-md text-label-md font-semibold tracking-wide text-primary">1ª VALORACIÓN &amp; DIAGNÓSTICO DIGITAL DISPONIBLE</span>
-<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse ml-1"></span>
-</div>
-<!-- Headline -->
-<h1 class="font-display text-display text-on-surface leading-tight tracking-tight">
-  {{ web.titular or ('Cuidamos de tu salud y bienestar en ' ~ negocio.ciudad) }}
-</h1>
-<!-- Reassurance Copy -->
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
-  {{ web.subtitulo or ('Tratamientos especializados con protocolos de máxima calidad, empatía y equipamiento avanzado en ' ~ negocio.ciudad ~ '.') }}
-</p>
-<!-- CTAs -->
-<div class="flex flex-wrap items-center gap-space-md mt-space-sm">
-<a class="inline-flex items-center gap-space-xs bg-primary text-on-primary hover:bg-secondary px-space-xl py-space-md rounded-xl font-label-lg text-label-lg shadow-md transition-all" href="#cita-online">
-<span class="material-symbols-outlined text-[20px]">calendar_add_on</span>
-<span>Solicitar Primera Cita Informativa</span>
-</a>
-<a class="inline-flex items-center gap-space-xs bg-surface-container text-primary hover:bg-surface-container-high px-space-lg py-space-md rounded-xl font-label-lg text-label-lg transition-colors" href="#tecnologia-3d">
-<span class="material-symbols-outlined text-[20px]">view_in_ar</span>
-<span>Ver Tecnología 3D</span>
-</a>
-</div>
-<!-- Confidence Indicators Ribbon -->
-<div class="pt-space-md flex flex-wrap items-center gap-x-space-lg gap-y-space-xs font-label-md text-label-md text-on-surface-variant">
-<div class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-tertiary text-[18px]">verified</span>
-<span>Equipo Colegiado Oficial</span>
-</div>
-<span class="text-outline-variant">•</span>
-<div class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-tertiary text-[18px]">memory</span>
-<span>Instalaciones 100% Digitales</span>
-</div>
-<span class="text-outline-variant">•</span>
-<div class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-tertiary text-[18px]">star</span>
-<span class="font-semibold text-on-surface">4.9 / 5</span>
-<span>(740+ reseñas verificadas)</span>
-</div>
-</div>
-</div>
-<!-- Right Visual (5 Cols with overlays) -->
-<div class="lg:col-span-5 relative flex justify-center">
-<div class="relative w-full max-w-[480px] rounded-2xl overflow-hidden shadow-xl bg-surface-container-lowest">
-<img class="w-full h-[470px] object-cover object-center" alt="{{ web.hero_alt or negocio.nombre }}" src="{{ web.hero_image_url or (ig.posts[0].image_url if ig.posts and ig.posts[0].image_url else (ig.avatar_url or 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1000&auto=format&fit=crop&q=80')) }}"/>
-<!-- Gradient scrim -->
-<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/60 via-transparent to-transparent"></div>
-<!-- Floating Stat 1: 99.2% Sin molestias -->
-<div class="absolute top-space-md left-space-md bg-surface/95 backdrop-blur-md px-space-md py-space-xs rounded-xl shadow-md flex items-center gap-space-xs">
-<div class="w-8 h-8 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-container">
-<span class="material-symbols-outlined text-[18px]">sentiment_satisfied</span>
-</div>
-<div class="flex flex-col">
-<span class="font-title-md text-title-md text-on-surface font-bold">99.2%</span>
-<span class="font-caption text-caption text-on-surface-variant">Tratamientos sin molestias</span>
-</div>
-</div>
-<!-- Floating Stat 2: TAC 3D Baja Radiación -->
-<div class="absolute bottom-space-md right-space-md left-space-md bg-surface-container-lowest/95 backdrop-blur-md p-space-md rounded-xl shadow-lg flex items-center justify-between">
-<div class="flex items-center gap-space-sm">
-<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary">
-<span class="material-symbols-outlined text-[22px]">radiology</span>
-</div>
-<div>
-<h4 class="font-title-md text-title-md text-on-surface font-semibold">TAC Dental 3D HD</h4>
-<p class="font-caption text-caption text-on-surface-variant">87% menos radiación ionizante que TAC tradicional</p>
-</div>
-</div>
-<span class="material-symbols-outlined text-tertiary text-[20px]">check_circle</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- LAS 3 GARANTÍAS DEL PACIENTE -->
-<section class="w-full py-space-xl bg-surface-container-low scroll-mt-32" id="garantias">
-<div class="max-w-[1280px] mx-auto px-gutter">
-<!-- Section Header -->
-<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-xl gap-space-md">
-<div>
-<div class="inline-flex items-center gap-space-xs font-label-md text-label-md text-primary font-semibold mb-space-xs">
-<span class="material-symbols-outlined text-[16px]">verified_user</span>
-<span>COMPROMISO CLÍNICO SANNAMED</span>
-</div>
-<h2 class="font-headline-lg text-headline-lg text-on-surface">Las 3 Garantías del Paciente</h2>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
-          Atención estructurada en torno a la certidumbre, el bienestar neurosensorial y la transparencia económica.
-        </p>
-</div>
-<!-- 3 Columns of Cards -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
-<!-- Card 1 -->
-<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
-<div class="flex flex-col gap-space-md">
-<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary">
-<span class="material-symbols-outlined text-[28px]">biotech</span>
-</div>
-<div class="flex items-center gap-space-xs">
-<span class="font-label-md text-label-md uppercase tracking-wider text-primary font-semibold">Garantía 01</span>
-<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-<span class="font-caption text-caption text-on-surface-variant">Sin conjeturas</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Diagnóstico 3D Preciso</h3>
-<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-              Escáner intraoral 3D de alta velocidad y TAC tomográfico de haz cónico. Detectamos microfisuras y anomalías invisibles al ojo clínico tradicional antes de cualquier intervención.
-            </p>
-</div>
-<div class="pt-space-lg mt-space-md flex items-center gap-space-xs font-label-md text-label-md text-secondary font-semibold">
-<span class="material-symbols-outlined text-[16px]">fact_check</span>
-<span>Informe radiológico detallado incluido</span>
-</div>
-</div>
-<!-- Card 2 -->
-<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
-<div class="flex flex-col gap-space-md">
-<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-tertiary">
-<span class="material-symbols-outlined text-[28px]">spa</span>
-</div>
-<div class="flex items-center gap-space-xs">
-<span class="font-label-md text-label-md uppercase tracking-wider text-tertiary font-semibold">Garantía 02</span>
-<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
-<span class="font-caption text-caption text-on-surface-variant">Mínimamente invasivo</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Tratamiento sin Dolor</h3>
-<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-              Sistemas de anestesia computarizada indolora SleeperOne y sedación consciente monitorizada por médico anestesista colegiado para erradicar cualquier atisbo de ansiedad u odontofobia.
-            </p>
-</div>
-<div class="pt-space-lg mt-space-md flex items-center gap-space-xs font-label-md text-label-md text-tertiary font-semibold">
-<span class="material-symbols-outlined text-[16px]">check_circle</span>
-<span>Protocolo de Odontología Amable</span>
-</div>
-</div>
-<!-- Card 3 -->
-<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
-<div class="flex flex-col gap-space-md">
-<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary">
-<span class="material-symbols-outlined text-[28px]">credit_score</span>
-</div>
-<div class="flex items-center gap-space-xs">
-<span class="font-label-md text-label-md uppercase tracking-wider text-primary font-semibold">Garantía 03</span>
-<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-<span class="font-caption text-caption text-on-surface-variant">0% Intereses TAE</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Facilidades de Financiación</h3>
-<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-              Planes flexibles y a medida de hasta 36 meses sin intereses (0% TAE). Tramitación directa en la propia recepción de la clínica médica en 5 minutos, sin financieras externas abusivas.
-            </p>
-</div>
-<div class="pt-space-lg mt-space-md flex items-center gap-space-xs font-label-md text-label-md text-secondary font-semibold">
-<span class="material-symbols-outlined text-[16px]">payments</span>
-<span>Aprobación instantánea con DNI</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- TRATAMIENTOS & ESPECIALIDADES: BENTO GRID -->
-<section class="w-full py-space-xl bg-surface scroll-mt-32" id="especialidades">
-<div class="max-w-[1280px] mx-auto px-gutter">
-<!-- Bento Header -->
-<div class="flex flex-col items-center text-center max-w-3xl mx-auto mb-space-xl">
-<span class="inline-flex items-center gap-space-xs font-label-md text-label-md text-primary font-semibold tracking-wider uppercase mb-space-xs">
-<span class="material-symbols-outlined text-[16px]">clinical_notes</span>
-          Áreas Médicas de Vanguardia
-        </span>
-<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold">
-          Especialidades Odontológicas y Médicas Integradas
-        </h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant mt-space-xs">
-          Diagnósticos precisos en una única visita con aparatología de grado hospitalario y especialistas dedicados.
-        </p>
-</div>
-<!-- Bento Grid Layout -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg">
-<!-- Bento 1: Implantología Guiada 3D (Spans 2 columns on desktop) -->
-<div class="lg:col-span-2 bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-space-sm">
-<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary">
-<span class="material-symbols-outlined text-[24px]">precision_manufacturing</span>
-</div>
-<div>
-<span class="font-label-md text-label-md text-tertiary font-semibold uppercase">Técnica Estrella</span>
-<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Implantología Guiada 3D &amp; Carga Inmediata</h3>
-</div>
-</div>
-<span class="font-title-lg text-title-lg text-primary font-bold">Desde 690€</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant mt-space-md leading-relaxed">
-              Cirugía planificada por ordenador con férulas quirúrgicas milimétricas. Colocación de piezas fijas en 24 horas sin incisiones agresivas ni puntos de sutura dolorosos. Recuperación funcional y estética desde el primer día.
-            </p>
-<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm mt-space-md">
-<div class="bg-surface-container-low rounded-xl p-space-sm flex items-center gap-space-xs font-label-md text-label-md text-on-surface">
-<span class="material-symbols-outlined text-primary text-[18px]">task_alt</span>
-<span>Sin apertura de encía</span>
-</div>
-<div class="bg-surface-container-low rounded-xl p-space-sm flex items-center gap-space-xs font-label-md text-label-md text-on-surface">
-<span class="material-symbols-outlined text-primary text-[18px]">schedule</span>
-<span>Dientes fijos en 24h</span>
-</div>
-<div class="bg-surface-container-low rounded-xl p-space-sm flex items-center gap-space-xs font-label-md text-label-md text-on-surface">
-<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
-<span>Titanio Grado Médico V</span>
-</div>
-</div>
-</div>
-<div class="mt-space-lg pt-space-md flex items-center justify-between">
-<span class="font-body-sm text-body-sm text-on-surface-variant">Estudio tomográfico y férula de guiado incluidos.</span>
-<a class="inline-flex items-center gap-space-xs text-primary font-title-md text-title-md hover:text-secondary font-semibold" href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" rel="noopener\">
-<span>Más información</span>
-<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-</a>
-</div>
-</div>
-<!-- Bento 2: Ortodoncia Invisible & Digital -->
-<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between">
-<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary">
-<span class="material-symbols-outlined text-[24px]">view_in_ar</span>
-</div>
-<span class="font-title-lg text-title-lg text-primary font-bold">Desde 59€<span class="font-caption text-caption text-on-surface-variant font-normal">/mes</span></span>
-</div>
-<h3 class="font-title-lg text-title-lg text-on-surface font-bold mt-space-md">Ortodoncia Invisible Digital</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
-              Alineadores transparentes biomecánicos. Visualiza en 3D la evolución de tu sonrisa y el resultado final antes de colocar el primer alineador.
-            </p>
-<ul class="mt-space-md flex flex-col gap-space-xs font-label-md text-label-md text-on-surface-variant">
-<li class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
-<span>Planificación 3D ClinCheck®</span>
-</li>
-<li class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
-<span>Removible y 100% discreto</span>
-</li>
-<li class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
-<span>Revisiones presenciales o telemáticas</span>
-</li>
-</ul>
-</div>
-<div class="mt-space-lg pt-space-md flex items-center justify-between">
-<span class="font-caption text-caption text-on-surface-variant">Clínica Diamond Apex</span>
-<a class="inline-flex items-center gap-space-xs text-primary font-label-lg text-label-lg hover:text-secondary font-semibold" href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" rel="noopener\">
-<span>Más información</span>
-<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-</a>
-</div>
-</div>
-<!-- Bento 3: Odontología General & Prevención -->
-<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between">
-<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary">
-<span class="material-symbols-outlined text-[24px]">dentistry</span>
-</div>
-<span class="font-title-lg text-title-lg text-primary font-bold">Desde 45€</span>
-</div>
-<h3 class="font-title-lg text-title-lg text-on-surface font-bold mt-space-md">Odontología General &amp; Higiene</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
-              Mantenimiento preventivo, obturaciones estéticas de composite cerámico, profilaxis mediante ultrasonidos y curetajes periodontales indoloros.
-            </p>
-<ul class="mt-space-md flex flex-col gap-space-xs font-label-md text-label-md text-on-surface-variant">
-<li class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
-<span>Limpieza por flujo de aire caliente</span>
-</li>
-<li class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
-<span>Tratamiento de encías (Periodoncia)</span>
-</li>
-<li class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
-<span>Sellado y fluoración profiláctica</span>
-</li>
-</ul>
-</div>
-<div class="mt-space-lg pt-space-md flex items-center justify-between">
-<span class="font-caption text-caption text-on-surface-variant">Protocolo Air-Flow EMS®</span>
-<a class="inline-flex items-center gap-space-xs text-primary font-label-lg text-label-lg hover:text-secondary font-semibold" href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" rel="noopener\">
-<span>Más información</span>
-<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-</a>
-</div>
-</div>
-<!-- Bento 4: Estética Dental & Carillas de Porcelana -->
-<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between">
-<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary">
-<span class="material-symbols-outlined text-[24px]">auto_awesome</span>
-</div>
-<span class="font-label-md text-label-md px-space-sm py-space-xs rounded-full bg-surface-container text-primary font-semibold">DSD Design</span>
-</div>
-<h3 class="font-title-lg text-title-lg text-on-surface font-bold mt-space-md">Estética Dental &amp; Carillas</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
-              Diseño de Sonrisa Digital (DSD) con carillas ultrafinas de disilicato de litio o composite inyectado sin tallado dental agresivo. Mock-up previo en boca.
-            </p>
-<ul class="mt-space-md flex flex-col gap-space-xs font-label-md text-label-md text-on-surface-variant">
-<li class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
-<span>Prueba física en resina sin tallar</span>
-</li>
-<li class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
-<span>Blanqueamiento Philips Zoom LED</span>
-</li>
-<li class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
-<span>Biocompatibilidad total</span>
-</li>
-</ul>
-</div>
-<div class="mt-space-lg pt-space-md flex items-center justify-between">
-<span class="font-caption text-caption text-on-surface-variant">Garantía estética 5 años</span>
-<a class="inline-flex items-center gap-space-xs text-primary font-label-lg text-label-lg hover:text-secondary font-semibold" href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" rel="noopener\">
-<span>Más información</span>
-<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-</a>
-</div>
-</div>
-<!-- Bento 5: Fisioterapia & ATM Temporomandibular -->
-<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between">
-<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary">
-<span class="material-symbols-outlined text-[24px]">neurology</span>
-</div>
-<span class="font-label-md text-label-md px-space-sm py-space-xs rounded-full bg-tertiary-fixed text-on-tertiary-container font-semibold">Salud Integral</span>
-</div>
-<h3 class="font-title-lg text-title-lg text-on-surface font-bold mt-space-md">ATM, Bruxismo y Fisioterapia</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
-              Tratamiento integral de la articulación temporomandibular. Alivio inmediato del rechinamiento dental, dolor cervical, cefaleas tensionales y chasquidos al masticar.
-            </p>
-<ul class="mt-space-md flex flex-col gap-space-xs font-label-md text-label-md text-on-surface-variant">
-<li class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
-<span>Férulas de descarga Michigan 3D</span>
-</li>
-<li class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
-<span>Fisioterapia orofacial en clínica</span>
-</li>
-<li class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-tertiary text-[16px]">check</span>
-<span>Terapia de neuromodulación</span>
-</li>
-</ul>
-</div>
-<div class="mt-space-lg pt-space-md flex items-center justify-between">
-<span class="font-caption text-caption text-on-surface-variant">Colaboración interdisciplinar</span>
-<a class="inline-flex items-center gap-space-xs text-primary font-label-lg text-label-lg hover:text-secondary font-semibold" href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" rel="noopener\">
-<span>Más información</span>
-<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-</a>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- TECNOLOGÍA 3D & EQUIPAMIENTO VANGUARDISTA -->
-<section class="w-full py-space-xl bg-surface-container-low scroll-mt-32" id="tecnologia-3d">
-<div class="max-w-[1280px] mx-auto px-gutter">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
-<!-- Left Data & Features (6 Cols) -->
-<div class="lg:col-span-6 flex flex-col gap-space-md">
-<div class="inline-flex items-center gap-space-xs font-label-md text-label-md text-primary font-semibold">
-<span class="material-symbols-outlined text-[18px]">tune</span>
-<span>DIAGNÓSTICO DIGITAL POR IMAGEN</span>
-</div>
-<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold leading-tight">
-            Cirugías Virtuales &amp; Planificación Milimétrica
-          </h2>
-<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-            Eliminamos por completo las pastas de impresión incómodas que provocan náuseas. Mediante tecnología de barrido óptico digital tomamos una réplica de tu boca en solo 45 segundos con resolución microscópica.
-          </p>
-<!-- Precision Metrics -->
-<div class="grid grid-cols-2 gap-space-md pt-space-sm">
-<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm">
-<span class="font-display-mobile text-display-mobile text-primary font-bold">12 µm</span>
-<p class="font-label-md text-label-md text-on-surface-variant font-medium mt-space-xs">Nivel de precisión óptica en escaneo 3D</p>
-</div>
-<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm">
-<span class="font-display-mobile text-display-mobile text-tertiary font-bold">0 Seg</span>
-<p class="font-label-md text-label-md text-on-surface-variant font-medium mt-space-xs">Tiempos de espera por moldes convencionales</p>
-</div>
-</div>
-<div class="flex items-center gap-space-md pt-space-sm">
-<div class="flex items-center gap-space-xs text-on-surface font-label-lg text-label-lg">
-<span class="material-symbols-outlined text-tertiary text-[20px]">check_circle</span>
-<span>Visualización simultánea en pantalla paciente</span>
-</div>
-</div>
-</div>
-<!-- Right Diagnostic Visual (6 Cols) -->
-<div class="lg:col-span-6">
-<div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-md">
-<div class="relative rounded-xl overflow-hidden mb-space-md">
-<img class="w-full h-72 object-cover" alt="Tecnología e Instalaciones {{ negocio.nombre }}" src="{{ (ig.posts[1].image_url if (ig.posts or [])|length > 1 and ig.posts[1].image_url else 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&auto=format&fit=crop&q=80') }}"/>
-<div class="absolute top-space-sm right-space-sm bg-inverse-surface/85 text-inverse-on-surface px-space-sm py-space-xs rounded-lg font-caption text-caption">
-                Simulación en tiempo real (CAD/CAM)
-              </div>
-</div>
-<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
-<span class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
-<span>iTero Element 5D Plus + CBCT Planmeca</span>
-</span>
-<span class="font-label-md text-label-md text-tertiary font-semibold">Calibración Semanal ISO</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- EQUIPO MÉDICO & CUALIFICACIÓN OFICIAL -->
-<section class="w-full py-space-xl bg-surface scroll-mt-32" id="equipo-medico">
-<div class="max-w-[1280px] mx-auto px-gutter">
-<!-- Section Intro -->
-<div class="text-center max-w-3xl mx-auto mb-space-xl">
-<span class="inline-flex items-center gap-space-xs font-label-md text-label-md text-primary font-semibold tracking-wider uppercase mb-space-xs">
-<span class="material-symbols-outlined text-[16px]">groups</span>
-          Especialistas Colegiados
-        </span>
-<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold">
-          Nuestro Cuadro Facultativo
-        </h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant mt-space-xs">
-          Cada paciente es tratado por cirujanos, ortodoncistas y médicos con dedicación exclusiva en su especialidad y formación continua en centros hospitalarios internacionales.
-        </p>
-</div>
-<!-- Doctor Cards Grid -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
-<!-- Doctor 1: Dra. Elena Ruiz -->
-<div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col">
-<div class="relative w-full h-64 rounded-xl overflow-hidden mb-space-md">
-<img class="w-full h-full object-cover object-top" alt="Especialista {{ negocio.nombre }}" src="{{ (ig.posts[2].image_url if (ig.posts or [])|length > 2 and ig.posts[2].image_url else 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&auto=format&fit=crop&q=80') }}"/>
-<div class="absolute top-space-sm left-space-sm bg-surface/90 backdrop-blur-sm px-space-sm py-space-xs rounded-full flex items-center gap-space-xs font-caption text-caption text-on-surface font-semibold shadow-sm">
-<span class="material-symbols-outlined text-tertiary text-[14px]">verified</span>
-<span>15+ años exp.</span>
-</div>
-</div>
-<div class="flex flex-col flex-1 justify-between">
-<div>
-<div class="flex items-center justify-between">
-<span class="font-label-md text-label-md text-primary font-semibold">Directora Médica</span>
-<span class="font-caption text-caption text-on-surface-variant">Col. 28004521</span>
-</div>
-<h3 class="font-title-lg text-title-lg text-on-surface font-bold mt-space-xs">Dra. Elena Ruiz Santos</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
-                Especialista en Cirugía Oral, Implantología Guiada y Regeneración Tisular. Máster en Cirugía Bucal e Implantes por la Universidad Complutense de Madrid.
-              </p>
-</div>
-<div class="pt-space-md mt-space-md bg-surface-container-low p-space-sm rounded-xl flex items-center justify-between">
-<span class="font-caption text-caption text-on-surface-variant">Miembro Activo SECIB / SEPA</span>
-<span class="material-symbols-outlined text-primary text-[18px]">medical_information</span>
-</div>
-</div>
-</div>
-<!-- Doctor 2: Dr. Carlos Méndez -->
-<div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col">
-<div class="relative w-full h-64 rounded-xl overflow-hidden mb-space-md">
-<img class="w-full h-full object-cover object-top" alt="Especialista {{ negocio.nombre }}" src="{{ (ig.posts[3].image_url if (ig.posts or [])|length > 3 and ig.posts[3].image_url else 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600&auto=format&fit=crop&q=80') }}"/>
-<div class="absolute top-space-sm left-space-sm bg-surface/90 backdrop-blur-sm px-space-sm py-space-xs rounded-full flex items-center gap-space-xs font-caption text-caption text-on-surface font-semibold shadow-sm">
-<span class="material-symbols-outlined text-tertiary text-[14px]">verified</span>
-<span>Diamond Apex</span>
-</div>
-</div>
-<div class="flex flex-col flex-1 justify-between">
-<div>
-<div class="flex items-center justify-between">
-<span class="font-label-md text-label-md text-primary font-semibold">Coord. Ortodoncia Digital</span>
-<span class="font-caption text-caption text-on-surface-variant">Col. 28005912</span>
-</div>
-<h3 class="font-title-lg text-title-lg text-on-surface font-bold mt-space-xs">Dr. Carlos Méndez Alarcón</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
-                Especialista en Alineación Invisible y Estética Facial. Certificación Internacional Invisalign Diamond Apex (Top 1% de casos clínicos resueltos en Europa).
-              </p>
-</div>
-<div class="pt-space-md mt-space-md bg-surface-container-low p-space-sm rounded-xl flex items-center justify-between">
-<span class="font-caption text-caption text-on-surface-variant">Profesor Colaborador SEDO</span>
-<span class="material-symbols-outlined text-primary text-[18px]">medical_information</span>
-</div>
-</div>
-</div>
-<!-- Doctor 3: Dra. Laura Valls -->
-<div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col">
-<div class="relative w-full h-64 rounded-xl overflow-hidden mb-space-md">
-<img class="w-full h-full object-cover object-top" alt="Especialista {{ negocio.nombre }}" src="{{ (ig.posts[4].image_url if (ig.posts or [])|length > 4 and ig.posts[4].image_url else 'https://images.unsplash.com/photo-1594824813590-482869974246?w=600&auto=format&fit=crop&q=80') }}"/>
-<div class="absolute top-space-sm left-space-sm bg-surface/90 backdrop-blur-sm px-space-sm py-space-xs rounded-full flex items-center gap-space-xs font-caption text-caption text-on-surface font-semibold shadow-sm">
-<span class="material-symbols-outlined text-tertiary text-[14px]">verified</span>
-<span>Protocolo Antiansiedad</span>
-</div>
-</div>
-<div class="flex flex-col flex-1 justify-between">
-<div>
-<div class="flex items-center justify-between">
-<span class="font-label-md text-label-md text-primary font-semibold">Odontopediatría &amp; Fobia</span>
-<span class="font-caption text-caption text-on-surface-variant">Col. 28006341</span>
-</div>
-<h3 class="font-title-lg text-title-lg text-on-surface font-bold mt-space-xs">Dra. Laura Valls Ortiz</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
-                Especialista en atención a pacientes con odontofobia, sedación por óxido nitroso y odontopediatría preventiva. Experta en manejo emocional clínico infantil y adulto.
-              </p>
-</div>
-<div class="pt-space-md mt-space-md bg-surface-container-low p-space-sm rounded-xl flex items-center justify-between">
-<span class="font-caption text-caption text-on-surface-variant">Sociedad Española Odontopediatría</span>
-<span class="material-symbols-outlined text-primary text-[18px]">medical_information</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Registration Banner Ribbon -->
-<div class="mt-space-xl p-space-md rounded-2xl bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-md text-center sm:text-left">
-<div class="flex items-center gap-space-sm">
-<div class="w-10 h-10 rounded-full bg-surface-container-lowest flex items-center justify-center text-tertiary shadow-sm">
-<span class="material-symbols-outlined text-[22px]">policy</span>
-</div>
-<div>
-<span class="font-title-md text-title-md text-on-surface font-bold">Centro Sanitario Autorizado por la Consejería de Sanidad</span>
-<p class="font-caption text-caption text-on-surface-variant">Número de Registro Oficial: CS-10492/24 • Cumplimiento exhaustivo de esterilización y bioseguridad UNE 179001</p>
-</div>
-</div>
-<div class="inline-flex items-center gap-space-xs text-primary font-label-md text-label-md font-semibold">
-<span class="material-symbols-outlined text-[16px]">verified</span>
-<span>Inspección Sanitaria Superada 2024</span>
-</div>
-</div>
-</div>
-</section>
-{% if ig.posts %}
-<!-- GALERÍA REAL DE INSTAGRAM (CASOS CLÍNICOS, INSTALACIONES Y TRABAJOS REALES) -->
-<section class="w-full py-space-xl bg-surface scroll-mt-32" id="galeria-clinica">
-  <div class="max-w-[1280px] mx-auto px-gutter">
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-space-xl gap-space-md">
-      <div>
-        <div class="inline-flex items-center gap-space-xs font-label-md text-label-md text-primary font-semibold uppercase mb-space-xs">
-          <span class="material-symbols-outlined text-[18px]">photo_camera</span>
-          <span>Día a Día en Nuestra Clínica</span>
-        </div>
-        <h2 class="font-headline-lg text-headline-lg text-on-surface font-bold">Casos Clínicos &amp; Resultados Reales</h2>
-        <p class="font-body-md text-body-md text-on-surface-variant max-w-xl mt-1">
-          Publicaciones recientes extraídas directamente de nuestro perfil oficial de Instagram.
-        </p>
+    };
+  </script>
+  
+  <style>
+    :root {
+      --sat: env(safe-area-inset-top, 0px);
+      --sab: env(safe-area-inset-bottom, 0px);
+    }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(4.5rem + var(--sat, 0px));
+    }
+    body {
+      background-color: #080D1A;
+      color: #F0F6FC;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overscroll-behavior-y: none;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #080D1A;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1E293B;
+      border-radius: 9999px;
+    }
+    .card-clinical {
+      background: rgba(17, 29, 62, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(14, 165, 233, 0.18);
+    }
+  </style>
+  
+  <script>
+    (function() {
+      try {
+        var isIframe = window.self !== window.top;
+        var isSim = isIframe || /[?&]sim(=|&|$)/.test(window.location.search) || window.location.hash.indexOf('sim') !== -1;
+        if (isSim) {
+          document.documentElement.style.setProperty('--sat', '54px');
+          document.documentElement.style.setProperty('--sab', '20px');
+        }
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+<!-- ==================== HEADER PRINCIPAL ==================== -->
+<header class="sticky top-0 z-50 w-full bg-[#080D1A]/90 backdrop-blur-md border-b border-sky-500/15" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between gap-4">
+    
+    <!-- Identidad de Marca -->
+    <a href="#inicio" class="flex items-center gap-3 shrink-0 group">
+      {% if ig.avatar_url or ig.avatar %}
+      <div class="w-10 h-10 rounded-xl overflow-hidden border border-sky-400/30 group-hover:border-sky-400 transition-colors shadow-md shrink-0">
+        <img src="{{ ig.avatar_url or ig.avatar }}" alt="{{ negocio.nombre }}" class="w-full h-full object-cover"/>
       </div>
-      <a class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-primary font-semibold text-xs border border-primary/20 transition-all shadow-sm shrink-0" href="{{ negocio.instagram_url or ('https://instagram.com/' ~ ig.username) }}" target="_blank" rel="noopener">
-        <span class="material-symbols-outlined text-[16px]">open_in_new</span>
-        <span>@{{ ig.username }} en Instagram</span>
+      {% else %}
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-teal-600 flex items-center justify-center text-white font-display font-bold text-lg shadow-lg shrink-0">
+        {{ ((negocio.nombre or 'CL')[:2])|upper }}
+      </div>
+      {% endif %}
+      <div class="flex flex-col">
+        <span class="font-display font-bold text-base sm:text-lg text-white tracking-tight leading-tight group-hover:text-sky-300 transition-colors truncate max-w-[160px] sm:max-w-[220px] md:max-w-none">
+          {{ negocio.nombre }}
+        </span>
+        <span class="text-xs text-sky-400 font-medium flex items-center gap-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          Centro Sanitario • Registro Colegiado
+        </span>
+      </div>
+    </a>
+
+    <!-- Navegación Desktop -->
+    <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-300">
+      <a href="#especialidades" class="hover:text-white transition-colors">Especialidades</a>
+      <a href="#garantias" class="hover:text-white transition-colors">Garantías & Tecnología</a>
+      <a href="#instalaciones" class="hover:text-white transition-colors">Instalaciones</a>
+      <a href="#opiniones" class="hover:text-white transition-colors">Pacientes</a>
+      <a href="#contacto" class="hover:text-white transition-colors">Ubicación & Cita</a>
+    </nav>
+
+    <!-- CTAs Header -->
+    <div class="flex items-center gap-3 shrink-0">
+      {% if negocio.telefono %}
+      <a href="tel:{{ negocio.telefono }}" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-sky-500/20 text-xs font-semibold text-sky-200 transition-colors">
+        <span class="material-symbols-outlined text-sm text-sky-400">call</span>
+        <span>{{ negocio.telefono }}</span>
       </a>
+      {% endif %}
+
+      <a href="{{ negocio.whatsapp_url or '#contacto' }}" target="_blank" rel="noopener" class="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-semibold text-xs sm:text-sm shadow-md shadow-emerald-950/40 transition-all hover:scale-[1.02] shrink-0">
+        <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        <span>Pedir Cita</span>
+      </a>
+
+      <!-- Botón Menú Móvil -->
+      <button id="mobile-menu-btn" type="button" class="lg:hidden p-2 rounded-xl bg-white/5 border border-sky-500/20 text-sky-200 hover:text-white transition-colors" aria-label="Abrir menú">
+        <span class="material-symbols-outlined text-2xl">menu</span>
+      </button>
     </div>
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-space-md">
-      {% for post in (ig.posts or [])[:8] %}
-      <div class="group relative rounded-2xl overflow-hidden aspect-[4/5] bg-surface-container-low border border-primary/10 shadow-sm hover:shadow-md cursor-pointer transition-all" onclick="abrirLightbox('{{ post.image_url }}', '{{ (post.caption or negocio.nombre)|replace('\'', '\\\'')|replace('\"', '&quot;') }}')">
-        <img alt="{{ post.caption[:40] if post.caption else negocio.nombre }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" src="{{ post.image_url }}" loading="lazy" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 sm:p-4">
-          <span class="font-label-md text-[10px] text-primary-fixed uppercase tracking-wider">Publicación Real • Ver Detalle</span>
-          <p class="text-white font-medium text-xs line-clamp-2 mt-1">{{ post.caption or negocio.nombre }}</p>
+
+  </div>
+</header>
+
+<!-- Menú Desplegable Móvil -->
+<div id="mobile-menu" class="hidden lg:hidden fixed inset-0 z-50 bg-[#080D1A]/95 backdrop-blur-xl flex flex-col p-6 space-y-6 pt-24 border-b border-sky-500/20">
+  <button id="close-menu-btn" class="absolute top-6 right-6 p-2 rounded-xl bg-white/5 text-slate-300 hover:text-white" aria-label="Cerrar menú">
+    <span class="material-symbols-outlined text-2xl">close</span>
+  </button>
+  <nav class="flex flex-col gap-4 text-lg font-semibold text-slate-200">
+    <a href="#especialidades" class="mobile-nav-link py-2 border-b border-white/5 hover:text-sky-400">Especialidades</a>
+    <a href="#garantias" class="mobile-nav-link py-2 border-b border-white/5 hover:text-sky-400">Garantías & Tecnología</a>
+    <a href="#instalaciones" class="mobile-nav-link py-2 border-b border-white/5 hover:text-sky-400">Instalaciones</a>
+    <a href="#opiniones" class="mobile-nav-link py-2 border-b border-white/5 hover:text-sky-400">Pacientes</a>
+    <a href="#contacto" class="mobile-nav-link py-2 hover:text-sky-400">Ubicación & Cita</a>
+  </nav>
+  <div class="pt-6 mt-auto flex flex-col gap-3">
+    <a href="{{ negocio.whatsapp_url or '#contacto' }}" class="w-full py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-center flex items-center justify-center gap-2 shadow-lg">
+      <span class="material-symbols-outlined">chat</span>
+      <span>Pedir Cita por WhatsApp</span>
+    </a>
+    {% if negocio.telefono %}
+    <a href="tel:{{ negocio.telefono }}" class="w-full py-3.5 rounded-xl bg-white/10 text-slate-200 font-semibold text-center flex items-center justify-center gap-2">
+      <span class="material-symbols-outlined">call</span>
+      <span>Llamar {{ negocio.telefono }}</span>
+    </a>
+    {% endif %}
+  </div>
+</div>
+
+<main class="flex-1">
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section id="inicio" class="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-28 border-b border-sky-500/10">
+    <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-sky-500/10 blur-[130px] pointer-events-none rounded-full"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Copy Hero -->
+        <div class="lg:col-span-7 flex flex-col space-y-6 text-center lg:text-left">
+          
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/25 text-xs font-semibold text-sky-300 mx-auto lg:mx-0 w-fit">
+            <span class="text-amber-400">★★★★★</span>
+            <span class="font-bold text-white">4.9/5</span>
+            <span class="text-sky-200/70">• Pacientes Satisfechos en {{ negocio.ciudad }}</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight leading-[1.1] text-white">
+            {{ web.titular or (negocio.nombre ~ ': Tu Salud en las Mejores Manos.') }}
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            {{ web.subtitulo or ('Atención médica y clínica especializada en ' ~ negocio.ciudad ~ '. Diagnóstico digital avanzado, cuadro facultativo colegiado y un trato cercano y transparente.') }}
+          </p>
+
+          <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <a href="{{ negocio.whatsapp_url or '#contacto' }}" target="_blank" rel="noopener" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-semibold text-base shadow-xl shadow-emerald-950/40 flex items-center justify-center gap-2.5 transition-all hover:scale-[1.02]">
+              <span class="material-symbols-outlined text-xl">calendar_today</span>
+              <span>Solicitar Primera Consulta</span>
+            </a>
+
+            <a href="#especialidades" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-white/5 hover:bg-white/10 border border-sky-500/20 text-sky-200 hover:text-white font-semibold text-base transition-all flex items-center justify-center gap-2">
+              <span>Ver Especialidades</span>
+              <span class="material-symbols-outlined text-lg">arrow_forward</span>
+            </a>
+          </div>
+
+          <!-- Micro Garantías -->
+          <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-6 text-xs text-sky-200/60 font-medium">
+            <span class="flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-sky-400 text-base">verified</span>
+              Equipo médico colegiado
+            </span>
+            <span class="flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-emerald-400 text-base">biotech</span>
+              Diagnóstico 3D digital
+            </span>
+            <span class="flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-amber-400 text-base">payments</span>
+              Financiación a medida disponible
+            </span>
+          </div>
+
         </div>
+
+        <!-- Imagen Hero Clínica -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            <div class="relative rounded-3xl overflow-hidden border border-sky-400/25 bg-gradient-to-b from-sky-400/15 to-transparent p-2 shadow-2xl shadow-sky-950/50">
+              <div class="rounded-2xl overflow-hidden aspect-[4/5] bg-[#111D3E] relative">
+                {% if ig.posts and ig.posts[0] and (ig.posts[0].image_url or ig.posts[0].imagen) %}
+                <img src="{{ ig.posts[0].image_url or ig.posts[0].imagen }}" alt="{{ negocio.nombre }}" class="w-full h-full object-cover"/>
+                {% else %}
+                <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80" alt="Clínica y Salud" class="w-full h-full object-cover"/>
+                {% endif %}
+                <div class="absolute inset-0 bg-gradient-to-t from-[#080D1A] via-transparent to-transparent opacity-80"></div>
+                
+                <div class="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-[#080D1A]/85 backdrop-blur-md border border-sky-500/20 flex items-center justify-between">
+                  <div>
+                    <span class="text-xs text-sky-300 font-bold tracking-wider uppercase block">Atención Personalizada</span>
+                    <span class="text-sm font-bold text-white">{{ negocio.nombre }}</span>
+                  </div>
+                  <span class="px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-semibold border border-emerald-500/30">
+                    Cita Previa
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== GARANTÍAS CLÍNICAS (4 PILARES) ==================== -->
+  <section id="garantias" class="py-12 bg-[#0C1428] border-b border-sky-500/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="p-6 rounded-2xl card-clinical">
+          <div class="w-12 h-12 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-2xl">medical_services</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white mb-1">Médicos Colegiados</h3>
+          <p class="text-sm text-slate-300">Facultativos acreditados con formación continua y trayectoria en centros de referencia.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl card-clinical">
+          <div class="w-12 h-12 rounded-xl bg-teal-500/20 text-teal-400 flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-2xl">devices</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white mb-1">Tecnología 3D</h3>
+          <p class="text-sm text-slate-300">Diagnóstico por imagen digital de alta definición para tratamientos menos invasivos.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl card-clinical">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-2xl">fact_check</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white mb-1">Primera Valoración</h3>
+          <p class="text-sm text-slate-300">Estudio inicial completo con presupuesto cerrado y opciones terapéuticas detalladas.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl card-clinical">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-2xl">credit_card</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white mb-1">Financiación Flexible</h3>
+          <p class="text-sm text-slate-300">Facilidades de pago sin intereses para que tu salud sea siempre tu máxima prioridad.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ESPECIALIDADES ==================== -->
+  <section id="especialidades" class="py-20 max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-xs text-sky-400 font-bold uppercase tracking-wider block mb-2">Cuadro Facultativo</span>
+      <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mb-4">
+        Especialidades Médicas y Tratamientos
+      </h2>
+      <p class="text-slate-300 text-base sm:text-lg">
+        Procedimientos avanzados adaptados a cada paciente con el rigor y la cercanía que mereces.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {% for s in web.servicios or [] %}
+      <div class="rounded-2xl card-clinical overflow-hidden flex flex-col hover:border-sky-400/40 transition-all hover:-translate-y-1">
+        
+        <div class="aspect-[16/10] bg-[#14234C] relative overflow-hidden">
+          {% if s.imagen %}
+          <img src="{{ s.imagen }}" alt="{{ s.nombre }}" class="w-full h-full object-cover"/>
+          {% else %}
+          <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-sky-900/40 to-[#0F172A] text-sky-300">
+            <span class="material-symbols-outlined text-4xl">healing</span>
+          </div>
+          {% endif %}
+          <div class="absolute top-3 right-3 px-3 py-1 rounded-full bg-[#080D1A]/85 backdrop-blur-md text-sky-300 text-xs font-bold border border-sky-400/20">
+            {{ s.precio_o_duracion or 'Consultar valoración' }}
+          </div>
+        </div>
+
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+          <div>
+            <h3 class="text-xl font-display font-bold text-white mb-2">{{ s.nombre }}</h3>
+            <p class="text-sm text-slate-300 leading-relaxed">{{ s.descripcion }}</p>
+          </div>
+
+          <ul class="space-y-2 text-xs text-slate-300 border-t border-white/5 pt-4">
+            <li class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-emerald-400 text-base">check_circle</span>
+              <span>Evaluación clínica individualizada</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-emerald-400 text-base">check_circle</span>
+              <span>Seguimiento post-tratamiento incluido</span>
+            </li>
+          </ul>
+
+          <a href="{{ negocio.whatsapp_url or '#contacto' }}" target="_blank" rel="noopener" class="w-full py-3 rounded-xl bg-white/5 hover:bg-emerald-500 hover:text-white border border-sky-500/20 text-sky-200 font-semibold text-sm text-center flex items-center justify-center gap-2 transition-all group">
+            <span>Consultar Cita para este Servicio</span>
+            <span class="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </a>
+        </div>
+
       </div>
       {% endfor %}
     </div>
-  </div>
-</section>
-{% endif %}
-<!-- ============================================================ -->
-<!-- GUÍA INTERACTIVA DE 1ª VISITA & TRIAJE CLÍNICO DIGITAL -->
-<!-- ============================================================ -->
-<section class="w-full py-space-xl bg-surface scroll-mt-32 border-y border-outline-variant/30" id="triaje-clinico">
-  <div class="max-w-[1280px] mx-auto px-gutter">
-    <div class="flex flex-col items-center text-center max-w-2xl mx-auto mb-space-lg">
-      <span class="inline-flex items-center gap-space-xs font-label-md text-label-md text-primary font-semibold tracking-wider uppercase mb-space-xs">
-        <span class="material-symbols-outlined text-[16px]">stethoscope</span>
-        Orientación Previa al Paciente
-      </span>
-      <h2 class="font-headline-lg text-headline-lg text-on-surface font-bold">
-        Guía de 1ª Visita & Triaje Diagnóstico
-      </h2>
-      <p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
-        Selecciona tu motivo de consulta para conocer el protocolo médico preventivo, tiempos de sesión y qué incluye tu valoración en {{ negocio.nombre }}.
-      </p>
-    </div>
+  </section>
 
-    <!-- Triage Selection Pills -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-space-sm max-w-4xl mx-auto mb-space-lg">
-      <button type="button" onclick="seleccionarTriajeClinica('revision', this)" class="triaje-btn active flex flex-col items-center text-center p-4 rounded-2xl border-2 border-primary bg-primary/5 transition-all text-on-surface hover:shadow-md cursor-pointer">
-        <span class="material-symbols-outlined text-primary text-[28px] mb-2">biotech</span>
-        <span class="font-title-md text-sm font-bold">Revisión 3D</span>
-        <span class="font-caption text-[11px] text-on-surface-variant">Diagnóstico General</span>
-      </button>
-
-      <button type="button" onclick="seleccionarTriajeClinica('urgencia', this)" class="triaje-btn flex flex-col items-center text-center p-4 rounded-2xl border-2 border-outline-variant/50 bg-surface-container-lowest transition-all text-on-surface hover:border-primary/50 hover:shadow-md cursor-pointer">
-        <span class="material-symbols-outlined text-red-500 text-[28px] mb-2">emergency</span>
-        <span class="font-title-md text-sm font-bold">Molestia o Urgencia</span>
-        <span class="font-caption text-[11px] text-on-surface-variant">Atención Mismo Día</span>
-      </button>
-
-      <button type="button" onclick="seleccionarTriajeClinica('implantes', this)" class="triaje-btn flex flex-col items-center text-center p-4 rounded-2xl border-2 border-outline-variant/50 bg-surface-container-lowest transition-all text-on-surface hover:border-primary/50 hover:shadow-md cursor-pointer">
-        <span class="material-symbols-outlined text-secondary text-[28px] mb-2">precision_manufacturing</span>
-        <span class="font-title-md text-sm font-bold">Implantes Dentales</span>
-        <span class="font-caption text-[11px] text-on-surface-variant">Cirugía Guiada 3D</span>
-      </button>
-
-      <button type="button" onclick="seleccionarTriajeClinica('estetica', this)" class="triaje-btn flex flex-col items-center text-center p-4 rounded-2xl border-2 border-outline-variant/50 bg-surface-container-lowest transition-all text-on-surface hover:border-primary/50 hover:shadow-md cursor-pointer">
-        <span class="material-symbols-outlined text-tertiary text-[28px] mb-2">sentiment_very_satisfied</span>
-        <span class="font-title-md text-sm font-bold">Alineación / Estética</span>
-        <span class="font-caption text-[11px] text-on-surface-variant">Sonrisa & Blanqueamiento</span>
-      </button>
-    </div>
-
-    <!-- Triage Dynamic Card -->
-    <div id="triaje-resultado" class="max-w-3xl mx-auto bg-surface-container-lowest rounded-2xl p-6 sm:p-8 border border-primary/20 shadow-lg">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-surface-container-high">
+  <!-- ==================== INSTALACIONES / GALERÍA ==================== -->
+  <section id="instalaciones" class="py-20 bg-[#0C1428] border-t border-sky-500/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
         <div>
-          <span id="triaje-tag" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary font-label-md text-xs font-semibold mb-2">
-            <span class="material-symbols-outlined text-[15px]">verified</span>
-            Protocolo 1ª Consulta Diagnóstica
-          </span>
-          <h3 id="triaje-titulo" class="font-headline-sm text-xl font-bold text-on-surface">Revisión Preventiva & Escáner Digital 3D</h3>
+          <span class="text-xs text-sky-400 font-bold uppercase tracking-wider block mb-2">Instalaciones & Equipo</span>
+          <h2 class="text-3xl sm:text-4xl font-display font-bold text-white">
+            Espacios Diseñados para Tu Confort
+          </h2>
         </div>
-        <div class="flex items-center gap-3 sm:text-right shrink-0">
-          <div class="bg-surface-container-low px-4 py-2 rounded-xl text-center">
-            <span class="font-caption text-[11px] text-on-surface-variant block">Tiempo estimado</span>
-            <span id="triaje-duracion" class="font-title-md text-sm font-bold text-primary">~35 min</span>
-          </div>
-          <div class="bg-surface-container-low px-4 py-2 rounded-xl text-center">
-            <span class="font-caption text-[11px] text-on-surface-variant block">Disponibilidad</span>
-            <span id="triaje-disponibilidad" class="font-title-md text-sm font-bold text-emerald-600">24-48 horas</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="py-5">
-        <p id="triaje-descripcion" class="font-body-md text-on-surface-variant text-sm leading-relaxed mb-4">
-          Exploración bucodental completa con escáner intraoral 3D sin pastas incómodas y radiografía digital panorámica de baja radiación. Detectamos caries incipientes, salud gingival y problemas oclusales con entrega de informe médico claro.
-        </p>
-
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" id="triaje-ventajas">
-          <div class="p-3 rounded-xl bg-surface-container-low flex items-center gap-2">
-            <span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
-            <span class="font-label-md text-xs text-on-surface font-medium">TAC 3D / RX Panorámica</span>
-          </div>
-          <div class="p-3 rounded-xl bg-surface-container-low flex items-center gap-2">
-            <span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
-            <span class="font-label-md text-xs text-on-surface font-medium">Informe Médico Escrito</span>
-          </div>
-          <div class="p-3 rounded-xl bg-surface-container-low flex items-center gap-2">
-            <span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
-            <span class="font-label-md text-xs text-on-surface font-medium">Sin Compromiso</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="pt-5 border-t border-surface-container-high flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div class="flex items-center gap-2 text-on-surface-variant text-xs">
-          <span class="material-symbols-outlined text-tertiary text-[18px]">verified_user</span>
-          <span>Atención colegiada y personalizada en {{ negocio.ciudad }}</span>
-        </div>
-        <div class="flex items-center gap-3 w-full sm:w-auto">
-          <button type="button" onclick="solicitarCitaTriaje()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-on-primary font-bold text-xs uppercase tracking-wider shadow-md hover:bg-secondary transition cursor-pointer">
-            <span class="material-symbols-outlined text-[18px]">calendar_month</span>
-            <span id="triaje-cta-text">Reservar Esta Consulta</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- OPINIONES VERIFICADAS DE PACIENTES -->
-<section class="w-full py-space-xl bg-surface-container-low scroll-mt-32" id="opiniones">
-<div class="max-w-[1280px] mx-auto px-gutter">
-<!-- Testimonials Header -->
-<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-xl gap-space-md">
-<div>
-<span class="inline-flex items-center gap-space-xs font-label-md text-label-md text-primary font-semibold uppercase mb-space-xs">
-<span class="material-symbols-outlined text-[16px]">rate_review</span>
-            Experiencias Reales
-          </span>
-<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold">Opiniones Verificadas de Pacientes</h2>
-</div>
-<div class="flex items-center gap-space-sm bg-surface-container-lowest px-space-md py-space-sm rounded-xl shadow-sm">
-<div class="flex text-tertiary">
-<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
-</div>
-<span class="font-title-md text-title-md text-on-surface font-bold">4.9/5</span>
-<span class="font-caption text-caption text-on-surface-variant">en Google Reviews</span>
-</div>
-</div>
-<!-- Testimonial Cards -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
-<!-- Review 1 -->
-<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-space-md">
-<div class="flex text-tertiary">
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-</div>
-<span class="font-caption text-caption text-on-surface-variant">Hace 2 semanas</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface italic leading-relaxed">
-              "Venía con pánico al dentista desde niña y el trato de la Dra. Elena fue exquisito. Cero dolor en los implantes y máxima tranquilidad durante toda la sesión. No vuelvo a pisar otra clínica."
-            </p>
-</div>
-<div class="pt-space-lg mt-space-md flex items-center justify-between">
-<div>
-<span class="font-title-md text-title-md text-on-surface font-bold block">María José R.</span>
-<span class="font-caption text-caption text-primary font-medium">Implantes guiados 3D</span>
-</div>
-<span class="inline-flex items-center gap-space-xs font-caption text-caption text-tertiary bg-tertiary-fixed/30 px-space-sm py-space-xs rounded-full font-semibold">
-<span class="material-symbols-outlined text-[14px]">verified</span>
-<span>Paciente Verificado</span>
-</span>
-</div>
-</div>
-<!-- Review 2 -->
-<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-space-md">
-<div class="flex text-tertiary">
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-</div>
-<span class="font-caption text-caption text-on-surface-variant">Hace 1 mes</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface italic leading-relaxed">
-              "La simulación 3D que me enseñó el Dr. Carlos me convenció y el resultado superó lo prometido. En solo 8 meses mi sonrisa es perfecta y nadie notaba que llevaba alineadores en el trabajo."
-            </p>
-</div>
-<div class="pt-space-lg mt-space-md flex items-center justify-between">
-<div>
-<span class="font-title-md text-title-md text-on-surface font-bold block">David G.</span>
-<span class="font-caption text-caption text-primary font-medium">Ortodoncia Invisible</span>
-</div>
-<span class="inline-flex items-center gap-space-xs font-caption text-caption text-tertiary bg-tertiary-fixed/30 px-space-sm py-space-xs rounded-full font-semibold">
-<span class="material-symbols-outlined text-[14px]">verified</span>
-<span>Paciente Verificado</span>
-</span>
-</div>
-</div>
-<!-- Review 3 -->
-<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-space-md">
-<div class="flex text-tertiary">
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-</div>
-<span class="font-caption text-caption text-on-surface-variant">Hace 3 semanas</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface italic leading-relaxed">
-              "Financiación directa sin sorpresas ni letra pequeña desde la misma recepción. Son profesionales médicos de verdad con vocación, no una franquicia fría comercial. Recomiendo al 100%."
-            </p>
-</div>
-<div class="pt-space-lg mt-space-md flex items-center justify-between">
-<div>
-<span class="font-title-md text-title-md text-on-surface font-bold block">Carmen P.</span>
-<span class="font-caption text-caption text-primary font-medium">Rehabilitación Completa</span>
-</div>
-<span class="inline-flex items-center gap-space-xs font-caption text-caption text-tertiary bg-tertiary-fixed/30 px-space-sm py-space-xs rounded-full font-semibold">
-<span class="material-symbols-outlined text-[14px]">verified</span>
-<span>Paciente Verificado</span>
-</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- INTERACTIVE APPOINTMENT BOOKING BANNER -->
-<section class="w-full py-space-xl bg-surface scroll-mt-32" id="cita-online">
-<div class="max-w-[1280px] mx-auto px-gutter">
-<div class="relative bg-inverse-surface text-inverse-on-surface rounded-2xl p-space-xl overflow-hidden shadow-xl">
-<!-- Decorative subtle background glow -->
-<div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-primary/20 blur-3xl pointer-events-none"></div>
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl relative z-10 items-center">
-<!-- Left Text Details (5 Cols) -->
-<div class="lg:col-span-5 flex flex-col gap-space-md">
-<div class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-on-tertiary-container/60 text-tertiary-fixed text-label-md font-semibold self-start">
-<span class="w-2 h-2 rounded-full bg-tertiary-fixed animate-pulse"></span>
-<span>Agenda Médica en Vivo</span>
-</div>
-<h2 class="font-headline-lg text-headline-lg font-bold text-inverse-on-surface">
-              Agenda tu cita en menos de 1 minuto
-            </h2>
-<p class="font-body-md text-body-md text-outline-variant leading-relaxed">
-              Selecciona especialidad, día preferente y franja horaria. Te contactamos al instante para confirmar tu cita y enviarte el recordatorio a tu móvil sin ningún compromiso.
-            </p>
-<div class="flex flex-col gap-space-xs pt-space-sm font-body-sm text-body-sm text-outline-variant">
-<div class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-tertiary-fixed text-[18px]">done</span>
-<span>Primera consulta diagnóstica &amp; radiografía digital incluidas</span>
-</div>
-<div class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-tertiary-fixed text-[18px]">done</span>
-<span>Plan de tratamiento claro y cerrado por escrito</span>
-</div>
-</div>
-</div>
-<!-- Right Booking Panel (7 Cols) -->
-<div class="lg:col-span-7 bg-surface-container-lowest text-on-surface rounded-2xl p-space-xl shadow-lg">
-<form class="flex flex-col gap-space-md" id="booking-form" onsubmit="enviarFormularioCita(event, this)">
-<!-- Select Specialty & Doctor -->
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
-<div class="flex flex-col gap-space-xs">
-<label class="font-label-md text-label-md text-on-surface-variant font-semibold">Tratamiento o Especialidad</label>
-<select name="servicio" class="h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary">
-<option value="1ª Consulta de Valoración General">1ª Consulta de Valoración General</option>
-{% for s in (web.servicios or []) %}
-<option value="{{ s.nombre }}">{{ s.nombre }}</option>
-{% endfor %}
-</select>
-</div>
-<div class="flex flex-col gap-space-xs">
-<label class="font-label-md text-label-md text-on-surface-variant font-semibold">Fecha Preferente</label>
-<input name="fecha" class="h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary" type="date"/>
-</div>
-</div>
-<!-- Time Slot Interactive Selection -->
-<div class="flex flex-col gap-space-xs">
-<label class="font-label-md text-label-md text-on-surface-variant font-semibold">Horarios Disponibles para Hoy / Mañana</label>
-<input type="hidden" name="horario" id="selected-slot" value="09:30 h" />
-<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs" id="slot-container">
-<button class="slot-btn py-space-xs px-space-sm rounded-lg bg-primary text-on-primary font-label-md text-label-md text-center transition-colors" onclick="selectSlot(this, '09:30 h')" type="button">09:30 h</button>
-<button class="slot-btn py-space-xs px-space-sm rounded-lg bg-surface-container text-primary font-label-md text-label-md text-center hover:bg-primary-container hover:text-on-primary transition-colors" onclick="selectSlot(this, '11:15 h')" type="button">11:15 h</button>
-<button class="slot-btn py-space-xs px-space-sm rounded-lg bg-surface-container text-primary font-label-md text-label-md text-center hover:bg-primary-container hover:text-on-primary transition-colors" onclick="selectSlot(this, '16:00 h')" type="button">16:00 h</button>
-<button class="slot-btn py-space-xs px-space-sm rounded-lg bg-surface-container text-primary font-label-md text-label-md text-center hover:bg-primary-container hover:text-on-primary transition-colors" onclick="selectSlot(this, '18:45 h')" type="button">18:45 h</button>
-</div>
-</div>
-<!-- Contact Inputs -->
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
-<div class="flex flex-col gap-space-xs">
-<label class="font-label-md text-label-md text-on-surface-variant font-semibold">Nombre y Apellidos</label>
-<input name="nombre" class="h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Tu nombre completo..." required="" type="text"/>
-</div>
-<div class="flex flex-col gap-space-xs">
-<label class="font-label-md text-label-md text-on-surface-variant font-semibold">Teléfono Móvil (WhatsApp)</label>
-<input name="telefono" class="h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary" placeholder="{{ negocio.telefono or '+34 600 000 000' }}" required="" type="tel"/>
-</div>
-</div>
-<!-- Submit Action Button -->
-<div class="pt-space-xs flex flex-col gap-2">
-<button class="w-full min-h-[3rem] py-3.5 px-4 bg-primary text-on-primary hover:bg-secondary rounded-xl font-title-md text-sm sm:text-base font-semibold flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer text-center leading-snug" type="submit">
-<span class="material-symbols-outlined text-[20px] shrink-0">send</span>
-<span>Confirmar Cita por WhatsApp</span>
-</button>
-<span class="font-caption text-caption text-on-surface-variant text-center mt-1">Protección de datos garantizada según el Reglamento Sanitario RGPD.</span>
-</div>
-<!-- Instant Feedback Confirmation Message -->
-<div class="hidden p-space-md bg-emerald-900/30 border border-emerald-500/40 rounded-xl flex items-center gap-space-sm text-emerald-700" id="booking-confirmation">
-<span class="material-symbols-outlined text-emerald-600 text-[24px]">task_alt</span>
-<div>
-<h4 class="font-title-md text-title-md font-bold text-on-surface">¡Solicitud preparada correctamente!</h4>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Conectando con el canal de WhatsApp para confirmar tu cita...</p>
-</div>
-</div>
-</form>
-</div>
-</div>
-</div>
-</div>
-</section>
-</div>
-<script>
-  function selectSlot(el, slotTime) {
-    document.querySelectorAll('.slot-btn').forEach(function(btn) {
-      btn.classList.remove('bg-primary', 'text-on-primary');
-      btn.classList.add('bg-surface-container', 'text-primary');
-    });
-    el.classList.remove('bg-surface-container', 'text-primary');
-    el.classList.add('bg-primary', 'text-on-primary');
-    const hiddenInput = document.getElementById('selected-slot');
-    if (hiddenInput) hiddenInput.value = slotTime;
-  }
-
-  function enviarFormularioCita(event, form) {
-    event.preventDefault();
-    const nombre = form.querySelector('[name="nombre"]')?.value || '';
-    const tel = form.querySelector('[name="telefono"]')?.value || '';
-    const serv = form.querySelector('[name="servicio"]')?.value || 'Valoración General';
-    const fecha = form.querySelector('[name="fecha"]')?.value || 'Lo antes posible';
-    const hora = document.getElementById('selected-slot')?.value || 'A convenir';
-
-    const msg = encodeURIComponent(`¡Hola equipo de {{ negocio.nombre }}! Mi nombre es ${nombre} (tel: ${tel}). Quisiera solicitar cita para: *${serv}*. Fecha deseada: ${fecha} en franja ${hora}.`);
-    const waBase = '{{ negocio.whatsapp_url or ("https://wa.me/" ~ negocio.telefono) }}';
-
-    let targetUrl = waBase;
-    if (waBase.includes('wa.me') || waBase.includes('whatsapp.com')) {
-      const sep = waBase.includes('?') ? '&' : '?';
-      targetUrl = waBase + sep + 'text=' + msg;
-    }
-
-    const conf = document.getElementById('booking-confirmation');
-    if (conf) conf.classList.remove('hidden');
-
-    setTimeout(() => {
-      window.open(targetUrl, '_blank');
-    }, 400);
-  }
-</script>
-
-<!-- ============================================================ -->
-<!-- PREGUNTAS FRECUENTES (FAQ CLÍNICO) -->
-<!-- ============================================================ -->
-<section class="w-full py-space-xl bg-surface-container-low scroll-mt-32" id="faq">
-  <div class="max-w-[880px] mx-auto px-gutter">
-    <div class="flex flex-col items-center text-center mb-space-xl">
-      <span class="inline-flex items-center gap-space-xs font-label-md text-label-md text-primary font-semibold tracking-wider uppercase mb-space-xs">
-        <span class="material-symbols-outlined text-[16px]">help_outline</span>
-        Respuestas Claras
-      </span>
-      <h2 class="font-headline-lg text-headline-lg text-on-surface font-bold">
-        Preguntas Frecuentes
-      </h2>
-      <p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
-        Resolvemos tus dudas habituales sobre citas, tratamientos, mutuas y formas de pago en {{ negocio.ciudad }}.
-      </p>
-    </div>
-
-    <div class="flex flex-col gap-space-sm">
-      <!-- FAQ 1 -->
-      <div class="faq-item rounded-2xl bg-surface-container-lowest border border-outline-variant/40 overflow-hidden shadow-sm transition-all">
-        <button type="button" onclick="toggleFaq(0)" class="w-full flex items-center justify-between p-5 text-left font-title-md font-bold text-on-surface hover:text-primary transition cursor-pointer">
-          <span class="flex items-center gap-3">
-            <span class="w-7 h-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-xs font-bold shrink-0">1</span>
-            <span>¿En qué consiste la primera consulta de diagnóstico?</span>
-          </span>
-          <span id="faq-icon-0" class="material-symbols-outlined text-on-surface-variant transition-transform duration-300">expand_more</span>
-        </button>
-        <div id="faq-answer-0" class="hidden px-5 pb-5 pt-1 text-sm text-on-surface-variant leading-relaxed border-t border-surface-container-high/60">
-          En tu primera visita realizamos una historia clínica exhaustiva, exploración y estudio radiológico digital o escáner 3D. El doctor especialista te explicará el diagnóstico con imágenes en pantalla y te entregaremos un plan de tratamiento pormenorizado sin ningún compromiso.
-        </div>
-      </div>
-
-      <!-- FAQ 2 -->
-      <div class="faq-item rounded-2xl bg-surface-container-lowest border border-outline-variant/40 overflow-hidden shadow-sm transition-all">
-        <button type="button" onclick="toggleFaq(1)" class="w-full flex items-center justify-between p-5 text-left font-title-md font-bold text-on-surface hover:text-primary transition cursor-pointer">
-          <span class="flex items-center gap-3">
-            <span class="w-7 h-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-xs font-bold shrink-0">2</span>
-            <span>¿Qué facilidades de pago y financiación ofrecéis?</span>
-          </span>
-          <span id="faq-icon-1" class="material-symbols-outlined text-on-surface-variant transition-transform duration-300">expand_more</span>
-        </button>
-        <div id="faq-answer-1" class="hidden px-5 pb-5 pt-1 text-sm text-on-surface-variant leading-relaxed border-t border-surface-container-high/60">
-          Ofrecemos planes de pago aplazado y financiación hasta 36 meses sin intereses (0% TAE) mediante tramitación directa en recepción en 5 minutos con DNI. También admitimos pago por fases o fracciones conforme avanza tu tratamiento.
-        </div>
-      </div>
-
-      <!-- FAQ 3 -->
-      <div class="faq-item rounded-2xl bg-surface-container-lowest border border-outline-variant/40 overflow-hidden shadow-sm transition-all">
-        <button type="button" onclick="toggleFaq(2)" class="w-full flex items-center justify-between p-5 text-left font-title-md font-bold text-on-surface hover:text-primary transition cursor-pointer">
-          <span class="flex items-center gap-3">
-            <span class="w-7 h-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-xs font-bold shrink-0">3</span>
-            <span>¿Trabajáis con seguros médicos o mutuas de salud?</span>
-          </span>
-          <span id="faq-icon-2" class="material-symbols-outlined text-on-surface-variant transition-transform duration-300">expand_more</span>
-        </button>
-        <div id="faq-answer-2" class="hidden px-5 pb-5 pt-1 text-sm text-on-surface-variant leading-relaxed border-t border-surface-container-high/60">
-          Atendemos pacientes de todas las coberturas y pólizas de reembolso. Preparamos informes clínicos certificados y presupuestos oficiales para que tu aseguradora te tramite el abono rápidamente. Consúltanos por WhatsApp tu compañía concreta y te informamos al momento.
-        </div>
-      </div>
-
-      <!-- FAQ 4 -->
-      <div class="faq-item rounded-2xl bg-surface-container-lowest border border-outline-variant/40 overflow-hidden shadow-sm transition-all">
-        <button type="button" onclick="toggleFaq(3)" class="w-full flex items-center justify-between p-5 text-left font-title-md font-bold text-on-surface hover:text-primary transition cursor-pointer">
-          <span class="flex items-center gap-3">
-            <span class="w-7 h-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-xs font-bold shrink-0">4</span>
-            <span>¿Cómo atendéis una urgencia médica o dolor sobrevenido?</span>
-          </span>
-          <span id="faq-icon-3" class="material-symbols-outlined text-on-surface-variant transition-transform duration-300">expand_more</span>
-        </button>
-        <div id="faq-answer-3" class="hidden px-5 pb-5 pt-1 text-sm text-on-surface-variant leading-relaxed border-t border-surface-container-high/60">
-          Reservamos huecos diarios específicos para triaje de urgencias (dolor agudo, fracturas, inflamación). Si nos llamas o nos escribes por WhatsApp, te daremos prioridad para atenderte en el mismo día y calmar el dolor.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-</main><footer class="w-full bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="w-full bg-surface-container-low py-space-md"><div class="max-w-[1280px] mx-auto px-gutter flex flex-wrap items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-tertiary-container text-[20px]">verified</span><span class="font-label-md text-label-md text-on-surface">Atención Certificada</span></div><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[20px]">shield</span><span class="font-label-md text-label-md text-on-surface">Garantía en Tratamientos</span></div><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[20px]">medical_services</span><span class="font-label-md text-label-md text-on-surface">Equipo Colegiado</span></div></div><div class="font-label-md text-label-md text-on-surface-variant"><span class="font-semibold text-on-surface">Centro:</span> {{ negocio.nombre }} ({{ negocio.ciudad }})</div></div></div><div class="max-w-[1280px] mx-auto px-gutter py-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-xl"><div class="flex flex-col gap-space-md"><div class="flex items-center gap-space-xs">{% if ig.avatar_url or ig.avatar %}<img alt="{{ negocio.nombre }}" class="h-8 w-8 rounded-full object-cover border border-primary/30" src="{{ ig.avatar_url or ig.avatar }}"/>{% else %}<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold text-xs">🏥</div>{% endif %}<span class="font-title-lg text-title-lg text-on-surface font-bold">{{ negocio.nombre }}</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">{{ web.subtitulo or ('Centro especializado de referencia en ' ~ negocio.ciudad ~ '. Atención personalizada, empatía y tecnología de vanguardia.') }}</p><div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-surface-container text-on-surface-variant font-caption text-caption"><span class="material-symbols-outlined text-tertiary-container text-[14px]">check_circle</span><span>Centro Sanitario Verificado en {{ negocio.ciudad }}</span></div></div><div class="flex flex-col gap-space-sm"><span class="font-title-md text-title-md text-on-surface">Atención y Citas</span><div class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><span class="text-primary font-semibold">Contacto Directo</span>{% if negocio.telefono %}<a class="text-on-surface font-title-md text-title-md hover:text-primary transition-colors" href="tel:{{ negocio.telefono }}">{{ negocio.telefono }}</a>{% else %}<a class="text-on-surface font-title-md text-title-md hover:text-primary transition-colors" href="{{ negocio.whatsapp_url }}" target="_blank">WhatsApp Directo</a>{% endif %}<span>Atención y resolución de dudas personalizadas sin esperas.</span><span class="font-semibold text-on-surface mt-space-xs">Horario de Consultas:</span><span>Lunes a Viernes: 09:00 - 20:00 h</span><span>Sábados: Con Cita Previa</span></div></div><div class="flex flex-col gap-space-sm"><span class="font-title-md text-title-md text-on-surface">Ubicación y Acceso</span><div class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><span>{{ negocio.direccion or negocio.ciudad }}</span><a href="https://www.google.com/maps/search/?api=1&query={{ (negocio.nombre ~ ' ' ~ (negocio.direccion or negocio.ciudad))|urlencode }}" target="_blank" rel="noopener" class="w-full py-2.5 px-3 rounded-xl bg-surface-container hover:bg-surface-container-high flex items-center justify-center gap-space-xs text-primary transition font-semibold text-xs mt-1"><span class="material-symbols-outlined text-[18px]">map</span><span>Ver cómo llegar en Google Maps</span></a></div></div><div class="flex flex-col gap-space-sm"><span class="font-title-md text-title-md text-on-surface">Enlaces Rápidos</span><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-primary transition-colors" href="#cita-online">Pedir Cita Online</a></li><li><a class="hover:text-primary transition-colors" href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank">WhatsApp de Atención</a></li><li><a class="hover:text-primary transition-colors" href="{{ negocio.instagram_url or ('https://instagram.com/' ~ ig.username) }}" target="_blank">Instagram Oficial</a></li><li><a class="hover:text-primary transition-colors" href="#garantias">Garantías del Paciente</a></li></ul></div></div><div class="mt-space-xl pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md font-caption text-caption text-on-surface-variant"><p>Aviso Médico Legal: La información médica proporcionada en este portal tiene carácter puramente orientativo y no reemplaza la consulta clínica presencial.</p><div class="flex items-center gap-space-md shrink-0"><a class="hover:text-primary transition-colors" href="#inicio">Inicio</a><a class="hover:text-primary transition-colors" href="#servicios-clinicos">Especialidades</a><span>© 2026 {{ negocio.nombre }}. Todos los derechos reservados.</span></div></div></div></footer><!-- Sticky Mobile Conversion Bar (3 buttons) -->
-<div class="fixed bottom-0 inset-x-0 z-50 lg:hidden p-2.5 bg-surface-container-lowest/95 backdrop-blur-lg border-t border-surface-container-high shadow-[0_-4px_20px_rgba(0,0,0,0.08)]" style="padding-bottom: max(0.65rem, env(safe-area-inset-bottom, 0px));">
-  <div class="grid grid-cols-3 gap-2">
-    {% if negocio.telefono %}
-    <a class="inline-flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl bg-surface-container text-on-surface font-semibold text-xs border border-outline-variant/30 transition hover:bg-surface-container-high" href="tel:{{ negocio.telefono }}">
-      <span class="material-symbols-outlined text-[16px]">call</span>
-      <span class="truncate">Llamar</span>
-    </a>
-    {% else %}
-    <a class="inline-flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl bg-surface-container text-on-surface font-semibold text-xs border border-outline-variant/30 transition hover:bg-surface-container-high" href="#garantias">
-      <span class="material-symbols-outlined text-[16px]">verified</span>
-      <span class="truncate">Garantías</span>
-    </a>
-    {% endif %}
-    <button onclick="abrirModalPresupuesto('Cita Rápida')" class="inline-flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl bg-primary-container text-on-primary font-bold text-xs shadow-sm transition hover:bg-primary cursor-pointer">
-      <span class="material-symbols-outlined text-[16px]">calendar_month</span>
-      <span class="truncate">Pedir Cita</span>
-    </button>
-    <a class="inline-flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl bg-[#25D366] text-white font-bold text-xs shadow-sm transition hover:opacity-95" href="{{ negocio.whatsapp_url or ('https://wa.me/' ~ negocio.telefono) }}" target="_blank" rel="noopener">
-      <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-      <span class="truncate">WhatsApp</span>
-    </a>
-  </div>
-</div>
-
-<!-- ============================================================ -->
-<!-- MOBILE NAVIGATION DRAWER (ACCESIBLE & IPHONE SAFE-AREA AWARE) -->
-<!-- ============================================================ -->
-<div id="mobile-drawer" class="fixed inset-0 z-[100] pointer-events-none transition-opacity duration-300" aria-hidden="true">
-  <!-- Backdrop desenfocado -->
-  <div id="mobile-drawer-backdrop" onclick="closeMobileMenu()" class="absolute inset-0 bg-black/65 backdrop-blur-sm opacity-0 transition-opacity duration-300 pointer-events-none"></div>
-
-  <!-- Panel lateral deslizante con padding seguro para Dynamic Island -->
-  <div id="mobile-drawer-panel" class="absolute top-0 right-0 bottom-0 w-[310px] sm:w-[350px] max-w-[86vw] bg-surface border-l border-surface-container-high shadow-2xl flex flex-col justify-between overflow-y-auto translate-x-full transition-transform duration-300 ease-out pointer-events-auto"
-       style="padding-top: max(1.25rem, calc(0.75rem + var(--sat, env(safe-area-inset-top, 0px)))); padding-bottom: max(1.25rem, calc(0.75rem + var(--sab, env(safe-area-inset-bottom, 0px)))); padding-left: 1.25rem; padding-right: 1.25rem;">
-    
-    <div class="space-y-6">
-      <!-- Cabecera del Drawer -->
-      <div class="flex items-center justify-between pb-4 border-b border-outline-variant/30">
-        <div class="flex items-center gap-3 truncate">
-          <img src="{{ ig.avatar_url or 'https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=96&q=80' }}" alt="{{ negocio.nombre }}" class="w-10 h-10 rounded-full object-cover border border-primary/30 shrink-0"/>
-          <div class="flex flex-col truncate">
-            <span class="font-bold text-sm text-on-surface truncate">{{ negocio.nombre }}</span>
-            <span class="text-[11px] text-on-surface-variant truncate">{{ negocio.categoria_clean or negocio.ciudad }}</span>
-          </div>
-        </div>
-        <button onclick="closeMobileMenu()" class="p-2 rounded-full hover:bg-surface-container-high transition text-on-surface flex items-center justify-center shrink-0" aria-label="Cerrar menú">
-          <span class="material-symbols-outlined text-[20px]">close</span>
-        </button>
-      </div>
-
-      <!-- Enlaces de navegación -->
-      <nav class="flex flex-col space-y-1">
-        
-        <a href="#especialidades" onclick="closeMobileMenu()" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl hover:bg-surface-container text-on-surface hover:text-primary transition-colors group">
-          <span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:scale-110">medical_services</span>
-          <span class="font-medium text-sm">Especialidades Médicas</span>
-        </a>
-        <a href="#garantias" onclick="closeMobileMenu()" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl hover:bg-surface-container text-on-surface hover:text-primary transition-colors group">
-          <span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:scale-110">verified_user</span>
-          <span class="font-medium text-sm">Garantías Clínicas</span>
-        </a>
-        <a href="#equipo-medico" onclick="closeMobileMenu()" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl hover:bg-surface-container text-on-surface hover:text-primary transition-colors group">
-          <span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:scale-110">groups</span>
-          <span class="font-medium text-sm">Equipo Colegiado</span>
-        </a>
-        <a href="#opiniones" onclick="closeMobileMenu()" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl hover:bg-surface-container text-on-surface hover:text-primary transition-colors group">
-          <span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:scale-110">reviews</span>
-          <span class="font-medium text-sm">Opiniones de Pacientes</span>
-        </a>
-        <a href="#tecnologia-3d" onclick="closeMobileMenu()" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl hover:bg-surface-container text-on-surface hover:text-primary transition-colors group">
-          <span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:scale-110">biotech</span>
-          <span class="font-medium text-sm">Tecnología & Diagnóstico</span>
-        </a>
-        <a href="#cita-online" onclick="closeMobileMenu()" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl hover:bg-surface-container text-on-surface hover:text-primary transition-colors group">
-          <span class="material-symbols-outlined text-primary text-[20px] transition-transform group-hover:scale-110">calendar_month</span>
-          <span class="font-medium text-sm">Pedir Cita Online</span>
-        </a>
-      </nav>
-    </div>
-
-    <!-- Botones de Acción / Contacto al pie del Drawer -->
-    <div class="space-y-3 pt-5 border-t border-outline-variant/30">
-      {% if negocio.whatsapp_url %}
-      <a href="{{ negocio.whatsapp_url }}" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-primary text-on-primary font-bold text-xs uppercase tracking-wider shadow-md transition-all">
-        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-        <span>Escribir por WhatsApp</span>
-      </a>
-      {% endif %}
-
-      {% if negocio.telefono %}
-      <a href="tel:{{ negocio.telefono }}" class="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-surface-container hover:bg-surface-container-high font-semibold text-xs transition-all">
-        <span class="material-symbols-outlined text-[16px]">call</span>
-        <span>Llamar {{ negocio.telefono }}</span>
-      </a>
-      {% endif %}
-
-      <div class="text-[11px] text-center text-on-surface-variant flex items-center justify-center gap-1 pt-1">
-        <span class="material-symbols-outlined text-[14px]">location_on</span>
-        <span class="truncate">{{ negocio.direccion or negocio.ciudad }}</span>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<script>
-  function toggleMobileMenu() {
-    const panel = document.getElementById('mobile-drawer-panel');
-    if (!panel) return;
-    if (panel.classList.contains('translate-x-full')) {
-      openMobileMenu();
-    } else {
-      closeMobileMenu();
-    }
-  }
-
-  function openMobileMenu() {
-    const drawer = document.getElementById('mobile-drawer');
-    const backdrop = document.getElementById('mobile-drawer-backdrop');
-    const panel = document.getElementById('mobile-drawer-panel');
-    const btn = document.getElementById('hamburger-btn');
-
-    if (!drawer || !backdrop || !panel) return;
-    drawer.classList.remove('pointer-events-none');
-    drawer.setAttribute('aria-hidden', 'false');
-    backdrop.classList.remove('opacity-0', 'pointer-events-none');
-    backdrop.classList.add('opacity-100');
-    panel.classList.remove('translate-x-full');
-    if (btn) btn.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeMobileMenu() {
-    const drawer = document.getElementById('mobile-drawer');
-    const backdrop = document.getElementById('mobile-drawer-backdrop');
-    const panel = document.getElementById('mobile-drawer-panel');
-    const btn = document.getElementById('hamburger-btn');
-
-    if (!drawer || !backdrop || !panel) return;
-    backdrop.classList.remove('opacity-100');
-    backdrop.classList.add('opacity-0', 'pointer-events-none');
-    panel.classList.add('translate-x-full');
-    drawer.classList.add('pointer-events-none');
-    drawer.setAttribute('aria-hidden', 'true');
-    if (btn) btn.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  }
-
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      closeMobileMenu();
-      cerrarLightbox();
-    }
-  });
-
-  // Lightbox Modal para fotos de Instagram
-  function abrirLightbox(imgUrl, caption) {
-    const modal = document.getElementById('lightbox-modal');
-    const img = document.getElementById('lightbox-img');
-    const cap = document.getElementById('lightbox-caption');
-    const waBtn = document.getElementById('lightbox-wa-btn');
-    if (!modal || !img) return;
-
-    img.src = imgUrl;
-    cap.textContent = caption || 'Tratamiento y caso clínico en {{ negocio.nombre }} ({{ negocio.ciudad }})';
-    
-    const waBase = '{{ negocio.whatsapp_url or ("https://wa.me/" ~ negocio.telefono) }}';
-    const cleanCap = (caption || 'vuestro tratamiento en la web').substring(0, 75);
-    const waMsg = encodeURIComponent('¡Hola equipo de {{ negocio.nombre }}! He visto este caso clínico en vuestra web y quisiera consultar o pedir cita previa: "' + cleanCap + '"');
-    
-    let targetUrl = waBase;
-    if (waBase.includes('wa.me') || waBase.includes('whatsapp.com')) {
-      const sep = waBase.includes('?') ? '&' : '?';
-      targetUrl = waBase + sep + 'text=' + waMsg;
-    }
-    if (waBtn) waBtn.href = targetUrl;
-
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-    setTimeout(() => {
-      modal.classList.remove('opacity-0');
-      modal.classList.add('opacity-100');
-    }, 10);
-    document.body.style.overflow = 'hidden';
-  }
-
-  function cerrarLightbox(e) {
-    if (e && e.target && e.target.id !== 'lightbox-modal' && !e.target.closest('button')) return;
-    const modal = document.getElementById('lightbox-modal');
-    if (!modal) return;
-    modal.classList.remove('opacity-100');
-    modal.classList.add('opacity-0');
-    setTimeout(() => {
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-      document.body.style.overflow = '';
-    }, 200);
-  }
-</script>
-
-<!-- ============================================================ -->
-<!-- LIGHTBOX MODAL (VISUALIZADOR FOTOS INSTAGRAM) -->
-<!-- ============================================================ -->
-<div id="lightbox-modal" class="fixed inset-0 z-[110] bg-black/90 backdrop-blur-md hidden items-center justify-center p-4 transition-all duration-300 opacity-0" onclick="cerrarLightbox(event)">
-  <div class="relative max-w-2xl w-full bg-surface-container-lowest rounded-2xl overflow-hidden shadow-2xl border border-primary/20 flex flex-col" onclick="event.stopPropagation()">
-    <button type="button" onclick="cerrarLightbox()" class="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/80 transition-colors">
-      <span class="material-symbols-outlined text-[20px]">close</span>
-    </button>
-    <div class="relative max-h-[65vh] overflow-hidden bg-black flex items-center justify-center">
-      <img id="lightbox-img" src="" alt="Detalle" class="w-full h-auto max-h-[65vh] object-contain" />
-    </div>
-    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-surface">
-      <div class="flex-1">
-        <span class="font-label-md text-[11px] text-primary uppercase font-bold tracking-wider block mb-1">Publicación Oficial • Instagram</span>
-        <p id="lightbox-caption" class="font-body-sm text-on-surface text-xs sm:text-sm line-clamp-3 leading-relaxed"></p>
-      </div>
-      <a id="lightbox-wa-btn" href="{{ negocio.whatsapp_url }}" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-on-primary font-semibold text-xs shadow-md hover:bg-primary-container transition-all shrink-0">
-        <span class="material-symbols-outlined text-[18px]">chat</span>
-        <span>Preguntar por WhatsApp</span>
-      </a>
-    </div>
-  </div>
-</div>
-
-<!-- ============================================================ -->
-<!-- INTERACTIVE BOOKING / QUOTE MODAL -->
-<!-- ============================================================ -->
-<div id="booking-modal" class="fixed inset-0 z-[120] bg-black/75 backdrop-blur-sm hidden items-center justify-center p-4 transition-all duration-300 opacity-0" onclick="cerrarModalPresupuesto(event)">
-  <div class="relative max-w-lg w-full bg-surface-container-lowest border border-outline-variant/40 rounded-2xl overflow-hidden shadow-2xl p-6 sm:p-7" onclick="event.stopPropagation()">
-    <button onclick="cerrarModalPresupuesto()" class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center hover:text-primary hover:bg-surface-container-high transition" aria-label="Cerrar">
-      <span class="material-symbols-outlined text-[18px]">close</span>
-    </button>
-    <div class="flex items-center gap-2 text-primary font-semibold text-xs uppercase tracking-wider mb-1">
-      <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-      <span>SOLICITUD DE CITA // {{ negocio.ciudad|upper }}</span>
-    </div>
-    <h3 class="font-headline-sm text-xl font-bold text-on-surface mb-2">
-      Reserva tu Cita Previa
-    </h3>
-    <p class="font-body-sm text-xs text-on-surface-variant mb-4">
-      Rellena tus datos para coordinar tu cita clínica con el equipo de {{ negocio.nombre }} vía WhatsApp al instante.
-    </p>
-
-    <div id="modal-feedback-msg" class="hidden p-3 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-800 text-xs font-medium mb-4">
-      ✅ ¡Solicitud preparada! Conectando con WhatsApp...
-    </div>
-
-    <form class="flex flex-col gap-3" onsubmit="enviarFormularioPresupuesto(event, this)">
-      <div class="flex flex-col gap-1">
-        <label class="font-label-md text-[11px] text-on-surface-variant uppercase font-semibold">Nombre y Apellidos</label>
-        <input name="nombre" class="px-3.5 py-2.5 rounded-xl bg-surface-container-low border border-outline-variant/40 text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary transition" placeholder="Tu nombre..." required type="text"/>
-      </div>
-      <div class="flex flex-col gap-1">
-        <label class="font-label-md text-[11px] text-on-surface-variant uppercase font-semibold">Teléfono Móvil (WhatsApp)</label>
-        <input name="telefono" class="px-3.5 py-2.5 rounded-xl bg-surface-container-low border border-outline-variant/40 text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary transition" placeholder="{{ negocio.telefono or '+34 600 000 000' }}" required type="tel"/>
-      </div>
-      <div class="flex flex-col gap-1">
-        <label class="font-label-md text-[11px] text-on-surface-variant uppercase font-semibold">Tratamiento o Consulta</label>
-        <select name="servicio" id="modal-service-select" class="px-3.5 py-2.5 rounded-xl bg-surface-container-low border border-outline-variant/40 text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary transition">
-          <option value="1ª Valoración Diagnóstica">1ª Valoración Diagnóstica y Estudio 3D</option>
-          <option value="Urgencia / Dolor">Urgencia / Dolor Agudo (Mismo día)</option>
-          {% for s in (web.servicios or []) %}
-          <option value="{{ s.nombre }}">{{ s.nombre }}</option>
-          {% endfor %}
-        </select>
-      </div>
-      <div class="flex flex-col gap-1">
-        <label class="font-label-md text-[11px] text-on-surface-variant uppercase font-semibold">Preferencia horaria o síntomas</label>
-        <textarea name="detalles" class="px-3.5 py-2 rounded-xl bg-surface-container-low border border-outline-variant/40 text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary transition resize-none" rows="2" placeholder="Indica franja horaria preferente o motivo de consulta..."></textarea>
-      </div>
-      <div class="pt-2 flex flex-col sm:flex-row gap-2">
-        <button type="submit" class="flex-1 py-3 px-4 rounded-xl bg-primary hover:bg-secondary text-on-primary font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md transition cursor-pointer">
-          <span class="material-symbols-outlined text-[18px]">send</span>
-          <span>Confirmar Cita por WhatsApp</span>
-        </button>
-        {% if negocio.telefono %}
-        <a href="tel:{{ negocio.telefono }}" class="py-3 px-4 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-semibold flex items-center justify-center gap-1.5 transition">
-          <span class="material-symbols-outlined text-[16px]">call</span>
-          <span>Llamar</span>
+        {% if negocio.instagram_url %}
+        <a href="{{ negocio.instagram_url }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-semibold text-sky-300 hover:text-white transition-colors">
+          <span>Ver más en Instagram</span>
+          <span class="material-symbols-outlined text-base">open_in_new</span>
         </a>
         {% endif %}
       </div>
-    </form>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        {% for post in (ig.posts or [])[:8] %}
+        {% if post.image_url or post.imagen %}
+        <div class="group relative aspect-square rounded-2xl overflow-hidden bg-[#111D3E] border border-sky-500/20 cursor-pointer" onclick="openLightbox('{{ post.image_url or post.imagen }}')">
+          <img src="{{ post.image_url or post.imagen }}" alt="{{ post.caption or negocio.nombre }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+            <span class="material-symbols-outlined text-white text-xl">zoom_in</span>
+          </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== OPINIONES DE PACIENTES ==================== -->
+  <section id="opiniones" class="py-20 max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <div class="flex items-center justify-center gap-1 text-amber-400 mb-2">
+        ★★★★★
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mb-3">
+        La Opinión de Nuestros Pacientes
+      </h2>
+      <p class="text-slate-300 text-base">
+        Testimonios reales de personas que han confiado su salud y la de su familia a {{ negocio.nombre }}.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <div class="p-6 sm:p-8 rounded-2xl card-clinical flex flex-col justify-between">
+        <div class="space-y-3">
+          <div class="flex text-amber-400 text-sm">★★★★★</div>
+          <p class="text-sm text-slate-300 italic leading-relaxed">
+            «Excelente trato y profesionalidad. Me explicaron cada fase del tratamiento con total claridad y sin prisas. La clínica es impecable.»
+          </p>
+        </div>
+        <div class="flex items-center gap-3 pt-6 border-t border-white/5 mt-4">
+          <div class="w-10 h-10 rounded-full bg-sky-500/20 text-sky-400 font-bold flex items-center justify-center text-sm">
+            JB
+          </div>
+          <div>
+            <span class="text-sm font-bold text-white block">Jordi Bosch</span>
+            <span class="text-xs text-slate-400">Paciente Verificado • Barcelona</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-6 sm:p-8 rounded-2xl card-clinical flex flex-col justify-between">
+        <div class="space-y-3">
+          <div class="flex text-amber-400 text-sm">★★★★★</div>
+          <p class="text-sm text-slate-300 italic leading-relaxed">
+            «Tenía mucho miedo antes de ir y la experiencia no pudo ser mejor. Prácticamente sin molestias y el resultado ha sido perfecto.»
+          </p>
+        </div>
+        <div class="flex items-center gap-3 pt-6 border-t border-white/5 mt-4">
+          <div class="w-10 h-10 rounded-full bg-teal-500/20 text-teal-400 font-bold flex items-center justify-center text-sm">
+            MN
+          </div>
+          <div>
+            <span class="text-sm font-bold text-white block">Marta Navarro</span>
+            <span class="text-xs text-slate-400">Paciente Verificada • Barcelona</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-6 sm:p-8 rounded-2xl card-clinical flex flex-col justify-between">
+        <div class="space-y-3">
+          <div class="flex text-amber-400 text-sm">★★★★★</div>
+          <p class="text-sm text-slate-300 italic leading-relaxed">
+            «Puntuales, equipamiento de última generación y facilidades para coordinar las citas por WhatsApp. Muy recomendables.»
+          </p>
+        </div>
+        <div class="flex items-center gap-3 pt-6 border-t border-white/5 mt-4">
+          <div class="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center text-sm">
+            AR
+          </div>
+          <div>
+            <span class="text-sm font-bold text-white block">Albert Riera</span>
+            <span class="text-xs text-slate-400">Paciente Verificado • Barcelona</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== CONTACTO & UBICACIÓN ==================== -->
+  <section id="contacto" class="py-20 bg-[#0C1428] border-t border-sky-500/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-6 space-y-6">
+          <span class="text-xs text-sky-400 font-bold uppercase tracking-wider block">Primera Consulta</span>
+          <h2 class="text-3xl sm:text-4xl font-display font-bold text-white">
+            Estamos a Tu Disposición en {{ negocio.ciudad }}
+          </h2>
+          <p class="text-slate-300 text-base leading-relaxed">
+            Puedes solicitar tu primera valoración clínica por WhatsApp o llamando directamente al centro para agendar fecha y hora.
+          </p>
+
+          <div class="space-y-4 pt-2">
+            <div class="flex items-start gap-4 p-4 rounded-2xl card-clinical">
+              <div class="w-10 h-10 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined">location_on</span>
+              </div>
+              <div>
+                <span class="text-xs text-slate-400 block">Dirección de la Clínica</span>
+                <span class="text-sm font-bold text-white">{{ negocio.direccion or ('Centro de ' ~ negocio.ciudad) }}</span>
+                <span class="text-xs text-slate-400 block">{{ negocio.codigo_postal }} {{ negocio.ciudad }}</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 rounded-2xl card-clinical">
+              <div class="w-10 h-10 rounded-xl bg-teal-500/20 text-teal-400 flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined">schedule</span>
+              </div>
+              <div>
+                <span class="text-xs text-slate-400 block">Horario de Consultas</span>
+                <span class="text-sm font-bold text-white">Lunes a Viernes: 09:00 – 20:00</span>
+                <span class="text-xs text-slate-400 block">Sábados: 09:30 – 14:00 (Urgencias & Cita Previa)</span>
+              </div>
+            </div>
+
+            {% if negocio.telefono %}
+            <div class="flex items-start gap-4 p-4 rounded-2xl card-clinical">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined">call</span>
+              </div>
+              <div>
+                <span class="text-xs text-slate-400 block">Teléfono del Centro</span>
+                <a href="tel:{{ negocio.telefono }}" class="text-sm font-bold text-white hover:text-sky-400 transition-colors">
+                  {{ negocio.telefono }}
+                </a>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="lg:col-span-6">
+          <div class="p-8 rounded-3xl card-clinical text-center space-y-6">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-sky-500 to-teal-600 flex items-center justify-center text-white mx-auto shadow-lg shadow-sky-950/40">
+              <span class="material-symbols-outlined text-3xl">chat</span>
+            </div>
+            <div>
+              <h3 class="text-2xl font-display font-bold text-white mb-2">Pide Tu Cita por WhatsApp</h3>
+              <p class="text-sm text-slate-300 max-w-md mx-auto">
+                Indícanos la especialidad que necesitas y te responderemos con las fechas y horas disponibles.
+              </p>
+            </div>
+
+            <a href="{{ negocio.whatsapp_url or '#contacto' }}" target="_blank" rel="noopener" class="w-full py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-bold text-base flex items-center justify-center gap-2 shadow-xl shadow-emerald-950/40 transition-all hover:scale-[1.02]">
+              <span class="material-symbols-outlined text-xl">calendar_today</span>
+              <span>Abrir WhatsApp y Reservar Cita</span>
+            </a>
+
+            <a href="https://www.google.com/maps/search/?api=1&query={{ ((negocio.nombre or '') ~ ' ' ~ (negocio.ciudad or ''))|urlencode }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-xs font-semibold text-sky-300 hover:text-white transition-colors">
+              <span class="material-symbols-outlined text-sm">directions</span>
+              <span>Cómo llegar a la clínica en Google Maps</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="bg-[#050811] border-t border-sky-500/10 py-12 text-slate-400 text-xs">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="flex items-center gap-3">
+      {% if ig.avatar_url or ig.avatar %}
+      <img src="{{ ig.avatar_url or ig.avatar }}" alt="{{ negocio.nombre }}" class="w-6 h-6 rounded-lg object-cover"/>
+      {% endif %}
+      <span class="font-bold text-white text-sm">{{ negocio.nombre }}</span>
+      <span>• {{ negocio.ciudad }}</span>
+    </div>
+
+    <div class="flex flex-wrap gap-6 text-slate-400">
+      <a href="#inicio" class="hover:text-white transition-colors">Inicio</a>
+      <a href="#especialidades" class="hover:text-white transition-colors">Especialidades</a>
+      <a href="#instalaciones" class="hover:text-white transition-colors">Instalaciones</a>
+      <a href="#contacto" class="hover:text-white transition-colors">Contacto</a>
+    </div>
+
+    <div>
+      <span>© {{ negocio.nombre }}. Centro Sanitario Acreditado.</span>
+    </div>
   </div>
+</footer>
+
+<!-- ==================== BARRA MÓVIL INFERIOR FIJA ==================== -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#080D1A]/95 backdrop-blur-lg border-t border-sky-500/20 px-4 py-3 flex items-center gap-3" style="padding-bottom: max(0.75rem, var(--sab, env(safe-area-inset-bottom, 0px)));">
+  <a href="{{ negocio.whatsapp_url or '#contacto' }}" target="_blank" rel="noopener" class="flex-1 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-lg">
+    <span class="material-symbols-outlined text-base">chat</span>
+    <span>Pedir Cita WhatsApp</span>
+  </a>
+  {% if negocio.telefono %}
+  <a href="tel:{{ negocio.telefono }}" class="px-4 py-3 rounded-xl bg-white/10 text-slate-200 font-bold text-xs flex items-center justify-center gap-1">
+    <span class="material-symbols-outlined text-base">call</span>
+    <span>Llamar</span>
+  </a>
+  {% endif %}
+</div>
+
+<!-- ==================== LIGHTBOX MODAL ==================== -->
+<div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl hidden flex items-center justify-center p-4" onclick="closeLightbox()">
+  <button class="absolute top-6 right-6 text-white/80 hover:text-white p-2 rounded-full bg-white/10" onclick="closeLightbox()">
+    <span class="material-symbols-outlined text-2xl">close</span>
+  </button>
+  <img id="lightbox-img" src="" alt="Vista ampliada" class="max-w-full max-h-[85vh] rounded-2xl object-contain shadow-2xl" onclick="event.stopPropagation()"/>
 </div>
 
 <script>
-  // Triaje Clínico Interactivo
-  const triajeData = {
-    revision: {
-      tag: "Protocolo 1ª Consulta Diagnóstica",
-      titulo: "Revisión Preventiva & Escáner Digital 3D",
-      duracion: "~35 min",
-      disponibilidad: "24-48 horas",
-      desc: "Exploración bucodental y médica completa con escáner intraoral 3D de alta velocidad y radiografía digital panorámica de baja radiación. Detectamos anomalías invisibles, salud gingival y pautas de higiene preventivas.",
-      ventajas: ["TAC 3D / RX Digital", "Informe Médico Escrito", "Sin Compromiso"],
-      cta: "Reservar Revisión Preventiva"
-    },
-    urgencia: {
-      tag: "Protocolo de Atención Rápida",
-      titulo: "Triaje Prioritario para Dolor o Molestia",
-      duracion: "~20 min",
-      disponibilidad: "Mismo Día (Prioritario)",
-      desc: "Atención preferente inmediata para pacientes con molestia intensa, traumatismos, fracturas o inflamación. Diagnóstico radiológico in situ y aplicación de terapia analgésica para calmar los síntomas desde la primera hora.",
-      ventajas: ["Hueco Preferente Diario", "Alivio Inmediato del Dolor", "Pauta Farmacológica"],
-      cta: "Pedir Cita Urgente Hoy"
-    },
-    implantes: {
-      tag: "Planificación Quirúrgica 3D",
-      titulo: "Estudio Guiado de Implantes & Carga Fija",
-      duracion: "~45 min",
-      disponibilidad: "Esta Semana",
-      desc: "Tomografía 3D de haz cónico computarizada para evaluar volumen y densidad ósea. Cirugía virtual guiada sin incisiones agresivas y planificación de prótesis fijas sobre implantes.",
-      ventajas: ["Estudio Tomográfico TAC", "Simulación Quirúrgica", "Financiación hasta 36m"],
-      cta: "Solicitar Estudio de Implantes"
-    },
-    estetica: {
-      tag: "Diseño Digital de Sonrisa (DSD)",
-      titulo: "Alineación Invisible & Estética Dental",
-      duracion: "~30 min",
-      disponibilidad: "24-48 horas",
-      desc: "Escaneado tridimensional sin pastas para simular el resultado de tu sonrisa antes de comenzar. Tratamientos de ortodoncia transparente con alineadores o carillas de composite cerámico sin tallado agresivo.",
-      ventajas: ["Simulación 3D Previa", "Férulas de Alineación", "Garantía Estética"],
-      cta: "Pedir Simulación Estética"
-    }
-  };
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const closeBtn = document.getElementById('close-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
 
-  let triajeActual = 'revision';
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener('click', () => mobileMenu.classList.remove('hidden'));
+  }
+  if (closeBtn && mobileMenu) {
+    closeBtn.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+  }
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+  });
 
-  function seleccionarTriajeClinica(tipo, btn) {
-    triajeActual = tipo;
-    document.querySelectorAll('.triaje-btn').forEach(b => {
-      b.classList.remove('active', 'border-primary', 'bg-primary/5');
-      b.classList.add('border-outline-variant/50', 'bg-surface-container-lowest');
-    });
-    btn.classList.remove('border-outline-variant/50', 'bg-surface-container-lowest');
-    btn.classList.add('active', 'border-primary', 'bg-primary/5');
-
-    const data = triajeData[tipo];
-    if (!data) return;
-
-    document.getElementById('triaje-tag').innerHTML = `<span class="material-symbols-outlined text-[15px]">verified</span> ${data.tag}`;
-    document.getElementById('triaje-titulo').textContent = data.titulo;
-    document.getElementById('triaje-duracion').textContent = data.duracion;
-    document.getElementById('triaje-disponibilidad').textContent = data.disponibilidad;
-    document.getElementById('triaje-descripcion').textContent = data.desc;
-    document.getElementById('triaje-cta-text').textContent = data.cta;
-
-    const vCont = document.getElementById('triaje-ventajas');
-    if (vCont) {
-      vCont.innerHTML = data.ventajas.map(v => `
-        <div class="p-3 rounded-xl bg-surface-container-low flex items-center gap-2">
-          <span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
-          <span class="font-label-md text-xs text-on-surface font-medium">${v}</span>
-        </div>
-      `).join('');
+  function openLightbox(url) {
+    const modal = document.getElementById('lightbox-modal');
+    const img = document.getElementById('lightbox-img');
+    if (modal && img) {
+      img.src = url;
+      modal.classList.remove('hidden');
     }
   }
-
-  function solicitarCitaTriaje() {
-    const data = triajeData[triajeActual];
-    const nombreTratamiento = data ? data.titulo : "Consulta Diagnóstica";
-    abrirModalPresupuesto(nombreTratamiento);
-  }
-
-  // FAQ Accordion
-  function toggleFaq(index) {
-    const ans = document.getElementById('faq-answer-' + index);
-    const icon = document.getElementById('faq-icon-' + index);
-    if (!ans) return;
-
-    const isHidden = ans.classList.contains('hidden');
-    // Cerrar los demás
-    for (let i = 0; i < 4; i++) {
-      const a = document.getElementById('faq-answer-' + i);
-      const ic = document.getElementById('faq-icon-' + i);
-      if (a) a.classList.add('hidden');
-      if (ic) ic.style.transform = 'rotate(0deg)';
-    }
-
-    if (isHidden) {
-      ans.classList.remove('hidden');
-      if (icon) icon.style.transform = 'rotate(180deg)';
-    }
-  }
-
-  // Modal Presupuesto / Cita
-  function abrirModalPresupuesto(servicio) {
-    const modal = document.getElementById('booking-modal');
-    if (!modal) return;
-    if (servicio) {
-      const sel = document.getElementById('modal-service-select');
-      if (sel) {
-        let found = false;
-        for (let opt of sel.options) {
-          if (opt.value.toLowerCase().includes(servicio.toLowerCase())) {
-            sel.value = opt.value;
-            found = true;
-            break;
-          }
-        }
-        if (!found) sel.value = servicio;
-      }
-    }
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-    setTimeout(() => {
-      modal.classList.remove('opacity-0');
-      modal.classList.add('opacity-100');
-    }, 10);
-    document.body.style.overflow = 'hidden';
-  }
-
-  function cerrarModalPresupuesto(e) {
-    if (e && e.target && e.target.id !== 'booking-modal' && !e.target.closest('button')) return;
-    const modal = document.getElementById('booking-modal');
-    if (!modal) return;
-    modal.classList.remove('opacity-100');
-    modal.classList.add('opacity-0');
-    setTimeout(() => {
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-      document.body.style.overflow = '';
-    }, 200);
-  }
-
-  function enviarFormularioPresupuesto(event, form) {
-    event.preventDefault();
-    const nombre = form.querySelector('[name="nombre"]')?.value || '';
-    const tel = form.querySelector('[name="telefono"]')?.value || '';
-    const serv = form.querySelector('[name="servicio"]')?.value || 'Consulta general';
-    const detalles = form.querySelector('[name="detalles"]')?.value || '';
-
-    const msg = encodeURIComponent(`¡Hola equipo de {{ negocio.nombre }}! Mi nombre es ${nombre} (tel: ${tel}). Quisiera pedir cita o consultar información sobre: *${serv}*. ${detalles ? 'Detalles: ' + detalles : ''}`);
-    const waBase = '{{ negocio.whatsapp_url or ("https://wa.me/" ~ negocio.telefono) }}';
-
-    let targetUrl = waBase;
-    if (waBase.includes('wa.me') || waBase.includes('whatsapp.com')) {
-      const sep = waBase.includes('?') ? '&' : '?';
-      targetUrl = waBase + sep + 'text=' + msg;
-    }
-
-    const fb = document.getElementById('modal-feedback-msg');
-    if (fb) fb.classList.remove('hidden');
-
-    setTimeout(() => {
-      window.open(targetUrl, '_blank');
-      cerrarModalPresupuesto();
-    }, 500);
+  function closeLightbox() {
+    const modal = document.getElementById('lightbox-modal');
+    if (modal) modal.classList.add('hidden');
   }
 </script>
 
-</body></html>
+</body>
+</html>
