@@ -452,47 +452,21 @@ button {
 
 .hero-emblem-stage {
   position: relative;
-  min-height: 520px;
+  min-height: 420px;
   border-radius: var(--radius-lg);
-  overflow: hidden;
-  background: radial-gradient(circle at 50% 35%, rgba(22, 32, 50, 0.95) 0%, rgba(8, 12, 20, 0.98) 100%);
-  border: 1px solid var(--border-gold);
-  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7), 0 0 45px rgba(197, 164, 126, 0.12);
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  box-shadow: var(--shadow-lg);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 48px 28px 120px;
+  padding: 50px 36px;
   transition: border-color var(--transition-smooth), box-shadow var(--transition-smooth);
 }
 
 .hero-emblem-stage:hover {
-  border-color: rgba(197, 164, 126, 0.5);
-  box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.8), 0 0 55px rgba(197, 164, 126, 0.2);
-}
-
-.emblem-bg-layer {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  opacity: 0.15;
-  filter: grayscale(100%) contrast(1.15);
-  mix-blend-mode: luminosity;
-  pointer-events: none;
-}
-
-.emblem-glow-orb {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  width: 380px;
-  height: 380px;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(197, 164, 126, 0.25) 0%, rgba(197, 164, 126, 0.05) 50%, transparent 75%);
-  border-radius: 50%;
-  pointer-events: none;
-  animation: glowPulse 5s ease-in-out infinite alternate;
+  border-color: var(--border-gold);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 35px rgba(197, 164, 126, 0.1);
 }
 
 .emblem-card-inner {
@@ -500,127 +474,21 @@ button {
   z-index: 2;
   width: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
-}
-
-.emblem-logo-wrapper {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  max-width: 440px;
-  margin-bottom: 24px;
-  overflow: hidden;
-  border-radius: var(--radius-md);
-  padding: 10px;
+  justify-content: center;
 }
 
 .hero-grand-logo {
   width: 100%;
+  max-width: 360px;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.7));
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.5));
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hero-emblem-stage:hover .hero-grand-logo {
-  transform: scale(1.03);
-}
-
-.emblem-caption-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 5px 14px;
-  border-radius: var(--radius-full);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: var(--gold-300);
-  margin-bottom: 8px;
-}
-
-.pulsing-gold-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: var(--gold-400);
-  box-shadow: 0 0 8px var(--gold-400);
-  animation: pulseDot 2s infinite;
-}
-
-.emblem-meta {
-  font-size: 0.825rem;
-  color: var(--text-muted);
-  letter-spacing: 0.06em;
-}
-
-
-
-@keyframes glowPulse {
-  0% { transform: translate(-50%, -50%) scale(0.92); opacity: 0.45; }
-  100% { transform: translate(-50%, -50%) scale(1.15); opacity: 0.85; }
-}
-
-@keyframes pulseDot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.85); }
-}
-
-.hero-float-card {
-  position: absolute;
-  bottom: 24px;
-  left: 24px;
-  right: 24px;
-  background: rgba(10, 14, 23, 0.88);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--border-gold);
-  border-radius: var(--radius-md);
-  padding: 18px 20px;
-  box-shadow: var(--shadow-md);
-}
-
-.float-card-header {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 8px;
-}
-
-.gold-seal {
-  width: 42px;
-  height: 42px;
-  border-radius: var(--radius-sm);
-  background: var(--gold-grad);
-  color: var(--bg-darker);
-  font-family: var(--font-serif);
-  font-weight: 700;
-  font-size: 1.1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: var(--shadow-gold);
-}
-
-.float-card-header h4 {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--text-main);
-}
-
-.float-card-header p {
-  font-size: 0.8rem;
-  color: var(--gold-400);
-}
-
-.float-card-text {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  line-height: 1.4;
+  transform: scale(1.02);
 }
 
 /* ==========================================================================
