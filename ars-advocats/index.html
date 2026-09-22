@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARS Advocats i Assessors | Firma Legal a Granollers</title>
+  <meta name="description" content="ARS Advocats i Assessors. Firma d'advocats i assessorament legal integral al centre de Granollers. Dret Civil, Família, Penal, Mercantil, Laboral i Immobiliari.">
+  <meta name="keywords" content="ARS Advocats, advocats Granollers, dret civil Granollers, dret penal, divorcis, herències, mercantil, laboral, Roger Subirana, Alex Reus, Anna Camps">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ARS Advocats i Assessors | Despatx d'Advocats a Granollers">
+  <meta property="og:description" content="Rigor, compromís i excel·lència jurídica al centre de Granollers. Assessorament integral per a particulars i empreses.">
+  <meta property="og:image" content="assets/images/edificio.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Cormorant Garamond (Editorial Elegance) + Plus Jakarta Sans (Clean Modernity) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-lang="ca">
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-container">
+      <div class="top-bar-left">
+        <span class="location-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <span data-i18n="top_address">C/ Barcelona, 7 - 1r, Granollers</span>
+        </span>
+        <span class="sep">·</span>
+        <a href="tel:938795876" class="top-tel">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          938 795 876
+        </a>
+      </div>
+      <div class="top-bar-right">
+        <div class="lang-switcher" aria-label="Canvi d'idioma">
+          <button class="lang-btn active" data-switch-lang="ca">CAT</button>
+          <span class="lang-divider">/</span>
+          <button class="lang-btn" data-switch-lang="es">ESP</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header / Navigation Bar -->
+  <header class="header" id="mainHeader">
+    <div class="container header-container">
+      <a href="#" class="brand-link" aria-label="ARS Advocats inici">
+        <img src="assets/images/logo.png" alt="ARS Advocats i Assessors" class="brand-logo">
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="desktop-nav" aria-label="Navegació principal">
+        <a href="#presentacio" class="nav-item" data-i18n="nav_presentation">Presentació</a>
+        <a href="#especialitats" class="nav-item" data-i18n="nav_specialties">Especialitats</a>
+        <a href="#equip" class="nav-item" data-i18n="nav_team">L'Equip</a>
+        <a href="#valors" class="nav-item" data-i18n="nav_values">Filosofia</a>
+        <a href="#contacte" class="nav-item" data-i18n="nav_contact">Contacte</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#contacte" class="btn btn-primary btn-sm" data-i18n="nav_cta">Demanar Cita</a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Menú de navegació" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-inner">
+        <nav class="mobile-nav">
+          <a href="#presentacio" class="mobile-nav-item" data-i18n="nav_presentation">Presentació</a>
+          <a href="#especialitats" class="mobile-nav-item" data-i18n="nav_specialties">Especialitats</a>
+          <a href="#equip" class="mobile-nav-item" data-i18n="nav_team">L'Equip</a>
+          <a href="#valors" class="mobile-nav-item" data-i18n="nav_values">Filosofia</a>
+          <a href="#contacte" class="mobile-nav-item" data-i18n="nav_contact">Contacte</a>
+        </nav>
+        <div class="mobile-menu-footer">
+          <div class="mobile-contact-info">
+            <p><strong>ARS Advocats i Assessors</strong></p>
+            <p>C/ Barcelona, 7 - 1r, 08401 Granollers</p>
+            <p><a href="tel:938795876">Tel. 938 795 876</a></p>
+          </div>
+          <div class="mobile-lang">
+            <button class="lang-btn active" data-switch-lang="ca">Català</button>
+            <button class="lang-btn" data-switch-lang="es">Castellano</button>
+          </div>
+          <a href="#contacte" class="btn btn-primary btn-block" data-i18n="nav_cta">Demanar Cita</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="hero-bg-overlay"></div>
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="hero-badge reveal">
+          <span class="badge-dot"></span>
+          <span data-i18n="hero_badge">Firma Legal a Granollers & Barcelona</span>
+        </div>
+        <h1 class="hero-title reveal delay-1">
+          <span data-i18n="hero_title_1">Rigor, compromís</span><br>
+          <span class="text-gold" data-i18n="hero_title_2">i excel·lència jurídica</span><br>
+          <span class="hero-title-light" data-i18n="hero_title_3">al centre de Granollers.</span>
+        </h1>
+        <p class="hero-subtitle reveal delay-2" data-i18n="hero_desc">
+          ARS Advocats i Assessors és un despatx modern, jove i àgil integrat per advocats de primer nivell. Aportem solucions pràctiques, sentit comú i una visió estratègica global per protegir els interessos de particulars i empreses.
+        </p>
+
+        <div class="hero-buttons reveal delay-3">
+          <a href="#contacte" class="btn btn-gold" data-i18n="hero_cta_consult">
+            <span>Demanar Primera Consulta</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a href="#especialitats" class="btn btn-outline" data-i18n="hero_cta_specialties">
+            <span data-i18n="hero_btn_explore">Explorar Àrees de Dret</span>
+          </a>
+        </div>
+
+        <div class="hero-stats reveal delay-4">
+          <div class="stat-card">
+            <div class="stat-num">15+</div>
+            <div class="stat-label" data-i18n="stat_areas">Àrees d'especialització jurídica</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-card">
+            <div class="stat-num">ICAVOR</div>
+            <div class="stat-label" data-i18n="stat_board">Membres Junta de Govern & ICAB</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-card">
+            <div class="stat-num">100%</div>
+            <div class="stat-label" data-i18n="stat_dedication">Compromís ètic i atenció personalitzada</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal delay-2">
+        <div class="hero-image-wrapper">
+          <img src="assets/images/edificio.jpg" alt="Façana històrica ARS Advocats Granollers" class="hero-img">
+          <div class="hero-float-card">
+            <div class="float-card-header">
+              <span class="gold-seal">ARS</span>
+              <div>
+                <h4 data-i18n="float_title">Ubicació Estratègica</h4>
+                <p data-i18n="float_sub">Carrer de Barcelona, 7 · Granollers</p>
+              </div>
+            </div>
+            <p class="float-card-text" data-i18n="float_desc">Atenció directa amb el soci responsable del teu cas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Presentació / Sobre Nosaltres -->
+  <section class="section section-presentation" id="presentacio">
+    <div class="container">
+      <div class="presentation-grid">
+        <div class="presentation-images reveal">
+          <div class="img-box img-box-main">
+            <img src="assets/images/despacho.jpg" alt="Instal·lacions del despatx ARS Advocats" class="rounded-img">
+          </div>
+          <div class="img-box img-box-secondary">
+            <img src="assets/images/ars_equip.jpg" alt="Equip professional d'ARS Advocats" class="rounded-img">
+            <div class="badge-overlay" data-i18n="badge_firm">Firma d'Advocats Integral</div>
+          </div>
+        </div>
+
+        <div class="presentation-content reveal delay-1">
+          <div class="section-kicker" data-i18n="pres_kicker">PRESENTACIÓ INSTITUCIONAL</div>
+          <h2 class="section-title">
+            <span data-i18n="pres_title_1">Un despatx jove,</span> <br>
+            <span class="text-gold" data-i18n="pres_title_2">modern, àgil i compromès.</span>
+          </h2>
+          <div class="rich-text">
+            <p data-i18n="pres_p1">
+              <strong>ARS Advocats i Assessors</strong> som una firma d’advocats i d’assessorament legal integral, situada al centre històric i comercial de Granollers.
+            </p>
+            <p data-i18n="pres_p2">
+              El nostre és un despatx jove, modern i àgil, integrat per professionals altament compromesos i advocats de primer nivell. Aportem una àmplia experiència en totes les àrees d’especialització a què ens dediquem, amb una visió global que prioritza el <strong>servei</strong>, el <strong>rigor</strong>, la <strong>qualitat</strong> i el <strong>compromís ferm</strong> amb el client.
+            </p>
+            <p data-i18n="pres_p3">
+              Treballem amb passió, apostant constantment per la millora i la innovació. Creiem fermament en el sentit comú i en l’aplicació de solucions pràctiques i creatives que resolguin amb eficàcia els problemes i inquietuds legals, fent nostres els seus reptes.
+            </p>
+          </div>
+
+          <div class="quote-box">
+            <div class="quote-mark">“</div>
+            <p class="quote-text" data-i18n="pres_quote">Per garantir un assessorament eficaç i de qualitat, considerem imprescindible conèixer en profunditat els nostres clients, així com els seus negocis i circumstàncies particulars.</p>
+            <span class="quote-author" data-i18n="pres_motto">L'objectiu principal d'ARS es resumeix en una paraula: QUALITAT.</span>
+          </div>
+
+          <div class="presentation-features">
+            <div class="feature-item">
+              <span class="feature-icon">✓</span>
+              <div>
+                <strong data-i18n="feat_1_title">Sentit Comú & Creativitat</strong>
+                <p data-i18n="feat_1_desc">Evitem solucions estàndard; dissenyem estratègies a mida per a cada conflicte.</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">✓</span>
+              <div>
+                <strong data-i18n="feat_2_title">Trato Directo con Socios</strong>
+                <p data-i18n="feat_2_desc">Comunicació transparent, immediata i sense intermediaris innecessaris.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Especialitats Jurídiques -->
+  <section class="section section-specialties" id="especialitats">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <div class="section-kicker" data-i18n="spec_kicker">ÀREES DE PRÀCTICA JURÍDICA</div>
+        <h2 class="section-title" data-i18n="spec_title">Servei Integral en Dret Privat i Públic</h2>
+        <p class="section-desc" data-i18n="spec_subtitle">
+          Ens dediquem a atendre i resoldre de forma eficaç, coherent i ètica qualsevol conflicte o necessitat legal plantejada per particulars, famílies i societats mercantils.
+        </p>
+
+        <!-- Category Filters -->
+        <div class="filter-pills" role="tablist">
+          <button class="pill active" data-filter="all" data-i18n="filter_all">Totes les Àrees</button>
+          <button class="pill" data-filter="civil" data-i18n="filter_civil">Civil & Família</button>
+          <button class="pill" data-filter="empresa" data-i18n="filter_business">Mercantil & Empresa</button>
+          <button class="pill" data-filter="penal" data-i18n="filter_criminal">Penal</button>
+          <button class="pill" data-filter="laboral" data-i18n="filter_labor">Laboral & Danys</button>
+          <button class="pill" data-filter="immobiliari" data-i18n="filter_property">Immobiliari & Financer</button>
+        </div>
+      </div>
+
+      <div class="specialties-grid" id="specialtiesGrid">
+        <!-- 1: Família -->
+        <div class="spec-card reveal" data-category="civil">
+          <div class="spec-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </div>
+          <span class="spec-num">01</span>
+          <h3 class="spec-card-title" data-i18n="sp_1_title">Dret Matrimonial i de Família</h3>
+          <p class="spec-card-desc" data-i18n="sp_1_desc">Processos de separació i divorci (de mutu acord o contenciós), redacció de convenis reguladors, guarda i custòdia, pensió d'aliments i modificació de mesures judicials.</p>
+          <div class="spec-tags">
+            <span>Divorcis</span><span>Custòdies</span><span>Pensions</span>
+          </div>
+        </div>
+
+        <!-- 2: Successions -->
+        <div class="spec-card reveal delay-1" data-category="civil">
+          <div class="spec-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          </div>
+          <span class="spec-num">02</span>
+          <h3 class="spec-card-title" data-i18n="sp_2_title">Successions, Testaments i Herències</h3>
+          <p class="spec-card-desc" data-i18n="sp_2_desc">Planificació successòria patrimonial, tramitació i acceptació d'herències davant notari, declaracions d'hereus, reclamació de legítima i impugnació de testaments.</p>
+          <div class="spec-tags">
+            <span>Herències</span><span>Testaments</span><span>Legítima</span>
+          </div>
+        </div>
+
+        <!-- 3: Desnonaments -->
+        <div class="spec-card reveal delay-2" data-category="immobiliari">
+          <div class="spec-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          </div>
+          <span class="spec-num">03</span>
+          <h3 class="spec-card-title" data-i18n="sp_3_title">Desnonaments i Arrendaments</h3>
+          <p class="spec-card-desc" data-i18n="sp_3_desc">Recuperació ràpida de la possessió d'immobles per impagament de rendes o expiració de termini contractual. Redacció de contractes d'arrendament d'habitatge i local de negoci.</p>
+          <div class="spec-tags">
+            <span>Desnonaments</span><span>Lloguers</span><span>Recuperació</span>
+          </div>
+        </div>
+
+        <!-- 4: Contractes -->
+        <div class="spec-card reveal" data-category="civil">
+          <div class="spec-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+          </div>
+          <span class="spec-num">04</span>
+          <h3 class="spec-card-title" data-i18n="sp_4_title">Obligacions i Contractes</h3>
+          <p class="spec-card-desc" data-i18n="sp_4_desc">Redacció, interpretació i negociació de contractes civils i mercantils. Resolució per incompliment, reclamació de vicis ocults i indemnització de danys i perjudicis.</p>
+          <div class="spec-tags">
+            <span>Contractació</span><span>Incompliments</span><span>Vicis</span>
+          </div>
+        </div>
+
+        <!-- 5: Reclamacions de Quantitat -->
+        <div class="spec-card reveal delay-1" data-category="civil">
+          <div class="spec-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          </div>
+          <span class="spec-num">05</span>
+          <h3 class="spec-card-title" data-i18n="sp_5_title">Reclamacions de Quantitat</h3>
+          <p class="spec-card-desc" data-i18n="sp_5_desc">Reclamació extrajudicial i judicial d'impagats i deutes pendents. Procediments monitoris, ordinaris, verbals i execució d'actius i embargaments patrimonials.</p>
+          <div class="spec-tags">
+            <span>Impagats</span><span>Monitoris</span><span>Embargaments</span>
+          </div>
+        </div>
+
+        <!-- 6: Comunitats Propietaris -->
+        <div class="spec-card reveal delay-2" data-category="immobiliari">
+          <div class="spec-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="9" y1="22" x2="9" y2="22.01"></line><line x1="15" y1="22" x2="15" y2="22.01"></line><line x1="12" y1="18" x2="12" y2="18.01"></line><line x1="12" y1="14" x2="12" y2="14.01"></line><line x1="12" y1="10" x2="12" y2="10.01"></line><line x1="12" y1="6" x2="12" y2="6.01"></line></svg>
+          </div>
+          <span class="spec-num">06</span>
+          <h3 class="spec-card-title" data-i18n="sp_6_title">Comunitats de Propietaris</h3>
+          <p class="spec-card-desc" data-i18n="sp_6_desc">Assessorament en Propietat Horitzontal, impugnació d'acords comunitaris nuls o perjudicials, reclamació a veïns morosos i responsabilitat per defectes de construcció.</p>
+          <div class="spec-tags">
+            <span>Propietat Horitzontal</span><span>Actes</span><span>Defectes</span>
+          </div>
+        </div>
+
+        <!-- 7: Dret Bancari -->
+        <div class="spec-card reveal" data-category="immobiliari">
+          <div class="spec-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          </div>
+          <span class="spec-num">07</span>
+          <h3 class="spec-card-title" data-i18n="sp_7_title">Dret Bancari & Clàusules Abusives</h3>
+          <p class="spec-card-desc" data-i18n="sp_7_desc">Defensa davant abusos bancaris: clàusules sòl, despeses de formalització d'hipoteca, comissions abusives, targetes revolving i execucions hipotecàries.</p>
+          <div class="spec-tags">
+            <span>Clàusula Sòl</span><span>Revolving</span><span>Hipotecari</span>
+          </div>
+        </div>
+
+        <!-- 8: Dret Penal -->
+        <div class="spec-card reveal delay-1" data-category="penal">
+          <div class="spec-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </div>
+          <span class="spec-num">08</span>
+          <h3 class="spec-card-title" data-i18n="sp_8_title">Dret Penal & Defensa Judicial</h3>
+          <p class="spec-card-desc" data-i18n="sp_8_desc">Assistència urgent al detingut a comissaria i jutjat de guàrdia. Defensa i acusació particular en procediments per delictes lleus, menys greus i greus.</p>
+          <div class="spec-tags">
+            <span>Assistència 24h</span><span>Judicis Penals</span><span>Recursos</span>
+          </div>
+        </div>
+
+        <!-- 9: Violència de Gènere -->
+        <div class="spec-card reveal delay-2" data-category="penal">
+          <div class="spec-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <span class="spec-num">09</span>
+          <h3 class="spec-card-title" data-i18n="sp_9_title">Violència de Gènere</h3>
+          <p class="spec-card-desc" data-i18n="sp_9_desc">Atenció especialitzada, urgent i sensible. Sol·licitud d'ordres de protecció i allunyament, mesures cautelars personals i patrimonials, i acompanyament en tot el procés penal.</p>
+          <div class="spec-tags">
+            <span>Protecció</span><span>Allunyament</span><span>Sensibilitat</span>
+          </div>
+        </div>
+
+        <!-- 10: Dret Econòmic & Compliance -->
+        <div class="spec-card reveal" data-category="empresa">
+          <div class="spec-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+          </div>
+          <span class="spec-num">10</span>
+          <h3 class="spec-card-title" data-i18n="sp_10_title">Dret Econòmic & Compliance</h3>
+          <p class="spec-card-desc" data-i18n="sp_10_desc">Prevenció de delictes corporatius (Corporate Compliance), responsabilitat penal de la persona jurídica, estafes, apropiacions indegudes i delictes societaris.</p>
+          <div class="spec-tags">
+            <span>Compliance</span><span>Delictes Societaris</span><span>Prevenció</span>
+          </div>
+        </div>
+
+        <!-- 11: Accidents de Trànsit -->
+        <div class="spec-card reveal delay-1" data-category="laboral">
+          <div class="spec-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          </div>
+          <span class="spec-num">11</span>
+          <h3 class="spec-card-title" data-i18n="sp_11_title">Accidents de Trànsit</h3>
+          <p class="spec-card-desc" data-i18n="sp_11_desc">Defensa dels drets de les víctimes d'accidents de circulació. Càlcul precís de barems mèdics legals i màxima indemnització per danys materials, físics i seqüeles.</p>
+          <div class="spec-tags">
+            <span>Indemnitzacions</span><span>Asseguradores</span><span>Seqüeles</span>
+          </div>
+        </div>
+
+        <!-- 12: Dret Laboral -->
+        <div class="spec-card reveal delay-2" data-category="laboral">
+          <div class="spec-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+          </div>
+          <span class="spec-num">12</span>
+          <h3 class="spec-card-title" data-i18n="sp_12_title">Dret Laboral & Seguretat Social</h3>
+          <p class="spec-card-desc" data-i18n="sp_12_desc">Acomiadaments disciplinaris i objectius, reclamació de salaris, sancions laborals, expedients de regulació d'ocupació (ERO/ERTO) i representació en actes de conciliació (CMAC).</p>
+          <div class="spec-tags">
+            <span>Acomiadaments</span><span>Salaris</span><span>CMAC</span>
+          </div>
+        </div>
+
+        <!-- 13: Incapacitat Laboral -->
+        <div class="spec-card reveal" data-category="laboral">
+          <div class="spec-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+          </div>
+          <span class="spec-num">13</span>
+          <h3 class="spec-card-title" data-i18n="sp_13_title">Procediments d'Incapacitat Laboral</h3>
+          <p class="spec-card-desc" data-i18n="sp_13_desc">Tramitació i reclamació judicial de pensions per incapacitat laboral permanent (parcial, total, absoluta i gran invalidesa). Impugnació d'altes mèdiques de l'INSS i mútues.</p>
+          <div class="spec-tags">
+            <span>Incapacitat Permanent</span><span>INSS</span><span>Impugnacions</span>
+          </div>
+        </div>
+
+        <!-- 14: Societats Mercantils -->
+        <div class="spec-card reveal delay-1" data-category="empresa">
+          <div class="spec-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></svg>
+          </div>
+          <span class="spec-num">14</span>
+          <h3 class="spec-card-title" data-i18n="sp_14_title">Assessorament a Societats Mercantils</h3>
+          <p class="spec-card-desc" data-i18n="sp_14_desc">Constitució d'empreses, redacció de pactes de socis, acords de confidencialitat, fusions, ampliacions de capital, secretària de consells i conflictes entre socis.</p>
+          <div class="spec-tags">
+            <span>Pactes de Socis</span><span>Fusions</span><span>Societari</span>
+          </div>
+        </div>
+
+        <!-- 15: Concursal & Segona Oportunitat -->
+        <div class="spec-card reveal delay-2" data-category="empresa">
+          <div class="spec-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          </div>
+          <span class="spec-num">15</span>
+          <h3 class="spec-card-title" data-i18n="sp_15_title">Concursos & Llei de Segona Oportunitat</h3>
+          <p class="spec-card-desc" data-i18n="sp_15_desc">Reestructuració de deutes i insolvències per a pimes i autònoms. Aplicació de la Llei de la Segona Oportunitat per a la cancel·lació definitiva de deutes personals.</p>
+          <div class="spec-tags">
+            <span>Segona Oportunitat</span><span>Concursos</span><span>Exoneració Deutes</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="specialties-cta text-center reveal">
+        <p data-i18n="spec_cta_lead">Necessites assessorament en una altra matèria o tens dubtes sobre la viabilitat del teu cas?</p>
+        <a href="#contacte" class="btn btn-gold" data-i18n="spec_cta_btn">Consulta'ns sense compromís</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- L'Equip d'ARS Advocats -->
+  <section class="section section-team" id="equip">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <div class="section-kicker" data-i18n="team_kicker">PROFESSIONALS DE PRIMER NIVELL</div>
+        <h2 class="section-title" data-i18n="team_title">L'Equip d'ARS Advocats</h2>
+        <p class="section-desc" data-i18n="team_subtitle">
+          Un equip directiu cohesionat, compromès i accessible, amb sòlida formació a la Universitat de Barcelona i presència activa a les institucions col·legials.
+        </p>
+      </div>
+
+      <div class="team-grid">
+        <!-- Roger Subirana -->
+        <div class="team-card reveal">
+          <div class="team-img-wrap">
+            <img src="assets/images/roger.jpg" alt="Roger Subirana - Soci Director ARS Advocats" class="team-img">
+            <div class="team-overlay">
+              <span class="team-pill">ICAVOR / ICAB</span>
+            </div>
+          </div>
+          <div class="team-info">
+            <div class="team-role-badge" data-i18n="team_role_partner">Soci Director</div>
+            <h3 class="team-name">Roger Subirana</h3>
+            <div class="team-credentials">
+              <p data-i18n="roger_bio_1">Llicenciat en Dret per la <strong>Universitat de Barcelona (UB)</strong>, amb Màster en Advocacia per l’<strong>Il·lustre Col·legi d’Advocats de Barcelona (ICAB)</strong>.</p>
+              <p data-i18n="roger_bio_2">S’encarrega i es responsabilitza de la direcció dels Departaments de <strong>Dret Civil</strong>, <strong>Dret de Família</strong> i <strong>Dret Penal</strong>.</p>
+              <div class="honor-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <span data-i18n="roger_honor">Membre de la Junta de Govern de l'ICAVOR (Granollers)</span>
+              </div>
+            </div>
+            <div class="team-action">
+              <a href="#contacte" class="btn btn-outline btn-sm btn-block" data-i18n="team_btn_contact">Contactar amb Roger</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Alex Reus -->
+        <div class="team-card reveal delay-1">
+          <div class="team-img-wrap">
+            <img src="assets/images/alex.jpg" alt="Alex Reus - Soci Director ARS Advocats" class="team-img">
+            <div class="team-overlay">
+              <span class="team-pill">ICAB</span>
+            </div>
+          </div>
+          <div class="team-info">
+            <div class="team-role-badge" data-i18n="team_role_partner">Soci Director</div>
+            <h3 class="team-name">Alex Reus</h3>
+            <div class="team-credentials">
+              <p data-i18n="alex_bio_1">Llicenciat en Dret per la <strong>Universitat de Barcelona (UB)</strong>, amb Màster en Pràctica Jurídica per l’<strong>Il·lustre Col·legi d’Advocats de Barcelona (ICAB)</strong>.</p>
+              <p data-i18n="alex_bio_2">Combina la direcció dels Departaments de <strong>Dret Mercantil i Societari</strong> amb el de <strong>Dret Laboral</strong> i Seguretat Social.</p>
+              <div class="honor-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                <span data-i18n="alex_honor">Especialista en Assessorament Empresarial & Reestructuracions</span>
+              </div>
+            </div>
+            <div class="team-action">
+              <a href="#contacte" class="btn btn-outline btn-sm btn-block" data-i18n="team_btn_contact">Contactar amb Alex</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Anna Camps -->
+        <div class="team-card reveal delay-2">
+          <div class="team-img-wrap">
+            <img src="assets/images/anna.jpg" alt="Anna Camps - Advocada Col·laboradora ARS Advocats" class="team-img">
+            <div class="team-overlay">
+              <span class="team-pill">ICAVOR</span>
+            </div>
+          </div>
+          <div class="team-info">
+            <div class="team-role-badge team-role-collab" data-i18n="team_role_collab">Advocada Col·laboradora</div>
+            <h3 class="team-name">Anna Camps</h3>
+            <div class="team-credentials">
+              <p data-i18n="anna_bio_1">Llicenciada en Dret per la <strong>Universitat Autònoma de Barcelona (UAB)</strong>.</p>
+              <p data-i18n="anna_bio_2">Ha cursat el Postgrau de Pràctica Jurídica a l’<strong>Il·lustre Col·legi d’Advocats de Granollers (ICAVOR)</strong>.</p>
+              <div class="honor-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                <span data-i18n="anna_honor">Especialista en Dret Immobiliari, Civil i Penal</span>
+              </div>
+            </div>
+            <div class="team-action">
+              <a href="#contacte" class="btn btn-outline btn-sm btn-block" data-i18n="team_btn_contact">Contactar amb Anna</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filosofia i Valors -->
+  <section class="section section-values" id="valors">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <div class="section-kicker" data-i18n="values_kicker">ELS NOSTRES PRINCIPIS</div>
+        <h2 class="section-title text-gold" data-i18n="values_title">Els Valors que Vertebren la Nostra Firma</h2>
+        <p class="section-desc" data-i18n="values_subtitle">
+          El nostre compromís professional es basa en una conducta deontològica estricta i en la màxima dedicació a cada expedient.
+        </p>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-item reveal">
+          <div class="value-icon">01</div>
+          <h4 data-i18n="val_1_t">Professionalitat</h4>
+          <p data-i18n="val_1_d">Rigurositat tècnica constant, actualització jurídica permanent i màxim estàndard d'exercici processal.</p>
+        </div>
+        <div class="value-item reveal delay-1">
+          <div class="value-icon">02</div>
+          <h4 data-i18n="val_2_t">Honestitat & Prudència</h4>
+          <p data-i18n="val_2_d">Avaluació realista i honesta de les probabilitats d'èxit de cada assumpte sense generar falses expectatives.</p>
+        </div>
+        <div class="value-item reveal delay-2">
+          <div class="value-icon">03</div>
+          <h4 data-i18n="val_3_t">Confiança Mútua</h4>
+          <p data-i18n="val_3_d">Construïm relacions duradores basades en la lleialtat, el secret professional i la comunicació fluida.</p>
+        </div>
+        <div class="value-item reveal delay-3">
+          <div class="value-icon">04</div>
+          <h4 data-i18n="val_4_t">Creativitat & Sentit Comú</h4>
+          <p data-i18n="val_4_d">Solucions pràctiques i innovadores davant problemes complexos, sempre prioritzant la via més eficient per al client.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacte & Ubicació -->
+  <section class="section section-contact" id="contacte">
+    <div class="container">
+      <div class="contact-wrapper">
+        <div class="contact-info-col reveal">
+          <div class="section-kicker" data-i18n="contact_kicker">CONTACTE DIRECTE</div>
+          <h2 class="section-title">
+            <span data-i18n="contact_title_1">Parlem del</span><br>
+            <span class="text-gold" data-i18n="contact_title_2">teu cas legal.</span>
+          </h2>
+          <p class="contact-lead" data-i18n="contact_lead">
+            Visita'ns al nostre despatx al centre de Granollers o concerta una reunió presencial o telemàtica. Estarem encantats d'estudiar la teva situació amb total confidencialitat.
+          </p>
+
+          <div class="contact-details-list">
+            <div class="contact-detail-card">
+              <div class="detail-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </div>
+              <div>
+                <strong data-i18n="contact_addr_label">Adreça</strong>
+                <p>Carrer de Barcelona, 7 - 1r pis<br>08401 Granollers (Barcelona)</p>
+                <a href="https://maps.google.com/?q=Carrer+de+Barcelona,+7,+08401+Granollers" target="_blank" rel="noopener" class="detail-link" data-i18n="contact_map_link">Veure mapa a Google Maps &rarr;</a>
+              </div>
+            </div>
+
+            <div class="contact-detail-card">
+              <div class="detail-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              </div>
+              <div>
+                <strong data-i18n="contact_tel_label">Telèfon d'Atenció</strong>
+                <p><a href="tel:938795876" class="phone-link">938 795 876</a></p>
+                <span class="sub-tel">Fax: 932 932 604</span>
+              </div>
+            </div>
+
+            <div class="contact-detail-card">
+              <div class="detail-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+              </div>
+              <div>
+                <strong data-i18n="contact_email_label">Correu Electrònic</strong>
+                <p><a href="mailto:info@arsadvocats.com" class="email-link">info@arsadvocats.com</a></p>
+                <span class="sub-tel" data-i18n="contact_hours">Dilluns a Divendres: 9:00h - 14:00h / 16:00h - 19:30h</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-links-block">
+            <span class="social-title" data-i18n="social_title">Segueix-nos a xarxes socials:</span>
+            <div class="social-icons">
+              <a href="https://es.linkedin.com/company/ars-advocats" target="_blank" rel="noopener" aria-label="LinkedIn ARS Advocats">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              </a>
+              <a href="https://www.instagram.com/arsadvocats/" target="_blank" rel="noopener" aria-label="Instagram ARS Advocats">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              </a>
+              <a href="https://www.facebook.com/ARSAdvocats" target="_blank" rel="noopener" aria-label="Facebook ARS Advocats">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.374 14.5 5 15.5 5H18V0h-3.808C10.595 0 9 1.583 9 4.615V8z"/></svg>
+              </a>
+              <a href="https://twitter.com/arsadvocats" target="_blank" rel="noopener" aria-label="X / Twitter ARS Advocats">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form-col reveal delay-1">
+          <div class="form-container">
+            <h3 class="form-title" data-i18n="form_heading">Sol·licitar Cita o Consulta Legal</h3>
+            <p class="form-subtitle" data-i18n="form_sub">Omple el formulari i et respondrem en menys de 24 hores laborables.</p>
+
+            <form id="contactForm" class="styled-form" novalidate>
+              <div class="form-group">
+                <label for="formName" data-i18n="form_lbl_name">Nom complet *</label>
+                <input type="text" id="formName" name="name" required placeholder="El teu nom o el de la teva empresa">
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="formEmail" data-i18n="form_lbl_email">Correu electrònic *</label>
+                  <input type="email" id="formEmail" name="email" required placeholder="exemple@correu.com">
+                </div>
+                <div class="form-group">
+                  <label for="formPhone" data-i18n="form_lbl_phone">Telèfon de contacte</label>
+                  <input type="tel" id="formPhone" name="phone" placeholder="600 000 000">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="formArea" data-i18n="form_lbl_area">Àrea o assumpte de la consulta</label>
+                <select id="formArea" name="area">
+                  <option value="" data-i18n="opt_select">-- Selecciona una especialitat --</option>
+                  <option value="familia" data-i18n="opt_fam">Dret Matrimonial i Família</option>
+                  <option value="herencies" data-i18n="opt_her">Successions, Testaments i Herències</option>
+                  <option value="penal" data-i18n="opt_pen">Dret Penal i Defensa Judicial</option>
+                  <option value="mercantil" data-i18n="opt_mer">Mercantil, Societari & Compliance</option>
+                  <option value="laboral" data-i18n="opt_lab">Laboral & Incapacitats</option>
+                  <option value="immobiliari" data-i18n="opt_imm">Immobiliari, Arrendaments & Desnonaments</option>
+                  <option value="segona-oportunitat" data-i18n="opt_con">Concursos & Llei de Segona Oportunitat</option>
+                  <option value="altres" data-i18n="opt_oth">Altres assumptes jurídics</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="formMessage" data-i18n="form_lbl_msg">Missatge o breu explicació del cas *</label>
+                <textarea id="formMessage" name="message" rows="4" required placeholder="Explica'ns breument els fets o qüestió legal que vols resoldre..."></textarea>
+              </div>
+
+              <div class="form-consent">
+                <label class="checkbox-container">
+                  <input type="checkbox" id="formConsent" required>
+                  <span class="checkmark"></span>
+                  <span class="consent-text" data-i18n="form_consent">He llegit i accepto la política de privacitat i el tractament de les meves dades exclusivament per a gestionar aquesta consulta jurídica.</span>
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-gold btn-block" id="submitBtn">
+                <span data-i18n="form_btn_submit">Enviar Consulta Confidencial</span>
+              </button>
+
+              <div class="form-feedback" id="formFeedback" style="display: none;"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Map Section -->
+  <section class="section-map">
+    <div class="map-overlay-card">
+      <div class="map-badge">Granollers Centre</div>
+      <h4>ARS Advocats i Assessors</h4>
+      <p>Carrer de Barcelona, 7 - 1r pis</p>
+      <a href="https://maps.google.com/?q=Carrer+de+Barcelona,+7,+08401+Granollers" target="_blank" rel="noopener" class="btn btn-sm btn-gold" data-i18n="map_open">Obrir a Google Maps</a>
+    </div>
+    <iframe 
+      title="Ubicació ARS Advocats Granollers"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2984.730790839064!2d2.285816976646547!3d41.607490082348325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4c7cf99e5e7bb%3A0xe54fb7ea310d7a04!2sCarrer%20de%20Barcelona%2C%207%2C%2008401%20Granollers%2C%20Barcelona!5e0!3m2!1sca!2ses!4v1700000000000!5m2!1sca!2ses"
+      width="100%" 
+      height="380" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="assets/images/logo.png" alt="ARS Advocats" class="footer-logo">
+          <p class="footer-bio" data-i18n="footer_bio">
+            Firma d'advocats i d'assessorament legal integral al centre de Granollers. Compromís amb el rigor, l'ètica i la qualitat jurídica al servei dels nostres clients.
+          </p>
+          <div class="footer-badges">
+            <span class="f-badge">ICAB</span>
+            <span class="f-badge">ICAVOR</span>
+            <span class="f-badge">UB</span>
+            <span class="f-badge">UAB</span>
+          </div>
+        </div>
+
+        <div class="footer-links-col">
+          <h4 data-i18n="f_links_title">Navegació</h4>
+          <ul>
+            <li><a href="#presentacio" data-i18n="nav_presentation">Presentació</a></li>
+            <li><a href="#especialitats" data-i18n="nav_specialties">Especialitats</a></li>
+            <li><a href="#equip" data-i18n="nav_team">L'Equip</a></li>
+            <li><a href="#valors" data-i18n="nav_values">Filosofia</a></li>
+            <li><a href="#contacte" data-i18n="nav_contact">Contacte</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <h4 data-i18n="f_spec_title">Especialitats</h4>
+          <ul>
+            <li><a href="#especialitats" data-i18n="sp_1_title">Dret Matrimonial i Família</a></li>
+            <li><a href="#especialitats" data-i18n="sp_2_title">Successions i Herències</a></li>
+            <li><a href="#especialitats" data-i18n="sp_8_title">Dret Penal</a></li>
+            <li><a href="#especialitats" data-i18n="sp_14_title">Societats Mercantils</a></li>
+            <li><a href="#especialitats" data-i18n="sp_12_title">Dret Laboral</a></li>
+            <li><a href="#especialitats" data-i18n="sp_3_title">Desnonaments i Lloguers</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <h4 data-i18n="f_contact_title">Contacte</h4>
+          <p class="f-info-line">C/ Barcelona, 7 - 1r pis<br>08401 Granollers (Barcelona)</p>
+          <p class="f-info-line"><a href="tel:938795876">Tel. 938 795 876</a></p>
+          <p class="f-info-line">Fax. 932 932 604</p>
+          <p class="f-info-line"><a href="mailto:info@arsadvocats.com">info@arsadvocats.com</a></p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copy">
+          &copy; <span id="year"></span> ARS Advocats i Assessors. <span data-i18n="f_rights">Tots els drets reservats.</span>
+        </div>
+        <div class="footer-legal-links">
+          <a href="#" id="openPrivacyModal" data-i18n="f_privacy">Política de Privacitat</a>
+          <span class="sep">·</span>
+          <a href="#" id="openLegalModal" data-i18n="f_legal">Avís Legal</a>
+          <span class="sep">·</span>
+          <a href="#" id="openCookiesModal" data-i18n="f_cookies">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal for Legal / Privacy Info -->
+  <div class="modal" id="legalModal" aria-hidden="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 id="modalTitle">Informació Legal</h3>
+        <button class="modal-close" id="modalClose">&times;</button>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <!-- Content injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- WhatsApp Floating Quick Button -->
+  <a href="https://wa.me/34938795876?text=Hola,%20volia%20sol%C2%B7licitar%20informaci%C3%B3%20sobre%20una%20consulta%20jur%C3%ADdica%20a%20ARS%20Advocats." target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contactar per WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+  </a>
+
+  <!-- Main JavaScript File -->
+  <script src="app.js"></script>
+</body>
+</html>
