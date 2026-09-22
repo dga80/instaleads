@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=3">
+  <link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body data-lang="ca">
 
@@ -148,8 +148,28 @@
       </div>
 
       <div class="hero-visual reveal delay-2">
-        <div class="hero-image-wrapper">
-          <img src="assets/images/edificio.jpg" alt="Façana històrica ARS Advocats Granollers" class="hero-img">
+        <div class="hero-emblem-stage" id="heroEmblemStage">
+          <!-- Background subtle texture -->
+          <div class="emblem-bg-layer" style="background-image: url('assets/images/despacho.png');"></div>
+          <div class="emblem-glow-orb"></div>
+          
+          <!-- Large Emblem Container with light-sweep shine -->
+          <div class="emblem-card-inner">
+            <div class="emblem-logo-wrapper">
+              <img src="assets/images/logo_hero_white.png" alt="ARS Advocats i Assessors Logo" class="hero-grand-logo">
+              <div class="logo-shimmer-sweep" aria-hidden="true"></div>
+            </div>
+
+            <div class="emblem-caption">
+              <div class="emblem-caption-pill">
+                <span class="pulsing-gold-dot"></span>
+                <span>DESPATX JURÍDIC A GRANOLLERS</span>
+              </div>
+              <p class="emblem-meta">Granollers · Barcelona · ICAVOR · ICAB</p>
+            </div>
+          </div>
+
+          <!-- Bottom Floating Strategic badge -->
           <div class="hero-float-card">
             <div class="float-card-header">
               <span class="gold-seal">ARS</span>
@@ -810,6 +830,6 @@
   </a>
 
   <!-- Main JavaScript File -->
-  <script src="app.js"></script>
+  <script src="app.js?v=4"></script>
 </body>
 </html>
