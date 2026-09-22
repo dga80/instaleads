@@ -33,6 +33,8 @@ const translations = {
     float_sub: "Carrer de Barcelona, 7 · Granollers",
     float_desc: "Atenció directa amb el soci responsable del teu cas.",
     badge_firm: "Firma d'Advocats Integral",
+    badge_bw_to_color: "Clica per veure en color",
+    badge_color_to_bw: "Color actiu · Clica per B/N",
     pres_kicker: "PRESENTACIÓ INSTITUCIONAL",
     pres_title_1: "Un despatx jove,",
     pres_title_2: "modern, àgil i compromès.",
@@ -173,6 +175,8 @@ const translations = {
     float_sub: "Calle de Barcelona, 7 · Granollers",
     float_desc: "Atención directa con el socio responsable de tu caso.",
     badge_firm: "Firma de Abogados Integral",
+    badge_bw_to_color: "Clica para ver en color",
+    badge_color_to_bw: "Color activo · Clica para B/N",
     pres_kicker: "PRESENTACIÓN INSTITUCIONAL",
     pres_title_1: "Un despacho joven,",
     pres_title_2: "moderno, ágil y comprometido.",
@@ -590,6 +594,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     emblemStage.addEventListener('mouseenter', () => {
       emblemStage.style.transition = 'none';
+    });
+  }
+
+  // Interactive presentation photo color toggle (B/N <-> Color)
+  const photoCard = document.getElementById('presentationPhotoCard');
+  const photoBadgeText = document.getElementById('photoBadgeText');
+
+  function updatePhotoBadge(isColored) {
+    if (!photoBadgeText) return;
+    const dict = translations[currentLang] || translations.ca;
+    photoBadgeText.textContent = isColored ? dict.badge_color_to_bw : dict.badge_bw_to_color;
+  }
+
+  if (photoCard) {
+    photoCard.addEventListener('click', () => {
+      const isColored = photoCard.classList.toggle('is-colored');
+      updatePhotoBadge(isColored);
+    });
+
+    photoCard.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const isColored = photoCard.classList.toggle('is-colored');
+        updatePhotoBadge(isColored);
+      }
     });
   }
 });

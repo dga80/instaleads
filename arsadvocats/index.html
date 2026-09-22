@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body data-lang="ca">
 
@@ -190,12 +190,12 @@
     <div class="container">
       <div class="presentation-grid">
         <div class="presentation-images reveal">
-          <div class="img-box img-box-main">
-            <img src="assets/images/despacho.png" alt="Instal·lacions del despatx ARS Advocats" class="rounded-img">
-          </div>
-          <div class="img-box img-box-secondary">
-            <img src="assets/images/ars_equip.jpg" alt="Equip professional d'ARS Advocats" class="rounded-img">
-            <div class="badge-overlay" data-i18n="badge_firm">Firma d'Advocats Integral</div>
+          <div class="interactive-photo-card" id="presentationPhotoCard" role="button" tabindex="0" aria-label="Alternar escala de grisos i color">
+            <img src="assets/images/despacho.png" alt="Instal·lacions del despatx ARS Advocats" class="presentation-photo" id="presentationPhoto">
+            <div class="photo-color-toggle-badge" id="photoColorBadge">
+              <span class="color-dot"></span>
+              <span id="photoBadgeText" data-i18n="badge_bw_to_color">Clica per veure en color</span>
+            </div>
           </div>
         </div>
 
@@ -830,6 +830,6 @@
   </a>
 
   <!-- Main JavaScript File -->
-  <script src="app.js?v=4"></script>
+  <script src="app.js?v=5"></script>
 </body>
 </html>
