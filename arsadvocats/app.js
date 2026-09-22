@@ -293,6 +293,148 @@ const translations = {
     f_privacy: "Política de Privacidad",
     f_legal: "Aviso Legal",
     f_cookies: "Cookies"
+  },
+  en: {
+    top_address: "C/ Barcelona, 7 - 1st Floor, Granollers",
+    nav_presentation: "Overview",
+    nav_specialties: "Practice Areas",
+    nav_team: "Our Team",
+    nav_values: "Philosophy",
+    nav_contact: "Contact",
+    nav_cta: "Book Consultation",
+    hero_badge: "Law Firm in Granollers & Barcelona",
+    hero_title_1: "Rigor, commitment",
+    hero_title_2: "and legal excellence",
+    hero_title_3: "in downtown Granollers.",
+    hero_desc: "ARS Advocats i Assessors is a modern, dynamic, and agile law firm formed by top-tier attorneys. We provide pragmatic solutions, common sense, and comprehensive strategic foresight to safeguard the interests of individuals and corporations.",
+    hero_cta_consult: "Request Initial Consultation",
+    hero_cta_specialties: "Explore Practice Areas",
+    hero_btn_explore: "Explore Practice Areas",
+    stat_areas: "Specialized practice areas",
+    stat_board: "Governing Board Members & ICAB",
+    stat_dedication: "Ethical commitment & bespoke attention",
+    float_title: "Prime Location",
+    float_sub: "Carrer de Barcelona, 7 · Granollers",
+    float_desc: "Direct communication with the lead partner handling your case.",
+    badge_firm: "Comprehensive Law Firm",
+    badge_bw_to_color: "Click to view full color",
+    badge_color_to_bw: "Color active · Click for B/W",
+    pres_kicker: "INSTITUTIONAL PRESENTATION",
+    pres_title_1: "A youthful, modern,",
+    pres_title_2: "agile and dedicated firm.",
+    pres_p1: "ARS Advocats i Assessors is a comprehensive law and legal advisory firm located in the historic and commercial heart of Granollers.",
+    pres_p2: "Our office is modern, agile, and energetic, comprised of deeply committed professionals and top-tier attorneys. We contribute extensive experience across all our specialized practice areas, with a global vision that prioritizes client care, rigor, technical quality, and unyielding dedication.",
+    pres_p3: "We work with passion, constantly pursuing innovation and continuous improvement. We firmly believe in common sense and in implementing pragmatic, creative solutions that effectively resolve legal challenges, making our clients' goals our own.",
+    pres_quote: "To ensure effective, premium legal counsel, we consider it paramount to understand our clients in depth, along with their businesses and individual circumstances.",
+    pres_motto: "The core mission of ARS is defined in one word: QUALITY.",
+    feat_1_title: "Common Sense & Creativity",
+    feat_1_desc: "We avoid boilerplate formulas; we craft bespoke legal strategies tailored to each matter.",
+    feat_2_title: "Direct Partner Contact",
+    feat_2_desc: "Transparent, immediate communication without unnecessary intermediaries.",
+    spec_kicker: "AREAS OF LEGAL PRACTICE",
+    spec_title: "Comprehensive Counsel in Private & Public Law",
+    spec_subtitle: "We are devoted to efficiently, coherently, and ethically resolving any legal conflict or objective presented by individuals, families, and corporate enterprises.",
+    filter_all: "All Practice Areas",
+    filter_civil: "Civil & Family",
+    filter_business: "Corporate & Business",
+    filter_criminal: "Criminal Law",
+    filter_labor: "Labor & Claims",
+    filter_property: "Real Estate & Finance",
+    sp_1_title: "Family & Matrimonial Law",
+    sp_1_desc: "Separation and divorce proceedings (consensual or contentious), regulatory marital agreements, child custody, alimony, and modification of judicial decrees.",
+    sp_2_title: "Estates, Wills & Inheritances",
+    sp_2_desc: "Estate tax and succession planning, probate procedures before notaries, declarations of heirs, statutory share claims, and will challenges.",
+    sp_3_title: "Evictions & Tenancy Law",
+    sp_3_desc: "Swift property repossession for non-payment of rent or lease termination. Drafting residential and commercial lease agreements.",
+    sp_4_title: "Contracts & Obligations",
+    sp_4_desc: "Drafting, reviewing, and negotiating civil and commercial agreements. Breach of contract litigation, hidden defect claims, and damages recovery.",
+    sp_5_title: "Debt Collection & Recovery",
+    sp_5_desc: "Extrajudicial and judicial collection of unpaid debts. Summary payment proceedings, ordinary lawsuits, asset discovery, and enforcement of attachments.",
+    sp_6_title: "Homeowners' Associations",
+    sp_6_desc: "Counsel on Horizontal Property regulations, challenges to null community resolutions, delinquent fee recovery, and building defect liability.",
+    sp_7_title: "Banking Law & Abusive Clauses",
+    sp_7_desc: "Defense against financial malpractice: mortgage floor clauses, loan arrangement expenses, unfair bank fees, revolving credit cards, and foreclosures.",
+    sp_8_title: "Criminal Law & Defense",
+    sp_8_desc: "Urgent detainee assistance at police precincts and on-duty courts. Defense and private prosecution in misdemeanors, intermediate, and major felony offenses.",
+    sp_9_title: "Gender & Domestic Violence",
+    sp_9_desc: "Specialized, sensitive, and immediate legal assistance. Petitions for protective and restraining orders, preliminary personal and property relief.",
+    sp_10_title: "White-Collar Crime & Compliance",
+    sp_10_desc: "Corporate criminal prevention and compliance programs, corporate criminal liability, fraud, embezzlement, and director liability litigation.",
+    sp_11_title: "Traffic & Personal Injury",
+    sp_11_desc: "Vigorous defense of accident victims' rights. Precise actuarial and medical assessment under Spanish legal scales for maximum compensation.",
+    sp_12_title: "Labor Law & Social Security",
+    sp_12_desc: "Objective and disciplinary dismissals, unpaid wage litigation, disciplinary sanctions, collective redundancies (ERE/ERTE), and labor conciliation (CMAC).",
+    sp_13_title: "Disability & Pension Claims",
+    sp_13_desc: "Judicial appeals and proceedings for permanent disability pensions (partial, total, absolute, and severe). Contesting medical discharges from social security.",
+    sp_14_title: "Corporate & Commercial Law",
+    sp_14_desc: "Company formation, shareholder agreements, non-disclosure agreements, mergers, capital increases, board secretarial duties, and shareholder dispute resolution.",
+    sp_15_title: "Insolvency & Second Chance Law",
+    sp_15_desc: "Debt restructuring and bankruptcy proceedings for SMEs and entrepreneurs. Legal discharge of personal debt under Spain's Second Chance Law.",
+    spec_cta_lead: "Do you require counsel in another legal field or have questions about the merits of your case?",
+    spec_cta_btn: "Inquire Without Obligation",
+    team_kicker: "FIRST-CLASS PROFESSIONALS",
+    team_title: "The ARS Advocats Team",
+    team_subtitle: "A unified, accessible, and dedicated leadership team with advanced degrees from the University of Barcelona and active participation in bar associations.",
+    team_role_partner: "Managing Partner",
+    team_role_collab: "Associate Attorney",
+    roger_bio_1: "Law Degree from the <strong>University of Barcelona (UB)</strong>, with a Master's in Legal Practice from the <strong>Barcelona Bar Association (ICAB)</strong>.",
+    roger_bio_2: "Leads and oversees the departments of <strong>Civil Law</strong>, <strong>Family Law</strong>, and <strong>Criminal Law</strong>.",
+    roger_honor: "Governing Board Member of the Granollers Bar Association (ICAVOR)",
+    team_btn_contact: "Contact",
+    alex_bio_1: "Law Degree from the <strong>University of Barcelona (UB)</strong>, with a Master's in Legal Practice from the <strong>Barcelona Bar Association (ICAB)</strong>.",
+    alex_bio_2: "Heads both the <strong>Commercial & Corporate Law</strong> Department and the <strong>Labor & Social Security Law</strong> Department.",
+    alex_honor: "Specialist in Corporate Restructuring & Business Advisory",
+    anna_bio_1: "Law Degree from the <strong>Autonomous University of Barcelona (UAB)</strong>.",
+    anna_bio_2: "Postgraduate Diploma in Legal Practice from the <strong>Granollers Bar Association (ICAVOR)</strong>.",
+    anna_honor: "Specialist in Real Estate, Civil, and Criminal Law",
+    values_kicker: "OUR CORE PRINCIPLES",
+    values_title: "The Values Anchoring Our Practice",
+    values_subtitle: "Our professional pledge is built upon stringent ethical standards and complete dedication to each entrusted case.",
+    val_1_t: "Professionalism",
+    val_1_d: "Continuous technical rigor, permanent jurisprudential updating, and the highest standards of procedural advocacy.",
+    val_2_t: "Integrity & Prudence",
+    val_2_d: "Realistic, candid appraisal of legal prospects without cultivating unwarranted expectations.",
+    val_3_t: "Mutual Trust",
+    val_3_d: "We cultivate enduring relationships rooted in loyalty, professional secrecy, and fluid transparency.",
+    val_4_t: "Creativity & Common Sense",
+    val_4_d: "Pragmatic, forward-thinking solutions for intricate dilemmas, always pursuing the most cost-effective path for the client.",
+    contact_kicker: "DIRECT CONTACT",
+    contact_title_1: "Let's discuss",
+    contact_title_2: "your legal matter.",
+    contact_lead: "Visit our Granollers downtown office or arrange an in-person or videoconference consultation. We will gladly analyze your situation under strict confidentiality.",
+    contact_addr_label: "Address",
+    contact_map_link: "Open in Google Maps →",
+    contact_tel_label: "Direct Phone Line",
+    contact_email_label: "Email Address",
+    contact_hours: "Monday to Friday: 9:00 AM - 2:00 PM / 4:00 PM - 7:30 PM",
+    social_title: "Follow us on social networks:",
+    form_heading: "Request Consultation or Appointment",
+    form_sub: "Complete the form below and an attorney will respond within 24 business hours.",
+    form_lbl_name: "Full Name *",
+    form_lbl_email: "Email Address *",
+    form_lbl_phone: "Contact Phone Number",
+    form_lbl_area: "Legal Practice Area",
+    opt_select: "-- Select a practice area --",
+    opt_fam: "Family & Matrimonial Law",
+    opt_her: "Estates, Wills & Inheritances",
+    opt_pen: "Criminal Defense & Litigation",
+    opt_mer: "Corporate, Commercial & Compliance",
+    opt_lab: "Labor & Disability Law",
+    opt_imm: "Real Estate, Leases & Evictions",
+    opt_con: "Insolvency & Second Chance Law",
+    opt_oth: "Other legal matters",
+    form_lbl_msg: "Case summary or message *",
+    form_consent: "I have read and accept the privacy policy and consent to the processing of my data exclusively to address this legal inquiry.",
+    form_btn_submit: "Send Confidential Inquiry",
+    map_open: "Open in Google Maps",
+    footer_bio: "Comprehensive law firm and legal counsel based in downtown Granollers. Committed to technical rigor, ethics, and legal excellence serving private and corporate clients.",
+    f_links_title: "Navigation",
+    f_spec_title: "Practice Areas",
+    f_contact_title: "Contact",
+    f_rights: "All rights reserved.",
+    f_privacy: "Privacy Policy",
+    f_legal: "Legal Notice",
+    f_cookies: "Cookies Policy"
   }
 };
 
@@ -347,6 +489,32 @@ const legalContents = {
     cookiesTitle: "Política de Cookies",
     cookiesHtml: `
       <p>Este sitio web utiliza exclusivamente cookies técnicas esenciales para garantizar la navegación correcta, almacenar la preferencia de idioma y la seguridad. No se emplean cookies de rastreo comercial publicitario de terceros.</p>
+    `
+  },
+  en: {
+    privacyTitle: "Privacy Policy",
+    privacyHtml: `
+      <h4>Data Controller</h4>
+      <p>ARS Advocats i Assessors, located at Carrer de Barcelona, 7 - 1st Floor, 08401 Granollers (Barcelona, Spain). Contact email: info@arsadvocats.com.</p>
+      <h4>Purpose of Data Processing</h4>
+      <p>Personal data collected via inquiry forms, phone calls, or emails will be processed strictly to manage and respond to legal consultation requests.</p>
+      <h4>Lawful Basis & Retention</h4>
+      <p>The processing is legitimized by express user consent and pre-contractual legal advisory relationships. Data will be retained throughout the case management and during statutory limitation periods.</p>
+      <h4>User Rights</h4>
+      <p>You may exercise rights of access, rectification, erasure, restriction, and opposition by sending a written notice along with proof of identity to info@arsadvocats.com.</p>
+    `,
+    legalTitle: "Legal Notice & Regulatory Standing",
+    legalHtml: `
+      <h4>General Information</h4>
+      <p>Pursuant to Spanish Law 34/2002 (LSSI-CE), notice is hereby given that this website is the property of ARS Advocats i Assessors, based in Granollers (Barcelona, Spain).</p>
+      <h4>Professional Regulation</h4>
+      <p>Firm attorneys are officially registered with the Bar Association of Granollers (ICAVOR) and the Bar Association of Barcelona (ICAB), governed by the Spanish General Advocacy Statute and Code of Conduct.</p>
+      <h4>Intellectual Property</h4>
+      <p>All contents, branding, texts, and imagery are protected under intellectual property legislation and remain the exclusive property of their respective owners.</p>
+    `,
+    cookiesTitle: "Cookies Policy",
+    cookiesHtml: `
+      <p>This website uses only essential technical cookies necessary for safe navigation, language preferences, and basic functionality. No commercial third-party advertising trackers are used.</p>
     `
   }
 };
@@ -562,9 +730,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         formFeedback.style.display = 'block';
         formFeedback.className = 'form-feedback success';
-        formFeedback.textContent = currentLang === 'ca'
-          ? `Gràcies, ${name}. Hem rebut la teva consulta correctament. Un advocat del departament corresponent es posarà en contacte amb tu en breu.`
-          : `Gracias, ${name}. Hemos recibido tu consulta correctamente. Un abogado del departamento correspondiente se pondrá en contacto contigo en breve.`;
+        if (currentLang === 'en') {
+          formFeedback.textContent = `Thank you, ${name}. We have successfully received your inquiry. A specialist attorney will contact you shortly.`;
+        } else if (currentLang === 'es') {
+          formFeedback.textContent = `Gracias, ${name}. Hemos recibido tu consulta correctamente. Un abogado del departamento correspondiente se pondrá en contacto contigo en breve.`;
+        } else {
+          formFeedback.textContent = `Gràcies, ${name}. Hem rebut la teva consulta correctament. Un advocat del departament corresponent es posarà en contacte amb tu en breu.`;
+        }
       }, 700);
     });
   }
