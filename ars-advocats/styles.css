@@ -491,21 +491,20 @@ button {
 
 .hero-emblem-stage {
   position: relative;
-  min-height: 420px;
-  border-radius: var(--radius-lg);
-  background: var(--bg-card);
-  border: 1px solid var(--border-card);
-  box-shadow: var(--shadow-lg);
+  min-height: 380px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 50px 36px;
-  transition: border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+  padding: 20px 0;
+  transform-style: preserve-3d;
 }
 
 .hero-emblem-stage:hover {
-  border-color: var(--border-gold);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 35px rgba(197, 164, 126, 0.1);
+  border-color: transparent;
+  box-shadow: none;
 }
 
 .emblem-card-inner {
@@ -515,19 +514,28 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  transform-style: preserve-3d;
+}
+
+.hero-logo-wrap {
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  justify-content: center;
 }
 
 .hero-grand-logo {
   width: 100%;
-  max-width: 360px;
+  max-width: 440px;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.5));
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.6));
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
 }
 
 .hero-emblem-stage:hover .hero-grand-logo {
-  transform: scale(1.02);
+  transform: scale(1.03) translateZ(20px);
+  filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 25px rgba(197, 164, 126, 0.18));
 }
 
 /* ==========================================================================

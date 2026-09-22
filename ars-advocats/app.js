@@ -586,8 +586,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const deltaX = (e.clientX - centerX) / (window.innerWidth / 2);
             const deltaY = (e.clientY - centerY) / (window.innerHeight / 2);
 
-            const rotateX = Math.max(-9, Math.min(9, deltaY * -7));
-            const rotateY = Math.max(-9, Math.min(9, deltaX * 7));
+            const rotateX = Math.max(-12, Math.min(12, deltaY * -10));
+            const rotateY = Math.max(-12, Math.min(12, deltaX * 10));
 
             emblemStage.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg)`;
           }
