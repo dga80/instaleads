@@ -289,11 +289,26 @@
   var currentLang = 'en'; // Default English as requested
 
   function getSavedLang() {
+    // 1. Explicit URL parameter (?lang=en or ?lang=es)
     try {
-      var saved = localStorage.getItem('coderapuzo_lang');
-      if (saved && (saved === 'en' || saved === 'es')) return saved;
+      var params = new URLSearchParams(window.location.search);
+      var urlLang = params.get('lang');
+      if (urlLang === 'en' || urlLang === 'es') return urlLang;
     } catch (e) {}
-    return 'en'; // Default English
+
+    // 2. Clear permanent localStorage so the site always defaults to English on fresh visits
+    try {
+      localStorage.removeItem('coderapuzo_lang');
+    } catch (e) {}
+
+    // 3. Session preference (only if user changed it in the current browser session)
+    try {
+      var session = sessionStorage.getItem('coderapuzo_lang');
+      if (session === 'en' || session === 'es') return session;
+    } catch (e) {}
+
+    // Strictly English by default
+    return 'en';
   }
 
   var isTransitioning = false;
@@ -303,7 +318,8 @@
     document.documentElement.lang = lang;
 
     try {
-      localStorage.setItem('coderapuzo_lang', lang);
+      sessionStorage.setItem('coderapuzo_lang', lang);
+      localStorage.removeItem('coderapuzo_lang');
     } catch (e) {}
 
     // Update active state on language buttons
