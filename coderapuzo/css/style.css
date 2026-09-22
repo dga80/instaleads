@@ -272,6 +272,21 @@ html.js:not(.rm) .rail a.pulse {
   margin: 0 .15rem;
 }
 
+/* ---------------- language micro-transition ---------------- */
+body.lang-switching [data-i18n],
+body.lang-switching [data-i18n-html] {
+  opacity: 0.12 !important;
+  filter: blur(1px);
+  transition: opacity 0.11s ease-out, filter 0.11s ease-out !important;
+}
+
+body.lang-recovering [data-i18n],
+body.lang-recovering [data-i18n-html] {
+  opacity: 1 !important;
+  filter: none !important;
+  transition: opacity 0.18s cubic-bezier(.22, .6, .25, 1), filter 0.18s ease !important;
+}
+
 .tones {
   display: inline-flex;
   align-items: center;
@@ -1103,6 +1118,11 @@ footer a:hover {
   .hero { min-height: 100vh; }
   .hero .sticky { position: relative; height: auto; min-height: 100vh; }
   .tones, .playbtn, .playnote { display: none; }
+  [data-i18n], [data-i18n-html], body.lang-switching [data-i18n], body.lang-switching [data-i18n-html] {
+    opacity: 1 !important;
+    filter: none !important;
+    transition: none !important;
+  }
 }
 
 /* ---------------- print ---------------- */

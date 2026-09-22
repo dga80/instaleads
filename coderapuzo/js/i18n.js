@@ -296,8 +296,9 @@
     return 'en'; // Default English
   }
 
-  function setLanguage(lang) {
-    if (!translations[lang]) return;
+  var isTransitioning = false;
+
+  function applyDOMTranslations(lang) {
     currentLang = lang;
     document.documentElement.lang = lang;
 
@@ -307,7 +308,9 @@
 
     // Update active state on language buttons
     document.querySelectorAll('.lang-btn').forEach(function (btn) {
-      btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      var isActive = btn.getAttribute('data-lang') === lang;
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-pressed', String(isActive));
     });
 
     // Translate all elements with data-i18n
@@ -336,10 +339,37 @@
     });
   }
 
+  function setLanguage(lang, animated) {
+    if (!translations[lang] || isTransitioning) return;
+    if (lang === currentLang && animated) return;
+
+    var RM = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!animated || RM) {
+      applyDOMTranslations(lang);
+      return;
+    }
+
+    isTransitioning = true;
+    document.body.classList.remove('lang-recovering');
+    document.body.classList.add('lang-switching');
+
+    setTimeout(function () {
+      applyDOMTranslations(lang);
+      requestAnimationFrame(function () {
+        document.body.classList.remove('lang-switching');
+        document.body.classList.add('lang-recovering');
+        setTimeout(function () {
+          document.body.classList.remove('lang-recovering');
+          isTransitioning = false;
+        }, 190);
+      });
+    }, 110);
+  }
+
   // Initialize on load
   document.addEventListener('DOMContentLoaded', function () {
     var initial = getSavedLang();
-    setLanguage(initial);
+    setLanguage(initial, false);
 
     // Language switch click handler
     document.addEventListener('click', function (e) {
@@ -347,7 +377,7 @@
       if (btn) {
         var lang = btn.getAttribute('data-lang');
         if (lang && lang !== currentLang) {
-          setLanguage(lang);
+          setLanguage(lang, true);
         }
       }
     });
