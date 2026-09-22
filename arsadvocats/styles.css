@@ -43,9 +43,9 @@
   --transition-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 
   --container-max: 1240px;
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
+  --radius-sm: 2px;
+  --radius-md: 3px;
+  --radius-lg: 4px;
   --radius-full: 9999px;
 }
 
@@ -198,12 +198,15 @@ button {
 .brand-link {
   display: flex;
   align-items: center;
+  padding: 0;
+  margin: 0;
 }
 
 .brand-logo {
-  height: 48px;
+  height: 40px;
   width: auto;
   object-fit: contain;
+  object-position: left center;
   filter: brightness(1.05) contrast(1.02);
 }
 
@@ -525,18 +528,6 @@ button {
   transform: scale(1.03);
 }
 
-.logo-shimmer-sweep {
-  position: absolute;
-  top: -60%;
-  left: -120%;
-  width: 50%;
-  height: 220%;
-  background: linear-gradient(105deg, transparent 20%, rgba(255, 255, 255, 0.35) 45%, rgba(223, 194, 159, 0.45) 55%, transparent 75%);
-  transform: rotate(25deg);
-  pointer-events: none;
-  animation: shimmerSweep 5.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-}
-
 .emblem-caption-pill {
   display: inline-flex;
   align-items: center;
@@ -567,11 +558,7 @@ button {
   letter-spacing: 0.06em;
 }
 
-@keyframes shimmerSweep {
-  0% { left: -120%; }
-  30% { left: 160%; }
-  100% { left: 160%; }
-}
+
 
 @keyframes glowPulse {
   0% { transform: translate(-50%, -50%) scale(0.92); opacity: 0.45; }
@@ -735,44 +722,6 @@ button {
   transform: scale(1.01);
 }
 
-.photo-color-toggle-badge {
-  position: absolute;
-  bottom: 18px;
-  right: 18px;
-  background: rgba(10, 14, 23, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-gold);
-  border-radius: var(--radius-full);
-  padding: 8px 16px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  color: var(--text-main);
-  box-shadow: var(--shadow-md);
-  transition: all var(--transition-fast);
-}
-
-.interactive-photo-card:hover .photo-color-toggle-badge {
-  background: rgba(10, 14, 23, 0.95);
-  color: var(--gold-300);
-  border-color: var(--gold-400);
-}
-
-.color-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: #94a3b8;
-  transition: background-color var(--transition-fast), box-shadow var(--transition-fast);
-}
-
-.interactive-photo-card.is-colored .color-dot {
-  background-color: #22c55e;
-  box-shadow: 0 0 10px #22c55e;
 }
 
 .rich-text p {

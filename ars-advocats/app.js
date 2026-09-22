@@ -569,55 +569,54 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3D Tilt interaction on Hero Emblem Stage
+  // 3D Tilt interaction on Hero Emblem Stage (responsive from anywhere on the web)
   const emblemStage = document.getElementById('heroEmblemStage');
   if (emblemStage && window.matchMedia('(pointer: fine)').matches) {
-    emblemStage.addEventListener('mousemove', (e) => {
-      const rect = emblemStage.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      const rotateX = ((y - centerY) / centerY) * -6;
-      const rotateY = ((x - centerX) / centerX) * 6;
+    let ticking = false;
 
-      emblemStage.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    window.addEventListener('mousemove', (e) => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const rect = emblemStage.getBoundingClientRect();
+          // Check if hero emblem is within or near the viewport
+          if (rect.bottom > -100 && rect.top < window.innerHeight + 100) {
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            const deltaX = (e.clientX - centerX) / (window.innerWidth / 2);
+            const deltaY = (e.clientY - centerY) / (window.innerHeight / 2);
+
+            const rotateX = Math.max(-9, Math.min(9, deltaY * -7));
+            const rotateY = Math.max(-9, Math.min(9, deltaX * 7));
+
+            emblemStage.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg)`;
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
     });
 
-    emblemStage.addEventListener('mouseleave', () => {
-      emblemStage.style.transition = 'transform 0.5s ease';
+    document.addEventListener('mouseleave', () => {
+      emblemStage.style.transition = 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
       emblemStage.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
       setTimeout(() => {
         emblemStage.style.transition = '';
-      }, 500);
-    });
-
-    emblemStage.addEventListener('mouseenter', () => {
-      emblemStage.style.transition = 'none';
+      }, 800);
     });
   }
 
-  // Interactive presentation photo color toggle (B/N <-> Color)
+  // Interactive presentation photo color toggle (B/N <-> Color on click)
   const photoCard = document.getElementById('presentationPhotoCard');
-  const photoBadgeText = document.getElementById('photoBadgeText');
-
-  function updatePhotoBadge(isColored) {
-    if (!photoBadgeText) return;
-    const dict = translations[currentLang] || translations.ca;
-    photoBadgeText.textContent = isColored ? dict.badge_color_to_bw : dict.badge_bw_to_color;
-  }
-
   if (photoCard) {
     photoCard.addEventListener('click', () => {
-      const isColored = photoCard.classList.toggle('is-colored');
-      updatePhotoBadge(isColored);
+      photoCard.classList.toggle('is-colored');
     });
 
     photoCard.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        const isColored = photoCard.classList.toggle('is-colored');
-        updatePhotoBadge(isColored);
+        photoCard.classList.toggle('is-colored');
       }
     });
   }
