@@ -202,12 +202,51 @@ button {
   margin: 0;
 }
 
-.brand-logo {
+/* Interactive Two-Tone Logo (Gold/White in rest, Original Red in hover) */
+.interactive-logo-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+}
+
+.interactive-logo-wrap img {
+  display: block;
+}
+
+.interactive-logo-wrap .logo-gold {
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.interactive-logo-wrap .logo-red {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+/* Hover transitions to original red across navbar, hero, and footer */
+.brand-link:hover .interactive-logo-wrap .logo-gold,
+.footer-logo-link:hover .interactive-logo-wrap .logo-gold,
+.hero-emblem-stage:hover .interactive-logo-wrap .logo-gold {
+  opacity: 0;
+}
+
+.brand-link:hover .interactive-logo-wrap .logo-red,
+.footer-logo-link:hover .interactive-logo-wrap .logo-red,
+.hero-emblem-stage:hover .interactive-logo-wrap .logo-red {
+  opacity: 1;
+}
+
+.nav-logo-wrap .brand-logo {
   height: 40px;
   width: auto;
   object-fit: contain;
   object-position: left center;
-  filter: brightness(1.05) contrast(1.02);
 }
 
 .desktop-nav {
@@ -1338,9 +1377,16 @@ button {
   margin-bottom: 60px;
 }
 
-.footer-logo {
-  height: 44px;
+.footer-logo-link {
+  display: inline-block;
   margin-bottom: 18px;
+}
+
+.footer-logo {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+  object-position: left center;
 }
 
 .footer-bio {
