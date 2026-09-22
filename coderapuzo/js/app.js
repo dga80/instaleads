@@ -251,7 +251,10 @@
     var essay = essaysData.find(function (e) { return e.slug === slug; });
     if (!essay) return;
 
-    var html = '<div class="essay-kicker">Luis Codera Puzo · Ideas &amp; Ensayos</div>';
+    var kicker = window.I18n ? window.I18n.t('modal.kicker') : 'Luis Codera Puzo · Ideas &amp; Essays';
+    var linksLabel = window.I18n ? window.I18n.t('modal.links') : 'Related links:';
+
+    var html = '<div class="essay-kicker">' + kicker + '</div>';
     html += '<h2>' + escapeHtml(essay.title) + '</h2>';
     html += '<div class="essay-body">';
 
@@ -268,7 +271,7 @@
     html += '</div>';
 
     if (essay.links && essay.links.length > 0) {
-      html += '<div class="essay-links"><p style="color:var(--slate);margin-bottom:.5rem;">Enlaces relacionados:</p>';
+      html += '<div class="essay-links"><p style="color:var(--slate);margin-bottom:.5rem;">' + linksLabel + '</p>';
       essay.links.forEach(function (l) {
         if (l.href) {
           html += '<a href="' + escapeHtml(l.href) + '" target="_blank" rel="noopener">→ ' + escapeHtml(l.text || l.href) + '</a> ';

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Luis Codera Puzo — Compositor, sintetizador modular &amp; guitarra eléctrica</title>
-  <meta name="description" content="Sitio oficial de Luis Codera Puzo (Barcelona, 1981). Compositor, intérprete de sintetizadores modulares y guitarra eléctrica, comisario.">
+  <title>Luis Codera Puzo — Composer, modular synthesizer &amp; electric guitar</title>
+  <meta name="description" content="Official site of Luis Codera Puzo (Barcelona, 1981). Composer, modular synthesizers and electric guitar performer, curator.">
   <link rel="canonical" href="https://coderapuzo.com/">
   <meta name="theme-color" content="#0E1220">
   <meta property="og:title" content="Luis Codera Puzo — Compositor, sintetizador modular &amp; guitarra eléctrica">
@@ -16,31 +16,38 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <a class="skip" href="#main">Saltar al contenido</a>
+  <a class="skip" href="#main">Skip to content</a>
 
   <!-- ============ Left Navigation Rail ============ -->
   <nav class="rail" aria-label="Capítulos de la obra">
     <a class="wordmark" href="#ground"><b>c</b>odera</a>
     <ol>
-      <li><a class="sw" href="#ground">0<span class="lbl">0 — El suelo sonoro</span></a></li>
-      <li><a class="sw" href="#activities">I<span class="lbl">I — Actividad reciente</span></a></li>
-      <li><a class="sw" href="#bio">II<span class="lbl">II — Biografía &amp; trayectoria</span></a></li>
-      <li><a class="sw" href="#catalogue">III<span class="lbl">III — Catálogo de obras</span></a></li>
-      <li><a class="sw" href="#instrument">IV<span class="lbl">IV — El sintetizador modular</span></a></li>
-      <li><a class="sw" href="#curator">V<span class="lbl">V — Comisariado &amp; estructuras</span></a></li>
-      <li><a class="sw" href="#ideas">VI<span class="lbl">VI — Ensayos &amp; biblioteca</span></a></li>
-      <li><a class="sw" href="#records">VII<span class="lbl">VII — Discografía &amp; contacto</span></a></li>
+      <li><a class="sw" href="#ground">0<span class="lbl" data-i18n="rail.0">0 — Ground</span></a></li>
+      <li><a class="sw" href="#activities">I<span class="lbl" data-i18n="rail.1">I — Activities</span></a></li>
+      <li><a class="sw" href="#bio">II<span class="lbl" data-i18n="rail.2">II — Biography</span></a></li>
+      <li><a class="sw" href="#catalogue">III<span class="lbl" data-i18n="rail.3">III — Works</span></a></li>
+      <li><a class="sw" href="#instrument">IV<span class="lbl" data-i18n="rail.4">IV — Modular Synth</span></a></li>
+      <li><a class="sw" href="#curator">V<span class="lbl" data-i18n="rail.5">V — Curator</span></a></li>
+      <li><a class="sw" href="#ideas">VI<span class="lbl" data-i18n="rail.6">VI — Essays</span></a></li>
+      <li><a class="sw" href="#records">VII<span class="lbl" data-i18n="rail.7">VII — Records</span></a></li>
     </ol>
   </nav>
 
   <!-- Mobile Top Brand -->
   <a class="brand" href="#ground"><b>c</b>odera puzo</a>
 
-  <!-- Tones / Synthesizer Toggle -->
-  <button class="tones" id="tones" aria-pressed="false">
-    <span class="dot" aria-hidden="true"></span>♪ synth
-    <span class="visually-hidden">— activa tonos del sintetizador modular al navegar por los capítulos</span>
-  </button>
+  <!-- Top Controls: Language Switcher & Synthesizer Toggle -->
+  <div class="top-controls">
+    <div class="lang-switch" id="langSwitch" role="group" aria-label="Language / Idioma">
+      <button class="lang-btn active" data-lang="en" type="button">EN</button>
+      <span class="lang-sep">/</span>
+      <button class="lang-btn" data-lang="es" type="button">ES</button>
+    </div>
+    <button class="tones" id="tones" aria-pressed="false">
+      <span class="dot" aria-hidden="true"></span>♪ synth
+      <span class="visually-hidden">— play synthesized modular tones on chapter transition</span>
+    </button>
+  </div>
 
   <main id="main">
 
@@ -50,137 +57,121 @@
         <canvas id="cv" width="1280" height="800" aria-hidden="true"></canvas>
         <div class="ghost" aria-hidden="true"><span class="gl">Σ</span><span class="gd">01</span></div>
         <div class="wrap">
-          <p class="kicker rv">Luis Codera Puzo <span class="deg">· Barcelona, 1981 · Música y Pensamiento</span></p>
-          <h1 class="rv" id="h-ground">Destilación radical. El sonido como materia física.</h1>
-          <p class="lede rv">Compositor, intérprete de sintetizadores modulares y guitarra eléctrica, comisario. 
-            Del primer concierto para sintetizador modular y orquesta a la economía ascética del unísono: 
-            el instrumento electrónico abordado con la disciplina performativa del instrumento clásico.</p>
-          <p class="hint rv">Desplaza para ascender por los capítulos <span class="arr">↓</span> 
-            ocho estancias, del oscilador al catálogo y los textos. Detrás, una onda analógica se decanta en estructura.</p>
+          <p class="kicker rv" data-i18n-html="hero.kicker">Luis Codera Puzo <span class="deg">· Barcelona, 1981 · Music &amp; Thought</span></p>
+          <h1 class="rv" id="h-ground" data-i18n="hero.title">Radical distillation. Sound as physical reality.</h1>
+          <p class="lede rv" data-i18n="hero.lede">Composer, performer of modular synthesizers and electric guitar, curator. From one of the first concertos for modular synthesizer and orchestra to the ascetic economy of unison: the electronic instrument approached with the performative discipline and tactile precision of a classical instrument.</p>
+          <p class="hint rv" data-i18n-html="hero.hint">Scroll to ascend through the chapters <span class="arr">↓</span> eight rooms, from the oscillator to the score and ideas. Behind you, an analog wave settles into structure.</p>
         </div>
       </div>
     </section>
 
-    <!-- ============ Cap I · Actividades ============ -->
+    <!-- ============ Cap I · Activities ============ -->
     <section class="ch" id="activities" aria-labelledby="h-act">
       <div class="ghost" aria-hidden="true"><span class="gl">I</span><span class="gd">ACT</span></div>
       <div class="wrap">
-        <p class="kicker rv">I <span class="deg">· Agenda &amp; Estrenos</span></p>
-        <h2 class="rv" id="h-act">Actividad reciente y futuros proyectos.</h2>
-        <p class="rv">Obras en creación, conciertos de sintetizador modular solista y grabaciones discográficas monográficas en curso:</p>
+        <p class="kicker rv" data-i18n-html="act.kicker">I <span class="deg">· Agenda &amp; Upcoming</span></p>
+        <h2 class="rv" id="h-act" data-i18n="act.title">Next and recent activities (selection).</h2>
+        <p class="rv" data-i18n="act.intro">Works in progress, solo modular synthesizer concert tours, and monographic recordings:</p>
 
         <ul class="tools rv">
           <li>
-            <b>Las enumeraciones <span class="tag">SOLO SYNTH</span></b>
-            Gira del programa para sintetizador analógico solo:
-            Art Santa Mònica (Barcelona), Tiny Moon (Estrasburgo), ME_MMIX (Mallorca), 
-            Cicle Difraccions (Lo Pati, Centre d'Art Terres de l'Ebre y Tecla Sala, Hospitalet).
+            <b data-i18n-html="act.item1.title">Las enumeraciones <span class="tag">SOLO SYNTH</span></b>
+            <span data-i18n="act.item1.desc">Concert tour for solo analog modular synthesizer: Dimecres de so i cos (Art Santa Mònica, Barcelona), Tiny Moon (M33, Strasbourg), ME_MMIX (Palma de Mallorca), Cicle Difraccions (Lo Pati, Amposta and Tecla Sala, Hospitalet).</span>
           </li>
           <li>
-            <b>Cantus Firmus <span class="tag">ESTRENO</span></b>
-            Música electrónica para 8 altavoces en el bosque. Fonz (Huesca).
+            <b data-i18n-html="act.item2.title">Cantus Firmus <span class="tag">PREMIERE</span></b>
+            <span data-i18n="act.item2.desc">Electronic music installation for 8 loudspeakers placed across the forest. Fonz (Huesca).</span>
           </li>
           <li>
-            <b>Grabación monográfica MUR#01 <span class="tag">NEU RECORDS</span></b>
-            Para 3 percusionistas y sintetizadores modulares. Grabación y edición con el sello Neu Records.
+            <b data-i18n-html="act.item3.title">Monographic recording of MUR#01 <span class="tag">NEU RECORDS</span></b>
+            <span data-i18n="act.item3.desc">For 3 percussionists and modular synthesizers. Monographic album with Neu Records.</span>
           </li>
           <li>
-            <b>SUMMA#01 &amp; SUMMA#02 <span class="tag">NEU RECORDS</span></b>
-            Para instrumentos acústicos y electrónica en vivo. Lanzamiento en formato de alta fidelidad espacial.
+            <b data-i18n-html="act.item4.title">SUMMA#01 &amp; SUMMA#02 <span class="tag">NEU RECORDS</span></b>
+            <span data-i18n="act.item4.desc">For acoustic instruments and live electronics. 3D spatial high-fidelity release.</span>
           </li>
           <li>
-            <b>Transistor <span class="tag">SPACESHIP ENSEMBLE</span></b>
-            Para sintetizador modular y grupo de cámara. Estreno en La Haya y Utrecht.
+            <b data-i18n-html="act.item5.title">Transistor <span class="tag">SPACESHIP ENSEMBLE</span></b>
+            <span data-i18n="act.item5.desc">For modular synthesizer and chamber group. Premiered in The Hague and Utrecht.</span>
           </li>
           <li>
-            <b>Nueva obra para Collective Lovemusic <span class="tag">2027</span></b>
-            Para 4 músicos y sintetizador modular.
+            <b data-i18n-html="act.item6.title">New piece for Collective Lovemusic <span class="tag">2027</span></b>
+            <span data-i18n="act.item6.desc">For 4 musicians and modular synthesizer.</span>
           </li>
           <li>
-            <b>Nueva obra para oboe y sintetizador <span class="tag">2027</span></b>
-            Encargo camerístico de interacción tímbrica directa.
+            <b data-i18n-html="act.item7.title">New piece for oboe and synthesizer <span class="tag">2027</span></b>
+            <span data-i18n="act.item7.desc">Chamber commission exploring direct acoustic-synthetic timbral interaction.</span>
           </li>
           <li>
-            <b>Exhale. Inhale. Exile <span class="tag">2026-2028</span></b>
-            Para piano, sintetizador modular, sampler y caja de ritmos (45′).
+            <b data-i18n-html="act.item8.title">Exhale. Inhale. Exile <span class="tag">2026–2028</span></b>
+            <span data-i18n="act.item8.desc">For piano, modular synthesizer, sampler and drum machine (45′).</span>
           </li>
         </ul>
 
         <figure class="plate rv">
           <img src="assets/modular_wide.jpg" width="1600" height="960" loading="lazy" decoding="async"
-            alt="El sistema de sintetizador modular en directo de Luis Codera Puzo: paneles Eurorack, cables de parcheo y controles de precisión.">
-          <figcaption><b>El instrumento en escena.</b> Síntesis modular sustractiva y microtonal — performatividad en vivo, sin secuenciación enlatada.</figcaption>
+            alt="The modular synthesizer live setup of Luis Codera Puzo: Eurorack panels, patch cables and tactile controls.">
+          <figcaption data-i18n-html="act.plate"><b>The instrument in live performance.</b> Subtractive and microtonal modular synthesis — pure physical performativity, zero canned sequences.</figcaption>
         </figure>
       </div>
     </section>
 
-    <!-- ============ Cap II · Biografía ============ -->
+    <!-- ============ Cap II · Biography ============ -->
     <section class="ch" id="bio" aria-labelledby="h-bio">
       <div class="ghost" aria-hidden="true"><span class="gl">II</span><span class="gd">BIO</span></div>
       <div class="wrap">
-        <p class="kicker rv">II <span class="deg">· Trayectoria &amp; Formación</span></p>
-        <h2 class="rv" id="h-bio">Claridad, destilación y escucha crítica.</h2>
+        <p class="kicker rv" data-i18n-html="bio.kicker">II <span class="deg">· Trajectory &amp; Education</span></p>
+        <h2 class="rv" id="h-bio" data-i18n="bio.title">Clarity, distillation, and critical listening.</h2>
         
         <div class="bio-layout rv">
           <div class="bio-text">
-            <p>Luis Codera Puzo (Barcelona, 1981) se ha distinguido por su dedicación activa al 
-              sintetizador modular como instrumento de concierto solista y camerístico. Su técnica instrumental, 
-              orientada a la performatividad y a la interacción milimétrica con instrumentistas acústicos, ha dado lugar a 
-              obras pioneras como <em>MUR#03</em> —uno de los primeros conciertos para sintetizador modular y orquesta, 
-              estrenado por la Orquestra Simfònica de Barcelona i Nacional de Catalunya (OBC)— o <em>Compression Music</em>, 
-              creada con una Beca Leonardo de la Fundación BBVA.</p>
+            <p data-i18n-html="bio.p1">Luis Codera Puzo (Barcelona, 1981) is a composer, cultural manager, and performer of modular synthesizers and electric guitar. He has stood out for his active dedication to the modular synthesizer as a solo and chamber concert instrument, developing an instrumental technique focused on performativity and precise micro-interaction with other musicians. This approach has led to pioneering works such as <em>MUR#03</em>, one of the first concertos for modular synthesizer and orchestra (premiered by the OBC – Barcelona Symphony Orchestra), and <em>Compression Music</em>, created with support from the Leonardo Grants of the BBVA Foundation.</p>
             
-            <p>Su música acústica se orienta hacia la forma más destilada de la idea. Piezas como 
-              <em>Code is poetry</em> (estrenada por el Quatuor Diotima en la Bienal de Cuartetos de Barcelona) 
-              hacen uso de unísonos, notas repetidas y una escritura monolítica que ensancha el espacio de escucha 
-              para visibilizar matices microscópicos, como el batimiento o el vibrato natural de las cuerdas.</p>
+            <p data-i18n-html="bio.p2">Acoustic music has also played a defining role in his career, oriented toward clarity and the idea in its most distilled form. Works such as <em>Code is poetry</em> (premiered by Quatuor Diotima at the Barcelona String Quartet Biennale) make use of unisons, repeated notes, and monolithic writing to open space for listening and bring out microscopic acoustic details that often go unnoticed — such as instrument beating and natural string vibrato.</p>
           </div>
           <figure class="bio-avatar">
             <img src="assets/lcp_portrait.png" width="300" height="360" loading="lazy" decoding="async"
-              alt="Retrato de Luis Codera Puzo">
+              alt="Portrait of Luis Codera Puzo">
             <figcaption>Luis Codera Puzo</figcaption>
           </figure>
         </div>
 
         <div class="stat rv">
-          <span class="n">Ernst von Siemens</span>
-          <span class="c">Premio de Composición de la Fundación Ernst von Siemens (2014) y compositor invitado de L'Auditori de Barcelona (2017).</span>
+          <span class="n" data-i18n="bio.stat.num">Ernst von Siemens</span>
+          <span class="c" data-i18n="bio.stat.desc">Composition Prize of the Ernst von Siemens Musikstiftung (2014) and guest composer of L’Auditori de Barcelona (2017).</span>
         </div>
 
-        <p class="rv">Formado inicialmente de manera autodidacta, estudió piano, trombón, guitarra eléctrica y percusión antes de titularse en 
-          composición en la ESMuC (con Agustí Charles) y realizar el Solistenexam con <strong>Wolfgang Rihm</strong> en la 
-          Hochschule für Musik Karlsruhe. Ha recibido clases y seminarios de compositores como Louis Andriessen, Kaija Saariaho, 
-          Enno Poppe, Beat Furrer, Georg Friedrich Haas, Unsuk Chin y Pierluigi Billone.</p>
+        <p class="rv" data-i18n-html="bio.p3">Initially self-taught, he studied piano, trombone, electric guitar, and percussion before graduating in composition at ESMuC (with Agustí Charles) and completing the Solistenexam with <strong>Wolfgang Rihm</strong> at the Hochschule für Musik Karlsruhe. He has participated in masterclasses with Louis Andriessen, Kaija Saariaho, Enno Poppe, Beat Furrer, Georg Friedrich Haas, Unsuk Chin, and Pierluigi Billone. His music has been performed worldwide by Klangforum Wien, Ensemble Modern, Ensemble Intercontemporain, Quatuor Diotima, and ensemble recherche.</p>
 
         <div class="plate-grid rv">
           <figure>
             <img src="assets/mur03_auditori.jpg" width="1200" height="720" loading="lazy" decoding="async"
-              alt="Luis Codera Puzo interpretando el concierto para sintetizador modular y orquesta MUR#03 con la OBC en L'Auditori de Barcelona.">
-            <figcaption><b>MUR#03 en L'Auditori.</b> Sintetizador modular y orquesta sinfónica con la OBC.</figcaption>
+              alt="Luis Codera Puzo performing the concerto for modular synth and orchestra MUR#03 with the OBC at L'Auditori de Barcelona.">
+            <figcaption data-i18n-html="bio.plate1"><b>MUR#03 at L’Auditori.</b> Modular synthesizer and symphony orchestra with the OBC.</figcaption>
           </figure>
           <figure>
             <img src="assets/guitar_improv.jpg" width="1200" height="720" loading="lazy" decoding="async"
-              alt="Luis Codera Puzo con guitarra eléctrica procesada en directo">
-            <figcaption><b>Guitarra eléctrica &amp; electrónica.</b> Investigación de texturas, pedales y control tímbrico.</figcaption>
+              alt="Luis Codera Puzo with live processed electric guitar">
+            <figcaption data-i18n-html="bio.plate2"><b>Electric guitar &amp; electronics.</b> Timbral research, pedals, and dynamic control.</figcaption>
           </figure>
         </div>
       </div>
     </section>
 
-    <!-- ============ Cap III · Catálogo ============ -->
+    <!-- ============ Cap III · Works Catalogue ============ -->
     <section class="ch" id="catalogue" aria-labelledby="h-cat">
       <div class="ghost" aria-hidden="true"><span class="gl">III</span><span class="gd">CAT</span></div>
       <div class="wrap">
-        <p class="kicker rv">III <span class="deg">· Catálogo de Obras</span></p>
-        <h2 class="rv" id="h-cat">Un catálogo riguroso.</h2>
-        <p class="rv">Obras de cámara, orquesta, instrumento solo y electrónica espacial, ordenadas por orgánico:</p>
+        <p class="kicker rv" data-i18n-html="cat.kicker">III <span class="deg">· Catalogue of Works</span></p>
+        <h2 class="rv" id="h-cat" data-i18n="cat.title">A rigorous catalogue.</h2>
+        <p class="rv" data-i18n="cat.intro">Chamber, orchestra, solo instrument, and spatial electronics, categorized by ensemble:</p>
 
         <div class="cat-filter rv">
-          <button class="cat-btn active" data-filter="all">Todas</button>
-          <button class="cat-btn" data-filter="chamber">Cámara &amp; Ensemble</button>
-          <button class="cat-btn" data-filter="orchestra">Orquesta</button>
-          <button class="cat-btn" data-filter="solo">Solo &amp; Sintetizador</button>
-          <button class="cat-btn" data-filter="special">Proyectos Especiales</button>
+          <button class="cat-btn active" data-filter="all" data-i18n="cat.filter.all">All</button>
+          <button class="cat-btn" data-filter="chamber" data-i18n="cat.filter.chamber">Chamber &amp; Ensemble</button>
+          <button class="cat-btn" data-filter="orchestra" data-i18n="cat.filter.orchestra">Orchestra</button>
+          <button class="cat-btn" data-filter="solo" data-i18n="cat.filter.solo">Solo &amp; Synthesizer</button>
+          <button class="cat-btn" data-filter="special" data-i18n="cat.filter.special">Special Projects</button>
         </div>
 
         <ul class="work-list rv">
@@ -192,7 +183,7 @@
             </div>
             <div class="work-instr">Sintetizador modular solista + orquesta (3-4-4-4, 8-4-4-1, arpa, 2 perc-timp, 16-14-12-10-8). Estrenada por la OBC.</div>
             <div class="work-actions">
-              <a class="btn-listen" href="https://youtu.be/14P8McyhcSE" target="_blank" rel="noopener">▶ Ver grabación</a>
+              <a class="btn-listen" href="https://youtu.be/14P8McyhcSE" target="_blank" rel="noopener" data-i18n="cat.btn.listen">▶ Watch recording</a>
             </div>
           </li>
 
@@ -204,7 +195,7 @@
             </div>
             <div class="work-instr">3 percusionistas, sintetizador modular + sampler. Grabada por Neu Records.</div>
             <div class="work-actions">
-              <a class="btn-listen" href="https://www.youtube.com/watch?v=F7ReQG8LOTk" target="_blank" rel="noopener">▶ Ver interpretación</a>
+              <a class="btn-listen" href="https://www.youtube.com/watch?v=F7ReQG8LOTk" target="_blank" rel="noopener" data-i18n="cat.btn.listen">▶ Watch recording</a>
             </div>
           </li>
 
@@ -216,7 +207,7 @@
             </div>
             <div class="work-instr">2 flautas y electrónica en vivo.</div>
             <div class="work-actions">
-              <a class="btn-listen" href="https://www.youtube.com/watch?v=pZJJEJdxRWA" target="_blank" rel="noopener">▶ Ver grabación</a>
+              <a class="btn-listen" href="https://www.youtube.com/watch?v=pZJJEJdxRWA" target="_blank" rel="noopener" data-i18n="cat.btn.listen">▶ Watch recording</a>
             </div>
           </li>
 
@@ -228,7 +219,7 @@
             </div>
             <div class="work-instr">Trombón bajo, saxo barítono y electrónica.</div>
             <div class="work-actions">
-              <a class="btn-listen" href="https://www.youtube.com/watch?v=qMcC81YjgVY" target="_blank" rel="noopener">▶ Ver interpretación</a>
+              <a class="btn-listen" href="https://www.youtube.com/watch?v=qMcC81YjgVY" target="_blank" rel="noopener" data-i18n="cat.btn.listen">▶ Watch recording</a>
             </div>
           </li>
 
@@ -240,7 +231,7 @@
             </div>
             <div class="work-instr">2 violines, viola, violonchelo. Estrenada por Quatuor Diotima en la Bienal de Cuartetos de Barcelona.</div>
             <div class="work-actions">
-              <button class="btn-patch" data-essay="code">Leer texto de la obra</button>
+              <button class="btn-patch" data-essay="code" data-i18n="cat.btn.read">Read work essay</button>
             </div>
           </li>
 
@@ -252,7 +243,7 @@
             </div>
             <div class="work-instr">3 pianos con afinación microtonal especial y sintetizador modular.</div>
             <div class="work-actions">
-              <a class="btn-listen" href="https://www.youtube.com/watch?v=fWrHV9mzpgs" target="_blank" rel="noopener">▶ Ver grabación</a>
+              <a class="btn-listen" href="https://www.youtube.com/watch?v=fWrHV9mzpgs" target="_blank" rel="noopener" data-i18n="cat.btn.listen">▶ Watch recording</a>
             </div>
           </li>
 
@@ -273,7 +264,7 @@
             </div>
             <div class="work-instr">Sintetizador modular solo. Interpretada en Barcelona, Estrasburgo, Mallorca, Amposta y Hospitalet.</div>
             <div class="work-actions">
-              <a class="btn-listen" href="https://youtu.be/pL_V8_-lAZ8" target="_blank" rel="noopener">▶ Ver grabación</a>
+              <a class="btn-listen" href="https://youtu.be/pL_V8_-lAZ8" target="_blank" rel="noopener" data-i18n="cat.btn.listen">▶ Watch recording</a>
             </div>
           </li>
 
@@ -285,7 +276,7 @@
             </div>
             <div class="work-instr">Guitarra eléctrica solista.</div>
             <div class="work-actions">
-              <a class="btn-listen" href="https://youtu.be/47-Iwdw6adQ" target="_blank" rel="noopener">▶ Ver en YouTube</a>
+              <a class="btn-listen" href="https://youtu.be/47-Iwdw6adQ" target="_blank" rel="noopener" data-i18n="cat.btn.listen">▶ Watch recording</a>
             </div>
           </li>
 
@@ -315,7 +306,7 @@
             </div>
             <div class="work-instr">Flauta en sol, clarinete bajo, violín, violonchelo, percusión, piano. Grabada en Col legno (New Colors).</div>
             <div class="work-actions">
-              <a class="btn-listen" href="https://soundcloud.com/luiscoderapuzo/multiplicidad" target="_blank" rel="noopener">▶ Escuchar en SoundCloud</a>
+              <a class="btn-listen" href="https://soundcloud.com/luiscoderapuzo/multiplicidad" target="_blank" rel="noopener" data-i18n="cat.btn.sc">▶ Listen on SoundCloud</a>
             </div>
           </li>
 
@@ -332,64 +323,59 @@
         <!-- Specimen Block -->
         <figure class="spec rv">
           <figcaption>
-            <span>Ficha de microafinación · <code>MUR#02</code> (3 pianos afinados)</span>
+            <span data-i18n-html="cat.spec.title">Microtonal Pitch Matrix · <code>MUR#02</code> (3 tuned pianos)</span>
             <code>PITCH MATRIX</code>
           </figcaption>
           <pre><code>Piano I   : A4 = 440 Hz  ·  [C  D  E  F#  G#  A#]   (Escala por tonos enteros 0)
 Piano II  : A4 = 443 Hz  ·  [+12 cents offset]     (Batimiento acústico continuo)
 Piano III : A4 = 437 Hz  ·  [-12 cents offset]     (Intersticio microtonal)
 Synth     : Dual VCO (Triangle/Saw) tracking 1V/Oct + Lowpass 24dB resonance</code></pre>
-          <p class="note">Afinaciones acústicas no temperadas generando patrones de interferencia pura en el espacio.</p>
+          <p class="note" data-i18n="cat.spec.note">Non-tempered acoustic tunings generating continuous interference and beating patterns in physical space.</p>
         </figure>
 
         <div class="plate-grid three-col rv">
           <figure>
             <img src="assets/mur.jpg" width="800" height="500" loading="lazy" decoding="async"
               alt="Setup de MUR#01 con percusión y sintetizadores modulares">
-            <figcaption><b>MUR#01.</b> Percusión y electrónica.</figcaption>
+            <figcaption data-i18n-html="cat.plate.mur"><b>MUR#01.</b> Percussion and electronics.</figcaption>
           </figure>
           <figure>
             <img src="assets/diotima.jpg" width="800" height="500" loading="lazy" decoding="async"
               alt="Quatuor Diotima en la Bienal de Cuartetos de Barcelona">
-            <figcaption><b>Quatuor Diotima.</b> Estreno de <em>Code is poetry</em>.</figcaption>
+            <figcaption data-i18n-html="cat.plate.diotima"><b>Quatuor Diotima.</b> Premiere of <em>Code is poetry</em>.</figcaption>
           </figure>
           <figure>
             <img src="assets/cip_score.jpg" width="800" height="500" loading="lazy" decoding="async"
               alt="Partitura manuscrita de Code is poetry">
-            <figcaption><b>Partitura.</b> <em>Code is poetry</em> (notación destilada).</figcaption>
+            <figcaption data-i18n-html="cat.plate.cip"><b>Score.</b> <em>Code is poetry</em> (distilled notation).</figcaption>
           </figure>
           <figure>
             <img src="assets/fragmento_pletora.jpg" width="800" height="500" loading="lazy" decoding="async"
               alt="Partitura de Estudio eléctrico 1: plétora">
-            <figcaption><b>Plétora.</b> Estudio eléctrico 1.</figcaption>
+            <figcaption data-i18n-html="cat.plate.pletora"><b>Plétora.</b> Electric study 1.</figcaption>
           </figure>
           <figure>
             <img src="assets/empor_listening.jpg" width="800" height="500" loading="lazy" decoding="async"
               alt="Proyecto Empor: escucha en el espacio">
-            <figcaption><b>Empor.</b> Escucha espacializada.</figcaption>
+            <figcaption data-i18n-html="cat.plate.empor"><b>Empor.</b> Spatialized listening.</figcaption>
           </figure>
         </div>
       </div>
     </section>
 
-    <!-- ============ Cap IV · Sintetizador Modular ============ -->
+    <!-- ============ Cap IV · Modular Synthesizer ============ -->
     <section class="ch" id="instrument" aria-labelledby="h-syn">
       <div class="ghost" aria-hidden="true"><span class="gl">~</span><span class="gd">Hz</span></div>
       <div class="wrap">
-        <p class="kicker rv">IV <span class="deg">· El Sintetizador Modular · Manifiesto y Técnica</span></p>
-        <h2 class="rv" id="h-syn">No necesitamos más sintetizadores: necesitamos disciplina.</h2>
-        <p class="rv">Uno de los peligros más evidentes en la música electrónica contemporánea reside en la 
-          <strong>consideración fetichista del instrumento</strong>: el aparato exhibido como un eslogan publicitario o 
-          un fetiche visual antes que como un medio riguroso de articulación musical.</p>
+        <p class="kicker rv" data-i18n-html="syn.kicker">IV <span class="deg">· The Modular Synthesizer · Manifesto &amp; Technique</span></p>
+        <h2 class="rv" id="h-syn" data-i18n="syn.title">We don’t need more synthesizers; we need discipline.</h2>
+        <p class="rv" data-i18n-html="syn.p1">One of the most evident dangers in contemporary electronic music lies in the <strong>fetishistic consideration of the instrument</strong>: the machine exhibited as an advertising slogan or a visual fetish rather than as a rigorous medium of musical articulation.</p>
         
-        <p class="rv">El sintetizador modular no es un juguete de aleatoriedades sonoras o efectos automáticos. Es un 
-          <strong>instrumento físico de concierto</strong> donde cada cable, cada atenuador y cada voltaje debe responder a 
-          la misma disciplina interpretativa que el arco de un violín o la embocadura de una flauta. Tocamos con los dedos, 
-          controlando la envolvente, el tiempo y la respiración en tiempo real.</p>
+        <p class="rv" data-i18n-html="syn.p2">The modular synthesizer is not a toy for random bleeps or automated effects. It is a <strong>physical concert instrument</strong> where every cable, attenuator, and voltage must answer to the same interpretative discipline as the bow of a violin or the embouchure of a flute. We play with our hands, shaping envelope, dynamics, and breath in real time.</p>
 
         <figure class="spec rv">
           <figcaption>
-            <span>Arquitectura de voz modular · Patch de control performativo</span>
+            <span data-i18n="syn.spec.title">Modular Voice Architecture · Performative Control Patch</span>
             <code>EURORACK SIGNAL FLOW</code>
           </figcaption>
           <pre><code>VCO 1 (Triangle) ──┐
@@ -397,28 +383,27 @@ Synth     : Dual VCO (Triangle/Saw) tracking 1V/Oct + Lowpass 24dB resonance</co
 VCO 2 (Sub Sine) ─┘          ▲                  ▲
                              │                  │
 [Manual Pressure / Ribbon] ──┴──────────────────┘ (Direct tactile dynamic control)</code></pre>
-          <p class="note">Sin presets ni automatizaciones externas: control táctil y manual de la ganancia y el corte tímbrico.</p>
+          <p class="note" data-i18n="syn.spec.note">Zero presets or external automation: tactile, direct manual control over gain and timbral cutoff.</p>
         </figure>
 
         <div class="plate-grid rv">
           <figure>
             <img src="assets/modular_wide.jpg" width="1200" height="720" loading="lazy" decoding="async"
-              alt="El sistema de sintetizador modular en directo de Luis Codera Puzo">
-            <figcaption><b>El sistema en directo.</b> Paneles Eurorack y arquitectura sustractiva.</figcaption>
+              alt="The modular synthesizer live setup of Luis Codera Puzo">
+            <figcaption data-i18n-html="syn.plate1"><b>The live system.</b> Eurorack panels and subtractive architecture.</figcaption>
           </figure>
           <figure>
             <img src="assets/synths_setup.jpg" width="1200" height="720" loading="lazy" decoding="async"
-              alt="Detalle de conexionado analógico y módulos de síntesis">
-            <figcaption><b>Voltaje y ruteo.</b> Cada conexión define la física acústica de la pieza.</figcaption>
+              alt="Detail of analog patch cords and synthesis modules">
+            <figcaption data-i18n-html="syn.plate2"><b>Voltage and routing.</b> Every patch cord defines the physical acoustics of the work.</figcaption>
           </figure>
         </div>
 
-        <button class="playbtn rv" id="playScale" type="button" style="margin-top:2.5rem;">
-          ▶&nbsp;escuchar la serie de tonos del sintetizador
-          <span class="visually-hidden">— reproduce 8 tonos armónicos del motor de síntesis local</span>
+        <button class="playbtn rv" id="playScale" type="button" style="margin-top:2.5rem;" data-i18n-html="syn.btn.play">
+          ▶&nbsp;hear the synthesizer harmonic tone series
+          <span class="visually-hidden">— plays 8 harmonic tones from local Web Audio synth</span>
         </button>
-        <p class="playnote rv">Ocho tonos armónicos basados en relaciones justas e intervalos analógicos. 
-          Generados íntegramente mediante Web Audio API en tu navegador, sin grabaciones externas.</p>
+        <p class="playnote rv" data-i18n="syn.playnote">Eight harmonic tones based on just intonation ratios and analog intervals. Computed entirely via Web Audio API on your machine, zero external audio files.</p>
       </div>
     </section>
 
@@ -476,14 +461,13 @@ VCO 2 (Sub Sine) ─┘          ▲                  ▲
       </div>
     </section>
 
-    <!-- ============ Cap VI · Ensayos & Ideas ============ -->
+    <!-- ============ Cap VI · Essays & Ideas ============ -->
     <section class="ch" id="ideas" aria-labelledby="h-ide">
       <div class="ghost" aria-hidden="true"><span class="gl">VI</span><span class="gd">IDE</span></div>
       <div class="wrap" style="max-width: 62rem;">
-        <p class="kicker rv">VI <span class="deg">· Ideas, Textos y Ensayos</span></p>
-        <h2 class="rv" id="h-ide">El texto como extensión del pensamiento sonoro.</h2>
-        <p class="rv">Una selección de los artículos y ensayos de reflexión estética, técnica y sociológica escritos por Luis Codera Puzo. 
-          Haz clic en cualquier tarjeta para abrir el lector inmersivo integrado:</p>
+        <p class="kicker rv" data-i18n-html="ide.kicker">VI <span class="deg">· Ideas, Texts &amp; Essays</span></p>
+        <h2 class="rv" id="h-ide" data-i18n="ide.title">Text as an extension of musical thought.</h2>
+        <p class="rv" data-i18n="ide.intro">A selection of aesthetic, technical, and sociological essays written by Luis Codera Puzo. Click any card to open the typography-focused reader:</p>
 
         <div class="essay-grid rv">
           <!-- Essay 1 -->
@@ -493,7 +477,7 @@ VCO 2 (Sub Sine) ─┘          ▲                  ▲
               <h4>Electronic music as an instrument</h4>
               <p>El uso del sintetizador modular desde la perspectiva y la disciplina del entrenamiento instrumental clásico.</p>
             </div>
-            <span class="essay-read-more">Leer ensayo →</span>
+            <span class="essay-read-more">Read essay →</span>
           </article>
 
           <!-- Essay 2 -->
@@ -503,7 +487,7 @@ VCO 2 (Sub Sine) ─┘          ▲                  ▲
               <h4>No necesitamos más sintetizadores: necesitamos disciplina</h4>
               <p>Crítica al fetichismo del material en la música electrónica y defensa de la dedicación performativa.</p>
             </div>
-            <span class="essay-read-more">Leer ensayo →</span>
+            <span class="essay-read-more">Read essay →</span>
           </article>
 
           <!-- Essay 3 -->
@@ -513,7 +497,7 @@ VCO 2 (Sub Sine) ─┘          ▲                  ▲
               <h4>Pertenencia, individualidad y libertad creativa</h4>
               <p>Desmontando los lugares comunes del gremio de compositores y la trampa del eslogan «ser uno mismo».</p>
             </div>
-            <span class="essay-read-more">Leer ensayo →</span>
+            <span class="essay-read-more">Read essay →</span>
           </article>
 
           <!-- Essay 4 -->
@@ -523,7 +507,7 @@ VCO 2 (Sub Sine) ─┘          ▲                  ▲
               <h4>Code is poetry</h4>
               <p>Sobre el estreno de la obra por el Quatuor Diotima y cómo el uso del código revela la naturaleza de la escucha.</p>
             </div>
-            <span class="essay-read-more">Leer ensayo →</span>
+            <span class="essay-read-more">Read essay →</span>
           </article>
 
           <!-- Essay 5 -->
@@ -533,7 +517,7 @@ VCO 2 (Sub Sine) ─┘          ▲                  ▲
               <h4>Aproximación a lo indivisible</h4>
               <p>Extenso tratado sobre la unificación de timbre, afinación y duración en la composición acústica contemporánea.</p>
             </div>
-            <span class="essay-read-more">Leer ensayo →</span>
+            <span class="essay-read-more">Read essay →</span>
           </article>
 
           <!-- Essay 6 -->
@@ -543,7 +527,7 @@ VCO 2 (Sub Sine) ─┘          ▲                  ▲
               <h4>Compression Music</h4>
               <p>La investigación financiada por la Beca Leonardo: compresión dinámica, acústica y electrónica en un solo cuerpo.</p>
             </div>
-            <span class="essay-read-more">Leer ensayo →</span>
+            <span class="essay-read-more">Read essay →</span>
           </article>
 
           <!-- Essay 7 -->
@@ -553,7 +537,7 @@ VCO 2 (Sub Sine) ─┘          ▲                  ▲
               <h4>Los enemigos de la paciencia</h4>
               <p>La aceleración cultural y la pérdida de la capacidad de sostener una atención dilatada en el tiempo.</p>
             </div>
-            <span class="essay-read-more">Leer ensayo →</span>
+            <span class="essay-read-more">Read essay →</span>
           </article>
 
           <!-- Essay 8 -->
@@ -563,7 +547,7 @@ VCO 2 (Sub Sine) ─┘          ▲                  ▲
               <h4>Gremio</h4>
               <p>Análisis incisivo sobre las estructuras de poder, redes de favores e inercias del entorno compositivo.</p>
             </div>
-            <span class="essay-read-more">Leer ensayo →</span>
+            <span class="essay-read-more">Read essay →</span>
           </article>
 
           <!-- Essay 9 -->
@@ -573,7 +557,7 @@ VCO 2 (Sub Sine) ─┘          ▲                  ▲
               <h4>La nova narrativa sobre la composició catalana</h4>
               <p>Reflexión crítica sobre el relato institucional y la construcción de identidades en la creación contemporánea.</p>
             </div>
-            <span class="essay-read-more">Leer ensayo →</span>
+            <span class="essay-read-more">Read essay →</span>
           </article>
 
           <!-- Essay 10 -->
@@ -583,7 +567,7 @@ VCO 2 (Sub Sine) ─┘          ▲                  ▲
               <h4>Tonalitat i especificitat</h4>
               <p>Notas sobre el retorno nostálgico a la tonalidad frente a la conquista de una especificidad sonora irreductible.</p>
             </div>
-            <span class="essay-read-more">Leer ensayo →</span>
+            <span class="essay-read-more">Read essay →</span>
           </article>
 
           <!-- Essay 11 -->
@@ -594,7 +578,7 @@ VCO 2 (Sub Sine) ─┘          ▲                  ▲
               <h4>Registro sonoro de zoología remota</h4>
               <p>Relato y exploración de especies sonoras ficticias catalogadas con rigor etnográfico.</p>
             </div>
-            <span class="essay-read-more">Leer ensayo →</span>
+            <span class="essay-read-more">Read essay →</span>
           </article>
 
           <!-- Essay 12 -->
@@ -605,7 +589,7 @@ VCO 2 (Sub Sine) ─┘          ▲                  ▲
               <h4>Hideouts</h4>
               <p>Refugio sonoro, memoria y escucha profunda entre el espacio y el aislamiento.</p>
             </div>
-            <span class="essay-read-more">Leer ensayo →</span>
+            <span class="essay-read-more">Read essay →</span>
           </article>
 
           <!-- Essay 13 -->
@@ -616,7 +600,7 @@ VCO 2 (Sub Sine) ─┘          ▲                  ▲
               <h4>White</h4>
               <p>El color blanco como saturación de todas las frecuencias y espacio de neutralidad pura.</p>
             </div>
-            <span class="essay-read-more">Leer ensayo →</span>
+            <span class="essay-read-more">Read essay →</span>
           </article>
 
           <!-- Essay 14 -->
@@ -626,52 +610,52 @@ VCO 2 (Sub Sine) ─┘          ▲                  ▲
               <h4>Observations / So-called laws of nature</h4>
               <p>Reflexiones condensadas sobre la acústica, el comportamiento de los materiales y los límites del autor.</p>
             </div>
-            <span class="essay-read-more">Leer ensayo →</span>
+            <span class="essay-read-more">Read essay →</span>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ============ Cap VII · Discografía & Contacto ============ -->
+    <!-- ============ Cap VII · Records & Contact ============ -->
     <section class="ch" id="records" aria-labelledby="h-rec">
       <div class="ghost" aria-hidden="true"><span class="gl">VII</span><span class="gd">REC</span></div>
       <div class="wrap">
-        <p class="kicker rv">VII <span class="deg">· Discografía &amp; Contacto</span></p>
-        <h2 class="rv" id="h-rec">El sonido fijado en el tiempo.</h2>
-        <p class="rv">Grabaciones monográficas y lanzamientos en sellos independientes de alta fidelidad:</p>
+        <p class="kicker rv" data-i18n-html="rec.kicker">VII <span class="deg">· Discography &amp; Contact</span></p>
+        <h2 class="rv" id="h-rec" data-i18n="rec.title">Sound fixed in time.</h2>
+        <p class="rv" data-i18n="rec.intro">Monographic recordings and releases with independent high-fidelity labels:</p>
 
         <ul class="ledger rv">
           <li>
-            <span class="what">MUR#01 <span class="sub">3 percusionistas + sintetizador modular</span></span>
+            <span class="what">MUR#01 <span class="sub" data-i18n="rec.mur1">3 percussionists + modular synthesizer</span></span>
             <span class="fill"></span>
             <span class="amt">Neu Records</span>
           </li>
           <li>
-            <span class="what">SUMMA series <span class="sub">SUMMA#01 &amp; SUMMA#02</span></span>
+            <span class="what">SUMMA series <span class="sub" data-i18n="rec.summa">SUMMA#01 &amp; SUMMA#02</span></span>
             <span class="fill"></span>
             <span class="amt">Neu Records</span>
           </li>
           <li>
-            <span class="what">Albedo <span class="sub">Piano y electrónica</span></span>
+            <span class="what">Albedo <span class="sub" data-i18n="rec.albedo">Piano and electronics</span></span>
             <span class="fill"></span>
             <span class="amt">Neu Records</span>
           </li>
           <li>
-            <span class="what">Multiplicidad <span class="sub">Retrato monográfico de cámara</span></span>
+            <span class="what">Multiplicidad <span class="sub" data-i18n="rec.multi">Monographic chamber portrait</span></span>
             <span class="fill"></span>
             <span class="amt">Col legno</span>
           </li>
           <li>
-            <span class="what">Morton Feldman <span class="sub">Bass Clarinet &amp; Percussion (Dir. artística)</span></span>
+            <span class="what">Morton Feldman <span class="sub" data-i18n="rec.feldman">Bass Clarinet &amp; Percussion (Artistic direction)</span></span>
             <span class="fill"></span>
             <span class="amt">Neu Records</span>
           </li>
         </ul>
 
         <div style="margin-top: 3.2rem;" class="rv">
-          <h3>Contacto &amp; Redes</h3>
-          <p style="margin-bottom: 1.2rem; color: var(--slate); font-family: var(--mono); font-size: .9rem;">
-            Consultas sobre encargos, partituras, interpretaciones o conferencias:
+          <h3 data-i18n="rec.contact.title">Contact &amp; Links</h3>
+          <p style="margin-bottom: 1.2rem; color: var(--slate); font-family: var(--mono); font-size: .9rem;" data-i18n="rec.contact.desc">
+            For inquiries regarding commissions, scores, performances, or lectures:
           </p>
           <p style="font-family: var(--mono); font-size: 1.1rem; color: var(--gold); margin-bottom: 1.8rem;">
             <a href="mailto:info@coderapuzo.com" style="color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold-dim);">info@coderapuzo.com</a>
@@ -684,7 +668,7 @@ VCO 2 (Sub Sine) ─┘          ▲                  ▲
           </div>
         </div>
 
-        <p class="hint rv" style="margin-top: 3.5rem;"><a href="#ground" style="color: var(--slate); text-decoration: none; border-bottom: 1px solid var(--line);">↑ Volver al inicio (0 · Ground)</a></p>
+        <p class="hint rv" style="margin-top: 3.5rem;"><a href="#ground" style="color: var(--slate); text-decoration: none; border-bottom: 1px solid var(--line);" data-i18n="rec.return">↑ return to Ground (0 · Ground)</a></p>
       </div>
     </section>
 
@@ -692,14 +676,14 @@ VCO 2 (Sub Sine) ─┘          ▲                  ▲
 
   <!-- ============ Footer ============ -->
   <footer>
-    <p>© 2026 Luis Codera Puzo · <a href="https://coderapuzo.com">coderapuzo.com</a><br>
-      De 0 a VII — Todo el sonido y los gráficos de esta página ocurren localmente en tu máquina.</p>
+    <p data-i18n-html="footer.copy">© 2026 Luis Codera Puzo · <a href="https://coderapuzo.com">coderapuzo.com</a><br>
+      From 0 to VII — All sound synthesis and graphics on this page happen locally on your machine.</p>
   </footer>
 
   <!-- ============ Essay Reader Drawer / Modal ============ -->
   <div class="essay-modal" id="essayModal" role="dialog" aria-modal="true" aria-label="Lector de ensayo">
     <div class="essay-drawer">
-      <button class="essay-modal-close" id="essayClose" type="button" aria-label="Cerrar ensayo">✕ Cerrar [Esc]</button>
+      <button class="essay-modal-close" id="essayClose" type="button" aria-label="Cerrar ensayo" data-i18n="modal.close">✕ Close [Esc]</button>
       <div class="essay-content" id="essayContainer">
         <!-- Dynamically injected via app.js -->
       </div>
@@ -707,6 +691,7 @@ VCO 2 (Sub Sine) ─┘          ▲                  ▲
   </div>
 
   <!-- Scripts -->
+  <script src="js/i18n.js"></script>
   <script src="js/synth.js"></script>
   <script src="js/canvas.js"></script>
   <script src="js/app.js"></script>
