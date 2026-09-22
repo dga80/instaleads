@@ -176,20 +176,64 @@
     });
   }
 
-  /* ---------- Main Scroll Loop ---------- */
+  /* ---------- Main Scroll Loop & Sticky Spacing Detection ---------- */
   var y = window.scrollY || 0;
   window.addEventListener('scroll', function () {
     y = window.scrollY || 0;
   }, { passive: true });
 
+  var stickyFailureDetected = false;
+
+  function detectHeroSpacing() {
+    if (!hero) return;
+    var sticky = hero.querySelector('.sticky');
+    if (!sticky) return;
+
+    if (window.innerHeight < 720) {
+      hero.classList.add('hero-compact');
+    } else {
+      hero.classList.remove('hero-compact');
+    }
+
+    var cs = window.getComputedStyle(sticky);
+    if (cs.position !== 'sticky' && cs.position !== '-webkit-sticky') {
+      stickyFailureDetected = true;
+      hero.classList.add('no-sticky');
+    }
+  }
+
+  function checkStickyHealth() {
+    if (stickyFailureDetected || !hero || RM) return;
+    var sticky = hero.querySelector('.sticky');
+    if (!sticky) return;
+
+    var hr = hero.getBoundingClientRect();
+    var sr = sticky.getBoundingClientRect();
+
+    // If hero is being scrolled through, sticky must remain at top: 0.
+    // If it prematurely drifts by > 40px while hero is still in view,
+    // sticky positioning failed (e.g. browser overflow bug). Fallback immediately.
+    if (hr.top < -40 && hr.bottom > vh + 100) {
+      if (Math.abs(sr.top) > 40) {
+        stickyFailureDetected = true;
+        hero.classList.add('no-sticky');
+        measure();
+      }
+    }
+  }
+
   function heroProgress() {
     var span = heroH - vh;
-    if (span <= 0) return 1;
+    if (span <= 0) {
+      var p = vh > 0 ? (y / (vh * 0.85)) : 1;
+      return p < 0 ? 0 : (p > 1 ? 1 : p);
+    }
     var p = y / span;
     return p < 0 ? 0 : (p > 1 ? 1 : p);
   }
 
   function loop(now) {
+    checkStickyHealth();
     setActive(whichActive(y));
     if (window.HeroCanvas && y < heroH + vh) {
       window.HeroCanvas.draw(heroProgress(), now * 0.001);
@@ -197,6 +241,7 @@
     requestAnimationFrame(loop);
   }
 
+  detectHeroSpacing();
   measure();
   if (window.HeroCanvas) window.HeroCanvas.sizeCv();
 
@@ -208,6 +253,7 @@
   }
 
   window.addEventListener('resize', function () {
+    detectHeroSpacing();
     measure();
   }, { passive: true });
 
