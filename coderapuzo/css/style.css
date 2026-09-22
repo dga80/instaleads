@@ -1055,8 +1055,19 @@ footer a:hover {
     height: 3px;
   }
   .wrap { margin-left: .25rem; }
-  .ch { padding: 4.5rem 1.25rem; }
-  .hero .sticky { padding: 4.5rem 1.25rem; }
+  .ch { padding: 3.5rem 1.25rem; }
+  .hero {
+    min-height: auto;
+  }
+  .hero .sticky {
+    position: relative;
+    height: auto;
+    min-height: calc(100vh - 60px - env(safe-area-inset-bottom));
+    min-height: calc(100dvh - 60px - env(safe-area-inset-bottom));
+    padding: 4.2rem 1.25rem 2.5rem;
+    display: flex;
+    align-items: center;
+  }
   .ghost .gl { font-size: 11rem; }
   .ghost .gd { font-size: 3.6rem; }
   footer { margin-left: .25rem; padding-bottom: 2.5rem; }
