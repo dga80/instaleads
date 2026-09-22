@@ -266,6 +266,10 @@ button {
   transition: transform var(--transition-smooth), opacity var(--transition-smooth);
 }
 
+.mobile-menu {
+  display: none;
+}
+
 /* Buttons */
 .btn {
   display: inline-flex;
@@ -1642,7 +1646,7 @@ button {
 
   /* Mobile Menu Drawer */
   .mobile-menu {
-    display: block;
+    display: none;
     position: fixed;
     top: 80px;
     left: 0;
@@ -1650,16 +1654,10 @@ button {
     bottom: 0;
     background: rgba(10, 14, 23, 0.98);
     backdrop-filter: blur(20px);
-    transform: translateY(-100%);
-    opacity: 0;
-    visibility: hidden;
-    transition: all var(--transition-smooth);
     z-index: 99;
   }
   .mobile-menu.open {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
+    display: block;
   }
   .mobile-menu-inner {
     padding: 30px 24px;
