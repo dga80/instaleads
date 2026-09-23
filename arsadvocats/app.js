@@ -524,10 +524,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Language management
   let currentLang = localStorage.getItem('ars_lang') || 'ca';
+  let isLanguageChanging = false;
 
-  function applyLanguage(lang) {
+  function updateTexts(lang) {
     currentLang = lang;
     localStorage.setItem('ars_lang', lang);
     document.body.setAttribute('data-lang', lang);
@@ -556,17 +556,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  function switchLanguageWithTransition(targetLang) {
+    if (targetLang === currentLang || isLanguageChanging) return;
+    isLanguageChanging = true;
+
+    // Desvanecer el texto
+    document.body.classList.add('lang-switching');
+
+    setTimeout(() => {
+      updateTexts(targetLang);
+      // Revelar con el nuevo idioma suavemente
+      requestAnimationFrame(() => {
+        document.body.classList.remove('lang-switching');
+        setTimeout(() => {
+          isLanguageChanging = false;
+        }, 360);
+      });
+    }, 260);
+  }
+
   // Language buttons click
   document.querySelectorAll('[data-switch-lang]').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const targetLang = btn.getAttribute('data-switch-lang');
-      applyLanguage(targetLang);
+      switchLanguageWithTransition(targetLang);
     });
   });
 
-  // Initial apply
-  applyLanguage(currentLang);
+  // Initial apply immediately without transition
+  updateTexts(currentLang);
 
   // Mobile menu drawer
   const mobileToggle = document.getElementById('mobileToggle');

@@ -162,7 +162,7 @@ button {
   letter-spacing: 0.05em;
   color: var(--text-muted);
   padding: 2px 4px;
-  transition: color var(--transition-fast);
+  transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
 .lang-btn.active, .lang-btn:hover {
@@ -172,6 +172,19 @@ button {
 .lang-divider {
   opacity: 0.3;
   font-size: 0.7rem;
+}
+
+/* Transición elegante y perceptible al cambiar de idioma */
+.page-lang-transition {
+  transition: opacity 0.28s ease, transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), filter 0.28s ease;
+  will-change: opacity, transform, filter;
+}
+
+body.lang-switching .page-lang-transition,
+body.lang-switching [data-i18n] {
+  opacity: 0.15 !important;
+  transform: translateY(4px);
+  filter: blur(2px);
 }
 
 /* ==========================================================================
@@ -229,13 +242,11 @@ button {
   pointer-events: none;
 }
 
-/* Hover transitions to original colors across clickable brand links (navbar and footer) */
-.brand-link:hover .interactive-logo-wrap .logo-gold,
+/* Hover transitions to original colors across clickable brand links (footer) */
 .footer-logo-link:hover .interactive-logo-wrap .logo-gold {
   opacity: 0;
 }
 
-.brand-link:hover .interactive-logo-wrap .logo-red,
 .footer-logo-link:hover .interactive-logo-wrap .logo-red {
   opacity: 1;
 }
@@ -1596,19 +1607,23 @@ button {
   z-index: 99;
   width: 56px;
   height: 56px;
-  background-color: #25d366;
-  color: #fff;
+  background: var(--bg-card);
+  color: var(--gold-400);
+  border: 1px solid var(--border-gold);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-  transition: transform var(--transition-bounce), filter var(--transition-fast);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), 0 0 15px var(--gold-glow);
+  transition: transform var(--transition-bounce), background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .whatsapp-float:hover {
+  background: var(--gold-grad);
+  color: var(--bg-darker);
+  border-color: var(--gold-400);
   transform: scale(1.1) rotate(5deg);
-  filter: brightness(1.05);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), var(--shadow-gold);
 }
 
 /* ==========================================================================

@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=15">
+  <link rel="stylesheet" href="styles.css?v=19">
 </head>
 <body data-lang="ca">
 
@@ -55,9 +55,8 @@
   <header class="header" id="mainHeader">
     <div class="container header-container">
       <a href="#" class="brand-link" aria-label="ARS Advocats inici">
-        <div class="interactive-logo-wrap nav-logo-wrap">
-          <img src="assets/images/logo_gold.png" alt="ARS Advocats i Assessors" class="brand-logo logo-gold">
-          <img src="assets/images/logo_red.png" alt="ARS Advocats i Assessors" class="brand-logo logo-red" aria-hidden="true">
+        <div class="nav-logo-wrap">
+          <img src="assets/images/logo_gold.png" alt="ARS Advocats i Assessors" class="brand-logo">
         </div>
       </a>
 
@@ -107,8 +106,10 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero-section" id="hero">
+  <!-- Main Content Wrapper for smooth transitions -->
+  <main id="pageContent" class="page-content page-lang-transition">
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
     <div class="hero-bg-overlay"></div>
     <div class="container hero-container">
       <div class="hero-content">
@@ -790,6 +791,7 @@
       </div>
     </div>
   </footer>
+  </main>
 
   <!-- Modal for Legal / Privacy Info -->
   <div class="modal" id="legalModal" aria-hidden="true">
@@ -811,6 +813,6 @@
   </a>
 
   <!-- Main JavaScript File -->
-  <script src="app.js?v=14"></script>
+  <script src="app.js?v=16"></script>
 </body>
 </html>
