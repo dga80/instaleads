@@ -349,53 +349,91 @@ input[type=range] {
 }
 
 /* ==========================================================================
-   GAUDÍ TRENCADÍS SYSTEM (Inspiración Park Güell & Casa Baco Barcelona)
+   ESTÉTICA TIENDA OBSIDIANA & POSTER GAUDÍ (Colores Planos & Textura Lateral)
    ========================================================================== */
-.trencadis-ribbon-divider {
-  width: 100%;
-  height: 20px;
-  background-image: url('trencadis_ribbon.svg');
-  background-repeat: repeat-x;
-  background-size: auto 100%;
-  opacity: 0.85;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.95));
-  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-}
 
-.trencadis-badge {
-  background: linear-gradient(135deg, rgba(30, 58, 138, 0.25) 0%, rgba(206, 154, 96, 0.18) 50%, rgba(141, 8, 41, 0.22) 100%);
-  border: 1px solid rgba(206, 154, 96, 0.35);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-}
-
-.trencadis-card-bg {
-  position: relative;
-  overflow: hidden;
-}
-
-.trencadis-card-bg::before {
-  content: '';
-  position: absolute;
+/* Franja de Textura Trencadís Lateral Real (trencadisHD2) */
+.lateral-trencadis-flank {
+  position: fixed;
   top: 0;
   right: 0;
-  width: 280px;
-  height: 280px;
-  background-image: url('trencadis_backdrop.svg');
-  background-size: cover;
-  opacity: 0.14;
+  bottom: 0;
+  width: 14vw;
+  max-width: 220px;
+  min-width: 90px;
   pointer-events: none;
-  mask-image: radial-gradient(circle at top right, black 20%, transparent 75%);
-  -webkit-mask-image: radial-gradient(circle at top right, black 20%, transparent 75%);
+  z-index: 30;
+  overflow: hidden;
+  opacity: 0.85;
 }
 
-.trencadis-mosaic-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 0.85rem;
-  border-radius: 9999px;
-  background: rgba(18, 17, 16, 0.85);
-  border: 1px solid rgba(206, 154, 96, 0.3);
-  backdrop-filter: blur(8px);
+.lateral-trencadis-flank img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
+
+/* Máscaras de fundido para que el mosaico trencadís funda limpiamente con el fondo negro de la tienda */
+.lateral-trencadis-flank::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #060505 0%, rgba(6, 5, 5, 0.45) 45%, rgba(6, 5, 5, 0.05) 85%, transparent 100%),
+              linear-gradient(to bottom, #060505 0%, transparent 6%, transparent 94%, #060505 100%);
+}
+
+@media (max-width: 1024px) {
+  .lateral-trencadis-flank {
+    width: 80px;
+    opacity: 0.5;
+  }
+}
+
+@media (max-width: 768px) {
+  .lateral-trencadis-flank {
+    display: none;
+  }
+}
+
+/* Tarjetas y Contenedores con Colores Planos (Estilo Poster Gaudí) */
+.card-flat-gaudi {
+  background-color: #0E0D0C;
+  border: 1px solid rgba(206, 154, 96, 0.25);
+  border-radius: 1.25rem;
+  transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.card-flat-gaudi:hover {
+  border-color: rgba(206, 154, 96, 0.6);
+  background-color: #141312;
+}
+
+/* Badges con Colores Planos Inspirados en el Poster de Gaudí */
+.badge-poster-blue {
+  background-color: #19324B;
+  color: #D4E8FC;
+  border: 1px solid rgba(125, 211, 252, 0.3);
+}
+
+.badge-poster-gold {
+  background-color: #CE9A60;
+  color: #060505;
+  font-weight: 700;
+}
+
+.badge-poster-wine {
+  background-color: #8D0829;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 40s linear infinite;
+}
+

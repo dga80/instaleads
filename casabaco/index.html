@@ -47,7 +47,12 @@
   </script>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-deep text-[#FBF9F5] font-sans antialiased selection:bg-copper selection:text-deep">
+<body class="bg-deep text-[#FBF9F5] font-sans antialiased selection:bg-copper selection:text-deep relative">
+
+  <!-- Textura Lateral de Trencadís de Gaudí (trencadisHD2) para dar color y contrastar con el fondo oscuro -->
+  <aside class="lateral-trencadis-flank" aria-hidden="true">
+    <img src="trencadis_side.jpg" alt="Mosaico Trencadís Gaudí Barcelona" loading="eager">
+  </aside>
 
   <!-- Announcement Bar (Micro-estado en Vivo) -->
   <div class="announcement-bar bg-[#0A0908] text-[#D4CFC9] py-2.5 px-4 text-xs font-sans tracking-wide border-b border-[#CE9A60]/15">
@@ -231,8 +236,8 @@
         </div>
       </div>
 
-      <!-- Franja Trencadís de Gaudí (Inspirada en el Park Güell de Barcelona) -->
-      <div class="trencadis-ribbon-divider absolute bottom-0 left-0 right-0 z-20"></div>
+      <!-- Borde inferior sutil -->
+      <div class="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#CE9A60]/30 to-transparent"></div>
     </section>
 
     <!-- SECTION B: MANIFIESTO PUSH-EDITORIAL (Inspirado en Millésimes Alsace & Gaudí) -->
@@ -283,7 +288,7 @@
             </div>
 
             <!-- El Lagarto de Gaudí & El Arte del Trencadís (Zona de Inspiración Park Güell) -->
-            <div class="trencadis-card-bg p-7 rounded-2xl bg-card border-l-4 border-copper border border-copper/30 space-y-3 mt-4 relative shadow-2xl">
+            <div class="card-flat-gaudi p-7 rounded-2xl border-l-4 border-copper border border-copper/30 space-y-3 mt-4 relative shadow-xl">
               <div class="flex items-center justify-between">
                 <h3 class="font-serif text-xl font-bold text-copper-light flex items-center gap-3">
                   <span class="w-8 h-8 rounded-full bg-copper/20 border border-copper/40 p-1 flex items-center justify-center shrink-0">
@@ -360,7 +365,7 @@
           <div class="card-luxe p-8 flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between text-xs font-semibold mb-5">
-                <span class="bg-copper/15 text-copper-light px-3 py-1 rounded-full uppercase tracking-wider border border-copper/30">Iniciación</span>
+                <span class="badge-poster-gold px-3.5 py-1 rounded-full uppercase tracking-wider text-[11px] font-bold">Iniciación</span>
                 <span class="text-[#A8A29E]">10 plazas máx.</span>
               </div>
               <h3 class="font-serif text-2xl font-bold text-white mb-3 leading-snug">
@@ -408,7 +413,7 @@
             </div>
             <div>
               <div class="flex items-center justify-between text-xs font-semibold mb-5 pt-1">
-                <span class="bg-wine/40 text-rose-300 px-3 py-1 rounded-full uppercase tracking-wider border border-wine-light/50">Vinos Naturales</span>
+                <span class="badge-poster-wine px-3.5 py-1 rounded-full uppercase tracking-wider text-[11px] font-bold">Vinos Naturales</span>
                 <span class="text-emerald-400 font-medium">¡Últimas 3 plazas!</span>
               </div>
               <h3 class="font-serif text-2xl font-bold text-white mb-3 leading-snug">
@@ -453,7 +458,7 @@
           <div class="card-luxe p-8 flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between text-xs font-semibold mb-5">
-                <span class="bg-card-light text-copper px-3 py-1 rounded-full uppercase tracking-wider border border-white/10">Grupos Privados</span>
+                <span class="badge-poster-blue px-3.5 py-1 rounded-full uppercase tracking-wider text-[11px] font-bold">Grupos Privados</span>
                 <span class="text-[#A8A29E]">Cierre Exclusivo</span>
               </div>
               <h3 class="font-serif text-2xl font-bold text-white mb-3 leading-snug">
@@ -493,13 +498,10 @@
 
         </div>
 
-        <!-- Divisor Trencadís de Gaudí -->
-        <div class="my-16">
-          <div class="trencadis-ribbon-divider"></div>
-        </div>
+        <div class="my-12"></div>
 
         <!-- SIMULADOR INTERACTIVO A MEDIDA (Étape 02 - Consola de Lujo en Obsidiana) -->
-        <div id="simulador" class="simulator-wrapper trencadis-card-bg bg-[#0B0A09] rounded-3xl border border-copper/35 shadow-[0_25px_70px_rgba(0,0,0,0.9)] p-8 sm:p-14 relative overflow-hidden">
+        <div id="simulador" class="simulator-wrapper card-flat-gaudi border-copper/35 shadow-[0_25px_70px_rgba(0,0,0,0.9)] p-8 sm:p-14 relative overflow-hidden">
           
           <div class="max-w-3xl mx-auto text-center mb-12">
             <span class="step-badge mb-3">Étape 02 · Motor de Configuración</span>
@@ -682,7 +684,7 @@
             <div>
               <div class="flex justify-between items-start mb-4">
                 <div>
-                  <span class="text-xs uppercase tracking-wider text-copper font-semibold">Plan Esencial</span>
+                  <span class="badge-poster-gold px-3 py-1 rounded-full uppercase tracking-wider text-[10px] font-bold inline-block mb-1.5">Plan Esencial</span>
                   <h3 class="font-serif text-3xl font-bold text-white mt-1">Selección Descubrimiento</h3>
                 </div>
                 <div class="w-10 h-10 rounded-full bg-copper/15 border border-copper/30 flex items-center justify-center text-lg">
@@ -735,7 +737,7 @@
             <div>
               <div class="flex justify-between items-start mb-4">
                 <div>
-                  <span class="text-xs uppercase tracking-wider text-copper font-semibold">Tiradas Limitadas</span>
+                  <span class="badge-poster-wine px-3 py-1 rounded-full uppercase tracking-wider text-[10px] font-bold inline-block mb-1.5">Tiradas Limitadas</span>
                   <h3 class="font-serif text-3xl font-bold text-white mt-1">Selección Sumiller</h3>
                 </div>
                 <div class="w-10 h-10 rounded-full bg-copper/20 border border-copper/40 flex items-center justify-center text-lg">
@@ -810,7 +812,7 @@
             <div class="aspect-[4/3] overflow-hidden relative">
               <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=700&q=80" 
                    alt="Lote El Aperitivo del Baco" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
-              <span class="absolute top-3 left-3 bg-card/90 border border-copper/30 text-copper-light text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-md">
+              <span class="badge-poster-blue absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-md shadow-md">
                 Aperitivo & Tapas
               </span>
             </div>
@@ -839,7 +841,7 @@
             <div class="aspect-[4/3] overflow-hidden relative">
               <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=700&q=80" 
                    alt="Lote Terroir Catalán" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
-              <span class="absolute top-3 left-3 bg-copper text-deep text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-md">
+              <span class="badge-poster-gold absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-md shadow-md">
                 Selección Estrella
               </span>
             </div>
@@ -868,7 +870,7 @@
             <div class="aspect-[4/3] overflow-hidden relative">
               <img src="https://images.unsplash.com/photo-1528823872057-9c018a7a7553?auto=format&fit=crop&w=700&q=80" 
                    alt="Lote Gran Reserva Baco" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
-              <span class="absolute top-3 left-3 bg-card/90 border border-copper/30 text-copper-light text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-md">
+              <span class="badge-poster-wine absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-md shadow-md">
                 Edición Limitada
               </span>
             </div>
@@ -894,8 +896,8 @@
 
         </div>
 
-        <!-- Módulo Corporativo B2B (Estilo Millésimes Alsace & Trencadís) -->
-        <div class="bg-[#0B0A09] trencadis-card-bg border border-copper/35 rounded-3xl p-8 sm:p-14 relative overflow-hidden">
+        <!-- Módulo Corporativo B2B (Estilo Poster Gaudí & Tienda Oscura) -->
+        <div class="card-flat-gaudi border border-copper/35 p-8 sm:p-14 relative overflow-hidden">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             <div class="lg:col-span-8 space-y-4">
               <span class="step-badge">Empresas & Profesionales</span>
@@ -927,8 +929,6 @@
 
     <!-- SECTION F: FOOTER, MAPA Y HORARIOS -->
     <footer id="contacto" class="bg-[#060505] text-[#D4CFC9] pt-24 pb-12 border-t border-copper/20 relative">
-      <!-- Franja Trencadís de Gaudí -->
-      <div class="trencadis-ribbon-divider absolute top-0 left-0 right-0"></div>
       <div class="max-w-7xl mx-auto px-6">
         
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">
