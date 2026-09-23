@@ -6,11 +6,11 @@
    ========================================================================== */
 
 :root {
-  --bg-deep: #0D0C0B;
-  --bg-dark: #141312;
-  --bg-card: #1A1917;
-  --bg-card-hover: #22201E;
-  --bg-card-light: #2A2825;
+  --bg-deep: #060505;
+  --bg-dark: #0B0A09;
+  --bg-card: #11100F;
+  --bg-card-hover: #181716;
+  --bg-card-light: #1F1E1C;
   
   --copper-light: #FBE0B5;
   --copper: #CE9A60;
@@ -346,4 +346,56 @@ input[type=range] {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--copper);
+}
+
+/* ==========================================================================
+   GAUDÍ TRENCADÍS SYSTEM (Inspiración Park Güell & Casa Baco Barcelona)
+   ========================================================================== */
+.trencadis-ribbon-divider {
+  width: 100%;
+  height: 20px;
+  background-image: url('trencadis_ribbon.svg');
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  opacity: 0.85;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.95));
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.trencadis-badge {
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.25) 0%, rgba(206, 154, 96, 0.18) 50%, rgba(141, 8, 41, 0.22) 100%);
+  border: 1px solid rgba(206, 154, 96, 0.35);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.trencadis-card-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.trencadis-card-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 280px;
+  background-image: url('trencadis_backdrop.svg');
+  background-size: cover;
+  opacity: 0.14;
+  pointer-events: none;
+  mask-image: radial-gradient(circle at top right, black 20%, transparent 75%);
+  -webkit-mask-image: radial-gradient(circle at top right, black 20%, transparent 75%);
+}
+
+.trencadis-mosaic-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background: rgba(18, 17, 16, 0.85);
+  border: 1px solid rgba(206, 154, 96, 0.3);
+  backdrop-filter: blur(8px);
 }

@@ -21,16 +21,20 @@
       theme: {
         extend: {
           colors: {
-            'deep': '#0D0C0B',
-            'dark': '#141312',
-            'card': '#1A1917',
-            'card-hover': '#22201E',
+            'deep': '#060505',
+            'dark': '#0B0A09',
+            'card': '#11100F',
+            'card-hover': '#181716',
             'copper-light': '#FBE0B5',
             'copper': '#CE9A60',
             'copper-dark': '#A27236',
             'wine': '#8D0829',
             'wine-light': '#B90F28',
             'sand-muted': '#8E8880',
+            'trencadis-blue': '#1E3A8A',
+            'trencadis-azure': '#0284C7',
+            'trencadis-gold': '#F59E0B',
+            'trencadis-yellow': '#EAB308',
           },
           fontFamily: {
             serif: ['"Playfair Display"', 'Georgia', 'serif'],
@@ -62,8 +66,8 @@
     </div>
   </div>
 
-  <!-- Header / Navigation (Estilo Millésimes Alsace) -->
-  <header class="header sticky top-0 z-40 bg-[#0D0C0B]/90 backdrop-blur-md border-b border-[#CE9A60]/20 transition-all duration-300" id="main-header">
+  <!-- Header / Navigation (Estilo Millésimes Alsace & Dark Obsidian) -->
+  <header class="header sticky top-0 z-40 bg-[#060505]/92 backdrop-blur-md border-b border-[#CE9A60]/20 transition-all duration-300" id="main-header">
     <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
       
       <!-- Brand Logo con Mini-Lagarto Oficial -->
@@ -107,7 +111,7 @@
     </div>
 
     <!-- Mobile Dropdown Nav -->
-    <div id="mobile-menu" class="hidden md:hidden bg-[#141312] border-b border-copper/20 px-6 py-6 transition-all duration-300">
+    <div id="mobile-menu" class="hidden md:hidden bg-[#0B0A09] border-b border-copper/20 px-6 py-6 transition-all duration-300">
       <div class="flex flex-col gap-4 text-base font-medium">
         <a href="#manifiesto" class="mobile-nav-link text-white hover:text-copper py-2 border-b border-white/5">Filosofía ("El Espíritu de Baco")</a>
         <a href="#catas" class="mobile-nav-link text-white hover:text-copper py-2 border-b border-white/5">Catas & Próximas Fechas</a>
@@ -125,8 +129,8 @@
 
   <main>
 
-    <!-- SECTION A: HERO SECTION (ESTILO MILLESIMES ALSACE CON LA GRAN LAGARTIJA DE CASA BACO) -->
-    <section class="hero-section relative min-h-[92vh] flex items-center overflow-hidden bg-gradient-to-b from-[#0D0C0B] via-[#141312] to-[#0D0C0B] pt-12 pb-20 border-b border-[#CE9A60]/20">
+    <!-- SECTION A: HERO SECTION (ESTILO MILLESIMES ALSACE CON EL LOGO PURO DE CASA BACO) -->
+    <section class="hero-section relative min-h-[92vh] flex items-center overflow-hidden bg-gradient-to-b from-[#060505] via-[#0B0A09] to-[#060505] pt-12 pb-20 border-b border-[#CE9A60]/20">
       
       <!-- Fondo Atmosférico y Luces Circulares -->
       <div class="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-wine/20 blur-[120px] pointer-events-none"></div>
@@ -140,7 +144,7 @@
             
             <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-copper/30 bg-copper/10 text-copper-light text-xs uppercase tracking-widest font-semibold">
               <span class="inline-block w-2 h-2 rounded-full bg-copper animate-ping"></span>
-              Bodega de Autor & Espacio de Catas · Barcelona
+              Bodega de Autor · Barcelona · Trencadís Modernista
             </div>
 
             <!-- Gran Titular estilo Millésimes Alsace -->
@@ -201,61 +205,23 @@
 
           </div>
 
-          <!-- Columna Derecha: LA GRAN LAGARTIJA DE CASA BACO (casabaco_bcn.png Oficial) -->
-          <div class="lg:col-span-5 relative flex items-center justify-center">
+          <!-- Columna Derecha: EL LOGOTIPO OFICIAL DE CASA BACO (Sin cuadrado, puro y flotante) -->
+          <div class="lg:col-span-5 relative flex items-center justify-center py-6">
             
-            <div class="hero-brand-stage w-full max-w-[560px] relative flex flex-col items-center justify-center">
+            <div class="relative w-full max-w-[580px] flex items-center justify-center group">
               
-              <!-- Resplandor Dorado y Burdeos de Fondo -->
-              <div class="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-wine/30 via-copper/25 to-amber-500/15 blur-2xl opacity-80 pointer-events-none"></div>
+              <!-- Resplandor Noble de Atmósfera (Cobre, Burdeos y Luz Cálida) - Sin bordes duros -->
+              <div class="absolute -inset-16 rounded-full bg-gradient-to-tr from-wine/30 via-copper/15 to-transparent blur-3xl opacity-75 pointer-events-none transition-opacity duration-700 group-hover:opacity-90"></div>
 
-              <!-- Vitrina / Pedestal Editorial con Textura y Borde Cobre -->
-              <div class="relative w-full rounded-3xl border border-copper/35 bg-gradient-to-b from-[#1C1A17]/95 via-[#131211]/95 to-[#0A0A09]/98 p-6 sm:p-8 backdrop-blur-xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] overflow-hidden group">
-                
-                <!-- Destellos y Anillos Orbitantes de Cobre de Fondo -->
-                <div class="absolute -top-24 -right-24 w-60 h-60 rounded-full border border-copper/20 border-dashed animate-spin-slow pointer-events-none"></div>
-                <div class="absolute -bottom-20 -left-20 w-52 h-52 rounded-full border border-copper/15 pointer-events-none"></div>
-                <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-copper/15 via-transparent to-transparent pointer-events-none"></div>
-
-                <!-- Cabecera de la Vitrina de la Marca -->
-                <div class="relative z-10 flex items-center justify-between pb-4 mb-2 border-b border-copper/20">
-                  <div class="flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-copper animate-pulse"></span>
-                    <span class="text-[10px] uppercase tracking-[0.25em] text-copper-light font-bold">Identidad Oficial · Barcelona</span>
-                  </div>
-                  <span class="text-[10px] text-sand-muted tracking-wider uppercase font-mono">El so del Vi</span>
-                </div>
-
-                <!-- IMAGEN OFICIAL: casabaco_bcn.png (Fondo transparente, trencadís original) -->
-                <div class="relative z-10 py-5 flex items-center justify-center transform transition-transform duration-700 group-hover:scale-[1.03]">
-                  <img src="casabaco_bcn.png" 
-                       alt="Casa Baco Barcelona · El so del Vi" 
-                       class="w-full h-auto max-h-[300px] object-contain drop-shadow-[0_0_2px_rgba(251,224,181,0.85)] drop-shadow-[0_15px_30px_rgba(0,0,0,0.8)]"
-                       loading="eager" />
-                </div>
-
-                <!-- Pie de Vitrina: Maridaje e Información del Emblema -->
-                <div class="relative z-10 pt-4 mt-2 border-t border-white/5 flex items-center justify-between text-xs">
-                  <div class="flex items-center gap-2.5">
-                    <div class="w-7 h-7 rounded-full bg-copper/20 border border-copper/40 p-1 flex items-center justify-center shrink-0">
-                      <img src="casabaco_lizard_icon.png" alt="Sello de Autor" class="w-full h-full object-contain">
-                    </div>
-                    <div class="flex flex-col">
-                      <span class="text-white font-serif font-bold text-xs leading-none">Trencadís Mediterráneo</span>
-                      <span class="text-[10px] text-sand-muted mt-0.5">Símbolo de calma, sol y viña viva</span>
-                    </div>
-                  </div>
-                  <a href="#manifiesto" class="text-copper text-xs hover:text-copper-light flex items-center gap-1 font-medium transition-colors">
-                    <span>Historia</span> →
-                  </a>
-                </div>
-
-              </div>
-
-              <!-- Tarjeta Superior Flotante: Aforo Limitado -->
-              <div class="absolute -top-3 -right-2 bg-[#1A1917]/95 backdrop-blur-md text-copper-light text-xs px-4 py-1.5 rounded-full border border-copper/40 shadow-xl flex items-center gap-2 z-20">
-                <span class="w-2 h-2 rounded-full bg-copper animate-ping"></span>
-                <span class="font-medium">Catas íntimas (Máx. 10 pers.)</span>
+              <!-- Halo Trencadís Sutil de Fondo (Inspiración Gaudí / Park Güell) -->
+              <div class="absolute -inset-6 rounded-full border border-copper/15 border-dashed animate-spin-slow pointer-events-none opacity-40"></div>
+              
+              <!-- LOGOTIPO PURO: casabaco_bcn.png (Texto blanco nítido, lagartija Park Güell en trencadís original, fondo transparente) -->
+              <div class="relative z-10 w-full flex items-center justify-center transition-transform duration-700 group-hover:scale-[1.03]">
+                <img src="casabaco_bcn.png" 
+                     alt="Casa Baco Barcelona · El so del Vi" 
+                     class="w-full h-auto max-h-[380px] object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.9)]"
+                     loading="eager" />
               </div>
 
             </div>
@@ -265,12 +231,12 @@
         </div>
       </div>
 
-      <!-- Divisor Estilo Millésimes Alsace con Escala de Cobre -->
-      <div class="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-copper/40 to-transparent"></div>
+      <!-- Franja Trencadís de Gaudí (Inspirada en el Park Güell de Barcelona) -->
+      <div class="trencadis-ribbon-divider absolute bottom-0 left-0 right-0 z-20"></div>
     </section>
 
-    <!-- SECTION B: MANIFIESTO PUSH-EDITORIAL (Inspirado en Millésimes Alsace) -->
-    <section id="manifiesto" class="py-28 bg-[#100F0E] relative border-b border-[#CE9A60]/15">
+    <!-- SECTION B: MANIFIESTO PUSH-EDITORIAL (Inspirado en Millésimes Alsace & Gaudí) -->
+    <section id="manifiesto" class="py-28 bg-[#0B0A09] relative border-b border-[#CE9A60]/15">
       <div class="max-w-7xl mx-auto px-6">
         
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
@@ -281,7 +247,7 @@
               <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=900&q=85" 
                    alt="Copas de vino y botellas singulares en Casa Baco" 
                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-              <div class="absolute inset-0 bg-gradient-to-t from-deep via-transparent to-transparent opacity-80"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-deep via-transparent to-transparent opacity-85"></div>
               
               <div class="absolute bottom-8 left-8 right-8 text-white">
                 <span class="text-xs uppercase tracking-[0.2em] text-copper font-semibold">Camp de l'Arpa · Barcelona</span>
@@ -316,15 +282,34 @@
               </p>
             </div>
 
-            <!-- Por qué el Lagarto (Recuadro de Lujo Cobre) -->
-            <div class="p-6 rounded-2xl bg-card border-l-4 border-copper border border-white/5 space-y-2 mt-4">
-              <h3 class="font-serif text-xl font-bold text-copper-light flex items-center gap-2.5">
-                <span>¿Por qué la Lagartija?</span>
-                <img src="casabaco_lizard_icon.png" alt="Lagartija Casa Baco" class="w-6 h-6 object-contain inline-block">
-              </h3>
-              <p class="text-sm text-[#A8A29E] leading-relaxed">
-                El lagarto es el habitante más sereno de las viñas mediterráneas. Busca el calor de las piedras al sol, reposa con paciencia y solo permanece donde la tierra está viva y libre de químicos agresivos. Cuando decimos <em>"Sigue al lagarto"</em>, te invitamos a buscar esa misma autenticidad: la pausa para saborear, la búsqueda del sol y el instinto por lo genuino.
+            <!-- El Lagarto de Gaudí & El Arte del Trencadís (Zona de Inspiración Park Güell) -->
+            <div class="trencadis-card-bg p-7 rounded-2xl bg-card border-l-4 border-copper border border-copper/30 space-y-3 mt-4 relative shadow-2xl">
+              <div class="flex items-center justify-between">
+                <h3 class="font-serif text-xl font-bold text-copper-light flex items-center gap-3">
+                  <span class="w-8 h-8 rounded-full bg-copper/20 border border-copper/40 p-1 flex items-center justify-center shrink-0">
+                    <img src="casabaco_lizard_icon.png" alt="Lagartija Casa Baco" class="w-full h-full object-contain">
+                  </span>
+                  <span>El Drac del Park Güell & El Alma del Trencadís</span>
+                </h3>
+                <span class="hidden sm:inline-flex text-[10px] uppercase tracking-widest text-copper/90 border border-copper/30 px-3 py-1 rounded-full bg-[#060505]/70 font-mono">Gaudí · Barcelona</span>
+              </div>
+              <p class="text-sm text-[#D4CFC9] leading-relaxed font-light">
+                Nuestra lagartija es un homenaje al icónico <strong class="text-white font-medium">Drac del Park Güell de Antoni Gaudí</strong>, emblema universal del <em>trencadís</em> barcelonés. Igual que las teselas cerámicas rotas cobran una belleza infinita al unirse en armonía, en Casa Baco entendemos el vino como un gran mosaico: cada pequeño viticultor independiente, cada suelo de pizarra o arcilla y cada botella singular es una pieza imprescindible que cobra sentido cuando se descorcha y se comparte.
               </p>
+              <div class="pt-2 flex flex-wrap items-center gap-4 text-xs text-copper-light border-t border-white/5">
+                <span class="flex items-center gap-1.5 font-medium">
+                  <span class="w-2 h-2 rounded-full bg-[#1E3A8A]"></span> Tesela a tesela
+                </span>
+                <span class="flex items-center gap-1.5 font-medium">
+                  <span class="w-2 h-2 rounded-full bg-[#F59E0B]"></span> Sol y reposo de viña
+                </span>
+                <span class="flex items-center gap-1.5 font-medium">
+                  <span class="w-2 h-2 rounded-full bg-[#8D0829]"></span> Mínima intervención
+                </span>
+                <span class="flex items-center gap-1.5 font-medium text-copper">
+                  <span class="w-2 h-2 rounded-full bg-white"></span> Cerámica viva
+                </span>
+              </div>
             </div>
 
             <!-- Métricas Clave -->
@@ -508,8 +493,13 @@
 
         </div>
 
-        <!-- SIMULADOR INTERACTIVO A MEDIDA (Étape 02 - Consola de Lujo) -->
-        <div id="simulador" class="simulator-wrapper bg-[#141312] rounded-3xl border border-copper/30 shadow-[0_20px_60px_rgba(0,0,0,0.8)] p-8 sm:p-14 relative overflow-hidden">
+        <!-- Divisor Trencadís de Gaudí -->
+        <div class="my-16">
+          <div class="trencadis-ribbon-divider"></div>
+        </div>
+
+        <!-- SIMULADOR INTERACTIVO A MEDIDA (Étape 02 - Consola de Lujo en Obsidiana) -->
+        <div id="simulador" class="simulator-wrapper trencadis-card-bg bg-[#0B0A09] rounded-3xl border border-copper/35 shadow-[0_25px_70px_rgba(0,0,0,0.9)] p-8 sm:p-14 relative overflow-hidden">
           
           <div class="max-w-3xl mx-auto text-center mb-12">
             <span class="step-badge mb-3">Étape 02 · Motor de Configuración</span>
@@ -658,7 +648,7 @@
     </section>
 
     <!-- SECTION D: EL CLUB DEL LAGARTO (Étape 03 - Suscripción Mensual Recurrente) -->
-    <section id="club" class="py-28 bg-[#100F0E] relative border-b border-[#CE9A60]/15">
+    <section id="club" class="py-28 bg-[#0B0A09] relative border-b border-[#CE9A60]/15">
       <div class="max-w-7xl mx-auto px-6">
         
         <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
@@ -904,8 +894,8 @@
 
         </div>
 
-        <!-- Módulo Corporativo B2B (Estilo Millésimes Alsace) -->
-        <div class="bg-[#141312] border border-copper/30 rounded-3xl p-8 sm:p-14 relative overflow-hidden">
+        <!-- Módulo Corporativo B2B (Estilo Millésimes Alsace & Trencadís) -->
+        <div class="bg-[#0B0A09] trencadis-card-bg border border-copper/35 rounded-3xl p-8 sm:p-14 relative overflow-hidden">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             <div class="lg:col-span-8 space-y-4">
               <span class="step-badge">Empresas & Profesionales</span>
@@ -936,7 +926,9 @@
     </section>
 
     <!-- SECTION F: FOOTER, MAPA Y HORARIOS -->
-    <footer id="contacto" class="bg-[#090807] text-[#D4CFC9] pt-24 pb-12 border-t border-copper/20 relative">
+    <footer id="contacto" class="bg-[#060505] text-[#D4CFC9] pt-24 pb-12 border-t border-copper/20 relative">
+      <!-- Franja Trencadís de Gaudí -->
+      <div class="trencadis-ribbon-divider absolute top-0 left-0 right-0"></div>
       <div class="max-w-7xl mx-auto px-6">
         
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">
@@ -1054,8 +1046,8 @@
   </aside>
 
   <!-- MODAL DE RESERVA DE CATAS -->
-  <div id="booking-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
-    <div class="bg-[#141312] rounded-3xl max-w-lg w-full p-8 shadow-2xl border border-copper/40 relative">
+  <div id="booking-modal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="bg-[#0B0A09] rounded-3xl max-w-lg w-full p-8 shadow-2xl border border-copper/40 relative">
       <button id="close-modal-btn" class="absolute top-5 right-5 text-sand-muted hover:text-white text-2xl font-light">✕</button>
       
       <div class="mb-6">
