@@ -1,0 +1,276 @@
+/* ==========================================================================
+   CASA BACO — ARCHITECTURE ESTHÉTIQUE & DESIGN SYSTEM (ESTILO AWWWARDS)
+   Paleta: Burdeos (#8D0829 / #B90F28), Off-white (#FDFBF7), Carbón (#1A1A1A), Oro/Arcilla (#C5A059)
+   ========================================================================== */
+
+:root {
+  --color-wine: #8D0829;
+  --color-wine-dark: #68051E;
+  --color-wine-light: #B90F28;
+  --color-wine-subtle: rgba(141, 8, 41, 0.08);
+  
+  --color-ivory: #FDFBF7;
+  --color-sand: #F3ECE1;
+  --color-sand-light: #F8F5EE;
+  
+  --color-charcoal: #1A1A1A;
+  --color-charcoal-muted: #4A4A4A;
+  
+  --color-gold: #C5A059;
+  --color-clay: #D4A373;
+  --color-clay-subtle: rgba(212, 163, 115, 0.15);
+
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Custom Reset & Typography */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-ivory);
+  color: var(--color-charcoal);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Color Utility Classes */
+.bg-ivory { background-color: var(--color-ivory); }
+.bg-sand-light { background-color: var(--color-sand-light); }
+.bg-charcoal { background-color: var(--color-charcoal); }
+.bg-wine { background-color: var(--color-wine); }
+.text-wine { color: var(--color-wine); }
+.text-charcoal { color: var(--color-charcoal); }
+.text-gold { color: var(--color-gold); }
+.text-sand { color: var(--color-sand); }
+.text-ivory { color: var(--color-ivory); }
+.border-wine { border-color: var(--color-wine); }
+
+/* Micro-Indicador de Pulso */
+.pulse-indicator {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #10B981;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* Custom Cursor con el Lagarto */
+.custom-cursor {
+  pointer-events: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+}
+
+.cursor-dot {
+  display: block;
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-wine);
+  border-radius: 50%;
+}
+
+.cursor-trail {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  font-size: 14px;
+  opacity: 0.85;
+  transition: transform 0.15s ease-out;
+}
+
+/* Botones Editoriales */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--color-wine);
+  color: var(--color-ivory);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 0.875rem 1.75rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  border: 1px solid var(--color-wine);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(141, 8, 41, 0.25);
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-wine-dark);
+  border-color: var(--color-wine-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(141, 8, 41, 0.35);
+}
+
+.btn-primary-sm {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-wine);
+  color: var(--color-ivory);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.625rem 1.25rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.btn-primary-sm:hover {
+  background-color: var(--color-wine-dark);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  color: var(--color-charcoal);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 0.875rem 1.75rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  border: 1px solid rgba(26, 26, 26, 0.2);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(26, 26, 26, 0.05);
+  border-color: var(--color-charcoal);
+  transform: translateY(-2px);
+}
+
+/* Enlaces de Navegación */
+.nav-link {
+  color: var(--color-charcoal);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s ease;
+  font-size: 0.875rem;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background-color: var(--color-wine);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link:hover {
+  color: var(--color-wine);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.highlight-link {
+  color: var(--color-wine);
+  font-weight: 600;
+}
+
+.mobile-nav-link {
+  color: var(--color-charcoal);
+  text-decoration: none;
+  font-size: 1.125rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(212, 163, 115, 0.15);
+}
+
+/* Radio Button Cards Seleccionables (Simulador) */
+.style-option-card, .pairing-option-card {
+  position: relative;
+  background-color: var(--color-ivory);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.style-option-card:hover, .pairing-option-card:hover {
+  border-color: var(--color-wine);
+  transform: translateY(-2px);
+}
+
+.style-option-card.selected, .pairing-option-card.selected {
+  border-color: var(--color-wine);
+  background-color: rgba(141, 8, 41, 0.04);
+  box-shadow: 0 4px 12px rgba(141, 8, 41, 0.12);
+}
+
+.style-option-card.selected::after, .pairing-option-card.selected::after {
+  content: '✓';
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--color-wine);
+}
+
+/* Animaciones y Clases Auxiliares */
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Range Input Slider Styling */
+input[type=range] {
+  accent-color: var(--color-wine);
+}
+
+/* Club Toggle Buttons */
+.club-toggle-btn.active-mode {
+  background-color: var(--color-wine);
+  color: var(--color-ivory);
+}
+
+/* Media Queries para Responsive */
+@media (max-width: 640px) {
+  .hero-section {
+    min-height: auto;
+    padding-top: 2rem;
+  }
+}
