@@ -154,10 +154,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (btnStore && btnDelivery) {
     btnStore.addEventListener('click', () => {
-      btnStore.classList.add('active-mode', 'bg-wine', 'text-ivory');
-      btnStore.classList.remove('text-charcoal/70');
-      btnDelivery.classList.remove('active-mode', 'bg-wine', 'text-ivory');
-      btnDelivery.classList.add('text-charcoal/70');
+      btnStore.className = 'club-toggle-btn px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider transition-all duration-200 bg-copper text-deep';
+      btnDelivery.className = 'club-toggle-btn px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider text-[#A8A29E] transition-all duration-200 hover:text-white';
 
       planPriceVals.forEach(el => {
         const base = parseInt(el.dataset.base, 10);
@@ -166,10 +164,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     btnDelivery.addEventListener('click', () => {
-      btnDelivery.classList.add('active-mode', 'bg-wine', 'text-ivory');
-      btnDelivery.classList.remove('text-charcoal/70');
-      btnStore.classList.remove('active-mode', 'bg-wine', 'text-ivory');
-      btnStore.classList.add('text-charcoal/70');
+      btnDelivery.className = 'club-toggle-btn px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider transition-all duration-200 bg-copper text-deep';
+      btnStore.className = 'club-toggle-btn px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider text-[#A8A29E] transition-all duration-200 hover:text-white';
 
       planPriceVals.forEach(el => {
         const base = parseInt(el.dataset.base, 10) + 5;

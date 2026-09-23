@@ -4,35 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Casa Baco | Bodega de Autor, Vinos Singulares y Catas en Barcelona</title>
-  <meta name="description" content="Bodega de autor en Camp de l'Arpa / Encants Nous (Barcelona). Vinos de pequeños viticultores, catas guiadas exclusivas, maridaje gourmet y El Club del Lagarto.">
+  <meta name="description" content="Bodega de autor y espacio de catas en Camp de l'Arpa (Barcelona). Vinos de pequeños viticultores, catas guiadas, maridaje artesano y El Club del Lagarto.">
   
   <!-- Favicon con el Lagarto -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦎</text></svg>">
 
-  <!-- Tipografías Google Fonts (Cormorant Garamond + Plus Jakarta Sans) -->
+  <!-- Google Fonts: Playfair Display + Cormorant Garamond + Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- Tailwind CSS CDN para renderizado inmediato sin build step -->
+  <!-- Tailwind CSS CDN para renderizado inmediato -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            wine: '#8D0829',
-            'wine-dark': '#68051E',
+            'deep': '#0D0C0B',
+            'dark': '#141312',
+            'card': '#1A1917',
+            'card-hover': '#22201E',
+            'copper-light': '#FBE0B5',
+            'copper': '#CE9A60',
+            'copper-dark': '#A27236',
+            'wine': '#8D0829',
             'wine-light': '#B90F28',
-            ivory: '#FDFBF7',
-            charcoal: '#1A1A1A',
-            gold: '#C5A059',
-            clay: '#D4A373',
-            sand: '#F3ECE1',
-            'sand-light': '#F8F5EE',
+            'sand-muted': '#8E8880',
           },
           fontFamily: {
-            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            editorial: ['"Cormorant Garamond"', 'Georgia', 'serif'],
             sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
           }
         }
@@ -41,48 +43,37 @@
   </script>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-ivory text-charcoal font-sans antialiased selection:bg-wine selection:text-white">
+<body class="bg-deep text-[#FBF9F5] font-sans antialiased selection:bg-copper selection:text-deep">
 
-  <!-- Custom Cursor Lagarto (Desktop) -->
-  <div id="custom-cursor" class="custom-cursor hidden lg:block" aria-hidden="true">
-    <span class="cursor-dot"></span>
-    <span class="cursor-trail">🦎</span>
-  </div>
-
-  <!-- Announcement Bar / Micro-estado en Vivo -->
-  <div class="announcement-bar bg-charcoal text-ivory py-2 px-4 text-xs font-sans tracking-wide">
+  <!-- Announcement Bar (Micro-estado en Vivo) -->
+  <div class="announcement-bar bg-[#0A0908] text-[#D4CFC9] py-2.5 px-4 text-xs font-sans tracking-wide border-b border-[#CE9A60]/15">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
-      <div class="flex items-center gap-2">
+      <div class="flex items-center gap-2.5">
         <span class="pulse-indicator"></span>
-        <span id="live-status-text">Abierto hoy hasta las 21:30 h</span>
-        <span class="text-clay opacity-60">·</span>
-        <span class="text-sand">C/ de la Independència, 305 (Encants Nous / Camp de l'Arpa)</span>
+        <span id="live-status-text" class="text-copper-light font-medium">Abierto hoy hasta las 21:30 h</span>
+        <span class="text-[#CE9A60]/40">·</span>
+        <span class="text-[#A8A29E]">C/ de la Independència, 305 (Camp de l'Arpa / Encants Nous)</span>
       </div>
-      <div class="flex items-center gap-4 text-xs">
-        <a href="#catas" class="hover:text-gold transition-colors duration-200">Próximas Catas (Plazas limitadas)</a>
-        <span class="opacity-30">|</span>
-        <a href="https://instagram.com/casabacobcn" target="_blank" rel="noopener" class="hover:text-gold transition-colors duration-200">@casabacobcn</a>
+      <div class="flex items-center gap-5 text-xs">
+        <a href="#catas" class="text-[#D4CFC9] hover:text-copper transition-colors duration-200">Próximas Catas (10 plazas)</a>
+        <span class="text-[#CE9A60]/30">|</span>
+        <a href="https://instagram.com/casabacobcn" target="_blank" rel="noopener" class="text-copper hover:text-copper-light transition-colors duration-200">@casabacobcn</a>
       </div>
     </div>
   </div>
 
-  <!-- Header / Navigation -->
-  <header class="header sticky top-0 z-40 bg-ivory/95 backdrop-blur-md border-b border-clay/10 transition-all duration-300" id="main-header">
+  <!-- Header / Navigation (Estilo Millésimes Alsace) -->
+  <header class="header sticky top-0 z-40 bg-[#0D0C0B]/90 backdrop-blur-md border-b border-[#CE9A60]/20 transition-all duration-300" id="main-header">
     <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
       
-      <!-- Brand Logo & Lizard Mark -->
-      <a href="#" class="brand-group flex items-center gap-3 group">
-        <svg class="w-8 h-8 text-wine transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M24 4C24 4 28 8 28 14C28 17 26 19 24 21C22 23 20 25 20 28C20 34 26 38 28 44" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-          <path d="M21 11C16 10 12 13 11 16C10 19 13 21 16 20" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-          <path d="M27 12C32 11 36 14 37 17C38 20 35 22 32 21" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-          <path d="M19 29C15 30 11 33 12 37C13 40 17 40 19 37" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-          <path d="M27 30C31 31 35 34 34 38C33 41 29 41 27 38" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-          <circle cx="23" cy="7" r="1.5" fill="currentColor"/>
-        </svg>
+      <!-- Brand Logo con Mini-Lagarto -->
+      <a href="#" class="brand-group flex items-center gap-3.5 group">
+        <div class="w-10 h-10 rounded-full border border-copper/40 bg-card flex items-center justify-center text-xl text-copper transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
+          🦎
+        </div>
         <div class="flex flex-col">
-          <span class="font-serif text-2xl font-bold tracking-tight text-wine leading-none">Casa Baco</span>
-          <span class="text-[9px] uppercase tracking-[0.25em] text-charcoal/70 mt-1">Barcelona · Bodega de Autor</span>
+          <span class="font-serif text-2xl font-bold tracking-tight text-white leading-none group-hover:text-copper transition-colors">Casa Baco</span>
+          <span class="text-[9px] uppercase tracking-[0.25em] text-copper/80 mt-1">Barcelona · Bodega de Autor</span>
         </div>
       </a>
 
@@ -90,7 +81,7 @@
       <nav class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide">
         <a href="#manifiesto" class="nav-link">Filosofía</a>
         <a href="#catas" class="nav-link">Catas & Agenda</a>
-        <a href="#simulador" class="nav-link highlight-link">Simulador a Medida</a>
+        <a href="#simulador" class="nav-link text-copper font-semibold">Simulador a Medida</a>
         <a href="#club" class="nav-link">Club del Lagarto</a>
         <a href="#lotes" class="nav-link">Lotes & B2B</a>
         <a href="#contacto" class="nav-link">Visítanos</a>
@@ -98,14 +89,14 @@
 
       <!-- Action Button Desktop -->
       <div class="hidden md:flex items-center gap-4">
-        <a href="#simulador" class="btn-primary-sm">
+        <a href="#simulador" class="btn-copper text-xs py-2.5 px-5">
           <span>Diseñar Cata</span>
-          <span class="lizard-icon-sm">🦎</span>
+          <span>🦎</span>
         </a>
       </div>
 
       <!-- Mobile Hamburger Button -->
-      <button id="mobile-menu-btn" class="md:hidden text-charcoal p-2 focus:outline-none" aria-label="Abrir menú">
+      <button id="mobile-menu-btn" class="md:hidden text-copper p-2 focus:outline-none" aria-label="Abrir menú">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path id="hamburger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
@@ -114,17 +105,17 @@
     </div>
 
     <!-- Mobile Dropdown Nav -->
-    <div id="mobile-menu" class="hidden md:hidden bg-ivory border-b border-clay/20 px-6 py-6 transition-all duration-300">
+    <div id="mobile-menu" class="hidden md:hidden bg-[#141312] border-b border-copper/20 px-6 py-6 transition-all duration-300">
       <div class="flex flex-col gap-4 text-base font-medium">
-        <a href="#manifiesto" class="mobile-nav-link">Filosofía ("El Espíritu de Baco")</a>
-        <a href="#catas" class="mobile-nav-link">Catas & Próximas Fechas</a>
-        <a href="#simulador" class="mobile-nav-link text-wine font-semibold">Simulador de Catas a Medida</a>
-        <a href="#club" class="mobile-nav-link">El Club del Lagarto (Suscripción)</a>
-        <a href="#lotes" class="mobile-nav-link">Lotes de Temporada & Regalos B2B</a>
-        <a href="#contacto" class="mobile-nav-link">Ubicación, Horarios y Contacto</a>
-        <div class="pt-4 border-t border-clay/15 flex flex-col gap-3">
-          <a href="#simulador" class="btn-primary text-center">Diseñar Cata a Medida</a>
-          <a href="https://maps.google.com/?q=Carrer+de+la+Independencia+305+08026+Barcelona" target="_blank" rel="noopener" class="btn-secondary text-center">Cómo Llegar (Google Maps)</a>
+        <a href="#manifiesto" class="mobile-nav-link text-white hover:text-copper py-2 border-b border-white/5">Filosofía ("El Espíritu de Baco")</a>
+        <a href="#catas" class="mobile-nav-link text-white hover:text-copper py-2 border-b border-white/5">Catas & Próximas Fechas</a>
+        <a href="#simulador" class="mobile-nav-link text-copper font-semibold py-2 border-b border-white/5">Simulador de Catas a Medida</a>
+        <a href="#club" class="mobile-nav-link text-white hover:text-copper py-2 border-b border-white/5">El Club del Lagarto (Suscripción)</a>
+        <a href="#lotes" class="mobile-nav-link text-white hover:text-copper py-2 border-b border-white/5">Lotes de Temporada & Regalos B2B</a>
+        <a href="#contacto" class="mobile-nav-link text-white hover:text-copper py-2 border-b border-white/5">Ubicación, Horarios y Contacto</a>
+        <div class="pt-4 flex flex-col gap-3">
+          <a href="#simulador" class="btn-copper text-center">Diseñar Cata a Medida</a>
+          <a href="https://maps.google.com/?q=Carrer+de+la+Independencia+305+08026+Barcelona" target="_blank" rel="noopener" class="btn-outline-copper text-center">Cómo Llegar (Google Maps)</a>
         </div>
       </div>
     </div>
@@ -132,56 +123,58 @@
 
   <main>
 
-    <!-- SECTION A: HERO SECTION (Alto Impacto Editorial) -->
-    <section class="hero-section relative min-h-[92vh] flex items-center overflow-hidden bg-sand-light pt-8 pb-16">
+    <!-- SECTION A: HERO SECTION (ESTILO MILLESIMES ALSACE CON LA GRAN LAGARTIJA DE CASA BACO) -->
+    <section class="hero-section relative min-h-[92vh] flex items-center overflow-hidden bg-gradient-to-b from-[#0D0C0B] via-[#141312] to-[#0D0C0B] pt-12 pb-20 border-b border-[#CE9A60]/20">
       
-      <!-- Subtle Decorative Background Elements -->
-      <div class="absolute -right-24 -bottom-24 w-96 h-96 rounded-full bg-wine/5 blur-3xl pointer-events-none"></div>
-      <div class="absolute -left-20 top-20 w-80 h-80 rounded-full bg-gold/5 blur-3xl pointer-events-none"></div>
-      
+      <!-- Fondo Atmosférico y Luces Circulares -->
+      <div class="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-wine/20 blur-[120px] pointer-events-none"></div>
+      <div class="absolute bottom-10 right-0 w-[500px] h-[500px] rounded-full bg-copper/15 blur-[140px] pointer-events-none"></div>
+
       <div class="max-w-7xl mx-auto px-6 w-full relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          <!-- Columna Izquierda: Copy Editorial & CTAs (7 cols) -->
+          <!-- Columna Izquierda: Gran Titular Editorial Millésimes Alsace (7 cols) -->
           <div class="lg:col-span-7 flex flex-col items-start space-y-6">
             
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-wine/20 bg-wine/5 text-wine text-xs uppercase tracking-widest font-semibold">
-              <span class="inline-block w-1.5 h-1.5 rounded-full bg-wine"></span>
-              Nueva Manera de Vivir el Vino en Barcelona
+            <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-copper/30 bg-copper/10 text-copper-light text-xs uppercase tracking-widest font-semibold">
+              <span class="inline-block w-2 h-2 rounded-full bg-copper animate-ping"></span>
+              Bodega de Autor & Espacio de Catas · Barcelona
             </div>
 
-            <h1 class="font-serif text-4xl sm:text-6xl lg:text-[4.2rem] font-normal tracking-tight text-charcoal leading-[1.08]">
-              Descorchar la verdad <br>
-              <span class="italic text-wine font-light font-serif">de la tierra, sin artificios.</span>
+            <!-- Gran Titular estilo Millésimes Alsace -->
+            <h1 class="font-serif text-4xl sm:text-6xl lg:text-[4.75rem] font-normal tracking-tight text-white leading-[1.05]">
+              El vino se vive <br>
+              <span class="text-gradient font-normal italic font-editorial">en verdad.</span> <br>
+              <span class="text-2xl sm:text-4xl lg:text-5xl font-light text-[#D4CFC9]">Sin artificios.</span>
             </h1>
 
-            <p class="font-sans text-lg sm:text-xl text-charcoal/80 font-light max-w-xl leading-relaxed">
-              En el corazón de Camp de l'Arpa, Casa Baco es un refugio para quienes buscan la emoción de los pequeños viticultores: proyectos de mínima intervención, historias honestas y maridajes que desafían lo convencional.
+            <p class="font-sans text-base sm:text-lg text-[#A8A29E] font-light max-w-xl leading-relaxed">
+              En el corazón de Camp de l'Arpa, Casa Baco es el santuario barcelonés de los pequeños viticultores independientes: botellas singulares, mínima intervención, maridaje gourmet de pastor y catas que despiertan el alma.
             </p>
 
-            <!-- Social Proof / Sello de Identidad -->
-            <div class="flex flex-wrap items-center gap-6 py-2 text-xs text-charcoal/70 tracking-wider uppercase font-medium">
+            <!-- Sellos de Distinción en Cobre -->
+            <div class="flex flex-wrap items-center gap-6 py-2 text-xs text-copper-light tracking-wider uppercase font-medium">
               <span class="flex items-center gap-2">
-                <span class="text-wine">✦</span> Curaduría 100% Independiente
+                <span class="text-copper">✦</span> Curaduría 100% Independiente
               </span>
               <span class="flex items-center gap-2">
-                <span class="text-wine">✦</span> Catas Íntimas (Máx. 10 personas)
+                <span class="text-copper">✦</span> Catas Íntimas (Máx. 10 plazas)
               </span>
               <span class="flex items-center gap-2">
-                <span class="text-wine">✦</span> Maridaje Artesano
+                <span class="text-copper">✦</span> Maridaje Artesano
               </span>
             </div>
 
-            <!-- CTAs Principales Dobles -->
+            <!-- Botones Principales de Conversión -->
             <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4 w-full sm:w-auto">
-              <a href="#catas" class="btn-primary group">
-                <span>Explorar Catas y Eventos</span>
+              <a href="#catas" class="btn-copper group">
+                <span>Explorar Catas & Agenda</span>
                 <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                 </svg>
               </a>
-              <a href="#contacto" class="btn-secondary group">
-                <svg class="w-4 h-4 text-wine" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <a href="#contacto" class="btn-outline-copper group">
+                <svg class="w-4 h-4 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                 </svg>
@@ -189,161 +182,239 @@
               </a>
             </div>
 
-            <!-- Live Status & Direction Card -->
-            <div class="hero-live-badge mt-4 p-4 rounded-xl bg-ivory border border-clay/20 shadow-sm flex items-center gap-4 max-w-md w-full">
-              <div class="status-dot-wrapper">
-                <span class="relative flex h-3 w-3">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-600"></span>
-                </span>
+            <!-- Micro-Aviso de Estado en Tiempo Real -->
+            <div class="hero-live-badge mt-4 p-4 rounded-2xl bg-card border border-copper/30 shadow-2xl flex items-center gap-4 max-w-md w-full">
+              <div class="relative flex h-3.5 w-3.5">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500"></span>
               </div>
               <div class="flex flex-col text-xs leading-tight">
-                <span class="font-semibold text-charcoal">Espacio Físico Abierto · Barcelona</span>
-                <span class="text-charcoal/70">C/ de la Independència, 305 · Metro Encants / Camp de l'Arpa</span>
+                <span class="font-semibold text-white">Espacio Abierto al Público</span>
+                <span class="text-[#A8A29E]">C/ de la Independència, 305 · Metro Encants (L2)</span>
               </div>
-              <a href="https://maps.google.com/?q=Carrer+de+la+Independencia+305+08026+Barcelona" target="_blank" rel="noopener" class="ml-auto text-wine font-medium text-xs hover:underline flex items-center gap-1">
+              <a href="https://maps.google.com/?q=Carrer+de+la+Independencia+305+08026+Barcelona" target="_blank" rel="noopener" class="ml-auto text-copper font-medium text-xs hover:underline flex items-center gap-1">
                 <span>Ruta</span> →
               </a>
             </div>
 
           </div>
 
-          <!-- Columna Derecha: Visual Editorial & Composición Awwwards (5 cols) -->
-          <div class="lg:col-span-5 relative">
-            <div class="hero-image-composition relative mx-auto max-w-md lg:max-w-none">
+          <!-- Columna Derecha: LA GRAN LAGARTIJA DE CASA BACO (5 cols - Que luzca majestuosa) -->
+          <div class="lg:col-span-5 relative flex items-center justify-center">
+            
+            <div class="lizard-hero-container w-full max-w-[520px] aspect-square relative flex items-center justify-center">
               
-              <!-- Marco Principal Fotográfico -->
-              <div class="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border-4 border-ivory relative group">
-                <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1200&q=85" 
-                     alt="Selección de vinos singulares y copas de cata en Casa Baco Barcelona" 
-                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                     loading="eager" fetchpriority="high">
-                <div class="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent opacity-80"></div>
-                
-                <div class="absolute bottom-6 left-6 right-6 text-ivory">
-                  <p class="font-serif italic text-xl">"Cada botella guarda el alma de quien cuidó la viña."</p>
-                  <p class="text-[11px] uppercase tracking-widest mt-1 text-gold">Bodega Casa Baco · Barcelona</p>
-                </div>
+              <!-- Resplandor Dorado / Burdeos Trasero -->
+              <div class="lizard-glow-backdrop"></div>
+
+              <!-- Círculo Base Concéntrico con Bordes de Cobre -->
+              <div class="absolute inset-4 rounded-full border border-copper/20 bg-gradient-to-tr from-[#1A1917]/80 to-[#0F0E0D]/90 backdrop-blur-md"></div>
+              <div class="absolute inset-12 rounded-full border border-copper/30 border-dashed animate-spin-slow"></div>
+
+              <!-- LA GRAN LAGARTIJA VECTORIAL GAUDÍ / CASA BACO (SVG DE ALTA DEFINICIÓN) -->
+              <div class="lizard-svg-wrapper w-[90%] h-[90%] flex items-center justify-center relative z-20">
+                <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                  <defs>
+                    <!-- Gradientes Cobre, Oro y Vino -->
+                    <linearGradient id="bodyCopperGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#FBE0B5"/>
+                      <stop offset="30%" stop-color="#CE9A60"/>
+                      <stop offset="65%" stop-color="#A27236"/>
+                      <stop offset="100%" stop-color="#6E441D"/>
+                    </linearGradient>
+                    <linearGradient id="scalesGoldGrad" x1="100%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stop-color="#FFFFFF"/>
+                      <stop offset="40%" stop-color="#FBE0B5"/>
+                      <stop offset="80%" stop-color="#CE9A60"/>
+                      <stop offset="100%" stop-color="#8D0829"/>
+                    </linearGradient>
+                    <linearGradient id="wineAccentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#B90F28"/>
+                      <stop offset="60%" stop-color="#8D0829"/>
+                      <stop offset="100%" stop-color="#4A0414"/>
+                    </linearGradient>
+                    <!-- Filtro de Sombra y Resplandor -->
+                    <filter id="lizardGlow" x="-30%" y="-30%" width="160%" height="160%">
+                      <feDropShadow dx="0" dy="15" stdDeviation="15" flood-color="#CE9A60" flood-opacity="0.3"/>
+                      <feDropShadow dx="0" dy="25" stdDeviation="30" flood-color="#8D0829" flood-opacity="0.4"/>
+                    </filter>
+                  </defs>
+
+                  <!-- CUERPO PRINCIPAL ONDULANTE DE LA LAGARTIJA (Sinuosa S Mediterránea) -->
+                  <g filter="url(#lizardGlow)">
+                    
+                    <!-- Cola Larga y Arqueada con Doble Espiral -->
+                    <path d="M 230 330 C 210 390 260 450 330 460 C 400 470 450 420 440 360 C 430 300 370 280 320 290 C 270 300 240 350 250 400 C 255 425 285 440 310 430 C 330 420 340 395 330 375 C 320 355 295 355 285 370" 
+                          stroke="url(#bodyCopperGrad)" stroke-width="18" stroke-linecap="round" fill="none" opacity="0.95"/>
+                    
+                    <!-- Crestas Dorsales de la Cola -->
+                    <path d="M 235 340 C 220 395 265 445 325 455 C 385 465 435 420 425 365" 
+                          stroke="url(#wineAccentGrad)" stroke-width="4" stroke-dasharray="3 8" fill="none"/>
+
+                    <!-- Patas Traseras con Dedos Curvos -->
+                    <!-- Pata Trasera Izquierda -->
+                    <path d="M 220 320 C 170 340 140 320 120 360 C 110 380 90 390 70 385" 
+                          stroke="url(#bodyCopperGrad)" stroke-width="12" stroke-linecap="round" fill="none"/>
+                    <path d="M 70 385 L 55 380 M 70 385 L 60 400 M 70 385 L 75 405" 
+                          stroke="url(#scalesGoldGrad)" stroke-width="5" stroke-linecap="round"/>
+
+                    <!-- Pata Trasera Derecha -->
+                    <path d="M 270 310 C 320 330 360 300 390 340 C 410 365 435 365 455 350" 
+                          stroke="url(#bodyCopperGrad)" stroke-width="12" stroke-linecap="round" fill="none"/>
+                    <path d="M 455 350 L 475 345 M 455 350 L 475 360 M 455 350 L 465 370" 
+                          stroke="url(#scalesGoldGrad)" stroke-width="5" stroke-linecap="round"/>
+
+                    <!-- Tronco Principal y Costillar Mosaico -->
+                    <path d="M 245 190 C 215 230 215 280 235 330 C 265 315 280 260 265 200 Z" 
+                          fill="url(#bodyCopperGrad)" stroke="url(#scalesGoldGrad)" stroke-width="4"/>
+
+                    <!-- Patas Delanteras con Garras Firmes -->
+                    <!-- Pata Delantera Izquierda -->
+                    <path d="M 230 210 C 180 190 140 210 110 180 C 95 165 75 160 55 170" 
+                          stroke="url(#bodyCopperGrad)" stroke-width="12" stroke-linecap="round" fill="none"/>
+                    <path d="M 55 170 L 35 165 M 55 170 L 40 185 M 55 170 L 50 195" 
+                          stroke="url(#scalesGoldGrad)" stroke-width="5" stroke-linecap="round"/>
+
+                    <!-- Pata Delantera Derecha -->
+                    <path d="M 265 200 C 315 180 345 200 380 170 C 400 150 425 150 445 160" 
+                          stroke="url(#bodyCopperGrad)" stroke-width="12" stroke-linecap="round" fill="none"/>
+                    <path d="M 445 160 L 465 150 M 445 160 L 465 170 M 445 160 L 455 180" 
+                          stroke="url(#scalesGoldGrad)" stroke-width="5" stroke-linecap="round"/>
+
+                    <!-- Cuello y Cabeza Esculpida -->
+                    <path d="M 245 195 C 240 160 230 130 250 90 C 265 65 275 60 285 75 C 295 90 285 130 265 195 Z" 
+                          fill="url(#bodyCopperGrad)" stroke="url(#scalesGoldGrad)" stroke-width="4"/>
+
+                    <!-- Ojos y Nariz -->
+                    <circle cx="265" cy="85" r="4.5" fill="#FFFFFF"/>
+                    <circle cx="265" cy="85" r="2.5" fill="#B90F28"/>
+                    <circle cx="250" cy="100" r="3" fill="#CE9A60"/>
+
+                    <!-- MOSAICO / TRENCADÍS EN EL LOMO (Inspiración Gaudí & Persiana Casa Baco) -->
+                    <!-- Fila 1 de Mosaicos Dorsales -->
+                    <polygon points="245,120 255,115 260,125 248,130" fill="url(#wineAccentGrad)"/>
+                    <polygon points="252,135 264,130 268,142 255,145" fill="url(#scalesGoldGrad)"/>
+                    <polygon points="242,150 254,146 257,160 244,162" fill="url(#wineAccentGrad)"/>
+                    
+                    <!-- Fila 2 de Mosaicos Centrales del Lomo -->
+                    <polygon points="235,210 250,205 255,220 238,225" fill="url(#scalesGoldGrad)"/>
+                    <polygon points="240,230 256,225 260,240 242,245" fill="url(#wineAccentGrad)"/>
+                    <polygon points="236,250 254,245 258,262 238,266" fill="url(#scalesGoldGrad)"/>
+                    <polygon points="234,272 252,268 255,285 235,288" fill="url(#wineAccentGrad)"/>
+                    <polygon points="232,295 248,290 250,308 232,310" fill="url(#scalesGoldGrad)"/>
+
+                    <!-- Gemas de Luz en Escamas Secundarias -->
+                    <circle cx="225" cy="240" r="3.5" fill="#FBE0B5"/>
+                    <circle cx="262" cy="265" r="4" fill="#B90F28"/>
+                    <circle cx="228" cy="275" r="3.5" fill="#FBE0B5"/>
+                    <circle cx="260" cy="225" r="3.5" fill="#FBE0B5"/>
+                    <circle cx="225" cy="300" r="3" fill="#B90F28"/>
+                  </g>
+                </svg>
               </div>
 
-              <!-- Tarjeta Flotante Editorial: El Lagarto Marca -->
-              <div class="floating-lizard-card absolute -bottom-6 -left-6 bg-ivory/95 backdrop-blur-md p-4 rounded-xl border border-clay/30 shadow-xl flex items-center gap-3">
-                <div class="w-12 h-12 rounded-full bg-wine/10 flex items-center justify-center text-xl text-wine font-serif">
+              <!-- Tarjeta Flotante: "Sello de Baco" -->
+              <div class="absolute -bottom-4 -left-4 bg-[#1A1917]/95 backdrop-blur-md p-4 rounded-2xl border border-copper/40 shadow-2xl flex items-center gap-3.5 z-30">
+                <div class="w-10 h-10 rounded-full bg-copper/15 border border-copper/30 flex items-center justify-center text-lg text-copper">
                   🦎
                 </div>
                 <div>
-                  <div class="text-[10px] uppercase tracking-wider text-charcoal/60 font-semibold">Sello de Calidad</div>
-                  <div class="font-serif text-base text-wine font-bold">"Sigue al Lagarto"</div>
+                  <div class="text-[10px] uppercase tracking-wider text-copper font-bold">Identidad de Marca</div>
+                  <div class="font-serif text-sm text-white font-bold">"Sigue al Lagarto"</div>
                 </div>
               </div>
 
-              <!-- Micro-Insignia de Aforo Limitado -->
-              <div class="absolute -top-4 -right-4 bg-charcoal text-ivory text-xs px-3.5 py-2 rounded-full shadow-lg border border-gold/30 flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-gold"></span>
-                <span>Catas de 10 personas máx.</span>
+              <!-- Tarjeta Superior Flotante: Aforo Limitado -->
+              <div class="absolute -top-4 -right-2 bg-[#1A1917]/90 backdrop-blur-md text-copper-light text-xs px-4 py-2 rounded-full border border-copper/30 shadow-xl flex items-center gap-2 z-30">
+                <span class="w-2 h-2 rounded-full bg-copper"></span>
+                <span>Catas exclusivas (10 pers.)</span>
               </div>
 
             </div>
+
           </div>
 
         </div>
       </div>
 
-      <!-- Divisor Editorial con Símbolo del Lagarto -->
-      <div class="absolute bottom-0 left-0 right-0 flex items-center justify-center translate-y-1/2 z-20">
-        <div class="flex items-center gap-4 bg-ivory px-6 py-2 rounded-full border border-clay/20 shadow-sm text-wine text-xs uppercase tracking-widest font-medium">
-          <span class="w-8 h-[1px] bg-clay/30"></span>
-          <span>🦎 Sigue al Lagarto</span>
-          <span class="w-8 h-[1px] bg-clay/30"></span>
-        </div>
-      </div>
+      <!-- Divisor Estilo Millésimes Alsace con Escala de Cobre -->
+      <div class="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-copper/40 to-transparent"></div>
     </section>
 
-    <!-- SECTION B: MANIFIESTO / SOBRE NOSOTROS ("El Espíritu de Baco") -->
-    <section id="manifiesto" class="py-24 bg-ivory relative">
+    <!-- SECTION B: MANIFIESTO PUSH-EDITORIAL (Inspirado en Millésimes Alsace) -->
+    <section id="manifiesto" class="py-28 bg-[#100F0E] relative border-b border-[#CE9A60]/15">
       <div class="max-w-7xl mx-auto px-6">
         
-        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span class="text-xs uppercase tracking-[0.25em] text-wine font-bold">Manifiesto & Origen</span>
-          <h2 class="font-serif text-3xl sm:text-5xl font-normal text-charcoal leading-tight">
-            El Espíritu de Baco: <br>
-            <span class="italic font-light text-wine">La verdad contenida en una copa</span>
-          </h2>
-          <p class="font-sans text-base sm:text-lg text-charcoal/70 font-light leading-relaxed">
-            Hacer vino no es un proceso industrial; es un pacto entre la tierra, el clima y las manos que lo interpretan.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           
-          <!-- Historia y Filosofía -->
-          <div class="lg:col-span-6 space-y-6 text-charcoal/85 font-light leading-relaxed text-base sm:text-lg">
-            <p>
-              En un mercado saturado de etiquetas masivas y perfiles homogeneizados, <strong class="text-charcoal font-semibold">Casa Baco</strong> nació con una premisa visceral: devolver al vino su capacidad de asombro y honestidad.
-            </p>
-            <p>
-              Ubicados en el barrio de Camp de l'Arpa, a escasos pasos de los históricos Encants Nous, abrimos las puertas no solo como una tienda de vinos, sino como un <span class="text-wine font-normal italic">espacio de divulgación y encuentro</span>. Aquí no veneramos las puntuaciones ajenas ni los tecnicismos intimidantes; veneramos el suelo, la uva autóctona y el trabajo incansable de viticultores que respetan sus parcelas.
-            </p>
+          <!-- Columna Imagen Editorial con Marco Cobre (5 cols) -->
+          <div class="lg:col-span-5 relative">
+            <div class="aspect-[3/4] rounded-3xl overflow-hidden border border-copper/30 shadow-2xl relative group">
+              <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=900&q=85" 
+                   alt="Copas de vino y botellas singulares en Casa Baco" 
+                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+              <div class="absolute inset-0 bg-gradient-to-t from-deep via-transparent to-transparent opacity-80"></div>
+              
+              <div class="absolute bottom-8 left-8 right-8 text-white">
+                <span class="text-xs uppercase tracking-[0.2em] text-copper font-semibold">Camp de l'Arpa · Barcelona</span>
+                <p class="font-editorial italic text-2xl mt-1 text-copper-light leading-snug">"El lagarto reposa donde la tierra está viva."</p>
+              </div>
+            </div>
+
+            <!-- Marco Desplazado en Oro -->
+            <div class="absolute -inset-2 rounded-3xl border border-copper/20 pointer-events-none -z-10 translate-x-4 translate-y-4"></div>
+          </div>
+
+          <!-- Columna Narrativa Editorial (7 cols) -->
+          <div class="lg:col-span-7 space-y-6">
             
-            <!-- El Porqué del Lagarto -->
-            <div class="p-6 rounded-2xl bg-sand-light border-l-4 border-wine space-y-2">
-              <h3 class="font-serif text-xl font-bold text-wine flex items-center gap-2">
-                <span>¿Por qué el Lagarto?</span>
-                <span>🦎</span>
+            <div class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-copper font-bold">
+              <span>01</span>
+              <span class="w-8 h-[1px] bg-copper/40"></span>
+              <span>L'Ancrage & La Philosophie</span>
+            </div>
+
+            <h2 class="font-serif text-3xl sm:text-5xl font-normal text-white leading-tight">
+              El Espíritu de Baco: <br>
+              <span class="text-gradient font-editorial italic font-normal">La verdad contenida en una copa.</span>
+            </h2>
+
+            <div class="space-y-4 text-[#C4BFB9] font-light text-base sm:text-lg leading-relaxed">
+              <p>
+                En un mercado saturado de etiquetas masivas y perfiles homogeneizados, <strong class="text-white font-medium">Casa Baco</strong> nació con una premisa visceral: devolver al vino su capacidad de asombro y honestidad.
+              </p>
+              <p>
+                Ubicados en el barrio de Camp de l'Arpa, a escasos pasos de los históricos Encants Nous, abrimos las puertas no solo como una tienda de vinos, sino como un <span class="text-copper-light italic">espacio de divulgación y encuentro</span>. Aquí no veneramos las puntuaciones ajenas ni los tecnicismos intimidantes; veneramos el suelo, la uva autóctona y el trabajo incansable de viticultores que respetan sus parcelas.
+              </p>
+            </div>
+
+            <!-- Por qué el Lagarto (Recuadro de Lujo Cobre) -->
+            <div class="p-6 rounded-2xl bg-card border-l-4 border-copper border border-white/5 space-y-2 mt-4">
+              <h3 class="font-serif text-xl font-bold text-copper-light flex items-center gap-2">
+                <span>¿Por qué la Lagartija?</span>
+                <span class="text-lg">🦎</span>
               </h3>
-              <p class="text-sm text-charcoal/80">
+              <p class="text-sm text-[#A8A29E] leading-relaxed">
                 El lagarto es el habitante más sereno de las viñas mediterráneas. Busca el calor de las piedras al sol, reposa con paciencia y solo permanece donde la tierra está viva y libre de químicos agresivos. Cuando decimos <em>"Sigue al lagarto"</em>, te invitamos a buscar esa misma autenticidad: la pausa para saborear, la búsqueda del sol y el instinto por lo genuino.
               </p>
             </div>
 
-            <div class="pt-4 flex items-center gap-8">
+            <!-- Métricas Clave -->
+            <div class="pt-6 grid grid-cols-3 gap-6 border-t border-white/10">
               <div>
-                <div class="font-serif text-3xl font-bold text-wine">+180</div>
-                <div class="text-xs uppercase tracking-wider text-charcoal/60">Referencias Singulares</div>
+                <div class="font-serif text-3xl font-bold text-gradient">+180</div>
+                <div class="text-xs uppercase tracking-wider text-sand-muted mt-1">Referencias Singulares</div>
               </div>
-              <div class="w-[1px] h-10 bg-clay/30"></div>
               <div>
-                <div class="font-serif text-3xl font-bold text-wine">100%</div>
-                <div class="text-xs uppercase tracking-wider text-charcoal/60">Viticultores con Alma</div>
+                <div class="font-serif text-3xl font-bold text-gradient">100%</div>
+                <div class="text-xs uppercase tracking-wider text-sand-muted mt-1">Viticultores con Alma</div>
               </div>
-              <div class="w-[1px] h-10 bg-clay/30"></div>
               <div>
-                <div class="font-serif text-3xl font-bold text-wine">0%</div>
-                <div class="text-xs uppercase tracking-wider text-charcoal/60">Esnobismo Vinícola</div>
+                <div class="font-serif text-3xl font-bold text-gradient">0%</div>
+                <div class="text-xs uppercase tracking-wider text-sand-muted mt-1">Esnobismo Vinícola</div>
               </div>
             </div>
 
-          </div>
-
-          <!-- Galería Fotográfica Curada (Grid Asimétrico Editorial) -->
-          <div class="lg:col-span-6">
-            <div class="grid grid-cols-2 gap-4">
-              <div class="space-y-4">
-                <div class="rounded-xl overflow-hidden shadow-md group">
-                  <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=700&q=80" 
-                       alt="Interior de Casa Baco y estanterías de vino" 
-                       class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
-                </div>
-                <div class="rounded-xl overflow-hidden shadow-md group">
-                  <img src="https://images.unsplash.com/photo-1528823872057-9c018a7a7553?auto=format&fit=crop&w=700&q=80" 
-                       alt="Detalle de servicio de vino y copas" 
-                       class="w-full h-44 object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
-                </div>
-              </div>
-              <div class="space-y-4 pt-6">
-                <div class="rounded-xl overflow-hidden shadow-md group">
-                  <img src="https://images.unsplash.com/photo-1568213816046-0ee1c42bd559?auto=format&fit=crop&w=700&q=80" 
-                       alt="Maridaje con quesos artesanos y pan de autor" 
-                       class="w-full h-44 object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
-                </div>
-                <div class="rounded-xl overflow-hidden shadow-md group">
-                  <img src="https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?auto=format&fit=crop&w=700&q=80" 
-                       alt="Mesa de cata guiada en Casa Baco" 
-                       class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
-                </div>
-              </div>
-            </div>
-            <p class="text-right text-[11px] text-charcoal/50 italic mt-3">Fotografías del espacio en C/ de la Independència, 305 · Barcelona</p>
           </div>
 
         </div>
@@ -351,197 +422,195 @@
       </div>
     </section>
 
-    <!-- SECTION C: AGENDA DE CATAS & SIMULADOR INTERACTIVO (Motor de Conversión) -->
-    <section id="catas" class="py-24 bg-sand-light relative border-t border-b border-clay/20">
+    <!-- SECTION C: AGENDA DE CATAS & SIMULADOR (Inspirado en ÉTAPES de Millésimes Alsace) -->
+    <section id="catas" class="py-28 bg-deep relative border-b border-[#CE9A60]/15">
       <div class="max-w-7xl mx-auto px-6">
         
         <!-- Header de Sección -->
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div>
-            <span class="text-xs uppercase tracking-[0.25em] text-wine font-bold">Experiencias y Formación</span>
-            <h2 class="font-serif text-3xl sm:text-5xl font-normal text-charcoal leading-tight mt-2">
+            <span class="step-badge mb-3">Étape 01 · Experiencias & Formación</span>
+            <h2 class="font-serif text-3xl sm:text-5xl font-normal text-white leading-tight mt-2">
               Agenda de Catas Guiadas <br>
-              <span class="italic font-light text-wine">Grupos reducidos, emociones compartidas.</span>
+              <span class="text-gradient font-editorial italic font-normal">Grupos reducidos de 10 personas.</span>
             </h2>
           </div>
-          <p class="font-sans text-sm sm:text-base text-charcoal/70 max-w-md">
-            Todas nuestras sesiones se realizan en nuestra mesa comunal (máximo 10 asistentes) para garantizar un diálogo íntimo, cercano y participativo.
+          <p class="font-sans text-sm sm:text-base text-[#A8A29E] max-w-md">
+            Todas las sesiones se celebran alrededor de nuestra mesa comunal de madera maciza para preservar un diálogo íntimo y cercano con el sumiller.
           </p>
         </div>
 
         <!-- Grid de 3 Fichas de Catas Reales -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
           
           <!-- Ficha 1 -->
-          <div class="event-card bg-ivory rounded-2xl border border-clay/20 p-6 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-300">
+          <div class="card-luxe p-8 flex flex-col justify-between">
             <div>
-              <div class="flex items-center justify-between text-xs font-semibold text-wine mb-4">
-                <span class="bg-wine/10 px-3 py-1 rounded-full uppercase tracking-wider">Iniciación & Maridaje</span>
-                <span class="text-charcoal/60">Aforo: 10 plazas</span>
+              <div class="flex items-center justify-between text-xs font-semibold mb-5">
+                <span class="bg-copper/15 text-copper-light px-3 py-1 rounded-full uppercase tracking-wider border border-copper/30">Iniciación</span>
+                <span class="text-[#A8A29E]">10 plazas máx.</span>
               </div>
-              <h3 class="font-serif text-2xl font-bold text-charcoal mb-2 leading-snug">
+              <h3 class="font-serif text-2xl font-bold text-white mb-3 leading-snug">
                 Iniciación al Vino & Maridaje de Autor
               </h3>
-              <p class="text-sm text-charcoal/75 font-light mb-6 leading-relaxed">
-                Descubre cómo catar sin complejos. Recorrido por 4 vinos singulares catalanes (blancos, brisados y tintos) maridados con 4 quesos artesanos de pastor y panes de masa madre.
+              <p class="text-sm text-[#A8A29E] font-light mb-6 leading-relaxed">
+                Descubre cómo catar sin complejos. Recorrido por 4 vinos singulares catalanes maridados con 4 quesos artesanos de pastor y panes de masa madre.
               </p>
               
-              <div class="space-y-2 text-xs border-t border-b border-clay/15 py-4 mb-6">
-                <div class="flex justify-between text-charcoal/80">
-                  <span class="font-medium">Próxima Fecha:</span>
-                  <span class="font-semibold text-charcoal">Jueves, 15 de Octubre</span>
+              <div class="space-y-2.5 text-xs border-t border-b border-white/10 py-4 mb-6 text-[#C4BFB9]">
+                <div class="flex justify-between">
+                  <span class="text-sand-muted">Próxima Fecha:</span>
+                  <span class="font-semibold text-white">Jueves, 15 de Octubre</span>
                 </div>
-                <div class="flex justify-between text-charcoal/80">
-                  <span class="font-medium">Horario:</span>
+                <div class="flex justify-between">
+                  <span class="text-sand-muted">Horario:</span>
                   <span>19:30 h – 21:30 h (2 horas)</span>
                 </div>
-                <div class="flex justify-between text-charcoal/80">
-                  <span class="font-medium">Ubicación:</span>
-                  <span>Casa Baco (Mesa Central)</span>
+                <div class="flex justify-between">
+                  <span class="text-sand-muted">Ubicación:</span>
+                  <span>Mesa Central Casa Baco</span>
                 </div>
               </div>
             </div>
 
             <div>
-              <div class="flex items-baseline justify-between mb-4">
-                <span class="text-xs uppercase tracking-wider text-charcoal/60">Precio / Plaza</span>
-                <span class="font-serif text-3xl font-bold text-wine">38 € <span class="text-xs font-sans text-charcoal/60 font-normal">IVA incl.</span></span>
+              <div class="flex items-baseline justify-between mb-5">
+                <span class="text-xs uppercase tracking-wider text-sand-muted">Por plaza</span>
+                <span class="font-serif text-3xl font-bold text-copper-light">38 € <span class="text-xs font-sans text-sand-muted font-normal">IVA incl.</span></span>
               </div>
-              <button class="btn-primary w-full text-center text-sm py-3 open-booking-modal" 
+              <button class="btn-copper w-full text-center text-xs py-3.5 open-booking-modal" 
                       data-cata="Iniciación al Vino & Maridaje de Autor" 
                       data-precio="38" 
                       data-fecha="Jueves 15 de Octubre">
                 <span>Reservar Plaza (Tarjeta / Bizum)</span>
               </button>
-              <p class="text-[10px] text-center text-charcoal/50 mt-2">Confirmación instantánea vía email & WhatsApp</p>
+              <p class="text-[10px] text-center text-sand-muted mt-2">Confirmación inmediata por WhatsApp</p>
             </div>
           </div>
 
-          <!-- Ficha 2 (Destacada) -->
-          <div class="event-card bg-ivory rounded-2xl border-2 border-wine p-6 flex flex-col justify-between shadow-md hover:shadow-xl transition-all duration-300 relative">
-            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-wine text-ivory text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full">
-              Más Popular
+          <!-- Ficha 2 (Destacada en Cobre/Vino) -->
+          <div class="card-luxe p-8 flex flex-col justify-between border-2 border-copper relative shadow-[0_0_40px_rgba(206,154,96,0.2)]">
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-copper text-deep text-[10px] uppercase font-bold tracking-widest px-4 py-1 rounded-full shadow-md">
+              Más Popular · Últimas Plazas
             </div>
             <div>
-              <div class="flex items-center justify-between text-xs font-semibold text-wine mb-4 pt-1">
-                <span class="bg-wine/10 px-3 py-1 rounded-full uppercase tracking-wider">Vinos Naturales</span>
-                <span class="text-emerald-700 font-medium">¡Últimas 3 plazas!</span>
+              <div class="flex items-center justify-between text-xs font-semibold mb-5 pt-1">
+                <span class="bg-wine/40 text-rose-300 px-3 py-1 rounded-full uppercase tracking-wider border border-wine-light/50">Vinos Naturales</span>
+                <span class="text-emerald-400 font-medium">¡Últimas 3 plazas!</span>
               </div>
-              <h3 class="font-serif text-2xl font-bold text-charcoal mb-2 leading-snug">
+              <h3 class="font-serif text-2xl font-bold text-white mb-3 leading-snug">
                 Vinos Naturales & Mínima Intervención
               </h3>
-              <p class="text-sm text-charcoal/75 font-light mb-6 leading-relaxed">
+              <p class="text-sm text-[#A8A29E] font-light mb-6 leading-relaxed">
                 Desmitificando el vino natural. Exploración a fondo de 5 joyas vinificadas con levaduras salvajes, sin sulfito añadido y con ánforas o tinajas. Maridaje con embutidos de bellota y cecina curada.
               </p>
               
-              <div class="space-y-2 text-xs border-t border-b border-clay/15 py-4 mb-6">
-                <div class="flex justify-between text-charcoal/80">
-                  <span class="font-medium">Próxima Fecha:</span>
-                  <span class="font-semibold text-charcoal">Viernes, 23 de Octubre</span>
+              <div class="space-y-2.5 text-xs border-t border-b border-white/10 py-4 mb-6 text-[#C4BFB9]">
+                <div class="flex justify-between">
+                  <span class="text-sand-muted">Próxima Fecha:</span>
+                  <span class="font-semibold text-white">Viernes, 23 de Octubre</span>
                 </div>
-                <div class="flex justify-between text-charcoal/80">
-                  <span class="font-medium">Horario:</span>
+                <div class="flex justify-between">
+                  <span class="text-sand-muted">Horario:</span>
                   <span>20:00 h – 22:15 h (2h 15m)</span>
                 </div>
-                <div class="flex justify-between text-charcoal/80">
-                  <span class="font-medium">Ubicación:</span>
-                  <span>Casa Baco (Mesa Central)</span>
+                <div class="flex justify-between">
+                  <span class="text-sand-muted">Ubicación:</span>
+                  <span>Mesa Central Casa Baco</span>
                 </div>
               </div>
             </div>
 
             <div>
-              <div class="flex items-baseline justify-between mb-4">
-                <span class="text-xs uppercase tracking-wider text-charcoal/60">Precio / Plaza</span>
-                <span class="font-serif text-3xl font-bold text-wine">48 € <span class="text-xs font-sans text-charcoal/60 font-normal">IVA incl.</span></span>
+              <div class="flex items-baseline justify-between mb-5">
+                <span class="text-xs uppercase tracking-wider text-sand-muted">Por plaza</span>
+                <span class="font-serif text-3xl font-bold text-gradient">48 € <span class="text-xs font-sans text-sand-muted font-normal">IVA incl.</span></span>
               </div>
-              <button class="btn-primary w-full text-center text-sm py-3 open-booking-modal" 
+              <button class="btn-copper w-full text-center text-xs py-3.5 open-booking-modal" 
                       data-cata="Vinos Naturales & Mínima Intervención" 
                       data-precio="48" 
                       data-fecha="Viernes 23 de Octubre">
                 <span>Reservar Plaza (Tarjeta / Bizum)</span>
               </button>
-              <p class="text-[10px] text-center text-charcoal/50 mt-2">Confirmación instantánea vía email & WhatsApp</p>
+              <p class="text-[10px] text-center text-sand-muted mt-2">Confirmación inmediata por WhatsApp</p>
             </div>
           </div>
 
           <!-- Ficha 3 -->
-          <div class="event-card bg-ivory rounded-2xl border border-clay/20 p-6 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-300">
+          <div class="card-luxe p-8 flex flex-col justify-between">
             <div>
-              <div class="flex items-center justify-between text-xs font-semibold text-gold mb-4">
-                <span class="bg-gold/10 px-3 py-1 rounded-full uppercase tracking-wider text-charcoal">Exclusivo & Grupos</span>
-                <span class="text-charcoal/60">Espacio Privado</span>
+              <div class="flex items-center justify-between text-xs font-semibold mb-5">
+                <span class="bg-card-light text-copper px-3 py-1 rounded-full uppercase tracking-wider border border-white/10">Grupos Privados</span>
+                <span class="text-[#A8A29E]">Cierre Exclusivo</span>
               </div>
-              <h3 class="font-serif text-2xl font-bold text-charcoal mb-2 leading-snug">
+              <h3 class="font-serif text-2xl font-bold text-white mb-3 leading-snug">
                 Cata Privada & Espacio Exclusivo
               </h3>
-              <p class="text-sm text-charcoal/75 font-light mb-6 leading-relaxed">
-                Cerramos la bodega únicamente para ti y tu grupo (de 6 a 12 amigos, familias o eventos de empresa). Temática y selección a medida con sumiller particular y maridaje completo.
+              <p class="text-sm text-[#A8A29E] font-light mb-6 leading-relaxed">
+                Cerramos la bodega únicamente para ti y tu grupo (de 6 a 12 amigos, familias o eventos corporativos). Temática a medida con sumiller particular y maridaje completo.
               </p>
               
-              <div class="space-y-2 text-xs border-t border-b border-clay/15 py-4 mb-6">
-                <div class="flex justify-between text-charcoal/80">
-                  <span class="font-medium">Disponibilidad:</span>
-                  <span class="font-semibold text-charcoal">A convenir (Martes a Sábado)</span>
+              <div class="space-y-2.5 text-xs border-t border-b border-white/10 py-4 mb-6 text-[#C4BFB9]">
+                <div class="flex justify-between">
+                  <span class="text-sand-muted">Disponibilidad:</span>
+                  <span class="font-semibold text-white">Martes a Sábado a convenir</span>
                 </div>
-                <div class="flex justify-between text-charcoal/80">
-                  <span class="font-medium">Duración:</span>
-                  <span>2h 30m de espacio privado</span>
+                <div class="flex justify-between">
+                  <span class="text-sand-muted">Duración:</span>
+                  <span>2h 30m de espacio exclusivo</span>
                 </div>
-                <div class="flex justify-between text-charcoal/80">
-                  <span class="font-medium">Aforo:</span>
+                <div class="flex justify-between">
+                  <span class="text-sand-muted">Aforo:</span>
                   <span>De 6 a 12 personas</span>
                 </div>
               </div>
             </div>
 
             <div>
-              <div class="flex items-baseline justify-between mb-4">
-                <span class="text-xs uppercase tracking-wider text-charcoal/60">Tarifa Estimada</span>
-                <span class="font-serif text-3xl font-bold text-wine">Desde 55 € <span class="text-xs font-sans text-charcoal/60 font-normal">/ pers.</span></span>
+              <div class="flex items-baseline justify-between mb-5">
+                <span class="text-xs uppercase tracking-wider text-sand-muted">Estimado</span>
+                <span class="font-serif text-3xl font-bold text-copper-light">Desde 55 € <span class="text-xs font-sans text-sand-muted font-normal">/ pers.</span></span>
               </div>
-              <a href="#simulador" class="btn-secondary w-full text-center text-sm py-3 block">
+              <a href="#simulador" class="btn-outline-copper w-full text-center text-xs py-3.5 block">
                 Configurar en Simulador
               </a>
-              <p class="text-[10px] text-center text-charcoal/50 mt-2">Cálculo instantáneo con fecha a medida</p>
+              <p class="text-[10px] text-center text-sand-muted mt-2">Cálculo instantáneo con fecha a medida</p>
             </div>
           </div>
 
         </div>
 
-        <!-- SIMULADOR INTERACTIVO PARA CATAS A MEDIDA -->
-        <div id="simulador" class="simulator-wrapper bg-ivory rounded-3xl border border-wine/20 shadow-2xl p-8 sm:p-12 relative overflow-hidden">
+        <!-- SIMULADOR INTERACTIVO A MEDIDA (Étape 02 - Consola de Lujo) -->
+        <div id="simulador" class="simulator-wrapper bg-[#141312] rounded-3xl border border-copper/30 shadow-[0_20px_60px_rgba(0,0,0,0.8)] p-8 sm:p-14 relative overflow-hidden">
           
-          <div class="max-w-3xl mx-auto text-center mb-10">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold/15 text-charcoal text-xs uppercase tracking-wider font-semibold mb-3">
-              <span>🦎 Simulador Inteligente</span>
-            </div>
-            <h3 class="font-serif text-3xl sm:text-4xl font-normal text-charcoal">
+          <div class="max-w-3xl mx-auto text-center mb-12">
+            <span class="step-badge mb-3">Étape 02 · Motor de Configuración</span>
+            <h3 class="font-serif text-3xl sm:text-4xl font-normal text-white mt-2">
               Calcula y Diseña tu Cata a Medida
             </h3>
-            <p class="text-sm sm:text-base text-charcoal/70 font-light mt-2">
-              Elige el número de asistentes, el enfoque enológico y el maridaje. Obtén tu presupuesto en tiempo real y reserva la fecha con un solo clic.
+            <p class="text-sm sm:text-base text-[#A8A29E] font-light mt-2">
+              Elige el número de asistentes, el perfil enológico y el maridaje gastronómico. El presupuesto se actualiza al instante con enlace directo a WhatsApp.
             </p>
           </div>
 
           <form id="tasting-simulator-form" class="space-y-10" onsubmit="return false;">
             
-            <!-- PASO 1: NÚMERO DE PERSONAS -->
+            <!-- PASO 1: COMENSALES -->
             <div class="sim-step space-y-4">
               <div class="flex items-center justify-between">
-                <label for="sim-guests" class="font-serif text-xl text-charcoal font-semibold flex items-center gap-2">
-                  <span class="w-6 h-6 rounded-full bg-wine text-ivory text-xs flex items-center justify-center font-sans font-bold">1</span>
-                  ¿Cuántas personas seréis?
+                <label for="sim-guests" class="font-serif text-xl text-white font-semibold flex items-center gap-3">
+                  <span class="w-7 h-7 rounded-full bg-copper text-deep text-xs flex items-center justify-center font-sans font-bold">1</span>
+                  ¿Cuántas personas sois?
                 </label>
-                <div class="text-wine font-serif text-2xl font-bold">
-                  <span id="sim-guests-display">6</span> <span class="text-xs font-sans text-charcoal/60 font-normal">asistentes</span>
+                <div class="text-copper-light font-serif text-2xl font-bold">
+                  <span id="sim-guests-display">6</span> <span class="text-xs font-sans text-sand-muted font-normal">asistentes</span>
                 </div>
               </div>
               
               <div class="relative pt-2">
                 <input type="range" id="sim-guests" min="2" max="12" value="6" step="1" 
-                       class="w-full h-2 bg-clay/20 rounded-lg appearance-none cursor-pointer accent-wine">
-                <div class="flex justify-between text-xs text-charcoal/50 mt-2">
+                       class="w-full h-2.5 bg-card rounded-lg appearance-none cursor-pointer">
+                <div class="flex justify-between text-xs text-sand-muted mt-2 font-medium">
                   <span>2 pers. (Íntimo)</span>
                   <span>6 pers. (Ideal)</span>
                   <span>12 pers. (Cierre Completo)</span>
@@ -549,101 +618,101 @@
               </div>
             </div>
 
-            <!-- PASO 2: ESTILO DE EXPERIENCIA -->
+            <!-- PASO 2: ENFOQUE ENOLÓGICO -->
             <div class="sim-step space-y-4">
-              <label class="font-serif text-xl text-charcoal font-semibold flex items-center gap-2">
-                <span class="w-6 h-6 rounded-full bg-wine text-ivory text-xs flex items-center justify-center font-sans font-bold">2</span>
+              <label class="font-serif text-xl text-white font-semibold flex items-center gap-3">
+                <span class="w-7 h-7 rounded-full bg-copper text-deep text-xs flex items-center justify-center font-sans font-bold">2</span>
                 ¿Qué estilo de experiencia buscáis?
               </label>
 
               <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 
-                <label class="style-option-card cursor-pointer border-2 border-wine/20 rounded-xl p-4 transition-all duration-200 hover:border-wine">
+                <label class="style-option-card">
                   <input type="radio" name="experience-style" value="iniciacion" data-price="32" class="sr-only" checked>
                   <div class="radio-content">
-                    <div class="font-serif text-lg font-bold text-wine mb-1">Iniciación al Vino</div>
-                    <p class="text-xs text-charcoal/70 leading-relaxed">Aprende a catar sin miedo. Vinos frescos, aromáticos y expresivos.</p>
-                    <div class="text-xs font-semibold text-charcoal mt-3">32 € / persona</div>
+                    <div class="font-serif text-lg font-bold text-copper-light mb-1">Iniciación al Vino</div>
+                    <p class="text-xs text-[#A8A29E] leading-relaxed">Aprende a catar sin miedo. Vinos frescos, aromáticos y expresivos.</p>
+                    <div class="text-xs font-semibold text-white mt-3">32 € / persona</div>
                   </div>
                 </label>
 
-                <label class="style-option-card cursor-pointer border-2 border-wine/20 rounded-xl p-4 transition-all duration-200 hover:border-wine">
+                <label class="style-option-card">
                   <input type="radio" name="experience-style" value="naturales" data-price="42" class="sr-only">
                   <div class="radio-content">
-                    <div class="font-serif text-lg font-bold text-wine mb-1">Vinos Naturales</div>
-                    <p class="text-xs text-charcoal/70 leading-relaxed">Mínima intervención, biodinámica y fermentaciones ancestrales.</p>
-                    <div class="text-xs font-semibold text-charcoal mt-3">42 € / persona</div>
+                    <div class="font-serif text-lg font-bold text-copper-light mb-1">Vinos Naturales</div>
+                    <p class="text-xs text-[#A8A29E] leading-relaxed">Mínima intervención, biodinámica y fermentaciones ancestrales.</p>
+                    <div class="text-xs font-semibold text-white mt-3">42 € / persona</div>
                   </div>
                 </label>
 
-                <label class="style-option-card cursor-pointer border-2 border-wine/20 rounded-xl p-4 transition-all duration-200 hover:border-wine">
+                <label class="style-option-card">
                   <input type="radio" name="experience-style" value="catalanes" data-price="38" class="sr-only">
                   <div class="radio-content">
-                    <div class="font-serif text-lg font-bold text-wine mb-1">100% Vinos Catalanes</div>
-                    <p class="text-xs text-charcoal/70 leading-relaxed">Priorat, Montsant, Empordà y Penedès de microparcela.</p>
-                    <div class="text-xs font-semibold text-charcoal mt-3">38 € / persona</div>
+                    <div class="font-serif text-lg font-bold text-copper-light mb-1">100% Vinos Catalanes</div>
+                    <p class="text-xs text-[#A8A29E] leading-relaxed">Priorat, Montsant, Empordà y Penedès de microparcela.</p>
+                    <div class="text-xs font-semibold text-white mt-3">38 € / persona</div>
                   </div>
                 </label>
 
               </div>
             </div>
 
-            <!-- PASO 3: MARIDAJE GOURMET -->
+            <!-- PASO 3: MARIDAJE ARTESANO -->
             <div class="sim-step space-y-4">
-              <label class="font-serif text-xl text-charcoal font-semibold flex items-center gap-2">
-                <span class="w-6 h-6 rounded-full bg-wine text-ivory text-xs flex items-center justify-center font-sans font-bold">3</span>
+              <label class="font-serif text-xl text-white font-semibold flex items-center gap-3">
+                <span class="w-7 h-7 rounded-full bg-copper text-deep text-xs flex items-center justify-center font-sans font-bold">3</span>
                 ¿Deseáis maridaje gastronómico artesano?
               </label>
 
               <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 
-                <label class="pairing-option-card cursor-pointer border-2 border-wine/20 rounded-xl p-4 transition-all duration-200 hover:border-wine">
+                <label class="pairing-option-card">
                   <input type="radio" name="pairing-style" value="quesos" data-price="12" class="sr-only" checked>
                   <div class="radio-content">
-                    <div class="font-serif text-base font-bold text-charcoal mb-1">Quesos de Pastor</div>
-                    <p class="text-xs text-charcoal/70 leading-relaxed">4 quesos artesanos catalanes y europeos afinados + panes.</p>
-                    <div class="text-xs font-semibold text-wine mt-2">+12 € / pers.</div>
+                    <div class="font-serif text-base font-bold text-copper-light mb-1">Quesos de Pastor</div>
+                    <p class="text-xs text-[#A8A29E] leading-relaxed">4 quesos artesanos catalanes y europeos afinados + panes de masa madre.</p>
+                    <div class="text-xs font-semibold text-copper mt-2">+12 € / pers.</div>
                   </div>
                 </label>
 
-                <label class="pairing-option-card cursor-pointer border-2 border-wine/20 rounded-xl p-4 transition-all duration-200 hover:border-wine">
+                <label class="pairing-option-card">
                   <input type="radio" name="pairing-style" value="embutidos" data-price="14" class="sr-only">
                   <div class="radio-content">
-                    <div class="font-serif text-base font-bold text-charcoal mb-1">Embutidos de Autor</div>
-                    <p class="text-xs text-charcoal/70 leading-relaxed">Cecina de León curada, lomo de bellota y fuet de payés artesano.</p>
-                    <div class="text-xs font-semibold text-wine mt-2">+14 € / pers.</div>
+                    <div class="font-serif text-base font-bold text-copper-light mb-1">Embutidos de Autor</div>
+                    <p class="text-xs text-[#A8A29E] leading-relaxed">Cecina de León curada, lomo de bellota y fuet de payés artesano.</p>
+                    <div class="text-xs font-semibold text-copper mt-2">+14 € / pers.</div>
                   </div>
                 </label>
 
-                <label class="pairing-option-card cursor-pointer border-2 border-wine/20 rounded-xl p-4 transition-all duration-200 hover:border-wine">
+                <label class="pairing-option-card">
                   <input type="radio" name="pairing-style" value="completo" data-price="20" class="sr-only">
                   <div class="radio-content">
-                    <div class="font-serif text-base font-bold text-charcoal mb-1">Maridaje Completo</div>
-                    <p class="text-xs text-charcoal/70 leading-relaxed">Tabla mixta completa con quesos, embutidos y tostas gourmet.</p>
-                    <div class="text-xs font-semibold text-wine mt-2">+20 € / pers.</div>
+                    <div class="font-serif text-base font-bold text-copper-light mb-1">Maridaje Completo</div>
+                    <p class="text-xs text-[#A8A29E] leading-relaxed">Tabla mixta completa con quesos, embutidos y tostas gourmet.</p>
+                    <div class="text-xs font-semibold text-copper mt-2">+20 € / pers.</div>
                   </div>
                 </label>
 
               </div>
             </div>
 
-            <!-- RESULTADO INSTANTÁNEO & CTA WHATSAPP -->
-            <div class="result-box bg-sand-light rounded-2xl p-6 sm:p-8 border border-clay/30 flex flex-col md:flex-row items-center justify-between gap-6">
+            <!-- RESULTADO Y CTA DIRECTO -->
+            <div class="result-box bg-[#0A0908] rounded-2xl p-6 sm:p-8 border border-copper/30 flex flex-col md:flex-row items-center justify-between gap-6">
               
               <div class="space-y-1 text-center md:text-left">
-                <span class="text-xs uppercase tracking-widest text-charcoal/60 font-semibold">Presupuesto Estimado</span>
+                <span class="text-xs uppercase tracking-widest text-copper font-semibold">Presupuesto Estimado</span>
                 <div class="flex items-baseline gap-3 justify-center md:justify-start">
-                  <span id="sim-price-per-person" class="font-serif text-4xl sm:text-5xl font-bold text-wine">44 €</span>
-                  <span class="text-sm text-charcoal/70">por persona (IVA incl.)</span>
+                  <span id="sim-price-per-person" class="font-serif text-4xl sm:text-5xl font-bold text-gradient">44 €</span>
+                  <span class="text-sm text-[#A8A29E]">por persona (IVA incl.)</span>
                 </div>
-                <p class="text-xs text-charcoal/60">
-                  Total para <span id="sim-summary-guests" class="font-semibold text-charcoal">6</span> personas: 
-                  <strong id="sim-total-price" class="text-charcoal font-bold">264 €</strong> · Espacio y sumiller en exclusiva
+                <p class="text-xs text-[#A8A29E]">
+                  Total estimado para <span id="sim-summary-guests" class="font-semibold text-white">6</span> personas: 
+                  <strong id="sim-total-price" class="text-copper-light font-bold">264 €</strong> · Espacio y sumiller en exclusiva
                 </p>
               </div>
 
               <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
-                <a id="sim-whatsapp-btn" href="#" target="_blank" rel="noopener" class="btn-primary flex items-center justify-center gap-2 px-6 py-4">
+                <a id="sim-whatsapp-btn" href="#" target="_blank" rel="noopener" class="btn-copper flex items-center justify-center gap-2.5 px-7 py-4 text-xs">
                   <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
                     <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
                   </svg>
@@ -660,30 +729,28 @@
       </div>
     </section>
 
-    <!-- SECTION D: EL CLUB DEL LAGARTO (Suscripción Mensual Recurrente) -->
-    <section id="club" class="py-24 bg-ivory relative">
+    <!-- SECTION D: EL CLUB DEL LAGARTO (Étape 03 - Suscripción Mensual Recurrente) -->
+    <section id="club" class="py-28 bg-[#100F0E] relative border-b border-[#CE9A60]/15">
       <div class="max-w-7xl mx-auto px-6">
         
         <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-wine/10 text-wine text-xs uppercase tracking-widest font-semibold">
-            <span>🦎 Suscripción Enológica Recurrente</span>
-          </div>
-          <h2 class="font-serif text-3xl sm:text-5xl font-normal text-charcoal leading-tight">
+          <span class="step-badge">Étape 03 · Suscripción Enológica</span>
+          <h2 class="font-serif text-3xl sm:text-5xl font-normal text-white leading-tight">
             El Club del Lagarto <br>
-            <span class="italic font-light text-wine">La bodega en tu casa, cada mes.</span>
+            <span class="text-gradient font-editorial italic font-normal">La bodega en tu casa, cada mes.</span>
           </h2>
-          <p class="font-sans text-base sm:text-lg text-charcoal/70 font-light leading-relaxed">
+          <p class="font-sans text-base sm:text-lg text-[#A8A29E] font-light leading-relaxed">
             Una selección personalísima de botellas singulares que no encontrarás en los circuitos comerciales habituales. Vinos con relato, fichas coleccionables y privilegios exclusivos en nuestra tienda física.
           </p>
         </div>
 
-        <!-- Selector de Modalidad: Recogida en Tienda vs Envío Local -->
+        <!-- Selector de Recogida vs Envío -->
         <div class="flex justify-center mb-12">
-          <div class="bg-sand-light p-1.5 rounded-full border border-clay/20 flex items-center">
-            <button id="club-mode-store" class="club-toggle-btn px-6 py-2 rounded-full text-xs font-semibold tracking-wider transition-all duration-200 active-mode bg-wine text-ivory">
+          <div class="bg-card p-1.5 rounded-full border border-copper/30 flex items-center">
+            <button id="club-mode-store" class="club-toggle-btn px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider transition-all duration-200 bg-copper text-deep">
               Recogida en Tienda (C/ Independència)
             </button>
-            <button id="club-mode-delivery" class="club-toggle-btn px-6 py-2 rounded-full text-xs font-semibold tracking-wider text-charcoal/70 transition-all duration-200 hover:text-charcoal">
+            <button id="club-mode-delivery" class="club-toggle-btn px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider text-[#A8A29E] transition-all duration-200 hover:text-white">
               Envío Local en Barcelona (+5 €)
             </button>
           </div>
@@ -692,104 +759,104 @@
         <!-- 2 Planes de Suscripción -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
           
-          <!-- Plan 1: Selección Descubrimiento -->
-          <div class="plan-card bg-sand-light rounded-3xl p-8 border border-clay/30 flex flex-col justify-between hover:shadow-xl transition-all duration-300">
+          <!-- Plan 1 -->
+          <div class="card-luxe p-8 flex flex-col justify-between">
             <div>
               <div class="flex justify-between items-start mb-4">
                 <div>
-                  <span class="text-xs uppercase tracking-wider text-charcoal/60 font-semibold">Plan Esencial</span>
-                  <h3 class="font-serif text-3xl font-bold text-charcoal mt-1">Selección Descubrimiento</h3>
+                  <span class="text-xs uppercase tracking-wider text-copper font-semibold">Plan Esencial</span>
+                  <h3 class="font-serif text-3xl font-bold text-white mt-1">Selección Descubrimiento</h3>
                 </div>
-                <div class="w-10 h-10 rounded-full bg-wine/10 flex items-center justify-center text-lg">
+                <div class="w-10 h-10 rounded-full bg-copper/15 border border-copper/30 flex items-center justify-center text-lg">
                   🍇
                 </div>
               </div>
-              <p class="text-sm text-charcoal/75 font-light mb-6 leading-relaxed">
+              <p class="text-sm text-[#A8A29E] font-light mb-6 leading-relaxed">
                 Ideal para abrir horizontes y explorar nuevas D.O., variedades recuperadas y viticultores emergentes.
               </p>
 
-              <div class="space-y-3 mb-8 text-sm text-charcoal/80">
+              <div class="space-y-3.5 mb-8 text-sm text-[#C4BFB9]">
                 <div class="flex items-center gap-3">
-                  <span class="text-wine font-bold">✓</span>
+                  <span class="text-copper font-bold">✓</span>
                   <span><strong>2 botellas sorpresa al mes</strong> (blanco, tinto o brisado).</span>
                 </div>
                 <div class="flex items-center gap-3">
-                  <span class="text-wine font-bold">✓</span>
-                  <span>Ficha de cata editorial con notas, historia del productor y receta de maridaje.</span>
+                  <span class="text-copper font-bold">✓</span>
+                  <span>Ficha de cata editorial con notas, historia y receta de maridaje.</span>
                 </div>
                 <div class="flex items-center gap-3">
-                  <span class="text-wine font-bold">✓</span>
+                  <span class="text-copper font-bold">✓</span>
                   <span><strong>10% de descuento continuo</strong> en todas tus compras en bodega.</span>
                 </div>
                 <div class="flex items-center gap-3">
-                  <span class="text-wine font-bold">✓</span>
-                  <span>Sin permanencia: cancela o pausa cuando quieras con un solo clic.</span>
+                  <span class="text-copper font-bold">✓</span>
+                  <span>Sin permanencia: cancela o pausa cuando quieras con un clic.</span>
                 </div>
               </div>
             </div>
 
-            <div class="border-t border-clay/20 pt-6">
-              <div class="flex items-baseline justify-between mb-4">
-                <span class="text-xs uppercase tracking-wider text-charcoal/60">Cuota mensual</span>
-                <span class="font-serif text-3xl font-bold text-wine">
+            <div class="border-t border-white/10 pt-6">
+              <div class="flex items-baseline justify-between mb-5">
+                <span class="text-xs uppercase tracking-wider text-sand-muted">Cuota mensual</span>
+                <span class="font-serif text-3xl font-bold text-copper-light">
                   <span class="plan-price-val" data-base="35">35 €</span> 
-                  <span class="text-xs font-sans text-charcoal/60 font-normal">/ mes</span>
+                  <span class="text-xs font-sans text-sand-muted font-normal">/ mes</span>
                 </span>
               </div>
-              <button class="btn-primary w-full text-center py-3.5 subscribe-plan-btn" data-plan="Selección Descubrimiento (35€)">
+              <button class="btn-copper w-full text-center py-3.5 text-xs subscribe-plan-btn" data-plan="Selección Descubrimiento (35€)">
                 Unirme al Club Descubrimiento
               </button>
             </div>
           </div>
 
-          <!-- Plan 2: Selección Sumiller (Destacado) -->
-          <div class="plan-card bg-ivory rounded-3xl p-8 border-2 border-wine relative flex flex-col justify-between shadow-xl">
-            <div class="absolute -top-3.5 right-8 bg-wine text-ivory text-[10px] uppercase font-bold tracking-widest px-4 py-1.5 rounded-full shadow-sm">
+          <!-- Plan 2 (Destacado) -->
+          <div class="card-luxe p-8 flex flex-col justify-between border-2 border-copper relative shadow-[0_0_35px_rgba(206,154,96,0.2)]">
+            <div class="absolute -top-3.5 right-8 bg-copper text-deep text-[10px] uppercase font-bold tracking-widest px-4 py-1 rounded-full shadow-md">
               Recomendación de Baco
             </div>
             <div>
               <div class="flex justify-between items-start mb-4">
                 <div>
-                  <span class="text-xs uppercase tracking-wider text-wine font-semibold">Tiradas Limitadas</span>
-                  <h3 class="font-serif text-3xl font-bold text-charcoal mt-1">Selección Sumiller</h3>
+                  <span class="text-xs uppercase tracking-wider text-copper font-semibold">Tiradas Limitadas</span>
+                  <h3 class="font-serif text-3xl font-bold text-white mt-1">Selección Sumiller</h3>
                 </div>
-                <div class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center text-lg">
+                <div class="w-10 h-10 rounded-full bg-copper/20 border border-copper/40 flex items-center justify-center text-lg">
                   👑
                 </div>
               </div>
-              <p class="text-sm text-charcoal/75 font-light mb-6 leading-relaxed">
+              <p class="text-sm text-[#A8A29E] font-light mb-6 leading-relaxed">
                 Para el amante del vino que busca rarezas, parcelas únicas y botellas de coleccionista difíciles de conseguir.
               </p>
 
-              <div class="space-y-3 mb-8 text-sm text-charcoal/80">
+              <div class="space-y-3.5 mb-8 text-sm text-[#C4BFB9]">
                 <div class="flex items-center gap-3">
-                  <span class="text-wine font-bold">✓</span>
+                  <span class="text-copper font-bold">✓</span>
                   <span><strong>3 botellas de tirada limitada</strong> (vinos de guarda, ánforas, microproyectos).</span>
                 </div>
                 <div class="flex items-center gap-3">
-                  <span class="text-wine font-bold">✓</span>
+                  <span class="text-copper font-bold">✓</span>
                   <span>Ficha técnica de sumiller y recomendación de evolución en botella.</span>
                 </div>
                 <div class="flex items-center gap-3">
-                  <span class="text-wine font-bold">✓</span>
-                  <span><strong>Acceso prioritario y plazas reservadas</strong> en todas nuestras catas guiadas.</span>
+                  <span class="text-copper font-bold">✓</span>
+                  <span><strong>Acceso prioritario y plazas reservadas</strong> en todas nuestras catas.</span>
                 </div>
                 <div class="flex items-center gap-3">
-                  <span class="text-wine font-bold">✓</span>
-                  <span><strong>10% de descuento</strong> permanente en tienda y eventos.</span>
+                  <span class="text-copper font-bold">✓</span>
+                  <span><strong>10% de descuento</strong> permanente en tienda física y eventos.</span>
                 </div>
               </div>
             </div>
 
-            <div class="border-t border-clay/20 pt-6">
-              <div class="flex items-baseline justify-between mb-4">
-                <span class="text-xs uppercase tracking-wider text-charcoal/60">Cuota mensual</span>
-                <span class="font-serif text-3xl font-bold text-wine">
+            <div class="border-t border-white/10 pt-6">
+              <div class="flex items-baseline justify-between mb-5">
+                <span class="text-xs uppercase tracking-wider text-sand-muted">Cuota mensual</span>
+                <span class="font-serif text-3xl font-bold text-gradient">
                   <span class="plan-price-val" data-base="55">55 €</span> 
-                  <span class="text-xs font-sans text-charcoal/60 font-normal">/ mes</span>
+                  <span class="text-xs font-sans text-sand-muted font-normal">/ mes</span>
                 </span>
               </div>
-              <button class="btn-primary w-full text-center py-3.5 subscribe-plan-btn" data-plan="Selección Sumiller (55€)">
+              <button class="btn-copper w-full text-center py-3.5 text-xs subscribe-plan-btn" data-plan="Selección Sumiller (55€)">
                 Unirme al Club Sumiller
               </button>
             </div>
@@ -797,130 +864,111 @@
 
         </div>
 
-        <!-- Ventajas Claras de la Suscripción -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto pt-6 border-t border-clay/20 text-center">
-          <div class="p-4">
-            <div class="text-2xl mb-2">🌿</div>
-            <h4 class="font-serif text-base font-bold text-charcoal">Sin Permanencia</h4>
-            <p class="text-xs text-charcoal/70 mt-1">Cancela o pausa tu suscripción en cualquier momento sin preguntas ni penalizaciones.</p>
-          </div>
-          <div class="p-4">
-            <div class="text-2xl mb-2">🎁</div>
-            <h4 class="font-serif text-base font-bold text-charcoal">Descuento Continuo</h4>
-            <p class="text-xs text-charcoal/70 mt-1">10% de descuento directo en cualquier botella adicional que adquieras en nuestra bodega.</p>
-          </div>
-          <div class="p-4">
-            <div class="text-2xl mb-2">📍</div>
-            <h4 class="font-serif text-base font-bold text-charcoal">Recogida Flexible</h4>
-            <p class="text-xs text-charcoal/70 mt-1">Pasa por el local cuando quieras a recoger tu caja y tómate una copa con nosotros.</p>
-          </div>
-        </div>
-
       </div>
     </section>
 
-    <!-- SECTION E: SELECCIÓN DE TEMPORADA & LOTES PARA REGALO / B2B -->
-    <section id="lotes" class="py-24 bg-sand-light border-t border-clay/20 relative">
+    <!-- SECTION E: LOTES GOURMET & SERVICIOS B2B -->
+    <section id="lotes" class="py-28 bg-deep relative border-b border-[#CE9A60]/15">
       <div class="max-w-7xl mx-auto px-6">
         
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div>
-            <span class="text-xs uppercase tracking-[0.25em] text-wine font-bold">Gourmet & Obsequios</span>
-            <h2 class="font-serif text-3xl sm:text-5xl font-normal text-charcoal leading-tight mt-2">
-              Lotes de Temporada & Regalos de Autor <br>
-              <span class="italic font-light text-wine">Elegancia gastronómica lista para emocionar.</span>
+            <span class="step-badge mb-3">Obsequios & Gastronomía</span>
+            <h2 class="font-serif text-3xl sm:text-5xl font-normal text-white leading-tight mt-2">
+              Lotes de Temporada & Cestas de Autor <br>
+              <span class="text-gradient font-editorial italic font-normal">Elegancia gastronómica lista para emocionar.</span>
             </h2>
           </div>
-          <p class="font-sans text-sm sm:text-base text-charcoal/70 max-w-md">
-            Cestas y cajas de madera grabadas con el lagarto, maridajes artesanos de proximidad y botellas de alta emoción para regalar a quien de verdad aprecia los detalles.
+          <p class="font-sans text-sm sm:text-base text-[#A8A29E] max-w-md">
+            Cajas de madera grabadas con el lagarto, maridajes artesanos de proximidad y botellas de alta emoción para regalar.
           </p>
         </div>
 
-        <!-- Escaparate de 3 Lotes Gourmet -->
+        <!-- 3 Lotes de Autor -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
           
           <!-- Lote 1 -->
-          <div class="lote-card bg-ivory rounded-2xl overflow-hidden border border-clay/20 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div class="card-luxe overflow-hidden flex flex-col justify-between">
             <div class="aspect-[4/3] overflow-hidden relative">
               <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=700&q=80" 
-                   alt="Lote El Aperitivo del Baco" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy">
-              <span class="absolute top-3 left-3 bg-ivory/90 backdrop-blur-sm text-wine text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md">
+                   alt="Lote El Aperitivo del Baco" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+              <span class="absolute top-3 left-3 bg-card/90 border border-copper/30 text-copper-light text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-md">
                 Aperitivo & Tapas
               </span>
             </div>
             <div class="p-6 flex-1 flex flex-col justify-between">
               <div>
-                <h3 class="font-serif text-2xl font-bold text-charcoal mb-2">Lote "Aperitivo del Baco"</h3>
-                <p class="text-xs text-charcoal/75 font-light leading-relaxed mb-4">
-                  1 Vermut de autor artesano de Reus + 1 Blanco Brisado de microbodega + Conservas gourmet de mejillones en escabeche + Aceitunas rellenas de anchoa y tostas artesanas.
+                <h3 class="font-serif text-2xl font-bold text-white mb-2">Lote "Aperitivo del Baco"</h3>
+                <p class="text-xs text-[#A8A29E] font-light leading-relaxed mb-4">
+                  1 Vermut de autor de Reus + 1 Blanco Brisado de microbodega + Conservas de mejillones en escabeche + Aceitunas rellenas y tostas artesanas.
                 </p>
               </div>
-              <div class="border-t border-clay/15 pt-4">
+              <div class="border-t border-white/10 pt-4">
                 <div class="flex items-baseline justify-between mb-3">
-                  <span class="text-xs uppercase tracking-wider text-charcoal/60">Precio</span>
-                  <span class="font-serif text-2xl font-bold text-wine">42 €</span>
+                  <span class="text-xs uppercase tracking-wider text-sand-muted">Precio</span>
+                  <span class="font-serif text-2xl font-bold text-copper-light">42 €</span>
                 </div>
                 <a href="https://wa.me/34600000000?text=Hola%20Casa%20Baco,%20quiero%20reservar%20el%20Lote%20Aperitivo%20del%20Baco%20(42€)" 
-                   target="_blank" rel="noopener" class="btn-secondary w-full text-center text-xs py-3 block">
-                  Encargar Lote por WhatsApp
+                   target="_blank" rel="noopener" class="btn-outline-copper w-full text-center text-xs py-3 block">
+                  Encargar por WhatsApp
                 </a>
               </div>
             </div>
           </div>
 
           <!-- Lote 2 -->
-          <div class="lote-card bg-ivory rounded-2xl overflow-hidden border-2 border-wine shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div class="card-luxe overflow-hidden flex flex-col justify-between border-copper">
             <div class="aspect-[4/3] overflow-hidden relative">
               <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=700&q=80" 
-                   alt="Lote Terroir Catalán" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy">
-              <span class="absolute top-3 left-3 bg-wine text-ivory text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md">
+                   alt="Lote Terroir Catalán" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+              <span class="absolute top-3 left-3 bg-copper text-deep text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-md">
                 Selección Estrella
               </span>
             </div>
             <div class="p-6 flex-1 flex flex-col justify-between">
               <div>
-                <h3 class="font-serif text-2xl font-bold text-charcoal mb-2">Lote "Terroir Catalán"</h3>
-                <p class="text-xs text-charcoal/75 font-light leading-relaxed mb-4">
-                  1 Priorat de viñas viejas de licorella + 1 Penedès de variedad ancestral + Cuña de queso de pastor curado de leche cruda + Fuet artesano de pagès en estuche de madera.
+                <h3 class="font-serif text-2xl font-bold text-white mb-2">Lote "Terroir Catalán"</h3>
+                <p class="text-xs text-[#A8A29E] font-light leading-relaxed mb-4">
+                  1 Priorat de viñas viejas de licorella + 1 Penedès de variedad ancestral + Cuña de queso curado de leche cruda + Fuet artesano de pagès en estuche de madera.
                 </p>
               </div>
-              <div class="border-t border-clay/15 pt-4">
+              <div class="border-t border-white/10 pt-4">
                 <div class="flex items-baseline justify-between mb-3">
-                  <span class="text-xs uppercase tracking-wider text-charcoal/60">Precio</span>
-                  <span class="font-serif text-2xl font-bold text-wine">68 €</span>
+                  <span class="text-xs uppercase tracking-wider text-sand-muted">Precio</span>
+                  <span class="font-serif text-2xl font-bold text-gradient">68 €</span>
                 </div>
                 <a href="https://wa.me/34600000000?text=Hola%20Casa%20Baco,%20quiero%20reservar%20el%20Lote%20Terroir%20Catalán%20(68€)" 
-                   target="_blank" rel="noopener" class="btn-primary w-full text-center text-xs py-3 block">
-                  Encargar Lote por WhatsApp
+                   target="_blank" rel="noopener" class="btn-copper w-full text-center text-xs py-3 block">
+                  Encargar por WhatsApp
                 </a>
               </div>
             </div>
           </div>
 
           <!-- Lote 3 -->
-          <div class="lote-card bg-ivory rounded-2xl overflow-hidden border border-clay/20 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div class="card-luxe overflow-hidden flex flex-col justify-between">
             <div class="aspect-[4/3] overflow-hidden relative">
               <img src="https://images.unsplash.com/photo-1528823872057-9c018a7a7553?auto=format&fit=crop&w=700&q=80" 
-                   alt="Lote Gran Reserva Baco" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy">
-              <span class="absolute top-3 left-3 bg-gold/90 text-charcoal text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md">
+                   alt="Lote Gran Reserva Baco" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+              <span class="absolute top-3 left-3 bg-card/90 border border-copper/30 text-copper-light text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-md">
                 Edición Limitada
               </span>
             </div>
             <div class="p-6 flex-1 flex flex-col justify-between">
               <div>
-                <h3 class="font-serif text-2xl font-bold text-charcoal mb-2">Lote "Gran Reserva & Joyas"</h3>
-                <p class="text-xs text-charcoal/75 font-light leading-relaxed mb-4">
-                  3 botellas de autor de tirada numerada + Aceite de oliva virgen extra de cosecha temprana (monovarietal arbequina) + Selección de bombones artesanos al vino tinto.
+                <h3 class="font-serif text-2xl font-bold text-white mb-2">Lote "Gran Reserva & Joyas"</h3>
+                <p class="text-xs text-[#A8A29E] font-light leading-relaxed mb-4">
+                  3 botellas de autor de tirada numerada + Aceite de oliva virgen extra de cosecha temprana (arbequina) + Bombones artesanos al vino tinto.
                 </p>
               </div>
-              <div class="border-t border-clay/15 pt-4">
+              <div class="border-t border-white/10 pt-4">
                 <div class="flex items-baseline justify-between mb-3">
-                  <span class="text-xs uppercase tracking-wider text-charcoal/60">Precio</span>
-                  <span class="font-serif text-2xl font-bold text-wine">95 €</span>
+                  <span class="text-xs uppercase tracking-wider text-sand-muted">Precio</span>
+                  <span class="font-serif text-2xl font-bold text-copper-light">95 €</span>
                 </div>
                 <a href="https://wa.me/34600000000?text=Hola%20Casa%20Baco,%20quiero%20reservar%20el%20Lote%20Gran%20Reserva%20y%20Joyas%20(95€)" 
-                   target="_blank" rel="noopener" class="btn-secondary w-full text-center text-xs py-3 block">
-                  Encargar Lote por WhatsApp
+                   target="_blank" rel="noopener" class="btn-outline-copper w-full text-center text-xs py-3 block">
+                  Encargar por WhatsApp
                 </a>
               </div>
             </div>
@@ -928,22 +976,18 @@
 
         </div>
 
-        <!-- BLOQUE CORPORATIVO B2B (Empresas y Profesionales del Barrio) -->
-        <div class="corporate-b2b-block bg-charcoal text-ivory rounded-3xl p-8 sm:p-14 relative overflow-hidden">
-          <div class="absolute -right-10 -bottom-10 opacity-10 font-serif text-9xl select-none pointer-events-none">
-            🦎
-          </div>
-
+        <!-- Módulo Corporativo B2B (Estilo Millésimes Alsace) -->
+        <div class="bg-[#141312] border border-copper/30 rounded-3xl p-8 sm:p-14 relative overflow-hidden">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             <div class="lg:col-span-8 space-y-4">
-              <span class="text-xs uppercase tracking-[0.25em] text-gold font-bold">Servicios para Empresas & Profesionales</span>
-              <h3 class="font-serif text-3xl sm:text-4xl font-normal leading-tight">
+              <span class="step-badge">Empresas & Profesionales</span>
+              <h3 class="font-serif text-3xl sm:text-4xl font-normal text-white leading-tight">
                 ¿Buscas regalos memorables para tu equipo o clientes?
               </h3>
-              <p class="font-sans text-sm sm:text-base text-ivory/80 font-light leading-relaxed max-w-2xl">
-                Olvídate de las cestas corporativas impersonales. En Casa Baco diseñamos lotes a medida adaptados a tu presupuesto, con packaging sostenible, tarjetas personalizadas y entrega coordinada en Barcelona. Apoya al comercio local y a viticultores independientes.
+              <p class="font-sans text-sm sm:text-base text-[#C4BFB9] font-light leading-relaxed max-w-2xl">
+                Olvídate de las cestas corporativas impersonales. En Casa Baco diseñamos lotes a medida adaptados a tu presupuesto, con packaging sostenible, tarjetas personalizadas y entrega coordinada en Barcelona. Apoya al comercio de proximidad y a viticultores independientes.
               </p>
-              <div class="flex flex-wrap gap-6 text-xs text-sand/80 pt-2 font-medium">
+              <div class="flex flex-wrap gap-6 text-xs text-copper-light pt-2 font-medium">
                 <span>✓ Facturación directa para autónomos y empresas</span>
                 <span>✓ Descuentos escalonados por volumen</span>
                 <span>✓ Catas corporativas privadas en exclusiva</span>
@@ -952,10 +996,10 @@
 
             <div class="lg:col-span-4 flex flex-col gap-3">
               <a href="https://wa.me/34600000000?text=Hola%20Casa%20Baco,%20soy%20empresa/autónomo%20y%20quiero%20presupuesto%20para%20lotes%20a%20medida" 
-                 target="_blank" rel="noopener" class="btn-primary text-center py-4 bg-gold hover:bg-gold/90 text-charcoal border-none font-bold">
+                 target="_blank" rel="noopener" class="btn-copper text-center py-4 text-xs font-bold">
                 Solicitar Catálogo Corporativo
               </a>
-              <p class="text-center text-[11px] text-ivory/50">Respuesta en menos de 24 horas laborables</p>
+              <p class="text-center text-[11px] text-[#8E8880]">Respuesta directa en menos de 24 horas laborables</p>
             </div>
           </div>
         </div>
@@ -963,27 +1007,27 @@
       </div>
     </section>
 
-    <!-- SECTION F: PIE DE PÁGINA, MAPA, HORARIOS Y CONTACTO -->
-    <footer id="contacto" class="bg-charcoal text-ivory pt-20 pb-12 border-t border-clay/10 relative">
+    <!-- SECTION F: FOOTER, MAPA Y HORARIOS -->
+    <footer id="contacto" class="bg-[#090807] text-[#D4CFC9] pt-24 pb-12 border-t border-copper/20 relative">
       <div class="max-w-7xl mx-auto px-6">
         
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-ivory/10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">
           
-          <!-- Columna 1: Identidad y Concepto (4 cols) -->
+          <!-- Identidad -->
           <div class="lg:col-span-4 space-y-5">
             <div class="flex items-center gap-3">
-              <span class="text-3xl text-wine">🦎</span>
+              <span class="text-3xl text-copper">🦎</span>
               <div class="flex flex-col">
-                <span class="font-serif text-3xl font-bold tracking-tight text-ivory leading-none">Casa Baco</span>
-                <span class="text-[9px] uppercase tracking-[0.25em] text-gold mt-1">Bodega de Autor · Barcelona</span>
+                <span class="font-serif text-3xl font-bold tracking-tight text-white leading-none">Casa Baco</span>
+                <span class="text-[9px] uppercase tracking-[0.25em] text-copper mt-1">Bodega de Autor · Barcelona</span>
               </div>
             </div>
-            <p class="text-xs sm:text-sm text-ivory/70 font-light leading-relaxed">
-              Vinos con alma, proyectos de pequeños viticultores y momentos compartidos alrededor de una buena copa. Visítanos en el barrio de Camp de l'Arpa.
+            <p class="text-xs sm:text-sm text-[#A8A29E] font-light leading-relaxed">
+              Vinos singulares, proyectos de pequeños viticultores y momentos compartidos alrededor de una buena copa. Visítanos en el barrio de Camp de l'Arpa del Clot.
             </p>
             <div class="pt-2">
               <a href="https://instagram.com/casabacobcn" target="_blank" rel="noopener" 
-                 class="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-sand hover:text-gold transition-colors">
+                 class="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-copper hover:text-copper-light transition-colors">
                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                 </svg>
@@ -992,69 +1036,68 @@
             </div>
           </div>
 
-          <!-- Columna 2: Ubicación & Cómo Llegar (4 cols) -->
+          <!-- Ubicación -->
           <div class="lg:col-span-4 space-y-4">
-            <h4 class="font-serif text-lg font-bold text-sand uppercase tracking-wider">Ubicación & Entorno</h4>
-            <div class="text-xs sm:text-sm text-ivory/80 space-y-2 font-light">
-              <p class="font-medium text-ivory">Carrer de la Independència, 305, local 2</p>
+            <h4 class="font-serif text-lg font-bold text-copper uppercase tracking-wider">Ubicación & Acceso</h4>
+            <div class="text-xs sm:text-sm text-[#A8A29E] space-y-2 font-light">
+              <p class="font-medium text-white">Carrer de la Independència, 305, local 2</p>
               <p>08026 Barcelona (Eix Comercial Encants Nous)</p>
-              <p class="text-ivory/60">Camp de l'Arpa del Clot</p>
+              <p class="text-[#8E8880]">Camp de l'Arpa del Clot</p>
               <div class="pt-2 flex flex-col gap-1 text-xs">
                 <span>🚇 <strong>Metro:</strong> Encants (L2) o Camp de l'Arpa (L5)</span>
                 <span>🚌 <strong>Bus:</strong> Líneas D50, H10, 33, 34</span>
-                <span>🚲 <strong>Bicing:</strong> Estación en C/ Mallorca con Independència</span>
+                <span>🚲 <strong>Bicing:</strong> C/ Mallorca con Independència</span>
               </div>
             </div>
             
             <a href="https://maps.google.com/?q=Carrer+de+la+Independencia+305+08026+Barcelona" 
-               target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-xs font-semibold text-gold hover:underline pt-2">
+               target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-xs font-semibold text-copper hover:underline pt-2">
               <span>Abrir en Google Maps / Apple Maps</span> →
             </a>
           </div>
 
-          <!-- Columna 3: Horarios de Apertura & Teléfono (4 cols) -->
+          <!-- Horarios -->
           <div class="lg:col-span-4 space-y-4">
-            <h4 class="font-serif text-lg font-bold text-sand uppercase tracking-wider">Horario de Bodega</h4>
+            <h4 class="font-serif text-lg font-bold text-copper uppercase tracking-wider">Horario de Bodega</h4>
             
-            <div class="text-xs sm:text-sm space-y-2 text-ivory/80">
-              <div class="flex justify-between border-b border-ivory/10 pb-1.5">
-                <span class="text-ivory/60">Lunes</span>
-                <span class="text-ivory/50">Cerrado (Descanso del lagarto)</span>
+            <div class="text-xs sm:text-sm space-y-2 text-[#C4BFB9]">
+              <div class="flex justify-between border-b border-white/10 pb-1.5">
+                <span class="text-sand-muted">Lunes</span>
+                <span class="text-[#8E8880]">Cerrado (Descanso del lagarto)</span>
               </div>
-              <div class="flex justify-between border-b border-ivory/10 pb-1.5">
+              <div class="flex justify-between border-b border-white/10 pb-1.5">
                 <span>Martes a Jueves</span>
-                <span class="font-medium text-ivory">17:30 h – 21:30 h</span>
+                <span class="font-medium text-white">17:30 h – 21:30 h</span>
               </div>
-              <div class="flex justify-between border-b border-ivory/10 pb-1.5">
+              <div class="flex justify-between border-b border-white/10 pb-1.5">
                 <span>Viernes</span>
-                <span class="font-medium text-ivory">17:00 h – 22:30 h</span>
+                <span class="font-medium text-white">17:00 h – 22:30 h</span>
               </div>
-              <div class="flex justify-between border-b border-ivory/10 pb-1.5">
+              <div class="flex justify-between border-b border-white/10 pb-1.5">
                 <span>Sábado</span>
-                <span class="font-medium text-ivory">11:30 h – 15:00 h / 17:30 h – 22:30 h</span>
+                <span class="font-medium text-white">11:30 h – 15:00 h / 17:30 h – 22:30 h</span>
               </div>
               <div class="flex justify-between">
                 <span>Domingo</span>
-                <span class="text-ivory/50">Cerrado por descanso</span>
+                <span class="text-[#8E8880]">Cerrado por descanso</span>
               </div>
             </div>
 
             <div class="pt-3 flex flex-col gap-1 text-xs">
-              <span class="text-ivory/60">¿Preguntas sobre una botella o cata?</span>
-              <a href="https://wa.me/34600000000" class="text-sand hover:text-gold font-medium">WhatsApp Directo: +34 600 000 000</a>
+              <span class="text-sand-muted">¿Consultas o reservas para hoy?</span>
+              <a href="https://wa.me/34600000000" class="text-copper hover:text-copper-light font-medium">WhatsApp Directo: +34 600 000 000</a>
             </div>
 
           </div>
 
         </div>
 
-        <!-- Copyright & Micro-Créditos -->
-        <div class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-ivory/50">
+        <div class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-sand-muted">
           <p>© 2026 Casa Baco. Todos los derechos reservados. Bebe con moderación, saborea con pasión.</p>
           <div class="flex gap-4">
-            <a href="#" class="hover:text-ivory">Aviso Legal</a>
-            <a href="#" class="hover:text-ivory">Política de Privacidad</a>
-            <a href="#" class="hover:text-ivory">Condiciones del Club</a>
+            <a href="#" class="hover:text-copper">Aviso Legal</a>
+            <a href="#" class="hover:text-copper">Privacidad</a>
+            <a href="#" class="hover:text-copper">Condiciones del Club</a>
           </div>
         </div>
 
@@ -1063,48 +1106,48 @@
 
   </main>
 
-  <!-- FLOATING WHATSAPP BUTTON (Canal de Conversión Inmediata) -->
+  <!-- BOTÓN FLOTANTE WHATSAPP (Con Halo Cobre) -->
   <aside class="floating-whatsapp-container fixed bottom-6 right-6 z-50">
     <a href="https://wa.me/34600000000?text=Hola%20Casa%20Baco!%20Os%20contacto%20desde%20la%20web,%20tengo%20una%20consulta." 
        target="_blank" rel="noopener" 
-       class="floating-whatsapp-btn flex items-center gap-3 bg-[#25D366] text-white px-4 py-3.5 rounded-full shadow-2xl hover:scale-105 transition-all duration-300 group"
+       class="floating-whatsapp-btn flex items-center gap-3 bg-[#1A1917] border border-copper/50 text-copper-light px-4 py-3.5 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:scale-105 hover:border-copper transition-all duration-300 group"
        aria-label="Contactar por WhatsApp Business">
       <span class="relative flex h-3 w-3">
-        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-        <span class="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-copper opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-3 w-3 bg-copper"></span>
       </span>
-      <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+      <svg class="w-5 h-5 fill-current text-[#25D366]" viewBox="0 0 24 24">
         <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
       </svg>
-      <span class="font-medium text-xs hidden sm:inline tracking-wide">¿Dudas? Habla con el Sumiller</span>
+      <span class="font-medium text-xs hidden sm:inline tracking-wide">Contactar con Sumiller</span>
     </a>
   </aside>
 
-  <!-- MODAL DE RESERVA DIRECTA DE CATAS (Checkout Simulado Bizum / Tarjeta) -->
-  <div id="booking-modal" class="fixed inset-0 z-50 hidden bg-charcoal/70 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-ivory rounded-3xl max-w-lg w-full p-8 shadow-2xl border border-wine/20 relative animate-scale-up">
-      <button id="close-modal-btn" class="absolute top-5 right-5 text-charcoal/50 hover:text-charcoal text-2xl font-light">✕</button>
+  <!-- MODAL DE RESERVA DE CATAS -->
+  <div id="booking-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="bg-[#141312] rounded-3xl max-w-lg w-full p-8 shadow-2xl border border-copper/40 relative">
+      <button id="close-modal-btn" class="absolute top-5 right-5 text-sand-muted hover:text-white text-2xl font-light">✕</button>
       
       <div class="mb-6">
-        <span class="text-xs uppercase tracking-widest text-wine font-semibold">Reserva Instantánea</span>
-        <h3 id="modal-cata-title" class="font-serif text-2xl font-bold text-charcoal mt-1">Cata Guiada</h3>
-        <p class="text-xs text-charcoal/70 mt-1">Fecha: <strong id="modal-cata-date" class="text-charcoal">Fecha</strong> · Aforo limitado a 10 plazas</p>
+        <span class="step-badge mb-2">Reserva Inmediata</span>
+        <h3 id="modal-cata-title" class="font-serif text-2xl font-bold text-white mt-1">Cata Guiada</h3>
+        <p class="text-xs text-[#A8A29E] mt-1">Fecha: <strong id="modal-cata-date" class="text-copper-light">Fecha</strong> · Aforo limitado a 10 plazas</p>
       </div>
 
       <form id="modal-booking-form" class="space-y-4" onsubmit="event.preventDefault(); alert('¡Reserva enviada con éxito! Recibirás los detalles de Bizum / Tarjeta por WhatsApp.'); document.getElementById('booking-modal').classList.add('hidden');">
         <div>
-          <label class="block text-xs font-semibold text-charcoal uppercase tracking-wider mb-1">Nombre y Apellidos</label>
-          <input type="text" required placeholder="Tu nombre" class="w-full px-4 py-2.5 rounded-xl border border-clay/30 bg-white text-sm focus:outline-wine">
+          <label class="block text-xs font-semibold text-copper uppercase tracking-wider mb-1">Nombre y Apellidos</label>
+          <input type="text" required placeholder="Tu nombre" class="w-full px-4 py-2.5 rounded-xl border border-copper/30 bg-card text-white text-sm focus:outline-copper">
         </div>
         
         <div class="grid grid-cols-2 gap-4">
           <div>
-            <label class="block text-xs font-semibold text-charcoal uppercase tracking-wider mb-1">Teléfono (WhatsApp)</label>
-            <input type="tel" required placeholder="+34 600 000 000" class="w-full px-4 py-2.5 rounded-xl border border-clay/30 bg-white text-sm focus:outline-wine">
+            <label class="block text-xs font-semibold text-copper uppercase tracking-wider mb-1">Teléfono (WhatsApp)</label>
+            <input type="tel" required placeholder="+34 600 000 000" class="w-full px-4 py-2.5 rounded-xl border border-copper/30 bg-card text-white text-sm focus:outline-copper">
           </div>
           <div>
-            <label class="block text-xs font-semibold text-charcoal uppercase tracking-wider mb-1">Nº de Plazas</label>
-            <select id="modal-seats-select" class="w-full px-4 py-2.5 rounded-xl border border-clay/30 bg-white text-sm focus:outline-wine">
+            <label class="block text-xs font-semibold text-copper uppercase tracking-wider mb-1">Nº de Plazas</label>
+            <select id="modal-seats-select" class="w-full px-4 py-2.5 rounded-xl border border-copper/30 bg-card text-white text-sm focus:outline-copper">
               <option value="1">1 plaza</option>
               <option value="2" selected>2 plazas</option>
               <option value="3">3 plazas</option>
@@ -1114,25 +1157,25 @@
         </div>
 
         <div>
-          <label class="block text-xs font-semibold text-charcoal uppercase tracking-wider mb-1">Método de Pago Preferido</label>
+          <label class="block text-xs font-semibold text-copper uppercase tracking-wider mb-1">Método de Pago Preferido</label>
           <div class="grid grid-cols-2 gap-3">
-            <label class="flex items-center gap-2 p-3 rounded-xl border border-clay/30 bg-sand-light cursor-pointer text-xs font-medium">
-              <input type="radio" name="payment-method" value="bizum" checked class="accent-wine">
+            <label class="flex items-center gap-2 p-3 rounded-xl border border-copper/30 bg-card cursor-pointer text-xs font-medium text-white">
+              <input type="radio" name="payment-method" value="bizum" checked class="accent-copper">
               <span>Bizum Inmediato</span>
             </label>
-            <label class="flex items-center gap-2 p-3 rounded-xl border border-clay/30 bg-sand-light cursor-pointer text-xs font-medium">
-              <input type="radio" name="payment-method" value="tarjeta" class="accent-wine">
+            <label class="flex items-center gap-2 p-3 rounded-xl border border-copper/30 bg-card cursor-pointer text-xs font-medium text-white">
+              <input type="radio" name="payment-method" value="tarjeta" class="accent-copper">
               <span>Tarjeta (Stripe)</span>
             </label>
           </div>
         </div>
 
-        <div class="pt-4 border-t border-clay/20 flex items-center justify-between">
+        <div class="pt-4 border-t border-white/10 flex items-center justify-between">
           <div>
-            <span class="text-[11px] text-charcoal/60 uppercase">Importe Total</span>
-            <div class="font-serif text-2xl font-bold text-wine" id="modal-total-price">76 €</div>
+            <span class="text-[11px] text-sand-muted uppercase">Importe Total</span>
+            <div class="font-serif text-2xl font-bold text-copper-light" id="modal-total-price">76 €</div>
           </div>
-          <button type="submit" class="btn-primary py-3 px-6 text-sm">
+          <button type="submit" class="btn-copper py-3 px-6 text-xs">
             Confirmar Reserva
           </button>
         </div>
