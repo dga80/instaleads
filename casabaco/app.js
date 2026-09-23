@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     totalPriceDisplay.textContent = `${totalPrice} €`;
 
     // Generar enlace pre-rellenado para WhatsApp Business
-    const message = `¡Hola Casa Baco! 🦎 Quisiera solicitar fecha para una Cata a Medida:\n\n` +
+    const message = `¡Hola Casa Baco! Quisiera solicitar fecha para una Cata a Medida:\n\n` +
       `• Asistentes: ${numGuests} personas\n` +
       `• Estilo: ${styleName}\n` +
       `• Maridaje: ${pairingName}\n` +
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const plan = btn.dataset.plan || 'Plan del Club';
       const isDelivery = btnDelivery && btnDelivery.classList.contains('active-mode');
       const deliveryText = isDelivery ? 'con Envío a domicilio en Barcelona (+5€)' : 'con Recogida en tienda';
-      const msg = `¡Hola Casa Baco! 🦎 Quiero unirme a "El Club del Lagarto": ${plan} (${deliveryText}). ¿Cómo procedo al alta?`;
+      const msg = `¡Hola Casa Baco! Quiero unirme a "El Club del Lagarto": ${plan} (${deliveryText}). ¿Cómo procedo al alta?`;
       window.open(`https://wa.me/34600000000?text=${encodeURIComponent(msg)}`, '_blank');
     });
   });
