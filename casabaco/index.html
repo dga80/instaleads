@@ -21,20 +21,16 @@
       theme: {
         extend: {
           colors: {
-            'deep': '#060505',
-            'dark': '#0B0A09',
-            'card': '#11100F',
-            'card-hover': '#181716',
+            'deep': '#000000',
+            'dark': '#000000',
+            'card': '#0C0B0A',
+            'card-hover': '#141312',
             'copper-light': '#FBE0B5',
             'copper': '#CE9A60',
             'copper-dark': '#A27236',
             'wine': '#8D0829',
             'wine-light': '#B90F28',
             'sand-muted': '#8E8880',
-            'trencadis-blue': '#1E3A8A',
-            'trencadis-azure': '#0284C7',
-            'trencadis-gold': '#F59E0B',
-            'trencadis-yellow': '#EAB308',
           },
           fontFamily: {
             serif: ['"Playfair Display"', 'Georgia', 'serif'],
@@ -47,15 +43,24 @@
   </script>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-deep text-[#FBF9F5] font-sans antialiased selection:bg-copper selection:text-deep relative">
+<body class="bg-black text-[#FBF9F5] font-sans antialiased selection:bg-copper selection:text-black relative">
 
-  <!-- Textura Lateral de Trencadís de Gaudí (trencadisHD2) para dar color y contrastar con el fondo oscuro -->
-  <aside class="lateral-trencadis-flank" aria-hidden="true">
-    <img src="trencadis_side.jpg" alt="Mosaico Trencadís Gaudí Barcelona" loading="eager">
-  </aside>
+  <!-- Pantalla de Entrada (Splash Screen: Fondo Negro Absoluto con Logo en Medio) -->
+  <div id="splash-screen" role="dialog" aria-modal="true" aria-label="Casa Baco Carga">
+    <div class="relative flex flex-col items-center justify-center p-6 max-w-sm sm:max-w-md w-full">
+      <img src="casabaco_bcn.png" 
+           alt="Casa Baco Barcelona · El so del Vi" 
+           class="w-full h-auto max-h-[190px] sm:max-h-[230px] object-contain splash-logo-glow" 
+           loading="eager" />
+      <div class="mt-8 flex items-center gap-2.5">
+        <span class="w-1.5 h-1.5 rounded-full bg-copper animate-ping"></span>
+        <span class="text-[11px] uppercase tracking-[0.3em] text-copper-light font-mono">Barcelona</span>
+      </div>
+    </div>
+  </div>
 
   <!-- Announcement Bar (Micro-estado en Vivo) -->
-  <div class="announcement-bar bg-[#0A0908] text-[#D4CFC9] py-2.5 px-4 text-xs font-sans tracking-wide border-b border-[#CE9A60]/15">
+  <div class="announcement-bar bg-black text-[#D4CFC9] py-2.5 px-4 text-xs font-sans tracking-wide border-b border-[#CE9A60]/15">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
       <div class="flex items-center gap-2.5">
         <span class="pulse-indicator"></span>
@@ -72,12 +77,12 @@
   </div>
 
   <!-- Header / Navigation (Estilo Millésimes Alsace & Dark Obsidian) -->
-  <header class="header sticky top-0 z-40 bg-[#060505]/92 backdrop-blur-md border-b border-[#CE9A60]/20 transition-all duration-300" id="main-header">
+  <header class="header sticky top-0 z-40 bg-black/95 backdrop-blur-md border-b border-[#CE9A60]/20 transition-all duration-300" id="main-header">
     <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
       
       <!-- Brand Logo con Mini-Lagarto Oficial -->
       <a href="#" class="brand-group flex items-center gap-3.5 group">
-        <div class="w-10 h-10 rounded-full border border-copper/40 bg-card p-1.5 flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 shadow-md">
+        <div class="w-10 h-10 rounded-full border border-copper/40 bg-card p-1.5 flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 shadow-md mini-lizard-reactive" id="header-lizard-icon">
           <img src="casabaco_lizard_icon.png" alt="Casa Baco Barcelona" class="w-full h-full object-contain">
         </div>
         <div class="flex flex-col">
@@ -116,7 +121,7 @@
     </div>
 
     <!-- Mobile Dropdown Nav -->
-    <div id="mobile-menu" class="hidden md:hidden bg-[#0B0A09] border-b border-copper/20 px-6 py-6 transition-all duration-300">
+    <div id="mobile-menu" class="hidden md:hidden bg-black border-b border-copper/20 px-6 py-6 transition-all duration-300">
       <div class="flex flex-col gap-4 text-base font-medium">
         <a href="#manifiesto" class="mobile-nav-link text-white hover:text-copper py-2 border-b border-white/5">Filosofía ("El Espíritu de Baco")</a>
         <a href="#catas" class="mobile-nav-link text-white hover:text-copper py-2 border-b border-white/5">Catas & Próximas Fechas</a>
@@ -135,7 +140,7 @@
   <main>
 
     <!-- SECTION A: HERO SECTION (ESTILO MILLESIMES ALSACE CON EL LOGO PURO DE CASA BACO) -->
-    <section class="hero-section relative min-h-[92vh] flex items-center overflow-hidden bg-gradient-to-b from-[#060505] via-[#0B0A09] to-[#060505] pt-12 pb-20 border-b border-[#CE9A60]/20">
+    <section id="hero" class="hero-section relative min-h-[92vh] flex items-center overflow-hidden bg-black pt-12 pb-20 border-b border-[#CE9A60]/20">
       
       <!-- Fondo Atmosférico y Luces Circulares -->
       <div class="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-wine/20 blur-[120px] pointer-events-none"></div>
@@ -149,7 +154,7 @@
             
             <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-copper/30 bg-copper/10 text-copper-light text-xs uppercase tracking-widest font-semibold">
               <span class="inline-block w-2 h-2 rounded-full bg-copper animate-ping"></span>
-              Bodega de Autor · Barcelona · Trencadís Modernista
+              Bodega de Autor · Vinos Singulares · Barcelona
             </div>
 
             <!-- Gran Titular estilo Millésimes Alsace -->
@@ -218,14 +223,14 @@
               <!-- Resplandor Noble de Atmósfera (Cobre, Burdeos y Luz Cálida) - Sin bordes duros -->
               <div class="absolute -inset-16 rounded-full bg-gradient-to-tr from-wine/30 via-copper/15 to-transparent blur-3xl opacity-75 pointer-events-none transition-opacity duration-700 group-hover:opacity-90"></div>
 
-              <!-- Halo Trencadís Sutil de Fondo (Inspiración Gaudí / Park Güell) -->
+              <!-- Halo Sutil de Fondo (Cobre & Oro) -->
               <div class="absolute -inset-6 rounded-full border border-copper/15 border-dashed animate-spin-slow pointer-events-none opacity-40"></div>
               
-              <!-- LOGOTIPO PURO: casabaco_bcn.png (Texto blanco nítido, lagartija Park Güell en trencadís original, fondo transparente) -->
-              <div class="relative z-10 w-full flex items-center justify-center transition-transform duration-700 group-hover:scale-[1.03]">
+              <!-- LOGOTIPO OFICIAL: casabaco_bcn.png (Texto blanco nítido, lagartija Casa Baco, fondo transparente) -->
+              <div class="relative z-10 w-full flex items-center justify-center" id="hero-lizard-stage">
                 <img src="casabaco_bcn.png" 
                      alt="Casa Baco Barcelona · El so del Vi" 
-                     class="w-full h-auto max-h-[380px] object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.9)]"
+                     class="w-full h-auto max-h-[380px] object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.95)]"
                      loading="eager" />
               </div>
 
@@ -240,8 +245,8 @@
       <div class="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#CE9A60]/30 to-transparent"></div>
     </section>
 
-    <!-- SECTION B: MANIFIESTO PUSH-EDITORIAL (Inspirado en Millésimes Alsace & Gaudí) -->
-    <section id="manifiesto" class="py-28 bg-[#0B0A09] relative border-b border-[#CE9A60]/15">
+    <!-- SECTION B: MANIFIESTO PUSH-EDITORIAL (Inspirado en Millésimes Alsace & Bodega de Autor) -->
+    <section id="manifiesto" class="py-28 bg-black relative border-b border-[#CE9A60]/15">
       <div class="max-w-7xl mx-auto px-6">
         
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
@@ -287,32 +292,32 @@
               </p>
             </div>
 
-            <!-- El Lagarto de Gaudí & El Arte del Trencadís (Zona de Inspiración Park Güell) -->
+            <!-- El Lagarto de Casa Baco & El Alma del Viñedo -->
             <div class="card-flat-gaudi p-7 rounded-2xl border-l-4 border-copper border border-copper/30 space-y-3 mt-4 relative shadow-xl">
               <div class="flex items-center justify-between">
                 <h3 class="font-serif text-xl font-bold text-copper-light flex items-center gap-3">
                   <span class="w-8 h-8 rounded-full bg-copper/20 border border-copper/40 p-1 flex items-center justify-center shrink-0">
                     <img src="casabaco_lizard_icon.png" alt="Lagartija Casa Baco" class="w-full h-full object-contain">
                   </span>
-                  <span>El Drac del Park Güell & El Alma del Trencadís</span>
+                  <span>El Símbolo del Lagarto & El Alma de la Viña</span>
                 </h3>
-                <span class="hidden sm:inline-flex text-[10px] uppercase tracking-widest text-copper/90 border border-copper/30 px-3 py-1 rounded-full bg-[#060505]/70 font-mono">Gaudí · Barcelona</span>
+                <span class="hidden sm:inline-flex text-[10px] uppercase tracking-widest text-copper/90 border border-copper/30 px-3 py-1 rounded-full bg-black/80 font-mono">Camp de l'Arpa · BCN</span>
               </div>
               <p class="text-sm text-[#D4CFC9] leading-relaxed font-light">
-                Nuestra lagartija es un homenaje al icónico <strong class="text-white font-medium">Drac del Park Güell de Antoni Gaudí</strong>, emblema universal del <em>trencadís</em> barcelonés. Igual que las teselas cerámicas rotas cobran una belleza infinita al unirse en armonía, en Casa Baco entendemos el vino como un gran mosaico: cada pequeño viticultor independiente, cada suelo de pizarra o arcilla y cada botella singular es una pieza imprescindible que cobra sentido cuando se descorcha y se comparte.
+                Nuestra lagartija es el testigo silencioso de los viñedos vivos: solo habita donde la tierra respira sin químicos ni pesticidas, donde el sol acaricia las cepas y el ecosistema conserva su equilibrio natural. En Casa Baco defendemos esa misma pureza: vinos sinceros de pequeños viticultores independientes, mínima intervención y la verdad desnuda de cada terruño.
               </p>
               <div class="pt-2 flex flex-wrap items-center gap-4 text-xs text-copper-light border-t border-white/5">
                 <span class="flex items-center gap-1.5 font-medium">
-                  <span class="w-2 h-2 rounded-full bg-[#1E3A8A]"></span> Tesela a tesela
+                  <span class="w-2 h-2 rounded-full bg-copper"></span> Suelo vivo & biodiversidad
                 </span>
                 <span class="flex items-center gap-1.5 font-medium">
-                  <span class="w-2 h-2 rounded-full bg-[#F59E0B]"></span> Sol y reposo de viña
+                  <span class="w-2 h-2 rounded-full bg-amber-500"></span> Sol y reposo de viña
                 </span>
                 <span class="flex items-center gap-1.5 font-medium">
                   <span class="w-2 h-2 rounded-full bg-[#8D0829]"></span> Mínima intervención
                 </span>
                 <span class="flex items-center gap-1.5 font-medium text-copper">
-                  <span class="w-2 h-2 rounded-full bg-white"></span> Cerámica viva
+                  <span class="w-2 h-2 rounded-full bg-white"></span> Vinos con alma
                 </span>
               </div>
             </div>
@@ -617,7 +622,7 @@
             </div>
 
             <!-- RESULTADO Y CTA DIRECTO -->
-            <div class="result-box bg-[#0A0908] rounded-2xl p-6 sm:p-8 border border-copper/30 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="result-box bg-black rounded-2xl p-6 sm:p-8 border border-copper/30 flex flex-col md:flex-row items-center justify-between gap-6">
               
               <div class="space-y-1 text-center md:text-left">
                 <span class="text-xs uppercase tracking-widest text-copper font-semibold">Presupuesto Estimado</span>
@@ -650,7 +655,7 @@
     </section>
 
     <!-- SECTION D: EL CLUB DEL LAGARTO (Étape 03 - Suscripción Mensual Recurrente) -->
-    <section id="club" class="py-28 bg-[#0B0A09] relative border-b border-[#CE9A60]/15">
+    <section id="club" class="py-28 bg-black relative border-b border-[#CE9A60]/15">
       <div class="max-w-7xl mx-auto px-6">
         
         <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
@@ -928,7 +933,7 @@
     </section>
 
     <!-- SECTION F: FOOTER, MAPA Y HORARIOS -->
-    <footer id="contacto" class="bg-[#060505] text-[#D4CFC9] pt-24 pb-12 border-t border-copper/20 relative">
+    <footer id="contacto" class="bg-black text-[#D4CFC9] pt-24 pb-12 border-t border-copper/20 relative">
       <div class="max-w-7xl mx-auto px-6">
         
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">
@@ -1047,7 +1052,7 @@
 
   <!-- MODAL DE RESERVA DE CATAS -->
   <div id="booking-modal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
-    <div class="bg-[#0B0A09] rounded-3xl max-w-lg w-full p-8 shadow-2xl border border-copper/40 relative">
+    <div class="bg-[#0A0A09] rounded-3xl max-w-lg w-full p-8 shadow-2xl border border-copper/40 relative">
       <button id="close-modal-btn" class="absolute top-5 right-5 text-sand-muted hover:text-white text-2xl font-light">✕</button>
       
       <div class="mb-6">

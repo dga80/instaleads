@@ -276,4 +276,156 @@ document.addEventListener('DOMContentLoaded', () => {
 
   updateStoreStatus();
 
+
+  // --- 7. SPLASH SCREEN CINEMATOGRÁFICO (Fondo Negro con Logo Centrado) ---
+  const splashScreen = document.getElementById('splash-screen');
+  if (splashScreen) {
+    const hideSplash = () => {
+      setTimeout(() => {
+        splashScreen.classList.add('splash-hidden');
+        setTimeout(() => {
+          splashScreen.style.display = 'none';
+        }, 550);
+      }, 750);
+    };
+
+    if (document.readyState === 'complete') {
+      hideSplash();
+    } else {
+      window.addEventListener('load', hideSplash, { once: true });
+    }
+
+    // Fallback de seguridad
+    setTimeout(() => {
+      if (!splashScreen.classList.contains('splash-hidden')) {
+        splashScreen.classList.add('splash-hidden');
+        setTimeout(() => {
+          splashScreen.style.display = 'none';
+        }, 550);
+      }
+    }, 1800);
+  }
+
+
+  // --- 8. FÍSICA REACTIVA AL SCROLL: MOVIMIENTO 2D / 3D DE LA LAGARTIJA (OPCIÓN 3) ---
+  const heroLizardStage = document.getElementById('hero-lizard-stage');
+  const headerLizardIcon = document.getElementById('header-lizard-icon');
+
+  if (heroLizardStage || headerLizardIcon) {
+    let lastScrollY = window.scrollY;
+    let scrollVelocity = 0;
+    let targetTiltX = 0;
+    let currentTiltX = 0;
+    let targetTiltZ = 0;
+    let currentTiltZ = 0;
+    let targetTranslateY = 0;
+    let currentTranslateY = 0;
+    let targetHeaderRotate = 0;
+    let currentHeaderRotate = 0;
+    let isTicking = false;
+    let mouseTiltX = 0;
+    let mouseTiltY = 0;
+
+    // Escuchar scroll para medir velocidad e inercia
+    window.addEventListener('scroll', () => {
+      const currentScrollY = window.scrollY;
+      const delta = currentScrollY - lastScrollY;
+      lastScrollY = currentScrollY;
+
+      // Calcular velocidad con amortiguación
+      scrollVelocity = delta;
+
+      // Límites de inclinación orgánica según pantalla (más sutil en móvil)
+      const isMobile = window.innerWidth < 768;
+      const maxTiltX = isMobile ? 6 : 10;
+      const maxTiltZ = isMobile ? 3 : 6;
+      const maxHeaderRot = isMobile ? 12 : 20;
+
+      // Parallax sutil de profundidad (máx 50px de recorrido)
+      if (currentScrollY < window.innerHeight * 1.2) {
+        targetTranslateY = Math.min(currentScrollY * 0.14, 50);
+      }
+
+      // Inclinación reactiva a la inercia del scroll
+      targetTiltX = Math.max(Math.min(scrollVelocity * 0.4, maxTiltX), -maxTiltX);
+      targetTiltZ = Math.max(Math.min(scrollVelocity * -0.25, maxTiltZ), -maxTiltZ);
+
+      // Rotación orgánica de la mini lagartija del header
+      targetHeaderRotate = Math.max(Math.min(scrollVelocity * 0.5, maxHeaderRot), -maxHeaderRot);
+
+      if (!isTicking) {
+        isTicking = true;
+        requestAnimationFrame(updateLizardPhysics);
+      }
+    }, { passive: true });
+
+    // Micro-interacción táctil con el ratón en escritorio sobre el Hero
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && heroLizardStage) {
+      const heroSection = document.getElementById('hero');
+      if (heroSection) {
+        heroSection.addEventListener('mousemove', (e) => {
+          const rect = heroSection.getBoundingClientRect();
+          const normX = (e.clientX - rect.left) / rect.width - 0.5;
+          const normY = (e.clientY - rect.top) / rect.height - 0.5;
+          mouseTiltY = normX * 8; // rotación lateral sutil
+          mouseTiltX = -normY * 6; // inclinación vertical sutil
+          if (!isTicking) {
+            isTicking = true;
+            requestAnimationFrame(updateLizardPhysics);
+          }
+        });
+
+        heroSection.addEventListener('mouseleave', () => {
+          mouseTiltX = 0;
+          mouseTiltY = 0;
+          if (!isTicking) {
+            isTicking = true;
+            requestAnimationFrame(updateLizardPhysics);
+          }
+        });
+      }
+    }
+
+    // Bucle de física con interpolación suave (Lerp)
+    function updateLizardPhysics() {
+      // Retornar gradualmente la inercia a reposo
+      scrollVelocity *= 0.88;
+      targetTiltX *= 0.88;
+      targetTiltZ *= 0.88;
+      targetHeaderRotate *= 0.85;
+
+      // Interpolación lineal (Lerp factor = 0.1)
+      const lerpFactor = 0.1;
+      currentTiltX += (targetTiltX + mouseTiltX - currentTiltX) * lerpFactor;
+      currentTiltZ += (targetTiltZ - currentTiltZ) * lerpFactor;
+      currentTranslateY += (targetTranslateY - currentTranslateY) * lerpFactor;
+      currentHeaderRotate += (targetHeaderRotate - currentHeaderRotate) * lerpFactor;
+
+      // Aplicar transformaciones al stage del Hero
+      if (heroLizardStage) {
+        const totalTiltY = mouseTiltY;
+        heroLizardStage.style.transform = `translate3d(0, ${currentTranslateY.toFixed(2)}px, 0) rotateX(${currentTiltX.toFixed(2)}deg) rotateY(${totalTiltY.toFixed(2)}deg) rotateZ(${currentTiltZ.toFixed(2)}deg)`;
+      }
+
+      // Aplicar micro-rotación a la mini-lagartija del header
+      if (headerLizardIcon) {
+        headerLizardIcon.style.transform = `rotate(${currentHeaderRotate.toFixed(2)}deg)`;
+      }
+
+      // Comprobar si las fuerzas ya se han detenido para pausar el bucle rAF
+      const isResting =
+        Math.abs(scrollVelocity) < 0.05 &&
+        Math.abs(currentTiltX - mouseTiltX) < 0.05 &&
+        Math.abs(currentTiltZ) < 0.05 &&
+        Math.abs(currentTranslateY - targetTranslateY) < 0.05 &&
+        Math.abs(currentHeaderRotate) < 0.05;
+
+      if (!isResting) {
+        requestAnimationFrame(updateLizardPhysics);
+      } else {
+        isTicking = false;
+      }
+    }
+  }
+
 });
