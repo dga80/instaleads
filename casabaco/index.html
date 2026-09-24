@@ -59,29 +59,12 @@
     </div>
   </div>
 
-  <!-- Announcement Bar (Micro-estado en Vivo) -->
-  <div class="announcement-bar bg-black text-[#D4CFC9] py-2.5 px-4 text-xs font-sans tracking-wide border-b border-[#CE9A60]/15">
-    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
-      <div class="flex items-center gap-2.5">
-        <span class="pulse-indicator"></span>
-        <span id="live-status-text" class="text-copper-light font-medium">Abierto hoy hasta las 21:30 h</span>
-        <span class="text-[#CE9A60]/40">·</span>
-        <span class="text-[#A8A29E]">C/ de la Independència, 305 (Camp de l'Arpa / Encants Nous)</span>
-      </div>
-      <div class="flex items-center gap-5 text-xs">
-        <a href="#catas" class="text-[#D4CFC9] hover:text-copper transition-colors duration-200">Próximas Catas (10 plazas)</a>
-        <span class="text-[#CE9A60]/30">|</span>
-        <a href="https://instagram.com/casabacobcn" target="_blank" rel="noopener" class="text-copper hover:text-copper-light transition-colors duration-200">@casabacobcn</a>
-      </div>
-    </div>
-  </div>
-
   <!-- Header / Navigation (Estilo Millésimes Alsace & Dark Obsidian) -->
   <header class="header sticky top-0 z-40 bg-black/95 backdrop-blur-md border-b border-[#CE9A60]/20 transition-all duration-300" id="main-header">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+    <div class="w-full max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 h-20 sm:h-22 flex items-center justify-between">
       
       <!-- Brand Logo con Medallón de Autor Oficial (Fiel al diseño de referencia) -->
-      <a href="#" class="brand-group flex items-center gap-3.5 sm:gap-4 group focus:outline-none" aria-label="Casa Baco Barcelona">
+      <a href="#" class="brand-group flex items-center gap-3.5 sm:gap-4 group focus:outline-none flex-shrink-0" aria-label="Casa Baco Barcelona">
         <div class="relative w-12 h-12 sm:w-[52px] sm:h-[52px] flex-shrink-0 transition-transform duration-500 group-hover:scale-105" id="header-lizard-icon">
           <img src="casabaco_header_medallion.png" 
                alt="Casa Baco Barcelona · Bodega de Autor" 
@@ -93,28 +76,29 @@
         </div>
       </a>
 
-      <!-- Desktop Nav Menu -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide">
-        <a href="#manifiesto" class="nav-link">Filosofía</a>
-        <a href="#catas" class="nav-link">Catas & Agenda</a>
-        <a href="#simulador" class="nav-link text-copper font-semibold">Simulador a Medida</a>
-        <a href="#club" class="nav-link">Club del Lagarto</a>
-        <a href="#lotes" class="nav-link">Lotes & B2B</a>
-        <a href="#contacto" class="nav-link">Visítanos</a>
-      </nav>
+      <!-- Desktop Nav & Action Button (Espaciado noble y generoso) -->
+      <div class="hidden lg:flex items-center gap-8 xl:gap-12">
+        <nav class="flex items-center gap-7 xl:gap-10 text-[13.5px] xl:text-sm font-medium tracking-wide">
+          <a href="#manifiesto" class="nav-link">Filosofía</a>
+          <a href="#catas" class="nav-link">Catas & Agenda</a>
+          <a href="#club" class="nav-link">Club del Lagarto</a>
+          <a href="#lotes" class="nav-link">Lotes & B2B</a>
+          <a href="#contacto" class="nav-link">Visítanos</a>
+        </nav>
 
-      <!-- Action Button Desktop -->
-      <div class="hidden md:flex items-center gap-4">
-        <a href="#simulador" class="btn-copper text-xs py-2.5 px-5 flex items-center gap-2">
-          <span>Diseñar Cata</span>
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-          </svg>
-        </a>
+        <!-- Divider y Action Button Desktop -->
+        <div class="flex items-center pl-6 xl:pl-8 border-l border-[#CE9A60]/25">
+          <a href="#simulador" class="btn-copper text-xs py-2.5 px-6 flex items-center gap-2 flex-shrink-0">
+            <span>Diseñar Cata</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </a>
+        </div>
       </div>
 
-      <!-- Mobile Hamburger Button (3 barras de cobre fino redondeadas, fiel a la referencia) -->
-      <button id="mobile-menu-btn" class="md:hidden hamburger-toggle" aria-label="Abrir menú" aria-expanded="false">
+      <!-- Mobile / Tablet Hamburger Button (3 barras de cobre fino redondeadas, fiel a la referencia) -->
+      <button id="mobile-menu-btn" class="lg:hidden hamburger-toggle" aria-label="Abrir menú" aria-expanded="false">
         <span class="hamburger-bar"></span>
         <span class="hamburger-bar"></span>
         <span class="hamburger-bar"></span>
@@ -123,7 +107,7 @@
     </div>
 
     <!-- Mobile Dropdown Nav -->
-    <div id="mobile-menu" class="hidden md:hidden bg-black border-b border-copper/20 px-6 py-6 transition-all duration-300">
+    <div id="mobile-menu" class="hidden lg:hidden bg-black/98 backdrop-blur-xl border-b border-[#CE9A60]/20 px-6 py-6 transition-all duration-300">
       <div class="flex flex-col gap-4 text-base font-medium">
         <a href="#manifiesto" class="mobile-nav-link text-white hover:text-copper py-2 border-b border-white/5">Filosofía ("El Espíritu de Baco")</a>
         <a href="#catas" class="mobile-nav-link text-white hover:text-copper py-2 border-b border-white/5">Catas & Próximas Fechas</a>
