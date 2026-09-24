@@ -456,3 +456,50 @@ input[type=range] {
   transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+/* ==========================================================================
+   CABECERA & HAMBURGER OFICIAL (Fiel al diseño de referencia Casa Baco)
+   ========================================================================== */
+.hamburger-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5.5px;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px 4px;
+  transition: opacity 0.2s ease;
+}
+
+.hamburger-bar {
+  display: block;
+  width: 28px;
+  height: 2.5px;
+  background-color: #CE9A60;
+  border-radius: 9999px;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, background-color 0.25s ease;
+  transform-origin: center;
+}
+
+.hamburger-toggle:hover .hamburger-bar {
+  background-color: #FBE0B5;
+}
+
+/* Animación a X elegante cuando el menú móvil se abre */
+.hamburger-toggle.is-active .hamburger-bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-toggle.is-active .hamburger-bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger-toggle.is-active .hamburger-bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+

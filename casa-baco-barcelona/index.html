@@ -7,7 +7,7 @@
   <meta name="description" content="Bodega de autor y espacio de catas en Camp de l'Arpa (Barcelona). Vinos de pequeños viticultores, catas guiadas, maridaje artesano y El Club del Lagarto.">
   
   <!-- Favicon Oficial Casa Baco -->
-  <link rel="icon" type="image/png" href="casabaco_lizard_icon.png">
+  <link rel="icon" type="image/png" href="casabaco_header_medallion.png">
 
   <!-- Google Fonts: Playfair Display + Cormorant Garamond + Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -78,16 +78,18 @@
 
   <!-- Header / Navigation (Estilo Millésimes Alsace & Dark Obsidian) -->
   <header class="header sticky top-0 z-40 bg-black/95 backdrop-blur-md border-b border-[#CE9A60]/20 transition-all duration-300" id="main-header">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
       
-      <!-- Brand Logo con Mini-Lagarto Oficial -->
-      <a href="#" class="brand-group flex items-center gap-3.5 group">
-        <div class="w-10 h-10 rounded-full border border-copper/40 bg-card p-1.5 flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 shadow-md mini-lizard-reactive" id="header-lizard-icon">
-          <img src="casabaco_lizard_icon.png" alt="Casa Baco Barcelona" class="w-full h-full object-contain">
+      <!-- Brand Logo con Medallón de Autor Oficial (Fiel al diseño de referencia) -->
+      <a href="#" class="brand-group flex items-center gap-3.5 sm:gap-4 group focus:outline-none" aria-label="Casa Baco Barcelona">
+        <div class="relative w-12 h-12 sm:w-[52px] sm:h-[52px] flex-shrink-0 transition-transform duration-500 group-hover:scale-105" id="header-lizard-icon">
+          <img src="casabaco_header_medallion.png" 
+               alt="Casa Baco Barcelona · Bodega de Autor" 
+               class="w-full h-full object-contain drop-shadow-[0_2px_10px_rgba(206,154,96,0.3)]">
         </div>
-        <div class="flex flex-col">
-          <span class="font-serif text-2xl font-bold tracking-tight text-white leading-none group-hover:text-copper transition-colors">Casa Baco</span>
-          <span class="text-[9px] uppercase tracking-[0.25em] text-copper/80 mt-1">Barcelona · Bodega de Autor</span>
+        <div class="flex flex-col justify-center">
+          <span class="font-serif text-2xl sm:text-[28px] font-bold tracking-tight text-white leading-none group-hover:text-copper transition-colors">Casa Baco</span>
+          <span class="text-[9px] sm:text-[10.5px] uppercase tracking-[0.24em] sm:tracking-[0.28em] text-[#CE9A60] font-sans font-medium mt-1 whitespace-nowrap transition-colors group-hover:text-copper-light">Barcelona · Bodega de Autor</span>
         </div>
       </a>
 
@@ -111,11 +113,11 @@
         </a>
       </div>
 
-      <!-- Mobile Hamburger Button -->
-      <button id="mobile-menu-btn" class="md:hidden text-copper p-2 focus:outline-none" aria-label="Abrir menú">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path id="hamburger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
+      <!-- Mobile Hamburger Button (3 barras de cobre fino redondeadas, fiel a la referencia) -->
+      <button id="mobile-menu-btn" class="md:hidden hamburger-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
       </button>
 
     </div>
@@ -941,12 +943,12 @@
           <!-- Identidad -->
           <div class="lg:col-span-4 space-y-5">
             <div class="flex items-center gap-3.5">
-              <div class="w-10 h-10 rounded-full border border-copper/40 bg-card p-1.5 flex items-center justify-center shrink-0">
-                <img src="casabaco_lizard_icon.png" alt="Casa Baco Barcelona" class="w-full h-full object-contain">
+              <div class="w-12 h-12 flex-shrink-0">
+                <img src="casabaco_header_medallion.png" alt="Casa Baco Barcelona" class="w-full h-full object-contain drop-shadow-[0_2px_8px_rgba(206,154,96,0.3)]">
               </div>
               <div class="flex flex-col">
                 <span class="font-serif text-3xl font-bold tracking-tight text-white leading-none">Casa Baco</span>
-                <span class="text-[9px] uppercase tracking-[0.25em] text-copper mt-1">Bodega de Autor · Barcelona</span>
+                <span class="text-[10px] uppercase tracking-[0.25em] text-[#CE9A60] mt-1 font-sans font-medium">Barcelona · Bodega de Autor</span>
               </div>
             </div>
             <p class="text-xs sm:text-sm text-[#A8A29E] font-light leading-relaxed">

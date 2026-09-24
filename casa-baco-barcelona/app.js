@@ -215,12 +215,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (mobileMenuBtn && mobileMenu) {
     mobileMenuBtn.addEventListener('click', () => {
+      const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+      mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+      mobileMenuBtn.classList.toggle('is-active');
       mobileMenu.classList.toggle('hidden');
     });
 
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');
+        mobileMenuBtn.classList.remove('is-active');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
       });
     });
   }
