@@ -22,8 +22,8 @@
   --wine-glow: rgba(185, 15, 40, 0.35);
 
   --text-primary: #FBF9F5;
-  --text-secondary: #D4CFC9;
-  --text-muted: #8E8880;
+  --text-secondary: #EDE8E1;
+  --text-muted: #C4BFB9;
 
   --border-copper: rgba(206, 154, 96, 0.25);
   --border-copper-hover: rgba(206, 154, 96, 0.6);
@@ -123,26 +123,27 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  background: linear-gradient(135deg, #CE9A60 0%, #A27236 100%);
-  color: #0D0C0B;
+  background: linear-gradient(135deg, #FBE0B5 0%, #D8A56A 100%);
+  color: #0A0A0A;
   font-family: var(--font-sans);
-  font-size: 0.875rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   padding: 0.9rem 2rem;
   border-radius: 9999px;
   text-decoration: none;
-  border: 1px solid var(--copper-light);
-  box-shadow: 0 4px 20px rgba(206, 154, 96, 0.25);
+  border: 1px solid #FBE0B5;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
 }
 
 .btn-copper:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(206, 154, 96, 0.45);
-  background: linear-gradient(135deg, #FBE0B5 0%, #CE9A60 100%);
+  box-shadow: 0 8px 25px rgba(251, 224, 181, 0.4);
+  background: #FFFFFF;
+  color: #000000;
 }
 
 .btn-outline-copper {
@@ -150,24 +151,25 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  background: transparent;
-  color: var(--copper);
+  background: rgba(251, 224, 181, 0.08);
+  color: #FBE0B5;
   font-family: var(--font-sans);
-  font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   padding: 0.9rem 2rem;
   border-radius: 9999px;
   text-decoration: none;
-  border: 1px solid var(--border-copper);
+  border: 1px solid rgba(206, 154, 96, 0.6);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
 }
 
 .btn-outline-copper:hover {
-  background: rgba(206, 154, 96, 0.08);
-  border-color: var(--copper);
-  color: var(--copper-light);
+  background: #FBE0B5;
+  border-color: #FBE0B5;
+  color: #0A0A0A;
   transform: translateY(-2px);
 }
 
@@ -251,13 +253,14 @@ body {
   gap: 0.5rem;
   padding: 0.35rem 1rem;
   border-radius: 9999px;
-  background: rgba(206, 154, 96, 0.1);
-  border: 1px solid rgba(206, 154, 96, 0.3);
-  color: var(--copper-light);
-  font-size: 0.75rem;
-  font-weight: 700;
+  background-color: #FBE0B5;
+  color: #0A0A0A;
+  font-size: 0.6875rem;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
+  border: 1px solid rgba(162, 114, 54, 0.4);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* LA GRAN LAGARTIJA DE CASA BACO (Icono de Alto Impacto) */
@@ -355,35 +358,31 @@ input[type=range] {
 /* Tarjetas y Contenedores con Colores Planos */
 .card-flat-gaudi,
 .card-luxe {
-  background-color: #0E0D0C;
-  border: 1px solid rgba(206, 154, 96, 0.25);
+  background: linear-gradient(180deg, #43051f 0%, #340318 100%);
+  border: 1px solid rgba(206, 154, 96, 0.35);
   border-radius: 1.25rem;
-  transition: border-color 0.25s ease, background-color 0.25s ease;
+  transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 10px 30px rgba(25, 1, 11, 0.4);
 }
 
 .card-flat-gaudi:hover,
 .card-luxe:hover {
-  border-color: rgba(206, 154, 96, 0.6);
-  background-color: #141312;
+  border-color: rgba(251, 224, 181, 0.65);
+  background: linear-gradient(180deg, #4d0624 0%, #3d041c 100%);
+  box-shadow: 0 14px 40px rgba(25, 1, 11, 0.6), 0 0 20px rgba(206, 154, 96, 0.15);
 }
 
-/* Badges con Colores Planos Inspirados en el Poster de Gaudí */
-.badge-poster-blue {
-  background-color: #19324B;
-  color: #D4E8FC;
-  border: 1px solid rgba(125, 211, 252, 0.3);
-}
-
-.badge-poster-gold {
-  background-color: #CE9A60;
-  color: #060505;
-  font-weight: 700;
-}
-
-.badge-poster-wine {
-  background-color: #8D0829;
-  color: #FFFFFF;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+/* Badges tipo Cápsula / Píldora en Dorado Claro con Texto en Negro */
+.badge-poster-blue,
+.badge-poster-gold,
+.badge-poster-wine,
+.badge-capsule {
+  background-color: #FBE0B5 !important;
+  color: #0A0A0A !important;
+  font-weight: 800 !important;
+  border: 1px solid rgba(162, 114, 54, 0.45) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  letter-spacing: 0.08em;
 }
 
 @keyframes spin-slow {
