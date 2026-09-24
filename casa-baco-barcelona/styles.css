@@ -6,11 +6,11 @@
    ========================================================================== */
 
 :root {
-  --bg-deep: #000000;
-  --bg-dark: #000000;
-  --bg-card: #0C0B0A;
-  --bg-card-hover: #141312;
-  --bg-card-light: #1A1918;
+  --bg-deep: #4a2334;
+  --bg-dark: #3d1c2a;
+  --bg-card: #3a1b28;
+  --bg-card-hover: #452030;
+  --bg-card-light: #52273a;
   
   --copper-light: #FBE0B5;
   --copper: #CE9A60;
@@ -402,7 +402,7 @@ input[type=range] {
   position: fixed;
   inset: 0;
   z-index: 99999;
-  background-color: #000000;
+  background-color: #4a2334;
   display: flex;
   flex-direction: column;
   align-items: center;
