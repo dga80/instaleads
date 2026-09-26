@@ -55,6 +55,11 @@
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: rgba(128, 128, 128, 0.3); border-radius: 9999px; }
     ::-webkit-scrollbar-thumb:hover { background: rgba(128, 128, 128, 0.5); }
+    .custom-scrollbar::-webkit-scrollbar { height: 4px; width: 4px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(128, 128, 128, 0.25); border-radius: 9999px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(128, 128, 128, 0.45); }
+    .custom-scrollbar { scrollbar-width: thin; }
 
     :root {
       --mac-titlebar: #F6F6F6;
@@ -232,9 +237,9 @@
         <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
           
           <!-- Left: Search Mode & Inputs -->
-          <div class="flex flex-wrap items-center gap-2.5">
-            <!-- Mode Selector (macOS Segmented Control) -->
-            <div class="p-0.5 rounded-md bg-black/5 hairline-all flex text-[11px] font-medium text-mac-textSecondary">
+          <div class="flex flex-wrap items-center gap-2">
+            <!-- Mode Selector (macOS Segmented Bar) -->
+            <div class="p-0.5 rounded-md bg-black/5 hairline-all flex text-[11px] font-medium text-mac-textSecondary shrink-0">
               <button type="button" id="tab-modo-localidad" onclick="cambiarModoBusqueda('localidad')" class="px-2.5 py-1 rounded segmented-active transition">
                 📍 Localidad y Provincia
               </button>
@@ -245,25 +250,25 @@
 
             <!-- Location inputs container -->
             <div id="campo-localidad-wrapper" class="relative">
-              <input type="text" id="localidad" name="localidad" placeholder="Localidad / Municipio (ej: Badalona)" class="h-7 w-44 px-2.5 text-xs rounded hairline-all bg-mac-card text-mac-textPrimary text-mac-textPrimary placeholder:text-black/30 dark:placeholder:text-white/30 focus:outline-none focus:ring-1 focus:ring-mac-accent">
+              <input type="text" id="localidad" name="localidad" placeholder="Localidad / Municipio (ej: Badalona)" class="h-7 w-36 sm:w-44 px-2.5 text-xs rounded hairline-all bg-mac-card text-mac-textPrimary placeholder:text-black/30 dark:placeholder:text-white/30 focus:outline-none focus:ring-1 focus:ring-mac-accent">
             </div>
             <div id="campo-provincia-wrapper" class="relative">
-              <input type="text" id="provincia" name="provincia" placeholder="Provincia (opcional)" class="h-7 w-36 px-2.5 text-xs rounded hairline-all bg-mac-card text-mac-textPrimary text-mac-textPrimary placeholder:text-black/30 dark:placeholder:text-white/30 focus:outline-none focus:ring-1 focus:ring-mac-accent">
+              <input type="text" id="provincia" name="provincia" placeholder="Provincia (opcional)" class="h-7 w-28 sm:w-36 px-2.5 text-xs rounded hairline-all bg-mac-card text-mac-textPrimary placeholder:text-black/30 dark:placeholder:text-white/30 focus:outline-none focus:ring-1 focus:ring-mac-accent">
             </div>
 
             <!-- CP Input (Hidden initially) -->
             <div id="campo-cp-wrapper" class="hidden relative">
-              <input type="text" id="cp" name="cp" placeholder="Código Postal (ej: 08911)" class="h-7 w-32 px-2.5 text-xs rounded hairline-all bg-mac-card text-mac-textPrimary text-mac-textPrimary focus:outline-none focus:ring-1 focus:ring-mac-accent font-mono">
+              <input type="text" id="cp" name="cp" placeholder="Código Postal (ej: 08911)" class="h-7 w-32 px-2.5 text-xs rounded hairline-all bg-mac-card text-mac-textPrimary focus:outline-none focus:ring-1 focus:ring-mac-accent font-mono">
             </div>
 
             <!-- Business Category Input -->
             <div id="campo-categoria-wrapper" class="relative">
-              <input type="text" id="categoria" name="categoria" required placeholder="Categoría (ej: taller de motos, peluquería...)" class="h-7 w-64 px-2.5 text-xs rounded hairline-all bg-mac-card text-mac-textPrimary text-mac-textPrimary placeholder:text-black/30 dark:placeholder:text-white/30 focus:outline-none focus:ring-1 focus:ring-mac-accent">
+              <input type="text" id="categoria" name="categoria" required placeholder="Categoría (ej: taller de motos, peluquería...)" class="h-7 w-48 sm:w-64 px-2.5 text-xs rounded hairline-all bg-mac-card text-mac-textPrimary placeholder:text-black/30 dark:placeholder:text-white/30 focus:outline-none focus:ring-1 focus:ring-mac-accent">
             </div>
 
             <!-- Action: Iniciar Escaneo -->
-            <div id="campo-btn-wrapper">
-              <button type="submit" id="btn-scan" class="h-7 px-3 rounded hairline-all bg-mac-card dark:bg-white/10 hover:bg-black/5 dark:hover:bg-white/15 text-mac-textPrimary text-xs font-medium flex items-center space-x-1.5 transition active:scale-95 shadow-subtle">
+            <div id="campo-btn-wrapper" class="shrink-0">
+              <button type="submit" id="btn-scan" class="h-7 px-3 rounded hairline-all bg-mac-card dark:bg-white/10 hover:bg-black/5 dark:hover:bg-white/15 text-mac-textPrimary text-xs font-medium flex items-center space-x-1.5 transition active:scale-95 shadow-subtle shrink-0">
                 <svg id="scan-icon" class="w-3 h-3 text-mac-accent opacity-90" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                 <svg id="scan-spinner" class="w-3 h-3 animate-spin hidden" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
                 <span id="btn-scan-text">Iniciar Escaneo</span>
@@ -272,8 +277,8 @@
           </div>
 
           <!-- Right: AI Outlier Niche Suggester -->
-          <div class="flex items-center space-x-2">
-            <button type="button" id="btn-outlier-toggle" onclick="pedirSugerenciasOutlier(this)" class="h-7 px-2.5 rounded bg-blue-50 dark:bg-blue-950/40 hover:bg-blue-100 dark:hover:bg-blue-900/50 text-mac-accent hairline-all border-blue-200 dark:border-blue-800/50 text-[11px] font-medium flex items-center space-x-1 transition active:scale-95">
+          <div class="flex items-center space-x-2 shrink-0">
+            <button type="button" id="btn-outlier-toggle" onclick="pedirSugerenciasOutlier(this)" class="h-7 px-2.5 rounded bg-blue-50 dark:bg-blue-950/40 hover:bg-blue-100 dark:hover:bg-blue-900/50 text-mac-accent hairline-all border-blue-200 dark:border-blue-800/50 text-[11px] font-medium flex items-center space-x-1 transition active:scale-95 shrink-0">
               <span class="text-xs">✨</span>
               <span>Sugerir Nichos Outlier (Gemini)</span>
             </button>
@@ -283,27 +288,27 @@
 
       <!-- Quick Preset Chips Row -->
       <div class="mt-2 pt-2 hairline-t flex flex-wrap items-center justify-between gap-2 text-xs">
-        <div class="flex items-center space-x-1.5 overflow-x-auto pb-0.5">
-          <span class="text-[10px] uppercase tracking-wider font-semibold text-mac-textTertiary mr-1">Presets:</span>
-          <button type="button" onclick="setPreset('taller de motos')" class="px-2 py-0.5 rounded-full bg-black/5 hover:bg-black/10 hairline-all text-mac-textSecondary text-[11px] font-medium transition">Taller de motos</button>
-          <button type="button" onclick="setPreset('car detailing')" class="px-2 py-0.5 rounded-full bg-black/5 hover:bg-black/10 hairline-all text-mac-textSecondary text-[11px] font-medium transition">Car Detailing</button>
-          <button type="button" onclick="setPreset('centro de uñas')" class="px-2 py-0.5 rounded-full bg-black/5 hover:bg-black/10 hairline-all text-mac-textSecondary text-[11px] font-medium transition">Centro de uñas</button>
-          <button type="button" onclick="setPreset('peluqueria')" class="px-2 py-0.5 rounded-full bg-black/5 hover:bg-black/10 hairline-all text-mac-textSecondary text-[11px] font-medium transition">Peluquería</button>
-          <button type="button" onclick="setPreset('estudio de tatuajes')" class="px-2 py-0.5 rounded-full bg-black/5 hover:bg-black/10 hairline-all text-mac-textSecondary text-[11px] font-medium transition">Tatuajes</button>
-          <button type="button" onclick="setPreset('tartas personalizadas')" class="px-2 py-0.5 rounded-full bg-black/5 hover:bg-black/10 hairline-all text-mac-textSecondary text-[11px] font-medium transition">Tartas</button>
-          <button type="button" onclick="setPreset('clinica dental')" class="px-2 py-0.5 rounded-full bg-black/5 hover:bg-black/10 hairline-all text-mac-textSecondary text-[11px] font-medium transition">Clínica dental</button>
-          <button type="button" onclick="setPreset('reformas integrales')" class="px-2 py-0.5 rounded-full bg-black/5 hover:bg-black/10 hairline-all text-mac-textSecondary text-[11px] font-medium transition">Reformas</button>
-          <button type="button" onclick="setPreset('cafeteria')" class="px-2 py-0.5 rounded-full bg-black/5 hover:bg-black/10 hairline-all text-mac-textSecondary text-[11px] font-medium transition">Cafetería</button>
+        <div class="flex items-center space-x-1.5 overflow-x-auto pb-0.5 flex-1 min-w-0">
+          <span class="text-[10px] uppercase tracking-wider font-semibold text-mac-textTertiary mr-1 shrink-0">Presets:</span>
+          <button type="button" onclick="setPreset('taller de motos')" class="px-2 py-0.5 rounded-full bg-black/5 hover:bg-black/10 hairline-all text-mac-textSecondary text-[11px] font-medium transition shrink-0">Taller de motos</button>
+          <button type="button" onclick="setPreset('car detailing')" class="px-2 py-0.5 rounded-full bg-black/5 hover:bg-black/10 hairline-all text-mac-textSecondary text-[11px] font-medium transition shrink-0">Car Detailing</button>
+          <button type="button" onclick="setPreset('centro de uñas')" class="px-2 py-0.5 rounded-full bg-black/5 hover:bg-black/10 hairline-all text-mac-textSecondary text-[11px] font-medium transition shrink-0">Centro de uñas</button>
+          <button type="button" onclick="setPreset('peluqueria')" class="px-2 py-0.5 rounded-full bg-black/5 hover:bg-black/10 hairline-all text-mac-textSecondary text-[11px] font-medium transition shrink-0">Peluquería</button>
+          <button type="button" onclick="setPreset('estudio de tatuajes')" class="px-2 py-0.5 rounded-full bg-black/5 hover:bg-black/10 hairline-all text-mac-textSecondary text-[11px] font-medium transition shrink-0">Tatuajes</button>
+          <button type="button" onclick="setPreset('tartas personalizadas')" class="px-2 py-0.5 rounded-full bg-black/5 hover:bg-black/10 hairline-all text-mac-textSecondary text-[11px] font-medium transition shrink-0">Tartas</button>
+          <button type="button" onclick="setPreset('clinica dental')" class="px-2 py-0.5 rounded-full bg-black/5 hover:bg-black/10 hairline-all text-mac-textSecondary text-[11px] font-medium transition shrink-0">Clínica dental</button>
+          <button type="button" onclick="setPreset('reformas integrales')" class="px-2 py-0.5 rounded-full bg-black/5 hover:bg-black/10 hairline-all text-mac-textSecondary text-[11px] font-medium transition shrink-0">Reformas</button>
+          <button type="button" onclick="setPreset('cafeteria')" class="px-2 py-0.5 rounded-full bg-black/5 hover:bg-black/10 hairline-all text-mac-textSecondary text-[11px] font-medium transition shrink-0">Cafetería</button>
         </div>
 
         <!-- Real-time Scan Progress Bar -->
-        <div id="progress-box" class="hidden items-center space-x-2 text-[11px] text-mac-textSecondary font-mono">
-          <span id="progress-sub" class="text-[10px] text-mac-accent font-sans font-semibold">Paso 1/4:</span>
-          <span id="progress-msg" class="truncate max-w-xs">Iniciando análisis...</span>
-          <div class="w-24 h-1.5 bg-black/10 rounded-full overflow-hidden">
+        <div id="progress-box" class="hidden flex items-center space-x-2 text-[11px] text-mac-textSecondary font-mono shrink-0">
+          <span id="progress-sub" class="text-[10px] text-mac-accent font-sans font-semibold shrink-0">Paso 1/4:</span>
+          <span id="progress-msg" class="truncate max-w-[180px] sm:max-w-xs shrink">Iniciando análisis...</span>
+          <div class="w-20 sm:w-24 h-1.5 bg-black/10 dark:bg-white/10 rounded-full overflow-hidden shrink-0">
             <div id="progress-bar-fill" class="h-full bg-mac-accent rounded-full w-0 transition-all duration-300"></div>
           </div>
-          <span id="progress-counter" class="text-mac-textPrimary font-semibold font-mono">0 leads</span>
+          <span id="progress-counter" class="text-mac-textPrimary font-semibold font-mono shrink-0">0 leads</span>
           <span id="progress-detail" class="hidden"></span>
         </div>
       </div>
@@ -388,25 +393,25 @@
     </section>
 
     <!-- 4. PIPELINE FILTER BAR & VIEW TOGGLES -->
-    <div id="subnav-header" class="min-h-[48px] h-12 px-4 bg-mac-panel hairline-b flex items-center justify-between shrink-0 z-30 gap-3 overflow-visible">
-      <!-- Pipeline Tabs (macOS Segmented Bar) wrapped to scroll horizontally if needed -->
-      <div class="min-w-0 overflow-x-auto custom-scrollbar flex items-center py-1">
-        <div id="pipeline-tabs-bar" class="flex-none inline-flex items-center p-1 rounded-lg bg-black/5 dark:bg-white/[0.07] border border-black/10 dark:border-white/10 text-xs shrink-0 select-none space-x-1">
-          <button type="button" id="tab-todos" onclick="cambiarPestana('todos')" class="w-[168px] justify-center px-2.5 py-1.5 rounded-md bg-white dark:bg-[#2C2C32] text-mac-textPrimary dark:text-white shadow-sm border border-black/10 dark:border-white/15 font-semibold flex items-center space-x-1.5 whitespace-nowrap shrink-0 transition">
-            <span class="whitespace-nowrap">📋 Todos los Leads</span>
+    <div id="subnav-header" class="min-h-[48px] h-12 px-4 bg-mac-panel hairline-b flex items-center justify-between shrink-0 z-30 gap-2 sm:gap-3 overflow-visible">
+      <!-- Pipeline Tabs (macOS Segmented Bar) wrapped in flex-1 to strictly fill remaining space without overlapping right controls -->
+      <div class="flex-1 min-w-0 overflow-x-auto custom-scrollbar flex items-center py-1 mr-2">
+        <div id="pipeline-tabs-bar" class="inline-flex items-center p-1 rounded-lg bg-black/5 dark:bg-white/[0.07] border border-black/10 dark:border-white/10 text-xs shrink-0 select-none space-x-1">
+          <button type="button" id="tab-todos" onclick="cambiarPestana('todos')" class="justify-center px-2.5 py-1.5 rounded-md bg-white dark:bg-[#2C2C32] text-mac-textPrimary dark:text-white shadow-sm border border-black/10 dark:border-white/15 font-semibold flex items-center space-x-1.5 whitespace-nowrap shrink-0 transition">
+            <span class="whitespace-nowrap">📋 Todos<span class="hidden 2xl:inline"> los Leads</span></span>
             <span id="tab-count-todos" class="px-1.5 py-0.2 rounded text-[10px] font-mono bg-black/5 dark:bg-white/10 text-mac-textSecondary">0</span>
           </button>
 
           <div class="h-3.5 w-[1px] bg-black/10 dark:bg-white/15 shrink-0"></div>
 
-          <button type="button" id="tab-prioridad" onclick="cambiarPestana('prioridad')" class="w-[198px] justify-center px-2.5 py-1.5 rounded-md text-mac-textSecondary hover:text-mac-textPrimary hover:bg-black/5 dark:hover:bg-white/10 font-medium flex items-center space-x-1.5 whitespace-nowrap shrink-0 transition border border-transparent">
-            <span class="whitespace-nowrap">🔥 Prioritarios (Sin Web)</span>
+          <button type="button" id="tab-prioridad" onclick="cambiarPestana('prioridad')" class="justify-center px-2.5 py-1.5 rounded-md text-mac-textSecondary hover:text-mac-textPrimary hover:bg-black/5 dark:hover:bg-white/10 font-medium flex items-center space-x-1.5 whitespace-nowrap shrink-0 transition border border-transparent">
+            <span class="whitespace-nowrap">🔥 Prioritarios<span class="hidden 2xl:inline"> (Sin Web)</span></span>
             <span id="tab-count-prioridad" class="px-1.5 py-0.2 rounded text-[10px] font-mono bg-amber-100/80 dark:bg-amber-950/50 text-amber-900 dark:text-amber-300 border border-amber-200/60 dark:border-amber-800/40 font-medium">0</span>
           </button>
 
           <div class="h-3.5 w-[1px] bg-black/10 dark:bg-white/15 shrink-0"></div>
 
-          <button type="button" id="tab-progreso" onclick="cambiarPestana('progreso')" class="w-[138px] justify-center px-2.5 py-1.5 rounded-md text-mac-textSecondary hover:text-mac-textPrimary hover:bg-black/5 dark:hover:bg-white/10 font-medium flex items-center space-x-1.5 whitespace-nowrap shrink-0 transition border border-transparent">
+          <button type="button" id="tab-progreso" onclick="cambiarPestana('progreso')" class="justify-center px-2.5 py-1.5 rounded-md text-mac-textSecondary hover:text-mac-textPrimary hover:bg-black/5 dark:hover:bg-white/10 font-medium flex items-center space-x-1.5 whitespace-nowrap shrink-0 transition border border-transparent">
             <span id="progreso-tab-dot" class="w-1.5 h-1.5 rounded-full bg-mac-amber animate-ping hidden"></span>
             <span class="whitespace-nowrap">⚡ En Progreso</span>
             <span id="tab-count-progreso" class="px-1.5 py-0.2 rounded text-[10px] font-mono bg-black/5 dark:bg-white/10 text-mac-textSecondary font-medium">0</span>
@@ -414,7 +419,7 @@
 
           <div class="h-3.5 w-[1px] bg-black/10 dark:bg-white/15 shrink-0"></div>
 
-          <button type="button" id="tab-demos" onclick="cambiarPestana('demos')" class="w-[130px] justify-center px-2.5 py-1.5 rounded-md text-mac-textSecondary hover:text-mac-textPrimary hover:bg-black/5 dark:hover:bg-white/10 font-medium flex items-center space-x-1.5 whitespace-nowrap shrink-0 transition border border-transparent">
+          <button type="button" id="tab-demos" onclick="cambiarPestana('demos')" class="justify-center px-2.5 py-1.5 rounded-md text-mac-textSecondary hover:text-mac-textPrimary hover:bg-black/5 dark:hover:bg-white/10 font-medium flex items-center space-x-1.5 whitespace-nowrap shrink-0 transition border border-transparent">
             <svg class="w-3 h-3 text-current opacity-80 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="3"/><line x1="12" y1="18" x2="12.01" y2="18" stroke-width="2.5" stroke-linecap="round"/></svg>
             <span class="whitespace-nowrap">Webs Listas</span>
             <span id="tab-count-demos" class="px-1.5 py-0.2 rounded text-[10px] font-mono bg-green-100/80 dark:bg-green-950/50 text-green-900 dark:text-green-300 border border-green-200/60 dark:border-green-800/40 font-medium">0</span>
@@ -422,8 +427,8 @@
 
           <div class="h-3.5 w-[1px] bg-black/10 dark:bg-white/15 shrink-0"></div>
 
-          <button type="button" id="tab-contactados" onclick="cambiarPestana('contactados')" class="w-[168px] justify-center px-2.5 py-1.5 rounded-md text-mac-textSecondary hover:text-mac-textPrimary hover:bg-black/5 dark:hover:bg-white/10 font-medium flex items-center space-x-1.5 whitespace-nowrap shrink-0 transition border border-transparent">
-            <span class="whitespace-nowrap">✉️ Contactados CRM</span>
+          <button type="button" id="tab-contactados" onclick="cambiarPestana('contactados')" class="justify-center px-2.5 py-1.5 rounded-md text-mac-textSecondary hover:text-mac-textPrimary hover:bg-black/5 dark:hover:bg-white/10 font-medium flex items-center space-x-1.5 whitespace-nowrap shrink-0 transition border border-transparent">
+            <span class="whitespace-nowrap">✉️ Contactados<span class="hidden 2xl:inline"> CRM</span></span>
             <span id="tab-count-contactados" class="px-1.5 py-0.2 rounded text-[10px] font-mono bg-black/5 dark:bg-white/10 text-mac-textSecondary font-medium">0</span>
           </button>
         </div>
@@ -435,12 +440,12 @@
       <span id="pipeline-desc" class="hidden"></span>
 
       <!-- Right Controls: Campaign, Search Filter, View Toggle, Batch Action -->
-      <div class="flex-none ml-auto flex items-center space-x-2 shrink-0 relative z-40">
+      <div class="flex-none flex items-center space-x-1.5 sm:space-x-2 shrink-0 relative z-40">
         <!-- Campaign History Dropdown -->
         <div class="relative inline-block text-left" id="campaign-dropdown-wrapper">
-          <button type="button" id="btn-campaign-select" onclick="toggleCampaignDropdown(event)" class="h-7 px-2.5 text-xs bg-black/5 dark:bg-white/5 hairline-all rounded text-mac-textSecondary hover:text-mac-textPrimary flex items-center space-x-1.5 transition">
+          <button type="button" id="btn-campaign-select" onclick="toggleCampaignDropdown(event)" class="h-7 px-2 sm:px-2.5 text-xs bg-black/5 dark:bg-white/5 hairline-all rounded text-mac-textSecondary hover:text-mac-textPrimary flex items-center space-x-1 sm:space-x-1.5 transition">
             <span id="campaign-active-icon">📁</span>
-            <span id="campaign-active-name" class="max-w-[140px] truncate">Todas las Búsquedas</span>
+            <span id="campaign-active-name" class="max-w-[90px] sm:max-w-[130px] truncate">Todas las Búsquedas</span>
             <span id="campaign-active-badge" class="px-1 py-0.2 rounded text-[10px] font-mono bg-black/10 dark:bg-white/10">0</span>
             <svg class="w-3 h-3 text-mac-textTertiary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
@@ -450,7 +455,7 @@
 
         <!-- Search Filter -->
         <div class="relative">
-          <input type="text" id="filtro-tabla" oninput="filtrarTabla()" placeholder="Filtrar por nombre..." class="h-7 w-36 px-2 pl-6 text-xs rounded hairline-all bg-neutral-50 dark:bg-white/5 text-mac-textPrimary placeholder:text-black/30 dark:placeholder:text-white/30 focus:outline-none focus:w-44 transition-all">
+          <input type="text" id="filtro-tabla" oninput="filtrarTabla()" placeholder="Filtrar..." class="h-7 w-24 sm:w-32 lg:w-36 px-2 pl-6 text-xs rounded hairline-all bg-neutral-50 dark:bg-white/5 text-mac-textPrimary placeholder:text-black/30 dark:placeholder:text-white/30 focus:outline-none focus:w-36 sm:focus:w-44 transition-all">
           <svg class="w-3 h-3 text-mac-textTertiary absolute left-2 top-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
         </div>
 
@@ -458,21 +463,21 @@
         <div id="vista-selector-wrapper" class="p-0.5 rounded-md bg-black/5 hairline-all flex text-[11px] font-medium text-mac-textSecondary">
           <button type="button" id="btn-view-table" onclick="cambiarVista('table')" class="px-2 py-0.5 rounded segmented-active flex items-center space-x-1">
             <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>
-            <span>Tabla</span>
+            <span class="hidden sm:inline">Tabla</span>
           </button>
           <button type="button" id="btn-view-kanban" onclick="cambiarVista('kanban')" class="px-2 py-0.5 rounded text-mac-textSecondary hover:text-mac-textPrimary flex items-center space-x-1 transition">
             <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/></svg>
-            <span>Kanban</span>
+            <span class="hidden sm:inline">Kanban</span>
           </button>
         </div>
 
         <!-- Batch Action: Generar Top 3 en Lote -->
-        <button type="button" id="btn-batch-gen" onclick="generarLotePrioritarios(3)" class="h-7 px-2.5 rounded hairline-all bg-white dark:bg-white/10 hover:bg-neutral-50 dark:hover:bg-white/20 text-mac-accent text-xs font-medium inline-flex items-center space-x-1.5 active:scale-95 transition shadow-subtle whitespace-nowrap shrink-0">
+        <button type="button" id="btn-batch-gen" onclick="generarLotePrioritarios(3)" class="h-7 px-2 sm:px-2.5 rounded hairline-all bg-white dark:bg-white/10 hover:bg-neutral-50 dark:hover:bg-white/20 text-mac-accent text-xs font-medium inline-flex items-center space-x-1 sm:space-x-1.5 active:scale-95 transition shadow-subtle whitespace-nowrap shrink-0" title="Generar Top 3 Demos en Lote">
           <svg class="w-3.5 h-3.5 shrink-0 text-mac-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-          <span class="whitespace-nowrap">Generar Top 3 en Lote</span>
+          <span class="whitespace-nowrap">Generar Top 3<span class="hidden xl:inline"> en Lote</span></span>
         </button>
 
-        <button type="button" id="btn-purge-demos" onclick="confirmarBorrarTodasLasDemos()" class="hidden h-7 px-2.5 rounded hairline-all bg-red-50 dark:bg-red-950/40 hover:bg-red-100 dark:hover:bg-red-900/60 text-mac-red text-xs font-medium inline-flex items-center space-x-1.5 active:scale-95 transition whitespace-nowrap shrink-0">
+        <button type="button" id="btn-purge-demos" onclick="confirmarBorrarTodasLasDemos()" class="hidden h-7 px-2 sm:px-2.5 rounded hairline-all bg-red-50 dark:bg-red-950/40 hover:bg-red-100 dark:hover:bg-red-900/60 text-mac-red text-xs font-medium inline-flex items-center space-x-1 sm:space-x-1.5 active:scale-95 transition whitespace-nowrap shrink-0" title="Eliminar Todas las Demos Web">
           <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
           <span class="whitespace-nowrap">Eliminar Demos</span>
         </button>
@@ -1631,13 +1636,13 @@
       }
     }
 
-    // GESTOR DE PESTAÑAS
+    // GESTOR DE PESTAÑAS (Diseño adaptable sin anchos rígidos)
     const TAB_WIDTHS = {
-      todos: 'w-[168px]',
-      prioridad: 'w-[198px]',
-      progreso: 'w-[138px]',
-      demos: 'w-[130px]',
-      contactados: 'w-[168px]'
+      todos: '',
+      prioridad: '',
+      progreso: '',
+      demos: '',
+      contactados: ''
     };
 
     function cambiarPestana(tipo) {
@@ -3593,6 +3598,7 @@
       if (progressDetail) progressDetail.innerText = "Conectando con Gemini 3.8 Flash...";
       if (progressCounter) progressCounter.innerText = "0 encontrados";
       progressBox.classList.remove('hidden');
+      progressBox.classList.add('flex');
       progressMsg.innerText = `Mapeando categoría "${categoria}"...`;
       progressSub.innerText = "Paso 1/4";
 
@@ -3711,6 +3717,7 @@
       } finally {
         setTimeout(() => {
           progressBox.classList.add('hidden');
+          progressBox.classList.remove('flex');
         }, 3000);
         btn.disabled = false;
         btn.classList.remove('opacity-75', 'cursor-not-allowed');

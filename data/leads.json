@@ -2740,89 +2740,97 @@
     "canal_contacto": "Instagram DM"
   },
   {
-    "osm_id": "638346221",
+    "osm_id": "638346222",
     "nombre": "Can Farines",
-    "categoria": "cafeteria (amenity:cafe)",
-    "direccion": "Plaça de Trafalgar 7",
+    "categoria": "tartas personalizadas (shop:bakery)",
+    "direccion": "Carrer de Pérez Galdós",
     "ciudad": "Badalona",
     "provincia": "Barcelona",
     "codigo_postal": "08913",
     "telefono": "",
     "email": "",
-    "tiene_web": false,
-    "instagram_url": "",
-    "instagram_handle": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/canfarines/",
+    "instagram_handle": "@canfarines",
     "enlaces_internet": [
       {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://zokko.es/servicios/panaderias/badalona/can-farines-93278",
-        "titulo": "Can Farines — Panadería en Badalona - Zokko",
-        "snippet": "En Badalona encuentras a Can Farines, panadería de la localidad. Ubicado en Carrer de Pérez Galdós. ¿Es tu negocio? Recl"
+        "tipo": "instagram",
+        "label": "Instagram (@canfarines)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/canfarines/",
+        "titulo": "Can Farines (@canfarines) · Badalona",
+        "snippet": "391 Followers, 123 Following, 24 Posts - See Instagram photos and videos from Can Farines (@canfarines)"
       },
       {
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://www.horariosytiendas.es/can-farines/badalona/c-6889951f1a8e06b0f2b35a8d",
-        "titulo": "Can Farines | Horarios y Tiendas",
-        "snippet": "Sorli Discau - Badalona (MARQUES DE SANT MORI, 124). MARQUES DE SANT MORI, 124 Badalona. Grup Sorli es una cadena de ali"
+        "url": "https://mapcarta.com/es/N638346222",
+        "titulo": "Can Farines - Mapa - Panadería - Badalona, Cataluña, España",
+        "snippet": "Can Farines es una panadería en Badalona, Provincia de Barcelona, Cataluña que se localiza en Carrer de Pérez Galdós. Ma"
+      },
+      {
+        "tipo": "instagram",
+        "label": "Instagram",
+        "icono": "📸",
+        "url": "https://www.instagram.com/canfarines/?hl=en",
+        "titulo": "Can Farines (@canfarines) · Badalona",
+        "snippet": "391 Followers, 123 Following, 24 Posts - See Instagram photos and videos from Can Farines (@canfarines)"
       },
       {
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://www.idealista.com/maps/badalona-barcelona/calle-guifre/86/",
-        "titulo": "Calle Guifre, 86, Badalona - Idealista",
-        "snippet": "Carnisseria Ecològica Can Kevin - \"Avinguda de Sant Ignasi de Loiola\". 0,013 km. Carnicería · Tel: \"+34931996619\". Can F"
-      },
-      {
-        "tipo": "directorio",
-        "label": "Directorio Local",
-        "icono": "📁",
-        "url": "https://www.paginasamarillas.es/f/badalona/pa-cuit-s-l-_021223870_000000004.html",
-        "titulo": "PA CUIT S.L. - Badalona - Avinguda Catalunya, 44 2-A(TDA)",
-        "snippet": "Panaderia PA CUIT S.L. es un negocio ubicado en Avinguda Catalunya, 44 2-A(TDA), Badalona. Puedes contactar con este neg"
+        "url": "https://www.toogoodtogo.com/es/find/badalona/canfarines/bakedgoods/838263",
+        "titulo": "Can Farines Badalona | Too Good To Go en Badalona – Salva buena comida cerca de ti",
+        "snippet": "Disfruta de comida de Can Farines Badalona en Badalona por solo 2,99 €. Reduce el desperdicio de alimentos con Too Good "
       },
       {
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://bufsdefarina.com/",
-        "titulo": "Bufs de farina: Coffe & Bakery en Badalona",
-        "snippet": "Sumérgete en el mundo de los sabores dulces y salados con nuestra selección de gofres y crepes, perfectos para cualquier"
+        "url": "https://dondeiracomer.es/places/71608-can-farines",
+        "titulo": "Can Farines es Panadería en Badalona",
+        "snippet": "Can Farines con sede en Badalona es Panadería. La dirección postal de Can Farines es Passeig de la Salut, 41, 08914 Sant"
       },
       {
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://www.idealista.com/maps/badalona-barcelona/calle-guifre/103/",
-        "titulo": "Calle Guifre, 103, Badalona - Idealista",
-        "snippet": "Información del edificio en Calle Guifre, 103, Badalona · 661 m² de parcela · Construido en 1975 · Edificio de 8 plantas"
+        "url": "https://mapcarta.com/es/N638346221",
+        "titulo": "Can Farines - Mapa - Cafetería - Badalona, Cataluña, España",
+        "snippet": "Can Farines es una cafetería en Badalona, Provincia de Barcelona, Cataluña que se localiza en Plaça de Trafalgar. Mapcar"
       }
     ],
-    "web_detectada": "",
+    "web_detectada": "https://mapcarta.com/es/N638346222",
     "google_search_url": "https://www.google.com/search?q=Can+Farines+Badalona",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Can+Farines+Badalona",
     "gemini_verificado": true,
-    "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Sitio Web, Directorio Local)",
-    "mensaje_dm": "¡Hola equipo de Can Farines!\n\nSoy Daniel García. He visto vuestro trabajo y os he preparado una web demo interactiva adaptada a vuestro negocio para mostraros cómo potenciar vuestra presencia digital y captar clientes desde el móvil:\n\n👉\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Can Farines!\n\nOs escribí hace un par de días con la propuesta web interactiva que preparé para vosotros:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Sin Web",
-    "demo_slug": "",
-    "demo_url": "",
-    "demo_vibe": "",
-    "campana_id": "camp_1788898547",
-    "campana_nombre": "Cafeteria · barcelona",
+    "gemini_razon": "Comercio local verificado sin web propia",
+    "mensaje_dm": "¡Hola equipo de Can Farines!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://mapcarta.com/es/N638346222), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://dga80.github.io/instaleads/can-farines-badalona/\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Can Farines!\n\nOs escribí hace un par de días con la web demo interactiva y propuesta de rediseño para vuestra web: https://dga80.github.io/instaleads/can-farines-badalona/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Web Generada",
+    "demo_slug": "can-farines-badalona",
+    "demo_url": "https://dga80.github.io/instaleads/can-farines-badalona/",
+    "demo_vibe": "Warm Artisan (Cafeterías de Especialidad, Panaderías & Gastro)",
+    "campana_id": "camp_1790414512",
+    "campana_nombre": "Tartas Personalizadas · Barcelona",
     "campana_ids": [
-      "camp_1788898547"
-    ]
+      "camp_1788898547",
+      "camp_1790414512"
+    ],
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/can-farines-badalona/",
+    "demo_url_publica": "https://dga80.github.io/instaleads/can-farines-badalona/",
+    "demo_fecha_creacion": "26/09/2026 11:34",
+    "demo_fecha_ts": 1790415284,
+    "extraccion_fuente": "apify",
+    "extraccion_aviso": "",
+    "extraccion_exitosa": true
   },
   {
     "osm_id": "643429648",
     "nombre": "Joan Figuera",
-    "categoria": "cafeteria (amenity:cafe)",
+    "categoria": "tartas personalizadas (shop:bakery)",
     "direccion": "Carretera de Santa Coloma 2",
     "ciudad": "Badalona",
     "provincia": "Barcelona",
@@ -2830,73 +2838,34 @@
     "telefono": "",
     "email": "",
     "tiene_web": false,
-    "instagram_url": "https://www.instagram.com/lafiguerabadalona/",
-    "instagram_handle": "@lafiguerabadalona",
+    "instagram_url": "https://www.instagram.com/joan.figuera/",
+    "instagram_handle": "@joan.figuera",
     "enlaces_internet": [
       {
         "tipo": "instagram",
-        "label": "Instagram (@lafiguerabadalona)",
+        "label": "Instagram (@joan.figuera)",
         "icono": "📸",
-        "url": "https://www.instagram.com/lafiguerabadalona/",
-        "titulo": "RESTAURANT LA FIGUERA (@lafiguerabadalona) - Instagram",
-        "snippet": "299 Followers, 8 Following, 25 Posts - RESTAURANT LA FIGUERA (@lafiguerabadalona) on Instagram: \"🍕 Pizzes, coques i post"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://coffeeshopnomads.com/coffee-shop/joan-figuera-badalona/",
-        "titulo": "Joan Figuera — Badalona - CoffeeShop Nomads",
-        "snippet": "Joan Figuera at 2 Carretera de Santa Coloma, Badalona. Hours: Mo-Fr 06:30-21:00; Sa 07:00-21:00; Su 08:00-21:00; PH clos"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://es.restaurantguru.com/Forn-De-Pa-Joan-Figuera-Badalona",
-        "titulo": "Forns de pa Figuera, Badalona - Menú del restaurante, precios ...Forns de pa Figuera, Avinguda dels Vents, nº60 in Badalona ...Forns de pa Figuera – Panadería en Badalona, BarcelonaCoffee Shops in Badalona, SpainForns de pa Figuera – Panadería en Badalona, BarcelonaFleca Joan Figuera - Mapa - Panadería - Badalona, Cataluña ...",
-        "snippet": "May 5, 2025 · Forns de pa Figuera, ubicado en la Ctra. de Santa Coloma, se encuentra cerca de la estación de metro Artig"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://restaurantguru.com/Forns-de-pa-Figuera-Badalona",
-        "titulo": "Forns de pa Figuera, Avinguda dels Vents, nº60 in Badalona ...Forns de pa Figuera – Panadería en Badalona, BarcelonaCoffee Shops in Badalona, SpainForns de pa Figuera – Panadería en Badalona, BarcelonaFleca Joan Figuera - Mapa - Panadería - Badalona, Cataluña ...",
-        "snippet": "Sep 28, 2022 · All info on Forns de pa Figuera in Badalona - Call to book a table. View the menu, check prices, find on "
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://panaderiaminutos.es/7593-forns-de-pa-figuera-panaderia-en-badalona-barcelona/",
-        "titulo": "Forns de pa Figuera – Panadería en Badalona, Barcelona",
-        "snippet": "Jan 10, 2024 · Desde que descubrí Forns de pa Figuera, mi vida ha cambiado para mejor. Ubicada en la Avinguda de Puigfre"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://coffeeshopnomads.com/cities/badalona-spain/",
-        "titulo": "Coffee Shops in Badalona, Spain",
-        "snippet": "3 coffee shops in Badalona, Spain. 3 with verified addresses, hours, and websites — from specialty roasters to remote-wo"
+        "url": "https://www.instagram.com/joan.figuera/",
+        "titulo": "Joan Figuera (@joan.figuera) • Instagram photos and videos",
+        "snippet": "Empecé a entender cuando aprendi a caer🥋⛩️ 🌱 Ocupado Jita kyoei⛩️@ttitude🥋Kaizen🇯🇵 ⬛⬛ / 🟥⬜707 followers · 822 following."
       }
     ],
     "web_detectada": "",
     "google_search_url": "https://www.google.com/search?q=Joan+Figuera+Badalona",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Joan+Figuera+Badalona",
     "gemini_verificado": true,
-    "gemini_razon": "Validación automática heurística",
-    "mensaje_dm": "¡Hola! He estado echando un ojo a vuestro perfil de Instagram de La Figuera en Badalona y me encanta lo que hacéis.\n\nSoy Daniel García, diseñador y desarrollador web en Barcelona. He preparado una web demo interactiva utilizando el contenido de vuestro propio perfil, pensada especialmente para potenciar vuestra imagen digital y facilitar que os encuentren y contacten desde el móvil:\n\n👉 https://dga80.github.io/instaleads/joan-figuera-badalona/\n*(Es un enlace 100% seguro, se abre directamente en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os gusta, podemos comentarlo 2 minutos sin ningún compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo!\n\nOs escribí hace un par de días para enseñaros la web demo interactiva que os preparé con vuestro contenido: https://dga80.github.io/instaleads/joan-figuera-badalona/\n\nOs la vuelvo a dejar por aquí por si no tuvisteis tiempo de verla. Se visualiza perfectamente desde el móvil.\n\n¿Os apetecería que lo comentáramos 2 minutos esta semana sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "gemini_razon": "Perfil local de Joan Figuera identificado sin página web oficial detectada",
+    "mensaje_dm": "¡Hola Joan!\n\nSoy Daniel García. He visto tu perfil y actividad en Instagram y te he preparado una web demo interactiva utilizando contenido de tu propia cuenta, pensada para potenciar tu marca personal y facilitar el contacto directo desde el móvil:\n\n👉 https://...\n*(Enlace 100% seguro para verlo en el navegador sin descargas ni registros)*.\n\n¿Qué te parece la propuesta? Si te resulta interesante, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo Joan!\n\nTe escribí hace un par de días compartiéndote la web demo interactiva que preparé para tu perfil: https://...\n\nTe lo vuelvo a dejar por aquí por si no pudiste revisarlo en su momento desde el móvil.\n\n¿Tienes 2 minutos para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
     "estado": "DM Enviado",
     "demo_slug": "joan-figuera-badalona",
     "demo_url": "https://dga80.github.io/instaleads/joan-figuera-badalona/",
     "demo_vibe": "Warm Artisan (Cafeterías de Especialidad, Panaderías & Gastro)",
-    "campana_id": "camp_1788898547",
-    "campana_nombre": "Cafeteria · barcelona",
+    "campana_id": "camp_1790414512",
+    "campana_nombre": "Tartas Personalizadas · Barcelona",
     "campana_ids": [
-      "camp_1788898547"
+      "camp_1788898547",
+      "camp_1790414512"
     ],
     "demo_url_absoluta": "https://dga80.github.io/instaleads/joan-figuera-badalona/",
     "demo_url_publica": "https://dga80.github.io/instaleads/joan-figuera-badalona/",
@@ -5963,6 +5932,2317 @@
     "campana_nombre": "Car Detailing · barcelona",
     "campana_ids": [
       "camp_1789934973"
+    ]
+  },
+  {
+    "osm_id": "647277151",
+    "nombre": "1880",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "Calle de los Mancebos 6",
+    "ciudad": "Madrid",
+    "provincia": "",
+    "codigo_postal": "28005",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://es.wikipedia.org/wiki/La_10_Madrid",
+        "titulo": "La 10 Madrid",
+        "snippet": "La 10 Madrid, conocida anteriormente como Telemadroño y posteriormente Onda 6 Madrid, fue una cadena de televisión regio"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://es.wikipedia.org/wiki/Conferencia_Internacional_de_Madrid_de_1880",
+        "titulo": "Conferencia Internacional de Madrid de 1880 - Wikipedia, la enciclopedia libre",
+        "snippet": "May 15, 2025 - La Conferencia Internacional de Madrid de 1880 tuvo lugar en Madrid, España, entre junio y julio de 1880."
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://en.wikipedia.org/wiki/Treaty_of_Madrid_(1880)",
+        "titulo": "Treaty of Madrid (1880) - Wikipedia",
+        "snippet": "December 20, 2024 - The Treaty of Madrid (1880) was the result of the Conference of Madrid held during 1880 in that city"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://grokipedia.com/page/treaty_of_madrid_1880",
+        "titulo": "Treaty of Madrid (1880)",
+        "snippet": "The Convention of Madrid, signed on 3 July 1880 in Madrid, Spain, was a multilateral treaty between the Sultanate of Mor"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://www.turron1880.com/tienda/madrid3.html",
+        "titulo": "Casa 1880",
+        "snippet": "Av. de Concha Espina, 1, Santiago Bernabéu, Bajo puerta 54 Chamartín Madrid Madrid ES"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://todoestaenmadrid.com/es/shops/casa-1880-familia-sirvent",
+        "titulo": "Casa 1880. Familia Sirvent - Todo está en Madrid",
+        "snippet": "Regalos, eventos, dulces y delicatessen en una zona histórica de Madrid con experiencias e historia en torno al turrón ."
+      }
+    ],
+    "web_detectada": "https://www.turron1880.com/tienda/madrid3.html",
+    "google_search_url": "https://www.google.com/search?q=1880+Madrid",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=1880+Madrid",
+    "gemini_verificado": true,
+    "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Sitio Web, Sitio Web Detectado)",
+    "mensaje_dm": "¡Hola equipo de 1880!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://www.turron1880.com/tienda/madrid3.html), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de 1880!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con el contenido de vuestra propia página: https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789938527",
+    "campana_nombre": "Estudio De Tatuajes · madrid",
+    "campana_ids": [
+      "camp_1789938527"
+    ]
+  },
+  {
+    "osm_id": "2475477308",
+    "nombre": "Valhalla",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "",
+    "ciudad": "Madrid",
+    "provincia": "",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/valhallahookahexperience/",
+    "instagram_handle": "@valhallahookahexperience",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@valhallahookahexperience)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/valhallahookahexperience/",
+        "titulo": "Valhalla Madrid (@valhallahookahexperience) • Instagram photos and videos",
+        "snippet": "32 Followers, 71 Following, 15 Posts - See Instagram photos and videos from Valhalla Madrid (@valhallahookahexperience)"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://valhallavielo.com/",
+        "titulo": "Valhalla",
+        "snippet": "Valhalla Cocina de autor · Alpedrete Bienvenidos a Valhalla Reserva tu mesa y descubre nuestra carta en el corazón de la"
+      },
+      {
+        "tipo": "social",
+        "label": "Enlace Externo",
+        "icono": "🔗",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g2435356-d8534778-Reviews-Valhalla_by_HectorCheca-El_Escorial.html",
+        "titulo": "VALHALLA BY HÉCTORCHECA, El Escorial - TripadvisorCervecería Valhalla, Madrid - Menú del restaurante, precios y ...ValhallaCervecería Valhalla in Madrid - Restaurant reviewsContacto - Valhalla",
+        "snippet": "Apr 30, 2024 · Es profesora de comportamiento organizacional y liderazgo en no sé qué (Madrid, España), fue investigador"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://es.restaurantguru.com/Valhalla-Madrid",
+        "titulo": "Cervecería Valhalla, Madrid - Menú del restaurante, precios y ...ValhallaCervecería Valhalla in Madrid - Restaurant reviewsContacto - Valhalla",
+        "snippet": "Aug 15, 2026 · Cervecería Valhalla en Madrid calificado 1.7 de 5 en Restaurant Guru: 568 reseñas de visitantes, 32 fotos"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://valhallavielo.com/menu",
+        "titulo": "Valhalla",
+        "snippet": "Volver al inicio Valhalla"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://restaurantguru.com/Valhalla-Madrid",
+        "titulo": "Cervecería Valhalla in Madrid - Restaurant reviews",
+        "snippet": "Nov 12, 2022 · All info on Cervecería Valhalla in Madrid - Call to book a table. View the menu, check prices, find on th"
+      }
+    ],
+    "web_detectada": "https://valhallavielo.com/",
+    "google_search_url": "https://www.google.com/search?q=Valhalla+Madrid",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Valhalla+Madrid",
+    "gemini_verificado": true,
+    "gemini_razon": "Comercio local con web oficial activa (https://valhallavielo.com/)",
+    "mensaje_dm": "¡Hola equipo de Valhalla!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://valhallavielo.com/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Valhalla!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con el contenido de vuestra propia página como propuesta de rediseño: https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789938527",
+    "campana_nombre": "Estudio De Tatuajes · madrid",
+    "campana_ids": [
+      "camp_1789938527"
+    ]
+  },
+  {
+    "osm_id": "2912539523",
+    "nombre": "Woman Tattoo",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "Calle de la Concepción Jerónima 31",
+    "ciudad": "Madrid",
+    "provincia": "",
+    "codigo_postal": "28012",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/womantattoo_madrid/",
+    "instagram_handle": "@womantattoo_madrid",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@womantattoo_madrid)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/womantattoo_madrid/",
+        "titulo": "Woman tattoo (@womantattoo_madrid) - InstagramWoman tattoo (@womantattoo_madrid) • Instagram photos and videos𝑳𝒂 𝑴𝒖𝒋𝒆𝒓 𝑩𝒂𝒓𝒃𝒖𝒅𝒂 𝑻𝒂𝒕𝒕𝒐𝒐 𝑺𝒉𝒐𝒑 (@lamujerbar...TATUAJES FINELINE MADRID (@madridarttattoo) - InstagramTatuaje madrid (@tatuaje_madrid) • Instagram photos and videosEstigma Tattoo Madrid (@estigma_tattoo) • Instagram photos ...ᴼᴺᴱ ᴹᴼᴿᴱ ᵀᴬᵀᵀᴼᴼ (@onemoretattoomadrid) • Instagram photos and ...",
+        "snippet": "4,366 Followers, 103 Following, 683 Posts - Woman tattoo (@womantattoo_madrid) on Instagram: \"Madrid | Plaza mayor 📍 Est"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://tatuajemujer.com/tattoo-shop/",
+        "titulo": "Tattoo shop - Woman Tattoo | Tattoo Shop Madrid City Center",
+        "snippet": "We offer a comfortable, private, and safe environment with six tattoo booths and the best materials to ensure a professi"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://tatuajemujer.com/",
+        "titulo": "Tatuaje Mujer - Woman Tattoo | Tattoo Shop Madrid City Center",
+        "snippet": "Las mejores tatuadoras de Madrid junto a la Plaza Mayor. Tanto la piel de las mujeres es diferente de la de los hombres,"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://inkppl.com/en/studio/womantattoo",
+        "titulo": "WOMAN TATTOO -- Tattoo Studio in Madrid | iNKPPL",
+        "snippet": "WOMAN TATTOO — tattoo studio in Madrid, Spain. Portfolio, reviews, team of artists. Book appointment on iNKPPL."
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://tatuadoresen.com/woman-tattoo-madrid/",
+        "titulo": "Woman Tattoo - Madrid ️ Opiniones, Horario y Dirección ...Woman Tattoo - Madrid, MTattoo Artists & Studios in madrid, spain - tattooswizard.com",
+        "snippet": "Datos, contacto, información, opiniones y horarios de Woman Tattoo - Madrid. ¡Descúbrelo! ¿Por qué elegir nuestro estudi"
+      },
+      {
+        "tipo": "social",
+        "label": "Enlace Externo",
+        "icono": "🔗",
+        "url": "https://www.yelp.com/biz/woman-tattoo-madrid",
+        "titulo": "Woman Tattoo - Madrid, M",
+        "snippet": "¿Por qué elegir nuestro estudio de tatuajes en Madrid? Nuestro equipo ha sido seleccionado por su experiencia y talento,"
+      }
+    ],
+    "web_detectada": "https://tatuajemujer.com/tattoo-shop/",
+    "google_search_url": "https://www.google.com/search?q=Woman+Tattoo+Madrid",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Woman+Tattoo+Madrid",
+    "gemini_verificado": true,
+    "gemini_razon": "Validación automática heurística",
+    "mensaje_dm": "¡Hola equipo de Woman Tattoo!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://tatuajemujer.com/tattoo-shop/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://dga80.github.io/instaleads/woman-tattoo-madrid/\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Woman Tattoo!\n\nOs escribí hace un par de días con la web demo interactiva que preparé para vosotros con el contenido de vuestra página: https://dga80.github.io/instaleads/woman-tattoo-madrid/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Web Generada",
+    "demo_slug": "woman-tattoo-madrid",
+    "demo_url": "https://dga80.github.io/instaleads/woman-tattoo-madrid/",
+    "demo_vibe": "Urban Edge & Dark Tech (Tatuajes, Barberías, Talleres & Fitness)",
+    "campana_id": "camp_1789938527",
+    "campana_nombre": "Estudio De Tatuajes · madrid",
+    "campana_ids": [
+      "camp_1789938527"
+    ],
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/woman-tattoo-madrid/",
+    "demo_url_publica": "https://dga80.github.io/instaleads/woman-tattoo-madrid/",
+    "demo_fecha_creacion": "20/09/2026 23:24",
+    "demo_fecha_ts": 1789939440,
+    "extraccion_fuente": "apify",
+    "extraccion_aviso": "",
+    "extraccion_exitosa": true
+  },
+  {
+    "osm_id": "2919090967",
+    "nombre": "Barba Roja",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "",
+    "ciudad": "Madrid",
+    "provincia": "",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://es.wikipedia.org/wiki/Bárbara_Lamadrid",
+        "titulo": "Bárbara Lamadrid",
+        "snippet": "Bárbara Lamadrid, nombre artístico de Bárbara Hervella Cano, (Sevilla, 4 de diciembre de 1812-Madrid, 21 de abril de 189"
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Barba+Roja+Madrid",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Barba+Roja+Madrid",
+    "gemini_verificado": false,
+    "gemini_razon": "Sin Instagram. Presencia online detectada (1 fuentes: Sitio Web)",
+    "mensaje_dm": "",
+    "mensaje_seguimiento": "",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789938527",
+    "campana_nombre": "Estudio De Tatuajes · madrid",
+    "campana_ids": [
+      "camp_1789938527"
+    ]
+  },
+  {
+    "osm_id": "3385668720",
+    "nombre": "Marca Sacra Tattoo & Piercing",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "",
+    "ciudad": "Madrid",
+    "provincia": "",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "https://www.instagram.com/marca.sacra.tattoo.madrid/",
+    "instagram_handle": "@marca.sacra.tattoo.madrid",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@marca.sacra.tattoo.madrid)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/marca.sacra.tattoo.madrid/",
+        "titulo": "Marca Sacra Tattoo Madrid (@marca.sacra.tattoo.madrid) - Instagram",
+        "snippet": "13K Followers, 6,494 Following, 216 Posts - Marca Sacra Tattoo Madrid (@marca.sacra.tattoo.madrid) on Instagram: \"📍Chama"
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Marca+Sacra+Tattoo+%26+Piercing+Madrid",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Marca+Sacra+Tattoo+%26+Piercing+Madrid",
+    "gemini_verificado": true,
+    "gemini_razon": "Comercio local verificado sin web propia.",
+    "mensaje_dm": "¡Hola equipo de Marca Sacra Tattoo & Piercing!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉 https://dga-creative.netlify.app/demo/marca-sacra-tattoo\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Marca Sacra Tattoo & Piercing!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil: https://dga-creative.netlify.app/demo/marca-sacra-tattoo\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789938527",
+    "campana_nombre": "Estudio De Tatuajes · madrid",
+    "campana_ids": [
+      "camp_1789938527"
+    ]
+  },
+  {
+    "osm_id": "3431845452",
+    "nombre": "Factory Tattoo",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "",
+    "ciudad": "Madrid",
+    "provincia": "",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/factorytattoo/",
+    "instagram_handle": "@factorytattoo",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@factorytattoo)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/factorytattoo/",
+        "titulo": "FactoryTattoo Studio (@factorytattoo) • Instagram photos and ...",
+        "snippet": "204 Followers, 319 Following, 176 Posts - FactoryTattoo Studio (@factorytattoo) on Instagram: \"\""
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://bonvivanttattoostudio.com/",
+        "titulo": "Bon Vivant Tattoo Studio Madrid",
+        "snippet": "Tatuajes, piercing, micropigmentación y gemas dentales en Madrid. Estudio premium en Calle Montera con artistas especial"
+      },
+      {
+        "tipo": "instagram",
+        "label": "Instagram",
+        "icono": "📸",
+        "url": "https://www.instagram.com/bonvivant_tattoostudio/?hl=es",
+        "titulo": "Bon Vivant | Tattoo Piercing Studio (@bonvivant_tattoostudio)",
+        "snippet": "MADRID Montera 24 Citas y consultas ⚡️Appointments DM Whatsapp 647702947 Lunes a Domingo 11:00 a 22:00h."
+      },
+      {
+        "tipo": "social",
+        "label": "Enlace Externo",
+        "icono": "🔗",
+        "url": "https://m.yelp.com/biz/factory-tattoo-madrid-2?hrid=qbb78TOLxXA-NC6qMLQC_g",
+        "titulo": "FACTORY TATTOO - Updated September 2026 - 13 Reviews - Yelp",
+        "snippet": "FACTORY TATTOO, Calle de la Montera, 24, 28013 Madrid, Spain, 4 Photos, +34915214469, Mon - 10:00 am - 10:00 pm, Tue - 1"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.monteratattoo.es/",
+        "titulo": "Montera Tattoo: Inicio",
+        "snippet": "Montera Tattoo, uno de los estudios pioneros en el mundo del tatuaje artístico profesional y del body piercing sin dolor"
+      },
+      {
+        "tipo": "instagram",
+        "label": "Instagram",
+        "icono": "📸",
+        "url": "https://www.instagram.com/monteratattoo/?hl=es",
+        "titulo": "Montera Tattoo (@monteratattoo) · Madrid - Instagram",
+        "snippet": "4.5K+ followers · 658 posts · SIN CITA PREVIA PARA PIERCING. PARA TATTOOS PASA POR EL ESTUDIO Y TE DAMOS PRESU SIN COMPR"
+      }
+    ],
+    "web_detectada": "https://bonvivanttattoostudio.com/",
+    "google_search_url": "https://www.google.com/search?q=Factory+Tattoo+Madrid",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Factory+Tattoo+Madrid",
+    "gemini_verificado": true,
+    "gemini_razon": "Comercio local con web oficial activa (https://bonvivanttattoostudio.com/)",
+    "mensaje_dm": "¡Hola equipo de Factory Tattoo!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://bonvivanttattoostudio.com/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Factory Tattoo!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con el contenido de vuestra propia página como propuesta de rediseño: https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789938527",
+    "campana_nombre": "Estudio De Tatuajes · madrid",
+    "campana_ids": [
+      "camp_1789938527"
+    ]
+  },
+  {
+    "osm_id": "3451182783",
+    "nombre": "Soul",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "",
+    "ciudad": "Madrid",
+    "provincia": "",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "https://www.instagram.com/soulatino.es/",
+    "instagram_handle": "@soulatino.es",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@soulatino.es)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/soulatino.es/",
+        "titulo": "Soul Latino (@soulatino.es) • Instagram photos and videos",
+        "snippet": "10K Followers, 7 Following, 93 Posts - Soul Latino 🎶 (@soulatino.es) on Instagram: \"👉🏻 Soul Latino 11 de Octubre (Madrid"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://es.wikipedia.org/wiki/Sol_(Madrid)",
+        "titulo": "Sol (Madrid)",
+        "snippet": "Sol es uno de los seis barrios administrativos que conforman el distrito Centro de la ciudad de Madrid. Comprende la Pue"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://en.wikipedia.org/wiki/Sol_Madrid",
+        "titulo": "Sol Madrid - Wikipedia",
+        "snippet": "Sol Madrid is a 1968 American action film directed by Brian G. Hutton and filmed in Acapulco. Based on the 1965 novel Fr"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://salirmadrid.es/live-music-soul-madrid",
+        "titulo": "Live music soul in Madrid - SalirMadrid.es",
+        "snippet": "Jul 29, 2026 · We have 35 events for Live music soul in Madrid: Ekathe & Chinwezz Trio, Concierto Pablo Navarro & The Br"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://feverup.com/m/419333",
+        "titulo": "Entradas The Jazz Room Madrid: Tributo al Soul | Fever",
+        "snippet": "Disfruta de su nuevo concierto de Soul en Madrid lleno de alma y ritmo. ¡Consigue tus entradas!"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://salirmadrid.es/conciertos-soul-madrid",
+        "titulo": "Conciertos soul en Madrid | SalirMadrid.es - NocheMAD",
+        "snippet": "Tenemos 35 eventos para Conciertos soul en Madrid: AFROJAM, Concierto de Fat Freddy´s Drop en Madrid, Zucchero, Clarence"
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Soul+Madrid",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Soul+Madrid",
+    "gemini_verificado": true,
+    "gemini_razon": "Coincide el negocio y ubicación, pero sin web oficial",
+    "mensaje_dm": "¡Hola equipo de Soul Latino!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram (@soulatino.es) y me ha parecido muy interesante. Os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉 https://...\n*(Enlace 100% seguro para verlo en el navegador sin registros ni descargas)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Soul Latino!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil: https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789938527",
+    "campana_nombre": "Estudio De Tatuajes · madrid",
+    "campana_ids": [
+      "camp_1789938527"
+    ]
+  },
+  {
+    "osm_id": "3471997530",
+    "nombre": "True Love Tattoo",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "Calle de Velarde 22",
+    "ciudad": "Madrid",
+    "provincia": "",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/truelovetattoomadrid/",
+    "instagram_handle": "@truelovetattoomadrid",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@truelovetattoomadrid)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/truelovetattoomadrid/",
+        "titulo": "True Love Tattoo Madrid (@truelovetattoomadrid) - Instagram",
+        "snippet": "Horario Lunes - 17:00hs. a 21:00hs. Martes a Sabados- 12:30hs. a 21:00hs. · By @gonzalo. · By @ricardodepazz DM para cit"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://truelovetatuajesmadrid.com/nuestro-equipo/",
+        "titulo": "Nuestro equipo - True Love Tattoo",
+        "snippet": "Trabajo en Madrid, en True Love Tattoo desde 2023. También colaboro a menudo con estudios de otras ciudades de España co"
+      },
+      {
+        "tipo": "instagram",
+        "label": "Instagram",
+        "icono": "📸",
+        "url": "https://www.instagram.com/TRUELOVETATTOOMADRID/",
+        "titulo": "True Love Tattoo Madrid (@truelovetattoomadrid) - Instagram",
+        "snippet": "40K Followers, 335 Following, 4906 Posts - True Love Tattoo Madrid (@TRUELOVETATTOOMADRID) on Instagram: \"Horario Lunes "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://es.tattoofilter.com/estudios-de-tatuajes/madrid/truelovetattoo",
+        "titulo": "True Love Tattoo | Tattoofilter",
+        "snippet": "room C/ Velarde 22, Madrid, Comunidad de Madrid · tatuajes · likes · seguidores."
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.fresha.com/es/lvp/true-love-tattoo-calle-de-velarde-madrid-q8wVwR",
+        "titulo": "True Love Tattoo - C. de Velarde, 22, Centro, 28004 Madrid, Spain",
+        "snippet": "True Love Tattoo · C. de Velarde, 22, Centro, 28004 Madrid, Spain · Cómo llegar · Sitio web. True Love Tattoo. Atrás. Se"
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/p/True-Love-Tattoo-100069294667964/?locale=es_ES",
+        "titulo": "True Love Tattoo | Madrid - Facebook",
+        "snippet": "True Love Tattoo, Madrid. 8125 likes · 17 talking about this · 1349 were here. Tattoo & Piercing Shop."
+      }
+    ],
+    "web_detectada": "https://truelovetatuajesmadrid.com/nuestro-equipo/",
+    "google_search_url": "https://www.google.com/search?q=True+Love+Tattoo+Madrid",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=True+Love+Tattoo+Madrid",
+    "gemini_verificado": true,
+    "gemini_razon": "Validación automática heurística",
+    "mensaje_dm": "¡Hola equipo de True Love Tattoo!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://truelovetatuajesmadrid.com/nuestro-equipo/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de True Love Tattoo!\n\nOs escribí hace un par de días con la web demo interactiva que preparé para vosotros con el contenido de vuestra página:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789938527",
+    "campana_nombre": "Estudio De Tatuajes · madrid",
+    "campana_ids": [
+      "camp_1789938527"
+    ]
+  },
+  {
+    "osm_id": "3644961941",
+    "nombre": "Montera Tattoo",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "",
+    "ciudad": "Madrid",
+    "provincia": "",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "https://www.instagram.com/monteratattoo/",
+    "instagram_handle": "@monteratattoo",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@monteratattoo)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/monteratattoo/",
+        "titulo": "Montera Tattoo (@monteratattoo) • Instagram photos and videos",
+        "snippet": "4,459 Followers, 2,007 Following, 658 Posts - Montera Tattoo (@monteratattoo) on Instagram: \"SIN CITA PREVIA PARA PIERCI"
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Montera+Tattoo+Madrid",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Montera+Tattoo+Madrid",
+    "gemini_verificado": true,
+    "gemini_razon": "Validación automática heurística",
+    "mensaje_dm": "¡Hola equipo de Montera Tattoo!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Montera Tattoo!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789938527",
+    "campana_nombre": "Estudio De Tatuajes · madrid",
+    "campana_ids": [
+      "camp_1789938527"
+    ]
+  },
+  {
+    "osm_id": "3708002999",
+    "nombre": "Por Vida",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "Calle de Fuencarral 43",
+    "ciudad": "Madrid",
+    "provincia": "",
+    "codigo_postal": "28004",
+    "telefono": "+34 915 219 442",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Por+Vida+Madrid",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Por+Vida+Madrid",
+    "gemini_verificado": false,
+    "gemini_razon": "Sin Instagram ni presencia web detectada",
+    "mensaje_dm": "",
+    "mensaje_seguimiento": "",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789938527",
+    "campana_nombre": "Estudio De Tatuajes · madrid",
+    "campana_ids": [
+      "camp_1789938527"
+    ]
+  },
+  {
+    "osm_id": "4181782913",
+    "nombre": "Red Kirin",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "Calle de Colón 5",
+    "ciudad": "Madrid",
+    "provincia": "",
+    "codigo_postal": "28004",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Red+Kirin+Madrid",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Red+Kirin+Madrid",
+    "gemini_verificado": false,
+    "gemini_razon": "Sin Instagram ni presencia web detectada",
+    "mensaje_dm": "",
+    "mensaje_seguimiento": "",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789938527",
+    "campana_nombre": "Estudio De Tatuajes · madrid",
+    "campana_ids": [
+      "camp_1789938527"
+    ]
+  },
+  {
+    "osm_id": "4230248823",
+    "nombre": "Boiza",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "",
+    "ciudad": "Madrid",
+    "provincia": "",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://es.wikipedia.org/wiki/Bolsa_de_Madrid",
+        "titulo": "Bolsa de Madrid",
+        "snippet": "La Bolsa de Madrid es el principal mercado de valores de España, con sede en el Palacio de la Bolsa de Madrid, un edific"
+      },
+      {
+        "tipo": "linkedin",
+        "label": "LinkedIn",
+        "icono": "💼",
+        "url": "https://es.linkedin.com/pub/dir/+/Boiza/es-5113-Madrid-y-alrededores",
+        "titulo": "60+ perfiles de «Boiza - LinkedIn",
+        "snippet": "Emilio Mora Boiza. Recursos Humanos. Madrid y alrededores. Digi Spain Telecom y 4 más. Universidad Complutense de Madrid"
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://empresite.eleconomista.es/BOIZA-ELVIRA.html",
+        "titulo": "Boiza & Elvira Sl - CIF y dirección - Empresite",
+        "snippet": "Boiza & Elvira Sl en Fuente el saz de Jarama Madrid. Conozca el teléfono de contacto, dirección, NIF y más información d"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.elperiodico.com/es/autor/ferran-boiza-1884597/",
+        "titulo": "Ferran Boiza - El Periódico",
+        "snippet": "... Madrid como Europa Press, La Vanguardia y El Mundo, donde trabajó 26 años y fue Jefe de Nacional. En 2023 se incorpo"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.tattoomago.com/piercings-by-boiza/",
+        "titulo": "Piercings by Boiza – Tattoo Mago | Tatuajes Madrid - Tattoo Mago",
+        "snippet": "Tatuajes en Madrid | Tattoo Mago tu estudio de Tattoos Polinesios, Tahitianos, Maoris, Piercings... TLF: 91 259 16 77."
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://portalcientifico.upm.es/es/ipublic/researcher/332360",
+        "titulo": "MARIA PERAL BOIZA - Universidad Politécnica de Madrid",
+        "snippet": "MARIA. PERAL BOIZA. Presentación; Trayectoria Profesional; Bibliometría; Proyectos y transferencia; Docencia; Red; Resul"
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Boiza+Madrid",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Boiza+Madrid",
+    "gemini_verificado": true,
+    "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Sitio Web, LinkedIn, Directorio Local)",
+    "mensaje_dm": "¡Hola equipo de Boiza!\n\nSoy Daniel García. He visto vuestro trabajo y os he preparado una web demo interactiva adaptada a vuestro negocio para mostraros cómo potenciar vuestra presencia digital y captar clientes desde el móvil:\n\n👉\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Boiza!\n\nOs escribí hace un par de días con la propuesta web interactiva que preparé para vosotros:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789938527",
+    "campana_nombre": "Estudio De Tatuajes · madrid",
+    "campana_ids": [
+      "camp_1789938527"
+    ]
+  },
+  {
+    "osm_id": "4293162918",
+    "nombre": "Craftt",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "Calle de la Palma 45",
+    "ciudad": "Madrid",
+    "provincia": "",
+    "codigo_postal": "28004",
+    "telefono": "+34 654615931",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Craftt+Madrid",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Craftt+Madrid",
+    "gemini_verificado": false,
+    "gemini_razon": "Sin Instagram ni presencia web detectada",
+    "mensaje_dm": "",
+    "mensaje_seguimiento": "",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789938527",
+    "campana_nombre": "Estudio De Tatuajes · madrid",
+    "campana_ids": [
+      "camp_1789938527"
+    ]
+  },
+  {
+    "osm_id": "4449716739",
+    "nombre": "Real Fami Tattoo",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "",
+    "ciudad": "Madrid",
+    "provincia": "",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/realfamitattoo/",
+    "instagram_handle": "@realfamitattoo",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@realfamitattoo)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/realfamitattoo/",
+        "titulo": "Tatuajes en Leganes . Madrid . C/ Getafe 9 . RealFami Tattoo ...",
+        "snippet": "2,372 Followers, 869 Following, 1,990 Posts - Tatuajes en Leganes . Madrid . C/ Getafe 9 . RealFami Tattoo (@realfamitat"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://realfamitattoo.es/estudio/",
+        "titulo": "Contacto - Real Fami Tattoo",
+        "snippet": "No dudéis en pasar a consultarnos vuestras ideas, dudas e inquietudes sobre el mundo del tattoo, os daremos presupuesto "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "http://realfamitattoo.es/",
+        "titulo": "Home | Real Fami Tattoo",
+        "snippet": "Real Fami Tattoo, estudio de tatuajes de Leganés, Madrid. Nuestra filosofía es hacer que nuestros clientes salgan de aqu"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://tatuadoresen.com/real-fami-tattoo-leganes/",
+        "titulo": "Real Fami Tattoo - Leganés ️ Opiniones, Horario y Dirección ...",
+        "snippet": "Estudio de tatuajes en Leganés (Madrid) que encontrarás en C. Getafe, nº 9, 28912 Leganés, Madrid. Aquí puedes ver infor"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://madrid.place/b/real-fami-tattoo/",
+        "titulo": "Real Fami Tattoo en Madrid — opiniones, teléfono y servicios",
+        "snippet": "Real Fami Tattoo es un estudio de tatuajes con sede en Leganés, que desde 2012 se dedica a crear tatuajes personalizados"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.fresha.com/en-GB/lvp/real-fami-tattoo-calle-getafe-leganes-0qZkea",
+        "titulo": "Real Fami Tattoo - C. Getafe, nº 9, 28912 Leganés, Madrid ...",
+        "snippet": "Show number C. Getafe, nº 9, 28912 Leganés, Madrid, Spain Get directions Call to book Website Back"
+      }
+    ],
+    "web_detectada": "https://realfamitattoo.es/estudio/",
+    "google_search_url": "https://www.google.com/search?q=Real+Fami+Tattoo+Madrid",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Real+Fami+Tattoo+Madrid",
+    "gemini_verificado": true,
+    "gemini_razon": "Validación automática heurística",
+    "mensaje_dm": "¡Hola equipo de Real Fami Tattoo!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://realfamitattoo.es/estudio/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Real Fami Tattoo!\n\nOs escribí hace un par de días con la web demo interactiva que preparé para vosotros con el contenido de vuestra página:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789938527",
+    "campana_nombre": "Estudio De Tatuajes · madrid",
+    "campana_ids": [
+      "camp_1789938527"
+    ]
+  },
+  {
+    "osm_id": "4688697403",
+    "nombre": "Nezumi",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "Calle de El Escorial 9",
+    "ciudad": "Madrid",
+    "provincia": "",
+    "codigo_postal": "28004",
+    "telefono": "+34 915 32 18 69",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Nezumi+Madrid",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Nezumi+Madrid",
+    "gemini_verificado": false,
+    "gemini_razon": "Sin Instagram ni presencia web detectada",
+    "mensaje_dm": "",
+    "mensaje_seguimiento": "",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789938527",
+    "campana_nombre": "Estudio De Tatuajes · madrid",
+    "campana_ids": [
+      "camp_1789938527"
+    ]
+  },
+  {
+    "osm_id": "4697195909",
+    "nombre": "Blowfish",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "Calle de Jesús y María 8",
+    "ciudad": "Madrid",
+    "provincia": "",
+    "codigo_postal": "28012",
+    "telefono": "+34 600 55 84 73",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/blowfishrestaurant/",
+    "instagram_handle": "@blowfishrestaurant",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@blowfishrestaurant)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/blowfishrestaurant/",
+        "titulo": "BlowfishRestaurant (@blowfishrestaurant) • Instagram photos ...InstagramBlowfish | Te esperamos el 13 y 14 de junio en el ... - InstagramBlow Fish (@blowfish_sa) • Instagram photos and videosBlowfish Designs (@blowfishdesigns) • Instagram photos and videosBlowfish on Instagram: \"Te esperamos este finde en el ...BLOWFISH Kitchen & Bar on Instagram • Photos and Videos",
+        "snippet": "1,645 Followers, 2,300 Following, 560 Posts - See Instagram photos and videos from BlowfishRestaurant (@blowfishrestaura"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://solesunlimited.com/products/blowfish-madrid",
+        "titulo": "Blowfish Madrid - solesunlimited.com",
+        "snippet": "Brand: Blowfish Style: Madrid Condition: New with Box Suggested Retail: $70.00 Share this product Facebook Twitter Pinte"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://blowfishshoes.com/",
+        "titulo": "Blowfish Malibu® Official Site | Shoes for Women & Kids",
+        "snippet": "Visit the Blowfish Malibu® Official Site to explore the latest trends in shoes for women & kids including popular sneake"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.amazon.com/Blowfish-Malibu-Womens-Madrid-Fisherman/dp/B0DLZ4RY15",
+        "titulo": "Blowfish Malibu Women's Madrid Fisherman Sandal - Amazon.com",
+        "snippet": "Nov 5, 2024 · Buy Blowfish Malibu Women's Madrid Fisherman Sandal and other Platforms & Wedges at Amazon.com. Our wide s"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.amazon.com/Blowfish-Malibu-Womens-Madrid-Fisherman/dp/B0F13SX579",
+        "titulo": "Amazon.com | Blowfish Malibu Womens Madrid Fisherman Sandal ...",
+        "snippet": "Mar 11, 2025 · Buy Blowfish Malibu Womens Madrid Fisherman Sandal Cloud/Silver 6 M and other Flats at Amazon.com. Our wi"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.target.com/p/blowfish-malibu-womens-madrid-fisherman-sandal-white-8-m/-/A-1001633297",
+        "titulo": "Blowfish Malibu Women's Madrid Fisherman Sandal - TargetBlowfish Malibu Women's Madrid Fisherman Platform Sandals ...Blowfish Malibu Women's Madrid - Stylish Comfort",
+        "snippet": "Stay on trend with the Madrid 2 sandal from Blowfish Malibu. Features include a fisherman sandal silhouette and a rope w"
+      }
+    ],
+    "web_detectada": "https://blowfishshoes.com/",
+    "google_search_url": "https://www.google.com/search?q=Blowfish+Madrid",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Blowfish+Madrid",
+    "gemini_verificado": true,
+    "gemini_razon": "Validación automática heurística",
+    "mensaje_dm": "¡Hola equipo de Blowfish!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://blowfishshoes.com/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Blowfish!\n\nOs escribí hace un par de días con la web demo interactiva que preparé para vosotros con el contenido de vuestra página:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789938527",
+    "campana_nombre": "Estudio De Tatuajes · madrid",
+    "campana_ids": [
+      "camp_1789938527"
+    ]
+  },
+  {
+    "osm_id": "4887540570",
+    "nombre": "Corazón Salvaje",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "Calle del Divino Pastor 6",
+    "ciudad": "Madrid",
+    "provincia": "",
+    "codigo_postal": "28004",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@corazon_salvaje_1993)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/corazon_salvaje_1993/",
+        "titulo": "Corazon Salvaje 1993 (@corazon_salvaje_1993) - Instagram",
+        "snippet": "1,310 Followers, 4 Following, 450 Posts - Corazon Salvaje 1993 (@corazon_salvaje_1993) on Instagram: \"Eduardo Palomo inm"
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/Corazon-Salvaje-128020283947283/",
+        "titulo": "Corazon Salvaje | Madrid - Facebook",
+        "snippet": "Dec 21, 2011 · Details 100% recommend (13 Reviews) Closed now Madrid Spain 2009 , Madrid, Spain, 28005"
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/p/Corazon-Salvaje-100071304940484/",
+        "titulo": "Corazon Salvaje | Madrid - Facebook",
+        "snippet": "Mar 22, 2012 · Corazon Salvaje, Madrid. 2,949 likes · 18 were here. corazon salvaje canal de las estrellas 9:00 de la no"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.tomaticket.es/en-es/artista/corazon-salvaje/madrid",
+        "titulo": "Community Corazón salvaje in Madrid Tickets, Concerts ...",
+        "snippet": "Check the upcoming events and performances of Corazón salvaje. Ticket sales for the shows in 2024/2025 madrid"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://rentberry.com/es/rooms/160124389-one-br-corazon-salvaje-calle-del-divino-pastor-6-28004-madrid-spain",
+        "titulo": "Corazón Salvaje, Calle del Divino Pastor, 6, 28004 Madrid ...",
+        "snippet": "5 days ago · Room location: Corazón Salvaje, Calle del Divino Pastor, 6, 28004 Madrid, Spain. Available for rent Septemb"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.cybo.com/ES-biz/corazon-salvaje",
+        "titulo": "Corazon Salvaje - Madrid Spain 2009 - Cybo",
+        "snippet": "About Corazon Salvaje is located in Madrid, Community of Madrid. This business is working in the following industry: Per"
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Coraz%C3%B3n+Salvaje+Madrid",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Coraz%C3%B3n+Salvaje+Madrid",
+    "gemini_verificado": false,
+    "gemini_razon": "El perfil de Instagram detectado (@corazon_salvaje_1993) es una página de fans dedicada a la telenovela mexicana de 1993 y al actor Eduardo Palomo, no un negocio local activo en Madrid.",
+    "mensaje_dm": "",
+    "mensaje_seguimiento": "",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789938527",
+    "campana_nombre": "Estudio De Tatuajes · madrid",
+    "campana_ids": [
+      "camp_1789938527"
+    ]
+  },
+  {
+    "osm_id": "4966762804",
+    "nombre": "Vanilla Land",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "",
+    "ciudad": "Madrid",
+    "provincia": "",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "https://www.instagram.com/vanillalaland/",
+    "instagram_handle": "@vanillalaland",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@vanillalaland)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/vanillalaland/",
+        "titulo": "Vanilla (@vanillalaland) • Instagram photos and videos",
+        "snippet": "Lifestyle Photo Diary675 followers · 2.1K+ following. See photos and videos from friends on Instagram, and discover othe"
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Vanilla+Land+Madrid",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Vanilla+Land+Madrid",
+    "gemini_verificado": true,
+    "gemini_razon": "Validación automática heurística",
+    "mensaje_dm": "¡Hola equipo de Vanilla Land!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Vanilla Land!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789938527",
+    "campana_nombre": "Estudio De Tatuajes · madrid",
+    "campana_ids": [
+      "camp_1789938527"
+    ]
+  },
+  {
+    "osm_id": "5371150322",
+    "nombre": "Iorana tatto",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "",
+    "ciudad": "Madrid",
+    "provincia": "",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Iorana+tatto+Madrid",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Iorana+tatto+Madrid",
+    "gemini_verificado": false,
+    "gemini_razon": "Sin Instagram ni presencia web detectada",
+    "mensaje_dm": "",
+    "mensaje_seguimiento": "",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1789938527",
+    "campana_nombre": "Estudio De Tatuajes · madrid",
+    "campana_ids": [
+      "camp_1789938527"
+    ]
+  },
+  {
+    "osm_id": "5372481240",
+    "nombre": "Mansión Tattoo",
+    "categoria": "estudio de tatuajes (shop:tattoo)",
+    "direccion": "Calle del Cardenal Cisneros 5",
+    "ciudad": "Madrid",
+    "provincia": "",
+    "codigo_postal": "28010",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "https://www.instagram.com/lamansiondeltattoo/",
+    "instagram_handle": "@lamansiondeltattoo",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@lamansiondeltattoo)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/lamansiondeltattoo/",
+        "titulo": "La Mansión Del Tattoo (@lamansiondeltattoo) - Instagram",
+        "snippet": "107 Followers, 6 Following, 39 Posts - La Mansión Del Tattoo (@lamansiondeltattoo) on Instagram: \"Estudio profesional en"
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Mansi%C3%B3n+Tattoo+Madrid",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mansi%C3%B3n+Tattoo+Madrid",
+    "gemini_verificado": true,
+    "gemini_razon": "Validación automática heurística",
+    "mensaje_dm": "¡Hola equipo de Mansión Tattoo!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉 https://dga80.github.io/instaleads/mansion-tattoo-madrid/\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Mansión Tattoo!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil: https://dga80.github.io/instaleads/mansion-tattoo-madrid/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Web Generada",
+    "demo_slug": "mansion-tattoo-madrid",
+    "demo_url": "https://dga80.github.io/instaleads/mansion-tattoo-madrid/",
+    "demo_vibe": "Urban Edge & Dark Tech (Tatuajes, Barberías, Talleres & Fitness)",
+    "campana_id": "camp_1789938527",
+    "campana_nombre": "Estudio De Tatuajes · madrid",
+    "campana_ids": [
+      "camp_1789938527"
+    ],
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/mansion-tattoo-madrid/",
+    "demo_url_publica": "https://dga80.github.io/instaleads/mansion-tattoo-madrid/",
+    "demo_fecha_creacion": "20/09/2026 23:18",
+    "demo_fecha_ts": 1789939129,
+    "extraccion_fuente": "apify",
+    "extraccion_aviso": "",
+    "extraccion_exitosa": true
+  },
+  {
+    "osm_id": "441947259",
+    "nombre": "Alemany",
+    "categoria": "tartas personalizadas (shop:bakery)",
+    "direccion": "Carretera de Valls 73",
+    "ciudad": "Santa Margarida de Montbui",
+    "provincia": "Barcelona",
+    "codigo_postal": "08710",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://www.canalemany.com/en/",
+        "titulo": "Can Alemany | Hotel - Apartamentos en Santa Margarida de ...",
+        "snippet": "Descubre la comodidad y el encanto de Can Alemany. Nuestro hotel - apartamentos ofrece alojamiento de calidad en un ento"
+      },
+      {
+        "tipo": "reserva",
+        "label": "Citas Online",
+        "icono": "📅",
+        "url": "https://www.booking.com/hotel/es/can-alemany.html",
+        "titulo": "Can Alemany, Santa Margarida de Montbui (updated prices 2027)Can Alemany, Santa Margarida de Montbui (preus actualitzats ...Can Alemany - Santa Margarida de MontbuiCan Alemany | Hotel - Apartamentos | Tu escapada perfectaCan Alemany — Santa Margarida de Montbui · tripingguideCan Alemany, Santa Margarida de Montbui: Hotel Reviews, Rooms ...",
+        "snippet": "Historic Setting: Can Alemany in Santa Margarida de Montbui is housed in a historic building, offering a unique atmosphe"
+      },
+      {
+        "tipo": "reserva",
+        "label": "Citas Online",
+        "icono": "📅",
+        "url": "https://www.booking.com/hotel/es/can-alemany.ca.html",
+        "titulo": "Can Alemany, Santa Margarida de Montbui (preus actualitzats ...",
+        "snippet": "El Can Alemany està situat a Santa Margarida de Montbui i ofereix apartaments elegants equipats amb calefacció i refrige"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://apartamentoswellness.com/alojamiento/santa-margarida-de-montbui/can-alemany/45076",
+        "titulo": "Can Alemany - Santa Margarida de Montbui",
+        "snippet": "Can Alemany está en Santa Maragarida de Montbui y ofrece alojamiento con terraza o balcón, wifi gratis y TV de pantalla "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.canalemany.com/page/can-alemany",
+        "titulo": "Can Alemany | Hotel - Apartamentos | Tu escapada perfecta",
+        "snippet": "10 years later, in 2014, the Can Alemany project was born. The old farmhouse is renovated into an apartment hotel follow"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.tripingguide.com/es/can-alemany",
+        "titulo": "Can Alemany — Santa Margarida de Montbui · tripingguide",
+        "snippet": "4-star Can Alemany in Santa Margarida de Montbui, Spain. Rated 9.3/10 by 68 guests. Airport shuttle on offer. See photos"
+      }
+    ],
+    "web_detectada": "https://www.canalemany.com/en/",
+    "google_search_url": "https://www.google.com/search?q=Alemany+Santa+Margarida+de+Montbui",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Alemany+Santa+Margarida+de+Montbui",
+    "gemini_verificado": true,
+    "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Sitio Web Detectado, Citas Online, Sitio Web)",
+    "mensaje_dm": "¡Hola equipo de Alemany!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://www.canalemany.com/en/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Alemany!\n\nOs escribí hace un par de días con la web demo interactiva que preparé como propuesta de rediseño para vuestra web: https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1790414512",
+    "campana_nombre": "Tartas Personalizadas · Barcelona",
+    "campana_ids": [
+      "camp_1790414512"
+    ]
+  },
+  {
+    "osm_id": "441947278",
+    "nombre": "Ca la iaia",
+    "categoria": "tartas personalizadas (shop:bakery)",
+    "direccion": "",
+    "ciudad": "España",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/calaiaia/",
+    "instagram_handle": "@calaiaia",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@calaiaia)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/calaiaia/",
+        "titulo": "Restaurante Ca la iaia 🍽️ (@calaiaia) · Teulada",
+        "snippet": "958 followers, 404 following, 41 posts – Restaurante Ca la iaia 🍽️ (@calaiaia) on Instagram: \"Una experiencia gastronómi"
+      },
+      {
+        "tipo": "social",
+        "label": "Enlace Externo",
+        "icono": "🔗",
+        "url": "https://www.tripadvisor.es/Restaurant_Review-g1949112-d3157745-Reviews-Ca_La_Iaia-Sant_Salvador_de_Guardiola_Bages_Catalonia.html",
+        "titulo": "CA LA IAIA, Sant Salvador de Guardiola - Carta, fotos y opiniones",
+        "snippet": "Ca La Iaia · FotosDescripción ... · Abierto hasta las 17:00 · Ver todas las horas · Carretera Can Massana-manresa, KM 11"
+      },
+      {
+        "tipo": "social",
+        "label": "Enlace Externo",
+        "icono": "🔗",
+        "url": "https://www.tripadvisor.es/Restaurant_Review-g736284-d1124457-Reviews-Ca_la_iaia_Restaurante-Moraira_Costa_Blanca_Province_of_Alicante_Valencian_Commun.html",
+        "titulo": "CA LA IAIA RESTAURANTE, Moraira - Carta, fotos y opiniones",
+        "snippet": "ca la iaia Restaurante · FotosDescripción generalHorarioUbicaciónOpiniones · Descripción generalHorarioUbicaciónOpinione"
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://empresite.eleconomista.es/CA-IAIA.html",
+        "titulo": "Ca La Iaia S.c.p. - Teléfono y dirección | Empresite",
+        "snippet": "Ca La Iaia S.c.p. cuenta con 32 años a sus espaldas. La compañía Ca La Iaia S.c.p. está localizada en Carretera Bruc-man"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://calaiaia.com/",
+        "titulo": "Restaurante Ca La Iaia en Teulada, cocina tradicional mediterránea",
+        "snippet": "El restaurante Ca La Iaia está ubicado en Teulada-Moraira. Se destaca por su amplia terraza para las noches de verano y "
+      },
+      {
+        "tipo": "reserva",
+        "label": "Citas Online",
+        "icono": "📅",
+        "url": "https://www.booking.com/hotel/es/ca-la-iaia-amer.es.html",
+        "titulo": "Ca la iaia - Turisme familiar, Amer, España",
+        "snippet": "Ca la Iaia es una casa esquinera que se encuentra en el centro histórico de Amer y tiene muy buenas vistas a la plaza de"
+      }
+    ],
+    "web_detectada": "https://calaiaia.com/",
+    "google_search_url": "https://www.google.com/search?q=Ca+la+iaia+Espa%C3%B1a",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Ca+la+iaia+Espa%C3%B1a",
+    "gemini_verificado": true,
+    "gemini_razon": "Comercio local con web oficial activa (https://calaiaia.com/)",
+    "mensaje_dm": "¡Hola equipo de Ca la iaia!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://calaiaia.com/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Ca la iaia!\n\nOs escribí hace un par de días con la propuesta de rediseño web interactiva que preparé para vosotros: https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1790414512",
+    "campana_nombre": "Tartas Personalizadas · Barcelona",
+    "campana_ids": [
+      "camp_1790414512"
+    ]
+  },
+  {
+    "osm_id": "506236273",
+    "nombre": "Forn de Pa Laia",
+    "categoria": "tartas personalizadas (shop:bakery)",
+    "direccion": "Carrer de Ribes 36",
+    "ciudad": "España",
+    "provincia": "Barcelona",
+    "codigo_postal": "08013",
+    "telefono": "+34932472065",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@elforndelaia)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/elforndelaia/",
+        "titulo": "El Forn de Laia (@elforndelaia) • Instagram photos and videos",
+        "snippet": "360 Followers, 161 Following, 18 Posts - El Forn de Laia (@elforndelaia) on Instagram: \"Estem a: C/Raimundo Rebollida, 2"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://es.restaurantguru.com/Forn-de-Pa-Laia-Barcelona",
+        "titulo": "Forn de Pa Laia, Barcelona - Menú del restaurante, precios y ...Forn de Pa Laia – cafeterías en Barcelona, BarcelonaForn de Pa Laia – cafeterías en Barcelona, BarcelonaForn de Pa Laia, C. de Ribes, 36 in Barcelona - Restaurant ...Forn de Pa Laia, C. de Ribes, 36, Eixample, Barcelona ...FORN DE PA LAIA, Barcelona - Carta, fotos y opinionesFORN DE PA LAIA, Barcelona - C. De Ribes 36 L'eixample 08013 ...",
+        "snippet": "Aug 7, 2026 · El café con leche es espectacular en Forn de Pa Laia. Vas a llevarte un buen recuerdo de este lugar, puest"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.panaderiaparte.com/33250-forn-de-pa-laia-cafeterias-en-barcelona-barcelona/",
+        "titulo": "Forn de Pa Laia – cafeterías en Barcelona, Barcelona",
+        "snippet": "Jul 24, 2024 · Si hay un lugar en Barcelona que me ha dejado una impresión imborrable, ese es Forn de Pa Laia, situado e"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://restaurantguru.com/Forn-de-Pa-Laia-Barcelona",
+        "titulo": "Forn de Pa Laia, C. de Ribes, 36 in Barcelona - Restaurant ...",
+        "snippet": "Aug 27, 2023 · All info on Forn de Pa Laia in Barcelona - Call to book a table. View the menu, check prices, find on the"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://esopiniones.com/catalonia/forn-de-pa-laia-1275505",
+        "titulo": "Forn de Pa Laia, C. de Ribes, 36, Eixample, Barcelona ...FORN DE PA LAIA, Barcelona - Carta, fotos y opinionesFORN DE PA LAIA, Barcelona - C. De Ribes 36 L'eixample 08013 ...",
+        "snippet": "Sempre comprem el pa aquí, hi ha molta rotació de producte i sempre t’emportes pa recent fet. Les pastes que tenen també"
+      },
+      {
+        "tipo": "social",
+        "label": "Enlace Externo",
+        "icono": "🔗",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g187497-d27675152-Reviews-Forn_De_Pa_Laia-Barcelona_Catalonia.html",
+        "titulo": "FORN DE PA LAIA, Barcelona - C. De Ribes 36 L'eixample 08013 ...",
+        "snippet": "Forn De Pa Laia, Barcelona: See unbiased reviews of Forn De Pa Laia, rated 5.0 of 5 on Tripadvisor and ranked #7,269 of "
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Forn+de+Pa+Laia+Espa%C3%B1a",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Forn+de+Pa+Laia+Espa%C3%B1a",
+    "gemini_verificado": false,
+    "gemini_razon": "El perfil de Instagram detectado corresponde a otro negocio distinto ('El Forn de Laia' en Vilanova d'Alcolea, Castellón) y no a Forn de Pa Laia de Barcelona.",
+    "mensaje_dm": "",
+    "mensaje_seguimiento": "",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1790414512",
+    "campana_nombre": "Tartas Personalizadas · Barcelona",
+    "campana_ids": [
+      "camp_1790414512"
+    ]
+  },
+  {
+    "osm_id": "687551134",
+    "nombre": "MDL",
+    "categoria": "tartas personalizadas (shop:bakery)",
+    "direccion": "",
+    "ciudad": "Badalona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "+34933880037",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@mdl.ba)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/mdl.ba/",
+        "titulo": "MDL (@mdl.ba) • Instagram photos and videos",
+        "snippet": "44K Followers, 243 Following, 1,165 Posts - MDL (@mdl.ba) on Instagram: \"Chef @dantelipo 🇦🇷 | Buena Cocina @michelinguid"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://mapcarta.com/es/N4283058263",
+        "titulo": "MDL - Mapa - Panadería - Badalona, Cataluña, España",
+        "snippet": "MDL es una panadería en Badalona, Provincia de Barcelona, Cataluña. MDL se encuentra cerca de la oficina gubernamental d"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://mapcarta.com/es/N635773287",
+        "titulo": "MDL - Mapa - Panadería - Badalona, Cataluña, España",
+        "snippet": "MDL es una panadería en Badalona, Provincia de Barcelona, Cataluña que se localiza en Carretera Antiga de València. MDL "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://panaderiaminutos.es/7045-forn-de-pa-mare-de-deu-de-lorda-panaderia-en-badalona-barcelona/",
+        "titulo": "Forn de Pa Mare de Déu De Lorda – Panadería en Badalona ...",
+        "snippet": "Sep 10, 2024 · Si hay algo que me encanta de vivir en Badalona, es la variedad de panaderías que ofrecen productos fresc"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.panaderiaparte.com/28527-forn-de-pa-mare-de-deu-de-lorda-panaderia-en-badalona-barcelona/",
+        "titulo": "Forn de Pa Mare de Déu De Lorda – Panadería en Badalona ...",
+        "snippet": "Dec 4, 2024 · Recientemente, tuve la oportunidad de visitar el Forn de Pa Mare de Déu De Lorda, una panadería ubicada en"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://es.cybo.com/ES-biz/forn-de-pa-mare-de-déu-de-lorda_2C",
+        "titulo": "Forn de Pa Mare de Déu de Lorda - Av. d'Alfons XIII, 287… - Cybo",
+        "snippet": "Forn de Pa Mare de Déu de Lorda se encuentra en Badalona, Cataluña. Esta empresa opera en la siguiente industria: Panade"
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=MDL+Badalona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=MDL+Badalona",
+    "gemini_verificado": false,
+    "gemini_razon": "El perfil de Instagram detectado (@mdl.ba) pertenece a un restaurante en Argentina y no a la panadería local MDL de Badalona.",
+    "mensaje_dm": "",
+    "mensaje_seguimiento": "",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1790414512",
+    "campana_nombre": "Tartas Personalizadas · Barcelona",
+    "campana_ids": [
+      "camp_1790414512"
+    ]
+  },
+  {
+    "osm_id": "638346216",
+    "nombre": "El fornet de Luisa",
+    "categoria": "tartas personalizadas (shop:bakery)",
+    "direccion": "Avinguda d'Àfrica 7B",
+    "ciudad": "Badalona",
+    "provincia": "Barcelona",
+    "codigo_postal": "08913",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "https://www.instagram.com/el_fornet/",
+    "instagram_handle": "@el_fornet",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@el_fornet)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/el_fornet/",
+        "titulo": "El Fornet (@el_fornet) • Instagram photos and videos",
+        "snippet": "14K Followers, 139 Following, 440 Posts - El Fornet (@el_fornet) on Instagram: \"Un món de sabors autèntics ! 🥖 Pa d'Obra"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://es.restaurantguru.com/El-Fornet-de-la-Lluisa-Badalona",
+        "titulo": "El Fornet de la Lluïsa, Badalona - Menú del restaurante, precios y reseñas",
+        "snippet": "March 20, 2026 - El Fornet de la Lluïsa en Badalona calificado 0.2 de 5 en Restaurant Guru: 128 reseñas de visitantes, 7"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.cafeelsiglo.es/cafeteria/el-fornet-de-la-lluisa-badalona/",
+        "titulo": "El Fornet de la Lluïsa - Cafetería en Badalona - Cafe El Siglo",
+        "snippet": "May 17, 2024 - El Fornet de la Lluïsa es una acogedora cafetería ubicada en Badalona, Barcelona."
+      },
+      {
+        "tipo": "social",
+        "label": "Enlace Externo",
+        "icono": "🔗",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g187497-d17761341-Reviews-El_Fornet_De_La_Lluisa-Barcelona_Catalonia.html",
+        "titulo": "EL FORNET DE LA LLUISA, Barcelona - Gracia - Restaurant Reviews, Photos & Phone Number - Tripadvisor",
+        "snippet": "El Fornet De La Lluisa is a fairly standard Spanish cafe on the busy street of Avinguda de Vallcarca and down the big hi"
+      },
+      {
+        "tipo": "instagram",
+        "label": "Instagram",
+        "icono": "📸",
+        "url": "https://www.instagram.com/elfornetdelalluisa.casp/",
+        "titulo": "EL FORNET DE LA LLUISA: Casp&Sardenya (@elfornetdelalluisa.casp) • Instagram photos and videos",
+        "snippet": "98 Followers, 39 Following, 58 Posts - EL FORNET DE LA LLUISA: Casp&Sardenya (@elfornetdelalluisa.casp) on Instagram: \"P"
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://www.einforma.com/informacion-empresa/fornet-badalona",
+        "titulo": "El Fornet De Badalona S.c.p: teléfono, CIF y dirección",
+        "snippet": "EL FORNET DE BADALONA S.C.P. está dedicada al Comercio al por menor de productos de pastelería, bollería y confitería."
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=El+fornet+de+Luisa+Badalona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=El+fornet+de+Luisa+Badalona",
+    "gemini_verificado": true,
+    "gemini_razon": "Coincide el negocio 'El Fornet de la Lluïsa' en Badalona. El perfil @el_fornet es el principal de la marca, y no se ha detectado una web oficial propia.",
+    "mensaje_dm": "¡Hola equipo de El Fornet de la Lluïsa!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram (@el_fornet) y me ha encantado la calidad de vuestros productos. Os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉 https://...\n*(Enlace 100% seguro para verlo en el navegador sin registros ni descargas)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de El Fornet de la Lluïsa!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil: https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1790414512",
+    "campana_nombre": "Tartas Personalizadas · Barcelona",
+    "campana_ids": [
+      "camp_1790414512"
+    ]
+  },
+  {
+    "osm_id": "666987712",
+    "nombre": "Floridablanca",
+    "categoria": "tartas personalizadas (shop:bakery)",
+    "direccion": "Carrer de Floridablanca",
+    "ciudad": "España",
+    "provincia": "Barcelona",
+    "codigo_postal": "08914",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Floridablanca+Espa%C3%B1a",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Floridablanca+Espa%C3%B1a",
+    "gemini_verificado": false,
+    "gemini_razon": "Sin Instagram ni presencia web detectada",
+    "mensaje_dm": "",
+    "mensaje_seguimiento": "",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1790414512",
+    "campana_nombre": "Tartas Personalizadas · Barcelona",
+    "campana_ids": [
+      "camp_1790414512"
+    ]
+  },
+  {
+    "osm_id": "672140173",
+    "nombre": "Boix",
+    "categoria": "tartas personalizadas (shop:bakery)",
+    "direccion": "",
+    "ciudad": "España",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://es.wikipedia.org/wiki/Boing_(España)",
+        "titulo": "Boing (España)",
+        "snippet": "Boing es un canal de televisión abierta español de índole infantil y juvenil operado por Mediaset España y Warner Bros. "
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Boix+Espa%C3%B1a",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Boix+Espa%C3%B1a",
+    "gemini_verificado": false,
+    "gemini_razon": "Sin Instagram. Presencia online detectada (1 fuentes: Sitio Web)",
+    "mensaje_dm": "",
+    "mensaje_seguimiento": "",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1790414512",
+    "campana_nombre": "Tartas Personalizadas · Barcelona",
+    "campana_ids": [
+      "camp_1790414512"
+    ]
+  },
+  {
+    "osm_id": "678297037",
+    "nombre": "Bopan",
+    "categoria": "tartas personalizadas (shop:bakery)",
+    "direccion": "",
+    "ciudad": "España",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/bopan_fornersartesans/",
+    "instagram_handle": "@bopan_fornersartesans",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@bopan_fornersartesans)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/bopan_fornersartesans/",
+        "titulo": "BOPAN (@bopan_fornersartesans) • Instagram photos and videosBOPAN | PA DE MUNTANYA Així elaborem cada dia al nostre ...InstagramInstagramInstagramInstagramInstagram",
+        "snippet": "2,333 Followers, 369 Following, 1,249 Posts - BOPAN (@bopan_fornersartesans) on Instagram: \"Pa, brioixeria, pastisseria "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://es.wikipedia.org/wiki/Boa_(España)",
+        "titulo": "Boa (España)",
+        "snippet": "Boa (llamada oficialmente San Pedro de Boa) es una parroquia y un lugar español del municipio de Noya, en la provincia d"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://www.bopan.cat/es/",
+        "titulo": "BOPAN | Panaderos artesanos",
+        "snippet": "A través de los artículos del blog intentamos acercaros a BOPAN y mostraros nuestra pasión por lo que hacemos, así como "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://es.restaurantguru.com/Bopan-Travessera-Barcelona",
+        "titulo": "Bopan, Barcelona - Menú del restaurante, precios y reseñas",
+        "snippet": "Aug 8, 2026 · Sus clientes subrayan que les gusta la cocina mediterránea de Bopan. Puedes tomarte unas tiernas empanadas"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.bopan.cat/es/nuestras-tiendas/",
+        "titulo": "Nuestras tiendas | Bopan",
+        "snippet": "Visita las tiendas Bopan en Muntaner, Plaza Molina y Travessera de Gràcia. Pan artesano, pastelería, cafetería y platos "
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/bopanfornersartesans/",
+        "titulo": "BOPAN - FacebookBOPAN MUNTANER, Barcelona - Carta, fotos y opinionesCarta - Bopan Travessera BarcelonaBOPAN, Barcelona - Carta, fotos y opiniones del restaurante",
+        "snippet": "Sep 22, 2025 · Encarga tus cocas preferidas online en BOPAN.CAT o en nuestra App BOPAN CATERING y te las entregamos a do"
+      }
+    ],
+    "web_detectada": "https://www.bopan.cat/es/",
+    "google_search_url": "https://www.google.com/search?q=Bopan+Espa%C3%B1a",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bopan+Espa%C3%B1a",
+    "gemini_verificado": true,
+    "gemini_razon": "Comercio local con web oficial activa (https://www.bopan.cat/es/)",
+    "mensaje_dm": "¡Hola equipo de Bopan!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://www.bopan.cat/es/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Bopan!\n\nOs escribí hace un par de días con la propuesta de rediseño y web demo interactiva que preparé a partir de vuestra página actual: https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1790414512",
+    "campana_nombre": "Tartas Personalizadas · Barcelona",
+    "campana_ids": [
+      "camp_1790414512"
+    ]
+  },
+  {
+    "osm_id": "761547071",
+    "nombre": "Ca la Magda",
+    "categoria": "tartas personalizadas (shop:bakery)",
+    "direccion": "",
+    "ciudad": "España",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "https://www.instagram.com/carnisseria_ca_la_magda/",
+    "instagram_handle": "@carnisseria_ca_la_magda",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@carnisseria_ca_la_magda)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/carnisseria_ca_la_magda/",
+        "titulo": "Ca la Magda (@carnisseria_ca_la_magda) - Instagram",
+        "snippet": "1,303 Followers, 1,693 Following, 85 Posts - Ca la Magda (@carnisseria_ca_la_magda) on Instagram: \"Carnisseria on elabor"
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Ca+la+Magda+Espa%C3%B1a",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Ca+la+Magda+Espa%C3%B1a",
+    "gemini_verificado": true,
+    "gemini_razon": "Comercio local independiente verificado en España sin página web oficial detectada",
+    "mensaje_dm": "¡Hola, equipo de Ca la Magda!\n\nSoy Daniel García, diseñador y desarrollador web en Barcelona. He visto vuestro perfil de Instagram y la excelente pinta que tienen vuestros embutidos y carnes del Ripollès. Para ayudaros a destacar aún más online, he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes directamente desde el móvil:\n\n👉 https://ca-la-magda-demo.netlify.app\n*(Enlace 100% seguro para abrirlo en el navegador, sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin ningún compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo, equipo de Ca la Magda!\n\nOs escribí hace un par de días para compartir la web demo interactiva que preparé para vosotros: https://ca-la-magda-demo.netlify.app\n\nOs la vuelvo a dejar por si se os pasó el mensaje anterior y queréis echarle un vistazo rápido desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1790414512",
+    "campana_nombre": "Tartas Personalizadas · Barcelona",
+    "campana_ids": [
+      "camp_1790414512"
+    ]
+  },
+  {
+    "osm_id": "839164708",
+    "nombre": "Maxipa",
+    "categoria": "tartas personalizadas (shop:bakery)",
+    "direccion": "",
+    "ciudad": "España",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "+34 691 41 27 32",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/_maxipan/",
+    "instagram_handle": "@_maxipan",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@_maxipan)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/_maxipan/",
+        "titulo": "Panadería Maxipan (@_maxipan) • Instagram photos and videos",
+        "snippet": "5,305 Followers, 34 Following, 189 Posts - Panadería Maxipan (@_maxipan) on Instagram: \"\"Pan con tradición y calidad, to"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://es.wikipedia.org/wiki/María_España_Almendro",
+        "titulo": "María España Almendro",
+        "snippet": "María España Almendro (Mallorca, 9 de agosto de 1992) es una jugadora española de baloncesto profesional.María España Al"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://tuspanaderias.es/info/5543-maxipa",
+        "titulo": "Maxipa: Opiniones y contacto - tuspanaderias.es",
+        "snippet": "Descubre toda la información sobre Maxipa en tuspanaderias.es, el mayor directorio de Panadería: datos de contacto, hora"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://mapcarta.com/es/N6369964286",
+        "titulo": "MaxiPa - Mapa - Panadería - Masnou, El, Cataluña, España",
+        "snippet": "MaxiPa es una panadería en Masnou, El, Provincia de Barcelona, Cataluña que se localiza en Carrer de Sant Miquel. MaxiPa"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://macxipan.com/es/",
+        "titulo": "MACXIPA | Mestres Forners des de 1903 - Tradició familiar",
+        "snippet": "Dialypa, S.L. C/ Balmes, 183 – 185. 08930 – Sant Adrià de Besòs (Barcelona)"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.panaderiaparte.com/33190-macxipa-forn-de-pa-en-barcelona-barcelona/",
+        "titulo": "Macxipa – Forn de pa en Barcelona, Barcelona – PanaderiaParte.com",
+        "snippet": "Dec 13, 2024 · Macxipa es una panadería que se ha ganado un lugar especial en mi corazón (y en mi estómago). Con su vari"
+      }
+    ],
+    "web_detectada": "https://macxipan.com/es/",
+    "google_search_url": "https://www.google.com/search?q=Maxipa+Espa%C3%B1a",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Maxipa+Espa%C3%B1a",
+    "gemini_verificado": true,
+    "gemini_razon": "El perfil de Instagram y la web oficial corresponden al negocio, que es una panadería local/regional.",
+    "mensaje_dm": "¡Hola equipo de Maxipan!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y vuestra web actual (macxipan.com). Me ha parecido interesante y he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Maxipan!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestra web actual: https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1790414512",
+    "campana_nombre": "Tartas Personalizadas · Barcelona",
+    "campana_ids": [
+      "camp_1790414512"
+    ]
+  },
+  {
+    "osm_id": "839233827",
+    "nombre": "Daunis",
+    "categoria": "tartas personalizadas (shop:bakery)",
+    "direccion": "",
+    "ciudad": "España",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/daunis_sa/",
+    "instagram_handle": "@daunis_sa",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@daunis_sa)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/daunis_sa/",
+        "titulo": "DAUNIS S.A. (@daunis_sa) • Instagram photos and videosDAUNIS S.A. | ¿Sabías que los puntos de venta de Daunis son ...DAUNIS S.A. on Instagram: \"¡Ya está disponible la nueva ...Daunis Gente Excepcional (@somosdaunis) - InstagramDAUNIS S.A. | ¡ Llévate hasta 300€ con la nueva campaña ...Don Daunis (@dondaunis) • Instagram photos and videosJoan Daunis | proyectos y promociones inmobiliarias ...",
+        "snippet": "1,238 Followers, 1,514 Following, 628 Posts - DAUNIS S.A. (@daunis_sa) on Instagram: \"La nostra experiència al teu serve"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://www.daunis.es/",
+        "titulo": "Daunis | Suministro Industrial de productos para ...",
+        "snippet": "Con DAUNIS hemos confiado la gestión global de nuestra nave: desde los permisos de obra hasta la coordinación de instala"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.iberinform.es/empresa/142247/daunis",
+        "titulo": "DAUNIS SA: CIF, Dirección y Ventas - Iberinform",
+        "snippet": "Consulte toda la información financiera sobre la empresa DAUNIS SA. ¡Descubre su CIF, dirección y mucha más información!"
+      },
+      {
+        "tipo": "linkedin",
+        "label": "LinkedIn",
+        "icono": "💼",
+        "url": "https://es.linkedin.com/company/daunis-s-a-",
+        "titulo": "DAUNIS S.A. - LinkedIn",
+        "snippet": "DAUNIS S.A. , empresa familiar fundada en 1855, con una experiencia de más de 160 años, se ha situado como un referente "
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://empresite.eleconomista.es/DAUNIS.html",
+        "titulo": "Daunis Sa - Teléfono y dirección | EmpresiteDaunis SA: consulte teléfono, CIF y dirección | eInformaDaunis S.A. (Sabadell) | SMC España",
+        "snippet": "Daunis S.A., empresa especializada en distribución de productos para la conducción, regulación y tratamiento de fluidos "
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://www.einforma.com/informacion-empresa/daunis",
+        "titulo": "Daunis SA: consulte teléfono, CIF y dirección | eInforma",
+        "snippet": "Consulte la información sobre Daunis SA ubicada en Terrassa. Consulte el CIF, dirección, teléfono y más información."
+      }
+    ],
+    "web_detectada": "https://www.daunis.es/",
+    "google_search_url": "https://www.google.com/search?q=Daunis+Espa%C3%B1a",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Daunis+Espa%C3%B1a",
+    "gemini_verificado": true,
+    "gemini_razon": "Comercio local con web oficial activa (https://www.daunis.es/)",
+    "mensaje_dm": "¡Hola equipo de Daunis!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://www.daunis.es/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Daunis!\n\nOs escribí hace un par de días con la web demo interactiva que preparé como propuesta de rediseño a partir de vuestra web: https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1790414512",
+    "campana_nombre": "Tartas Personalizadas · Barcelona",
+    "campana_ids": [
+      "camp_1790414512"
+    ]
+  },
+  {
+    "osm_id": "1007978568",
+    "nombre": "La Pastisseria",
+    "categoria": "tartas personalizadas (shop:bakery)",
+    "direccion": "",
+    "ciudad": "España",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/lapastisseriabarcelona/",
+    "instagram_handle": "@lapastisseriabarcelona",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@lapastisseriabarcelona)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/lapastisseriabarcelona/",
+        "titulo": "La Pastisseria Barcelona (@lapastisseriabarcelona) - Instagram",
+        "snippet": "66K Followers, 236 Following, 1,666 Posts - La Pastisseria Barcelona (@lapastisseriabarcelona) on Instagram: \" Alta past"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://lapastisseriabarcelona.com/",
+        "titulo": "Inici - La Pastisseria Barcelona",
+        "snippet": "Hem aconseguit reconeixements excepcionals al món de la pastisseria, consolidant-nos com un referent de qualitat, innova"
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/lapastisseriabcn/",
+        "titulo": "La Pastisseria Barcelona - FacebookLA PASTISSERIA - Updated August 2026 - 143 Photos & 34 ...La Pastisseria Barcelona - TripadvisorLa Pastisseria Barcelona (@lapastisseriabarcelona ...",
+        "snippet": "Avui tenim un video molt especial per nosaltres, el primer cop de la @tuvimonteith a @lapastisseriabarcelona i l’experte"
+      },
+      {
+        "tipo": "social",
+        "label": "Enlace Externo",
+        "icono": "🔗",
+        "url": "https://www.yelp.com/biz/la-pastisseria-barcelona",
+        "titulo": "LA PASTISSERIA - Updated August 2026 - 143 Photos & 34 ...La Pastisseria Barcelona - TripadvisorLa Pastisseria Barcelona (@lapastisseriabarcelona ...",
+        "snippet": "LA PASTISSERIA - Try Our New Menu - Explore Popular Dishes - Carrer d'Aragó, 228, 08007 Barcelona, Spain, 143 Photos, +3"
+      },
+      {
+        "tipo": "social",
+        "label": "Enlace Externo",
+        "icono": "🔗",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g187497-d3296268-Reviews-La_Pastisseria_Barcelona-Barcelona_Catalonia.html",
+        "titulo": "La Pastisseria Barcelona - Tripadvisor",
+        "snippet": "So, after the tour, and after having lunch at another tour guide-recommended restaurant, we headed back to Pastisseria E"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://lapastisseriabarcelona.com/es/",
+        "titulo": "La Pastisseria Barcelona | La Pastelería de Barcelona",
+        "snippet": "Hemos logrado reconocimientos excepcionales en el mundo de la pastelería, consolidándonos como un referente de calidad, "
+      }
+    ],
+    "web_detectada": "https://lapastisseriabarcelona.com/",
+    "google_search_url": "https://www.google.com/search?q=La+Pastisseria+Espa%C3%B1a",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=La+Pastisseria+Espa%C3%B1a",
+    "gemini_verificado": true,
+    "gemini_razon": "Comercio local con web oficial activa (https://lapastisseriabarcelona.com/)",
+    "mensaje_dm": "¡Hola equipo de La Pastisseria!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://lapastisseriabarcelona.com/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de La Pastisseria!\n\nOs escribí hace un par de días con la web demo interactiva que preparé como propuesta de rediseño de vuestra web actual: https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1790414512",
+    "campana_nombre": "Tartas Personalizadas · Barcelona",
+    "campana_ids": [
+      "camp_1790414512"
+    ]
+  },
+  {
+    "osm_id": "1014071007",
+    "nombre": "Forn el Roure",
+    "categoria": "tartas personalizadas (shop:bakery)",
+    "direccion": "",
+    "ciudad": "España",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/popular/",
+    "instagram_handle": "@popular",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@popular)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/popular/",
+        "titulo": "Forn Roura Barcelona - Instagram",
+        "snippet": "Acompanya’ns a visitar el Xavi del Forn del 1900 a Perafita perquè ens ensenyi com fa la seva coca: un dolç artesà amb q"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://mapcarta.com/es/N1014071007",
+        "titulo": "Forn el Roure - Mapa - Panadería - Saldes, Cataluña, España",
+        "snippet": "Forn el Roure es una panadería en Saldes, Provincia de Barcelona, Cataluña. Forn el Roure se encuentra cerca de Plaça Pe"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://es.restaurantguru.com/Forn-El-Roure-Saldes",
+        "titulo": "Forn El Roure, Saldes - Menú del restaurante, precios y reseñas",
+        "snippet": "5 Aug 2026 ... Forn El Roure en Saldes calificado 3 de 5 en Restaurant Guru ... Carrer Serra d'Ensija, 16, Saldes, Catal"
+      },
+      {
+        "tipo": "instagram",
+        "label": "Instagram",
+        "icono": "📸",
+        "url": "https://www.instagram.com/p/DWrngebjYjU/",
+        "titulo": "5 forns de tota la vida de Barcelona Por si te has perdido los reels ...",
+        "snippet": "3 Apr 2026 ... 1. Forn Provença 2. Forn Vilamala 3. Forn Roura 4. Forn Mistral 5. Pastisseria López Déjame en comentario"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://es.ara.cat/economia/empresas/hay-mejor-torta-recauda-forn-roura_1_5234837.html",
+        "titulo": "¿Hay mejor torta de recauda que la del Forn Roura? - ARA",
+        "snippet": "19 Dec 2024 ... El Forn Roura, desde 1927 en el número 15 de la calle Calaf de Barcelona, a dos pasos del mercado de Gal"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://www.fundacioroure.org/es/colabora-es/",
+        "titulo": "Colabora - Fundació Roure",
+        "snippet": "Visita la Tienda Solidaria de Fundació Roure (Forn de la Fonda, s/n ... España| Apartur | Apple | Associació Cívica la N"
+      }
+    ],
+    "web_detectada": "https://www.fundacioroure.org/es/colabora-es/",
+    "google_search_url": "https://www.google.com/search?q=Forn+el+Roure+Espa%C3%B1a",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Forn+el+Roure+Espa%C3%B1a",
+    "gemini_verificado": true,
+    "gemini_razon": "Comercio local con web oficial activa (https://www.fundacioroure.org/es/colabora-es/)",
+    "mensaje_dm": "¡Hola equipo de Forn el Roure!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://www.fundacioroure.org/es/colabora-es/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Forn el Roure!\n\nOs escribí hace un par de días con la propuesta de rediseño y modernización mobile-first que preparé para vuestra web: https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1790414512",
+    "campana_nombre": "Tartas Personalizadas · Barcelona",
+    "campana_ids": [
+      "camp_1790414512"
+    ]
+  },
+  {
+    "osm_id": "1020981017",
+    "nombre": "Forn del Bac",
+    "categoria": "tartas personalizadas (shop:bakery)",
+    "direccion": "",
+    "ciudad": "España",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@elfornfatayer)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/elfornfatayer/",
+        "titulo": "Forn Fatayer | Panadería Palestina Auténtica ...",
+        "snippet": "1,112 Followers, 96 Following, 36 Posts - 🇵🇸 Forn Fatayer | Panadería Palestina Auténtica (@elfornfatayer) on Instagram:"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://mapcarta.com/es/N1020981017",
+        "titulo": "Forn del Bac - Mapa - Panadería - la Garriga, Cataluña, España",
+        "snippet": "Forn del Bac es una panadería en la Garriga, Provincia de Barcelona, Cataluña. Forn del Bac está situada circa de Biblio"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://panaderiaminutos.es/7158-forn-del-bac-panaderia-en-la-garriga-barcelona/",
+        "titulo": "Forn del Bac – Panadería en La Garriga, Barcelona",
+        "snippet": "Situada en Carrer del Centre, 41, esta pequeña joya ha logrado captar la esencia de lo que una panadería debe ser: un lu"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://es.cybo.com/ES-biz/forn-del-bac",
+        "titulo": "Forn del Bac - Carrer del Centre, 41, 08530 La Garriga ... - Cybo",
+        "snippet": "Forn del Bac La Garriga postal code 08530. Ver 3 páginas de redes sociales incluyendo Twitter y Google, Horas, Teléfono,"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://tuspanaderias.es/info/4319-forn-del-bac",
+        "titulo": "Forn del Bac: Opiniones y contacto - tuspanaderias.es",
+        "snippet": "Descubre toda la información sobre Forn del Bac en tuspanaderias.es, el mayor directorio de Panadería: datos de contacto"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://tartapan.com/forn-del-bac-la-garriga/",
+        "titulo": "Forn del Bac en La Garriga - Pastelerías y panaderías",
+        "snippet": "Forn del Bac: Panadería en La Garriga. ★ 4.5 (4 opiniones). Tel. +34938714683. horario y opiniones reales."
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Forn+del+Bac+Espa%C3%B1a",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Forn+del+Bac+Espa%C3%B1a",
+    "gemini_verificado": false,
+    "gemini_razon": "El perfil de Instagram detectado corresponde a otro negocio distinto (Forn Fatayer en Barcelona) y no a Forn del Bac en La Garriga.",
+    "mensaje_dm": "",
+    "mensaje_seguimiento": "",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1790414512",
+    "campana_nombre": "Tartas Personalizadas · Barcelona",
+    "campana_ids": [
+      "camp_1790414512"
+    ]
+  },
+  {
+    "osm_id": "1024935895",
+    "nombre": "El Krostó",
+    "categoria": "tartas personalizadas (shop:bakery)",
+    "direccion": "",
+    "ciudad": "España",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://mapcarta.com/es/N1024935895",
+        "titulo": "El Krostó - Mapa - Panadería - la Garriga, Cataluña, España",
+        "snippet": "El Krostó es una panadería en la Garriga, Provincia de Barcelona, Cataluña. Mapcarta, el mapa abierto."
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.todosbiz.es/el-krostó-973-82-96-86",
+        "titulo": "El Krostó | 973 82 96 86 | Mollerusa - todosbiz.es",
+        "snippet": "Puede contactar a El Krostó por teléfono al 973 82 96 86. El Krostó se encuentra enPlaça major, 17 - local 4, Mollerusa,"
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/elkrosto/",
+        "titulo": "El Krostó (@el.krosto) • Facebook, Connect with friends",
+        "snippet": "El Krostó is on Facebook. Join Facebook to connect with El Krostó and others you may know. Facebook gives people the pow"
+      },
+      {
+        "tipo": "social",
+        "label": "Enlace Externo",
+        "icono": "🔗",
+        "url": "https://www.tripadvisor.es/Restaurant_Review-g1063991-d13974130-Reviews-Krosto-Mollerussa_Province_of_Lleida_Catalonia.html",
+        "titulo": "KROSTÓ, Mollerussa - Carta, fotos y opiniones del restaurante",
+        "snippet": "Situado en la zona comercial y corazón de Mollerussa, en el Krostó se cocina con productos autóctonos y de proximidad 😋 "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://benvingutsapages.cat/es/establiment/1138-el-krosto/",
+        "titulo": "El Krostó — Bienvenidos a Pagès",
+        "snippet": "Dirección Plaza Mayor, 17 local 4 Mollerussa, Pla d'Urgell, Ponente ver el mapa"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://restauranteafrodita.es/el-crosto-sant-antoni-de-vilamajor/",
+        "titulo": "El Crostó - Sant Antoni de Vilamajor - Restaurante Afrodita",
+        "snippet": "El Crostó Es Un Acogedor Restaurant Ubicado En Carrer Europa, 2, 08459 Sant Antoni De Vilamajor, Barcelona, España. Este"
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=El+Krost%C3%B3+Espa%C3%B1a",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=El+Krost%C3%B3+Espa%C3%B1a",
+    "gemini_verificado": true,
+    "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Sitio Web, Facebook, Enlace Externo)",
+    "mensaje_dm": "¡Hola equipo de El Krostó!\n\nSoy Daniel García, diseñador y desarrollador web en Barcelona. He estado siguiendo vuestro trabajo y la excelente propuesta de producto local que ofrecéis en Mollerussa. Al ver vuestra presencia en redes, me he tomado la libertad de prepararos una web demo interactiva utilizando vuestro propio contenido, pensada especialmente para potenciar vuestra imagen de marca, mostrar vuestra carta y captar clientes directamente desde el móvil:\n\n👉 https://elkrosto-demo.netlify.app\n*(Es un enlace 100% seguro, se abre directamente en el navegador y no requiere descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os gusta, podemos comentarlo 2 minutos sin ningún compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo, equipo de El Krostó!\n\nOs escribí hace un par de días para compartiros la web demo interactiva que diseñé para vuestro establecimiento: https://elkrosto-demo.netlify.app\n\nOs la vuelvo a dejar por aquí por si no tuvisteis tiempo de echarle un ojo, ya que está optimizada para que se vea genial y cargue rápido desde el móvil.\n\n¿Tendríais 2 minutos esta semana para comentarlo brevemente y sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1790414512",
+    "campana_nombre": "Tartas Personalizadas · Barcelona",
+    "campana_ids": [
+      "camp_1790414512"
+    ]
+  },
+  {
+    "osm_id": "1024935896",
+    "nombre": "Els Hostalets",
+    "categoria": "tartas personalizadas (shop:bakery)",
+    "direccion": "",
+    "ciudad": "España",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "https://www.instagram.com/els_hostalets_carnisseria/",
+    "instagram_handle": "@els_hostalets_carnisseria",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@els_hostalets_carnisseria)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/els_hostalets_carnisseria/",
+        "titulo": "Els Hostalets (@els_hostalets_carnisseria) - Instagram",
+        "snippet": "682 Followers, 192 Following, 220 Posts - Els Hostalets (@els_hostalets_carnisseria) on Instagram: \"Del ramader al consu"
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Els+Hostalets+Espa%C3%B1a",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Els+Hostalets+Espa%C3%B1a",
+    "gemini_verificado": true,
+    "gemini_razon": "Comercio local verificado sin web propia",
+    "mensaje_dm": "¡Hola equipo de Els Hostalets!\n\nSoy Daniel García. He estado viendo vuestro trabajo y productos en Instagram y me ha parecido fantástico. Para ayudaros a dar un salto digital, os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen de carnicería tradicional y captar clientes desde el móvil:\n\n👉 https://...\n*(Enlace 100% seguro para verlo directamente en el navegador, sin descargas ni registros)*.\n\n¿Qué os parece? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Els Hostalets!\n\nOs escribí hace un par de días dejándoos la web demo interactiva que preparé para vuestra carnicería: https://...\n\nOs lo comparto de nuevo por si no pudisteis verlo y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1790414512",
+    "campana_nombre": "Tartas Personalizadas · Barcelona",
+    "campana_ids": [
+      "camp_1790414512"
+    ]
+  },
+  {
+    "osm_id": "1024935903",
+    "nombre": "Can Mario",
+    "categoria": "tartas personalizadas (shop:bakery)",
+    "direccion": "",
+    "ciudad": "España",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Can+Mario+Espa%C3%B1a",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Can+Mario+Espa%C3%B1a",
+    "gemini_verificado": false,
+    "gemini_razon": "Sin Instagram ni presencia web detectada",
+    "mensaje_dm": "",
+    "mensaje_seguimiento": "",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1790414512",
+    "campana_nombre": "Tartas Personalizadas · Barcelona",
+    "campana_ids": [
+      "camp_1790414512"
     ]
   }
 ]
