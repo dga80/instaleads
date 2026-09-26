@@ -41,7 +41,7 @@
       }
     }
   </script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=2.1">
 </head>
 <body class="bg-[#6a0732] text-[#FBF9F5] font-sans antialiased selection:bg-copper selection:text-[#6a0732] relative">
 
@@ -340,10 +340,10 @@
         </div>
 
         <!-- Grid de 3 Fichas de Catas Reales -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24 pt-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24 pt-6">
           
           <!-- Ficha 1 -->
-          <div class="card-luxe p-8 flex flex-col justify-between">
+          <div class="card-luxe overflow-visible p-8 flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between text-xs font-semibold mb-5">
                 <span class="badge-poster-gold px-3.5 py-1 rounded-full uppercase tracking-wider text-[11px] font-bold">Iniciación</span>
@@ -388,9 +388,9 @@
           </div>
 
           <!-- Ficha 2 (Destacada en Cobre/Vino) -->
-          <div class="card-luxe p-8 flex flex-col justify-between border-2 border-copper relative shadow-[0_0_40px_rgba(206,154,96,0.25)]">
+          <div class="card-luxe overflow-visible p-8 flex flex-col justify-between border-2 border-copper relative shadow-[0_0_40px_rgba(206,154,96,0.25)]" style="overflow: visible !important;">
             <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#FBE0B5] text-[#0A0A0A] text-[10.5px] uppercase font-extrabold tracking-wider px-4 py-1.5 rounded-full shadow-lg border border-[#A27236]/40 z-20 whitespace-nowrap">
-              Más Popular · Últimas Plazas
+              Más Popular · Selección Especial
             </div>
             <div>
               <div class="flex items-center justify-between text-xs font-semibold mb-5 pt-1">
@@ -436,7 +436,7 @@
           </div>
 
           <!-- Ficha 3 -->
-          <div class="card-luxe p-8 flex flex-col justify-between">
+          <div class="card-luxe overflow-visible p-8 flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between text-xs font-semibold mb-5">
                 <span class="badge-poster-blue px-3.5 py-1 rounded-full uppercase tracking-wider text-[11px] font-bold">Grupos Privados</span>
@@ -658,39 +658,39 @@
         </div>
 
         <!-- 2 Planes de Suscripción -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16 pt-2">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16 pt-6">
           
           <!-- Plan 1 -->
-          <div class="card-luxe p-8 flex flex-col justify-between">
+          <div class="card-luxe overflow-visible p-8 flex flex-col justify-between">
             <div>
               <div class="flex justify-between items-start mb-4">
                 <div>
                   <span class="badge-poster-gold px-3 py-1 rounded-full uppercase tracking-wider text-[10px] font-bold inline-block mb-1.5">Plan Esencial</span>
-                  <h3 class="font-serif text-3xl font-bold text-white mt-1">Selección Descubrimiento</h3>
+                  <h3 class="font-serif text-3xl font-bold text-white mt-1 min-h-[72px] flex items-center">Selección Descubrimiento</h3>
                 </div>
-                <div class="w-10 h-10 rounded-full bg-copper/15 border border-copper/30 flex items-center justify-center text-lg">
+                <div class="w-10 h-10 rounded-full bg-copper/15 border border-copper/30 flex items-center justify-center text-lg flex-shrink-0">
                   🍇
                 </div>
               </div>
-              <p class="text-sm text-[#EDE8E1] font-normal mb-6 leading-relaxed">
+              <p class="text-sm text-[#EDE8E1] font-normal mb-6 leading-relaxed min-h-[48px]">
                 Ideal para abrir horizontes y explorar nuevas D.O., variedades recuperadas y viticultores emergentes.
               </p>
 
               <div class="space-y-3.5 mb-8 text-sm text-[#EDE8E1]">
-                <div class="flex items-center gap-3">
-                  <span class="text-copper font-bold">✓</span>
+                <div class="flex items-start gap-3">
+                  <span class="text-copper font-bold mt-0.5">✓</span>
                   <span><strong>2 botellas sorpresa al mes</strong> (blanco, tinto o brisado).</span>
                 </div>
-                <div class="flex items-center gap-3">
-                  <span class="text-copper font-bold">✓</span>
+                <div class="flex items-start gap-3">
+                  <span class="text-copper font-bold mt-0.5">✓</span>
                   <span>Ficha de cata editorial con notas, historia y receta de maridaje.</span>
                 </div>
-                <div class="flex items-center gap-3">
-                  <span class="text-copper font-bold">✓</span>
+                <div class="flex items-start gap-3">
+                  <span class="text-copper font-bold mt-0.5">✓</span>
                   <span><strong>10% de descuento continuo</strong> en todas tus compras en bodega.</span>
                 </div>
-                <div class="flex items-center gap-3">
-                  <span class="text-copper font-bold">✓</span>
+                <div class="flex items-start gap-3">
+                  <span class="text-copper font-bold mt-0.5">✓</span>
                   <span>Sin permanencia: cancela o pausa cuando quieras con un clic.</span>
                 </div>
               </div>
@@ -711,39 +711,39 @@
           </div>
 
           <!-- Plan 2 (Destacado) -->
-          <div class="card-luxe p-8 flex flex-col justify-between border-2 border-copper relative shadow-[0_0_35px_rgba(206,154,96,0.25)]">
-            <div class="absolute -top-3.5 right-8 bg-[#FBE0B5] text-[#0A0A0A] text-[10.5px] uppercase font-extrabold tracking-wider px-4 py-1.5 rounded-full shadow-lg border border-[#A27236]/40 z-20 whitespace-nowrap">
+          <div class="card-luxe overflow-visible p-8 flex flex-col justify-between border-2 border-copper relative shadow-[0_0_35px_rgba(206,154,96,0.25)]" style="overflow: visible !important;">
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#FBE0B5] text-[#0A0A0A] text-[10.5px] uppercase font-extrabold tracking-wider px-4 py-1.5 rounded-full shadow-lg border border-[#A27236]/40 z-20 whitespace-nowrap">
               Recomendación de Baco
             </div>
             <div>
               <div class="flex justify-between items-start mb-4">
                 <div>
                   <span class="badge-poster-wine px-3 py-1 rounded-full uppercase tracking-wider text-[10px] font-bold inline-block mb-1.5">Tiradas Limitadas</span>
-                  <h3 class="font-serif text-3xl font-bold text-white mt-1">Selección Sumiller</h3>
+                  <h3 class="font-serif text-3xl font-bold text-white mt-1 min-h-[72px] flex items-center">Selección Sumiller</h3>
                 </div>
-                <div class="w-10 h-10 rounded-full bg-copper/20 border border-copper/40 flex items-center justify-center text-lg">
+                <div class="w-10 h-10 rounded-full bg-copper/20 border border-copper/40 flex items-center justify-center text-lg flex-shrink-0">
                   👑
                 </div>
               </div>
-              <p class="text-sm text-[#EDE8E1] font-normal mb-6 leading-relaxed">
+              <p class="text-sm text-[#EDE8E1] font-normal mb-6 leading-relaxed min-h-[48px]">
                 Para el amante del vino que busca rarezas, parcelas únicas y botellas de coleccionista difíciles de conseguir.
               </p>
 
               <div class="space-y-3.5 mb-8 text-sm text-[#EDE8E1]">
-                <div class="flex items-center gap-3">
-                  <span class="text-copper font-bold">✓</span>
+                <div class="flex items-start gap-3">
+                  <span class="text-copper font-bold mt-0.5">✓</span>
                   <span><strong>3 botellas de tirada limitada</strong> (vinos de guarda, ánforas, microproyectos).</span>
                 </div>
-                <div class="flex items-center gap-3">
-                  <span class="text-copper font-bold">✓</span>
+                <div class="flex items-start gap-3">
+                  <span class="text-copper font-bold mt-0.5">✓</span>
                   <span>Ficha técnica de sumiller y recomendación de evolución en botella.</span>
                 </div>
-                <div class="flex items-center gap-3">
-                  <span class="text-copper font-bold">✓</span>
+                <div class="flex items-start gap-3">
+                  <span class="text-copper font-bold mt-0.5">✓</span>
                   <span><strong>Acceso prioritario y plazas reservadas</strong> en todas nuestras catas.</span>
                 </div>
-                <div class="flex items-center gap-3">
-                  <span class="text-copper font-bold">✓</span>
+                <div class="flex items-start gap-3">
+                  <span class="text-copper font-bold mt-0.5">✓</span>
                   <span><strong>10% de descuento</strong> permanente en tienda física y eventos.</span>
                 </div>
               </div>
@@ -1009,19 +1009,22 @@
 
   </main>
 
-  <!-- BOTÓN FLOTANTE WHATSAPP (Con Halo Cobre) -->
+  <!-- BOTÓN FLOTANTE WHATSAPP (Diseño FAB Compacto & Expandible en Hover) -->
   <aside class="floating-whatsapp-container fixed bottom-6 right-6 z-50">
     <a href="https://wa.me/34600000000?text=Hola%20Casa%20Baco!%20Os%20contacto%20desde%20la%20web,%20tengo%20una%20consulta." 
        target="_blank" rel="noopener" 
-       class="floating-whatsapp-btn flex items-center gap-3 bg-[#1A1917] border border-copper/50 text-copper-light px-4 py-3.5 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:scale-105 hover:border-copper transition-all duration-300 group"
+       class="floating-whatsapp-btn flex items-center bg-[#1A1917]/95 backdrop-blur-md border border-copper/50 text-copper-light p-3 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:scale-105 hover:border-copper transition-all duration-300 group"
        aria-label="Contactar por WhatsApp Business">
-      <span class="relative flex h-3 w-3 items-center justify-center">
-        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-copper"></span>
-      </span>
-      <svg class="w-5 h-5 fill-current text-[#25D366]" viewBox="0 0 24 24">
-        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-      </svg>
-      <span class="font-medium text-xs hidden sm:inline tracking-wide">Contactar con Sumiller</span>
+      <div class="flex items-center gap-2">
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+        </span>
+        <svg class="w-5 h-5 fill-current text-[#25D366] flex-shrink-0" viewBox="0 0 24 24">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+      </div>
+      <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300 font-medium text-xs text-copper-light group-hover:pl-2.5 group-hover:pr-1 tracking-wide">Contactar con Sumiller</span>
     </a>
   </aside>
 
