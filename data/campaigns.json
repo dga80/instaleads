@@ -1,5 +1,14 @@
 [
   {
+    "id": "camp_1790535210",
+    "nombre": "Estudio De Tatuajes · madrid",
+    "categoria": "estudio de tatuajes",
+    "ubicacion": "madrid",
+    "created_at": "2026-09-27T18:53:30.560280+00:00",
+    "leads_count": 0,
+    "lead_ids": []
+  },
+  {
     "id": "camp_1790414512",
     "nombre": "Tartas Personalizadas · Barcelona",
     "categoria": "tartas personalizadas",

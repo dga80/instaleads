@@ -237,6 +237,53 @@ DESIGN_ARCHETYPES = {
             {"icono": "🛡️", "titulo": "Garantía & Seguro RC", "desc": "Cobertura legal completa y garantía de 2 años."},
             {"icono": "⏱️", "titulo": "Plazos Cumplidos", "desc": "Planificación rigurosa y entregas en fecha pactada."}
         ]
+    },
+    "boulangerie_artisan": {
+        "template_file": "stitch_bakery_artisan.html",
+        "layout_type": "boulangerie_artisan",
+        "headline_font": "'Cormorant Garamond', serif",
+        "body_font": "'Plus Jakarta Sans', sans-serif",
+        "google_fonts_url": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap",
+        "color_seed": "#d99438", # Miel y mantequilla dorada
+        "primary": "#261b14", # Cacao / Espresso tostado
+        "primary_container": "#d99438", # Miel artesanal
+        "on_primary": "#ffffff",
+        "accent": "#f5e8e2", # Rosa melocotón empolvado (pastelería)
+        "sage_container": "#5e7058", # Verde salvia de temporada
+        # Modo Oscuro
+        "bg_surface": "#1c140e",
+        "card_surface": "rgba(42, 29, 23, 0.88)",
+        "border_color": "rgba(217, 148, 56, 0.28)",
+        "text_primary": "#faf6f0",
+        "text_secondary": "#d8c3b0",
+        "header_bg": "rgba(28, 20, 14, 0.92)",
+        "drawer_bg": "rgba(28, 20, 14, 0.98)",
+        "badge_bg": "rgba(217, 148, 56, 0.18)",
+        "badge_text": "#f5c078",
+        # Modo Claro (Principal / Referencia Editorial Francesa)
+        "light_bg_surface": "#faf6f0",
+        "light_card_surface": "#ffffff",
+        "light_border_color": "rgba(38, 27, 20, 0.12)",
+        "light_text_primary": "#261b14",
+        "light_text_secondary": "#635347",
+        "light_header_bg": "rgba(250, 246, 240, 0.94)",
+        "light_drawer_bg": "#ffffff",
+        "light_badge_bg": "rgba(217, 148, 56, 0.14)",
+        "light_badge_text": "#9e641b",
+        "light_pill_bg": "rgba(217, 148, 56, 0.08)",
+        "light_pill_border": "rgba(217, 148, 56, 0.25)",
+        # Formas
+        "roundness": "1rem",
+        "roundness_button": "9999px",
+        "default_theme": "light",
+        "cta_gradient": "linear-gradient(135deg, #d99438 0%, #b8741d 100%)",
+        "vibe_name": "Bakery Atelier (6ª Plantilla: Panaderías de Autor, Masa Madre & Pâtisserie)",
+        "status_badge": "🥖 MASA MADRE VIVA • HORNEADO CADA MAÑANA",
+        "badges_confianza": [
+            {"icono": "🌾", "titulo": "Harinas Molidas a Piedra", "desc": "Granos seleccionados y molienda tradicional sin aditivos."},
+            {"icono": "⏳", "titulo": "Fermentación Lenta 48h", "desc": "Reposo prolongado para digestibilidad óptima y aromas vivos."},
+            {"icono": "🥐", "titulo": "Mantequilla Francesa Pura", "desc": "Hojaldres alveolados elaborados a mano cada madrugada."}
+        ]
     }
 }
 
@@ -245,6 +292,9 @@ DESIGN_ARCHETYPES["editorial_luxury"] = DESIGN_ARCHETYPES["luxury_glow"]
 DESIGN_ARCHETYPES["technical_dark"] = DESIGN_ARCHETYPES["urban_edge"]
 DESIGN_ARCHETYPES["modern_lifestyle"] = DESIGN_ARCHETYPES["urban_edge"]
 DESIGN_ARCHETYPES["fresh_clinical"] = DESIGN_ARCHETYPES["clinical_trust"]
+DESIGN_ARCHETYPES["bakery_atelier"] = DESIGN_ARCHETYPES["boulangerie_artisan"]
+DESIGN_ARCHETYPES["parisian_bakery"] = DESIGN_ARCHETYPES["boulangerie_artisan"]
+DESIGN_ARCHETYPES["plantilla_6"] = DESIGN_ARCHETYPES["boulangerie_artisan"]
 
 
 def sintetizar_design_system(
@@ -262,11 +312,13 @@ def sintetizar_design_system(
     # 1. Selección de Arquetipo Base (Prioridad máxima: elección manual del usuario)
     if arquetipo_forzado and arquetipo_forzado in DESIGN_ARCHETYPES:
         tokens = dict(DESIGN_ARCHETYPES[arquetipo_forzado])
+    elif any(k in cat for k in ["panaderia", "panader", "forn", "pasteleria", "pasteler", "bakery", "boulangerie", "obrador", "croissant"]):
+        tokens = dict(DESIGN_ARCHETYPES["boulangerie_artisan"])
     elif any(k in cat for k in ["moto", "taller", "mecanic", "coche", "automov", "neumatico", "tattoo", "tatuaje", "piercing", "barber", "fitness", "gimnasio", "crossfit", "detailing", "rentat", "lavado", "car wash", "pulido", "tintado", "chapa"]):
         tokens = dict(DESIGN_ARCHETYPES["urban_edge"])
     elif any(k in cat for k in ["dental", "dentist", "clinic", "salud", "fisioterap", "osteopat", "podolog", "optica", "farmacia", "veterinar", "psicolog", "medico"]):
         tokens = dict(DESIGN_ARCHETYPES["clinical_trust"])
-    elif any(k in cat for k in ["cafe", "panaderia", "pasteleria", "restaurante", "bar", "tapas", "gastro", "bistro", "brunch", "bakery", "pizzeria", "hamburgues"]):
+    elif any(k in cat for k in ["cafe", "restaurante", "bar", "tapas", "gastro", "bistro", "brunch", "pizzeria", "hamburgues"]):
         tokens = dict(DESIGN_ARCHETYPES["warm_artisan"])
     elif any(k in cat for k in ["reforma", "obra", "construc", "carpinter", "fontaner", "electric", "pladur", "climatiz", "pintor", "albanil", "cristal", "persiana", "mueble"]):
         tokens = dict(DESIGN_ARCHETYPES["craft_build"])

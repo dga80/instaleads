@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>{{ negocio.nombre }} | Panadería Artesanal & Pâtisserie en {{ negocio.ciudad }}</title>
+  <meta name="description" content="{{ web.subtitulo or (negocio.nombre ~ ' en ' ~ negocio.ciudad ~ '. Pan de masa madre, croissants artesanos de mantequilla, tartas personalizadas y bollería recién horneada.') }}"/>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="{{ ig.avatar_url or ig.avatar or 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=96&q=80' }}"/>
+  
+  <!-- Tipografías Premium Google Fonts (Editorial Francesa / Pâtisserie de Lujo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  
+  <!-- Iconos Google Material Symbols -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            bakery: {
+              cream: '#FAF6F0',
+              ivory: '#FFFDF9',
+              honey: '#D99438',
+              honeyDark: '#B8741D',
+              espresso: '#261B14',
+              espressoDark: '#1A120E',
+              rose: '#F5E8E2',
+              roseBorder: '#E8D3C8',
+              sage: '#5E7058',
+              sageDark: '#4A5B45',
+              border: 'rgba(38, 27, 20, 0.1)'
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', '"Playfair Display"', 'serif'],
+            display: ['"Playfair Display"', 'serif'],
+            body: ['"Plus Jakarta Sans"', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+  
+  <style>
+    :root {
+      --sat: env(safe-area-inset-top, 0px);
+      --sab: env(safe-area-inset-bottom, 0px);
+    }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(4.5rem + var(--sat, 0px));
+    }
+    body {
+      background-color: #FAF6F0;
+      color: #261B14;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overscroll-behavior-y: none;
+    }
+    .font-cormorant {
+      font-family: 'Cormorant Garamond', serif;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FAF6F0;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D99438;
+      border-radius: 9999px;
+    }
+    /* Animación Ticker infinito suave */
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      display: flex;
+      width: 200%;
+      animation: marqueeScroll 28s linear infinite;
+    }
+    .animate-marquee:hover {
+      animation-play-state: paused;
+    }
+  </style>
+  
+  <script>
+    (function() {
+      try {
+        var isIframe = window.self !== window.top;
+        var isSim = isIframe || /[?&]sim(=|&|$)/.test(window.location.search) || window.location.hash.indexOf('sim') !== -1;
+        if (isSim) {
+          document.documentElement.style.setProperty('--sat', '54px');
+          document.documentElement.style.setProperty('--sab', '20px');
+        }
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body class="antialiased min-h-screen flex flex-col bg-[#FAF6F0] text-[#261B14]">
+
+<!-- ==================== HEADER PRINCIPAL (EDITORIAL FRANCESA) ==================== -->
+<header class="sticky top-0 z-50 w-full bg-[#FAF6F0]/95 backdrop-blur-md border-b border-[#261B14]/10 transition-all duration-300" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
+    
+    <!-- Navegación Izquierda Desktop -->
+    <nav class="hidden md:flex items-center gap-7 text-[13px] font-medium tracking-wide text-[#261B14]/80">
+      <a href="#inicio" class="hover:text-[#D99438] transition-colors">Inicio</a>
+      <a href="#obrador" class="hover:text-[#D99438] transition-colors">El Obrador</a>
+      <a href="#especialidades" class="hover:text-[#D99438] transition-colors">Especialidades</a>
+      <a href="#temporada" class="hover:text-[#D99438] transition-colors">Temporada</a>
+    </nav>
+
+    <!-- Marca Central (Logotipo Estilo Pâtisserie) -->
+    <a href="#inicio" class="flex flex-col items-center justify-center text-center group py-1">
+      <div class="flex items-center gap-1.5 text-[#D99438] text-xs mb-0.5">
+        <span>✦</span>
+        <span class="tracking-[0.25em] uppercase text-[10px] font-semibold font-body">Maison de Pain</span>
+        <span>✦</span>
+      </div>
+      <span class="font-cormorant font-bold text-2xl sm:text-3xl text-[#261B14] tracking-tight group-hover:text-[#D99438] transition-colors leading-none">
+        {{ negocio.nombre }}
+      </span>
+      <span class="text-[9.5px] tracking-[0.2em] uppercase text-[#635347] font-medium mt-0.5">
+        {{ negocio.ciudad or 'Barcelona' }} • Obrador Artesano
+      </span>
+    </a>
+
+    <!-- Navegación Derecha & Botón WhatsApp -->
+    <div class="flex items-center gap-4">
+      <nav class="hidden lg:flex items-center gap-7 text-[13px] font-medium tracking-wide text-[#261B14]/80">
+        <a href="#visitanos" class="hover:text-[#D99438] transition-colors">Horarios</a>
+        <a href="#opiniones" class="hover:text-[#D99438] transition-colors">Opiniones</a>
+      </nav>
+
+      <a href="{{ negocio.whatsapp_url or '#visitanos' }}" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#D99438] hover:bg-[#B8741D] text-white text-xs font-semibold tracking-wide shadow-sm hover:shadow transition-all hover:scale-[1.02]">
+        <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        <span>Pedir por WhatsApp</span>
+      </a>
+
+      <!-- Botón Menú Móvil -->
+      <button id="mobile-menu-btn" type="button" class="md:hidden p-2 rounded-xl bg-white/70 border border-[#261B14]/15 text-[#261B14] hover:text-[#D99438] transition-colors" aria-label="Abrir menú">
+        <span class="material-symbols-outlined text-2xl">menu</span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- Menú Desplegable Móvil -->
+<div id="mobile-menu" class="hidden md:hidden fixed inset-0 z-50 bg-[#FAF6F0]/98 backdrop-blur-xl flex flex-col p-6 space-y-6 pt-24 border-b border-[#261B14]/10">
+  <button id="close-menu-btn" class="absolute top-6 right-6 p-2 rounded-xl bg-[#261B14]/5 text-[#261B14] hover:text-[#D99438]" aria-label="Cerrar menú">
+    <span class="material-symbols-outlined text-2xl">close</span>
+  </button>
+  <div class="flex flex-col items-center text-center pb-4 border-b border-[#261B14]/10">
+    <span class="font-cormorant font-bold text-2xl text-[#261B14]">{{ negocio.nombre }}</span>
+    <span class="text-xs text-[#635347]">{{ negocio.ciudad }} • Obrador de Pan & Bollería</span>
+  </div>
+  <nav class="flex flex-col gap-4 text-center font-cormorant font-bold text-2xl text-[#261B14]">
+    <a href="#inicio" class="mobile-nav-link py-2 hover:text-[#D99438]">Inicio</a>
+    <a href="#obrador" class="mobile-nav-link py-2 hover:text-[#D99438]">El Obrador & Filosofía</a>
+    <a href="#especialidades" class="mobile-nav-link py-2 hover:text-[#D99438]">Nuestras Especialidades</a>
+    <a href="#temporada" class="mobile-nav-link py-2 hover:text-[#D99438]">Edición de Temporada</a>
+    <a href="#visitanos" class="mobile-nav-link py-2 hover:text-[#D99438]">Horarios & Ubicación</a>
+    <a href="#opiniones" class="mobile-nav-link py-2 hover:text-[#D99438]">Opiniones de Clientes</a>
+  </nav>
+  <div class="pt-6 mt-auto flex flex-col gap-3">
+    <a href="{{ negocio.whatsapp_url or '#visitanos' }}" class="w-full py-3.5 rounded-full bg-[#D99438] hover:bg-[#B8741D] text-white font-semibold text-center flex items-center justify-center gap-2 shadow-md">
+      <span class="material-symbols-outlined text-lg">chat</span>
+      <span>Hacer Encargo por WhatsApp</span>
+    </a>
+    {% if negocio.telefono %}
+    <a href="tel:{{ negocio.telefono }}" class="w-full py-3 rounded-full bg-white border border-[#261B14]/15 text-[#261B14] font-medium text-center text-sm flex items-center justify-center gap-2">
+      <span class="material-symbols-outlined text-base text-[#D99438]">call</span>
+      <span>Llamar al {{ negocio.telefono }}</span>
+    </a>
+    {% endif %}
+  </div>
+</div>
+
+<main class="flex-1">
+
+  <!-- ==================== HERO SECTION ("Paris in Every Bite") ==================== -->
+  <section id="inicio" class="relative overflow-hidden pt-8 pb-16 md:pt-14 md:pb-24 bg-[#FAF6F0]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center">
+      
+      <!-- Píldora de Categoría / Status -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#D99438]/10 border border-[#D99438]/25 text-xs font-semibold text-[#9E641B] mb-6">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#D99438] animate-pulse"></span>
+        <span>{{ web.hero_badge_pill or '🥖 HORNEADO CADA MAÑANA • MASA MADRE VIVA' }}</span>
+      </div>
+
+      <!-- Gran Composición Fotográfica Hero Superior (Bandeja / Plato de Croissants & Café) -->
+      <div class="relative w-full max-w-3xl mb-8 group">
+        <div class="relative rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(38,27,20,0.12)] border border-[#261B14]/8 aspect-[16/9] sm:aspect-[21/10] bg-[#EAE3D9]">
+          {% if ig.posts and ig.posts[0] and (ig.posts[0].image_url or ig.posts[0].imagen) %}
+          <img src="{{ ig.posts[0].image_url or ig.posts[0].imagen }}" alt="{{ negocio.nombre }}" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"/>
+          {% else %}
+          <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=1200&auto=format&fit=crop&q=80" alt="Croissants y café artesanal recién horneados" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"/>
+          {% endif %}
+          <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10"></div>
+          
+          <!-- Badge Flotante en la foto -->
+          <div class="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 px-4 py-2 rounded-full bg-white/90 backdrop-blur-md border border-white/60 shadow-lg flex items-center gap-2">
+            <span class="text-sm">🥐</span>
+            <span class="font-cormorant font-bold text-sm sm:text-base text-[#261B14]">Tradición, Harinas Nobles & 48h de Reposo</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Titular Editorial Principal -->
+      <h1 class="font-cormorant font-normal italic text-4xl sm:text-6xl md:text-7xl text-[#261B14] tracking-tight leading-[1.05] max-w-3xl mb-4">
+        {{ web.titular or 'El Sabor Artesano en Cada Bocado' }}
+      </h1>
+
+      <!-- Párrafo Subtítulo -->
+      <p class="text-sm sm:text-base md:text-lg text-[#635347] font-normal leading-relaxed max-w-2xl mb-8">
+        {{ web.subtitulo or ('Elaborado a diario en ' ~ negocio.ciudad ~ ' con masa madre viva de cultivo natural, fermentación lenta y harinas molidas a la piedra sin aditivos.') }}
+      </p>
+
+      <!-- Botones de Acción Hero -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 w-full sm:w-auto">
+        <a href="{{ negocio.whatsapp_url or '#visitanos' }}" target="_blank" rel="noopener" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#D99438] hover:bg-[#B8741D] text-white font-semibold text-sm tracking-wide shadow-md shadow-[#D99438]/20 transition-all hover:scale-[1.02] flex items-center justify-center gap-2">
+          <span>Hacer Encargo por WhatsApp</span>
+          <span class="material-symbols-outlined text-base">arrow_forward</span>
+        </a>
+
+        <a href="#especialidades" class="w-full sm:w-auto px-7 py-3.5 rounded-full bg-white hover:bg-neutral-50 border border-[#261B14]/20 text-[#261B14] font-medium text-sm transition-all flex items-center justify-center gap-2">
+          <span>Ver Especialidades</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== MARQUEE / TICKER RIBBON ==================== -->
+  <div class="relative overflow-hidden py-3.5 bg-[#FFFDF9] border-y border-[#261B14]/10">
+    <div class="animate-marquee whitespace-nowrap flex items-center text-xs font-serif tracking-widest uppercase text-[#635347]">
+      <span class="mx-4">Croissants de Mantequilla Pura</span>
+      <span class="text-[#D99438]">✦</span>
+      <span class="mx-4">Panes de Masa Madre Viva</span>
+      <span class="text-[#D99438]">✦</span>
+      <span class="mx-4">Fermentación Lenta 48h</span>
+      <span class="text-[#D99438]">✦</span>
+      <span class="mx-4">Baguette de Tradición</span>
+      <span class="text-[#D99438]">✦</span>
+      <span class="mx-4">Tartas Personalizadas por Encargo</span>
+      <span class="text-[#D99438]">✦</span>
+      <span class="mx-4">Bollería Artesana Diaria</span>
+      <span class="text-[#D99438]">✦</span>
+      <span class="mx-4">Café de Especialidad</span>
+      <span class="text-[#D99438]">✦</span>
+      <span class="mx-4">Molienda a Piedra Ecológica</span>
+      <span class="text-[#D99438]">✦</span>
+      <!-- Duplicado para loop continuo -->
+      <span class="mx-4">Croissants de Mantequilla Pura</span>
+      <span class="text-[#D99438]">✦</span>
+      <span class="mx-4">Panes de Masa Madre Viva</span>
+      <span class="text-[#D99438]">✦</span>
+      <span class="mx-4">Fermentación Lenta 48h</span>
+      <span class="text-[#D99438]">✦</span>
+      <span class="mx-4">Baguette de Tradición</span>
+      <span class="text-[#D99438]">✦</span>
+      <span class="mx-4">Tartas Personalizadas por Encargo</span>
+      <span class="text-[#D99438]">✦</span>
+      <span class="mx-4">Bollería Artesana Diaria</span>
+      <span class="text-[#D99438]">✦</span>
+      <span class="mx-4">Café de Especialidad</span>
+      <span class="text-[#D99438]">✦</span>
+      <span class="mx-4">Molienda a Piedra Ecológica</span>
+      <span class="text-[#D99438]">✦</span>
+    </div>
+  </div>
+
+  <!-- ==================== SECCIÓN: A LITTLE SOMETHING FOR EVERY CRAVING ==================== -->
+  <section id="especialidades" class="py-20 bg-[#FAF6F0]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs font-serif tracking-[0.25em] uppercase text-[#D99438] font-bold block mb-2">Nuestras Creaciones Diarias</span>
+        <h2 class="font-cormorant font-bold text-3xl sm:text-5xl text-[#261B14] tracking-tight">
+          Un detalle especial para cada momento
+        </h2>
+        <p class="text-sm sm:text-base text-[#635347] mt-3">
+          Desde el primer café de la mañana hasta tus celebraciones más señaladas.
+        </p>
+      </div>
+
+      <!-- 3 Tarjetas Verticales de Familia de Productos -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Tarjeta 1: Morning Pastries / Bollería & Viennoiserie -->
+        <div class="bg-white rounded-2xl p-5 sm:p-6 shadow-[0_10px_30px_rgba(38,27,20,0.04)] border border-[#261B14]/8 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
+          <div>
+            <div class="aspect-[4/3] rounded-xl overflow-hidden mb-5 bg-[#FAF6F0]">
+              <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=800&auto=format&fit=crop&q=80" alt="Bollería artesanal" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+            </div>
+            <h3 class="font-cormorant font-bold text-2xl text-[#261B14] mb-3">Bollería & Viennoiserie</h3>
+            <ul class="space-y-2 text-xs text-[#635347] font-medium border-t border-[#261B14]/10 pt-3">
+              <li class="flex items-center justify-between">
+                <span>Croissant Clásico de Mantequilla</span>
+                <span class="text-[#D99438] font-semibold">1,95 €</span>
+              </li>
+              <li class="flex items-center justify-between">
+                <span>Pain au Chocolat (Cacao Belga)</span>
+                <span class="text-[#D99438] font-semibold">2,20 €</span>
+              </li>
+              <li class="flex items-center justify-between">
+                <span>Croissant de Almendra Marcona</span>
+                <span class="text-[#D99438] font-semibold">2,60 €</span>
+              </li>
+              <li class="flex items-center justify-between">
+                <span>Ensaimadas & Hojaldres Finos</span>
+                <span class="text-[#D99438] font-semibold">Artesano</span>
+              </li>
+            </ul>
+          </div>
+          <a href="{{ negocio.whatsapp_url or '#visitanos' }}" target="_blank" rel="noopener" class="mt-6 inline-flex items-center gap-1.5 text-xs font-semibold text-[#D99438] group-hover:text-[#B8741D] tracking-wide">
+            <span>Pedir o encargar por WhatsApp</span>
+            <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </a>
+        </div>
+
+        <!-- Tarjeta 2: Artisan Breads / Panes de Masa Madre -->
+        <div class="bg-white rounded-2xl p-5 sm:p-6 shadow-[0_10px_30px_rgba(38,27,20,0.04)] border border-[#261B14]/8 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
+          <div>
+            <div class="aspect-[4/3] rounded-xl overflow-hidden mb-5 bg-[#FAF6F0]">
+              <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&auto=format&fit=crop&q=80" alt="Pan de masa madre artesano" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+            </div>
+            <h3 class="font-cormorant font-bold text-2xl text-[#261B14] mb-3">Panes de Masa Madre</h3>
+            <ul class="space-y-2 text-xs text-[#635347] font-medium border-t border-[#261B14]/10 pt-3">
+              <li class="flex items-center justify-between">
+                <span>Hogaza Rústica de Pueblo (Masa Madre)</span>
+                <span class="text-[#D99438] font-semibold">2,80 €</span>
+              </li>
+              <li class="flex items-center justify-between">
+                <span>Baguette Tradición Francesa</span>
+                <span class="text-[#D99438] font-semibold">1,40 €</span>
+              </li>
+              <li class="flex items-center justify-between">
+                <span>Pan de Centeno & Espelta Integral</span>
+                <span class="text-[#D99438] font-semibold">3,20 €</span>
+              </li>
+              <li class="flex items-center justify-between">
+                <span>Ciabatta de Alta Hidratación</span>
+                <span class="text-[#D99438] font-semibold">2,10 €</span>
+              </li>
+            </ul>
+          </div>
+          <a href="{{ negocio.whatsapp_url or '#visitanos' }}" target="_blank" rel="noopener" class="mt-6 inline-flex items-center gap-1.5 text-xs font-semibold text-[#D99438] group-hover:text-[#B8741D] tracking-wide">
+            <span>Reservar tu hogaza diaria</span>
+            <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </a>
+        </div>
+
+        <!-- Tarjeta 3: Celebration Cakes / Tartas Personalizadas -->
+        <div class="bg-white rounded-2xl p-5 sm:p-6 shadow-[0_10px_30px_rgba(38,27,20,0.04)] border border-[#261B14]/8 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
+          <div>
+            <div class="aspect-[4/3] rounded-xl overflow-hidden mb-5 bg-[#FAF6F0]">
+              <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=800&auto=format&fit=crop&q=80" alt="Tartas personalizadas para celebraciones" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+            </div>
+            <h3 class="font-cormorant font-bold text-2xl text-[#261B14] mb-3">Tartas & Celebraciones</h3>
+            <ul class="space-y-2 text-xs text-[#635347] font-medium border-t border-[#261B14]/10 pt-3">
+              <li class="flex items-center justify-between">
+                <span>Tartas Personalizadas de Cumpleaños</span>
+                <span class="text-[#D99438] font-semibold">Por encargo</span>
+              </li>
+              <li class="flex items-center justify-between">
+                <span>Milhojas Artesanal de Crema y Nata</span>
+                <span class="text-[#D99438] font-semibold">3,80 €</span>
+              </li>
+              <li class="flex items-center justify-between">
+                <span>Tartaleta Fina de Frutas Frescas</span>
+                <span class="text-[#D99438] font-semibold">4,20 €</span>
+              </li>
+              <li class="flex items-center justify-between">
+                <span>Bandejas para Eventos & Fiestas</span>
+                <span class="text-[#D99438] font-semibold">A medida</span>
+              </li>
+            </ul>
+          </div>
+          <a href="{{ negocio.whatsapp_url or '#visitanos' }}" target="_blank" rel="noopener" class="mt-6 inline-flex items-center gap-1.5 text-xs font-semibold text-[#D99438] group-hover:text-[#B8741D] tracking-wide">
+            <span>Pedir presupuesto de tarta</span>
+            <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== DESTACADO 1: ASYMMETRIC CIRCULAR (Croissant) ==================== -->
+  <section class="py-16 md:py-24 bg-[#FAF6F0] border-t border-[#261B14]/10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-14 items-center">
+        
+        <!-- Izquierda: Círculo Fotográfico (Croissant en plato) -->
+        <div class="md:col-span-6 flex justify-center">
+          <div class="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden shadow-[0_20px_50px_rgba(38,27,20,0.15)] border-4 border-white bg-white flex items-center justify-center p-3 group">
+            <img src="https://images.unsplash.com/photo-1549903072-7e6e0bedb7fb?w=800&auto=format&fit=crop&q=80" alt="Classic Butter Croissant" class="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform duration-700"/>
+          </div>
+        </div>
+
+        <!-- Derecha: Copy Editorial Croissant -->
+        <div class="md:col-span-6 flex flex-col justify-center space-y-5 text-center md:text-left">
+          <span class="text-xs font-serif tracking-[0.2em] uppercase text-[#D99438] font-bold">Nuestra Pieza Emblema</span>
+          <h2 class="font-cormorant font-normal italic text-3xl sm:text-5xl text-[#261B14] tracking-tight leading-tight">
+            Croissant Clásico de Mantequilla
+          </h2>
+          <p class="text-sm sm:text-base text-[#635347] leading-relaxed">
+            Hojaldrado a mano cada madrugada con pura mantequilla seleccionada al 84% de materia grasa. Conseguimos 36 capas doradas, crujientes al morder y un interior de panal etéreo y aromático.
+          </p>
+
+          <div class="space-y-1.5 text-xs text-[#635347] font-medium py-2">
+            <div class="flex items-center justify-center md:justify-start gap-2">
+              <span class="text-[#D99438]">✦</span>
+              <span>Mantequilla de pastura pura (84% M.G.)</span>
+            </div>
+            <div class="flex items-center justify-center md:justify-start gap-2">
+              <span class="text-[#D99438]">✦</span>
+              <span>Harina de trigo de fuerza sin blanquear</span>
+            </div>
+            <div class="flex items-center justify-center md:justify-start gap-2">
+              <span class="text-[#D99438]">✦</span>
+              <span>Masa madre biológica & fermentación 24h</span>
+            </div>
+          </div>
+
+          <div class="pt-3 flex items-center justify-center md:justify-start gap-4">
+            <span class="font-cormorant font-bold text-2xl text-[#261B14]">1,95 €</span>
+            <a href="{{ negocio.whatsapp_url or '#visitanos' }}" target="_blank" rel="noopener" class="px-6 py-2.5 rounded-full bg-[#D99438] hover:bg-[#B8741D] text-white text-xs font-semibold tracking-wide shadow-sm hover:shadow transition-all hover:scale-[1.02]">
+              Encargar ahora
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== DESTACADO 2: INVERTED ASYMMETRIC (Strawberry Rose Tart) ==================== -->
+  <section class="py-16 md:py-24 bg-[#F5E8E2] border-t border-[#E8D3C8]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-14 items-center">
+        
+        <!-- Izquierda: Copy Editorial Tarta -->
+        <div class="md:col-span-6 flex flex-col justify-center space-y-5 text-center md:text-left order-2 md:order-1">
+          <span class="text-xs font-serif tracking-[0.2em] uppercase text-[#D99438] font-bold">Pastelería Fina de Autor</span>
+          <h2 class="font-cormorant font-normal italic text-3xl sm:text-5xl text-[#261B14] tracking-tight leading-tight">
+            Tarta Artesanal de Frutos Rojos
+          </h2>
+          <p class="text-sm sm:text-base text-[#635347] leading-relaxed">
+            Crema diplomática sedosa infusionada con vainilla pura Bourbon de Madagascar, fresas y frambuesas frescas del día y glaseado ligero sobre nuestra masa sablée de almendra crujiente.
+          </p>
+
+          <div class="space-y-1.5 text-xs text-[#635347] font-medium py-2">
+            <div class="flex items-center justify-center md:justify-start gap-2">
+              <span class="text-[#D99438]">✦</span>
+              <span>Frutos rojos frescos seleccionados cada mañana</span>
+            </div>
+            <div class="flex items-center justify-center md:justify-start gap-2">
+              <span class="text-[#D99438]">✦</span>
+              <span>Vainilla Bourbon natural de Madagascar</span>
+            </div>
+            <div class="flex items-center justify-center md:justify-start gap-2">
+              <span class="text-[#D99438]">✦</span>
+              <span>Masa sablée elaborada con harina de almendra Marcona</span>
+            </div>
+          </div>
+
+          <div class="pt-3 flex items-center justify-center md:justify-start gap-4">
+            <span class="font-cormorant font-bold text-2xl text-[#261B14]">Desde 4,20 €</span>
+            <a href="{{ negocio.whatsapp_url or '#visitanos' }}" target="_blank" rel="noopener" class="px-6 py-2.5 rounded-full bg-[#D99438] hover:bg-[#B8741D] text-white text-xs font-semibold tracking-wide shadow-sm hover:shadow transition-all hover:scale-[1.02]">
+              Pedir o Reservar
+            </a>
+          </div>
+        </div>
+
+        <!-- Derecha: Círculo Fotográfico (Tarta en plato de porcelana) -->
+        <div class="md:col-span-6 flex justify-center order-1 md:order-2">
+          <div class="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden shadow-[0_20px_50px_rgba(38,27,20,0.12)] border-4 border-white bg-white flex items-center justify-center p-3 group">
+            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=800&auto=format&fit=crop&q=80" alt="Strawberry Rose Tart" class="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform duration-700"/>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== EL OBRADOR: CRAFT & PROCESS ("Every loaf tells a story") ==================== -->
+  <section id="obrador" class="py-20 md:py-28 bg-[#261B14] text-[#FAF6F0]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-serif tracking-[0.25em] uppercase text-[#D99438] font-bold block mb-2">Nuestro Compromiso Artesano</span>
+        <h2 class="font-cormorant font-normal text-3xl sm:text-5xl text-white tracking-tight">
+          Cada pan cuenta una historia
+        </h2>
+        <p class="text-sm sm:text-base text-[#D8C3B0] mt-3">
+          Respetamos el tiempo del cereal y la tradición centenaria de nuestros maestros panaderos.
+        </p>
+      </div>
+
+      <!-- 4 Pilares con Iconografía Fina Dorada -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <div class="flex flex-col items-center text-center p-4">
+          <div class="w-14 h-14 rounded-full border border-[#D99438]/40 flex items-center justify-center text-[#D99438] mb-4 bg-white/5">
+            <span class="material-symbols-outlined text-2xl">grain</span>
+          </div>
+          <h3 class="font-cormorant font-bold text-xl text-white mb-2">Harinas Nobles</h3>
+          <p class="text-xs text-[#D8C3B0] leading-relaxed">
+            Trigos limpios de proximidad y cereales molidos a piedra sin mejorantes ni aditivos químicos.
+          </p>
+        </div>
+
+        <div class="flex flex-col items-center text-center p-4">
+          <div class="w-14 h-14 rounded-full border border-[#D99438]/40 flex items-center justify-center text-[#D99438] mb-4 bg-white/5">
+            <span class="material-symbols-outlined text-2xl">hourglass_empty</span>
+          </div>
+          <h3 class="font-cormorant font-bold text-xl text-white mb-2">Fermentación Lenta</h3>
+          <p class="text-xs text-[#D8C3B0] leading-relaxed">
+            Hasta 48 horas de reposo que permiten desarrollar aromas complejos, acidez justa y máxima digestibilidad.
+          </p>
+        </div>
+
+        <div class="flex flex-col items-center text-center p-4">
+          <div class="w-14 h-14 rounded-full border border-[#D99438]/40 flex items-center justify-center text-[#D99438] mb-4 bg-white/5">
+            <span class="material-symbols-outlined text-2xl">pan_tool</span>
+          </div>
+          <h3 class="font-cormorant font-bold text-xl text-white mb-2">Moldeado a Mano</h3>
+          <p class="text-xs text-[#D8C3B0] leading-relaxed">
+            Cada pieza es boleada y formada individualmente a mano con mimo, sin prensas industriales.
+          </p>
+        </div>
+
+        <div class="flex flex-col items-center text-center p-4">
+          <div class="w-14 h-14 rounded-full border border-[#D99438]/40 flex items-center justify-center text-[#D99438] mb-4 bg-white/5">
+            <span class="material-symbols-outlined text-2xl">local_fire_department</span>
+          </div>
+          <h3 class="font-cormorant font-bold text-xl text-white mb-2">Horno de Piedra</h3>
+          <p class="text-xs text-[#D8C3B0] leading-relaxed">
+            Cocción directa sobre solera refractaria cada madrugada antes del amanecer para una corteza crujiente.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== HORARIOS & TIENDA ("Come as you are. Leave with something warm.") ==================== -->
+  <section id="visitanos" class="py-20 bg-[#FAF6F0]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <h2 class="font-cormorant font-normal italic text-3xl sm:text-5xl text-[#261B14] tracking-tight">
+          Ven a vernos. Llévate algo recién horneado.
+        </h2>
+        <p class="text-xs tracking-widest uppercase text-[#D99438] font-bold mt-2">
+          {{ negocio.direccion or 'Carrer de Ribes 36' }}, {{ negocio.ciudad }}
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-center bg-white rounded-3xl p-6 sm:p-10 shadow-[0_15px_40px_rgba(38,27,20,0.06)] border border-[#261B14]/8">
+        
+        <!-- Foto Obrador / Tienda -->
+        <div class="md:col-span-6 rounded-2xl overflow-hidden aspect-[4/3] bg-[#FAF6F0] shadow-sm">
+          <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=1000&auto=format&fit=crop&q=80" alt="Interior y mostrador de la panadería" class="w-full h-full object-cover"/>
+        </div>
+
+        <!-- Tabla de Horarios & Botones -->
+        <div class="md:col-span-6 flex flex-col justify-center space-y-6">
+          <div>
+            <span class="text-xs font-serif tracking-[0.2em] uppercase text-[#D99438] font-bold block mb-1">Horarios del Obrador</span>
+            <h3 class="font-cormorant font-bold text-2xl text-[#261B14]">Horneamos cada día para ti</h3>
+          </div>
+
+          <div class="space-y-3 text-sm text-[#261B14]">
+            <div class="flex items-center justify-between pb-2 border-b border-[#261B14]/10">
+              <span class="font-medium">Lunes a Viernes</span>
+              <span class="font-mono text-xs text-[#635347]">06:30 – 20:30</span>
+            </div>
+            <div class="flex items-center justify-between pb-2 border-b border-[#261B14]/10">
+              <span class="font-medium">Sábados</span>
+              <span class="font-mono text-xs text-[#635347]">07:00 – 14:30</span>
+            </div>
+            <div class="flex items-center justify-between pb-2 border-b border-[#261B14]/10">
+              <span class="font-medium">Domingos & Festivos</span>
+              <span class="font-mono text-xs text-[#635347]">07:30 – 14:00</span>
+            </div>
+          </div>
+
+          <div class="pt-2 text-xs text-[#635347] space-y-1">
+            <p><strong>Dirección:</strong> {{ negocio.direccion or 'Carrer de Ribes 36' }}, 08013 {{ negocio.ciudad }}</p>
+            {% if negocio.telefono %}
+            <p><strong>Teléfono:</strong> <a href="tel:{{ negocio.telefono }}" class="text-[#D99438] hover:underline">{{ negocio.telefono }}</a></p>
+            {% endif %}
+          </div>
+
+          <div class="pt-2 flex flex-col sm:flex-row items-center gap-3">
+            <a href="https://www.google.com/maps/search/?api=1&query={{ (negocio.nombre ~ ' ' ~ negocio.direccion ~ ' ' ~ negocio.ciudad)|urlencode }}" target="_blank" rel="noopener" class="w-full sm:w-auto px-6 py-2.5 rounded-full bg-[#D99438] hover:bg-[#B8741D] text-white text-xs font-semibold tracking-wide text-center transition-all">
+              Cómo Llegar (Google Maps)
+            </a>
+            <a href="{{ negocio.whatsapp_url or '#visitanos' }}" target="_blank" rel="noopener" class="w-full sm:w-auto px-6 py-2.5 rounded-full bg-white hover:bg-neutral-50 border border-[#261B14]/20 text-[#261B14] text-xs font-medium text-center transition-all">
+              Consultar por WhatsApp
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== SECCIÓN DE TEMPORADA ("What's baking this season" - VERDE SALVIA) ==================== -->
+  <section id="temporada" class="py-20 md:py-28 bg-[#5E7058] text-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-serif tracking-[0.25em] uppercase text-white/80 font-bold block mb-2">Edición Limitada</span>
+        <h2 class="font-cormorant font-normal text-3xl sm:text-5xl text-white tracking-tight">
+          Especialidades de Temporada
+        </h2>
+        <p class="text-sm text-white/80 mt-3">
+          Creaciones exclusivas preparadas en lotes pequeños según los frutos y recetas de cada estación.
+        </p>
+      </div>
+
+      <!-- 3 Tarjetas Blancas sobre fondo Verde Salvia -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="bg-white rounded-2xl p-5 text-[#261B14] shadow-xl flex flex-col justify-between group">
+          <div>
+            <div class="aspect-square rounded-xl overflow-hidden mb-4 bg-[#FAF6F0]">
+              <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?w=600&auto=format&fit=crop&q=80" alt="Tartaleta de Bayas Silvestres" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+            </div>
+            <span class="inline-block px-2.5 py-0.5 rounded-full bg-[#5E7058]/15 text-[#5E7058] text-[10px] font-semibold tracking-wider uppercase mb-2">Cosecha de Otoño</span>
+            <h3 class="font-cormorant font-bold text-xl text-[#261B14] mb-1">Tartaleta de Bayas Silvestres</h3>
+            <p class="text-xs text-[#635347] leading-relaxed">Mousse ligera de queso fresco, confitura de mora salvaje y frutos del bosque frescos.</p>
+          </div>
+          <div class="pt-4 border-t border-[#261B14]/10 mt-4 flex items-center justify-between">
+            <span class="font-cormorant font-bold text-lg text-[#261B14]">4,20 €</span>
+            <a href="{{ negocio.whatsapp_url or '#visitanos' }}" target="_blank" rel="noopener" class="text-xs font-semibold text-[#D99438] hover:underline">Pedir →</a>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 text-[#261B14] shadow-xl flex flex-col justify-between group">
+          <div>
+            <div class="aspect-square rounded-xl overflow-hidden mb-4 bg-[#FAF6F0]">
+              <img src="https://images.unsplash.com/photo-1519869325930-281384150729?w=600&auto=format&fit=crop&q=80" alt="Tarta de Limón y Lavanda" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+            </div>
+            <span class="inline-block px-2.5 py-0.5 rounded-full bg-[#D99438]/15 text-[#9E641B] text-[10px] font-semibold tracking-wider uppercase mb-2">Favorito de la Casa</span>
+            <h3 class="font-cormorant font-bold text-xl text-[#261B14] mb-1">Tarta de Limón & Lavanda</h3>
+            <p class="text-xs text-[#635347] leading-relaxed">Curd de limón fresco infusionado con flor de lavanda silvestre y merengue tostado.</p>
+          </div>
+          <div class="pt-4 border-t border-[#261B14]/10 mt-4 flex items-center justify-between">
+            <span class="font-cormorant font-bold text-lg text-[#261B14]">4,50 €</span>
+            <a href="{{ negocio.whatsapp_url or '#visitanos' }}" target="_blank" rel="noopener" class="text-xs font-semibold text-[#D99438] hover:underline">Pedir →</a>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 text-[#261B14] shadow-xl flex flex-col justify-between group">
+          <div>
+            <div class="aspect-square rounded-xl overflow-hidden mb-4 bg-[#FAF6F0]">
+              <img src="https://images.unsplash.com/photo-1530610476181-d83430b64dcd?w=600&auto=format&fit=crop&q=80" alt="Galette Rústica de Frutas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+            </div>
+            <span class="inline-block px-2.5 py-0.5 rounded-full bg-[#5E7058]/15 text-[#5E7058] text-[10px] font-semibold tracking-wider uppercase mb-2">Receta Tradicional</span>
+            <h3 class="font-cormorant font-bold text-xl text-[#261B14] mb-1">Galette Rústica de Frutas</h3>
+            <p class="text-xs text-[#635347] leading-relaxed">Masa de hojaldre doblada a mano sobre compota natural de manzana reineta y canela.</p>
+          </div>
+          <div class="pt-4 border-t border-[#261B14]/10 mt-4 flex items-center justify-between">
+            <span class="font-cormorant font-bold text-lg text-[#261B14]">3,90 €</span>
+            <a href="{{ negocio.whatsapp_url or '#visitanos' }}" target="_blank" rel="noopener" class="text-xs font-semibold text-[#D99438] hover:underline">Pedir →</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== OPINIONES & TESTIMONIOS ("What they say") ==================== -->
+  <section id="opiniones" class="py-20 md:py-24 bg-[#FAF6F0]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      
+      <!-- Cita Editorial Grande en Cursiva -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-serif tracking-[0.25em] uppercase text-[#D99438] font-bold block mb-4">Lo que dicen en el barrio</span>
+        <blockquote class="font-cormorant font-normal italic text-2xl sm:text-4xl text-[#261B14] leading-snug">
+          «Cada visita al obrador es como entrar en un sueño parisino. Los croissants están perfectamente hojaldrados, el pan de masa madre dura días intacto y el trato del equipo es insuperable.»
+        </blockquote>
+        <p class="text-xs font-medium text-[#635347] mt-3">— Reseñas Verificadas de Clientes en {{ negocio.ciudad }}</p>
+      </div>
+
+      <!-- 3 Tarjetas de Reseñas Reales -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="bg-white rounded-2xl p-6 shadow-[0_8px_25px_rgba(38,27,20,0.04)] border border-[#261B14]/8 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="text-[#D99438] text-xs tracking-wider">★★★★★</div>
+            <p class="text-xs text-[#635347] leading-relaxed italic">
+              «Sempre comprem el pa aquí, hi ha molta rotació de producte i sempre t’emportes pa recent fet. Les pastes que tenen també són boníssimes.»
+            </p>
+          </div>
+          <div class="pt-4 border-t border-[#261B14]/10 mt-4">
+            <span class="text-xs font-bold text-[#261B14] block">Montserrat B.</span>
+            <span class="text-[10px] text-[#635347]">Clienta Habitual • Barcelona</span>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-[0_8px_25px_rgba(38,27,20,0.04)] border border-[#261B14]/8 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="text-[#D99438] text-xs tracking-wider">★★★★★</div>
+            <p class="text-xs text-[#635347] leading-relaxed italic">
+              «El café con leche y el croissant de mantequilla son espectaculares. El pan de fermentación lenta de espelta es el mejor de toda la zona.»
+            </p>
+          </div>
+          <div class="pt-4 border-t border-[#261B14]/10 mt-4">
+            <span class="text-xs font-bold text-[#261B14] block">Marc Soler</span>
+            <span class="text-[10px] text-[#635347]">Vecino de L'Eixample</span>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-[0_8px_25px_rgba(38,27,20,0.04)] border border-[#261B14]/8 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="text-[#D99438] text-xs tracking-wider">★★★★★</div>
+            <p class="text-xs text-[#635347] leading-relaxed italic">
+              «Encargamos una tarta personalizada para un aniversario familiar y superó todas las expectativas. Delicada, fresca y nada pesada. Un 10.»
+            </p>
+          </div>
+          <div class="pt-4 border-t border-[#261B14]/10 mt-4">
+            <span class="text-xs font-bold text-[#261B14] block">Anna Puig</span>
+            <span class="text-[10px] text-[#635347]">Cliente Verificado</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== BANNER: CESTAS & ENCARGOS ("The Maison Gift Box") ==================== -->
+  <section class="py-14 bg-[#FAF6F0]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="rounded-3xl bg-gradient-to-r from-[#E29D45] to-[#C88327] p-8 sm:p-12 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-8">
+        
+        <div class="max-w-xl space-y-3 text-center md:text-left">
+          <span class="text-xs font-serif tracking-[0.2em] uppercase text-white/80 font-bold block">Encargos Especiales</span>
+          <h2 class="font-cormorant font-normal text-3xl sm:text-4xl text-white">
+            Cestas Dulces & Encargos para Eventos
+          </h2>
+          <p class="text-xs sm:text-sm text-white/90 leading-relaxed">
+            ¿Tienes una reunión especial, cumpleaños o evento en {{ negocio.ciudad }}? Preparamos bandejas de bollería recién salida del horno, mini tartaletas y panes especiales por encargo previo.
+          </p>
+        </div>
+
+        <a href="{{ negocio.whatsapp_url or '#visitanos' }}" target="_blank" rel="noopener" class="shrink-0 px-8 py-3.5 rounded-full bg-[#261B14] hover:bg-[#1A120E] text-white text-xs font-semibold tracking-wide shadow-lg transition-all hover:scale-105 flex items-center gap-2">
+          <span>Solicitar por WhatsApp</span>
+          <span class="material-symbols-outlined text-base">chat</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="bg-[#1A120E] text-[#D8C3B0] py-14 border-t border-white/5">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-white/10">
+      
+      <div class="md:col-span-5 space-y-3">
+        <span class="font-cormorant font-bold text-2xl text-white block">{{ negocio.nombre }}</span>
+        <p class="text-xs text-[#D8C3B0]/80 leading-relaxed max-w-sm">
+          Panadería de autor, masa madre viva y pastelería fina elaborada cada día con harinas seleccionadas y fermentación lenta en {{ negocio.ciudad }}.
+        </p>
+        {% if negocio.instagram_url %}
+        <a href="{{ negocio.instagram_url }}" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-xs text-[#D99438] hover:underline pt-1">
+          <span>Síguenos en Instagram</span>
+          <span class="material-symbols-outlined text-xs">open_in_new</span>
+        </a>
+        {% endif %}
+      </div>
+
+      <div class="md:col-span-4 space-y-2 text-xs">
+        <span class="font-bold text-white uppercase tracking-wider text-[11px] block mb-2">Visítanos</span>
+        <p>{{ negocio.direccion or 'Carrer de Ribes 36' }}</p>
+        <p>08013 {{ negocio.ciudad }}</p>
+        {% if negocio.telefono %}
+        <p class="pt-1">Tel: <a href="tel:{{ negocio.telefono }}" class="text-[#D99438] hover:underline">{{ negocio.telefono }}</a></p>
+        {% endif %}
+      </div>
+
+      <div class="md:col-span-3 space-y-2 text-xs">
+        <span class="font-bold text-white uppercase tracking-wider text-[11px] block mb-2">Horarios</span>
+        <p>Lun - Vie: 06:30 – 20:30</p>
+        <p>Sábados: 07:00 – 14:30</p>
+        <p>Domingos: 07:30 – 14:00</p>
+      </div>
+
+    </div>
+
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-[#D8C3B0]/60 gap-4">
+      <p>© 2026 {{ negocio.nombre }}. Todos los derechos reservados.</p>
+      <p class="flex items-center gap-1">
+        <span>Diseño Web Artesano & Mobile-First</span>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- Script Menú Móvil -->
+<script>
+  (function() {
+    var mobileBtn = document.getElementById('mobile-menu-btn');
+    var closeBtn = document.getElementById('close-menu-btn');
+    var menu = document.getElementById('mobile-menu');
+    var links = document.querySelectorAll('.mobile-nav-link');
+
+    if (mobileBtn && menu) {
+      mobileBtn.addEventListener('click', function() {
+        menu.classList.remove('hidden');
+      });
+    }
+    if (closeBtn && menu) {
+      closeBtn.addEventListener('click', function() {
+        menu.classList.add('hidden');
+      });
+    }
+    links.forEach(function(link) {
+      link.addEventListener('click', function() {
+        if (menu) menu.classList.add('hidden');
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>

@@ -418,7 +418,18 @@ def generar_datos_instagram_mock(nombre_negocio: str, categoria: str, ciudad: st
             {"img": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&auto=format&fit=crop&q=80", "caption": "Ven a probar la hamburguesa de la que todos hablan en {ciudad}."}
         ]
         bio = f"Smash burgers artesanales en {ciudad}. Carne madurada, pan brioche tierno y salsas caseras. ¡Pide la tuya! 🍔🍟"
-    elif any(k in clean_cat for k in ["cafe", "restaurante", "bar", "panaderia", "pasteleria", "gastro"]):
+    elif any(k in text_corpus for k in ["panader", "forn", "pasteler", "bakery", "boulangerie", "obrador", "croissant", "tarta", "masa madre"]):
+        avatar = "https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&auto=format&fit=crop&q=80"
+        tematicas = [
+            {"img": "https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=1000&auto=format&fit=crop&q=80", "caption": "Croissants de mantequilla pura hojaldrados a mano y horneados cada mañana en {ciudad}."},
+            {"img": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&auto=format&fit=crop&q=80", "caption": "Panes de masa madre viva con fermentación lenta de 48h y harina de molienda a piedra."},
+            {"img": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=800&auto=format&fit=crop&q=80", "caption": "Tartas artesanales de frutos rojos y repostería fina para tus celebraciones."},
+            {"img": "https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=800&auto=format&fit=crop&q=80", "caption": "Obrador tradicional a la vista con el aroma reconfortante del pan recién salido."},
+            {"img": "https://images.unsplash.com/photo-1549903072-7e6e0bedb7fb?w=800&auto=format&fit=crop&q=80", "caption": "Viennoiserie artesana: brioches tiernos, ensaimadas y hojaldres crujientes."},
+            {"img": "https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?w=800&auto=format&fit=crop&q=80", "caption": "Ven a por tu pan caliente recién horneado a nuestro obrador en {ciudad}."}
+        ]
+        bio = f"Obrador artesano de pan de masa madre y pastelería en {ciudad}. Fermentación lenta, harinas seleccionadas y bollería recién horneada a diario. 🥐🥖"
+    elif any(k in clean_cat for k in ["cafe", "restaurante", "bar", "gastro"]):
         avatar = "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=300&auto=format&fit=crop&q=80"
         tematicas = [
             {"img": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1000&auto=format&fit=crop&q=80", "caption": "Café de especialidad recién tostado y extracción de autor para los más exigentes."},

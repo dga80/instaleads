@@ -786,6 +786,30 @@
             </div>
           </div>
         </div>
+
+        <!-- Archetype 6: Bakery Atelier & Pâtisserie (6ª Plantilla) -->
+        <div onclick="seleccionarPlantilla('boulangerie_artisan')" id="tpl-card-boulangerie_artisan" class="tpl-card p-3 rounded-lg hairline-all hover:bg-black/5 dark:hover:bg-white/5 transition cursor-pointer border-2 border-transparent">
+          <div class="flex items-start justify-between">
+            <div>
+              <div class="flex items-center space-x-2">
+                <span class="text-base">🥖</span>
+                <span class="font-semibold text-xs text-mac-textPrimary">6. Bakery Atelier & Pâtisserie</span>
+                <span id="rec-boulangerie_artisan" class="hidden px-1.5 py-0.2 rounded text-[9.5px] bg-mac-accent text-white font-mono uppercase font-semibold">RECOMENDADA</span>
+              </div>
+              <p class="text-[11px] text-mac-textSecondary mt-1">Diseño editorial francés de alta gama, estética cálida artesanal, sección verde salvia de temporada y catálogo de delicias.</p>
+              <div class="text-[10px] text-mac-textTertiary mt-1 font-medium">Ideal para: Panaderías artesanas, Forns de Pa, Obradores de masa madre, Pastelerías & Repostería fina.</div>
+              <div class="flex items-center space-x-3 mt-2 text-[10px] font-mono text-mac-textTertiary">
+                <span>Cormorant Garamond / Plus Jakarta Sans</span>
+                <div class="flex items-center space-x-1">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#FAF6F0] border border-black/10"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#D99438]"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#261B14]"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#5E7058]"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Sheet Footer -->
@@ -2081,15 +2105,20 @@
           </tr>
         `;
       }).join('');
-    }function deducirArquetipoRecomendado(categoria, nombre) {
+    }
+    
+    function deducirArquetipoRecomendado(categoria, nombre) {
       const text = `${categoria || ''} ${nombre || ''}`.toLowerCase();
+      if (/panader|forn|bakery|pasteler|obrador|boulangerie|croissant|tarta/.test(text)) {
+        return 'boulangerie_artisan';
+      }
       if (/tattoo|tatuaj|piercing|ink|barber|taller|moto|motor|mecanic|boxeo|crossfit|gimnasio|gym|tuning/.test(text)) {
         return 'urban_edge';
       }
       if (/uñ|nail|estetic|belleza|beauty|spa|joyer|pestañ|laser|masaje|depilac|cosmet/.test(text)) {
         return 'luxury_glow';
       }
-      if (/cafe|cafeter|panader|reposter|pasteler|bakery|restauran|bistro|pizz|bar\b|artesan|comida|gastro|taberna|braser/.test(text)) {
+      if (/cafe|cafeter|restauran|bistro|pizz|bar\b|artesan|comida|gastro|taberna|braser/.test(text)) {
         return 'warm_artisan';
       }
       if (/dent|clinic|odont|fisioterap|fisio|podolog|salud|medic|veterinar|psicolog|optica|quiropract/.test(text)) {
