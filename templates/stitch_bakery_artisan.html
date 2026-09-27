@@ -109,33 +109,34 @@
 
 <!-- ==================== HEADER PRINCIPAL (EDITORIAL FRANCESA) ==================== -->
 <header class="sticky top-0 z-50 w-full bg-[#FAF6F0]/95 backdrop-blur-md border-b border-[#261B14]/10 transition-all duration-300" style="padding-top: var(--sat, env(safe-area-inset-top, 0px));">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 relative flex items-center justify-between gap-4">
     
-    <!-- Navegación Izquierda Desktop -->
+    <!-- Navegación Izquierda Desktop (o espaciador simétrico en móvil para centrado perfecto) -->
     <nav class="hidden md:flex items-center gap-7 text-[13px] font-medium tracking-wide text-[#261B14]/80">
       <a href="#inicio" class="hover:text-[#D99438] transition-colors">Inicio</a>
       <a href="#obrador" class="hover:text-[#D99438] transition-colors">El Obrador</a>
       <a href="#especialidades" class="hover:text-[#D99438] transition-colors">Especialidades</a>
       <a href="#temporada" class="hover:text-[#D99438] transition-colors">Temporada</a>
     </nav>
+    <div class="w-10 md:hidden pointer-events-none" aria-hidden="true"></div>
 
-    <!-- Marca Central (Logotipo Estilo Pâtisserie) -->
-    <a href="#inicio" class="flex flex-col items-center justify-center text-center group py-1">
+    <!-- Marca Central (Logotipo Estilo Pâtisserie) - Centrado absoluto en móvil y estático en desktop -->
+    <a href="#inicio" class="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 flex flex-col items-center justify-center text-center group py-1 max-w-[calc(100%-120px)] sm:max-w-none">
       <div class="flex items-center gap-1.5 text-[#D99438] text-xs mb-0.5">
         <span>✦</span>
-        <span class="tracking-[0.25em] uppercase text-[10px] font-semibold font-body">Maison de Pain</span>
+        <span class="tracking-[0.25em] uppercase text-[9.5px] sm:text-[10px] font-semibold font-body truncate">Maison de Pain</span>
         <span>✦</span>
       </div>
-      <span class="font-cormorant font-bold text-2xl sm:text-3xl text-[#261B14] tracking-tight group-hover:text-[#D99438] transition-colors leading-none">
+      <span class="font-cormorant font-bold text-xl sm:text-2xl md:text-3xl text-[#261B14] tracking-tight group-hover:text-[#D99438] transition-colors leading-none truncate max-w-full">
         {{ negocio.nombre }}
       </span>
-      <span class="text-[9.5px] tracking-[0.2em] uppercase text-[#635347] font-medium mt-0.5">
+      <span class="text-[9px] sm:text-[9.5px] tracking-[0.18em] uppercase text-[#635347] font-medium mt-0.5 truncate max-w-full">
         {{ negocio.ciudad or 'Barcelona' }} • Obrador Artesano
       </span>
     </a>
 
-    <!-- Navegación Derecha & Botón WhatsApp -->
-    <div class="flex items-center gap-4">
+    <!-- Navegación Derecha & Botón WhatsApp & Botón Burger -->
+    <div class="flex items-center gap-4 z-10">
       <nav class="hidden lg:flex items-center gap-7 text-[13px] font-medium tracking-wide text-[#261B14]/80">
         <a href="#visitanos" class="hover:text-[#D99438] transition-colors">Horarios</a>
         <a href="#opiniones" class="hover:text-[#D99438] transition-colors">Opiniones</a>
@@ -147,7 +148,7 @@
       </a>
 
       <!-- Botón Menú Móvil -->
-      <button id="mobile-menu-btn" type="button" class="md:hidden p-2 rounded-xl bg-white/70 border border-[#261B14]/15 text-[#261B14] hover:text-[#D99438] transition-colors" aria-label="Abrir menú">
+      <button id="mobile-menu-btn" type="button" class="md:hidden p-2 rounded-xl bg-white border border-[#261B14]/15 text-[#261B14] hover:text-[#D99438] shadow-sm transition-colors" aria-label="Abrir menú">
         <span class="material-symbols-outlined text-2xl">menu</span>
       </button>
     </div>
@@ -155,22 +156,24 @@
   </div>
 </header>
 
-<!-- Menú Desplegable Móvil -->
-<div id="mobile-menu" class="hidden md:hidden fixed inset-0 z-50 bg-[#FAF6F0]/98 backdrop-blur-xl flex flex-col p-6 space-y-6 pt-24 border-b border-[#261B14]/10">
-  <button id="close-menu-btn" class="absolute top-6 right-6 p-2 rounded-xl bg-[#261B14]/5 text-[#261B14] hover:text-[#D99438]" aria-label="Cerrar menú">
-    <span class="material-symbols-outlined text-2xl">close</span>
-  </button>
-  <div class="flex flex-col items-center text-center pb-4 border-b border-[#261B14]/10">
-    <span class="font-cormorant font-bold text-2xl text-[#261B14]">{{ negocio.nombre }}</span>
-    <span class="text-xs text-[#635347]">{{ negocio.ciudad }} • Obrador de Pan & Bollería</span>
+<!-- Menú Desplegable Móvil (Opaco, Sin Transparencias Distractoras, y con Transición Fluida) -->
+<div id="mobile-menu" class="md:hidden fixed inset-0 z-50 bg-[#FAF6F0] flex flex-col p-6 space-y-6 border-b border-[#261B14]/15 shadow-2xl transition-all duration-300 ease-out transform -translate-y-full opacity-0 pointer-events-none overflow-y-auto" style="padding-top: calc(1.25rem + var(--sat, 0px));">
+  <div class="flex items-center justify-between pb-4 border-b border-[#261B14]/10">
+    <div class="flex flex-col">
+      <span class="font-cormorant font-bold text-2xl text-[#261B14] leading-tight">{{ negocio.nombre }}</span>
+      <span class="text-[10px] uppercase tracking-widest text-[#635347]">{{ negocio.ciudad or 'Barcelona' }} • Obrador Artesano</span>
+    </div>
+    <button id="close-menu-btn" class="p-2.5 rounded-full bg-white border border-[#261B14]/15 text-[#261B14] hover:text-[#D99438] shadow-sm transition-all" aria-label="Cerrar menú">
+      <span class="material-symbols-outlined text-2xl">close</span>
+    </button>
   </div>
-  <nav class="flex flex-col gap-4 text-center font-cormorant font-bold text-2xl text-[#261B14]">
-    <a href="#inicio" class="mobile-nav-link py-2 hover:text-[#D99438]">Inicio</a>
-    <a href="#obrador" class="mobile-nav-link py-2 hover:text-[#D99438]">El Obrador & Filosofía</a>
-    <a href="#especialidades" class="mobile-nav-link py-2 hover:text-[#D99438]">Nuestras Especialidades</a>
-    <a href="#temporada" class="mobile-nav-link py-2 hover:text-[#D99438]">Edición de Temporada</a>
-    <a href="#visitanos" class="mobile-nav-link py-2 hover:text-[#D99438]">Horarios & Ubicación</a>
-    <a href="#opiniones" class="mobile-nav-link py-2 hover:text-[#D99438]">Opiniones de Clientes</a>
+  <nav class="flex flex-col gap-4 text-center font-cormorant font-bold text-2xl text-[#261B14] py-2">
+    <a href="#inicio" class="mobile-nav-link py-2 hover:text-[#D99438] transition-colors">Inicio</a>
+    <a href="#obrador" class="mobile-nav-link py-2 hover:text-[#D99438] transition-colors">El Obrador & Filosofía</a>
+    <a href="#especialidades" class="mobile-nav-link py-2 hover:text-[#D99438] transition-colors">Nuestras Especialidades</a>
+    <a href="#temporada" class="mobile-nav-link py-2 hover:text-[#D99438] transition-colors">Edición de Temporada</a>
+    <a href="#visitanos" class="mobile-nav-link py-2 hover:text-[#D99438] transition-colors">Horarios & Ubicación</a>
+    <a href="#opiniones" class="mobile-nav-link py-2 hover:text-[#D99438] transition-colors">Opiniones de Clientes</a>
   </nav>
   <div class="pt-6 mt-auto flex flex-col gap-3">
     <a href="{{ negocio.whatsapp_url or '#visitanos' }}" class="w-full py-3.5 rounded-full bg-[#D99438] hover:bg-[#B8741D] text-white font-semibold text-center flex items-center justify-center gap-2 shadow-md">
@@ -178,7 +181,7 @@
       <span>Hacer Encargo por WhatsApp</span>
     </a>
     {% if negocio.telefono %}
-    <a href="tel:{{ negocio.telefono }}" class="w-full py-3 rounded-full bg-white border border-[#261B14]/15 text-[#261B14] font-medium text-center text-sm flex items-center justify-center gap-2">
+    <a href="tel:{{ negocio.telefono }}" class="w-full py-3 rounded-full bg-white border border-[#261B14]/15 text-[#261B14] font-medium text-center text-sm flex items-center justify-center gap-2 shadow-sm">
       <span class="material-symbols-outlined text-base text-[#D99438]">call</span>
       <span>Llamar al {{ negocio.telefono }}</span>
     </a>
@@ -820,7 +823,7 @@
   </div>
 </footer>
 
-<!-- Script Menú Móvil -->
+<!-- Script Menú Móvil con Transición Fluida -->
 <script>
   (function() {
     var mobileBtn = document.getElementById('mobile-menu-btn');
@@ -828,20 +831,28 @@
     var menu = document.getElementById('mobile-menu');
     var links = document.querySelectorAll('.mobile-nav-link');
 
-    if (mobileBtn && menu) {
-      mobileBtn.addEventListener('click', function() {
-        menu.classList.remove('hidden');
-      });
+    function openMenu() {
+      if (!menu) return;
+      menu.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+      menu.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+      document.body.style.overflow = 'hidden';
     }
-    if (closeBtn && menu) {
-      closeBtn.addEventListener('click', function() {
-        menu.classList.add('hidden');
-      });
+
+    function closeMenu() {
+      if (!menu) return;
+      menu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+      menu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+      document.body.style.overflow = '';
     }
+
+    if (mobileBtn) mobileBtn.addEventListener('click', openMenu);
+    if (closeBtn) closeBtn.addEventListener('click', closeMenu);
     links.forEach(function(link) {
-      link.addEventListener('click', function() {
-        if (menu) menu.classList.add('hidden');
-      });
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeMenu();
     });
   })();
 </script>

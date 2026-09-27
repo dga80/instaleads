@@ -1,5 +1,36 @@
 [
   {
+    "id": "camp_1790537209",
+    "nombre": "Estudio De Tatuajes · madrid",
+    "categoria": "estudio de tatuajes",
+    "ubicacion": "madrid",
+    "created_at": "2026-09-27T19:26:49.502604+00:00",
+    "leads_count": 0,
+    "lead_ids": []
+  },
+  {
+    "id": "camp_1790537103",
+    "nombre": "Estudio De Tatuajes · madrid",
+    "categoria": "estudio de tatuajes",
+    "ubicacion": "madrid",
+    "created_at": "2026-09-27T19:25:03.481636+00:00",
+    "leads_count": 1,
+    "lead_ids": [
+      "647277151"
+    ]
+  },
+  {
+    "id": "camp_1790536923",
+    "nombre": "Estudio De Tatuajes · madrid",
+    "categoria": "estudio de tatuajes",
+    "ubicacion": "madrid",
+    "created_at": "2026-09-27T19:22:03.158883+00:00",
+    "leads_count": 1,
+    "lead_ids": [
+      "647277151"
+    ]
+  },
+  {
     "id": "camp_1790535210",
     "nombre": "Estudio De Tatuajes · madrid",
     "categoria": "estudio de tatuajes",

@@ -60,9 +60,9 @@ CAMPAIGNS_FILE = DATA_DIR / "campaigns.json"
 AGENT_MEMORY_FILE = DATA_DIR / "agent_memory.json"
 
 import threading
-leads_lock = threading.Lock()
-campaigns_lock = threading.Lock()
-agent_memory_lock = threading.Lock()
+leads_lock = threading.RLock()
+campaigns_lock = threading.RLock()
+agent_memory_lock = threading.RLock()
 
 if not LEADS_FILE.exists():
     with open(LEADS_FILE, "w", encoding="utf-8") as f:
@@ -88,7 +88,7 @@ app = FastAPI(
 
 templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
 
-ghpages_lock = threading.Lock()
+ghpages_lock = threading.RLock()
 
 def obtener_base_github_pages() -> str:
     """Detecta la URL base pública de GitHub Pages para este repositorio."""
@@ -652,7 +652,13 @@ def mapear_categoria_osm(termino_usuario: str) -> dict:
         print(f"[Memoria Agente] Usando mapeo aprendido para '{termino_limpio}': {learned['key']}={learned['value']}")
         return {"key": learned["key"], "value": learned["value"], "modelo": "memoria_agente", "aprendido": True}
     
-    # 2. Consultar al agente Gemini con soporte total para nichos outliers y categorías libres
+    # 2. Comprobar catálogo base de categorías comunes para resolución instantánea
+    for clave, valor in FALLBACK_OSM_CATEGORIES.items():
+        if clave == termino_limpio or (len(clave) > 4 and clave in termino_limpio):
+            print(f"[Catálogo Base] Mapeo directo para '{termino_limpio}': {valor['key']}={valor['value']}")
+            return {"key": valor["key"], "value": valor["value"], "modelo": "catalogo_base", "aprendido": False}
+
+    # 3. Consultar al agente Gemini con soporte total para nichos outliers y categorías libres
     cliente = obtener_cliente_gemini()
     if cliente:
         prompt = f"""
@@ -902,8 +908,9 @@ def construir_pitch_plantilla(nombre_negocio: str, demo_url: str = "", tiene_ig:
 # -------------------------------------------------------------
 # Lista de espejos públicos de Overpass para garantizar alta disponibilidad
 OVERPASS_ENDPOINTS = [
+    "https://z.overpass-api.de/api/interpreter",
+    "https://lz4.overpass-api.de/api/interpreter",
     "https://overpass-api.de/api/interpreter",
-    "https://overpass.kumi.systems/api/interpreter",
     "https://overpass.private.coffee/api/interpreter"
 ]
 
@@ -1014,12 +1021,13 @@ def consultar_overpass(
     osm_value: str = "",
     localidad: str = "",
     provincia: str = "",
-    max_resultados: int = 50
+    max_resultados: int = 50,
+    on_status: Optional[Any] = None
 ) -> List[Dict[str, Any]]:
     """
     Ejecuta una consulta Overpass QL buscando elementos que coincidan con la clave/valor de OSM
     dentro de la localidad, provincia o código postal especificados.
-    Dispone de failover automático entre múltiples espejos públicos de Overpass.
+    Dispone de failover automático entre múltiples espejos públicos de Overpass de alta velocidad.
     """
     geo_data = obtener_bounding_box_ubicacion(
         localidad=localidad,
@@ -1037,21 +1045,15 @@ def consultar_overpass(
         if codigo_postal and lat and lon:
             # Para Código Postal, utilizamos un radio focalizado de 1400m para no capturar municipios vecinos
             query = f"""
-            [out:json][timeout:30];
-            (
-              node["{osm_key}"="{osm_value}"](around:1400, {lat}, {lon});
-              way["{osm_key}"="{osm_value}"](around:1400, {lat}, {lon});
-            );
+            [out:json][timeout:12];
+            nwr["{osm_key}"="{osm_value}"](around:1400, {lat}, {lon});
             out center tags {max_resultados};
             """
         else:
             s, n, w, e = geo_data["south"], geo_data["north"], geo_data["west"], geo_data["east"]
             query = f"""
-            [out:json][timeout:30];
-            (
-              node["{osm_key}"="{osm_value}"]({s},{w},{n},{e});
-              way["{osm_key}"="{osm_value}"]({s},{w},{n},{e});
-            );
+            [out:json][timeout:12];
+            nwr["{osm_key}"="{osm_value}"]({s},{w},{n},{e});
             out center tags {max_resultados};
             """
     else:
@@ -1059,24 +1061,21 @@ def consultar_overpass(
         condiciones = []
         if codigo_postal:
             condiciones.extend([
-                f'node["addr:postcode"="{codigo_postal}"]["{osm_key}"="{osm_value}"];',
-                f'way["addr:postcode"="{codigo_postal}"]["{osm_key}"="{osm_value}"];',
-                f'node["postal_code"="{codigo_postal}"]["{osm_key}"="{osm_value}"];'
+                f'nwr["addr:postcode"="{codigo_postal}"]["{osm_key}"="{osm_value}"];',
+                f'nwr["postal_code"="{codigo_postal}"]["{osm_key}"="{osm_value}"];'
             ])
         if localidad:
             condiciones.extend([
-                f'node["addr:city"~"^{localidad}$",i]["{osm_key}"="{osm_value}"];',
-                f'way["addr:city"~"^{localidad}$",i]["{osm_key}"="{osm_value}"];'
+                f'nwr["addr:city"~"^{localidad}$",i]["{osm_key}"="{osm_value}"];'
             ])
         if not condiciones:
             condiciones = [
-                f'node["{osm_key}"="{osm_value}"];',
-                f'way["{osm_key}"="{osm_value}"];'
+                f'nwr["{osm_key}"="{osm_value}"];'
             ]
         
         bloque_query = "\n  ".join(condiciones)
         query = f"""
-        [out:json][timeout:30];
+        [out:json][timeout:12];
         (
           {bloque_query}
         );
@@ -1087,10 +1086,27 @@ def consultar_overpass(
     
     # Intento secuencial entre espejos Overpass
     for endpoint in OVERPASS_ENDPOINTS:
+        nodo_host = endpoint.split("//")[1].split("/")[0]
+        if on_status and callable(on_status):
+            try:
+                on_status(f"Consultando red OpenStreetMap ({nodo_host})...")
+            except Exception:
+                pass
         try:
-            resp = requests.post(endpoint, data={"data": query}, headers=headers, timeout=25)
+            resp = requests.post(endpoint, data={"data": query}, headers=headers, timeout=14)
             if resp.status_code == 200:
-                elementos = resp.json().get("elements", [])
+                try:
+                    data = resp.json()
+                    elementos = data.get("elements", [])
+                except Exception as json_err:
+                    print(f"[Overpass Warning] Servidor {endpoint} respondió con formato no JSON: {json_err}. Probando siguiente espejo...")
+                    if on_status and callable(on_status):
+                        try:
+                            on_status(f"Nodo {nodo_host} no devolvió datos válidos. Probando siguiente...")
+                        except Exception:
+                            pass
+                    continue
+
                 resultados = []
                 for el in elementos:
                     tags = el.get("tags", {})
@@ -1146,8 +1162,18 @@ def consultar_overpass(
                 return resultados
             else:
                 print(f"[Overpass Warning] Servidor {endpoint} respondió con status {resp.status_code}. Probando siguiente espejo...")
+                if on_status and callable(on_status):
+                    try:
+                        on_status(f"Servidor {nodo_host} ocupado (HTTP {resp.status_code}). Probando siguiente...")
+                    except Exception:
+                        pass
         except Exception as e:
             print(f"[Overpass Error] Fallo al consultar {endpoint}: {e}. Probando siguiente espejo...")
+            if on_status and callable(on_status):
+                try:
+                    on_status(f"Tiempo agotado en {nodo_host}. Probando siguiente espejo...")
+                except Exception:
+                    pass
 
     return []
 
@@ -2162,15 +2188,41 @@ async def scan_local_leads_stream(req: ScanRequest):
         })
 
         try:
-            comercios = await asyncio.to_thread(
-                consultar_overpass,
-                codigo_postal=cp,
-                osm_key=osm_key,
-                osm_value=osm_value,
-                localidad=loc,
-                provincia=prov,
-                max_resultados=50
+            status_queue = asyncio.Queue()
+            loop = asyncio.get_running_loop()
+
+            def overpass_status(msg: str):
+                loop.call_soon_threadsafe(status_queue.put_nowait, msg)
+
+            overpass_task = asyncio.create_task(
+                asyncio.to_thread(
+                    consultar_overpass,
+                    codigo_postal=cp,
+                    osm_key=osm_key,
+                    osm_value=osm_value,
+                    localidad=loc,
+                    provincia=prov,
+                    max_resultados=50,
+                    on_status=overpass_status
+                )
             )
+
+            while not overpass_task.done():
+                try:
+                    status_msg = await asyncio.wait_for(status_queue.get(), timeout=0.8)
+                    yield sse({
+                        "type": "step",
+                        "step": 2,
+                        "total_steps": 4,
+                        "campaign_id": campaign_id,
+                        "campaign_name": campaign_name,
+                        "categoria_osm": osm_tag,
+                        "message": status_msg
+                    })
+                except asyncio.TimeoutError:
+                    pass
+
+            comercios = await overpass_task
         except Exception as e:
             yield sse({
                 "type": "error",
