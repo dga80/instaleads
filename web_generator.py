@@ -466,7 +466,7 @@ Publicaciones recientes en Instagram:
 
 Tu misión como Director de Diseño y Copywriting es decidir y estructurar el contenido en JSON:
 1. 'tema_predeterminado': Modo visual inicial ideal ("light" o "dark").
-2. 'arquetipo_diseno': Arquetipo visual más idóneo: "boulangerie_artisan" (panaderías de autor, forns de pa, obradores de masa madre, pastelerías y repostería artesanal), "urban_edge" (talleres, coches, motos, detailing, lavado, barberías, tatuajes, fitness/gimnasios), "luxury_glow" (estética, uñas, pestañas, alta cosmética, joyería, moda), "warm_artisan" (cafeterías, restaurantes, bistrós, gastrobares), "clinical_trust" (dentistas, clínicas médicas, fisioterapia, veterinarias), "craft_build" (reformas, construcción, fontanería, carpintería).
+2. 'arquetipo_diseno': Arquetipo visual más idóneo: "tattoo_2_0" (estudios de tatuajes de autor, fine line, micro-realismo, blackwork, piercing y arte corporal), "boulangerie_artisan" (panaderías de autor, forns de pa, obradores de masa madre, pastelerías y repostería artesanal), "urban_edge" (talleres, coches, motos, detailing, lavado, barberías, fitness/gimnasios), "luxury_glow" (estética, uñas, pestañas, alta cosmética, joyería, moda), "warm_artisan" (cafeterías, restaurantes, bistrós, gastrobares), "clinical_trust" (dentistas, clínicas médicas, fisioterapia, veterinarias), "craft_build" (reformas, construcción, fontanería, carpintería).
 3. 'subnicho_cultural': Identifica el concepto cultural, gastronómico o especialidad exacta (ej. "colombiano", "mexicano", "italiano", "japones", "hamburgueseria", "panaderia_artesanal", "cafeteria_especialidad", "taller_motos", "taller_coches", "clinica_dental", "barberia", "peluqueria", "estetica_unas", "tatuajes", "reformas", "general").
 4. 'badge_status': Una frase de estado con emoji para el header (ej. "⚡ BOX DE TALLER ACTIVO • CITA RÁPIDA", "✨ CITAS ABIERTAS • AGENDA ONLINE").
 5. 'hero_badge_pill': Frase corta para la píldora superior del Hero adaptada exactamente a la especialidad u origen del negocio (ej. "🇨🇴 SABOR AUTÉNTICO COLOMBIANO • HECHO CON AMOR", "🥖 MASA MADRE & FERMENTACIÓN LENTA").
@@ -523,10 +523,17 @@ Responde ÚNICAMENTE con el objeto JSON válido:
 
     badge_status = f"• {categoria_clean.upper()} EN {ciudad.upper()}"
 
+    if any(k in cat_low for k in ["tattoo", "tatuaj", "piercing", "ink", "body art"]):
+        titular = f"{nombre} • Arte & Tatuajes de Autor"
+    elif any(k in cat_low for k in ["panader", "forn", "bakery", "pasteler", "obrador"]):
+        titular = f"{nombre} • Obrador Artesanal de Masa Madre"
+    else:
+        titular = f"{nombre} en {ciudad}"
+
     return {
         "tema_predeterminado": default_theme,
         "badge_status": badge_status,
-        "titular": f"{nombre} en {ciudad}",
+        "titular": titular,
         "subtitulo": subtitulo,
         "servicios": servicios_base,
         "sobre_nosotros": sobre_nosotros,

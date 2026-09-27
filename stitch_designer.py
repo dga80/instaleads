@@ -284,6 +284,52 @@ DESIGN_ARCHETYPES = {
             {"icono": "⏳", "titulo": "Fermentación Lenta 48h", "desc": "Reposo prolongado para digestibilidad óptima y aromas vivos."},
             {"icono": "🥐", "titulo": "Mantequilla Francesa Pura", "desc": "Hojaldres alveolados elaborados a mano cada madrugada."}
         ]
+    },
+    "tattoo_2_0": {
+        "template_file": "stitch_tattoo_2.html",
+        "layout_type": "tattoo_2_0",
+        "headline_font": "'Montserrat', sans-serif",
+        "body_font": "'Montserrat', sans-serif",
+        "google_fonts_url": "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700;1,900&family=Space+Grotesk:wght@500;600;700&display=swap",
+        "color_seed": "#f42a03", # Rojo sangre / Kyiv Fest ink
+        "primary": "#f42a03",
+        "primary_container": "#f42a03",
+        "on_primary": "#010101",
+        "accent": "#ffffff",
+        # Modo Oscuro Brutalista (Referencia Oficial: kyiv.tattoofest.com.ua)
+        "bg_surface": "#010101",
+        "card_surface": "#0d0d0d",
+        "border_color": "rgba(244, 42, 3, 0.4)",
+        "text_primary": "#ffffff",
+        "text_secondary": "#9ca3af",
+        "header_bg": "rgba(1, 1, 1, 0.95)",
+        "drawer_bg": "#010101",
+        "badge_bg": "rgba(244, 42, 3, 0.18)",
+        "badge_text": "#f42a03",
+        # Modo Claro
+        "light_bg_surface": "#f7f7f7",
+        "light_card_surface": "#ffffff",
+        "light_border_color": "rgba(1, 1, 1, 0.2)",
+        "light_text_primary": "#010101",
+        "light_text_secondary": "#4b5563",
+        "light_header_bg": "rgba(247, 247, 247, 0.95)",
+        "light_drawer_bg": "#ffffff",
+        "light_badge_bg": "rgba(244, 42, 3, 0.15)",
+        "light_badge_text": "#f42a03",
+        "light_pill_bg": "rgba(244, 42, 3, 0.08)",
+        "light_pill_border": "rgba(244, 42, 3, 0.3)",
+        # Formas
+        "roundness": "0.25rem",
+        "roundness_button": "0.25rem",
+        "default_theme": "dark",
+        "cta_gradient": "linear-gradient(135deg, #f42a03 0%, #b81c00 100%)",
+        "vibe_name": "Tattoo 2.0 (Estudios de Tatuaje de Autor, Fine Line, Blackwork, Realismo & Piercing)",
+        "status_badge": "⚡ FLASH BOOKING ACTIVO • PIEZAS DE AUTOR",
+        "badges_confianza": [
+            {"icono": "🩸", "titulo": "Tintas Homologadas UE REACH", "desc": "Pigmentos veganos libres de metales pesados y máxima fijación."},
+            {"icono": "🔬", "titulo": "Bioseguridad & Asepsia Nivel A", "desc": "Material 100% monouso desechable abierto delante de ti."},
+            {"icono": "⚡", "titulo": "Piezas Únicas & Flash Exclusivo", "desc": "Diseño de autor a medida en fine line, blackwork y micro-realismo."}
+        ]
     }
 }
 
@@ -295,6 +341,14 @@ DESIGN_ARCHETYPES["fresh_clinical"] = DESIGN_ARCHETYPES["clinical_trust"]
 DESIGN_ARCHETYPES["bakery_atelier"] = DESIGN_ARCHETYPES["boulangerie_artisan"]
 DESIGN_ARCHETYPES["parisian_bakery"] = DESIGN_ARCHETYPES["boulangerie_artisan"]
 DESIGN_ARCHETYPES["plantilla_6"] = DESIGN_ARCHETYPES["boulangerie_artisan"]
+DESIGN_ARCHETYPES["tattoo_2_0"] = DESIGN_ARCHETYPES["tattoo_2_0"]
+DESIGN_ARCHETYPES["tattoo 2.0"] = DESIGN_ARCHETYPES["tattoo_2_0"]
+DESIGN_ARCHETYPES["tattoo_2.0"] = DESIGN_ARCHETYPES["tattoo_2_0"]
+DESIGN_ARCHETYPES["tattoo_2"] = DESIGN_ARCHETYPES["tattoo_2_0"]
+DESIGN_ARCHETYPES["tattoo"] = DESIGN_ARCHETYPES["tattoo_2_0"]
+DESIGN_ARCHETYPES["tatuajes"] = DESIGN_ARCHETYPES["tattoo_2_0"]
+DESIGN_ARCHETYPES["kyiv_tattoofest"] = DESIGN_ARCHETYPES["tattoo_2_0"]
+DESIGN_ARCHETYPES["plantilla_7"] = DESIGN_ARCHETYPES["tattoo_2_0"]
 
 
 def sintetizar_design_system(
@@ -312,9 +366,11 @@ def sintetizar_design_system(
     # 1. Selección de Arquetipo Base (Prioridad máxima: elección manual del usuario)
     if arquetipo_forzado and arquetipo_forzado in DESIGN_ARCHETYPES:
         tokens = dict(DESIGN_ARCHETYPES[arquetipo_forzado])
+    elif any(k in cat for k in ["tattoo", "tatuaje", "tatuaj", "piercing", "ink", "body art"]):
+        tokens = dict(DESIGN_ARCHETYPES["tattoo_2_0"])
     elif any(k in cat for k in ["panaderia", "panader", "forn", "pasteleria", "pasteler", "bakery", "boulangerie", "obrador", "croissant"]):
         tokens = dict(DESIGN_ARCHETYPES["boulangerie_artisan"])
-    elif any(k in cat for k in ["moto", "taller", "mecanic", "coche", "automov", "neumatico", "tattoo", "tatuaje", "piercing", "barber", "fitness", "gimnasio", "crossfit", "detailing", "rentat", "lavado", "car wash", "pulido", "tintado", "chapa"]):
+    elif any(k in cat for k in ["moto", "taller", "mecanic", "coche", "automov", "neumatico", "barber", "fitness", "gimnasio", "crossfit", "detailing", "rentat", "lavado", "car wash", "pulido", "tintado", "chapa"]):
         tokens = dict(DESIGN_ARCHETYPES["urban_edge"])
     elif any(k in cat for k in ["dental", "dentist", "clinic", "salud", "fisioterap", "osteopat", "podolog", "optica", "farmacia", "veterinar", "psicolog", "medico"]):
         tokens = dict(DESIGN_ARCHETYPES["clinical_trust"])

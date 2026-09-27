@@ -5947,17 +5947,9 @@
     "telefono": "",
     "email": "",
     "tiene_web": true,
-    "instagram_url": "https://www.instagram.com/turron1880_/",
-    "instagram_handle": "@turron1880_",
+    "instagram_url": "",
+    "instagram_handle": "",
     "enlaces_internet": [
-      {
-        "tipo": "instagram",
-        "label": "Instagram (@turron1880_)",
-        "icono": "📸",
-        "url": "https://www.instagram.com/turron1880_/",
-        "titulo": "Turrón 1880 (@turron1880_) • Instagram photos and videos",
-        "snippet": "21K followers, 736 following, 522 posts – Turrón 1880 (@turron1880_) on Instagram: \"▪️El Turrón más caro del mundo▪️ 🍯Ar"
-      },
       {
         "tipo": "web",
         "label": "Sitio Web",
@@ -5997,25 +5989,34 @@
         "url": "https://www.turron1880.com/tienda/madrid3.html",
         "titulo": "Casa 1880",
         "snippet": "Av. de Concha Espina, 1, Santiago Bernabéu, Bajo puerta 54 Chamartín Madrid Madrid ES"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://todoestaenmadrid.com/es/shops/casa-1880-familia-sirvent",
+        "titulo": "Casa 1880. Familia Sirvent - Todo está en Madrid",
+        "snippet": "Regalos, eventos, dulces y delicatessen en una zona histórica de Madrid con experiencias e historia en torno al turrón ."
       }
     ],
     "web_detectada": "https://www.turron1880.com/tienda/madrid3.html",
     "google_search_url": "https://www.google.com/search?q=1880+Madrid",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=1880+Madrid",
     "gemini_verificado": true,
-    "gemini_razon": "Comercio local con web oficial activa (https://www.turron1880.com/tienda/madrid3.html)",
+    "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Sitio Web, Sitio Web Detectado)",
     "mensaje_dm": "¡Hola equipo de 1880!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://www.turron1880.com/tienda/madrid3.html), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de 1880!\n\nOs escribí hace un par de días con la propuesta de rediseño y web demo interactiva que preparé para vosotros: https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de 1880!\n\nOs escribí hace un par de días con la propuesta de rediseño en la web demo interactiva que preparé para vuestra web: https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
     "estado": "Tiene Web",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
-    "campana_id": "camp_1790537103",
+    "campana_id": "camp_1790537209",
     "campana_nombre": "Estudio De Tatuajes · madrid",
     "campana_ids": [
       "camp_1789938527",
       "camp_1790536923",
-      "camp_1790537103"
+      "camp_1790537103",
+      "camp_1790537209"
     ]
   },
   {
@@ -6037,65 +6038,66 @@
         "label": "Instagram (@valhallahookahexperience)",
         "icono": "📸",
         "url": "https://www.instagram.com/valhallahookahexperience/",
-        "titulo": "Valhalla Madrid (@valhallahookahexperience) • Instagram photos and videos",
-        "snippet": "32 Followers, 71 Following, 15 Posts - See Instagram photos and videos from Valhalla Madrid (@valhallahookahexperience)"
+        "titulo": "Valhalla Madrid (@valhallahookahexperience) - Instagram",
+        "snippet": "31 Followers, 69 Following, 15 Posts - Valhalla Madrid (@valhallahookahexperience) on Instagram: \"Vive un antes y un des"
       },
       {
         "tipo": "web",
         "label": "Sitio Web Detectado",
         "icono": "🌐",
-        "url": "https://valhallavielo.com/",
+        "url": "https://valhallamadrid.com/",
+        "titulo": "Cannabis Club Madrid - Plaza Espanya - Valhalla",
+        "snippet": "June 4, 2026 - CSC Valhalla Madrid Request Membership Open Hours Monday to Saturday 16:00 – 21:00 Sunday Closed Premier "
+      },
+      {
+        "tipo": "linkedin",
+        "label": "LinkedIn",
+        "icono": "💼",
+        "url": "https://es.linkedin.com/company/the-valhalla",
         "titulo": "Valhalla",
-        "snippet": "Valhalla Cocina de autor · Alpedrete Bienvenidos a Valhalla Reserva tu mesa y descubre nuestra carta en el corazón de la"
+        "snippet": "Enlace externo para VALHALLA® · Sector · Consultoría y servicios a empresas · Tamaño de la empresa · De 11 a 50 empleado"
       },
       {
-        "tipo": "social",
-        "label": "Enlace Externo",
-        "icono": "🔗",
-        "url": "https://www.tripadvisor.com/Restaurant_Review-g2435356-d8534778-Reviews-Valhalla_by_HectorCheca-El_Escorial.html",
-        "titulo": "VALHALLA BY HÉCTORCHECA, El Escorial - TripadvisorCervecería Valhalla, Madrid - Menú del restaurante, precios y ...ValhallaCervecería Valhalla in Madrid - Restaurant reviewsContacto - Valhalla",
-        "snippet": "Apr 30, 2024 · Es profesora de comportamiento organizacional y liderazgo en no sé qué (Madrid, España), fue investigador"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://es.restaurantguru.com/Valhalla-Madrid",
-        "titulo": "Cervecería Valhalla, Madrid - Menú del restaurante, precios y ...ValhallaCervecería Valhalla in Madrid - Restaurant reviewsContacto - Valhalla",
-        "snippet": "Aug 15, 2026 · Cervecería Valhalla en Madrid calificado 1.7 de 5 en Restaurant Guru: 568 reseñas de visitantes, 32 fotos"
+        "tipo": "instagram",
+        "label": "Instagram",
+        "icono": "📸",
+        "url": "https://www.instagram.com/valhallaclubmadrid/",
+        "titulo": "Valhalla Social Club Madrid CSC (@valhallaclubmadrid)",
+        "snippet": "Ver las fotos y vídeos en Instragram de Valhalla Social Club Madrid CSC (@valhallaclubmadrid)"
       },
       {
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://valhallavielo.com/menu",
-        "titulo": "Valhalla",
-        "snippet": "Volver al inicio Valhalla"
+        "url": "https://carta.menu/restaurants/madrid-2/cerveceria-valhalla",
+        "titulo": "Cervecería Valhalla en Madrid - Carta",
+        "snippet": "Puedes echar un vistazo a la carta de Cervecería Valhalla de Madrid, C. De La Marroquina, 40, Madrid, Community Of Madri"
       },
       {
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://restaurantguru.com/Valhalla-Madrid",
-        "titulo": "Cervecería Valhalla in Madrid - Restaurant reviews",
-        "snippet": "Nov 12, 2022 · All info on Cervecería Valhalla in Madrid - Call to book a table. View the menu, check prices, find on th"
+        "url": "https://www.astonmartinmadrid.com/modelo/valhalla",
+        "titulo": "Valhalla - Aston Martin Madrid",
+        "snippet": "Valhalla · Híbrido enchufable · 1 km · 1079 CV · 2026 · Ver más detalles Consultar · Glorieta de López de Hoyos, 5 28002"
       }
     ],
-    "web_detectada": "https://valhallavielo.com/",
+    "web_detectada": "https://valhallamadrid.com/",
     "google_search_url": "https://www.google.com/search?q=Valhalla+Madrid",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Valhalla+Madrid",
     "gemini_verificado": true,
-    "gemini_razon": "Comercio local con web oficial activa (https://valhallavielo.com/)",
-    "mensaje_dm": "¡Hola equipo de Valhalla!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://valhallavielo.com/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Valhalla!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con el contenido de vuestra propia página como propuesta de rediseño: https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "gemini_razon": "Comercio local con web oficial activa (https://valhallamadrid.com/)",
+    "mensaje_dm": "¡Hola equipo de Valhalla!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://valhallamadrid.com/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Valhalla!\n\nOs escribí hace un par de días con la propuesta de rediseño interactivo que preparé para vuestra web: https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
     "estado": "Tiene Web",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
-    "campana_id": "camp_1789938527",
+    "campana_id": "camp_1790537209",
     "campana_nombre": "Estudio De Tatuajes · madrid",
     "campana_ids": [
-      "camp_1789938527"
+      "camp_1789938527",
+      "camp_1790537209"
     ]
   },
   {
@@ -6117,16 +6119,16 @@
         "label": "Instagram (@womantattoo_madrid)",
         "icono": "📸",
         "url": "https://www.instagram.com/womantattoo_madrid/",
-        "titulo": "Woman tattoo (@womantattoo_madrid) - InstagramWoman tattoo (@womantattoo_madrid) • Instagram photos and videos𝑳𝒂 𝑴𝒖𝒋𝒆𝒓 𝑩𝒂𝒓𝒃𝒖𝒅𝒂 𝑻𝒂𝒕𝒕𝒐𝒐 𝑺𝒉𝒐𝒑 (@lamujerbar...TATUAJES FINELINE MADRID (@madridarttattoo) - InstagramTatuaje madrid (@tatuaje_madrid) • Instagram photos and videosEstigma Tattoo Madrid (@estigma_tattoo) • Instagram photos ...ᴼᴺᴱ ᴹᴼᴿᴱ ᵀᴬᵀᵀᴼᴼ (@onemoretattoomadrid) • Instagram photos and ...",
-        "snippet": "4,366 Followers, 103 Following, 683 Posts - Woman tattoo (@womantattoo_madrid) on Instagram: \"Madrid | Plaza mayor 📍 Est"
+        "titulo": "Woman tattoo (@womantattoo_madrid) • Instagram photos and videos",
+        "snippet": "4,108 followers, 100 following, 646 posts – Woman tattoo (@womantattoo_madrid) on Instagram: \"Madrid | Plaza mayor 📍 Est"
       },
       {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://tatuajemujer.com/tattoo-shop/",
-        "titulo": "Tattoo shop - Woman Tattoo | Tattoo Shop Madrid City Center",
-        "snippet": "We offer a comfortable, private, and safe environment with six tattoo booths and the best materials to ensure a professi"
+        "tipo": "social",
+        "label": "Enlace Externo",
+        "icono": "🔗",
+        "url": "https://www.yelp.com/biz/woman-tattoo-madrid",
+        "titulo": "Woman Tattoo - Madrid, M",
+        "snippet": "Why choose our tattoo studio in Madrid? Our team has been selected for their experience and talent, ensuring top-quality"
       },
       {
         "tipo": "web",
@@ -6149,33 +6151,34 @@
         "label": "Sitio Web",
         "icono": "🌐",
         "url": "https://tatuadoresen.com/woman-tattoo-madrid/",
-        "titulo": "Woman Tattoo - Madrid ️ Opiniones, Horario y Dirección ...Woman Tattoo - Madrid, MTattoo Artists & Studios in madrid, spain - tattooswizard.com",
-        "snippet": "Datos, contacto, información, opiniones y horarios de Woman Tattoo - Madrid. ¡Descúbrelo! ¿Por qué elegir nuestro estudi"
+        "titulo": "Woman Tattoo - Madrid ️ Opiniones, Horario y Dirección ...Tattoo shop - Woman Tattoo | Tattoo Shop Madrid City CenterTHE BEST 10 Tattoo in MADRID, SPAIN - Updated 2026 - Yelp",
+        "snippet": "Datos, contacto, información, opiniones y horarios de Woman Tattoo - Madrid. ¡Descúbrelo! We offer a comfortable, privat"
       },
       {
-        "tipo": "social",
-        "label": "Enlace Externo",
-        "icono": "🔗",
-        "url": "https://www.yelp.com/biz/woman-tattoo-madrid",
-        "titulo": "Woman Tattoo - Madrid, M",
-        "snippet": "¿Por qué elegir nuestro estudio de tatuajes en Madrid? Nuestro equipo ha sido seleccionado por su experiencia y talento,"
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://tatuajemujer.com/tattoo-shop/",
+        "titulo": "Tattoo shop - Woman Tattoo | Tattoo Shop Madrid City Center",
+        "snippet": "We offer a comfortable, private, and safe environment with six tattoo booths and the best materials to ensure a professi"
       }
     ],
-    "web_detectada": "https://tatuajemujer.com/tattoo-shop/",
+    "web_detectada": "https://tatuajemujer.com/",
     "google_search_url": "https://www.google.com/search?q=Woman+Tattoo+Madrid",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Woman+Tattoo+Madrid",
     "gemini_verificado": true,
-    "gemini_razon": "Validación automática heurística",
-    "mensaje_dm": "¡Hola equipo de Woman Tattoo!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://tatuajemujer.com/tattoo-shop/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://dga80.github.io/instaleads/woman-tattoo-madrid/\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Woman Tattoo!\n\nOs escribí hace un par de días con la web demo interactiva que preparé para vosotros con el contenido de vuestra página: https://dga80.github.io/instaleads/woman-tattoo-madrid/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "gemini_razon": "Estudio local verificado en Madrid con página web oficial activa",
+    "mensaje_dm": "¡Hola equipo de Woman Tattoo!\n\nSoy Daniel García. He estado viendo vuestro trabajo y vuestra web actual (https://tatuajemujer.com/), y os he preparado una web demo interactiva utilizando el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para verlo directamente en el navegador, sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os resulta interesante, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Woman Tattoo!\n\nOs escribí hace un par de días compartiéndoos la web demo interactiva que preparé como propuesta de rediseño para vuestra web: https://...\n\nOs la rescato por si se os pasó y queréis echarle un vistazo rápido desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin ningún compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
     "estado": "Web Generada",
     "demo_slug": "woman-tattoo-madrid",
     "demo_url": "https://dga80.github.io/instaleads/woman-tattoo-madrid/",
     "demo_vibe": "Urban Edge & Dark Tech (Tatuajes, Barberías, Talleres & Fitness)",
-    "campana_id": "camp_1789938527",
+    "campana_id": "camp_1790537209",
     "campana_nombre": "Estudio De Tatuajes · madrid",
     "campana_ids": [
-      "camp_1789938527"
+      "camp_1789938527",
+      "camp_1790537209"
     ],
     "demo_url_absoluta": "https://dga80.github.io/instaleads/woman-tattoo-madrid/",
     "demo_url_publica": "https://dga80.github.io/instaleads/woman-tattoo-madrid/",
@@ -6195,10 +6198,18 @@
     "codigo_postal": "",
     "telefono": "",
     "email": "",
-    "tiene_web": false,
-    "instagram_url": "",
-    "instagram_handle": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/barbarojadiscobar/",
+    "instagram_handle": "@barbarojadiscobar",
     "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@barbarojadiscobar)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/barbarojadiscobar/",
+        "titulo": "Barba Roja Disco-Bar/Rooftop (@barbarojadiscobar) • Instagram photos and videos",
+        "snippet": "4,797 Followers, 546 Following, 579 Posts - Barba Roja Disco-Bar/Rooftop (@barbarojadiscobar) on Instagram: \"Rumba en 3 "
+      },
       {
         "tipo": "web",
         "label": "Sitio Web",
@@ -6206,23 +6217,56 @@
         "url": "https://es.wikipedia.org/wiki/Bárbara_Lamadrid",
         "titulo": "Bárbara Lamadrid",
         "snippet": "Bárbara Lamadrid, nombre artístico de Bárbara Hervella Cano, (Sevilla, 4 de diciembre de 1812-Madrid, 21 de abril de 189"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://barbarroja.info/",
+        "titulo": "Bar Barroja - Madrid | Spanish cuisine near me | Book now",
+        "snippet": "Embrace the warm ambiance and hospitality of Bar Barroja, located in Madrid. A heartfelt welcomes you! Our steakhouse is"
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/profile.php/?id=61550104376107",
+        "titulo": "Barba Roja Disco - Bar | Madrid - Facebook",
+        "snippet": "4 Barba Roja Disco - Baris in Madrid, Colombia. 1d El 05 de septiembre no solo vienes a celebrar… también vienes a lleva"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "http://barbarroja.info/?lang=es",
+        "titulo": "Bar Barroja - Madrid | Española cocina cerca de mí | Reserve ...",
+        "snippet": "Disfrute del cálido ambiente y la hospitalidad del Bar Barroja , ubicado en Madrid. ¡Le damos una cordial bienvenida! Nu"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://bar-barroja-madrid.es/",
+        "titulo": "Bar Barroja - Madrid - Española",
+        "snippet": "Bar Barroja - Española Calle del Aviador Zorita, 42, Madrid, 28020 Pide a domicilio Opiniones Menú Contacto"
       }
     ],
-    "web_detectada": "",
+    "web_detectada": "https://barbarroja.info/",
     "google_search_url": "https://www.google.com/search?q=Barba+Roja+Madrid",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Barba+Roja+Madrid",
-    "gemini_verificado": false,
-    "gemini_razon": "Sin Instagram. Presencia online detectada (1 fuentes: Sitio Web)",
-    "mensaje_dm": "",
-    "mensaje_seguimiento": "",
-    "estado": "Sin Web",
+    "gemini_verificado": true,
+    "gemini_razon": "Comercio local con web oficial activa (https://barbarroja.info/)",
+    "mensaje_dm": "¡Hola equipo de Barba Roja!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://barbarroja.info/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Barba Roja!\n\nOs escribí hace un par de días con la propuesta de rediseño y modernización mobile-first que preparé para vuestra web (https://barbarroja.info/): https://...\n\nOs la comparto de nuevo por si se os pasó y queréis revisarla cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Tiene Web",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
-    "campana_id": "camp_1789938527",
+    "campana_id": "camp_1790537209",
     "campana_nombre": "Estudio De Tatuajes · madrid",
     "campana_ids": [
-      "camp_1789938527"
+      "camp_1789938527",
+      "camp_1790537209"
     ]
   },
   {
@@ -6235,7 +6279,7 @@
     "codigo_postal": "",
     "telefono": "",
     "email": "",
-    "tiene_web": false,
+    "tiene_web": true,
     "instagram_url": "https://www.instagram.com/marca.sacra.tattoo.madrid/",
     "instagram_handle": "@marca.sacra.tattoo.madrid",
     "enlaces_internet": [
@@ -6245,24 +6289,65 @@
         "icono": "📸",
         "url": "https://www.instagram.com/marca.sacra.tattoo.madrid/",
         "titulo": "Marca Sacra Tattoo Madrid (@marca.sacra.tattoo.madrid) - Instagram",
-        "snippet": "13K Followers, 6,494 Following, 216 Posts - Marca Sacra Tattoo Madrid (@marca.sacra.tattoo.madrid) on Instagram: \"📍Chama"
+        "snippet": "13K Followers, 6,532 Following, 216 Posts - Marca Sacra Tattoo Madrid (@marca.sacra.tattoo.madrid) on Instagram: \"📍Chama"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://marcasacrattattoo.com/tatuajes/",
+        "titulo": "Tatuajes en Madrid Chamartín - Marca Sacra Tattoo",
+        "snippet": "Conoce nuestro Estudio de Tatuajes y Piercing en Chamartín. Somos especialistas en varios estilos. Diseños originales y "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://marcasacrattattoo.com/",
+        "titulo": "Marca Sacra Tattoo",
+        "snippet": "Explora el Arte del Tatuaje de nuestra mano. Somos Marca Sacra, Estudio de Tatuajes & Piercing en Madrid Chamartín."
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://marcasacrattattoo.com/paso-a-paso/",
+        "titulo": "Marca Sacra TattooMarca Sacra Tattoo & Piercing Madrid",
+        "snippet": "Conoce el proceso paso a paso en Marca Sacra Tattoo. Te guiamos a través de cada etapa del diseño y aplicación de tu tat"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.fresha.com/es/lvp/marca-sacra-tattoo-calle-de-la-dalia-madrid-a2NWJ3",
+        "titulo": "Marca Sacra Tattoo - Calle del Príncipe de Vergara, 225 ... - Fresha",
+        "snippet": "Inicio · Tatuajes y piercings · España · Madrid · Chamartín."
+      },
+      {
+        "tipo": "instagram",
+        "label": "Instagram",
+        "icono": "📸",
+        "url": "https://www.instagram.com/reel/DLz_pnuowK0/",
+        "titulo": "Marca Sacra Tattoo Madrid on Instagram",
+        "snippet": "7 Jul 2025 ... madrid. Si estás pensando en un diseño personalizado Si quieres un diseño pero no sabes por dónde empezar"
       }
     ],
-    "web_detectada": "",
+    "web_detectada": "https://marcasacrattattoo.com/tatuajes/",
     "google_search_url": "https://www.google.com/search?q=Marca+Sacra+Tattoo+%26+Piercing+Madrid",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Marca+Sacra+Tattoo+%26+Piercing+Madrid",
     "gemini_verificado": true,
-    "gemini_razon": "Comercio local verificado sin web propia.",
-    "mensaje_dm": "¡Hola equipo de Marca Sacra Tattoo & Piercing!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉 https://dga-creative.netlify.app/demo/marca-sacra-tattoo\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Marca Sacra Tattoo & Piercing!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil: https://dga-creative.netlify.app/demo/marca-sacra-tattoo\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Sin Web",
+    "gemini_razon": "Comercio local con web oficial activa (https://marcasacrattattoo.com/tatuajes/)",
+    "mensaje_dm": "¡Hola equipo de Marca Sacra Tattoo & Piercing!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://marcasacrattattoo.com/tatuajes/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Marca Sacra Tattoo & Piercing!\n\nOs escribí hace un par de días con la propuesta de rediseño y modernización mobile-first que preparé para vuestra web: https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis echarle un vistazo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Tiene Web",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
-    "campana_id": "camp_1789938527",
+    "campana_id": "camp_1790537209",
     "campana_nombre": "Estudio De Tatuajes · madrid",
     "campana_ids": [
-      "camp_1789938527"
+      "camp_1789938527",
+      "camp_1790537209"
     ]
   },
   {
@@ -6275,74 +6360,75 @@
     "codigo_postal": "",
     "telefono": "",
     "email": "",
-    "tiene_web": true,
-    "instagram_url": "https://www.instagram.com/factorytattoo/",
-    "instagram_handle": "@factorytattoo",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
     "enlaces_internet": [
       {
         "tipo": "instagram",
-        "label": "Instagram (@factorytattoo)",
+        "label": "Instagram (@inkfactorytattoo)",
         "icono": "📸",
-        "url": "https://www.instagram.com/factorytattoo/",
-        "titulo": "FactoryTattoo Studio (@factorytattoo) • Instagram photos and ...",
-        "snippet": "204 Followers, 319 Following, 176 Posts - FactoryTattoo Studio (@factorytattoo) on Instagram: \"\""
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web Detectado",
-        "icono": "🌐",
-        "url": "https://bonvivanttattoostudio.com/",
-        "titulo": "Bon Vivant Tattoo Studio Madrid",
-        "snippet": "Tatuajes, piercing, micropigmentación y gemas dentales en Madrid. Estudio premium en Calle Montera con artistas especial"
-      },
-      {
-        "tipo": "instagram",
-        "label": "Instagram",
-        "icono": "📸",
-        "url": "https://www.instagram.com/bonvivant_tattoostudio/?hl=es",
-        "titulo": "Bon Vivant | Tattoo Piercing Studio (@bonvivant_tattoostudio)",
-        "snippet": "MADRID Montera 24 Citas y consultas ⚡️Appointments DM Whatsapp 647702947 Lunes a Domingo 11:00 a 22:00h."
+        "url": "https://www.instagram.com/inkfactorytattoo/",
+        "titulo": "Ink Factory Tattoo Studio (@inkfactorytattoo) - Instagram",
+        "snippet": "1,498 Followers, 1,535 Following, 256 Posts - Ink Factory Tattoo Studio💉 (@inkfactorytattoo) on Instagram: \"☠ Tattoo Stu"
       },
       {
         "tipo": "social",
         "label": "Enlace Externo",
         "icono": "🔗",
-        "url": "https://m.yelp.com/biz/factory-tattoo-madrid-2?hrid=qbb78TOLxXA-NC6qMLQC_g",
-        "titulo": "FACTORY TATTOO - Updated September 2026 - 13 Reviews - Yelp",
-        "snippet": "FACTORY TATTOO, Calle de la Montera, 24, 28013 Madrid, Spain, 4 Photos, +34915214469, Mon - 10:00 am - 10:00 pm, Tue - 1"
+        "url": "https://www.yelp.com/biz/factory-tattoo-madrid-2",
+        "titulo": "FACTORY TATTOO - Updated September 2026 - 13 Reviews - YelpFactory Tattoo – Madrid, Calle de la Montera, 24 (8 opiniones ...THE BEST 10 Tattoo in MADRID, SPAIN - Updated 2026 - YelpFactory Tatto - Madrid - salir.comFactory Tattoo | Shopping/retail | MadridFactory Tattoo, C. de la Montera, 24, Centro, Madrid ...El estudio de tatuaje en plena calle de Montera - timeout.es",
+        "snippet": "Jul 16, 2015 · FACTORY TATTOO, Calle de la Montera, 24, 28013 Madrid, Spain, 4 Photos, +34915214469, Mon - 10:00 am - 10"
       },
       {
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://www.monteratattoo.es/",
-        "titulo": "Montera Tattoo: Inicio",
-        "snippet": "Montera Tattoo, uno de los estudios pioneros en el mundo del tatuaje artístico profesional y del body piercing sin dolor"
+        "url": "https://unilocal.es/espana/madrid/factory-tattoo",
+        "titulo": "Factory Tattoo – Madrid, Calle de la Montera, 24 (8 opiniones ...THE BEST 10 Tattoo in MADRID, SPAIN - Updated 2026 - YelpFactory Tatto - Madrid - salir.comFactory Tattoo | Shopping/retail | MadridFactory Tattoo, C. de la Montera, 24, Centro, Madrid ...El estudio de tatuaje en plena calle de Montera - timeout.es",
+        "snippet": "Horario de apertura, información de contacto y 8 opiniones sobre Factory Tattoo en Calle de la Montera, 24, Madrid. Cons"
       },
       {
-        "tipo": "instagram",
-        "label": "Instagram",
-        "icono": "📸",
-        "url": "https://www.instagram.com/monteratattoo/?hl=es",
-        "titulo": "Montera Tattoo (@monteratattoo) · Madrid - Instagram",
-        "snippet": "4.5K+ followers · 658 posts · SIN CITA PREVIA PARA PIERCING. PARA TATTOOS PASA POR EL ESTUDIO Y TE DAMOS PRESU SIN COMPR"
+        "tipo": "social",
+        "label": "Enlace Externo",
+        "icono": "🔗",
+        "url": "https://www.yelp.com/search?cflt=tattoo&find_loc=Madrid",
+        "titulo": "THE BEST 10 Tattoo in MADRID, SPAIN - Updated 2026 - Yelp",
+        "snippet": "\"After some research we found Factory Tattoo online, which was really easy to find near Gran Via.\" more"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.salir.com/factory-tatto-madrid-neg-134285.html",
+        "titulo": "Factory Tatto - Madrid - salir.comFactory Tattoo | Shopping/retail | MadridFactory Tattoo, C. de la Montera, 24, Centro, Madrid ...El estudio de tatuaje en plena calle de Montera - timeout.es",
+        "snippet": "Factory Tattoo es una tienda y estudio de tatuajes y bodypiercings. Cuenta con una plantilla de profesionales con amplia"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://es.locale.online/factory-tattoo-1338782419.html",
+        "titulo": "Factory Tattoo | Shopping/retail | Madrid",
+        "snippet": "Factory Tattoo in Madrid - Contact details, Address Map, Photos, offers, Real time Reviews and Ratings"
       }
     ],
-    "web_detectada": "https://bonvivanttattoostudio.com/",
+    "web_detectada": "",
     "google_search_url": "https://www.google.com/search?q=Factory+Tattoo+Madrid",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Factory+Tattoo+Madrid",
-    "gemini_verificado": true,
-    "gemini_razon": "Comercio local con web oficial activa (https://bonvivanttattoostudio.com/)",
-    "mensaje_dm": "¡Hola equipo de Factory Tattoo!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://bonvivanttattoostudio.com/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Factory Tattoo!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con el contenido de vuestra propia página como propuesta de rediseño: https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Tiene Web",
+    "gemini_verificado": false,
+    "gemini_razon": "El perfil de Instagram detectado pertenece a un estudio en Zaragoza (Ink Factory Tattoo Studio), mientras que el negocio buscado se localiza en Madrid (Calle de la Montera).",
+    "mensaje_dm": "",
+    "mensaje_seguimiento": "",
+    "estado": "Sin Web",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
-    "campana_id": "camp_1789938527",
+    "campana_id": "camp_1790537209",
     "campana_nombre": "Estudio De Tatuajes · madrid",
     "campana_ids": [
-      "camp_1789938527"
+      "camp_1789938527",
+      "camp_1790537209"
     ]
   },
   {
@@ -6365,15 +6451,15 @@
         "icono": "📸",
         "url": "https://www.instagram.com/soulatino.es/",
         "titulo": "Soul Latino (@soulatino.es) • Instagram photos and videos",
-        "snippet": "10K Followers, 7 Following, 93 Posts - Soul Latino 🎶 (@soulatino.es) on Instagram: \"👉🏻 Soul Latino 11 de Octubre (Madrid"
+        "snippet": "10K Followers, 7 Following, 95 Posts - Soul Latino 🎶 (@soulatino.es) on Instagram: \"👉🏻 Soul Latino 11 de Octubre (Madrid"
       },
       {
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://es.wikipedia.org/wiki/Sol_(Madrid)",
-        "titulo": "Sol (Madrid)",
-        "snippet": "Sol es uno de los seis barrios administrativos que conforman el distrito Centro de la ciudad de Madrid. Comprende la Pue"
+        "url": "https://es.wikipedia.org/wiki/Sol_Madridejos",
+        "titulo": "Sol Madridejos",
+        "snippet": "María Soledad Madridejos Fernández, más conocida como Sol Madridejos (Madrid, 23 de marzo de 1958) es una arquitecta esp"
       },
       {
         "tipo": "web",
@@ -6387,17 +6473,9 @@
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://salirmadrid.es/live-music-soul-madrid",
-        "titulo": "Live music soul in Madrid - SalirMadrid.es",
-        "snippet": "Jul 29, 2026 · We have 35 events for Live music soul in Madrid: Ekathe & Chinwezz Trio, Concierto Pablo Navarro & The Br"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
         "url": "https://feverup.com/m/419333",
         "titulo": "Entradas The Jazz Room Madrid: Tributo al Soul | Fever",
-        "snippet": "Disfruta de su nuevo concierto de Soul en Madrid lleno de alma y ritmo. ¡Consigue tus entradas!"
+        "snippet": "Su programación incluye jazz, flamenco, pop, funk, soul y folk, con artistas nacionales e internacionales. Además de sal"
       },
       {
         "tipo": "web",
@@ -6405,24 +6483,33 @@
         "icono": "🌐",
         "url": "https://salirmadrid.es/conciertos-soul-madrid",
         "titulo": "Conciertos soul en Madrid | SalirMadrid.es - NocheMAD",
-        "snippet": "Tenemos 35 eventos para Conciertos soul en Madrid: AFROJAM, Concierto de Fat Freddy´s Drop en Madrid, Zucchero, Clarence"
+        "snippet": "1 day ago · Chicago llega Sheryl Youngblood, una de las grandes voces del blues, el soul y el gospel estadounidense... e"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://salirmadrid.es/live-music-soul-madrid",
+        "titulo": "Live music soul in Madrid - SalirMadrid.es",
+        "snippet": "We have 37 events for Live music soul in Madrid: AFROJAM, Concierto de Fat Freddy´s Drop en Madrid, Zucchero, SONIDO MAD"
       }
     ],
     "web_detectada": "",
     "google_search_url": "https://www.google.com/search?q=Soul+Madrid",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Soul+Madrid",
     "gemini_verificado": true,
-    "gemini_razon": "Coincide el negocio y ubicación, pero sin web oficial",
-    "mensaje_dm": "¡Hola equipo de Soul Latino!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram (@soulatino.es) y me ha parecido muy interesante. Os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉 https://...\n*(Enlace 100% seguro para verlo en el navegador sin registros ni descargas)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Soul Latino!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil: https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Sin Web",
+    "gemini_razon": "Se ha identificado el perfil de Instagram correcto de Soul Latino en Madrid, un negocio local de eventos sin página web oficial activa en los resultados.",
+    "mensaje_dm": "¡Hola equipo de Soul Latino!\n\nSoy Daniel García. He visto vuestro perfil de Instagram y el ambientazo de vuestros eventos en Madrid. Para ayudaros a potenciar vuestra imagen de marca y facilitar la reserva de palcos y la info de vuestras sesiones directamente desde el móvil, os he preparado una web demo interactiva utilizando vuestro propio contenido:\n\n👉 https://soul-latino-demo.netlify.app\n*(Es un enlace 100% seguro para ver la propuesta directamente en el navegador, sin descargas ni registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Soul Latino!\n\nOs escribí hace un par de días con la web demo interactiva que preparé para vuestro proyecto: https://soul-latino-demo.netlify.app\n\nOs la comparto de nuevo por si se os pasó y queréis echarle un vistazo rápido desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "No Generar",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
-    "campana_id": "camp_1789938527",
+    "campana_id": "camp_1790537209",
     "campana_nombre": "Estudio De Tatuajes · madrid",
     "campana_ids": [
-      "camp_1789938527"
+      "camp_1789938527",
+      "camp_1790537209"
     ]
   },
   {
@@ -6435,7 +6522,7 @@
     "codigo_postal": "",
     "telefono": "",
     "email": "",
-    "tiene_web": true,
+    "tiene_web": false,
     "instagram_url": "https://www.instagram.com/truelovetattoomadrid/",
     "instagram_handle": "@truelovetattoomadrid",
     "enlaces_internet": [
@@ -6445,64 +6532,25 @@
         "icono": "📸",
         "url": "https://www.instagram.com/truelovetattoomadrid/",
         "titulo": "True Love Tattoo Madrid (@truelovetattoomadrid) - Instagram",
-        "snippet": "Horario Lunes - 17:00hs. a 21:00hs. Martes a Sabados- 12:30hs. a 21:00hs. · By @gonzalo. · By @ricardodepazz DM para cit"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web Detectado",
-        "icono": "🌐",
-        "url": "https://truelovetatuajesmadrid.com/nuestro-equipo/",
-        "titulo": "Nuestro equipo - True Love Tattoo",
-        "snippet": "Trabajo en Madrid, en True Love Tattoo desde 2023. También colaboro a menudo con estudios de otras ciudades de España co"
-      },
-      {
-        "tipo": "instagram",
-        "label": "Instagram",
-        "icono": "📸",
-        "url": "https://www.instagram.com/TRUELOVETATTOOMADRID/",
-        "titulo": "True Love Tattoo Madrid (@truelovetattoomadrid) - Instagram",
-        "snippet": "40K Followers, 335 Following, 4906 Posts - True Love Tattoo Madrid (@TRUELOVETATTOOMADRID) on Instagram: \"Horario Lunes "
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://es.tattoofilter.com/estudios-de-tatuajes/madrid/truelovetattoo",
-        "titulo": "True Love Tattoo | Tattoofilter",
-        "snippet": "room C/ Velarde 22, Madrid, Comunidad de Madrid · tatuajes · likes · seguidores."
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://www.fresha.com/es/lvp/true-love-tattoo-calle-de-velarde-madrid-q8wVwR",
-        "titulo": "True Love Tattoo - C. de Velarde, 22, Centro, 28004 Madrid, Spain",
-        "snippet": "True Love Tattoo · C. de Velarde, 22, Centro, 28004 Madrid, Spain · Cómo llegar · Sitio web. True Love Tattoo. Atrás. Se"
-      },
-      {
-        "tipo": "facebook",
-        "label": "Facebook",
-        "icono": "👥",
-        "url": "https://www.facebook.com/p/True-Love-Tattoo-100069294667964/?locale=es_ES",
-        "titulo": "True Love Tattoo | Madrid - Facebook",
-        "snippet": "True Love Tattoo, Madrid. 8125 likes · 17 talking about this · 1349 were here. Tattoo & Piercing Shop."
+        "snippet": "40K Followers, 340 Following, 4,932 Posts - See Instagram photos and videos from True Love Tattoo Madrid (@truelovetatto"
       }
     ],
-    "web_detectada": "https://truelovetatuajesmadrid.com/nuestro-equipo/",
+    "web_detectada": "",
     "google_search_url": "https://www.google.com/search?q=True+Love+Tattoo+Madrid",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=True+Love+Tattoo+Madrid",
     "gemini_verificado": true,
-    "gemini_razon": "Validación automática heurística",
-    "mensaje_dm": "¡Hola equipo de True Love Tattoo!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://truelovetatuajesmadrid.com/nuestro-equipo/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de True Love Tattoo!\n\nOs escribí hace un par de días con la web demo interactiva que preparé para vosotros con el contenido de vuestra página:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Tiene Web",
+    "gemini_razon": "Estudio de tatuajes local en Madrid verificado, sin web oficial detectada en los datos de búsqueda.",
+    "mensaje_dm": "¡Hola equipo de True Love Tattoo!\n\nSoy Daniel García, diseñador y desarrollador web. He estado siguiendo vuestro increíble trabajo en Instagram y, viendo el nivel de vuestros diseños, me he tomado la libertad de preparar una web demo interactiva utilizando contenido de vuestro propio perfil. Está pensada especialmente para potenciar vuestra identidad visual y facilitar que los clientes soliciten citas de forma ágil desde el móvil:\n\n👉 https://true-love-tattoo-madrid.netlify.app\n*(Es un enlace 100% seguro, se abre directamente en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os gusta, podemos comentarlo 2 minutos sin ningún compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo, equipo de True Love Tattoo!\n\nOs escribí hace un par de días con la web demo interactiva que diseñé para vuestro estudio: https://true-love-tattoo-madrid.netlify.app\n\nOs la vuelvo a compartir por aquí por si se os pasó entre las notificaciones y queréis echarle un vistazo rápido desde el móvil.\n\n¿Tendríais 2 minutos esta semana para comentarlo de forma rápida y sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Sin Web",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
-    "campana_id": "camp_1789938527",
+    "campana_id": "camp_1790537209",
     "campana_nombre": "Estudio De Tatuajes · madrid",
     "campana_ids": [
-      "camp_1789938527"
+      "camp_1789938527",
+      "camp_1790537209"
     ]
   },
   {
@@ -6515,34 +6563,75 @@
     "codigo_postal": "",
     "telefono": "",
     "email": "",
-    "tiene_web": false,
+    "tiene_web": true,
     "instagram_url": "https://www.instagram.com/monteratattoo/",
     "instagram_handle": "@monteratattoo",
     "enlaces_internet": [
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://www.monteratattoo.es/",
+        "titulo": "Montera Tattoo: Inicio",
+        "snippet": "Montera Tattoo, uno de los estudios pioneros en el mundo del tatuaje artístico profesional y del body piercing sin dolor"
+      },
       {
         "tipo": "instagram",
         "label": "Instagram (@monteratattoo)",
         "icono": "📸",
         "url": "https://www.instagram.com/monteratattoo/",
-        "titulo": "Montera Tattoo (@monteratattoo) • Instagram photos and videos",
-        "snippet": "4,459 Followers, 2,007 Following, 658 Posts - Montera Tattoo (@monteratattoo) on Instagram: \"SIN CITA PREVIA PARA PIERCI"
+        "titulo": "Montera Tattoo (@monteratattoo) · Madrid - Instagram",
+        "snippet": "SIN CITA PREVIA PARA PIERCING. PARA TATTOOS PASA POR EL ESTUDIO Y TE DAMOS PRESU SIN COMPROMISO!! TE ESPERAMOS!! TATTOO "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.monteratattoo.es/piercing/",
+        "titulo": "Piercing - Montera Tattoo",
+        "snippet": "Montera Tattoo es el primer estudio profesional de body piercing sin dolor en el que todos los materiales utilizados son"
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/monteratattoo/?locale=es_ES",
+        "titulo": "Montera Tattoo | Madrid - Facebook",
+        "snippet": "Montera Tattoo. Estudio de tatuajes, body piercing (anillado profesional), peluquería: extensiones, rastas, trenzas..."
+      },
+      {
+        "tipo": "social",
+        "label": "Enlace Externo",
+        "icono": "🔗",
+        "url": "https://m.yelp.com/biz/factory-tattoo-madrid-2?hrid=qbb78TOLxXA-NC6qMLQC_g",
+        "titulo": "FACTORY TATTOO - Updated September 2026 - 13 Reviews - Yelp",
+        "snippet": "FACTORY TATTOO, Calle de la Montera, 24, 28013 Madrid, Spain, 4 Photos, +34915214469, Mon - 10:00 am - 10:00 pm, Tue - 1"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.monteratattoo.es/tatuajes/",
+        "titulo": "Tatuajes - Montera Tattoo",
+        "snippet": "Montera Tattoo cuenta con un equipo de profesionales con años de experiencia. Sabedores de lo importante que es para ti "
       }
     ],
-    "web_detectada": "",
+    "web_detectada": "https://www.monteratattoo.es/",
     "google_search_url": "https://www.google.com/search?q=Montera+Tattoo+Madrid",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Montera+Tattoo+Madrid",
     "gemini_verificado": true,
-    "gemini_razon": "Validación automática heurística",
-    "mensaje_dm": "¡Hola equipo de Montera Tattoo!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Montera Tattoo!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Sin Web",
+    "gemini_razon": "Comercio local con web oficial activa (https://www.monteratattoo.es/)",
+    "mensaje_dm": "¡Hola equipo de Montera Tattoo!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://www.monteratattoo.es/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Montera Tattoo!\n\nOs escribí hace un par de días con la web demo interactiva que preparé, un rediseño mobile-first con el contenido de vuestra web actual: https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Tiene Web",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
-    "campana_id": "camp_1789938527",
+    "campana_id": "camp_1790537209",
     "campana_nombre": "Estudio De Tatuajes · madrid",
     "campana_ids": [
-      "camp_1789938527"
+      "camp_1789938527",
+      "camp_1790537209"
     ]
   },
   {
@@ -6555,25 +6644,75 @@
     "codigo_postal": "28004",
     "telefono": "+34 915 219 442",
     "email": "",
-    "tiene_web": false,
-    "instagram_url": "",
-    "instagram_handle": "",
-    "enlaces_internet": [],
-    "web_detectada": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/vidamadrid/",
+    "instagram_handle": "@vidamadrid",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@vidamadrid)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/vidamadrid/",
+        "titulo": "Vida Madrid x Angel Sánchez (@vidamadrid) - Instagram",
+        "snippet": "355K Followers, 175 Following, 4,397 Posts - Vida Madrid x Angel Sánchez (@vidamadrid) on Instagram: \"🇪🇸 Madrileño adopt"
+      },
+      {
+        "tipo": "social",
+        "label": "Enlace Externo",
+        "icono": "🔗",
+        "url": "https://www.yelp.com/biz/por-vida-madrid",
+        "titulo": "POR VIDA - Updated April 2026 - Calle de Fuencarral, Haute ...Clínica de Fertilidad en Madrid | Vida Medicina ReproductivaVida Madrid x Angel Sánchez (@vidamadrid) - InstagramLa multitudinaria Marcha por la Vida de Madrid, en imágenesVida: Salud, Lifestyle, nutrición y psicología - Vida.esPor Vida Madrid CB: consulte teléfono, CIF y dirección40 Días por la Vida Madrid - Facebook",
+        "snippet": "POR VIDA, Calle de Fuencarral, 43, 28004 Madrid, Spain, 3 Photos, +34915219442, Mon - 11:00 am - 9:00 pm, Tue - 11:00 am"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://vidarecoletas.com/vida-madrid-medicina-reproductiva/",
+        "titulo": "Clínica de Fertilidad en Madrid | Vida Medicina Reproductiva",
+        "snippet": "Nuestra clínica reproducción asistida en Madrid está constituida por un equipo médico con rica experiencia en tratamient"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.eldebate.com/sociedad/20260531/multitudinaria-marcha-vida-madrid-imagenes_423504.html",
+        "titulo": "La multitudinaria Marcha por la Vida de Madrid, en imágenes",
+        "snippet": "May 31, 2026 · Cabecera de la multitudinaria Marcha por la Vida que ha abarrotado el centro de Madrid a instancias de la"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.vida.es/",
+        "titulo": "Vida: Salud, Lifestyle, nutrición y psicología - Vida.es",
+        "snippet": "«Women for Vida: Mujeres con Propósito» Un encuentro inolvidable de inspiración y empoderamiento. Descubre los secretos "
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://www.einforma.com/informacion-empresa/vida-madrid-madrid",
+        "titulo": "Por Vida Madrid CB: consulte teléfono, CIF y dirección",
+        "snippet": "Consulte la información sobre Por Vida Madrid CB ubicada en Madrid. Consulte el CIF, dirección, teléfono y más informaci"
+      }
+    ],
+    "web_detectada": "https://vidarecoletas.com/vida-madrid-medicina-reproductiva/",
     "google_search_url": "https://www.google.com/search?q=Por+Vida+Madrid",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Por+Vida+Madrid",
-    "gemini_verificado": false,
-    "gemini_razon": "Sin Instagram ni presencia web detectada",
-    "mensaje_dm": "",
-    "mensaje_seguimiento": "",
-    "estado": "Sin Web",
+    "gemini_verificado": true,
+    "gemini_razon": "Comercio local con web oficial activa (https://vidarecoletas.com/vida-madrid-medicina-reproductiva/)",
+    "mensaje_dm": "¡Hola equipo de Por Vida!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://vidarecoletas.com/vida-madrid-medicina-reproductiva/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Por Vida!\n\nOs escribí hace un par de días con la propuesta de rediseño y modernización mobile-first que preparé para vuestra web (https://vidarecoletas.com/vida-madrid-medicina-reproductiva/):\n\n👉 https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis echarle un vistazo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Tiene Web",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
-    "campana_id": "camp_1789938527",
+    "campana_id": "camp_1790537209",
     "campana_nombre": "Estudio De Tatuajes · madrid",
     "campana_ids": [
-      "camp_1789938527"
+      "camp_1789938527",
+      "camp_1790537209"
     ]
   },
   {
@@ -6586,25 +6725,75 @@
     "codigo_postal": "28004",
     "telefono": "",
     "email": "",
-    "tiene_web": false,
-    "instagram_url": "",
-    "instagram_handle": "",
-    "enlaces_internet": [],
-    "web_detectada": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/redkirintattoo/",
+    "instagram_handle": "@redkirintattoo",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@redkirintattoo)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/redkirintattoo/",
+        "titulo": "Traditional Tattoo & Piercing (@redkirintattoo) - Instagram",
+        "snippet": "12K Followers, 734 Following, 1,562 Posts - See Instagram photos and videos from Traditional Tattoo & Piercing (@redkiri"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://www.redkirintattoo.com/",
+        "titulo": "Red Kirin Tattoo Shop & Piercing Boutique | Madrid",
+        "snippet": "Tattoo Shop y Piercing Boutique en Madrid. En Red Kirin llevamos desde 1996 trabajando con el objetivo de ofrecer técnic"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.redkirintattoo.com/piercings-madrid/",
+        "titulo": "Tienda de Piercings en Malasaña | Madrid - Red Kirin",
+        "snippet": "En Red Kirin encontrarás el mejor estudio para hacerte piercings en Malasaña, Madrid. Tienda de piercings a buen precio "
+      },
+      {
+        "tipo": "reserva",
+        "label": "Citas Online",
+        "icono": "📅",
+        "url": "https://redkirintattoo.setmore.com/",
+        "titulo": "Red Kirin Tattoo | Madrid [ Reserva ahora ]",
+        "snippet": "Reserva, reprograma o cancela tus citas directamente desde tu teléfono. Calle Colón 5 Madrid, Madrid 28004. Get more cus"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://tatuadoresen.com/red-kirin-tattoo-madrid/",
+        "titulo": "Red Kirin Tattoo - Madrid ️ Opiniones, Horario y Dirección ...Redkirintattoomadrid - FacebookRed Kirin Tattoo en Madrid — opiniones, teléfono y serviciosRed Kirin Tattoo in Madrid, Spain",
+        "snippet": "Datos, contacto, información, opiniones y horarios de Red Kirin Tattoo - Madrid. ¡Descúbrelo! Jan 5, 2026 · Diseños de n"
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/rktmadrid/",
+        "titulo": "Redkirintattoomadrid - Facebook",
+        "snippet": "Jan 5, 2026 · Diseños de nuestro tatuador residente @geru.tattoo , un estilo japonés original y único. Tenemos diseños d"
+      }
+    ],
+    "web_detectada": "https://www.redkirintattoo.com/",
     "google_search_url": "https://www.google.com/search?q=Red+Kirin+Madrid",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Red+Kirin+Madrid",
-    "gemini_verificado": false,
-    "gemini_razon": "Sin Instagram ni presencia web detectada",
-    "mensaje_dm": "",
-    "mensaje_seguimiento": "",
-    "estado": "Sin Web",
+    "gemini_verificado": true,
+    "gemini_razon": "Comercio local con web oficial activa (https://www.redkirintattoo.com/)",
+    "mensaje_dm": "¡Hola equipo de Red Kirin!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://www.redkirintattoo.com/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Red Kirin!\n\nOs escribí hace un par de días con la propuesta de rediseño y modernización mobile-first que preparé para vuestra web: https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis echarle un vistazo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Tiene Web",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
-    "campana_id": "camp_1789938527",
+    "campana_id": "camp_1790537209",
     "campana_nombre": "Estudio De Tatuajes · madrid",
     "campana_ids": [
-      "camp_1789938527"
+      "camp_1789938527",
+      "camp_1790537209"
     ]
   },
   {
@@ -6630,61 +6819,62 @@
         "snippet": "La Bolsa de Madrid es el principal mercado de valores de España, con sede en el Palacio de la Bolsa de Madrid, un edific"
       },
       {
-        "tipo": "linkedin",
-        "label": "LinkedIn",
-        "icono": "💼",
-        "url": "https://es.linkedin.com/pub/dir/+/Boiza/es-5113-Madrid-y-alrededores",
-        "titulo": "60+ perfiles de «Boiza - LinkedIn",
-        "snippet": "Emilio Mora Boiza. Recursos Humanos. Madrid y alrededores. Digi Spain Telecom y 4 más. Universidad Complutense de Madrid"
-      },
-      {
-        "tipo": "directorio",
-        "label": "Directorio Local",
-        "icono": "📁",
-        "url": "https://empresite.eleconomista.es/BOIZA-ELVIRA.html",
-        "titulo": "Boiza & Elvira Sl - CIF y dirección - Empresite",
-        "snippet": "Boiza & Elvira Sl en Fuente el saz de Jarama Madrid. Conozca el teléfono de contacto, dirección, NIF y más información d"
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://en.wikipedia.org/wiki/Bolsa_de_Madrid",
+        "titulo": "Bolsa de Madrid - Wikipedia",
+        "snippet": "Bolsa de Madrid (Spanish pronunciation: [bolsa ðe ˈmaðɾið]; Madrid Stock Exchange) (Market Identifier Code: XMAD) is the"
       },
       {
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://www.elperiodico.com/es/autor/ferran-boiza-1884597/",
-        "titulo": "Ferran Boiza - El Periódico",
-        "snippet": "... Madrid como Europa Press, La Vanguardia y El Mundo, donde trabajó 26 años y fue Jefe de Nacional. En 2023 se incorpo"
+        "url": "https://www.boiz.es/",
+        "titulo": "Comercial Boiz - Tienda de recambios en Madrid y Valladolid",
+        "snippet": "Tienda virtual de Comercial Boiz - Tienda de recambios en Madrid y Valladolid"
       },
       {
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://www.tattoomago.com/piercings-by-boiza/",
-        "titulo": "Piercings by Boiza – Tattoo Mago | Tatuajes Madrid - Tattoo Mago",
-        "snippet": "Tatuajes en Madrid | Tattoo Mago tu estudio de Tattoos Polinesios, Tahitianos, Maoris, Piercings... TLF: 91 259 16 77."
+        "url": "https://m.soundcloud.com/boizamad",
+        "titulo": "Stream Boiza music | Listen to songs, albums, playlists for free on ...",
+        "snippet": "Play Boiza and discover followers on SoundCloud | Stream tracks, albums, playlists on desktop and mobile."
       },
       {
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://portalcientifico.upm.es/es/ipublic/researcher/332360",
-        "titulo": "MARIA PERAL BOIZA - Universidad Politécnica de Madrid",
-        "snippet": "MARIA. PERAL BOIZA. Presentación; Trayectoria Profesional; Bibliometría; Proyectos y transferencia; Docencia; Red; Resul"
+        "url": "https://www.dnb.com/business-directory/company-profiles.boiza_servicios_integrales_sl.578b2a9318c693514853bf200415137e.html",
+        "titulo": "BOIZA SERVICIOS INTEGRALES SL. Company Profile | GETAFE, Madrid, Spain ...",
+        "snippet": "Find company research, competitor information, contact details & financial data for BOIZA SERVICIOS INTEGRALES SL. of GE"
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/cruzciudad/",
+        "titulo": "Cruz Ciudad Boiza - Facebook",
+        "snippet": "Cruz Ciudad Boiza Madrid · ARTE · Universidad Complutense de Madrid Lives in Madrid, Spain Worked at ARTE"
       }
     ],
     "web_detectada": "",
     "google_search_url": "https://www.google.com/search?q=Boiza+Madrid",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Boiza+Madrid",
-    "gemini_verificado": true,
-    "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Sitio Web, LinkedIn, Directorio Local)",
-    "mensaje_dm": "¡Hola equipo de Boiza!\n\nSoy Daniel García. He visto vuestro trabajo y os he preparado una web demo interactiva adaptada a vuestro negocio para mostraros cómo potenciar vuestra presencia digital y captar clientes desde el móvil:\n\n👉\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Boiza!\n\nOs escribí hace un par de días con la propuesta web interactiva que preparé para vosotros:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "gemini_verificado": false,
+    "gemini_razon": "Sin Instagram. Presencia online detectada (6 fuentes: Sitio Web, Facebook)",
+    "mensaje_dm": "",
+    "mensaje_seguimiento": "",
     "estado": "Sin Web",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
-    "campana_id": "camp_1789938527",
+    "campana_id": "camp_1790537209",
     "campana_nombre": "Estudio De Tatuajes · madrid",
     "campana_ids": [
-      "camp_1789938527"
+      "camp_1789938527",
+      "camp_1790537209"
     ]
   },
   {
@@ -6712,10 +6902,11 @@
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
-    "campana_id": "camp_1789938527",
+    "campana_id": "camp_1790537209",
     "campana_nombre": "Estudio De Tatuajes · madrid",
     "campana_ids": [
-      "camp_1789938527"
+      "camp_1789938527",
+      "camp_1790537209"
     ]
   },
   {
@@ -6728,74 +6919,26 @@
     "codigo_postal": "",
     "telefono": "",
     "email": "",
-    "tiene_web": true,
-    "instagram_url": "https://www.instagram.com/realfamitattoo/",
-    "instagram_handle": "@realfamitattoo",
-    "enlaces_internet": [
-      {
-        "tipo": "instagram",
-        "label": "Instagram (@realfamitattoo)",
-        "icono": "📸",
-        "url": "https://www.instagram.com/realfamitattoo/",
-        "titulo": "Tatuajes en Leganes . Madrid . C/ Getafe 9 . RealFami Tattoo ...",
-        "snippet": "2,372 Followers, 869 Following, 1,990 Posts - Tatuajes en Leganes . Madrid . C/ Getafe 9 . RealFami Tattoo (@realfamitat"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web Detectado",
-        "icono": "🌐",
-        "url": "https://realfamitattoo.es/estudio/",
-        "titulo": "Contacto - Real Fami Tattoo",
-        "snippet": "No dudéis en pasar a consultarnos vuestras ideas, dudas e inquietudes sobre el mundo del tattoo, os daremos presupuesto "
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "http://realfamitattoo.es/",
-        "titulo": "Home | Real Fami Tattoo",
-        "snippet": "Real Fami Tattoo, estudio de tatuajes de Leganés, Madrid. Nuestra filosofía es hacer que nuestros clientes salgan de aqu"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://tatuadoresen.com/real-fami-tattoo-leganes/",
-        "titulo": "Real Fami Tattoo - Leganés ️ Opiniones, Horario y Dirección ...",
-        "snippet": "Estudio de tatuajes en Leganés (Madrid) que encontrarás en C. Getafe, nº 9, 28912 Leganés, Madrid. Aquí puedes ver infor"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://madrid.place/b/real-fami-tattoo/",
-        "titulo": "Real Fami Tattoo en Madrid — opiniones, teléfono y servicios",
-        "snippet": "Real Fami Tattoo es un estudio de tatuajes con sede en Leganés, que desde 2012 se dedica a crear tatuajes personalizados"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://www.fresha.com/en-GB/lvp/real-fami-tattoo-calle-getafe-leganes-0qZkea",
-        "titulo": "Real Fami Tattoo - C. Getafe, nº 9, 28912 Leganés, Madrid ...",
-        "snippet": "Show number C. Getafe, nº 9, 28912 Leganés, Madrid, Spain Get directions Call to book Website Back"
-      }
-    ],
-    "web_detectada": "https://realfamitattoo.es/estudio/",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [],
+    "web_detectada": "",
     "google_search_url": "https://www.google.com/search?q=Real+Fami+Tattoo+Madrid",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Real+Fami+Tattoo+Madrid",
-    "gemini_verificado": true,
-    "gemini_razon": "Validación automática heurística",
-    "mensaje_dm": "¡Hola equipo de Real Fami Tattoo!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://realfamitattoo.es/estudio/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Real Fami Tattoo!\n\nOs escribí hace un par de días con la web demo interactiva que preparé para vosotros con el contenido de vuestra página:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Tiene Web",
+    "gemini_verificado": false,
+    "gemini_razon": "Sin Instagram ni presencia web detectada",
+    "mensaje_dm": "",
+    "mensaje_seguimiento": "",
+    "estado": "Sin Web",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
-    "campana_id": "camp_1789938527",
+    "campana_id": "camp_1790537209",
     "campana_nombre": "Estudio De Tatuajes · madrid",
     "campana_ids": [
-      "camp_1789938527"
+      "camp_1789938527",
+      "camp_1790537209"
     ]
   },
   {
@@ -6823,10 +6966,11 @@
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
-    "campana_id": "camp_1789938527",
+    "campana_id": "camp_1790537209",
     "campana_nombre": "Estudio De Tatuajes · madrid",
     "campana_ids": [
-      "camp_1789938527"
+      "camp_1789938527",
+      "camp_1790537209"
     ]
   },
   {
@@ -6848,65 +6992,66 @@
         "label": "Instagram (@blowfishrestaurant)",
         "icono": "📸",
         "url": "https://www.instagram.com/blowfishrestaurant/",
-        "titulo": "BlowfishRestaurant (@blowfishrestaurant) • Instagram photos ...InstagramBlowfish | Te esperamos el 13 y 14 de junio en el ... - InstagramBlow Fish (@blowfish_sa) • Instagram photos and videosBlowfish Designs (@blowfishdesigns) • Instagram photos and videosBlowfish on Instagram: \"Te esperamos este finde en el ...BLOWFISH Kitchen & Bar on Instagram • Photos and Videos",
+        "titulo": "BlowfishRestaurant (@blowfishrestaurant) • Instagram photos ...BLOWFISH (@blowfishlabs) • Instagram photos and videosBlowfish | Te esperamos el 13 y 14 de junio en el ... - InstagramBlow Fish (@blowfish_sa) • Instagram photos and videosInstagramBlowfish Designs (@blowfishdesigns) • Instagram photos and videos",
         "snippet": "1,645 Followers, 2,300 Following, 560 Posts - See Instagram photos and videos from BlowfishRestaurant (@blowfishrestaura"
-      },
-      {
-        "tipo": "web",
-        "label": "Sitio Web",
-        "icono": "🌐",
-        "url": "https://solesunlimited.com/products/blowfish-madrid",
-        "titulo": "Blowfish Madrid - solesunlimited.com",
-        "snippet": "Brand: Blowfish Style: Madrid Condition: New with Box Suggested Retail: $70.00 Share this product Facebook Twitter Pinte"
       },
       {
         "tipo": "web",
         "label": "Sitio Web Detectado",
         "icono": "🌐",
-        "url": "https://blowfishshoes.com/",
-        "titulo": "Blowfish Malibu® Official Site | Shoes for Women & Kids",
-        "snippet": "Visit the Blowfish Malibu® Official Site to explore the latest trends in shoes for women & kids including popular sneake"
+        "url": "https://blowfishagency.es/",
+        "titulo": "Inicio - BLOWFISH AGENCY",
+        "snippet": "Blowfish Agency, Agencia especializada en marketing de influencia, social media y branded content en Madrid, España."
       },
       {
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://www.amazon.com/Blowfish-Malibu-Womens-Madrid-Fisherman/dp/B0DLZ4RY15",
-        "titulo": "Blowfish Malibu Women's Madrid Fisherman Sandal - Amazon.com",
-        "snippet": "Nov 5, 2024 · Buy Blowfish Malibu Women's Madrid Fisherman Sandal and other Platforms & Wedges at Amazon.com. Our wide s"
+        "url": "https://blowfishclothes.com/?srsltid=AU7gw4XJs1W_u1f_QvZHk3rGL9vd-sweerN_-91qcUZYj2fsFARoFx0W",
+        "titulo": "Blowfish Clothes® | Ropa urbana con actitud",
+        "snippet": "Descubre Blowfish Clothes: camisetas, sudaderas y accesorios de ropa urbana con diseños llenos de personalidad, comodida"
       },
       {
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://www.amazon.com/Blowfish-Malibu-Womens-Madrid-Fisherman/dp/B0F13SX579",
-        "titulo": "Amazon.com | Blowfish Malibu Womens Madrid Fisherman Sandal ...",
-        "snippet": "Mar 11, 2025 · Buy Blowfish Malibu Womens Madrid Fisherman Sandal Cloud/Silver 6 M and other Flats at Amazon.com. Our wi"
+        "url": "https://blowfishagency.es/contacto/",
+        "titulo": "Contacto - BLOWFISH AGENCY",
+        "snippet": "Contacta con Blowfish Agency, Agencia especializada en marketing de influencia, social media y branded content en Madrid"
       },
       {
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://www.target.com/p/blowfish-malibu-womens-madrid-fisherman-sandal-white-8-m/-/A-1001633297",
-        "titulo": "Blowfish Malibu Women's Madrid Fisherman Sandal - TargetBlowfish Malibu Women's Madrid Fisherman Platform Sandals ...Blowfish Malibu Women's Madrid - Stylish Comfort",
-        "snippet": "Stay on trend with the Madrid 2 sandal from Blowfish Malibu. Features include a fisherman sandal silhouette and a rope w"
+        "url": "https://blowfishclothes.com/pages/stories?srsltid=AU7gw4X-0fSxUGHCyIxWWcRtrfhQF1CecF7qDepMqm10e0mj_oLNfcRx",
+        "titulo": "Stories: música y cultura urbana – Blowfish Clothes®",
+        "snippet": "Blowfish Clothes llega a Mercado de Motores en Madrid, un evento donde streetwear, música y cultura urbana se encuentran"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://blowfishagency.es/servicios/",
+        "titulo": "Servicios - BLOWFISH AGENCY",
+        "snippet": "Blowfish Agency, Agencia especializada en marketing de influencia, social media y branded content en Madrid, España."
       }
     ],
-    "web_detectada": "https://blowfishshoes.com/",
+    "web_detectada": "https://blowfishagency.es/",
     "google_search_url": "https://www.google.com/search?q=Blowfish+Madrid",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Blowfish+Madrid",
     "gemini_verificado": true,
-    "gemini_razon": "Validación automática heurística",
-    "mensaje_dm": "¡Hola equipo de Blowfish!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://blowfishshoes.com/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Blowfish!\n\nOs escribí hace un par de días con la web demo interactiva que preparé para vosotros con el contenido de vuestra página:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "gemini_razon": "Comercio local con web oficial activa (https://blowfishagency.es/)",
+    "mensaje_dm": "¡Hola equipo de Blowfish!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://blowfishagency.es/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Blowfish!\n\nOs escribí hace un par de días con la web demo interactiva que preparé como propuesta de rediseño para vuestra web actual: https://...\n\nOs lo comparto de nuevo por si no pudisteis verlo y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
     "estado": "Tiene Web",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
-    "campana_id": "camp_1789938527",
+    "campana_id": "camp_1790537209",
     "campana_nombre": "Estudio De Tatuajes · madrid",
     "campana_ids": [
-      "camp_1789938527"
+      "camp_1789938527",
+      "camp_1790537209"
     ]
   },
   {
@@ -6925,11 +7070,11 @@
     "enlaces_internet": [
       {
         "tipo": "instagram",
-        "label": "Instagram (@corazon_salvaje_1993)",
+        "label": "Instagram (@madrid_salvaje)",
         "icono": "📸",
-        "url": "https://www.instagram.com/corazon_salvaje_1993/",
-        "titulo": "Corazon Salvaje 1993 (@corazon_salvaje_1993) - Instagram",
-        "snippet": "1,310 Followers, 4 Following, 450 Posts - Corazon Salvaje 1993 (@corazon_salvaje_1993) on Instagram: \"Eduardo Palomo inm"
+        "url": "https://www.instagram.com/madrid_salvaje/",
+        "titulo": "Madrid Salvaje (@madrid_salvaje) • Instagram photos and videos",
+        "snippet": "120K Followers, 470 Following, 2,204 Posts - Madrid Salvaje (@madrid_salvaje) on Instagram: \"25 - 26 SEPT💙 CADA AÑO MÁS "
       },
       {
         "tipo": "facebook",
@@ -6940,14 +7085,6 @@
         "snippet": "Dec 21, 2011 · Details 100% recommend (13 Reviews) Closed now Madrid Spain 2009 , Madrid, Spain, 28005"
       },
       {
-        "tipo": "facebook",
-        "label": "Facebook",
-        "icono": "👥",
-        "url": "https://www.facebook.com/p/Corazon-Salvaje-100071304940484/",
-        "titulo": "Corazon Salvaje | Madrid - Facebook",
-        "snippet": "Mar 22, 2012 · Corazon Salvaje, Madrid. 2,949 likes · 18 were here. corazon salvaje canal de las estrellas 9:00 de la no"
-      },
-      {
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
@@ -6956,12 +7093,20 @@
         "snippet": "Check the upcoming events and performances of Corazón salvaje. Ticket sales for the shows in 2024/2025 madrid"
       },
       {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/tatuajeriacorazonsalvaje/",
+        "titulo": "Tatuajería Corazón Salvaje | Madrid - FacebookCorazón Salvaje Tattoo Studio in Madrid | TatScoutCorazon Salvaje - Madrid Spain 2009 - CyboCorazón Salvaje Art - Sobre el artista - Google SitesTatuajería Corazon Salvaje - Madrid ️ Opiniones, Horario y ...",
+        "snippet": "Tatuajería Corazón Salvaje, Madrid. 1,105 likes · 2 talking about this · 319 were here. \"El buen Arte de tatuar\" Estudio"
+      },
+      {
         "tipo": "web",
         "label": "Sitio Web",
         "icono": "🌐",
-        "url": "https://rentberry.com/es/rooms/160124389-one-br-corazon-salvaje-calle-del-divino-pastor-6-28004-madrid-spain",
-        "titulo": "Corazón Salvaje, Calle del Divino Pastor, 6, 28004 Madrid ...",
-        "snippet": "5 days ago · Room location: Corazón Salvaje, Calle del Divino Pastor, 6, 28004 Madrid, Spain. Available for rent Septemb"
+        "url": "https://tatscout.com/shops/corazon-salvaje-madrid",
+        "titulo": "Corazón Salvaje Tattoo Studio in Madrid | TatScout",
+        "snippet": "Corazón Salvaje is a tattoo studio in Madrid. Rated 0/5 from 0 reviews. View photos, opening hours, and contact info on "
       },
       {
         "tipo": "web",
@@ -6976,17 +7121,18 @@
     "google_search_url": "https://www.google.com/search?q=Coraz%C3%B3n+Salvaje+Madrid",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Coraz%C3%B3n+Salvaje+Madrid",
     "gemini_verificado": false,
-    "gemini_razon": "El perfil de Instagram detectado (@corazon_salvaje_1993) es una página de fans dedicada a la telenovela mexicana de 1993 y al actor Eduardo Palomo, no un negocio local activo en Madrid.",
+    "gemini_razon": "El perfil de Instagram detectado corresponde al festival de música 'Madrid Salvaje', el cual no tiene relación con el negocio local de tatuajes 'Tatuajería Corazón Salvaje' de Madrid.",
     "mensaje_dm": "",
     "mensaje_seguimiento": "",
     "estado": "Sin Web",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
-    "campana_id": "camp_1789938527",
+    "campana_id": "camp_1790537209",
     "campana_nombre": "Estudio De Tatuajes · madrid",
     "campana_ids": [
-      "camp_1789938527"
+      "camp_1789938527",
+      "camp_1790537209"
     ]
   },
   {
@@ -6999,34 +7145,75 @@
     "codigo_postal": "",
     "telefono": "",
     "email": "",
-    "tiene_web": false,
-    "instagram_url": "https://www.instagram.com/vanillalaland/",
-    "instagram_handle": "@vanillalaland",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/vanilalandspain/",
+    "instagram_handle": "@vanilalandspain",
     "enlaces_internet": [
       {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://vanilaland.com/pages/tattoo?srsltid=AU7gw4UkHLdTLNvLBUmiBvi11LSjaLF72qWaVB8tfeUM6liAfQ4QStYY",
+        "titulo": "Tattoo - Vanila Land",
+        "snippet": "Bienvenid@ a Vanila Land. Aquí encontrarás artistas con estilos únicos para convertir tu idea en una pieza brutal. Apren"
+      },
+      {
         "tipo": "instagram",
-        "label": "Instagram (@vanillalaland)",
+        "label": "Instagram (@vanilalandspain)",
         "icono": "📸",
-        "url": "https://www.instagram.com/vanillalaland/",
-        "titulo": "Vanilla (@vanillalaland) • Instagram photos and videos",
-        "snippet": "Lifestyle Photo Diary675 followers · 2.1K+ following. See photos and videos from friends on Instagram, and discover othe"
+        "url": "https://www.instagram.com/vanilalandspain/",
+        "titulo": "SEXY ARTIST CLUB (@vanilalandspain) - Instagram",
+        "snippet": "16 Sept 2025 ... Vanila Land pozuelo, madrid sexy arts & sexy tats CITAS AQUÍ. Follow. Message ..."
+      },
+      {
+        "tipo": "social",
+        "label": "Enlace Externo",
+        "icono": "🔗",
+        "url": "https://www.tiktok.com/discover/conciertos-the-weeknd-madrid-teloneros",
+        "titulo": "Conciertos The Weeknd Madrid Teloneros | TikTok",
+        "snippet": "24 Aug 2026 ... ... Land has been getting recently especially Wanderlust because this truly was Abel's first release of "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://vanilaland.com/?srsltid=AU7gw4VZ3_kPorouv5kONb8RK5BpcTcHaUYpRf3NbmCsLqjluPOzkH_2",
+        "titulo": "Vanila Land: Vanila Art",
+        "snippet": "Descubre nuestra selección exclusiva de cuadros en venta, perfecta para coleccionistas y amantes del arte. Navega por ob"
+      },
+      {
+        "tipo": "instagram",
+        "label": "Instagram",
+        "icono": "📸",
+        "url": "https://www.instagram.com/p/DD152dqtoiP/",
+        "titulo": "VANILA LAND en Pozuelo, Madrid. Si quieres formar parte de Sexy ...",
+        "snippet": "21 Dec 2024 ... Gestiona tu agenda como mejor te venga a ti. Sin exclusividad, puedes tatuar en otros estudios sin ningú"
+      },
+      {
+        "tipo": "instagram",
+        "label": "Instagram",
+        "icono": "📸",
+        "url": "https://www.instagram.com/reel/DVMOHwCDWYN/?hl=es",
+        "titulo": "99€ buffet libre de tatuajes en dos horas! #promotattoo ... - Instagram",
+        "snippet": "25 Feb 2026 ... No todo vale Vanila. September 5 · mayjetattoo_studio's profile picture. mayjetattoo's profile picture ."
       }
     ],
-    "web_detectada": "",
+    "web_detectada": "https://vanilaland.com/pages/tattoo?srsltid=AU7gw4UkHLdTLNvLBUmiBvi11LSjaLF72qWaVB8tfeUM6liAfQ4QStYY",
     "google_search_url": "https://www.google.com/search?q=Vanilla+Land+Madrid",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Vanilla+Land+Madrid",
     "gemini_verificado": true,
-    "gemini_razon": "Validación automática heurística",
-    "mensaje_dm": "¡Hola equipo de Vanilla Land!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Vanilla Land!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil:\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Sin Web",
+    "gemini_razon": "Comercio local con web oficial activa (https://vanilaland.com/pages/tattoo?srsltid=AU7gw4UkHLdTLNvLBUmiBvi11LSjaLF72qWaVB8tfeUM6liAfQ4QStYY)",
+    "mensaje_dm": "¡Hola equipo de Vanilla Land!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://vanilaland.com/pages/tattoo?srsltid=AU7gw4UkHLdTLNvLBUmiBvi11LSjaLF72qWaVB8tfeUM6liAfQ4QStYY), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Vanilla Land!\n\nOs escribí hace un par de días con la propuesta de rediseño web interactiva que preparé para vosotros: https://...\n\n¿Habéis tenido un momento para echarle un vistazo desde el móvil? Me encantaría saber vuestra opinión.\n\n¿Tenéis 2 minutos para comentarlo brevemente sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Tiene Web",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
-    "campana_id": "camp_1789938527",
+    "campana_id": "camp_1790537209",
     "campana_nombre": "Estudio De Tatuajes · madrid",
     "campana_ids": [
-      "camp_1789938527"
+      "camp_1789938527",
+      "camp_1790537209"
     ]
   },
   {
@@ -7040,24 +7227,74 @@
     "telefono": "",
     "email": "",
     "tiene_web": false,
-    "instagram_url": "",
-    "instagram_handle": "",
-    "enlaces_internet": [],
+    "instagram_url": "https://www.instagram.com/ioranatattoo/",
+    "instagram_handle": "@ioranatattoo",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@ioranatattoo)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/ioranatattoo/",
+        "titulo": "iorana tattoo (@ioranatattoo) • Instagram photos and videos",
+        "snippet": "28 Followers, 0 Following, 0 Posts - iorana tattoo (@ioranatattoo) on Instagram: \"\""
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://mapcarta.com/N5371150322",
+        "titulo": "Iorana tatto Map - Tattoo parlor - Villa de Vallecas, Madrid ...",
+        "snippet": "Iorana tatto is a tattoo parlor in Villa de Vallecas, Madrid, Community of Madrid. Iorana tatto is situated close to the"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://mapy.com/en/?source=osm&id=150402882",
+        "titulo": "Iorana tatto (Tattoos and piercings) • Mapy.com",
+        "snippet": "Iorana tatto (Tattoos and piercings) Map – detailed map of the area (base, outdoor, aerial, panorama, etc.), route plann"
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/ioranatattoo/",
+        "titulo": "Iorana Tatoo - Facebook",
+        "snippet": "Sep 15, 2026 · Iorana Tatoo. 5,617 followers · 13 talking about this. Digital creator."
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://mapcarta.com/es/N5371150322",
+        "titulo": "Iorana tatto - Mapa - Villa de Vallecas, Madrid, Comunidad de ...",
+        "snippet": "Iorana tatto es una tienda en Villa de Vallecas, Madrid, Comunidad de Madrid. Iorana tatto se encuentra cerca del espaci"
+      },
+      {
+        "tipo": "instagram",
+        "label": "Instagram",
+        "icono": "📸",
+        "url": "https://www.instagram.com/ioranabcn/",
+        "titulo": "iorana: espai de creadores (@ioranabcn) • Instagram photos ...iorana tattoo (@ioranatattoo) • Instagram photos and videosAparcamiento cerca de Iorana tatto - Seety",
+        "snippet": "9,892 Followers, 1,373 Following, 1,411 Posts - iorana: espai de creadores (@ioranabcn) on Instagram: \"2012 #ioranabcn 🕚"
+      }
+    ],
     "web_detectada": "",
     "google_search_url": "https://www.google.com/search?q=Iorana+tatto+Madrid",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Iorana+tatto+Madrid",
-    "gemini_verificado": false,
-    "gemini_razon": "Sin Instagram ni presencia web detectada",
-    "mensaje_dm": "",
-    "mensaje_seguimiento": "",
+    "gemini_verificado": true,
+    "gemini_razon": "Estudio de tatuajes local en Madrid (Villa de Vallecas) identificado, con presencia en redes sociales pero sin página web oficial propia.",
+    "mensaje_dm": "¡Hola! He estado viendo vuestro trabajo de tatuajes y vuestro perfil. Me llamo Daniel García y soy diseñador y desarrollador web.\n\nHe preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada especialmente para potenciar vuestra imagen de marca en Madrid y facilitar que los clientes os reserven o contacten directamente desde el móvil:\n\n👉 https://iorana-tattoo-demo.netlify.app\n*(Es un enlace 100% seguro, se abre directamente en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os gusta, podemos comentarlo 2 minutos sin ningún compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo! Os escribí hace un par de días con la web demo interactiva que preparé para vuestro estudio: https://iorana-tattoo-demo.netlify.app\n\nOs la comparto de nuevo por si se os pasó y queréis echarle un vistazo rápido desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
     "estado": "Sin Web",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
-    "campana_id": "camp_1789938527",
+    "campana_id": "camp_1790537209",
     "campana_nombre": "Estudio De Tatuajes · madrid",
     "campana_ids": [
-      "camp_1789938527"
+      "camp_1789938527",
+      "camp_1790537209"
     ]
   },
   {
@@ -7070,7 +7307,7 @@
     "codigo_postal": "28010",
     "telefono": "",
     "email": "",
-    "tiene_web": false,
+    "tiene_web": true,
     "instagram_url": "https://www.instagram.com/lamansiondeltattoo/",
     "instagram_handle": "@lamansiondeltattoo",
     "enlaces_internet": [
@@ -7081,23 +7318,64 @@
         "url": "https://www.instagram.com/lamansiondeltattoo/",
         "titulo": "La Mansión Del Tattoo (@lamansiondeltattoo) - Instagram",
         "snippet": "107 Followers, 6 Following, 39 Posts - La Mansión Del Tattoo (@lamansiondeltattoo) on Instagram: \"Estudio profesional en"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://mapcarta.com/es/N5372481240",
+        "titulo": "Mansión Tattoo - Mapa - Chamberí, Madrid, Comunidad de Madrid ...",
+        "snippet": "Mansión Tattoo es una tienda en Chamberí, Madrid, Comunidad de Madrid que se localiza en Calle del Cardenal Cisneros. Ma"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://mapcarta.com/N5372481240",
+        "titulo": "Mansión Tattoo Map - Tattoo parlor - Chamberí, Madrid ...",
+        "snippet": "Mansión Tattoo is a tattoo parlor in Chamberí, Madrid, Community of Madrid located on Calle del Cardenal Cisneros. Mansi"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.sinkply.com/",
+        "titulo": "Estudio de Tatuajes en Madrid · Fine Line & Microrealismo ...",
+        "snippet": "Abrimos en 2019 como el primer estudio dedicado en exclusiva al tatuaje fine line en Madrid y en España. No hacemos de t"
+      },
+      {
+        "tipo": "instagram",
+        "label": "Instagram",
+        "icono": "📸",
+        "url": "https://www.instagram.com/madmansiontattoo/",
+        "titulo": "Mad Mansion Tattoo Studio (@madmansiontattoo) - Instagram",
+        "snippet": "1,108 Followers, 391 Following, 138 Posts - Mad Mansion Tattoo Studio (@madmansiontattoo) on Instagram: \"open tue-sat 12"
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://tattooswizard.com/locations/spain/madrid",
+        "titulo": "Tattoo Artists & Studios in madrid, spain - tattooswizard.com",
+        "snippet": "Find tattoo artists and studios near you. Browse portfolios, compare styles, and book with confidence."
       }
     ],
-    "web_detectada": "",
+    "web_detectada": "https://tattoozlife.com/city/madrid-es",
     "google_search_url": "https://www.google.com/search?q=Mansi%C3%B3n+Tattoo+Madrid",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mansi%C3%B3n+Tattoo+Madrid",
     "gemini_verificado": true,
-    "gemini_razon": "Validación automática heurística",
-    "mensaje_dm": "¡Hola equipo de Mansión Tattoo!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉 https://dga80.github.io/instaleads/mansion-tattoo-madrid/\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Mansión Tattoo!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil: https://dga80.github.io/instaleads/mansion-tattoo-madrid/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "gemini_razon": "Comercio local con web oficial activa (https://tattoozlife.com/city/madrid-es)",
+    "mensaje_dm": "¡Hola equipo de Mansión Tattoo!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://tattoozlife.com/city/madrid-es), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Mansión Tattoo!\n\nOs escribí hace un par de días compartiendo la propuesta de web demo interactiva que preparé para rediseñar vuestra web actual: https://...\n\nOs lo dejo de nuevo por aquí por si no tuvisteis ocasión de verlo y queréis echarle un ojo desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
     "estado": "Web Generada",
     "demo_slug": "mansion-tattoo-madrid",
     "demo_url": "https://dga80.github.io/instaleads/mansion-tattoo-madrid/",
-    "demo_vibe": "Urban Edge & Dark Tech (Tatuajes, Barberías, Talleres & Fitness)",
-    "campana_id": "camp_1789938527",
+    "demo_vibe": "Tattoo 2.0 (Estudios de Tatuaje de Autor, Fine Line, Blackwork, Realismo & Piercing)",
+    "campana_id": "camp_1790537209",
     "campana_nombre": "Estudio De Tatuajes · madrid",
     "campana_ids": [
-      "camp_1789938527"
+      "camp_1789938527",
+      "camp_1790537209"
     ],
     "demo_url_absoluta": "https://dga80.github.io/instaleads/mansion-tattoo-madrid/",
     "demo_url_publica": "https://dga80.github.io/instaleads/mansion-tattoo-madrid/",
@@ -7335,9 +7613,9 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Forn+de+Pa+Laia+Espa%C3%B1a",
     "gemini_verificado": false,
     "gemini_razon": "El perfil de Instagram detectado corresponde a otro negocio distinto ('El Forn de Laia' en Vilanova d'Alcolea, Castellón) y no a Forn de Pa Laia de Barcelona.",
-    "mensaje_dm": "¡Hola equipo de Forn de Pa Laia!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://es.restaurantguru.com/Forn-de-Pa-Laia-Barcelona), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://dga80.github.io/instaleads/forn-de-pa-laia-espana/\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Forn de Pa Laia!\n\nOs escribí hace un par de días compartiendo la propuesta de rediseño que preparé en una web demo interactiva: https://dga80.github.io/instaleads/forn-de-pa-laia-espana/\n\nOs la vuelvo a dejar a mano por si se os pasó y os apetece verla cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Web Generada",
+    "mensaje_dm": "¡Hola equipo de Forn de Pa Laia!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉 https://dga80.github.io/instaleads/forn-de-pa-laia-espana/\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Forn de Pa Laia!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil: https://dga80.github.io/instaleads/forn-de-pa-laia-espana/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "DM Enviado",
     "demo_slug": "forn-de-pa-laia-espana",
     "demo_url": "https://dga80.github.io/instaleads/forn-de-pa-laia-espana/",
     "demo_vibe": "Bakery Atelier (6ª Plantilla: Panaderías de Autor, Masa Madre & Pâtisserie)",
@@ -7352,7 +7630,10 @@
     "demo_fecha_ts": 1790534626,
     "extraccion_fuente": "apify",
     "extraccion_aviso": "",
-    "extraccion_exitosa": true
+    "extraccion_exitosa": true,
+    "enfoque_pitch": "sin_web",
+    "fecha_contacto": "2026-09-27T19:36:04.018142+00:00",
+    "canal_contacto": "Instagram DM"
   },
   {
     "osm_id": "687551134",

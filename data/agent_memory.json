@@ -3,15 +3,15 @@
     "estudio de tatuajes": {
       "key": "shop",
       "value": "tattoo",
-      "searches": 2,
-      "total_found": 76,
-      "leads_sin_web": 2,
-      "last_used": "2026-09-27T19:25:25.557827+00:00"
+      "searches": 3,
+      "total_found": 114,
+      "leads_sin_web": 22,
+      "last_used": "2026-09-27T19:32:47.133670+00:00"
     }
   },
   "location_stats": {
     "Madrid": {
-      "searches": 2,
+      "searches": 3,
       "niches": [
         "estudio de tatuajes"
       ]
