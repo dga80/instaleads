@@ -9665,7 +9665,9 @@
     "demo_fecha_ts": 1790625459,
     "extraccion_fuente": "apify",
     "extraccion_aviso": "",
-    "extraccion_exitosa": true
+    "extraccion_exitosa": true,
+    "instagram": "https://www.instagram.com/mojoperruqueria/",
+    "instagram_usuario": "mojoperruqueria"
   },
   {
     "osm_id": "2576455256",
