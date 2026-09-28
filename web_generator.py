@@ -167,6 +167,8 @@ def extraer_contenido_web_existente(url_web: str) -> Dict[str, Any]:
                 if not src.startswith("data:"):
                     full_img = urllib.parse.urljoin(url_web, src)
                     if full_img not in imagenes and any(ext in full_img.lower() for ext in [".jpg", ".jpeg", ".png", ".webp"]):
+                        if any(b in full_img.lower() for b in ["dummy", "spacer", "pixel", "placeholder", "blank", "1x1", "loader", "revslider"]):
+                            continue
                         w = img.get("width")
                         if w and w.isdigit() and int(w) < 40:
                             continue
