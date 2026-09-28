@@ -1071,21 +1071,8 @@
             </button>
           </div>
 
-          <!-- Controls (Device & Zoom & Source) -->
+          <!-- Controls (Device & Zoom) -->
           <div class="space-y-2">
-            <div>
-              <label class="block text-[10px] font-medium text-neutral-400 uppercase tracking-wider mb-1">Fuente de Previsualización:</label>
-              <div class="grid grid-cols-2 rounded-lg bg-[#242428] p-0.5 border border-white/10 text-[11px] font-medium text-slate-300 gap-1">
-                <button id="sim-src-local" onclick="cambiarFuenteSimulador('local')" class="px-2 py-1 rounded bg-mac-accent text-white font-semibold transition text-center flex items-center justify-center space-x-1">
-                  <span>⚡ Local (0s)</span>
-                </button>
-                <button id="sim-src-github" onclick="cambiarFuenteSimulador('github')" class="px-2 py-1 rounded text-neutral-400 hover:text-white transition text-center flex items-center justify-center space-x-1">
-                  <span>🌐 GitHub Pages</span>
-                </button>
-              </div>
-              <p id="sim-src-desc" class="text-[9px] text-neutral-400 mt-1">⚡ Servido directo de tu disco local: cambios instantáneos en vivo.</p>
-            </div>
-
             <label class="text-[11px] font-medium text-neutral-400">Modelo de Dispositivo:</label>
             <div class="grid grid-cols-2 rounded-lg bg-[#242428] p-0.5 border border-white/10 text-[11px] font-medium text-slate-300 gap-1">
               <button id="sim-btn-16pro" onclick="cambiarDispositivoSimulador('iphone16pro')" class="px-2 py-1 rounded bg-mac-accent text-white font-semibold transition text-center">
@@ -3296,46 +3283,9 @@
     // FUNCIONES DEL SIMULADOR DE SMARTPHONE (TITANIUM IPHONE 16 PRO)
     // -------------------------------------------------------------
     let urlActualSimulador = "";
-    let urlLocalActualSimulador = "";
-    let urlPublicaActualSimulador = "";
-    let fuenteActualSimulador = "local"; // 'local' o 'github'
     let dispositivoActualSimulador = "iphone16pro";
     let zoomActualSimulador = "auto";
     let relojSimuladorInterval = null;
-
-    function cambiarFuenteSimulador(fuente) {
-      fuenteActualSimulador = fuente;
-      const btnLocal = document.getElementById('sim-src-local');
-      const btnGithub = document.getElementById('sim-src-github');
-      const desc = document.getElementById('sim-src-desc');
-
-      if (fuente === 'local') {
-        if (btnLocal) btnLocal.className = "px-2 py-1 rounded bg-mac-accent text-white font-semibold transition text-center flex items-center justify-center space-x-1";
-        if (btnGithub) btnGithub.className = "px-2 py-1 rounded text-neutral-400 hover:text-white transition text-center flex items-center justify-center space-x-1";
-        if (desc) desc.innerText = "⚡ Servido directo de tu disco local: cambios instantáneos en vivo.";
-      } else {
-        if (btnGithub) btnGithub.className = "px-2 py-1 rounded bg-mac-accent text-white font-semibold transition text-center flex items-center justify-center space-x-1";
-        if (btnLocal) btnLocal.className = "px-2 py-1 rounded text-neutral-400 hover:text-white transition text-center flex items-center justify-center space-x-1";
-        if (desc) desc.innerText = "🌐 Servido desde GitHub Pages CDN (el enlace real publicado).";
-      }
-
-      cargarIframeSimulador();
-    }
-
-    function cargarIframeSimulador() {
-      const iframe = document.getElementById('simulator-iframe');
-      if (!iframe) return;
-
-      const targetUrl = (fuenteActualSimulador === 'local' && urlLocalActualSimulador) 
-        ? urlLocalActualSimulador 
-        : urlPublicaActualSimulador;
-
-      if (!targetUrl) return;
-
-      const sep = targetUrl.includes('?') ? '&' : '?';
-      // Timestamp _t para saltarse la caché del navegador / CDN y ver siempre la versión actual
-      iframe.src = targetUrl + sep + 'sim=iphone&_t=' + Date.now();
-    }
 
     function abrirSimulador(url, title = "Simulador Móvil") {
       if (!url) {
@@ -3343,7 +3293,7 @@
         return;
       }
       
-      // Extraer slug limpio
+      // Extraer slug limpio y construir URL pública oficial de GitHub Pages
       let slug = "";
       if (url.includes('/instaleads/')) {
         slug = url.split('/instaleads/')[1].split('/')[0].split('?')[0];
@@ -3352,7 +3302,6 @@
       } else if (!url.startsWith('http')) {
         slug = url.replace(/^\//, '').split('/')[0].split('?')[0];
       } else {
-        // http URL
         try {
           const u = new URL(url);
           const parts = u.pathname.split('/').filter(Boolean);
@@ -3360,46 +3309,44 @@
         } catch(e) {}
       }
 
-      if (slug) {
-        urlLocalActualSimulador = `/demos/${slug}/`;
-        urlPublicaActualSimulador = `${GITHUB_PAGES_BASE}/${slug}/`;
-      } else {
-        urlLocalActualSimulador = url;
-        urlPublicaActualSimulador = url;
+      let finalUrl = slug ? `${GITHUB_PAGES_BASE}/${slug}/` : url;
+      if (!finalUrl.includes('?') && !finalUrl.endsWith('/') && !finalUrl.endsWith('.html')) {
+        finalUrl += '/';
       }
 
-      urlActualSimulador = urlPublicaActualSimulador;
+      urlActualSimulador = finalUrl;
       document.getElementById('simulator-title').innerText = title || "Simulador Móvil";
+      const iframe = document.getElementById('simulator-iframe');
       
       // Actualizar enlace directo a GitHub Pages en el panel
       const pubLink = document.getElementById('sim-public-link');
       if (pubLink) {
-        pubLink.href = urlPublicaActualSimulador;
+        pubLink.href = finalUrl;
       }
 
       // Actualizar QR interactivo para escanear en móvil real
       const qrImg = document.getElementById('sim-qr-img');
       if (qrImg) {
-        qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(urlPublicaActualSimulador)}`;
+        qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(finalUrl)}`;
       }
 
       // Actualizar visualización del enlace oficial tanto en el panel como en la barra Safari del iPhone
-      const displayUrl = urlPublicaActualSimulador.replace(/^https?:\/\//, '');
+      const displayUrl = finalUrl.replace(/^https?:\/\//, '');
       const urlDisplay = document.getElementById('sim-url-display');
       if (urlDisplay) {
         urlDisplay.innerText = displayUrl;
-        urlDisplay.title = urlPublicaActualSimulador;
+        urlDisplay.title = finalUrl;
       }
       const safariUrl = document.getElementById('sim-safari-url');
       if (safariUrl) {
         safariUrl.innerText = displayUrl;
-        safariUrl.title = urlPublicaActualSimulador;
+        safariUrl.title = finalUrl;
       }
 
-      // Cargar iframe según la fuente seleccionada
-      cargarIframeSimulador();
+      // Cargar en el iframe la URL oficial de GitHub Pages con timestamp anti-caché
+      const sep = finalUrl.includes('?') ? '&' : '?';
+      iframe.src = finalUrl + sep + 'sim=iphone&_t=' + Date.now();
 
-      const iframe = document.getElementById('simulator-iframe');
       iframe.onload = function() {
         try {
           if (iframe.contentDocument && iframe.contentDocument.documentElement) {
@@ -3434,8 +3381,12 @@
     }
 
     function recargarSimulador() {
-      cargarIframeSimulador();
-      mostrarToast(`Recargando previsualización (${fuenteActualSimulador === 'local' ? 'Local 0s' : 'GitHub Pages'})...`);
+      const iframe = document.getElementById('simulator-iframe');
+      if (iframe && urlActualSimulador) {
+        const sep = urlActualSimulador.includes('?') ? '&' : '?';
+        iframe.src = urlActualSimulador + sep + 'sim=iphone&_t=' + Date.now();
+        mostrarToast('Recargando URL pública (GitHub Pages)...');
+      }
     }
 
     function cambiarDispositivoSimulador(dispositivo) {
