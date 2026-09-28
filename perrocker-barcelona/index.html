@@ -152,10 +152,10 @@
     
     <!-- Navegación Izquierda Desktop -->
     <nav class="hidden md:flex items-center gap-7 text-[12.5px] font-medium tracking-[0.12em] uppercase text-[#18181B]/80 dark:text-white/80">
-      <a href="#inici" class="hover:text-[#C5A880] transition-colors">Inici</a>
-      <a href="#filosofia" class="hover:text-[#C5A880] transition-colors">La Perrockia</a>
-      <a href="#serveis" class="hover:text-[#C5A880] transition-colors">Serveis</a>
-      <a href="#rock-and-hair" class="hover:text-[#C5A880] transition-colors">Rock & Hair</a>
+      <a href="#inici" class="hover:text-[#C5A880] transition-colors" data-i18n="navInici">Inici</a>
+      <a href="#filosofia" class="hover:text-[#C5A880] transition-colors" data-i18n="navFilosofia">La Perrockia</a>
+      <a href="#serveis" class="hover:text-[#C5A880] transition-colors" data-i18n="navServeis">Serveis</a>
+      <a href="#rock-and-hair" class="hover:text-[#C5A880] transition-colors" data-i18n="navRockHair">Rock & Hair</a>
     </nav>
     <div class="w-10 md:hidden pointer-events-none" aria-hidden="true"></div>
 
@@ -177,10 +177,16 @@
     <!-- Navegación Derecha, Switch Modo Oscuro & Botón Cita -->
     <div class="flex items-center gap-3 sm:gap-4 z-10">
       <nav class="hidden lg:flex items-center gap-7 text-[12.5px] font-medium tracking-[0.12em] uppercase text-[#18181B]/80 dark:text-white/80">
-        <a href="#discografia" class="hover:text-[#C5A880] transition-colors">Música</a>
-        <a href="#galeria" class="hover:text-[#C5A880] transition-colors">Lookbook</a>
-        <a href="#contacte" class="hover:text-[#C5A880] transition-colors">Contacte</a>
+        <a href="#discografia" class="hover:text-[#C5A880] transition-colors" data-i18n="navMusica">Música</a>
+        <a href="#galeria" class="hover:text-[#C5A880] transition-colors" data-i18n="navLookbook">Lookbook</a>
+        <a href="#contacte" class="hover:text-[#C5A880] transition-colors" data-i18n="navContacte">Contacte</a>
       </nav>
+
+            <!-- Selector de Idioma CA | ES -->
+      <div class="flex items-center rounded-full bg-black/5 dark:bg-white/10 p-0.5 border border-black/10 dark:border-white/10 text-[11px] font-bold tracking-wider">
+        <button onclick="setLanguage('ca')" id="btn-lang-ca" class="px-2.5 py-1 rounded-full bg-[#18181B] dark:bg-[#C5A880] text-white dark:text-[#18181B] transition-all">CA</button>
+        <button onclick="setLanguage('es')" id="btn-lang-es" class="px-2.5 py-1 rounded-full text-[#18181B]/70 dark:text-white/70 hover:text-[#C5A880] transition-all">ES</button>
+      </div>
 
       <!-- Toggle Modo Claro / Oscuro -->
       <button onclick="toggleDarkMode()" title="Canviar tema" class="w-9 h-9 rounded-full flex items-center justify-center bg-black/5 dark:bg-white/10 hover:bg-[#C5A880]/20 text-[#18181B] dark:text-white transition-colors">
@@ -191,7 +197,7 @@
       <!-- CTA Pedir Cita -->
       <a href="https://ig.me/m/perrocker.oficial" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#18181B] dark:bg-[#C5A880] text-white dark:text-[#18181B] hover:bg-[#C5A880] dark:hover:bg-white text-xs font-semibold tracking-[0.08em] uppercase shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02]">
         <span class="material-symbols-outlined text-[16px]">calendar_today</span>
-        <span>Demanar Cita</span>
+        <span data-i18n="btnDemanarCita">Demanar Cita</span>
       </a>
 
       <!-- Botón Menú Móvil -->
@@ -210,14 +216,20 @@
         <h3 class="font-playfair font-bold text-lg text-[#18181B] dark:text-white">Perrocker</h3>
         <p class="text-[10px] uppercase tracking-widest text-[#C5A880]">Alta Peluquería & Estética</p>
       </div>
-      <button onclick="toggleMobileMenu()" class="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 text-gray-500 dark:text-gray-400">
+            <div class="flex items-center gap-2">
+        <div class="flex items-center rounded-full bg-black/5 dark:bg-white/10 p-0.5 border border-black/10 dark:border-white/10 text-[10px] font-bold tracking-wider">
+          <button onclick="setLanguage('ca')" id="btn-lang-ca-m" class="px-2 py-0.5 rounded-full bg-[#18181B] dark:bg-[#C5A880] text-white dark:text-[#18181B] transition-all">CA</button>
+          <button onclick="setLanguage('es')" id="btn-lang-es-m" class="px-2 py-0.5 rounded-full text-[#18181B]/70 dark:text-white/70 hover:text-[#C5A880] transition-all">ES</button>
+        </div>
+        <button onclick="toggleMobileMenu()" class="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 text-gray-500 dark:text-gray-400">
         <span class="material-symbols-outlined">close</span>
       </button>
+      </div>
     </div>
 
     <nav class="flex flex-col gap-3.5 text-sm font-medium tracking-wide">
       <a href="#inici" onclick="toggleMobileMenu()" class="flex items-center justify-between p-2.5 rounded-lg hover:bg-[#C5A880]/10 text-[#18181B] dark:text-white">
-        <span>Inici</span>
+        <span data-i18n="navInici">Inici</span>
         <span class="material-symbols-outlined text-xs text-[#C5A880]">arrow_forward</span>
       </a>
       <a href="#filosofia" onclick="toggleMobileMenu()" class="flex items-center justify-between p-2.5 rounded-lg hover:bg-[#C5A880]/10 text-[#18181B] dark:text-white">
@@ -291,22 +303,22 @@
 
         <!-- Titular Principal con Tipografía de Portada -->
         <h1 class="font-playfair font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-[52px] text-[#18181B] dark:text-white tracking-tight leading-[1.15] mb-5">
-          Perrocker: Rock & Hair a Barcelona
+          <span data-i18n="heroTitle">Perrocker: Rock & Hair a Barcelona</span>
         </h1>
 
         <!-- Subtítulo Persuasivo -->
         <p class="text-sm sm:text-base md:text-lg text-[#52525B] dark:text-[#D4D4D8] font-light leading-relaxed max-w-2xl mb-8">
-          Corts amb actitud, música en directe i el millor ambient del Farró. Des de 1998 fusionant alta perruqueria, vinils i rock & roll.
+          <span data-i18n="heroSubtitle">Corts amb actitud, música en directe i el millor ambient del Farró. Des de 1998 fusionant alta perruqueria, vinils i rock & roll.</span>
         </p>
 
         <!-- Botones de Acción Primaria -->
         <div class="w-full sm:w-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mb-10">
           <a href="https://ig.me/m/perrocker.oficial" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-[#18181B] dark:bg-[#C5A880] hover:bg-[#C5A880] dark:hover:bg-white text-white dark:text-[#18181B] font-semibold text-xs sm:text-sm tracking-[0.1em] uppercase shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
             <span class="material-symbols-outlined text-lg">event_available</span>
-            <span>Reservar Cita Online</span>
+            <span data-i18n="btnReservarHero">Reservar Cita Online</span>
           </a>
           <a href="#serveis" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/80 dark:bg-white/10 hover:bg-black/5 dark:hover:bg-white/15 border border-[#18181B]/15 dark:border-white/15 text-[#18181B] dark:text-white font-medium text-xs sm:text-sm tracking-[0.08em] uppercase transition-all">
-            <span>Veure Carta de Serveis</span>
+            <span data-i18n="btnVerServeis">Veure Carta de Serveis</span>
             <span class="material-symbols-outlined text-base">expand_more</span>
           </a>
         </div>
@@ -318,19 +330,19 @@
               <span>★</span>
               <span>4.9</span>
             </div>
-            <p class="text-[10.5px] sm:text-xs text-[#52525B] dark:text-[#A1A1AA] uppercase tracking-wider font-medium mt-0.5">Ressenyes a Google</p>
+            <p class="text-[10.5px] sm:text-xs text-[#52525B] dark:text-[#A1A1AA] uppercase tracking-wider font-medium mt-0.5" data-i18n="metric1Label">Ressenyes a Google</p>
           </div>
           <div>
             <div class="text-[#18181B] dark:text-white font-playfair font-bold text-xl sm:text-2xl">
               +15 Años
             </div>
-            <p class="text-[10.5px] sm:text-xs text-[#52525B] dark:text-[#A1A1AA] uppercase tracking-wider font-medium mt-0.5">De Trajectòria</p>
+            <p class="text-[10.5px] sm:text-xs text-[#52525B] dark:text-[#A1A1AA] uppercase tracking-wider font-medium mt-0.5" data-i18n="metric2Label">De Trajectòria</p>
           </div>
           <div>
             <div class="text-[#C5A880] font-playfair font-bold text-xl sm:text-2xl">
               100%
             </div>
-            <p class="text-[10.5px] sm:text-xs text-[#52525B] dark:text-[#A1A1AA] uppercase tracking-wider font-medium mt-0.5">Tracte Únic & Birra</p>
+            <p class="text-[10.5px] sm:text-xs text-[#52525B] dark:text-[#A1A1AA] uppercase tracking-wider font-medium mt-0.5" data-i18n="metric3Label">Tracte Únic & Birra</p>
           </div>
         </div>
 
@@ -347,7 +359,7 @@
             </div>
             <div>
               <p class="text-[9px] uppercase tracking-widest text-[#C5A880] font-bold">Especialitat</p>
-              <p class="text-xs font-bold text-[#18181B] dark:text-white leading-tight">Corts Rocker & Actitud d'Autor</p>
+              <p class="text-xs font-bold text-[#18181B] dark:text-white leading-tight" data-i18n="heroCard1Text">Corts Rocker & Actitud d'Autor</p>
             </div>
           </div>
         </div>
@@ -393,11 +405,11 @@
         <span>✦</span>
       </div>
       <h2 class="font-playfair font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#18181B] dark:text-white tracking-tight">
-        Un compromís incondicional amb la tècnica, la bona música i l'estil autèntic
+        <span data-i18n="philoTitle">Un compromís incondicional amb la tècnica, la bona música i l'estil autèntic</span>
       </h2>
       <div class="w-16 h-0.5 bg-[#C5A880] mx-auto my-4"></div>
       <p class="text-sm sm:text-base text-[#52525B] dark:text-[#A1A1AA] leading-relaxed">
-        A la Perrockia t'esperem. Un espai acollidor on escoltar el millor rock mentre et poses en mans d'en Jordi-Benet per trobar el teu estil perfecte.
+        <span data-i18n="philoDesc">A la Perrockia t'esperem. Un espai acollidor on escoltar el millor rock mentre et poses en mans d'en Jordi-Benet per trobar el teu estil perfecte.</span>
       </p>
     </div>
 
@@ -459,10 +471,10 @@
           <span>CARTA EXCLUSIVA D'EXPERIÈNCIES</span>
         </div>
         <h2 class="font-playfair font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#18181B] dark:text-white tracking-tight">
-          Els Nostres Serveis de Perruqueria & Estètica
+          <span data-i18n="servTitle">Els Nostres Serveis de Perruqueria & Estètica</span>
         </h2>
         <p class="text-xs sm:text-sm text-[#52525B] dark:text-[#A1A1AA] mt-2 max-w-xl">
-          Selecciona el teu tractament desitjat i demana cita directament per WhatsApp amb confirmació immediata.
+          <span data-i18n="servSubtitle">Selecciona el teu tractament desitjat i demana cita directament per WhatsApp amb confirmació immediata.</span>
         </p>
       </div>
 
@@ -645,7 +657,7 @@
         <span>🎸</span>
       </div>
       <h2 class="font-playfair font-extrabold text-3xl sm:text-4xl lg:text-5xl text-[#18181B] dark:text-white tracking-tight leading-tight">
-        "Perruqueries hi ha moltes, Perrockies només una"
+        <span data-i18n="rockTitle">"Perruqueries hi ha moltes, Perrockies només una"</span>
       </h2>
       <div class="w-20 h-0.5 bg-[#C5A880] mx-auto my-5"></div>
       <p class="text-base sm:text-lg text-[#52525B] dark:text-[#D4D4D8] font-light leading-relaxed">
@@ -702,12 +714,12 @@
     <div class="rounded-3xl bg-[#18181B] text-white p-8 sm:p-10 border border-[#C5A880]/30 flex flex-col md:flex-row items-center justify-between gap-6">
       <div class="space-y-2 text-center md:text-left">
         <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-[#C5A880]">Atenció Directa & Personalitzada</span>
-        <h4 class="font-playfair text-2xl sm:text-3xl font-bold">A punt per a un tall amb autèntic so Rock?</h4>
-        <p class="text-xs sm:text-sm text-zinc-400">Demana cita prèvia directament per WhatsApp i vine a gaudir de la Perrockia.</p>
+        <h4 class="font-playfair text-2xl sm:text-3xl font-bold"><span data-i18n="rockBannerTitle">A punt per a un tall amb autèntic so Rock?</span></h4>
+        <p class="text-xs sm:text-sm text-zinc-400"><span data-i18n="rockBannerSubtitle">Demana cita prèvia directament per WhatsApp i vine a gaudir de la Perrockia.</span></p>
       </div>
       <a href="https://api.whatsapp.com/send?phone=34617652745&text=%C2%A1Hola%20Jordi%21%20Quiero%20pedir%20cita%20en%20la%20Perrockia%20para%20un%20corte%20Rock%20%26%20Hair." target="_blank" rel="noopener" class="px-8 py-4 rounded-full bg-[#C5A880] hover:bg-[#B5966B] text-[#18181B] font-bold text-xs uppercase tracking-widest shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 shrink-0 flex items-center gap-2">
         <span class="material-symbols-outlined text-base">calendar_today</span>
-        <span>Reservar Torn amb en Jordi</span>
+        <span data-i18n="btnReservarJordi">Reservar Torn amb en Jordi</span>
       </a>
     </div>
 
@@ -725,10 +737,10 @@
         <span>💿</span>
       </div>
       <h2 class="font-playfair font-extrabold text-3xl sm:text-4xl lg:text-5xl text-[#18181B] dark:text-white tracking-tight">
-        Música Composta Entre Tisores i Amplificadors
+        <span data-i18n="discoTitle">Música Composta Entre Tisores i Amplificadors</span>
       </h2>
       <p class="text-sm sm:text-base text-[#52525B] dark:text-[#A1A1AA] mt-4 leading-relaxed">
-        En Jordi-Benet compagina la seva mestria amb les tisores amb la seva trajectòria discogràfica com a cantant i guitarrista de rock.
+        <span data-i18n="discoSubtitle">En Jordi-Benet compagina la seva mestria amb les tisores amb la seva trajectòria discogràfica com a cantant i guitarrista de rock.</span>
       </p>
     </div>
 
@@ -859,7 +871,7 @@
           <span>RESULTADOS REALES EN EL SALÓN</span>
         </div>
         <h2 class="font-playfair font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#18181B] dark:text-white tracking-tight">
-          Lookbook & Transformacions d'Autor
+          <span data-i18n="lookTitle">Lookbook & Transformacions d'Autor</span>
         </h2>
       </div>
 
@@ -1054,7 +1066,7 @@
           <span>AGENDA ONLINE PRIORITARIA</span>
         </div>
         <h2 class="font-playfair font-extrabold text-2xl sm:text-3xl text-[#18181B] dark:text-white tracking-tight mb-3">
-          Reserva la Teva Cita a la Perrockia
+          <span data-i18n="bookTitle">Reserva la Teva Cita a la Perrockia</span>
         </h2>
         <p class="text-xs sm:text-sm text-[#52525B] dark:text-[#A1A1AA] mb-8">
           Selecciona tu servicio y preferencia para generar tu solicitud instantánea de cita por WhatsApp.
@@ -1068,14 +1080,14 @@
               <input type="text" id="res-nombre" required placeholder="Ej. Andrea Gómez" class="w-full px-4 py-3 rounded-xl bg-[#FBF9F6] dark:bg-black/30 border border-black/10 dark:border-white/10 text-xs sm:text-sm text-[#18181B] dark:text-white focus:outline-none focus:border-[#C5A880] transition"/>
             </div>
             <div>
-              <label class="block text-xs font-semibold uppercase tracking-wider text-[#18181B] dark:text-zinc-300 mb-1.5">Telèfon / WhatsApp</label>
+              <label class="block text-xs font-semibold uppercase tracking-wider text-[#18181B] dark:text-zinc-300 mb-1.5" data-i18n="lblTel">Telèfon / WhatsApp</label>
               <input type="tel" id="res-tel" required placeholder="Ej. 612 345 678" class="w-full px-4 py-3 rounded-xl bg-[#FBF9F6] dark:bg-black/30 border border-black/10 dark:border-white/10 text-xs sm:text-sm text-[#18181B] dark:text-white focus:outline-none focus:border-[#C5A880] transition"/>
             </div>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label class="block text-xs font-semibold uppercase tracking-wider text-[#18181B] dark:text-zinc-300 mb-1.5">Servei Desitjat</label>
+              <label class="block text-xs font-semibold uppercase tracking-wider text-[#18181B] dark:text-zinc-300 mb-1.5" data-i18n="lblServei">Servei Desitjat</label>
               <select id="res-servicio" class="w-full px-4 py-3 rounded-xl bg-[#FBF9F6] dark:bg-black/30 border border-black/10 dark:border-white/10 text-xs sm:text-sm text-[#18181B] dark:text-white focus:outline-none focus:border-[#C5A880] transition">
                 <option value="Corte de Autor & Visagismo">Corte de Autor & Visagismo</option>
                 <option value="Balayage Signature & Iluminación">Balayage Signature & Iluminación</option>
@@ -1231,10 +1243,10 @@
           <li><a href="#inici" class="hover:text-[#C5A880] transition">Inicio</a></li>
           <li><a href="#filosofia" class="hover:text-[#C5A880] transition">El Salón</a></li>
           <li><a href="#serveis" class="hover:text-[#C5A880] transition">Carta de Servicios</a></li>
-          <li><a href="#rock-and-hair" class="hover:text-[#C5A880] transition">Rock & Hair</a></li>
+          <li><a href="#rock-and-hair" class="hover:text-[#C5A880] transition" data-i18n="navRockHair">Rock & Hair</a></li>
           <li><a href="#discografia" class="hover:text-[#C5A880] transition">Discografia</a></li>
           <li><a href="#productos" class="hover:text-[#C5A880] transition">Marcas Premium</a></li>
-          <li><a href="#galeria" class="hover:text-[#C5A880] transition">Lookbook</a></li>
+          <li><a href="#galeria" class="hover:text-[#C5A880] transition" data-i18n="navLookbook">Lookbook</a></li>
         </ul>
       </div>
 
@@ -1385,6 +1397,408 @@
     const waUrl = `https://api.whatsapp.com/send?phone=${phoneNum}&text=${encodeURIComponent(texto)}`;
     window.open(waUrl, '_blank');
   }
+</script>
+
+
+<script>
+  const i18nData = {
+    ca: {
+      lang: "ca",
+      title: "Perrocker | Rock & Hair • La Perrockia a Barcelona (El Farró)",
+      metaDesc: "Perrocker: La Perrockia al barri del Farró (Barcelona). Corts de cabell amb actitud, música en directe, vinils, cervesa i estilisme d'autor per Jordi-Benet.",
+      ticker1: "✦ ATELIER CAPIL·LAR DE ROCK & HAIR ✦",
+      ticker2: "✂️ CITA PRÈVIA PER WHATSAPP: 617 652 745",
+      ticker3: "🎸 PERROCKER • CORTS AMB ACTITUD, VINILS I ROCK & ROLL",
+      ticker4: "🍻 CERVESA ARTESANA I BON AMBIENT AL FARRÓ",
+      ticker5: "📍 CARRER DEL FRANCOLÍ, 60 • BARCELONA",
+      navInici: "Inici",
+      navFilosofia: "La Perrockia",
+      navServeis: "Serveis",
+      navRockHair: "Rock & Hair",
+      navMusica: "Música",
+      navLookbook: "Lookbook",
+      navContacte: "Contacte",
+      btnDemanarCita: "Demanar Cita",
+      btnCitaPrevia: "Cita Prèvia",
+      heroBadge: "🎸 ROCK & HAIR • EL FARRÓ (BARCELONA)",
+      heroTitle: "Perrocker: Rock & Hair a Barcelona",
+      heroSubtitle: "Corts amb actitud, música en directe i el millor ambient del Farró. Des de 1998 fusionant alta perruqueria, vinils i rock & roll.",
+      btnReservarHero: "Reservar Cita Online",
+      btnVerServeis: "Veure Carta de Serveis",
+      metric1Label: "Ressenyes a Google",
+      metric2Label: "De Trajectòria",
+      metric3Label: "Tracte Únic & Birra",
+      heroCard1Badge: "Especialitat",
+      heroCard1Text: "Corts Rocker & Actitud d'Autor",
+      heroCard2Badge: "Música en Directe",
+      heroCard2Text: "Vinils & Guitarres al Saló",
+      heroBannerText: "Espai consagrat al Rock & Roll, guitarres i estil propi",
+      
+      philoBadge: "✦ LA PERROCKIA • ROCK & HAIR ✦",
+      philoTitle: "Un compromís incondicional amb la tècnica, la bona música i l'estil autèntic",
+      philoDesc: "A la Perrockia t'esperem. Un espai acollidor on escoltar el millor rock mentre et poses en mans d'en Jordi-Benet per trobar el teu estil perfecte.",
+      philo1Title: "Estilisme & Visagisme d'Autor",
+      philo1Desc: "Cada cita comença amb un diagnòstic personalitzat. Estudiem els teus trets facials, la textura dels teus cabells i el teu estil de vida per dissenyar un tall irrepetible.",
+      philo2Title: "Master Color & Matisos Gloss",
+      philo2Desc: "Especialistes en degradats, metxes de fantasia i matisos gloss que aporten brillantor tridimensional sense malmetre la cutícula gràcies a protectors moleculars.",
+      philo3Title: "Salut Capil·lar & Bon Ambient",
+      philo3Desc: "Un entorn singular amb vinils, rentacaps amb massatge i tractaments intensius d'hidratació profunda i recuperació de brillantor mentre prens una cervesa freda.",
+      
+      servBadge: "CARTA EXCLUSIVA D'EXPERIÈNCIES",
+      servTitle: "Els Nostres Serveis de Perruqueria & Estètica",
+      servSubtitle: "Selecciona el teu tractament desitjat i demana cita directament per WhatsApp amb confirmació immediata.",
+      filterTots: "Tots",
+      filterTall: "Tall & Styling",
+      filterColor: "Color & Balayage",
+      filterTract: "Tractaments",
+      btnCitaServei: "Demanar Cita per a aquest Servei",
+      
+      s1Title: "Tall Rocker & Estilisme d'Autor",
+      s1Price: "Des de 28€ / 45 min",
+      s1Desc: "Estudi morfològic personalitzat, tall a tisora o navalla, rentat amb massatge capil·lar relaxant i pentinat styling amb cera o pomada clàssica.",
+      
+      s2Title: "Mullet Modern, Shag & Textures",
+      s2Price: "Des de 35€ / 50 min",
+      s2Desc: "Corts amb màxima textura, capes rebels i moviment per a cabells mitjans i curts. El segell inconfunsible i desenfadat de la Perrockia.",
+      
+      s3Title: "Coloració Rebel & Metxes Fantasia",
+      s3Price: "Des de 65€ / 90 min",
+      s3Desc: "Decoloracions cuidades, rossos nòrdics, tons fantasia i metxes amb protecció molecular per mantenir el cabell fort i brillant.",
+      
+      s4Title: "Matisat Gloss & Brillantor Mirall",
+      s4Price: "Des de 40€ / 45 min",
+      s4Desc: "Correcció de matisos no desitjats, segellat de cutícula i nutrició express per revifar el color entre cites sense malmetre el cabell.",
+      
+      s5Title: "Ritual de Barba & Afaitat a Navalla",
+      s5Price: "Des de 22€ / 35 min",
+      s5Desc: "Perfilat de barba mil·limètric, tovallola calenta aromatitzada, afaitat clàssic a navalla amb bàlsam calmant i oli nutritiu.",
+      
+      s6Title: "Tractament Detox & Massatge Cranial",
+      s6Price: "Des de 30€ / 40 min",
+      s6Desc: "Neteja profunda del cuir cabellut, exfoliació detox i mascareta reparadora mentre gaudeixes d'una cervesa i bon rock al saló.",
+      
+      rockBadge: "EL TEMPLE DEL ROCK & HAIR A BARCELONA",
+      rockTitle: '"Perruqueries hi ha moltes, Perrockies només una"',
+      rockSubtitle: '«Sóc perruquer, sóc rocker, em diuen Perrocker i faig el que vull». Benvinguts a un espai on les tisores ballen al compàs del millor rock and roll de tots els temps.',
+      rock1Title: "Guitarres al Rentacaps",
+      rock1Desc: "Des de la mítica guitarra Yellow Trip fins a amplificadors vintage. A la Perrockia la música no és només ambiental: és el cor de cada tall.",
+      rock2Badge: "Pura Actitud",
+      rock2Title: "Estilisme & Tisora d'Autor",
+      rock2Desc: "Mullets rebels, corts Shag, Pompadours clàssics, texturitzats moderns i degradats a navalla executats amb tècnica mil·limètrica i personalitat.",
+      rock3Title: "Birra, Vinils & Farró",
+      rock3Desc: "Pren-te una cervesa freda o un bon cafè mentre sona vinil en directe. Més que una perruqueria, un punt de trobada cultural al cor del Farró (Sarrià-Sant Gervasi).",
+      rockBannerBadge: "Atenció Directa & Personalitzada",
+      rockBannerTitle: "A punt per a un tall amb autèntic so Rock?",
+      rockBannerSubtitle: "Demana cita prèvia directament per WhatsApp i vine a gaudir de la Perrockia.",
+      btnReservarJordi: "Reservar Torn amb en Jordi",
+      
+      discoBadge: "DISCOGRAFIA & DIRECTES",
+      discoTitle: "Música Composta Entre Tisores i Amplificadors",
+      discoSubtitle: "En Jordi-Benet compagina la seva mestria amb les tisores amb la seva trajectòria discogràfica com a cantant i guitarrista de rock.",
+      disco1Badge: "Discografia",
+      disco1Title: "Àlbum «Rock & Hair»",
+      disco1Desc: "L'àlbum insígnia que defineix l'univers de la Perrockia. Cançons enèrgiques amb lletres enginyoses que narren la vida de barri i l'amor incombustible pel rock.",
+      btnEscucharIG: "Escoltar a Instagram",
+      disco2Badge: "En Directe",
+      disco2Title: "Directes & Acústics",
+      disco2Desc: "Concerts a sales llegendàries de Barcelona com l'Heliogàbal de Gràcia i col·laboracions especials amb artistes com El Sobrino del Diablo.",
+      btnDirectosIG: "Veure Directes a IG",
+      disco3Badge: "Reconeixement",
+      disco3Title: "El Perruquer del Farró",
+      disco3Desc: "Destacat per La Vanguardia i Time Out com un dels espais més singulars i carismàtics de la ciutat, consagrat al rock & roll i a l'estilisme.",
+      btnLeerVanguardia: "Llegir a La Vanguardia",
+      
+      brandBadge: "NOMÉS EL MILLOR PER AL TEU CABELL",
+      brandTitle: "Treballem exclusivament amb les marques líders mundials",
+      brandSubtitle: "Fórmules respectuoses, nutrició biomimètica i protecció molecular per garantir resultats duradors sense comprometre la salut del teu cabell.",
+      
+      lookBadge: "LOOKBOOK & ESTILISME",
+      lookTitle: "Lookbook & Transformacions d'Autor",
+      lookSubtitle: "Explora els nostres últims treballs de tall, texturitzats, degradats i coloracions amb personalitat pròpia.",
+      lookFollow: "Segueix-nos a Instagram @perrocker.oficial",
+      
+      testBadge: "QUÈ EN DIU LA GENT QUE ENS VISITA",
+      testTitle: "Experiències Reals a la Perrockia",
+      test1: '"L'ambient de la Perrockia és únic a Barcelona. En Jordi t'entén al moment el tall que vols, bona música de fons i una birra mentre t'atenen. 10/10."',
+      test2: '"Fa més de 10 anys que em tallo el cabell amb en Perrocker. No hi ha cap altre lloc amb aquesta energia i professionalitat al Farró."',
+      test3: '"El millor degradat i arranjament de barba de la ciutat. Tracte de 10 i autèntic esperit rock & roll en ple Farró."',
+      
+      bookBadge: "CITA PRÈVIA EXCLUSIVA",
+      bookTitle: "Reserva la Teva Cita a la Perrockia",
+      bookSubtitle: "Tria el teu servei i horari preferit. T'atendrem personalment per WhatsApp per confirmar el teu torn amb en Jordi.",
+      bookFeat1: "Diagnòstic personalitzat inclòs",
+      bookFeat2: "Música en directe, vinils i bon ambient",
+      bookFeat3: "Cervesa freda de benvinguda al saló",
+      lblNom: "Nom i Cognoms",
+      lblTel: "Telèfon / WhatsApp",
+      lblServei: "Servei Desitjat",
+      lblHorari: "Preferència Horària",
+      lblNotes: "Observacions o Notes (Opcional)",
+      optQualsevol: "Qualsevol horari",
+      optMati: "Matins (10:00 - 14:00)",
+      optTarda: "Tardes (16:30 - 20:00)",
+      optDissabte: "Dissabtes al matí",
+      btnSolicitarCita: "Sol·licitar Cita per WhatsApp",
+      
+      locBadge: "ENS TROBARÀS AL FARRÓ (BARCELONA)",
+      locTitle: "Vine a Viure l'Experiència Perrockia",
+      locSubtitle: "Un espai singular, amb bona música i màxima comoditat al cor del barri del Farró.",
+      lblAdreca: "Adreça",
+      lblHoraris: "Horaris d'Atenció",
+      lblTelefons: "Telèfons & WhatsApp",
+      lblEmail: "Correu Electrònic",
+      
+      footerDesc: "Saló de perruqueria d'autor, corts amb actitud i música en directe a Barcelona. Passió per la tècnica, el rock & roll i la salut capil·lar.",
+      footerNav: "Navegació",
+      footerServeis: "Serveis",
+      footerContacte: "Contacte",
+      footerRights: "© 2026 Perrocker • La Perrockia (Barcelona). Tots els drets reservats.",
+      footerDisclaimer: "Proposta de redisseny interactiu per a Perrocker"
+    },
+    es: {
+      lang: "es",
+      title: "Perrocker | Rock & Hair • La Perrockia en Barcelona (El Farró)",
+      metaDesc: "Perrocker: La Perrockia en el barrio del Farró (Barcelona). Cortes de pelo con actitud, música en directo, vinilos, cerveza y estilismo de autor por Jordi-Benet.",
+      ticker1: "✦ ATELIER CAPILAR DE ROCK & HAIR ✦",
+      ticker2: "✂️ CITA PREVIA POR WHATSAPP: 617 652 745",
+      ticker3: "🎸 PERROCKER • CORTES CON ACTITUD, VINILOS Y ROCK & ROLL",
+      ticker4: "🍻 CERVEZA ARTESANA Y BUEN AMBIENTE EN EL FARRÓ",
+      ticker5: "📍 CARRER DEL FRANCOLÍ, 60 • BARCELONA",
+      navInici: "Inicio",
+      navFilosofia: "La Perrockia",
+      navServeis: "Servicios",
+      navRockHair: "Rock & Hair",
+      navMusica: "Música",
+      navLookbook: "Lookbook",
+      navContacte: "Contacto",
+      btnDemanarCita: "Pedir Cita",
+      btnCitaPrevia: "Cita Previa",
+      heroBadge: "🎸 ROCK & HAIR • EL FARRÓ (BARCELONA)",
+      heroTitle: "Perrocker: Rock & Hair en Barcelona",
+      heroSubtitle: "Cortes con actitud, música en directo y el mejor ambiente del Farró. Desde 1998 fusionando alta peluquería, vinilos y rock & roll.",
+      btnReservarHero: "Reservar Cita Online",
+      btnVerServeis: "Ver Carta de Servicios",
+      metric1Label: "Reseñas en Google",
+      metric2Label: "De Trayectoria",
+      metric3Label: "Trato Único & Cerveza",
+      heroCard1Badge: "Especialidad",
+      heroCard1Text: "Cortes Rocker & Actitud de Autor",
+      heroCard2Badge: "Música en Directo",
+      heroCard2Text: "Vinilos & Guitarras en el Salón",
+      heroBannerText: "Espacio consagrado al Rock & Roll, guitarras y estilo propio",
+      
+      philoBadge: "✦ LA PERROCKIA • ROCK & HAIR ✦",
+      philoTitle: "Un compromiso inquebrantable con la técnica, la buena música y el estilo auténtico",
+      philoDesc: "En la Perrockia te esperamos. Un espacio acogedor donde escuchar el mejor rock mientras te pones en manos de Jordi-Benet para encontrar tu estilo perfecto.",
+      philo1Title: "Estilismo & Visagismo de Autor",
+      philo1Desc: "Cada cita comienza con un diagnóstico personalizado. Estudiamos tus rasgos faciales, la textura de tu cabello y tu estilo de vida para diseñar un corte irrepetible.",
+      philo2Title: "Master Color & Matices Gloss",
+      philo2Desc: "Especialistas en degradados, mechas de fantasía y matices gloss que aportan brillo tridimensional sin dañar la cutícula gracias a protectores moleculares.",
+      philo3Title: "Salud Capilar & Buen Ambiente",
+      philo3Desc: "Un entorno singular con vinilos, lavacabezas con masaje y tratamientos intensivos de hidratación profunda y recuperación de brillo mientras tomas una cerveza fría.",
+      
+      servBadge: "CARTA EXCLUSIVA DE EXPERIENCIAS",
+      servTitle: "Nuestros Servicios de Peluquería & Estética",
+      servSubtitle: "Selecciona tu tratamiento deseado y pide cita directamente por WhatsApp con confirmación inmediata.",
+      filterTots: "Todos",
+      filterTall: "Corte & Styling",
+      filterColor: "Color & Balayage",
+      filterTract: "Tratamientos",
+      btnCitaServei: "Pedir Cita para este Servicio",
+      
+      s1Title: "Corte Rocker & Estilismo de Autor",
+      s1Price: "Desde 28€ / 45 min",
+      s1Desc: "Estudio morfológico personalizado, corte a tijera o navaja, lavado con masaje capilar relajante y peinado styling con cera o pomada clásica.",
+      
+      s2Title: "Mullet Moderno, Shag & Texturas",
+      s2Price: "Desde 35€ / 50 min",
+      s2Desc: "Cortes con máxima textura, capas rebeldes y movimiento para melenas medias y cortas. El sello inconfundible y desenfadado de la Perrockia.",
+      
+      s3Title: "Coloración Rebelde & Mechas Fantasía",
+      s3Price: "Desde 65€ / 90 min",
+      s3Desc: "Decoloraciones cuidadas, rubios nórdicos, tonos fantasía y mechas con protección molecular para mantener el cabello fuerte y brillante.",
+      
+      s4Title: "Matizado Gloss & Brillo Espejo",
+      s4Price: "Desde 40€ / 45 min",
+      s4Desc: "Corrección de matices no deseados, sellado de cutícula y nutrición express para reavivar el color entre citas sin dañar el cabello.",
+      
+      s5Title: "Ritual de Barba & Afeitado a Navaja",
+      s5Price: "Desde 22€ / 35 min",
+      s5Desc: "Perfilado de barba milimétrico, toalla caliente aromatizada, afeitado clásico a navaja con bálsamo calmante y aceite nutritivo.",
+      
+      s6Title: "Tratamiento Detox & Masaje Craneal",
+      s6Price: "Desde 30€ / 40 min",
+      s6Desc: "Limpieza profunda del cuero cabelludo, exfoliación detox y mascarilla reparadora mientras disfrutas de una cerveza y buen rock en el salón.",
+      
+      rockBadge: "EL TEMPLO DEL ROCK & HAIR EN BARCELONA",
+      rockTitle: '"Peluquerías hay muchas, Perrockies solo una"',
+      rockSubtitle: '«Soy peluquero, soy rockero, me llaman Perrocker y hago lo que quiero». Bienvenidos a un espacio donde las tijeras bailan al compás del mejor rock and roll de todos los tiempos.',
+      rock1Title: "Guitarras en el Lavacabezas",
+      rock1Desc: "Desde la mítica guitarra Yellow Trip hasta amplificadores vintage. En la Perrockia la música no es solo ambiental: es el corazón de cada corte.",
+      rock2Badge: "Pura Actitud",
+      rock2Title: "Estilismo & Tijera de Autor",
+      rock2Desc: "Mullets rebeldes, cortes Shag, Pompadours clásicos, texturizados modernos y degradados a navaja ejecutados con técnica milimétrica y personalidad.",
+      rock3Title: "Birra, Vinilos & Farró",
+      rock3Desc: "Tómate una cerveza fría o un buen café mientras suena vinilo en directo. Más que una peluquería, un punto de encuentro cultural en pleno corazón del Farró (Sarrià-Sant Gervasi).",
+      rockBannerBadge: "Atención Directa & Personalizada",
+      rockBannerTitle: "¿Listo para un corte con auténtico sonido Rock?",
+      rockBannerSubtitle: "Pide cita previa directamente por WhatsApp y ven a disfrutar de la Perrockia.",
+      btnReservarJordi: "Reservar Turno con Jordi",
+      
+      discoBadge: "DISCOGRAFÍA & DIRECTOS",
+      discoTitle: "Música Compuesta Entre Tijeras y Amplificadores",
+      discoSubtitle: "Jordi-Benet compagina su maestría con las tijeras con su trayectoria discográfica como cantante y guitarrista de rock.",
+      disco1Badge: "Discografía",
+      disco1Title: "Álbum «Rock & Hair»",
+      disco1Desc: "El álbum insignia que define el universo de la Perrockia. Canciones enérgicas con letras ingeniosas que narran la vida de barrio y el amor incombustible por el rock.",
+      btnEscucharIG: "Escuchar en Instagram",
+      disco2Badge: "En Directo",
+      disco2Title: "Directos & Acústicos",
+      disco2Desc: "Conciertos en salas legendarias de Barcelona como el Heliogàbal de Gràcia y colaboraciones especiales con artistas como El Sobrino del Diablo.",
+      btnDirectosIG: "Ver Directos en IG",
+      disco3Badge: "Reconocimiento",
+      disco3Title: "El Peluquero del Farró",
+      disco3Desc: "Destacado por La Vanguardia y Time Out como uno de los espacios más singulares y carismáticos de la ciudad, consagrado al rock & roll y al estilismo.",
+      btnLeerVanguardia: "Leer en La Vanguardia",
+      
+      brandBadge: "SOLO LO MEJOR PARA TU CABELLO",
+      brandTitle: "Trabajamos exclusivamente con las marcas líderes mundiales",
+      brandSubtitle: "Fórmulas respetuosas, nutrición biomimética y protección molecular para garantizar resultados duraderos sin comprometer la salud de tu cabello.",
+      
+      lookBadge: "LOOKBOOK & ESTILISMO",
+      lookTitle: "Lookbook & Transformaciones de Autor",
+      lookSubtitle: "Explora nuestros últimos trabajos de corte, texturizados, degradados y coloraciones con personalidad propia.",
+      lookFollow: "Síguenos en Instagram @perrocker.oficial",
+      
+      testBadge: "LO QUE OPINAN QUIENES NOS VISITAN",
+      testTitle: "Experiencias Reales en la Perrockia",
+      test1: '"El ambiente de la Perrockia es único en Barcelona. Jordi te entiende al momento el corte que buscas, buena música de fondo y una birra mientras te atienden. 10/10."',
+      test2: '"Llevo más de 10 años cortándome el pelo con Perrocker. No hay otro lugar con esta energía y profesionalidad en el Farró."',
+      test3: '"El mejor degradado y arreglo de barba de la ciudad. Trato de 10 y auténtico espíritu rock & roll en pleno Farró."',
+      
+      bookBadge: "CITA PREVIA EXCLUSIVA",
+      bookTitle: "Reserva tu Cita en la Perrockia",
+      bookSubtitle: "Elige tu servicio y horario preferido. Te atenderemos personalmente por WhatsApp para confirmar tu turno con Jordi.",
+      bookFeat1: "Diagnóstico personalizado incluido",
+      bookFeat2: "Música en directo, vinilos y buen ambiente",
+      bookFeat3: "Cerveza fría de bienvenida en el salón",
+      lblNom: "Nombre y Apellidos",
+      lblTel: "Teléfono / WhatsApp",
+      lblServei: "Servicio Deseado",
+      lblHorari: "Preferencia Horaria",
+      lblNotes: "Observaciones o Notas (Opcional)",
+      optQualsevol: "Cualquier horario",
+      optMati: "Mañanas (10:00 - 14:00)",
+      optTarda: "Tardes (16:30 - 20:00)",
+      optDissabte: "Sábados por la mañana",
+      btnSolicitarCita: "Solicitar Cita por WhatsApp",
+      
+      locBadge: "ENCUÉNTRANOS EN EL FARRÓ (BARCELONA)",
+      locTitle: "Ven a Vivir la Experiencia Perrockia",
+      locSubtitle: "Un espacio singular, con buena música y máxima comodidad en el corazón del barrio del Farró.",
+      lblAdreca: "Dirección",
+      lblHoraris: "Horarios de Atención",
+      lblTelefons: "Teléfonos & WhatsApp",
+      lblEmail: "Correo Electrónico",
+      
+      footerDesc: "Salón de peluquería de autor, cortes con actitud y música en directo en Barcelona. Pasión por la técnica, el rock & roll y la salud capilar.",
+      footerNav: "Navegación",
+      footerServeis: "Servicios",
+      footerContacte: "Contacto",
+      footerRights: "© 2026 Perrocker • La Perrockia (Barcelona). Todos los derechos reservados.",
+      footerDisclaimer: "Propuesta de rediseño interactivo para Perrocker"
+    }
+  };
+
+  let currentLang = localStorage.getItem('perrocker_lang') || 'ca';
+
+  function setLanguage(lang) {
+    if (!i18nData[lang]) lang = 'ca';
+    currentLang = lang;
+    localStorage.setItem('perrocker_lang', lang);
+    document.documentElement.lang = lang;
+    
+    // Update Switcher Buttons Style
+    const btnCa = document.getElementById('btn-lang-ca');
+    const btnEs = document.getElementById('btn-lang-es');
+    const btnCaM = document.getElementById('btn-lang-ca-m');
+    const btnEsM = document.getElementById('btn-lang-es-m');
+    
+    const activeClass = "px-2.5 py-1 rounded-full bg-[#18181B] dark:bg-[#C5A880] text-white dark:text-[#18181B] transition-all";
+    const inactiveClass = "px-2.5 py-1 rounded-full text-[#18181B]/70 dark:text-white/70 hover:text-[#C5A880] transition-all";
+    const activeClassM = "px-2 py-0.5 rounded-full bg-[#18181B] dark:bg-[#C5A880] text-white dark:text-[#18181B] transition-all";
+    const inactiveClassM = "px-2 py-0.5 rounded-full text-[#18181B]/70 dark:text-white/70 hover:text-[#C5A880] transition-all";
+    
+    if (btnCa && btnEs) {
+      btnCa.className = (lang === 'ca') ? activeClass : inactiveClass;
+      btnEs.className = (lang === 'es') ? activeClass : inactiveClass;
+    }
+    if (btnCaM && btnEsM) {
+      btnCaM.className = (lang === 'ca') ? activeClassM : inactiveClassM;
+      btnEsM.className = (lang === 'es') ? activeClassM : inactiveClassM;
+    }
+
+    // Apply translations to all data-i18n elements
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (i18nData[lang][key]) {
+        el.textContent = i18nData[lang][key];
+      }
+    });
+
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      if (i18nData[lang][key]) {
+        el.innerHTML = i18nData[lang][key];
+      }
+    });
+
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      if (i18nData[lang][key]) {
+        el.setAttribute('placeholder', i18nData[lang][key]);
+      }
+    });
+  }
+
+  // Handle VIP Booking submit
+  function handleVIPBooking(e) {
+    e.preventDefault();
+    const name = document.getElementById('book-name').value;
+    const phone = document.getElementById('book-phone').value;
+    const service = document.getElementById('book-service').value;
+    const time = document.getElementById('book-time').value;
+    const notes = document.getElementById('book-notes').value;
+
+    let text = "";
+    if (currentLang === 'ca') {
+      text = `Hola Jordi! M'agradaria demanar cita a la Perrockia:
+
+👤 Nom: ${name}
+📞 Telèfon: ${phone}
+✂️ Servei: ${service}
+⏰ Horari preferit: ${time}`;
+      if (notes) text += `
+📝 Observacions: ${notes}`;
+    } else {
+      text = `¡Hola Jordi! Me gustaría solicitar cita en la Perrockia:
+
+👤 Nombre: ${name}
+📞 Teléfono: ${phone}
+✂️ Servicio: ${service}
+⏰ Horario preferido: ${time}`;
+      if (notes) text += `
+📝 Observaciones: ${notes}`;
+    }
+
+    const encoded = encodeURIComponent(text);
+    window.open(`https://api.whatsapp.com/send?phone=34617652745&text=${encoded}`, '_blank');
+  }
+
+  // Initialize Language on Page Load
+  document.addEventListener('DOMContentLoaded', () => {
+    setLanguage(currentLang);
+  });
 </script>
 
 </body>
