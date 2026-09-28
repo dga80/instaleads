@@ -157,19 +157,18 @@
       <a href="#servicios" class="hover:text-[#C5A880] transition-colors">Servicios</a>
       <a href="#estilistas" class="hover:text-[#C5A880] transition-colors">Estilistas</a>
     </nav>
-    <div class="w-10 md:hidden pointer-events-none" aria-hidden="true"></div>
 
-    <!-- Marca Central (Logotipo Estilo Etch Salon) -->
-    <a href="#inicio" class="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 flex flex-col items-center justify-center text-center group py-1 max-w-[calc(100%-130px)] sm:max-w-none">
-      <div class="flex items-center gap-1.5 text-[#C5A880] text-xs mb-0.5">
-        <span class="text-[9px]">✦</span>
-        <span class="tracking-[0.28em] uppercase text-[9px] sm:text-[10px] font-semibold">HAIR ATELIER & ESTHÉTIQUE</span>
-        <span class="text-[9px]">✦</span>
+    <!-- Marca Central / Izquierda en Móvil con auto-ajuste -->
+    <a href="#inicio" class="flex flex-col items-start md:items-center justify-center text-left md:text-center group py-1 min-w-0 flex-1 md:flex-initial">
+      <div class="flex items-center gap-1 text-[#C5A880] text-[9px] sm:text-[10px] mb-0.5">
+        <span>✦</span>
+        <span class="tracking-[0.2em] sm:tracking-[0.28em] uppercase font-semibold truncate">HAIR ATELIER & ESTHÉTIQUE</span>
+        <span class="hidden sm:inline">✦</span>
       </div>
-      <span class="font-playfair font-bold text-xl sm:text-2xl md:text-3xl text-[#18181B] dark:text-white tracking-wide group-hover:text-[#C5A880] transition-colors leading-none truncate max-w-full">
+      <span class="font-playfair font-bold text-lg sm:text-2xl md:text-3xl text-[#18181B] dark:text-white tracking-wide group-hover:text-[#C5A880] transition-colors leading-none truncate w-full">
         {{ negocio.nombre }}
       </span>
-      <span class="text-[9px] sm:text-[9.5px] tracking-[0.2em] uppercase text-[#52525B] dark:text-[#A1A1AA] font-medium mt-0.5 truncate max-w-full">
+      <span class="text-[8.5px] sm:text-[9.5px] tracking-[0.15em] sm:tracking-[0.2em] uppercase text-[#52525B] dark:text-[#A1A1AA] font-medium mt-0.5 truncate w-full">
         {{ negocio.ciudad or 'España' }} • Haute Coiffure
       </span>
     </a>
@@ -337,18 +336,18 @@
 
       </div>
 
-      <!-- Columna Visual Hero (Composición Editorial & Floating Cards) -->
-      <div class="lg:col-span-5 relative mt-4 lg:mt-0">
+      <!-- Columna Visual Hero (Composición Editorial & Floating Cards Mobile-Friendly) -->
+      <div class="lg:col-span-5 relative mt-6 lg:mt-0 px-2 sm:px-0">
         
         <!-- Tarjeta Flotante Superior: Especialidad -->
-        <div class="absolute -top-4 -left-4 sm:-left-6 z-20 bg-white/95 dark:bg-[#1F1F23]/95 backdrop-blur-md rounded-2xl p-3.5 sm:p-4 shadow-xl border border-[#C5A880]/30 max-w-[210px] sm:max-w-[240px] animate-pulse-slow">
-          <div class="flex items-center gap-2.5">
-            <div class="w-9 h-9 rounded-full bg-[#C5A880]/20 flex items-center justify-center text-[#8C6B3F] dark:text-[#C5A880] shrink-0">
-              <span class="material-symbols-outlined text-lg">auto_awesome</span>
+        <div class="absolute top-3 left-3 sm:-top-5 sm:-left-5 z-20 bg-white/95 dark:bg-[#1F1F23]/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-4 shadow-xl border border-[#C5A880]/40 max-w-[180px] sm:max-w-[240px]">
+          <div class="flex items-center gap-2 sm:gap-2.5">
+            <div class="w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-[#C5A880]/20 flex items-center justify-center text-[#8C6B3F] dark:text-[#C5A880] shrink-0">
+              <span class="material-symbols-outlined text-sm sm:text-lg">auto_awesome</span>
             </div>
             <div>
-              <p class="text-[9px] uppercase tracking-widest text-[#C5A880] font-bold">Especialidad</p>
-              <p class="text-xs font-bold text-[#18181B] dark:text-white leading-tight">Balayage & Color de Autor</p>
+              <p class="text-[8px] sm:text-[9px] uppercase tracking-widest text-[#C5A880] font-bold">Especialidad</p>
+              <p class="text-[10.5px] sm:text-xs font-bold text-[#18181B] dark:text-white leading-tight">Balayage & Color de Autor</p>
             </div>
           </div>
         </div>
@@ -358,25 +357,24 @@
           <img src="{{ web.hero_image_url or (ig.posts[0].image_url if ig.posts and ig.posts[0] else 'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=900&q=80') }}" 
                alt="Salón de Peluquería y Estilismo {{ negocio.nombre }}" 
                class="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"/>
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
           
-          <div class="absolute bottom-5 left-5 right-5 text-white">
-            <span class="text-[10px] tracking-[0.2em] uppercase font-bold text-[#C5A880]">Atmósfera & Confort</span>
-            <p class="font-playfair text-lg sm:text-xl font-semibold leading-snug mt-0.5">Espacio pensado para tu desconexión y máxima belleza</p>
+          <div class="absolute bottom-4 left-4 right-4 sm:bottom-5 sm:left-5 sm:right-5 text-white pb-12 sm:pb-2">
+            <span class="text-[9px] sm:text-[10px] tracking-[0.2em] uppercase font-bold text-[#C5A880]">Atmósfera & Confort</span>
+            <p class="font-playfair text-base sm:text-xl font-semibold leading-snug mt-0.5">Espacio pensado para tu desconexión y máxima belleza</p>
           </div>
         </div>
 
         <!-- Tarjeta Flotante Inferior: Marcas Líderes -->
-        <div class="absolute -bottom-5 -right-4 sm:-right-6 z-20 bg-white/95 dark:bg-[#1F1F23]/95 backdrop-blur-md rounded-2xl p-3.5 sm:p-4 shadow-xl border border-[#C5A880]/30 max-w-[220px]">
+        <div class="absolute bottom-3 right-3 sm:-bottom-5 sm:-right-5 z-20 bg-white/95 dark:bg-[#1F1F23]/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-4 shadow-xl border border-[#C5A880]/40 max-w-[170px] sm:max-w-[220px]">
           <div class="flex items-center gap-2">
             <span class="text-base">💎</span>
             <div>
-              <p class="text-[9.5px] uppercase tracking-widest text-[#8C6B3F] dark:text-[#C5A880] font-bold">Cosmética Capilar</p>
-              <p class="text-xs font-bold text-[#18181B] dark:text-white">Kérastase & Olaplex Oficial</p>
+              <p class="text-[8px] sm:text-[9.5px] uppercase tracking-widest text-[#8C6B3F] dark:text-[#C5A880] font-bold">Cosmética Capilar</p>
+              <p class="text-[10.5px] sm:text-xs font-bold text-[#18181B] dark:text-white leading-tight">Kérastase & Olaplex</p>
             </div>
           </div>
         </div>
-
       </div>
 
     </div>
