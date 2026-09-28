@@ -217,101 +217,89 @@ html_content = """<!DOCTYPE html>
   </header>
 
   <!-- HERO SECTION WITH CINEMATIC MOVING BACKGROUND -->
-  <section id="inici" class="relative min-h-[82vh] sm:min-h-[86vh] flex items-center pt-8 pb-16 sm:pb-24 lg:pt-12 overflow-hidden">
+  <section id="inici" class="relative min-h-[85vh] sm:min-h-[90vh] flex items-center pt-8 pb-16 sm:pb-24 lg:pt-12 overflow-hidden">
     
-    <!-- Moving Background Image with Ken Burns Effect -->
+    <!-- Moving Background Image with Ken Burns Effect (Clearly Visible) -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none -z-20">
       <img src="https://i0.wp.com/mojoperruqueria.com/wp-content/uploads/2022/02/0001-2-scaled.jpg?fit=2560%2C1200&ssl=1" 
            alt="Mojo Perruqueria Interior Panoràmica" 
-           class="w-full h-full object-cover object-center animate-kenburns origin-center opacity-30 brightness-75 contrast-125 scale-105" />
+           class="w-full h-full object-cover object-center animate-kenburns origin-center opacity-65 brightness-90 contrast-110" />
     </div>
 
-    <!-- Multi-Layer Dark Gradient Overlay for 100% Readability -->
-    <div class="absolute inset-0 bg-gradient-to-r from-mojo-black via-mojo-black/95 to-mojo-black/80 -z-10"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-mojo-black via-transparent to-mojo-black/85 -z-10"></div>
+    <!-- Multi-Layer Dark Gradient Overlay for Contrast -->
+    <div class="absolute inset-0 bg-gradient-to-r from-mojo-black/95 via-mojo-black/70 to-mojo-black/40 -z-10"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-mojo-black via-transparent to-mojo-black/70 -z-10"></div>
 
-    <!-- Atmospheric Background Blur Glows -->
-    <div class="absolute top-10 left-1/4 w-96 h-96 bg-mojo-powder/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
-    <div class="absolute bottom-10 right-10 w-80 h-80 bg-mojo-red/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+    <!-- Atmospheric Background Glows -->
+    <div class="absolute top-10 left-1/4 w-96 h-96 bg-mojo-powder/15 rounded-full blur-3xl pointer-events-none -z-10"></div>
+    <div class="absolute bottom-10 right-10 w-80 h-80 bg-mojo-red/15 rounded-full blur-3xl pointer-events-none -z-10"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
       
       <!-- Main Grid Hero -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         
-        <!-- Left Column: Copy & CTAs -->
-        <div class="lg:col-span-7 space-y-6">
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.08] text-white">
-            <span class="font-typewriter text-mojo-powder block text-3xl sm:text-4xl font-normal mb-1">Mojo Perruquería</span>
+        <!-- Left Column: Copy & CTAs in Glassmorphic Container -->
+        <div class="lg:col-span-8 bg-mojo-black/70 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-white/15 shadow-2xl space-y-6">
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.08] text-white">
+            <span class="font-typewriter text-mojo-powder block text-2xl sm:text-4xl font-normal mb-1">Mojo Perruquería</span>
             <span data-i18n="hero_title">On el teu MOJO troba la seva màxima expressió.</span>
           </h1>
 
-          <p class="text-base sm:text-lg text-neutral-300 leading-relaxed font-sans max-w-2xl" data-i18n="hero_description">
+          <p class="text-sm sm:text-base text-neutral-200 leading-relaxed font-sans max-w-2xl" data-i18n="hero_description">
             Inspirats en el blues americà i l'estètica cinematogràfica. Entenem cada servei com una experiència personalitzada, conduïda amb molt d'amor i sense presses, amb professionalitat i complicitat al cor del Poblenou.
           </p>
 
           <!-- Interactive Action Buttons -->
           <div class="flex flex-wrap items-center gap-3 pt-2">
-            <a href="https://wa.me/34932440276?text=Hola%20Alex,%20voldria%20reservar%20cita%20a%20Mojo%20Perruqueria" target="_blank" class="px-6 py-3.5 rounded-xl bg-mojo-powder hover:bg-mojo-powderDark text-mojo-black font-spacemono font-bold text-sm flex items-center gap-2.5 transition active:scale-95 shadow-lg shadow-mojo-powder/10" id="hero-main-cta">
+            <a href="https://wa.me/34932440276?text=Hola%20Alex,%20voldria%20reservar%20cita%20a%20Mojo%20Perruqueria" target="_blank" class="px-6 py-3.5 rounded-xl bg-mojo-powder hover:bg-mojo-powderDark text-mojo-black font-spacemono font-bold text-xs sm:text-sm flex items-center gap-2.5 transition active:scale-95 shadow-lg shadow-mojo-powder/20" id="hero-main-cta">
               <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
               <span data-i18n="hero_cta_wa">Reservar per WhatsApp</span>
             </a>
 
-            <a href="https://open.spotify.com/playlist/6GeH7YaGcQzDxPwiD7Q4DC" target="_blank" class="px-5 py-3.5 rounded-xl bg-mojo-darkCard hover:bg-white/10 text-white border border-mojo-darkBorder font-spacemono font-medium text-xs flex items-center gap-2 transition">
+            <a href="https://open.spotify.com/playlist/6GeH7YaGcQzDxPwiD7Q4DC" target="_blank" class="px-5 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/20 font-spacemono font-medium text-xs flex items-center gap-2 transition">
               <svg class="w-4 h-4 text-green-400 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
               <span>Mojo Spotify Playlist</span>
             </a>
           </div>
 
           <!-- Quick Metrics Grid -->
-          <div class="grid grid-cols-3 gap-3 sm:gap-4 pt-4 border-t border-mojo-darkBorder/60">
-            <div class="bg-mojo-darkCard/70 p-3 rounded-xl border border-mojo-darkBorder">
+          <div class="grid grid-cols-3 gap-3 sm:gap-4 pt-4 border-t border-white/10">
+            <div class="bg-black/40 p-3 rounded-xl border border-white/5">
               <div class="text-xl sm:text-2xl font-bold font-typewriter text-mojo-powder">25+</div>
-              <div class="text-[11px] text-neutral-400 font-spacemono" data-i18n="stat_years">Anys d'Ofici</div>
+              <div class="text-[11px] text-neutral-300 font-spacemono" data-i18n="stat_years">Anys d'Ofici</div>
             </div>
-            <div class="bg-mojo-darkCard/70 p-3 rounded-xl border border-mojo-darkBorder">
+            <div class="bg-black/40 p-3 rounded-xl border border-white/5">
               <div class="text-xl sm:text-2xl font-bold font-typewriter text-mojo-powder">100%</div>
-              <div class="text-[11px] text-neutral-400 font-spacemono" data-i18n="stat_unisex">Unisex & Autor</div>
+              <div class="text-[11px] text-neutral-300 font-spacemono" data-i18n="stat_unisex">Unisex & Autor</div>
             </div>
-            <div class="bg-mojo-darkCard/70 p-3 rounded-xl border border-mojo-darkBorder">
+            <div class="bg-black/40 p-3 rounded-xl border border-white/5">
               <div class="text-xl sm:text-2xl font-bold font-typewriter text-mojo-powder">Poblenou</div>
-              <div class="text-[11px] text-neutral-400 font-spacemono" data-i18n="stat_location">C/ Llull 84, BCN</div>
+              <div class="text-[11px] text-neutral-300 font-spacemono" data-i18n="stat_location">C/ Llull 84, BCN</div>
             </div>
           </div>
 
         </div>
 
-        <!-- Right Column: Visual Stage with Authentic Photos & Vinyl Record -->
-        <div class="lg:col-span-5 relative">
+        <!-- Right Column: Spinning Vinyl Record Spotlight -->
+        <div class="lg:col-span-4 flex flex-col items-center justify-center relative space-y-4">
           
-          <!-- Vinyl Disc Spinning Behind Photo (Visual Concept) -->
-          <div class="absolute -top-6 -right-6 w-36 h-36 sm:w-48 sm:h-48 rounded-full vinyl-grooves border-4 border-neutral-800 shadow-2xl flex items-center justify-center animate-spin-slow pointer-events-none hidden sm:flex z-0 opacity-80">
-            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-mojo-red flex items-center justify-center text-white text-[9px] font-spacemono font-bold tracking-tighter text-center">
-              MOJO<br>SOUND
+          <!-- Vinyl Disc with Ambient Glow -->
+          <div class="relative w-48 h-48 sm:w-60 sm:h-60 rounded-full vinyl-grooves border-4 border-neutral-700/80 shadow-[0_0_60px_rgba(0,0,0,0.9)] flex items-center justify-center animate-spin-slow">
+            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-mojo-red flex flex-col items-center justify-center text-white text-[9px] sm:text-[10px] font-spacemono font-bold tracking-tight text-center shadow-inner">
+              <span>MOJO</span>
+              <span class="text-[8px] opacity-80">SOUND</span>
             </div>
           </div>
 
-          <!-- Main Hero Image Card -->
-          <div class="relative z-10 rounded-2xl overflow-hidden border border-mojo-darkBorder bg-mojo-darkCard shadow-2xl group">
-            <img src="https://i0.wp.com/mojoperruqueria.com/wp-content/uploads/2022/02/MOJO_WEB_7-1.jpg?fit=1920%2C900&ssl=1" alt="Mojo Perruqueria Interior i Estilisme" class="w-full h-80 sm:h-96 object-cover group-hover:scale-105 transition-transform duration-500" />
-            
-            <div class="absolute inset-0 bg-gradient-to-t from-mojo-black via-mojo-black/20 to-transparent"></div>
-
-            <!-- Floating Authentic Badge Top -->
-            <div class="absolute top-3.5 left-3.5 bg-mojo-black/85 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 flex items-center gap-2 text-xs font-spacemono">
-              <span class="w-2 h-2 rounded-full bg-mojo-powder"></span>
-              <span>L'Espai de Poblenou</span>
-            </div>
-
-            <!-- Bottom Floating Quote inside Photo -->
-            <div class="absolute bottom-3.5 left-3.5 right-3.5 bg-mojo-darkCard/90 backdrop-blur-md p-3 rounded-xl border border-white/10">
-              <p class="font-typewriter text-xs text-mojo-powder italic">
-                "Aquella essència tan preuada que només posseeixen les persones més carismàtiques."
-              </p>
-              <div class="mt-1 flex items-center justify-between text-[10px] text-neutral-400 font-spacemono">
-                <span>— Àlex Sans (Front Man)</span>
-                <span class="text-mojo-red font-bold">#MojoStyle</span>
-              </div>
+          <!-- Ambient Floating Card -->
+          <div class="bg-mojo-black/80 backdrop-blur-md p-4 rounded-2xl border border-white/10 text-center shadow-2xl max-w-xs">
+            <p class="font-typewriter text-xs text-mojo-powder italic">
+              "Aquella essència tan preuada que només posseeixen les persones més carismàtiques."
+            </p>
+            <div class="mt-2 flex items-center justify-between text-[10px] text-neutral-400 font-spacemono border-t border-white/5 pt-2">
+              <span>— Àlex Sans</span>
+              <span class="text-mojo-red font-bold">#Poblenou</span>
             </div>
           </div>
 
