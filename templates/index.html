@@ -834,6 +834,30 @@
             </div>
           </div>
         </div>
+
+        <!-- Archetype 8: Salon Etch (8ª Plantilla: Peluquerías de Autor & Centros de Estética) -->
+        <div onclick="seleccionarPlantilla('salon_etch')" id="tpl-card-salon_etch" class="tpl-card p-3 rounded-lg hairline-all hover:bg-black/5 dark:hover:bg-white/5 transition cursor-pointer border-2 border-transparent">
+          <div class="flex items-start justify-between">
+            <div>
+              <div class="flex items-center space-x-2">
+                <span class="text-base">✂️</span>
+                <span class="font-semibold text-xs text-mac-textPrimary">8. Salon Etch (Peluquerías & Centros de Estética)</span>
+                <span id="rec-salon_etch" class="rec-badge hidden px-1.5 py-0.2 rounded text-[9.5px] bg-mac-accent text-white font-mono uppercase font-semibold">RECOMENDADA</span>
+              </div>
+              <p class="text-[11px] text-mac-textSecondary mt-1">Inspirada en Etch Salon (Kierland Commons, Arizona): minimalismo luxury, editorial haute-coiffure, showcase de estilistas, marcas premium y reserva VIP.</p>
+              <div class="text-[10px] text-mac-textTertiary mt-1 font-medium">Ideal para: Peluquerías de autor, Salones de Belleza, Estilistas & Coloristas, Balayage, Tratamientos Capilares y Centros de Estética.</div>
+              <div class="flex items-center space-x-3 mt-2 text-[10px] font-mono text-mac-textTertiary">
+                <span>Playfair Display / Montserrat</span>
+                <div class="flex items-center space-x-1">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#18181B]"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#C5A880]"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#FBF9F6] border border-black/10"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#52525B]"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Sheet Footer -->
@@ -2133,6 +2157,9 @@
     
     function deducirArquetipoRecomendado(categoria, nombre) {
       const text = `${categoria || ''} ${nombre || ''}`.toLowerCase();
+      if (/peluquer|hair\b|salon\b|estilist|balayage|mechas|peinado|colorist|alisad|botox capilar/.test(text)) {
+        return 'salon_etch';
+      }
       if (/tattoo|tatuaj|piercing|ink|body art/.test(text)) {
         return 'tattoo_2_0';
       }

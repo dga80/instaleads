@@ -22,6 +22,9 @@ ALL_TEMPLATES = [
     "stitch_clinical_trust.html",
     "stitch_warm_artisan.html",
     "stitch_craft_build.html",
+    "stitch_bakery_artisan.html",
+    "stitch_tattoo_2.html",
+    "stitch_salon_etch.html"
 ]
 
 def run_qa():

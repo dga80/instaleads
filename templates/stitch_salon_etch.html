@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>{{ negocio.nombre }} | Salón de Peluquería de Autor & Estética en {{ negocio.ciudad }}</title>
+  <meta name="description" content="{{ web.subtitulo or (negocio.nombre ~ ' en ' ~ negocio.ciudad ~ '. Salón de alta peluquería, corte de autor, balayage, colorimetría avanzada, tratamientos capilares y estética exclusiva.') }}"/>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="{{ ig.avatar_url or ig.avatar or 'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=96&q=80' }}"/>
+  
+  <!-- Tipografías Premium Google Fonts (Editorial Haute Coiffure: Playfair Display + Montserrat + Plus Jakarta Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  
+  <!-- Iconos Google Material Symbols -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            etch: {
+              noir: '#111111',
+              dark: '#18181B',
+              cardDark: '#1F1F23',
+              gold: '#C5A880',
+              goldHover: '#B5966B',
+              goldDark: '#8C6B3F',
+              goldLight: '#F5EFE6',
+              goldMuted: 'rgba(197, 168, 128, 0.15)',
+              cream: '#FBF9F6',
+              ivory: '#FFFFFF',
+              borderDark: 'rgba(255, 255, 255, 0.12)',
+              borderLight: 'rgba(24, 24, 27, 0.08)',
+              borderGold: 'rgba(197, 168, 128, 0.35)'
+            }
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'serif'],
+            sans: ['"Montserrat"', '"Plus Jakarta Sans"', 'sans-serif'],
+            body: ['"Montserrat"', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+  
+  <style>
+    :root {
+      --sat: env(safe-area-inset-top, 0px);
+      --sab: env(safe-area-inset-bottom, 0px);
+      --etch-gold: #C5A880;
+      --etch-noir: #18181B;
+      --etch-cream: #FBF9F6;
+    }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(4.5rem + var(--sat, 0px));
+    }
+    body {
+      background-color: #FBF9F6;
+      color: #18181B;
+      font-family: 'Montserrat', sans-serif;
+      overscroll-behavior-y: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .dark body {
+      background-color: #0F0F11;
+      color: #FCFAF7;
+    }
+    
+    .font-playfair {
+      font-family: 'Playfair Display', serif;
+    }
+    
+    /* Scrollbar personalizada */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FBF9F6;
+    }
+    .dark ::-webkit-scrollbar-track {
+      background: #0F0F11;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #C5A880;
+      border-radius: 9999px;
+    }
+    
+    /* Animación Ticker infinito suave */
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      display: flex;
+      width: 200%;
+      animation: marqueeScroll 26s linear infinite;
+    }
+    .animate-marquee:hover {
+      animation-play-state: paused;
+    }
+    
+    /* Líneas decorativas sutiles */
+    .gold-separator {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(197, 168, 128, 0.5), transparent);
+    }
+  </style>
+  
+  <script>
+    (function() {
+      try {
+        var isIframe = window.self !== window.top;
+        var isSim = isIframe || /[?&]sim(=|&|$)/.test(window.location.search) || window.location.hash.indexOf('sim') !== -1;
+        if (isSim) {
+          document.documentElement.style.setProperty('--sat', '54px');
+          document.documentElement.style.setProperty('--sab', '20px');
+        }
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body class="antialiased min-h-screen flex flex-col bg-[#FBF9F6] dark:bg-[#0F0F11] text-[#18181B] dark:text-[#FCFAF7]">
+
+<!-- ==================== TOP ANNOUNCEMENT BAR (INSPIRACIÓN ETCH SALON) ==================== -->
+<aside aria-label="Aviso de citas" class="w-full bg-[#111111] text-[#C5A880] text-[11px] font-medium tracking-[0.18em] uppercase py-2 px-4 border-b border-[#C5A880]/20 relative z-50 overflow-hidden" style="padding-top: max(0.5rem, var(--sat, 0px));">
+  <div class="animate-marquee whitespace-nowrap flex items-center">
+    <span class="mx-6 flex items-center gap-2">✦ ATELIER CAPILAR DE ALTA GAMA ✦</span>
+    <span class="mx-6 flex items-center gap-2">✂️ CITA PREVIA ONLINE & WHATSAPP</span>
+    <span class="mx-6 flex items-center gap-2">✦ BALAYAGE, CORTE DE AUTOR & VISAGISMO ✦</span>
+    <span class="mx-6 flex items-center gap-2">💎 PRODUCTOS PREMIUM: KÉRASTASE & OLAPLEX</span>
+    <span class="mx-6 flex items-center gap-2">✦ {{ negocio.nombre | upper }} • {{ (negocio.ciudad or 'ESPAÑA') | upper }} ✦</span>
+    <span class="mx-6 flex items-center gap-2">✦ ATELIER CAPILAR DE ALTA GAMA ✦</span>
+    <span class="mx-6 flex items-center gap-2">✂️ CITA PREVIA ONLINE & WHATSAPP</span>
+    <span class="mx-6 flex items-center gap-2">✦ BALAYAGE, CORTE DE AUTOR & VISAGISMO ✦</span>
+    <span class="mx-6 flex items-center gap-2">💎 PRODUCTOS PREMIUM: KÉRASTASE & OLAPLEX</span>
+    <span class="mx-6 flex items-center gap-2">✦ {{ negocio.nombre | upper }} • {{ (negocio.ciudad or 'ESPAÑA') | upper }} ✦</span>
+  </div>
+</aside>
+
+<!-- ==================== HEADER PRINCIPAL (EDITORIAL LUXURY SALON) ==================== -->
+<header class="sticky top-0 z-40 w-full bg-[#FBF9F6]/95 dark:bg-[#0F0F11]/95 backdrop-blur-md border-b border-[#18181B]/10 dark:border-white/10 transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 relative flex items-center justify-between gap-4">
+    
+    <!-- Navegación Izquierda Desktop -->
+    <nav class="hidden md:flex items-center gap-7 text-[12.5px] font-medium tracking-[0.12em] uppercase text-[#18181B]/80 dark:text-white/80">
+      <a href="#inicio" class="hover:text-[#C5A880] transition-colors">Inicio</a>
+      <a href="#filosofia" class="hover:text-[#C5A880] transition-colors">El Salón</a>
+      <a href="#servicios" class="hover:text-[#C5A880] transition-colors">Servicios</a>
+      <a href="#estilistas" class="hover:text-[#C5A880] transition-colors">Estilistas</a>
+    </nav>
+    <div class="w-10 md:hidden pointer-events-none" aria-hidden="true"></div>
+
+    <!-- Marca Central (Logotipo Estilo Etch Salon) -->
+    <a href="#inicio" class="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 flex flex-col items-center justify-center text-center group py-1 max-w-[calc(100%-130px)] sm:max-w-none">
+      <div class="flex items-center gap-1.5 text-[#C5A880] text-xs mb-0.5">
+        <span class="text-[9px]">✦</span>
+        <span class="tracking-[0.28em] uppercase text-[9px] sm:text-[10px] font-semibold">HAIR ATELIER & ESTHÉTIQUE</span>
+        <span class="text-[9px]">✦</span>
+      </div>
+      <span class="font-playfair font-bold text-xl sm:text-2xl md:text-3xl text-[#18181B] dark:text-white tracking-wide group-hover:text-[#C5A880] transition-colors leading-none truncate max-w-full">
+        {{ negocio.nombre }}
+      </span>
+      <span class="text-[9px] sm:text-[9.5px] tracking-[0.2em] uppercase text-[#52525B] dark:text-[#A1A1AA] font-medium mt-0.5 truncate max-w-full">
+        {{ negocio.ciudad or 'España' }} • Haute Coiffure
+      </span>
+    </a>
+
+    <!-- Navegación Derecha, Switch Modo Oscuro & Botón Cita -->
+    <div class="flex items-center gap-3 sm:gap-4 z-10">
+      <nav class="hidden lg:flex items-center gap-7 text-[12.5px] font-medium tracking-[0.12em] uppercase text-[#18181B]/80 dark:text-white/80">
+        <a href="#productos" class="hover:text-[#C5A880] transition-colors">Marcas</a>
+        <a href="#galeria" class="hover:text-[#C5A880] transition-colors">Lookbook</a>
+        <a href="#visitanos" class="hover:text-[#C5A880] transition-colors">Contacto</a>
+      </nav>
+
+      <!-- Toggle Modo Claro / Oscuro -->
+      <button onclick="toggleDarkMode()" title="Cambiar tema" class="w-9 h-9 rounded-full flex items-center justify-center bg-black/5 dark:bg-white/10 hover:bg-[#C5A880]/20 text-[#18181B] dark:text-white transition-colors">
+        <span class="material-symbols-outlined text-[18px] dark:hidden">dark_mode</span>
+        <span class="material-symbols-outlined text-[18px] hidden dark:inline">light_mode</span>
+      </button>
+
+      <!-- CTA Pedir Cita -->
+      <a href="{{ negocio.whatsapp_url or '#reservar' }}" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#18181B] dark:bg-[#C5A880] text-white dark:text-[#18181B] hover:bg-[#C5A880] dark:hover:bg-white text-xs font-semibold tracking-[0.08em] uppercase shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02]">
+        <span class="material-symbols-outlined text-[16px]">calendar_today</span>
+        <span>Reservar Cita</span>
+      </a>
+
+      <!-- Botón Menú Móvil -->
+      <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-[#18181B] dark:text-white hover:text-[#C5A880] transition-colors focus:outline-none" aria-label="Abrir menú">
+        <span class="material-symbols-outlined text-2xl">menu</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ==================== MENÚ MÓVIL SLIDE-OVER ==================== -->
+<div id="mobile-menu" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex-col justify-end transition-opacity duration-300" onclick="if(event.target===this) toggleMobileMenu()">
+  <div class="bg-[#FBF9F6] dark:bg-[#18181B] rounded-t-3xl p-6 shadow-2xl border-t border-[#C5A880]/30 w-full max-h-[85vh] overflow-y-auto">
+    <div class="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-4 mb-5">
+      <div>
+        <h3 class="font-playfair font-bold text-lg text-[#18181B] dark:text-white">{{ negocio.nombre }}</h3>
+        <p class="text-[10px] uppercase tracking-widest text-[#C5A880]">Alta Peluquería & Estética</p>
+      </div>
+      <button onclick="toggleMobileMenu()" class="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 text-gray-500 dark:text-gray-400">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+
+    <nav class="flex flex-col gap-3.5 text-sm font-medium tracking-wide">
+      <a href="#inicio" onclick="toggleMobileMenu()" class="flex items-center justify-between p-2.5 rounded-lg hover:bg-[#C5A880]/10 text-[#18181B] dark:text-white">
+        <span>Inicio</span>
+        <span class="material-symbols-outlined text-xs text-[#C5A880]">arrow_forward</span>
+      </a>
+      <a href="#filosofia" onclick="toggleMobileMenu()" class="flex items-center justify-between p-2.5 rounded-lg hover:bg-[#C5A880]/10 text-[#18181B] dark:text-white">
+        <span>El Salón & Filosofía</span>
+        <span class="material-symbols-outlined text-xs text-[#C5A880]">arrow_forward</span>
+      </a>
+      <a href="#servicios" onclick="toggleMobileMenu()" class="flex items-center justify-between p-2.5 rounded-lg hover:bg-[#C5A880]/10 text-[#18181B] dark:text-white">
+        <span>Carta de Servicios</span>
+        <span class="material-symbols-outlined text-xs text-[#C5A880]">arrow_forward</span>
+      </a>
+      <a href="#estilistas" onclick="toggleMobileMenu()" class="flex items-center justify-between p-2.5 rounded-lg hover:bg-[#C5A880]/10 text-[#18181B] dark:text-white">
+        <span>Nuestro Equipo de Estilistas</span>
+        <span class="material-symbols-outlined text-xs text-[#C5A880]">arrow_forward</span>
+      </a>
+      <a href="#productos" onclick="toggleMobileMenu()" class="flex items-center justify-between p-2.5 rounded-lg hover:bg-[#C5A880]/10 text-[#18181B] dark:text-white">
+        <span>Marcas & Tratamientos</span>
+        <span class="material-symbols-outlined text-xs text-[#C5A880]">arrow_forward</span>
+      </a>
+      <a href="#galeria" onclick="toggleMobileMenu()" class="flex items-center justify-between p-2.5 rounded-lg hover:bg-[#C5A880]/10 text-[#18181B] dark:text-white">
+        <span>Lookbook / Galería Real</span>
+        <span class="material-symbols-outlined text-xs text-[#C5A880]">arrow_forward</span>
+      </a>
+      <a href="#visitanos" onclick="toggleMobileMenu()" class="flex items-center justify-between p-2.5 rounded-lg hover:bg-[#C5A880]/10 text-[#18181B] dark:text-white">
+        <span>Ubicación & Horarios</span>
+        <span class="material-symbols-outlined text-xs text-[#C5A880]">arrow_forward</span>
+      </a>
+    </nav>
+
+    <div class="mt-6 pt-5 border-t border-black/10 dark:border-white/10 flex flex-col gap-3">
+      <a href="{{ negocio.whatsapp_url or '#visitanos' }}" target="_blank" rel="noopener" class="w-full flex items-center justify-center gap-2 py-3 rounded-full bg-[#C5A880] hover:bg-[#B5966B] text-[#18181B] font-semibold text-xs tracking-wider uppercase shadow-md">
+        <span class="material-symbols-outlined text-base">calendar_today</span>
+        <span>Pedir Cita por WhatsApp</span>
+      </a>
+      {% if negocio.telefono %}
+      <a href="tel:{{ negocio.telefono }}" class="w-full flex items-center justify-center gap-2 py-2.5 rounded-full border border-[#18181B]/20 dark:border-white/20 text-[#18181B] dark:text-white text-xs font-semibold tracking-wider uppercase">
+        <span class="material-symbols-outlined text-base">call</span>
+        <span>Llamar: {{ negocio.telefono }}</span>
+      </a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<main class="flex-1">
+
+<!-- ==================== HERO SECTION (ESTILO ETCH SALON LUXURY) ==================== -->
+<section id="inicio" class="relative overflow-hidden pt-10 pb-16 lg:pt-16 lg:pb-24 border-b border-black/5 dark:border-white/5">
+  <!-- Fondo decorativo suave -->
+  <div class="absolute inset-0 bg-gradient-to-b from-[#FAF7F2] to-[#FBF9F6] dark:from-[#131316] dark:to-[#0F0F11] -z-10"></div>
+  <div class="absolute top-10 right-10 w-96 h-96 bg-[#C5A880]/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+  <div class="absolute bottom-10 left-10 w-80 h-80 bg-[#C5A880]/5 rounded-full blur-3xl pointer-events-none -z-10"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+      
+      <!-- Columna Texto & Propuesta de Valor -->
+      <div class="lg:col-span-7 flex flex-col items-start text-left">
+        
+        <!-- Indicador de Rediseño si cuenta con web previa -->
+        {% if web_info and web_info.url %}
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#18181B]/5 dark:bg-white/10 border border-[#C5A880]/40 text-[#8C6B3F] dark:text-[#C5A880] text-[10px] font-mono font-semibold tracking-wider uppercase mb-3">
+          <span class="w-2 h-2 rounded-full bg-[#C5A880] animate-pulse"></span>
+          <span>Propuesta de Rediseño Web Oficial</span>
+        </div>
+        {% endif %}
+
+        <!-- Píldora de Estatus & Especialidad -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#C5A880]/15 border border-[#C5A880]/30 text-[#8C6B3F] dark:text-[#C5A880] text-[11px] font-semibold tracking-[0.15em] uppercase mb-6 shadow-sm">
+          <span>✨</span>
+          <span>{{ web.hero_badge_pill or 'COMPROMISO CON LA EXCELENCIA CAPILAR' }}</span>
+        </div>
+
+        <!-- Titular Principal con Tipografía de Portada -->
+        <h1 class="font-playfair font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-[52px] text-[#18181B] dark:text-white tracking-tight leading-[1.15] mb-5">
+          {{ web.titular or (negocio.nombre ~ ' • Donde tu estilo encuentra su máxima expresión') }}
+        </h1>
+
+        <!-- Subtítulo Persuasivo -->
+        <p class="text-sm sm:text-base md:text-lg text-[#52525B] dark:text-[#D4D4D8] font-light leading-relaxed max-w-2xl mb-8">
+          {{ web.subtitulo or 'Un espacio de alta peluquería en ' ~ (negocio.ciudad or 'tu ciudad') ~ ' donde la técnica de vanguardia, el visagismo personalizado y las mejores marcas del mundo transforman tu cabello para que luzcas impecable y llena de confianza.' }}
+        </p>
+
+        <!-- Botones de Acción Primaria -->
+        <div class="w-full sm:w-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mb-10">
+          <a href="{{ negocio.whatsapp_url or '#reservar' }}" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-[#18181B] dark:bg-[#C5A880] hover:bg-[#C5A880] dark:hover:bg-white text-white dark:text-[#18181B] font-semibold text-xs sm:text-sm tracking-[0.1em] uppercase shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+            <span class="material-symbols-outlined text-lg">event_available</span>
+            <span>Reservar Cita Online</span>
+          </a>
+          <a href="#servicios" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/80 dark:bg-white/10 hover:bg-black/5 dark:hover:bg-white/15 border border-[#18181B]/15 dark:border-white/15 text-[#18181B] dark:text-white font-medium text-xs sm:text-sm tracking-[0.08em] uppercase transition-all">
+            <span>Ver Carta de Servicios</span>
+            <span class="material-symbols-outlined text-base">expand_more</span>
+          </a>
+        </div>
+
+        <!-- Tira de Confianza / Métricas de Prestigio -->
+        <div class="w-full grid grid-cols-3 gap-4 pt-6 border-t border-black/10 dark:border-white/10">
+          <div>
+            <div class="flex items-center gap-1 text-[#C5A880] font-playfair font-bold text-xl sm:text-2xl">
+              <span>★</span>
+              <span>4.9</span>
+            </div>
+            <p class="text-[10.5px] sm:text-xs text-[#52525B] dark:text-[#A1A1AA] uppercase tracking-wider font-medium mt-0.5">Google Reviews</p>
+          </div>
+          <div>
+            <div class="text-[#18181B] dark:text-white font-playfair font-bold text-xl sm:text-2xl">
+              +15 Años
+            </div>
+            <p class="text-[10.5px] sm:text-xs text-[#52525B] dark:text-[#A1A1AA] uppercase tracking-wider font-medium mt-0.5">De Trayectoria</p>
+          </div>
+          <div>
+            <div class="text-[#C5A880] font-playfair font-bold text-xl sm:text-2xl">
+              100%
+            </div>
+            <p class="text-[10.5px] sm:text-xs text-[#52525B] dark:text-[#A1A1AA] uppercase tracking-wider font-medium mt-0.5">Trato Exclusivo</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Columna Visual Hero (Composición Editorial & Floating Cards) -->
+      <div class="lg:col-span-5 relative mt-4 lg:mt-0">
+        
+        <!-- Tarjeta Flotante Superior: Especialidad -->
+        <div class="absolute -top-4 -left-4 sm:-left-6 z-20 bg-white/95 dark:bg-[#1F1F23]/95 backdrop-blur-md rounded-2xl p-3.5 sm:p-4 shadow-xl border border-[#C5A880]/30 max-w-[210px] sm:max-w-[240px] animate-pulse-slow">
+          <div class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-full bg-[#C5A880]/20 flex items-center justify-center text-[#8C6B3F] dark:text-[#C5A880] shrink-0">
+              <span class="material-symbols-outlined text-lg">auto_awesome</span>
+            </div>
+            <div>
+              <p class="text-[9px] uppercase tracking-widest text-[#C5A880] font-bold">Especialidad</p>
+              <p class="text-xs font-bold text-[#18181B] dark:text-white leading-tight">Balayage & Color de Autor</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Marco Fotográfico Principal -->
+        <div class="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-[#C5A880]/20 aspect-[4/5] bg-[#18181B]">
+          <img src="{{ web.hero_image_url or (ig.posts[0].image_url if ig.posts and ig.posts[0] else 'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=900&q=80') }}" 
+               alt="Salón de Peluquería y Estilismo {{ negocio.nombre }}" 
+               class="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+          
+          <div class="absolute bottom-5 left-5 right-5 text-white">
+            <span class="text-[10px] tracking-[0.2em] uppercase font-bold text-[#C5A880]">Atmósfera & Confort</span>
+            <p class="font-playfair text-lg sm:text-xl font-semibold leading-snug mt-0.5">Espacio pensado para tu desconexión y máxima belleza</p>
+          </div>
+        </div>
+
+        <!-- Tarjeta Flotante Inferior: Marcas Líderes -->
+        <div class="absolute -bottom-5 -right-4 sm:-right-6 z-20 bg-white/95 dark:bg-[#1F1F23]/95 backdrop-blur-md rounded-2xl p-3.5 sm:p-4 shadow-xl border border-[#C5A880]/30 max-w-[220px]">
+          <div class="flex items-center gap-2">
+            <span class="text-base">💎</span>
+            <div>
+              <p class="text-[9.5px] uppercase tracking-widest text-[#8C6B3F] dark:text-[#C5A880] font-bold">Cosmética Capilar</p>
+              <p class="text-xs font-bold text-[#18181B] dark:text-white">Kérastase & Olaplex Oficial</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FILOSOFÍA & EL SALÓN (INSPIRACIÓN ETCH SALON) ==================== -->
+<section id="filosofia" class="py-16 sm:py-20 lg:py-24 bg-white dark:bg-[#131316] border-b border-black/5 dark:border-white/5">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-1.5 text-[#8C6B3F] dark:text-[#C5A880] text-xs font-semibold tracking-[0.25em] uppercase mb-3">
+        <span>✦</span>
+        <span>NUESTRA FILOSOFÍA DE ATELIER</span>
+        <span>✦</span>
+      </div>
+      <h2 class="font-playfair font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#18181B] dark:text-white tracking-tight">
+        Un compromiso inquebrantable con la técnica, el detalle y la belleza de tu cabello
+      </h2>
+      <div class="w-16 h-0.5 bg-[#C5A880] mx-auto my-4"></div>
+      <p class="text-sm sm:text-base text-[#52525B] dark:text-[#A1A1AA] leading-relaxed">
+        {{ web.sobre_nosotros or ('En ' ~ negocio.nombre ~ ' creemos que un buen corte y color no es solo técnica, sino un arte de visagismo que potencia tu fisonomía, tu seguridad y tu estilo de vida en ' ~ (negocio.ciudad or 'nuestro salón') ~ '.') }}
+      </p>
+    </div>
+
+    <!-- 3 Pilares del Salón estilo Etch -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+      
+      <!-- Pilar 1 -->
+      <div class="p-8 rounded-2xl bg-[#FBF9F6] dark:bg-[#18181B] border border-black/5 dark:border-white/5 hover:border-[#C5A880]/40 transition-all duration-300 group hover:-translate-y-1">
+        <div class="w-14 h-14 rounded-2xl bg-[#C5A880]/15 flex items-center justify-center text-[#8C6B3F] dark:text-[#C5A880] mb-6 group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-3xl">content_cut</span>
+        </div>
+        <h3 class="font-playfair font-bold text-xl text-[#18181B] dark:text-white mb-3">
+          Estilismo & Visagismo de Autor
+        </h3>
+        <p class="text-xs sm:text-sm text-[#52525B] dark:text-[#A1A1AA] leading-relaxed">
+          Cada cita comienza con una consulta de diagnóstico personalizada. Estudiamos tus rasgos faciales, la textura de tu cabello y tus hábitos para diseñar un estilo irrepetible.
+        </p>
+      </div>
+
+      <!-- Pilar 2 -->
+      <div class="p-8 rounded-2xl bg-[#FBF9F6] dark:bg-[#18181B] border border-black/5 dark:border-white/5 hover:border-[#C5A880]/40 transition-all duration-300 group hover:-translate-y-1">
+        <div class="w-14 h-14 rounded-2xl bg-[#C5A880]/15 flex items-center justify-center text-[#8C6B3F] dark:text-[#C5A880] mb-6 group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-3xl">palette</span>
+        </div>
+        <h3 class="font-playfair font-bold text-xl text-[#18181B] dark:text-white mb-3">
+          Master Color & Balayage Suave
+        </h3>
+        <p class="text-xs sm:text-sm text-[#52525B] dark:text-[#A1A1AA] leading-relaxed">
+          Especialistas en degradados naturales, babylights ultra finas y matices gloss que aportan luz tridimensional sin dañar la cutícula gracias a protectores moleculares.
+        </p>
+      </div>
+
+      <!-- Pilar 3 -->
+      <div class="p-8 rounded-2xl bg-[#FBF9F6] dark:bg-[#18181B] border border-black/5 dark:border-white/5 hover:border-[#C5A880]/40 transition-all duration-300 group hover:-translate-y-1">
+        <div class="w-14 h-14 rounded-2xl bg-[#C5A880]/15 flex items-center justify-center text-[#8C6B3F] dark:text-[#C5A880] mb-6 group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-3xl">spa</span>
+        </div>
+        <h3 class="font-playfair font-bold text-xl text-[#18181B] dark:text-white mb-3">
+          Salud Capilar & Espacio Relajante
+        </h3>
+        <p class="text-xs sm:text-sm text-[#52525B] dark:text-[#A1A1AA] leading-relaxed">
+          Un entorno espacioso con luz natural, sillones ergonómicos de masaje en la zona de lavado y tratamientos intensivos de hidratación profunda y recuperación de brillo.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== CARTA DE SERVICIOS (MENÚ INTERACTIVO ESTILO ETCH) ==================== -->
+<section id="servicios" class="py-16 sm:py-20 lg:py-24 bg-[#FBF9F6] dark:bg-[#0F0F11] border-b border-black/5 dark:border-white/5">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+      <div>
+        <div class="inline-flex items-center gap-1.5 text-[#8C6B3F] dark:text-[#C5A880] text-xs font-semibold tracking-[0.2em] uppercase mb-2">
+          <span>✂️</span>
+          <span>MENÚ EXCLUSIVO DE EXPERIENCIAS</span>
+        </div>
+        <h2 class="font-playfair font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#18181B] dark:text-white tracking-tight">
+          Nuestros Servicios de Peluquería & Estética
+        </h2>
+        <p class="text-xs sm:text-sm text-[#52525B] dark:text-[#A1A1AA] mt-2 max-w-xl">
+          Selecciona tu tratamiento deseado y reserva tu cita directamente por WhatsApp con confirmación inmediata.
+        </p>
+      </div>
+
+      <!-- Filtro Rápido de Categorías en Desktop -->
+      <div class="flex flex-wrap items-center gap-2">
+        <button onclick="filtrarServicios('todos')" id="btn-filtro-todos" class="filtro-btn px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase bg-[#18181B] dark:bg-[#C5A880] text-white dark:text-[#18181B] transition-all">
+          Todos
+        </button>
+        <button onclick="filtrarServicios('corte')" id="btn-filtro-corte" class="filtro-btn px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase bg-black/5 dark:bg-white/10 hover:bg-[#C5A880]/20 text-[#18181B] dark:text-white transition-all">
+          Corte & Styling
+        </button>
+        <button onclick="filtrarServicios('color')" id="btn-filtro-color" class="filtro-btn px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase bg-black/5 dark:bg-white/10 hover:bg-[#C5A880]/20 text-[#18181B] dark:text-white transition-all">
+          Color & Balayage
+        </button>
+        <button onclick="filtrarServicios('tratamiento')" id="btn-filtro-tratamiento" class="filtro-btn px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase bg-black/5 dark:bg-white/10 hover:bg-[#C5A880]/20 text-[#18181B] dark:text-white transition-all">
+          Tratamientos
+        </button>
+      </div>
+    </div>
+
+    <!-- Grid de Servicios Dinámicos -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8" id="servicios-grid">
+      
+      {% if web.servicios and web.servicios|length > 0 %}
+        {% for s in web.servicios %}
+        <div class="servicio-card rounded-2xl bg-white dark:bg-[#18181B] border border-black/5 dark:border-white/10 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+             data-categoria="{{ 'color' if ('color' in s.nombre|lower or 'balayage' in s.nombre|lower or 'mechas' in s.nombre|lower) else ('tratamiento' if ('tratam' in s.nombre|lower or 'keratina' in s.nombre|lower or 'botox' in s.nombre|lower or 'spa' in s.nombre|lower) else 'corte') }}">
+          
+          <div>
+            <!-- Foto de cabecera del servicio -->
+            <div class="relative h-52 sm:h-56 w-full overflow-hidden bg-[#18181B]">
+              <img src="{{ s.imagen or (ig.posts[loop.index0 % ig.posts|length].image_url if ig.posts and ig.posts|length > 0 else 'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80') }}" 
+                   alt="{{ s.nombre }}" 
+                   class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              
+              <div class="absolute top-3 left-3 bg-[#18181B]/80 dark:bg-white/90 backdrop-blur-md text-white dark:text-[#18181B] px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase">
+                {{ 'HAIR & STYLING' if loop.index == 1 else ('COLOR & GLOSS' if loop.index == 2 else 'CARE & SPA') }}
+              </div>
+
+              {% if s.precio_o_duracion %}
+              <div class="absolute bottom-3 right-3 bg-[#C5A880] text-[#18181B] px-3 py-1 rounded-full text-[11px] font-bold tracking-wide shadow">
+                {{ s.precio_o_duracion }}
+              </div>
+              {% endif %}
+            </div>
+
+            <!-- Contenido textual del servicio -->
+            <div class="p-6">
+              <h3 class="font-playfair font-bold text-xl text-[#18181B] dark:text-white mb-2 group-hover:text-[#C5A880] transition-colors">
+                {{ s.nombre }}
+              </h3>
+              <p class="text-xs sm:text-sm text-[#52525B] dark:text-[#A1A1AA] leading-relaxed">
+                {{ s.descripcion }}
+              </p>
+            </div>
+          </div>
+
+          <!-- Botón de Reserva Directa por Servicio -->
+          <div class="p-6 pt-0">
+            <a href="https://api.whatsapp.com/send?phone={{ negocio.telefono | replace(' ', '') | replace('+', '') | replace('-', '') if negocio.telefono else '34600000000' }}&text={{ ('¡Hola! Quiero reservar cita para: ' ~ s.nombre ~ ' en ' ~ negocio.nombre) | urlencode }}" 
+               target="_blank" rel="noopener" 
+               class="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-black/5 dark:bg-white/10 hover:bg-[#C5A880] hover:text-[#18181B] dark:hover:bg-[#C5A880] dark:hover:text-[#18181B] text-[#18181B] dark:text-white text-xs font-semibold tracking-wider uppercase transition-all duration-300">
+              <span class="material-symbols-outlined text-[16px]">calendar_add_on</span>
+              <span>Pedir Cita para este Servicio</span>
+            </a>
+          </div>
+
+        </div>
+        {% endfor %}
+      {% else %}
+        <!-- Fallback de Servicios Clásicos de Salón de Belleza -->
+        <div class="servicio-card rounded-2xl bg-white dark:bg-[#18181B] border border-black/5 dark:border-white/10 overflow-hidden shadow-sm flex flex-col justify-between" data-categoria="corte">
+          <div>
+            <div class="h-52 w-full bg-[#18181B]">
+              <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80" alt="Corte y Visagismo" class="w-full h-full object-cover"/>
+            </div>
+            <div class="p-6">
+              <h3 class="font-playfair font-bold text-xl text-[#18181B] dark:text-white mb-2">Corte de Autor & Visagismo</h3>
+              <p class="text-xs sm:text-sm text-[#52525B] dark:text-[#A1A1AA]">Estudio morfológico, lavado sensorial con masaje relajante y peinado de acabado styling.</p>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <a href="{{ negocio.whatsapp_url or '#visitanos' }}" class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-black/5 dark:bg-white/10 text-xs font-semibold uppercase">Pedir Cita</a>
+          </div>
+        </div>
+      {% endif %}
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== EL EQUIPO DE ESTILISTAS (INSPIRACIÓN ETCH SALON: "GENUINELY GIFTED PEOPLE") ==================== -->
+<section id="estilistas" class="py-16 sm:py-20 lg:py-24 bg-white dark:bg-[#131316] border-b border-black/5 dark:border-white/5">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-1.5 text-[#8C6B3F] dark:text-[#C5A880] text-xs font-semibold tracking-[0.25em] uppercase mb-3">
+        <span>✂️</span>
+        <span>TALENTO & PASIÓN POR LA EXCELENCIA</span>
+        <span>✂️</span>
+      </div>
+      <h2 class="font-playfair font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#18181B] dark:text-white tracking-tight">
+        Nuestro Equipo de Estilistas & Coloristas
+      </h2>
+      <div class="w-16 h-0.5 bg-[#C5A880] mx-auto my-4"></div>
+      <p class="text-sm sm:text-base text-[#52525B] dark:text-[#A1A1AA] leading-relaxed">
+        Profesionales formados con líderes de la industria mundial, dedicados a escuchar tus deseos y convertirlos en un resultado impecable.
+      </p>
+    </div>
+
+    <!-- Grid de Estilistas -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+      
+      <!-- Estilista 1: Director Creativo -->
+      <div class="rounded-2xl bg-[#FBF9F6] dark:bg-[#18181B] border border-black/5 dark:border-white/5 overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group">
+        <div class="relative aspect-[3/4] overflow-hidden bg-zinc-800">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&q=80" alt="Master Stylist" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+          <div class="absolute bottom-3 left-3 right-3 text-white">
+            <span class="text-[9px] uppercase tracking-widest text-[#C5A880] font-bold">Creative Director</span>
+            <p class="font-playfair text-lg font-bold">Jack Torres</p>
+          </div>
+        </div>
+        <div class="p-4 flex flex-col justify-between">
+          <p class="text-[11px] text-[#52525B] dark:text-[#A1A1AA] mb-4">
+            Especialista en cortes de precisión geométrica y visagismo personalizado. Más de 15 años liderando tendencias.
+          </p>
+          <a href="https://api.whatsapp.com/send?phone={{ negocio.telefono | replace(' ', '') | replace('+', '') if negocio.telefono else '34600000000' }}&text={{ ('¡Hola! Me gustaría pedir cita con Jack Torres en ' ~ negocio.nombre) | urlencode }}" target="_blank" rel="noopener" class="w-full text-center py-2 rounded-lg bg-[#18181B] dark:bg-[#C5A880] text-white dark:text-[#18181B] text-[11px] font-semibold tracking-wider uppercase hover:opacity-90 transition">
+            Cita con Jack
+          </a>
+        </div>
+      </div>
+
+      <!-- Estilista 2: Master Colorist -->
+      <div class="rounded-2xl bg-[#FBF9F6] dark:bg-[#18181B] border border-black/5 dark:border-white/5 overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group">
+        <div class="relative aspect-[3/4] overflow-hidden bg-zinc-800">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&q=80" alt="Master Colorist" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+          <div class="absolute bottom-3 left-3 right-3 text-white">
+            <span class="text-[9px] uppercase tracking-widest text-[#C5A880] font-bold">Balayage Specialist</span>
+            <p class="font-playfair text-lg font-bold">Marisa Vidal</p>
+          </div>
+        </div>
+        <div class="p-4 flex flex-col justify-between">
+          <p class="text-[11px] text-[#52525B] dark:text-[#A1A1AA] mb-4">
+            Referente en rubios nórdicos, babylights ultra finas y transiciones suaves con protección bond building.
+          </p>
+          <a href="https://api.whatsapp.com/send?phone={{ negocio.telefono | replace(' ', '') | replace('+', '') if negocio.telefono else '34600000000' }}&text={{ ('¡Hola! Me gustaría pedir cita con Marisa para Balayage en ' ~ negocio.nombre) | urlencode }}" target="_blank" rel="noopener" class="w-full text-center py-2 rounded-lg bg-[#18181B] dark:bg-[#C5A880] text-white dark:text-[#18181B] text-[11px] font-semibold tracking-wider uppercase hover:opacity-90 transition">
+            Cita con Marisa
+          </a>
+        </div>
+      </div>
+
+      <!-- Estilista 3: Textura & Keratina -->
+      <div class="rounded-2xl bg-[#FBF9F6] dark:bg-[#18181B] border border-black/5 dark:border-white/5 overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group">
+        <div class="relative aspect-[3/4] overflow-hidden bg-zinc-800">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&q=80" alt="Texture Specialist" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+          <div class="absolute bottom-3 left-3 right-3 text-white">
+            <span class="text-[9px] uppercase tracking-widest text-[#C5A880] font-bold">Texture & Smoothing</span>
+            <p class="font-playfair text-lg font-bold">Donna Ruiz</p>
+          </div>
+        </div>
+        <div class="p-4 flex flex-col justify-between">
+          <p class="text-[11px] text-[#52525B] dark:text-[#A1A1AA] mb-4">
+            Experta en alisados orgánicos de taninoplastia, keratina brasileña y recuperación de rizos naturales.
+          </p>
+          <a href="https://api.whatsapp.com/send?phone={{ negocio.telefono | replace(' ', '') | replace('+', '') if negocio.telefono else '34600000000' }}&text={{ ('¡Hola! Me gustaría pedir cita con Donna para Tratamiento en ' ~ negocio.nombre) | urlencode }}" target="_blank" rel="noopener" class="w-full text-center py-2 rounded-lg bg-[#18181B] dark:bg-[#C5A880] text-white dark:text-[#18181B] text-[11px] font-semibold tracking-wider uppercase hover:opacity-90 transition">
+            Cita con Donna
+          </a>
+        </div>
+      </div>
+
+      <!-- Estilista 4: Hair Spa & Estética -->
+      <div class="rounded-2xl bg-[#FBF9F6] dark:bg-[#18181B] border border-black/5 dark:border-white/5 overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group">
+        <div class="relative aspect-[3/4] overflow-hidden bg-zinc-800">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80" alt="Hair Spa Specialist" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+          <div class="absolute bottom-3 left-3 right-3 text-white">
+            <span class="text-[9px] uppercase tracking-widest text-[#C5A880] font-bold">Hair Spa & Esthétique</span>
+            <p class="font-playfair text-lg font-bold">Marco Santos</p>
+          </div>
+        </div>
+        <div class="p-4 flex flex-col justify-between">
+          <p class="text-[11px] text-[#52525B] dark:text-[#A1A1AA] mb-4">
+            Maestro del bienestar capilar, tratamientos dérmicos de cuero cabelludo y recogidos de novia & eventos.
+          </p>
+          <a href="https://api.whatsapp.com/send?phone={{ negocio.telefono | replace(' ', '') | replace('+', '') if negocio.telefono else '34600000000' }}&text={{ ('¡Hola! Me gustaría pedir cita con Marco en ' ~ negocio.nombre) | urlencode }}" target="_blank" rel="noopener" class="w-full text-center py-2 rounded-lg bg-[#18181B] dark:bg-[#C5A880] text-white dark:text-[#18181B] text-[11px] font-semibold tracking-wider uppercase hover:opacity-90 transition">
+            Cita con Marco
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== MARCAS & PRODUCTOS PREMIUM (INSPIRACIÓN ETCH SALON) ==================== -->
+<section id="productos" class="py-14 sm:py-16 bg-[#18181B] text-white border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    
+    <div class="inline-flex items-center gap-1.5 text-[#C5A880] text-xs font-semibold tracking-[0.25em] uppercase mb-3">
+      <span>💎</span>
+      <span>SOLO LO MEJOR PARA TU CABELLO</span>
+      <span>💎</span>
+    </div>
+    
+    <h2 class="font-playfair font-bold text-2xl sm:text-3xl text-white tracking-tight mb-4">
+      Trabajamos exclusivamente con las marcas líderes mundiales
+    </h2>
+    <p class="text-xs sm:text-sm text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+      Fórmulas sin sulfatos, nutrición biomimética y protección del enlace molecular para garantizar resultados de peluquería duraderos sin comprometer la salud de tu fibra capilar.
+    </p>
+
+    <!-- Badges de Marcas Prestigiosas -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 items-center">
+      <div class="p-4 rounded-xl bg-white/5 border border-white/10 flex flex-col items-center justify-center hover:border-[#C5A880]/50 transition">
+        <span class="font-playfair font-bold text-base tracking-wider text-[#C5A880]">KÉRASTASE</span>
+        <span class="text-[9px] tracking-widest text-zinc-400 uppercase">PARIS</span>
+      </div>
+      <div class="p-4 rounded-xl bg-white/5 border border-white/10 flex flex-col items-center justify-center hover:border-[#C5A880]/50 transition">
+        <span class="font-playfair font-bold text-base tracking-wider text-white">OLAPLEX</span>
+        <span class="text-[9px] tracking-widest text-zinc-400 uppercase">BOND BUILDING</span>
+      </div>
+      <div class="p-4 rounded-xl bg-white/5 border border-white/10 flex flex-col items-center justify-center hover:border-[#C5A880]/50 transition">
+        <span class="font-playfair font-bold text-base tracking-wider text-[#C5A880]">davines</span>
+        <span class="text-[9px] tracking-widest text-zinc-400 uppercase">SUSTAINABLE CARE</span>
+      </div>
+      <div class="p-4 rounded-xl bg-white/5 border border-white/10 flex flex-col items-center justify-center hover:border-[#C5A880]/50 transition">
+        <span class="font-playfair font-bold text-base tracking-wider text-white">MOROCCANOIL</span>
+        <span class="text-[9px] tracking-widest text-zinc-400 uppercase">ARGAN INFUSION</span>
+      </div>
+      <div class="p-4 rounded-xl bg-white/5 border border-white/10 flex flex-col items-center justify-center hover:border-[#C5A880]/50 transition">
+        <span class="font-playfair font-bold text-base tracking-wider text-[#C5A880]">SHU UEMURA</span>
+        <span class="text-[9px] tracking-widest text-zinc-400 uppercase">ART OF HAIR</span>
+      </div>
+      <div class="p-4 rounded-xl bg-white/5 border border-white/10 flex flex-col items-center justify-center hover:border-[#C5A880]/50 transition">
+        <span class="font-playfair font-bold text-base tracking-wider text-white">REDKEN</span>
+        <span class="text-[9px] tracking-widest text-zinc-400 uppercase">5TH AVENUE NYC</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== LOOKBOOK & GALERÍA REAL DE INSTAGRAM ==================== -->
+<section id="galeria" class="py-16 sm:py-20 lg:py-24 bg-[#FBF9F6] dark:bg-[#0F0F11] border-b border-black/5 dark:border-white/5">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+      <div>
+        <div class="inline-flex items-center gap-1.5 text-[#8C6B3F] dark:text-[#C5A880] text-xs font-semibold tracking-[0.2em] uppercase mb-2">
+          <span>📷</span>
+          <span>RESULTADOS REALES EN EL SALÓN</span>
+        </div>
+        <h2 class="font-playfair font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#18181B] dark:text-white tracking-tight">
+          Lookbook & Transformaciones de Autor
+        </h2>
+      </div>
+
+      {% if ig.username %}
+      <a href="{{ negocio.instagram_url or ('https://www.instagram.com/' ~ ig.username) }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-[#8C6B3F] dark:text-[#C5A880] hover:underline">
+        <span>@{{ ig.username }} en Instagram</span>
+        <span class="material-symbols-outlined text-sm">open_in_new</span>
+      </a>
+      {% endif %}
+    </div>
+
+    <!-- Grid de Fotos con Efecto Zoom & Lightbox -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+      {% if ig.posts and ig.posts|length > 0 %}
+        {% for p in ig.posts[:8] %}
+        <div class="group relative rounded-2xl overflow-hidden aspect-square bg-[#18181B] shadow-sm cursor-pointer"
+             onclick="abrirModalImagen('{{ p.image_url }}', '{{ p.caption|replace("'", "\\'") if p.caption else "Trabajo exclusivo en salón" }}')">
+          <img src="{{ p.image_url }}" alt="Lookbook {{ negocio.nombre }}" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"/>
+          <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-center">
+            <span class="w-10 h-10 rounded-full bg-[#C5A880] text-[#18181B] flex items-center justify-center shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform">
+              <span class="material-symbols-outlined text-xl">zoom_in</span>
+            </span>
+          </div>
+        </div>
+        {% endfor %}
+      {% else %}
+        <div class="rounded-2xl overflow-hidden aspect-square bg-zinc-800">
+          <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=500&q=80" alt="Lookbook Salón" class="w-full h-full object-cover"/>
+        </div>
+      {% endif %}
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== OPINIONES & TESTIMONIOS (INSPIRACIÓN ETCH) ==================== -->
+<section class="py-16 sm:py-20 bg-white dark:bg-[#131316] border-b border-black/5 dark:border-white/5">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <div class="inline-flex items-center gap-1.5 text-[#C5A880] text-xs font-semibold tracking-[0.2em] uppercase mb-2">
+        <span>★ ★ ★ ★ ★</span>
+      </div>
+      <h2 class="font-playfair font-extrabold text-2xl sm:text-3xl text-[#18181B] dark:text-white tracking-tight">
+        Lo que dicen nuestras clientas
+      </h2>
+      <p class="text-xs sm:text-sm text-[#52525B] dark:text-[#A1A1AA] mt-1">
+        La confianza y la satisfacción de quienes nos visitan es nuestro mayor orgullo.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+      
+      <!-- Review 1 -->
+      <div class="p-6 sm:p-8 rounded-2xl bg-[#FBF9F6] dark:bg-[#18181B] border border-black/5 dark:border-white/5 flex flex-col justify-between">
+        <div>
+          <div class="flex text-[#C5A880] text-sm mb-4">★ ★ ★ ★ ★</div>
+          <p class="font-playfair italic text-sm sm:text-base text-[#18181B] dark:text-[#E4E4E7] leading-relaxed mb-6">
+            “Hacerme el balayage aquí ha sido la mejor decisión. El color quedó hiper natural, nada quemado y con un brillo alucinante. ¡El trato es un 10 absoluto!”
+          </p>
+        </div>
+        <div class="flex items-center gap-3 pt-4 border-t border-black/5 dark:border-white/5">
+          <div class="w-9 h-9 rounded-full bg-[#C5A880]/20 flex items-center justify-center font-bold text-xs text-[#8C6B3F] dark:text-[#C5A880]">
+            CL
+          </div>
+          <div>
+            <p class="text-xs font-bold text-[#18181B] dark:text-white">Clara Lucena</p>
+            <p class="text-[10px] text-[#52525B] dark:text-[#A1A1AA]">Clienta Habitual • Balayage & Brushing</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Review 2 -->
+      <div class="p-6 sm:p-8 rounded-2xl bg-[#FBF9F6] dark:bg-[#18181B] border border-black/5 dark:border-white/5 flex flex-col justify-between">
+        <div>
+          <div class="flex text-[#C5A880] text-sm mb-4">★ ★ ★ ★ ★</div>
+          <p class="font-playfair italic text-sm sm:text-base text-[#18181B] dark:text-[#E4E4E7] leading-relaxed mb-6">
+            “Buscaba un salón que supiera entender mi tipo de cabello rizado y fue una experiencia maravillosa. El visagismo y el corte de autor me cambiaron la cara por completo.”
+          </p>
+        </div>
+        <div class="flex items-center gap-3 pt-4 border-t border-black/5 dark:border-white/5">
+          <div class="w-9 h-9 rounded-full bg-[#C5A880]/20 flex items-center justify-center font-bold text-xs text-[#8C6B3F] dark:text-[#C5A880]">
+            VP
+          </div>
+          <div>
+            <p class="text-xs font-bold text-[#18181B] dark:text-white">Valeria Peralta</p>
+            <p class="text-[10px] text-[#52525B] dark:text-[#A1A1AA]">Clienta Verificada • Corte & Tratamiento Spa</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Review 3 -->
+      <div class="p-6 sm:p-8 rounded-2xl bg-[#FBF9F6] dark:bg-[#18181B] border border-black/5 dark:border-white/5 flex flex-col justify-between">
+        <div>
+          <div class="flex text-[#C5A880] text-sm mb-4">★ ★ ★ ★ ★</div>
+          <p class="font-playfair italic text-sm sm:text-base text-[#18181B] dark:text-[#E4E4E7] leading-relaxed mb-6">
+            “El tratamiento de keratina y bótox capilar me ha dejado el pelo como seda. Adiós encrespamiento. El salón es precioso, súper luminoso y espacioso.”
+          </p>
+        </div>
+        <div class="flex items-center gap-3 pt-4 border-t border-black/5 dark:border-white/5">
+          <div class="w-9 h-9 rounded-full bg-[#C5A880]/20 flex items-center justify-center font-bold text-xs text-[#8C6B3F] dark:text-[#C5A880]">
+            SM
+          </div>
+          <div>
+            <p class="text-xs font-bold text-[#18181B] dark:text-white">Sofía Mendoza</p>
+            <p class="text-[10px] text-[#52525B] dark:text-[#A1A1AA]">Clienta Verificada • Alisado Orgánico</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== RESERVA VIP & UBICACIÓN DEL SALÓN ==================== -->
+<section id="visitanos" class="py-16 sm:py-20 lg:py-24 bg-[#FBF9F6] dark:bg-[#0F0F11] relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
+      
+      <!-- Columna 1: Formulario / Selector de Reserva Interactiva -->
+      <div id="reservar" class="lg:col-span-7 bg-white dark:bg-[#18181B] rounded-3xl p-6 sm:p-10 shadow-xl border border-black/5 dark:border-white/10">
+        <div class="inline-flex items-center gap-1.5 text-[#8C6B3F] dark:text-[#C5A880] text-xs font-semibold tracking-[0.2em] uppercase mb-2">
+          <span>📅</span>
+          <span>AGENDA ONLINE PRIORITARIA</span>
+        </div>
+        <h2 class="font-playfair font-extrabold text-2xl sm:text-3xl text-[#18181B] dark:text-white tracking-tight mb-3">
+          Reserva tu Cita en {{ negocio.nombre }}
+        </h2>
+        <p class="text-xs sm:text-sm text-[#52525B] dark:text-[#A1A1AA] mb-8">
+          Selecciona tu servicio y preferencia para generar tu solicitud instantánea de cita por WhatsApp.
+        </p>
+
+        <form id="form-reserva-salon" onsubmit="enviarReservaSalon(event)" class="space-y-5">
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold uppercase tracking-wider text-[#18181B] dark:text-zinc-300 mb-1.5">Tu Nombre Completo</label>
+              <input type="text" id="res-nombre" required placeholder="Ej. Andrea Gómez" class="w-full px-4 py-3 rounded-xl bg-[#FBF9F6] dark:bg-black/30 border border-black/10 dark:border-white/10 text-xs sm:text-sm text-[#18181B] dark:text-white focus:outline-none focus:border-[#C5A880] transition"/>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold uppercase tracking-wider text-[#18181B] dark:text-zinc-300 mb-1.5">Teléfono / WhatsApp</label>
+              <input type="tel" id="res-tel" required placeholder="Ej. 612 345 678" class="w-full px-4 py-3 rounded-xl bg-[#FBF9F6] dark:bg-black/30 border border-black/10 dark:border-white/10 text-xs sm:text-sm text-[#18181B] dark:text-white focus:outline-none focus:border-[#C5A880] transition"/>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold uppercase tracking-wider text-[#18181B] dark:text-zinc-300 mb-1.5">Servicio Deseado</label>
+              <select id="res-servicio" class="w-full px-4 py-3 rounded-xl bg-[#FBF9F6] dark:bg-black/30 border border-black/10 dark:border-white/10 text-xs sm:text-sm text-[#18181B] dark:text-white focus:outline-none focus:border-[#C5A880] transition">
+                <option value="Corte de Autor & Visagismo">Corte de Autor & Visagismo</option>
+                <option value="Balayage Signature & Iluminación">Balayage Signature & Iluminación</option>
+                <option value="Coloración Completa & Glossing">Coloración Completa & Glossing</option>
+                <option value="Tratamiento de Keratina & Bótox">Tratamiento de Keratina & Bótox</option>
+                <option value="Olaplex Molecular Deep Treatment">Olaplex Molecular Deep Treatment</option>
+                <option value="Peinado & Styling Evento">Peinado & Styling Evento</option>
+                <option value="Otro Tratamiento / Consulta">Otro Tratamiento / Consulta</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold uppercase tracking-wider text-[#18181B] dark:text-zinc-300 mb-1.5">Estilista de Preferencia</label>
+              <select id="res-estilista" class="w-full px-4 py-3 rounded-xl bg-[#FBF9F6] dark:bg-black/30 border border-black/10 dark:border-white/10 text-xs sm:text-sm text-[#18181B] dark:text-white focus:outline-none focus:border-[#C5A880] transition">
+                <option value="Cualquier Estilista Disponible">Primer Estilista Disponible</option>
+                <option value="Jack Torres (Creative Director)">Jack Torres (Creative Director)</option>
+                <option value="Marisa Vidal (Balayage Master)">Marisa Vidal (Balayage Master)</option>
+                <option value="Donna Ruiz (Keratina & Textura)">Donna Ruiz (Keratina & Textura)</option>
+                <option value="Marco Santos (Hair Spa & Novias)">Marco Santos (Hair Spa & Novias)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold uppercase tracking-wider text-[#18181B] dark:text-zinc-300 mb-1.5">Día Preferido</label>
+              <input type="date" id="res-fecha" class="w-full px-4 py-3 rounded-xl bg-[#FBF9F6] dark:bg-black/30 border border-black/10 dark:border-white/10 text-xs sm:text-sm text-[#18181B] dark:text-white focus:outline-none focus:border-[#C5A880] transition"/>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold uppercase tracking-wider text-[#18181B] dark:text-zinc-300 mb-1.5">Franja Horaria</label>
+              <select id="res-hora" class="w-full px-4 py-3 rounded-xl bg-[#FBF9F6] dark:bg-black/30 border border-black/10 dark:border-white/10 text-xs sm:text-sm text-[#18181B] dark:text-white focus:outline-none focus:border-[#C5A880] transition">
+                <option value="Mañana (10:00 - 14:00)">Mañana (10:00 - 14:00)</option>
+                <option value="Mediodía (14:00 - 16:30)">Mediodía (14:00 - 16:30)</option>
+                <option value="Tarde (16:30 - 20:00)">Tarde (16:30 - 20:00)</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-[#18181B] dark:text-zinc-300 mb-1.5">Notas adicionales o consulta sobre tu cabello (Opcional)</label>
+            <textarea id="res-notas" rows="2" placeholder="Ej. Llevo tinte castaño previo y quiero aclarar con balayage rubio cálido..." class="w-full px-4 py-2.5 rounded-xl bg-[#FBF9F6] dark:bg-black/30 border border-black/10 dark:border-white/10 text-xs sm:text-sm text-[#18181B] dark:text-white focus:outline-none focus:border-[#C5A880] transition"></textarea>
+          </div>
+
+          <button type="submit" class="w-full py-4 rounded-full bg-[#18181B] dark:bg-[#C5A880] hover:bg-[#C5A880] dark:hover:bg-white text-white dark:text-[#18181B] font-semibold text-xs sm:text-sm tracking-[0.12em] uppercase shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2">
+            <span class="material-symbols-outlined text-lg">send</span>
+            <span>Solicitar Cita Inmediata por WhatsApp</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Columna 2: Datos de Contacto, Horarios y Ubicación -->
+      <div class="lg:col-span-5 flex flex-col justify-between space-y-6">
+        
+        <!-- Tarjeta de Horarios & Dirección -->
+        <div class="bg-white dark:bg-[#18181B] rounded-3xl p-6 sm:p-8 shadow-sm border border-black/5 dark:border-white/10">
+          <div class="flex items-center gap-2 text-[#C5A880] text-xs font-bold tracking-widest uppercase mb-4">
+            <span class="material-symbols-outlined text-base">storefront</span>
+            <span>VISITA NUESTRO SALÓN</span>
+          </div>
+          
+          <h3 class="font-playfair font-bold text-xl text-[#18181B] dark:text-white mb-2">
+            {{ negocio.nombre }}
+          </h3>
+          
+          <p class="text-xs sm:text-sm text-[#52525B] dark:text-[#A1A1AA] mb-6 flex items-start gap-2">
+            <span class="material-symbols-outlined text-sm text-[#C5A880] mt-0.5 shrink-0">location_on</span>
+            <span>{{ negocio.direccion or (negocio.ciudad ~ ', España') }}</span>
+          </p>
+
+          <div class="border-t border-black/10 dark:border-white/10 pt-4 space-y-2.5 text-xs text-[#52525B] dark:text-[#D4D4D8]">
+            <div class="flex justify-between items-center py-1">
+              <span class="font-semibold text-[#18181B] dark:text-white">Lunes a Viernes:</span>
+              <span>10:00 – 20:00</span>
+            </div>
+            <div class="flex justify-between items-center py-1 border-t border-black/5 dark:border-white/5">
+              <span class="font-semibold text-[#18181B] dark:text-white">Sábados:</span>
+              <span>09:30 – 18:00</span>
+            </div>
+            <div class="flex justify-between items-center py-1 border-t border-black/5 dark:border-white/5">
+              <span class="font-semibold text-[#18181B] dark:text-white">Domingos & Festivos:</span>
+              <span class="text-[#C5A880] font-medium">Cerrado (Descanso de Atelier)</span>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-5 border-t border-black/10 dark:border-white/10 flex flex-col gap-2.5">
+            {% if negocio.telefono %}
+            <a href="tel:{{ negocio.telefono }}" class="flex items-center gap-2 text-xs font-semibold text-[#18181B] dark:text-white hover:text-[#C5A880] transition">
+              <span class="material-symbols-outlined text-base text-[#C5A880]">call</span>
+              <span>Teléfono: {{ negocio.telefono }}</span>
+            </a>
+            {% endif %}
+            <a href="https://maps.google.com/?q={{ (negocio.nombre ~ ' ' ~ (negocio.direccion or '') ~ ' ' ~ (negocio.ciudad or '')) | urlencode }}" target="_blank" rel="noopener" class="flex items-center gap-2 text-xs font-semibold text-[#8C6B3F] dark:text-[#C5A880] hover:underline transition">
+              <span class="material-symbols-outlined text-base">directions</span>
+              <span>Ver cómo llegar en Google Maps</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tarjeta de Experiencia & Asesoramiento Gratuito -->
+        <div class="bg-[#18181B] text-white rounded-3xl p-6 sm:p-8 shadow-md border border-[#C5A880]/30 relative overflow-hidden">
+          <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-[#C5A880]/15 rounded-full blur-2xl pointer-events-none"></div>
+          <div class="flex items-center gap-2 text-[#C5A880] text-xs font-bold tracking-widest uppercase mb-2">
+            <span>✨</span>
+            <span>DIAGNÓSTICO PERSONALIZADO</span>
+          </div>
+          <h4 class="font-playfair font-bold text-lg text-white mb-2">¿Dudas con tu tono o corte ideal?</h4>
+          <p class="text-xs text-zinc-300 leading-relaxed mb-4">
+            Escríbenos por WhatsApp enviándonos una foto de tu cabello actual y tu idea para darte una valoración experta sin ningún compromiso.
+          </p>
+          <a href="{{ negocio.whatsapp_url or '#visitanos' }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#C5A880] hover:underline">
+            <span>Consultar con un Estilista</span>
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ==================== FOOTER EDITORIAL (HAUTE COIFFURE) ==================== -->
+<footer class="bg-[#111111] text-white pt-16 pb-24 md:pb-16 border-t border-[#C5A880]/20" style="padding-bottom: max(5rem, calc(2rem + var(--sab, 0px)));">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+      
+      <!-- Marca & Descripción -->
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-1 text-[#C5A880] text-xs uppercase tracking-widest mb-2">
+          <span>✦</span>
+          <span>HAIR ATELIER & ESTHÉTIQUE</span>
+        </div>
+        <h3 class="font-playfair font-bold text-2xl text-white tracking-wide mb-3">
+          {{ negocio.nombre }}
+        </h3>
+        <p class="text-xs text-zinc-400 leading-relaxed max-w-sm mb-6">
+          Salón de referencia en {{ negocio.ciudad or 'España' }}. Elevamos el cuidado del cabello y la estética con pasión por el detalle, marcas de prestigio y estilistas apasionados.
+        </p>
+        <div class="flex items-center gap-3">
+          {% if negocio.instagram_url or ig.username %}
+          <a href="{{ negocio.instagram_url or ('https://www.instagram.com/' ~ ig.username) }}" target="_blank" rel="noopener" class="w-9 h-9 rounded-full bg-white/10 hover:bg-[#C5A880] hover:text-[#18181B] flex items-center justify-center transition" aria-label="Instagram">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          {% endif %}
+          <a href="{{ negocio.whatsapp_url or '#visitanos' }}" target="_blank" rel="noopener" class="w-9 h-9 rounded-full bg-white/10 hover:bg-[#C5A880] hover:text-[#18181B] flex items-center justify-center transition" aria-label="WhatsApp">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Enlaces Rápidos -->
+      <div>
+        <h4 class="font-playfair font-bold text-sm tracking-wider uppercase text-white mb-4">Secciones</h4>
+        <ul class="space-y-2 text-xs text-zinc-400">
+          <li><a href="#inicio" class="hover:text-[#C5A880] transition">Inicio</a></li>
+          <li><a href="#filosofia" class="hover:text-[#C5A880] transition">El Salón</a></li>
+          <li><a href="#servicios" class="hover:text-[#C5A880] transition">Carta de Servicios</a></li>
+          <li><a href="#estilistas" class="hover:text-[#C5A880] transition">Equipo Creativo</a></li>
+          <li><a href="#productos" class="hover:text-[#C5A880] transition">Marcas Premium</a></li>
+          <li><a href="#galeria" class="hover:text-[#C5A880] transition">Lookbook</a></li>
+        </ul>
+      </div>
+
+      <!-- Contacto Directo -->
+      <div>
+        <h4 class="font-playfair font-bold text-sm tracking-wider uppercase text-white mb-4">Contacto</h4>
+        <div class="space-y-2 text-xs text-zinc-400">
+          <p>{{ negocio.direccion or (negocio.ciudad ~ ', España') }}</p>
+          {% if negocio.telefono %}
+          <p><a href="tel:{{ negocio.telefono }}" class="hover:text-[#C5A880] transition">{{ negocio.telefono }}</a></p>
+          {% endif %}
+          <p class="text-[#C5A880] font-medium pt-2">Cita previa recomendada</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-zinc-400">
+      <p>© {{ negocio.nombre }} • Propuesta de Diseño Web Mobile-First.</p>
+      <p class="flex items-center gap-1">
+        <span>Inspirado en arquitectura Haute-Coiffure & Salon Etch</span>
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+<!-- ==================== BARRA FLOTANTE MÓVIL (QUICK ACTIONS) ==================== -->
+<div class="fixed bottom-0 left-0 right-0 z-40 bg-[#18181B]/95 backdrop-blur-md border-t border-[#C5A880]/30 py-2.5 px-4 md:hidden flex items-center justify-between gap-3 shadow-2xl" style="padding-bottom: max(0.6rem, var(--sab, 0px));">
+  {% if negocio.telefono %}
+  <a href="tel:{{ negocio.telefono }}" class="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-full bg-white/10 text-white text-xs font-semibold uppercase tracking-wider">
+    <span class="material-symbols-outlined text-base text-[#C5A880]">call</span>
+    <span>Llamar</span>
+  </a>
+  {% endif %}
+  <a href="{{ negocio.whatsapp_url or '#visitanos' }}" target="_blank" rel="noopener" class="flex-[1.5] flex items-center justify-center gap-2 py-2.5 rounded-full bg-[#C5A880] text-[#18181B] text-xs font-bold uppercase tracking-wider shadow-lg">
+    <span class="material-symbols-outlined text-base">calendar_today</span>
+    <span>Pedir Cita</span>
+  </a>
+</div>
+
+<!-- ==================== MODAL LIGHTBOX DE FOTOS ==================== -->
+<div id="image-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4 transition-opacity duration-300" onclick="cerrarModalImagen()">
+  <div class="relative max-w-3xl max-h-[90vh] flex flex-col items-center" onclick="event.stopPropagation()">
+    <button onclick="cerrarModalImagen()" class="absolute -top-12 right-0 text-white hover:text-[#C5A880] p-2 focus:outline-none">
+      <span class="material-symbols-outlined text-3xl">close</span>
+    </button>
+    <img id="modal-img" src="" alt="Lookbook" class="max-w-full max-h-[75vh] object-contain rounded-xl shadow-2xl border border-white/20"/>
+    <p id="modal-caption" class="text-white text-xs sm:text-sm text-center mt-3 max-w-lg font-light"></p>
+  </div>
+</div>
+
+<!-- ==================== SCRIPTS DE INTERACCIÓN ==================== -->
+<script>
+  // Control de Tema Claro / Oscuro
+  function toggleDarkMode() {
+    document.documentElement.classList.toggle('dark');
+    try {
+      const isDark = document.documentElement.classList.contains('dark');
+      localStorage.setItem('etch_theme', isDark ? 'dark' : 'light');
+    } catch(e) {}
+  }
+
+  // Inicializar tema preferido
+  (function initTheme() {
+    try {
+      const saved = localStorage.getItem('etch_theme');
+      if (saved === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else if (saved === 'light') {
+        document.documentElement.classList.remove('dark');
+      }
+    } catch(e) {}
+  })();
+
+  // Toggle Menú Móvil
+  function toggleMobileMenu() {
+    const m = document.getElementById('mobile-menu');
+    if (m) {
+      m.classList.toggle('hidden');
+      m.classList.toggle('flex');
+    }
+  }
+
+  // Filtro de Servicios
+  function filtrarServicios(cat) {
+    const cards = document.querySelectorAll('.servicio-card');
+    const btns = document.querySelectorAll('.filtro-btn');
+    
+    btns.forEach(b => {
+      b.classList.remove('bg-[#18181B]', 'dark:bg-[#C5A880]', 'text-white', 'dark:text-[#18181B]');
+      b.classList.add('bg-black/5', 'dark:bg-white/10', 'text-[#18181B]', 'dark:text-white');
+    });
+
+    const activeBtn = document.getElementById('btn-filtro-' + cat);
+    if (activeBtn) {
+      activeBtn.classList.remove('bg-black/5', 'dark:bg-white/10', 'text-[#18181B]', 'dark:text-white');
+      activeBtn.classList.add('bg-[#18181B]', 'dark:bg-[#C5A880]', 'text-white', 'dark:text-[#18181B]');
+    }
+
+    cards.forEach(c => {
+      const cardCat = c.getAttribute('data-categoria');
+      if (cat === 'todos' || cardCat === cat) {
+        c.classList.remove('hidden');
+      } else {
+        c.classList.add('hidden');
+      }
+    });
+  }
+
+  // Modal Lightbox
+  function abrirModalImagen(src, caption) {
+    const modal = document.getElementById('image-modal');
+    const img = document.getElementById('modal-img');
+    const cap = document.getElementById('modal-caption');
+    if (modal && img) {
+      img.src = src;
+      if (cap) cap.innerText = caption || '';
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+  }
+
+  function cerrarModalImagen() {
+    const modal = document.getElementById('image-modal');
+    if (modal) {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+  }
+
+  // Enviar Reserva a WhatsApp
+  function enviarReservaSalon(e) {
+    e.preventDefault();
+    const nombre = document.getElementById('res-nombre').value.trim();
+    const tel = document.getElementById('res-tel').value.trim();
+    const servicio = document.getElementById('res-servicio').value;
+    const estilista = document.getElementById('res-estilista').value;
+    const fecha = document.getElementById('res-fecha').value;
+    const hora = document.getElementById('res-hora').value;
+    const notas = document.getElementById('res-notas').value.trim();
+
+    let texto = `¡Hola equipo de {{ negocio.nombre }}! 👋\n\n`;
+    texto += `Deseo solicitar una cita en vuestro salón:\n`;
+    texto += `• Nombre: ${nombre}\n`;
+    texto += `• Teléfono: ${tel}\n`;
+    texto += `• Servicio: ${servicio}\n`;
+    texto += `• Estilista preferido: ${estilista}\n`;
+    if (fecha) texto += `• Fecha estimada: ${fecha}\n`;
+    texto += `• Franja horaria: ${hora}\n`;
+    if (notas) texto += `• Notas/Consulta: ${notas}\n`;
+    texto += `\n¿Tenéis disponibilidad en esa franja? ¡Muchas gracias!`;
+
+    const phoneNum = "{{ negocio.telefono | replace(' ', '') | replace('+', '') | replace('-', '') if negocio.telefono else '34600000000' }}";
+    const waUrl = `https://api.whatsapp.com/send?phone=${phoneNum}&text=${encodeURIComponent(texto)}`;
+    window.open(waUrl, '_blank');
+  }
+</script>
+
+</body>
+</html>

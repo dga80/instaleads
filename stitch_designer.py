@@ -330,6 +330,53 @@ DESIGN_ARCHETYPES = {
             {"icono": "🔬", "titulo": "Bioseguridad & Asepsia Nivel A", "desc": "Material 100% monouso desechable abierto delante de ti."},
             {"icono": "⚡", "titulo": "Piezas Únicas & Flash Exclusivo", "desc": "Diseño de autor a medida en fine line, blackwork y micro-realismo."}
         ]
+    },
+    "salon_etch": {
+        "template_file": "stitch_salon_etch.html",
+        "layout_type": "salon_etch",
+        "headline_font": "'Playfair Display', serif",
+        "body_font": "'Montserrat', sans-serif",
+        "google_fonts_url": "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap",
+        "color_seed": "#18181b", # Luxury Noir & Champagne Gold (Inspiración Etch Salon)
+        "primary": "#18181b",
+        "primary_container": "#c5a880", # Champagne Gold / Bronze
+        "on_primary": "#ffffff",
+        "accent": "#c5a880",
+        "gold_accent": "#c5a880",
+        # Modo Oscuro
+        "bg_surface": "#0f0f11",
+        "card_surface": "#18181b",
+        "border_color": "rgba(197, 168, 128, 0.25)",
+        "text_primary": "#fcfaf7",
+        "text_secondary": "#a1a1aa",
+        "header_bg": "rgba(15, 15, 17, 0.92)",
+        "drawer_bg": "#0f0f11",
+        "badge_bg": "rgba(197, 168, 128, 0.16)",
+        "badge_text": "#c5a880",
+        # Modo Claro (Principal / Editorial Alta Peluquería & Estética)
+        "light_bg_surface": "#fbf9f6",
+        "light_card_surface": "#ffffff",
+        "light_border_color": "rgba(24, 24, 27, 0.08)",
+        "light_text_primary": "#18181b",
+        "light_text_secondary": "#52525b",
+        "light_header_bg": "rgba(251, 249, 246, 0.94)",
+        "light_drawer_bg": "#ffffff",
+        "light_badge_bg": "rgba(197, 168, 128, 0.14)",
+        "light_badge_text": "#8c6b3f",
+        "light_pill_bg": "rgba(197, 168, 128, 0.08)",
+        "light_pill_border": "rgba(197, 168, 128, 0.25)",
+        # Formas
+        "roundness": "0.375rem",
+        "roundness_button": "9999px",
+        "default_theme": "light",
+        "cta_gradient": "linear-gradient(135deg, #18181b 0%, #27272a 100%)",
+        "vibe_name": "Salon Etch (8ª Plantilla: Peluquerías de Autor, Salones de Belleza & Estética)",
+        "status_badge": "✂️ CITAS ABIERTAS • ASESORAMIENTO DE VISAGISMO & COLOR",
+        "badges_confianza": [
+            {"icono": "✂️", "titulo": "Estilistas de Autor", "desc": "Formación continua con líderes mundiales y técnicas de vanguardia."},
+            {"icono": "🎨", "titulo": "Master Balayage & Color", "desc": "Degradados impecables, babylights y personalización absoluta."},
+            {"icono": "🌿", "titulo": "Marcas Líderes & Tratamientos", "desc": "Kérastase, Olaplex y Davines para máxima salud capilar."}
+        ]
     }
 }
 
@@ -349,6 +396,14 @@ DESIGN_ARCHETYPES["tattoo"] = DESIGN_ARCHETYPES["tattoo_2_0"]
 DESIGN_ARCHETYPES["tatuajes"] = DESIGN_ARCHETYPES["tattoo_2_0"]
 DESIGN_ARCHETYPES["kyiv_tattoofest"] = DESIGN_ARCHETYPES["tattoo_2_0"]
 DESIGN_ARCHETYPES["plantilla_7"] = DESIGN_ARCHETYPES["tattoo_2_0"]
+DESIGN_ARCHETYPES["salon_etch"] = DESIGN_ARCHETYPES["salon_etch"]
+DESIGN_ARCHETYPES["etch_salon"] = DESIGN_ARCHETYPES["salon_etch"]
+DESIGN_ARCHETYPES["etchsalon"] = DESIGN_ARCHETYPES["salon_etch"]
+DESIGN_ARCHETYPES["etch"] = DESIGN_ARCHETYPES["salon_etch"]
+DESIGN_ARCHETYPES["salon_atelier"] = DESIGN_ARCHETYPES["salon_etch"]
+DESIGN_ARCHETYPES["peluqueria_estetica"] = DESIGN_ARCHETYPES["salon_etch"]
+DESIGN_ARCHETYPES["peluqueria"] = DESIGN_ARCHETYPES["salon_etch"]
+DESIGN_ARCHETYPES["plantilla_8"] = DESIGN_ARCHETYPES["salon_etch"]
 
 
 def sintetizar_design_system(
@@ -366,6 +421,8 @@ def sintetizar_design_system(
     # 1. Selección de Arquetipo Base (Prioridad máxima: elección manual del usuario)
     if arquetipo_forzado and arquetipo_forzado in DESIGN_ARCHETYPES:
         tokens = dict(DESIGN_ARCHETYPES[arquetipo_forzado])
+    elif any(k in cat for k in ["peluqueria", "peluquer", "hair salon", "hair", "estilista", "estilist", "balayage", "coloracion", "peinado", "mechas"]):
+        tokens = dict(DESIGN_ARCHETYPES["salon_etch"])
     elif any(k in cat for k in ["tattoo", "tatuaje", "tatuaj", "piercing", "ink", "body art"]):
         tokens = dict(DESIGN_ARCHETYPES["tattoo_2_0"])
     elif any(k in cat for k in ["panaderia", "panader", "forn", "pasteleria", "pasteler", "bakery", "boulangerie", "obrador", "croissant"]):
@@ -378,12 +435,12 @@ def sintetizar_design_system(
         tokens = dict(DESIGN_ARCHETYPES["warm_artisan"])
     elif any(k in cat for k in ["reforma", "obra", "construc", "carpinter", "fontaner", "electric", "pladur", "climatiz", "pintor", "albanil", "cristal", "persiana", "mueble"]):
         tokens = dict(DESIGN_ARCHETYPES["craft_build"])
-    elif any(k in cat for k in ["uña", "estetica", "belleza", "nail", "lash", "pestaña", "spa", "joyer", "moda", "peluqueria"]):
+    elif any(k in cat for k in ["uña", "estetica", "belleza", "nail", "lash", "pestaña", "spa", "joyer", "moda"]):
         tokens = dict(DESIGN_ARCHETYPES["luxury_glow"])
     elif sugerencia_gemini and sugerencia_gemini.get("arquetipo_diseno") in DESIGN_ARCHETYPES:
         tokens = dict(DESIGN_ARCHETYPES[sugerencia_gemini["arquetipo_diseno"]])
     else:
-        tokens = dict(DESIGN_ARCHETYPES["luxury_glow"])
+        tokens = dict(DESIGN_ARCHETYPES["salon_etch" if any(k in cat for k in ["peluquer", "hair", "estilist"]) else "luxury_glow"])
 
     # 2. Aplicar decisión de tema (Light vs Dark) sugerida por el Agente de IA
     if sugerencia_gemini and sugerencia_gemini.get("tema_predeterminado") in ["light", "dark"]:

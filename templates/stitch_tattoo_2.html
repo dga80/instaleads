@@ -355,7 +355,7 @@
                 <span class="h-full w-1 bg-white"></span>
                 <span class="h-full w-2 bg-white"></span>
               </div>
-              <span class="text-[9px] font-mono text-[#808080] tracking-[0.3em] uppercase mt-2">TATTOO-AUTH-{{ negocio.nombre[:4]|upper }}-2026</span>
+              <span class="text-[9px] font-mono text-[#808080] tracking-[0.3em] uppercase mt-2">TATTOO-AUTH-{{ (negocio.nombre or 'STUDIO')[:4]|upper }}-2026</span>
             </div>
 
           </div>

@@ -7,6 +7,14 @@
       "total_found": 114,
       "leads_sin_web": 22,
       "last_used": "2026-09-27T19:32:47.133670+00:00"
+    },
+    "peluqueria": {
+      "key": "shop",
+      "value": "hairdresser",
+      "searches": 1,
+      "total_found": 27,
+      "leads_sin_web": 18,
+      "last_used": "2026-09-28T19:46:16.239104+00:00"
     }
   },
   "location_stats": {
@@ -14,6 +22,12 @@
       "searches": 3,
       "niches": [
         "estudio de tatuajes"
+      ]
+    },
+    "Barcelona": {
+      "searches": 1,
+      "niches": [
+        "peluqueria"
       ]
     }
   },

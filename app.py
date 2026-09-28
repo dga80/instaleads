@@ -2511,6 +2511,8 @@ async def generate_lead_web(osm_id: str, request: Request):
     target_lead["extraccion_fuente"] = res.get("extraccion_fuente", "curated_fallback")
     target_lead["extraccion_aviso"] = res.get("extraccion_aviso", "")
     target_lead["extraccion_exitosa"] = res.get("exito_real", False)
+    if res.get("web_info"):
+        target_lead["web_info_extraida"] = res["web_info"]
     
     sitio_web_detectado = res.get("sitio_web") or ""
     if not sitio_web_detectado and target_lead.get("web_detectada"):

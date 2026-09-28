@@ -5759,24 +5759,24 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sprint+Lavado+Barcelona",
     "gemini_verificado": true,
     "gemini_razon": "Comercio local independiente de lavado y estética vehicular en Barcelona, identificado en Instagram sin página web oficial activa.",
-    "mensaje_dm": "¡Hola equipo de Sprint Lavado!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉 https://dga80.github.io/instaleads/sprint-lavado-barcelona/\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Sprint Lavado!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil: https://dga80.github.io/instaleads/sprint-lavado-barcelona/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Web Generada",
-    "demo_slug": "sprint-lavado-barcelona",
-    "demo_url": "https://dga80.github.io/instaleads/sprint-lavado-barcelona/",
-    "demo_vibe": "Urban Edge & Dark Tech (Tatuajes, Barberías, Talleres & Fitness)",
+    "mensaje_dm": "¡Hola equipo de Sprint Lavado!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉 \n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Sprint Lavado!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil: \n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
     "campana_id": "camp_1789934973",
     "campana_nombre": "Car Detailing · barcelona",
     "campana_ids": [
       "camp_1789934973"
     ],
-    "demo_url_absoluta": "https://dga80.github.io/instaleads/sprint-lavado-barcelona/",
-    "demo_url_publica": "https://dga80.github.io/instaleads/sprint-lavado-barcelona/",
-    "demo_fecha_creacion": "20/09/2026 22:40",
-    "demo_fecha_ts": 1789936821,
-    "extraccion_fuente": "apify",
+    "demo_url_absoluta": "",
+    "demo_url_publica": "",
+    "demo_fecha_creacion": "",
+    "demo_fecha_ts": 0,
+    "extraccion_fuente": "",
     "extraccion_aviso": "",
-    "extraccion_exitosa": true
+    "extraccion_exitosa": false
   },
   {
     "osm_id": "11343832479",
@@ -8583,6 +8583,1387 @@
     "campana_nombre": "Tartas Personalizadas · Barcelona",
     "campana_ids": [
       "camp_1790414512"
+    ]
+  },
+  {
+    "osm_id": "638346207",
+    "nombre": "Perruqueria Nuri",
+    "categoria": "peluqueria (shop:hairdresser)",
+    "direccion": "Avinguda d'Àfrica",
+    "ciudad": "Badalona",
+    "provincia": "Barcelona",
+    "codigo_postal": "08913",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/lanuripelu/",
+    "instagram_handle": "@lanuripelu",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@lanuripelu)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/lanuripelu/",
+        "titulo": "PERRUQUERIA LA NURI ️ (@lanuripelu) - Instagram",
+        "snippet": "457 Followers, 242 Following, 151 Posts - PERRUQUERIA LA NURI ️ (@lanuripelu) on Instagram: \"🐶🐱 Perruqueria canina ☎️ 62"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://mapcarta.com/N638346207",
+        "titulo": "Perruqueria Nuri Map - Hairdresser - Badalona, Spain - Mapcarta",
+        "snippet": "Perruqueria Nuri is a hairdresser in Badalona, Barcelona located on Avinguda d'Àfrica. Perruqueria Nuri is situated near"
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/523498467665860/",
+        "titulo": "Perruqueria Nuri | Ciudadela - Facebook",
+        "snippet": "Cada creació està elaborada per una sola artesana, de manera que no n’hi ha dues d’iguals. Si t’agraden els detalls espe"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://mapcarta.com/es/N638346207",
+        "titulo": "Perruqueria Nuri - Mapa - Peluquero - Badalona, Cataluña, España",
+        "snippet": "Perruqueria Nuri es un peluquero en Badalona, Provincia de Barcelona, Cataluña que se localiza en Avinguda d’Àfrica. Per"
+      },
+      {
+        "tipo": "instagram",
+        "label": "Instagram",
+        "icono": "📸",
+        "url": "https://www.instagram.com/9espainuri/",
+        "titulo": "Perruqueria Nuri (@9espainuri) • Instagram photos and videos",
+        "snippet": "255 Followers, 296 Following, 731 Posts - Perruqueria Nuri (@9espainuri) on Instagram: \"Som una una perruqueria i estèti"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.beautynailhairsalons.com/ES/Ciudadela/523498467665860/Perruqueria-Nuri",
+        "titulo": "Perruqueria Nuri, Calle Martorell, 5, Ciudadela (2026)",
+        "snippet": "Novetat a Perruqueria Nuri! Ens encanta donar suport al talent local, i per això des d’avui trobaràs al nostre estand un"
+      }
+    ],
+    "web_detectada": "https://mapcarta.com/N638346207",
+    "google_search_url": "https://www.google.com/search?q=Perruqueria+Nuri+Badalona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Perruqueria+Nuri+Badalona",
+    "gemini_verificado": true,
+    "gemini_razon": "Validación automática heurística",
+    "mensaje_dm": "¡Hola equipo de Perruqueria Nuri!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://mapcarta.com/N638346207), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://dga80.github.io/instaleads/perruqueria-nuri-badalona/\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Perruqueria Nuri!\n\nOs escribí hace un par de días con la web demo interactiva que preparé para vosotros con el contenido de vuestra página: https://dga80.github.io/instaleads/perruqueria-nuri-badalona/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Web Generada",
+    "demo_slug": "perruqueria-nuri-badalona",
+    "demo_url": "https://dga80.github.io/instaleads/perruqueria-nuri-badalona/",
+    "demo_vibe": "Salon Etch (8ª Plantilla: Peluquerías de Autor, Salones de Belleza & Estética)",
+    "campana_id": "camp_1790624239",
+    "campana_nombre": "Peluqueria · barcelona",
+    "campana_ids": [
+      "camp_1790624239"
+    ],
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/perruqueria-nuri-badalona/",
+    "demo_url_publica": "https://dga80.github.io/instaleads/perruqueria-nuri-badalona/",
+    "demo_fecha_creacion": "28/09/2026 21:54",
+    "demo_fecha_ts": 1790625251,
+    "extraccion_fuente": "apify",
+    "extraccion_aviso": "",
+    "extraccion_exitosa": true
+  },
+  {
+    "osm_id": "678297025",
+    "nombre": "Perrocker",
+    "categoria": "peluqueria (shop:hairdresser)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/perrocker.oficial/",
+    "instagram_handle": "@perrocker.oficial",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@perrocker.oficial)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/perrocker.oficial/",
+        "titulo": "Jordi-Benet PERROCKER (@perrocker.oficial) - Instagram",
+        "snippet": "2,724 Followers, 2,192 Following, 639 Posts - Jordi-Benet PERROCKER (@perrocker.oficial) on Instagram: \"Perruqueries hi "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://www.perrocker.com/contacte/",
+        "titulo": "Contacte – Perrocker Web Oficial",
+        "snippet": "Perrockia · Carrer del Francolí, 60, 08006 Barcelona perrocker@perrocker.com Tlf 932090742 Mòbil 617 652 745 · Aquest ll"
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/perrocker/",
+        "titulo": "Perrocker | Barcelona | Facebook",
+        "snippet": "Perrocker, Barcelona. 2,329 likes · 9 were here. Soy peluquero soy rockero me llaman perrocker y hago lo que quiero y en"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.lavanguardia.com/qf/planes/20260530/11549946/perrocker-peluquero-farro-consagrado-rock-roll.html",
+        "titulo": "Perrocker, el peluquero del Farró consagrado al rock & roll",
+        "snippet": "May 30, 2026 - Jordi-Benet Sala, alias Perrocker, posa con la Yellow Trip en un lavacabezas · Andreu Esteban · Hada Maci"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.perrocker.com/",
+        "titulo": "Perrocker Web Oficial – Perrocker Rock & Hair",
+        "snippet": "Perrockia · Perrocker · Rock & Hair · ESCOLTA’L AQUI · By · Release date: Un recorregut discogràfic, endinsa’t en cada à"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.timeout.es/barcelona/es/musica/perrocker-el-sobrino-del-diablo",
+        "titulo": "Perrocker & El sobrino del Diablo",
+        "snippet": "July 22, 2015 - Perrocker, el peluquero rockero de Barcelona-y vete a saber si del mundo-, visita el Heliogàbal con su c"
+      }
+    ],
+    "web_detectada": "https://www.perrocker.com",
+    "google_search_url": "https://www.google.com/search?q=Perrocker+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Perrocker+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Comercio local con web oficial activa (https://www.perrocker.com/contacte/)",
+    "mensaje_dm": "¡Hola equipo de Perrocker!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://www.perrocker.com), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://dga80.github.io/instaleads/perrocker-barcelona/\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Perrocker!\n\nOs escribí hace un par de días con la web demo interactiva que preparé para vosotros con el contenido de vuestra página: https://dga80.github.io/instaleads/perrocker-barcelona/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Web Generada",
+    "demo_slug": "perrocker-barcelona",
+    "demo_url": "https://dga80.github.io/instaleads/perrocker-barcelona/",
+    "demo_vibe": "Salon Etch (8ª Plantilla: Peluquerías de Autor, Salones de Belleza & Estética)",
+    "campana_id": "camp_1790624239",
+    "campana_nombre": "Peluqueria · barcelona",
+    "campana_ids": [
+      "camp_1790624239"
+    ],
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/perrocker-barcelona/",
+    "demo_url_publica": "https://dga80.github.io/instaleads/perrocker-barcelona/",
+    "demo_fecha_creacion": "28/09/2026 22:01",
+    "demo_fecha_ts": 1790625693,
+    "extraccion_fuente": "apify",
+    "extraccion_aviso": "",
+    "extraccion_exitosa": true
+  },
+  {
+    "osm_id": "903753463",
+    "nombre": "Ramón Estilistas",
+    "categoria": "peluqueria (shop:hairdresser)",
+    "direccion": "Ronda de Sant Antoni de Llefià 129",
+    "ciudad": "Badalona",
+    "provincia": "Barcelona",
+    "codigo_postal": "08913",
+    "telefono": "+34 933 99 98 08",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/dramoncuu/",
+    "instagram_handle": "@dramoncuu",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@dramoncuu)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/dramoncuu/",
+        "titulo": "D´Ramón Estilistas (@dramoncuu) • Instagram photos and videos",
+        "snippet": "9 Followers, 0 Following, 45 Posts - See Instagram photos and videos from D´Ramón Estilistas (@dramoncuu)"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.fresha.com/es/lvp/estilistas-ramon-ronda-de-sant-antoni-de-llefia-badalona-wXEG10",
+        "titulo": "Estilistas Ramon - Ronda de Sant Antoni de Llefià, 129 ... - Fresha",
+        "snippet": "Estilistas Ramon · Ronda de Sant Antoni de Llefià, 129, 08913 Badalona, Barcelona, Spain · Cómo llegar."
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://www.paginasamarillas.es/f/badalona/estilista-ramon_007713985_000000001.html",
+        "titulo": "Estilista Ramón - Badalona - Ronda Sant Antoni Llefià, 129 LOCAL ...",
+        "snippet": "PELUQUERIAS DE SEÑORAS Estilista Ramón Badalona, Ronda Sant Antoni Llefia, en Páginas Amarillas. Consulta su teléfono y "
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/peluqueriaramonestilistas/?locale=es_ES",
+        "titulo": "Peluquería Ramón | Barcelona - Facebook",
+        "snippet": "Centro de belleza Peluquería Ramón Estilistas. Somos un equipo formado por 4 estilistas con muchos años de experiencia. "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://peluqueriamaster.com/clasificacion/badalona/",
+        "titulo": "Las mejores peluquerías de Badalona según reseñas Google",
+        "snippet": "1 Apr 2026 ... Carrer de Ramón y Cajal, 6, Badalona. 4.7. 161. PeinadoMechas. Web ... Estilistas Ramon i. Ronda de Sant "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://badalona.infoisinfo.es/ficha/estilista_ramon/3526784",
+        "titulo": "Estilista Ramón - Badalona - Infoisinfo",
+        "snippet": "Estilista Ramón tiene como actividad Peluquería,Estilistas,... y está localizada Ronda de Sant Antoni de Llefià, 129 - B"
+      }
+    ],
+    "web_detectada": "https://www.fresha.com/es/lvp/estilistas-ramon-ronda-de-sant-antoni-de-llefia-badalona-wXEG10",
+    "google_search_url": "https://www.google.com/search?q=Ram%C3%B3n+Estilistas+Badalona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Ram%C3%B3n+Estilistas+Badalona",
+    "gemini_verificado": true,
+    "gemini_razon": "Comercio local verificado sin web propia.",
+    "mensaje_dm": "¡Hola equipo de Ramón Estilistas!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://www.fresha.com/es/lvp/estilistas-ramon-ronda-de-sant-antoni-de-llefia-badalona-wXEG10), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://dga80.github.io/instaleads/ramon-estilistas-badalona/\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Ramón Estilistas!\n\nOs escribí hace un par de días con la web demo interactiva que preparé para vosotros con el contenido de vuestra página: https://dga80.github.io/instaleads/ramon-estilistas-badalona/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Web Generada",
+    "demo_slug": "ramon-estilistas-badalona",
+    "demo_url": "https://dga80.github.io/instaleads/ramon-estilistas-badalona/",
+    "demo_vibe": "Salon Etch (8ª Plantilla: Peluquerías de Autor, Salones de Belleza & Estética)",
+    "campana_id": "camp_1790624239",
+    "campana_nombre": "Peluqueria · barcelona",
+    "campana_ids": [
+      "camp_1790624239"
+    ],
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/ramon-estilistas-badalona/",
+    "demo_url_publica": "https://dga80.github.io/instaleads/ramon-estilistas-badalona/",
+    "demo_fecha_creacion": "28/09/2026 21:54",
+    "demo_fecha_ts": 1790625284,
+    "extraccion_fuente": "apify",
+    "extraccion_aviso": "",
+    "extraccion_exitosa": true
+  },
+  {
+    "osm_id": "1377225890",
+    "nombre": "Sesion Perruquers (Home)",
+    "categoria": "peluqueria (shop:hairdresser)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/mmperruquersbarcelona/",
+    "instagram_handle": "@mmperruquersbarcelona",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@mmperruquersbarcelona)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/mmperruquersbarcelona/",
+        "titulo": "M&M PERRUQUERS | PELUQUERÍA (@mmperruquersbarcelona) • Instagram photos and videos",
+        "snippet": "3,263 followers, 3,875 following, 428 posts – M&M PERRUQUERS | PELUQUERÍA (@mmperruquersbarcelona) on Instagram: \"🤍Your "
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/muntadabarcelona/",
+        "titulo": "MUNTADA perruquers de l'home | Barcelona | Facebook",
+        "snippet": "MUNTADA perruquers de l'home · Somos un salón en el cual priorizamos la proximidad en el trato (cliente&peluquero) para "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://www.acquaperruquers.com/",
+        "titulo": "Home - Acqua Perruquers",
+        "snippet": "June 22, 2022 - Josep Tarradellas 103-105, 08029 Barcelona · Aquí los más pequeños encontraran un espacio donde pasar un"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.bslperruquers.com/",
+        "titulo": "Salón de belleza en Barcelona | BSL Perruquers",
+        "snippet": "En BSL Perruquers utilizamos productos profesionales de máxima calidad de primeras marcas, como por ejemplo la gama de c"
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/casasperruques/",
+        "titulo": "Casas Perruquers | Barcelona | Facebook",
+        "snippet": "Un rincón diferente, para rela · Page · Hair Salon · C/ Puigmartí Nº 19, Barcelona, Spain · +34 675 56 49 79 · +34 675 5"
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://www.cylex.es/barcelona/eric-perruquers-11578427.html",
+        "titulo": "Eric Perruquers, Barcelona, Calle Agricultura 262, 933 05 33...",
+        "snippet": "Iniciar sesión · Registrarse ... Llamar · Website · Ruta · Nombre: Eric Perruquers · Dirección: Calle Agricultura 262CP/"
+      }
+    ],
+    "web_detectada": "https://www.acquaperruquers.com/",
+    "google_search_url": "https://www.google.com/search?q=Sesion+Perruquers+%28Home%29+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sesion+Perruquers+%28Home%29+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Comercio local con web oficial activa (https://www.acquaperruquers.com/)",
+    "mensaje_dm": "¡Hola equipo de Sesion Perruquers (Home)!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://www.acquaperruquers.com/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://dga80.github.io/instaleads/sesion-perruquers-home-barcelona/\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Sesion Perruquers (Home)!\n\nOs escribí hace un par de días con la web demo interactiva que preparé para vosotros con el contenido de vuestra página: https://dga80.github.io/instaleads/sesion-perruquers-home-barcelona/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Web Generada",
+    "demo_slug": "sesion-perruquers-home-barcelona",
+    "demo_url": "https://dga80.github.io/instaleads/sesion-perruquers-home-barcelona/",
+    "demo_vibe": "Salon Etch (8ª Plantilla: Peluquerías de Autor, Salones de Belleza & Estética)",
+    "campana_id": "camp_1790624239",
+    "campana_nombre": "Peluqueria · barcelona",
+    "campana_ids": [
+      "camp_1790624239"
+    ],
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/sesion-perruquers-home-barcelona/",
+    "demo_url_publica": "https://dga80.github.io/instaleads/sesion-perruquers-home-barcelona/",
+    "demo_fecha_creacion": "28/09/2026 22:02",
+    "demo_fecha_ts": 1790625740,
+    "extraccion_fuente": "apify",
+    "extraccion_aviso": "",
+    "extraccion_exitosa": true
+  },
+  {
+    "osm_id": "1483283406",
+    "nombre": "El Tocador de Lula",
+    "categoria": "peluqueria (shop:hairdresser)",
+    "direccion": "Plaça de Rovira Trias 5",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "08024",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/eltocadordelula/",
+    "instagram_handle": "@eltocadordelula",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@eltocadordelula)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/eltocadordelula/",
+        "titulo": "el tocador de lula (@eltocadordelula) • Instagram photos and ...",
+        "snippet": "57 Followers, 20 Following, 28 Posts - el tocador de lula (@eltocadordelula) on Instagram: \"\""
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://mispelus.com/el-tocador-de-lula-barcelona/",
+        "titulo": "El tocador de Lula en Barcelona - peluquerías",
+        "snippet": "El tocador de Lula: Peluquería en Barcelona. ★ 4.5 (80 opiniones). Tel. +34932102836. horario y opiniones reales."
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/eltocadordelula/",
+        "titulo": "El tocador de Lula | Barcelona - Facebook",
+        "snippet": "El tocador de Lula, Barcelona. 70 likes · 3 were here. Salon profesional de peluqueria. Buen ambiente. Te sentiras relaj"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.fresha.com/lvp/el-tocador-de-lula-placa-de-rovira-i-trias-barcelona-wXEkxA",
+        "titulo": "El tocador de Lula - Plaça de Rovira i Trias, 5, Gràcia, 08024 ...",
+        "snippet": "El tocador de Lula Show number Plaça de Rovira i Trias, 5, Gràcia, 08024 Barcelona, Spain Get directions Call to book"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://peluqueriaesteticamireia.es/peluqueria/el-tocador-de-lula/",
+        "titulo": "El tocador de Lula | Peluquería en Barcelona, Catalunya",
+        "snippet": "La peluquería El tocador de Lula en Gràcia destaca por trato cercano y color con resultados consistentes; descubre por q"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://elflequillo.com/barcelona/el-tocador-de-lula/",
+        "titulo": "El tocador de Lula | Peluquerías en España",
+        "snippet": "El Tocador de Lula, ubicado en Barcelona, es un espacio dedicado al cuidado y la belleza capilar que destaca por su aten"
+      }
+    ],
+    "web_detectada": "https://mispelus.com/el-tocador-de-lula-barcelona/",
+    "google_search_url": "https://www.google.com/search?q=El+Tocador+de+Lula+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=El+Tocador+de+Lula+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Comercio local verificado sin web propia",
+    "mensaje_dm": "¡Hola equipo de El Tocador de Lula!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://mispelus.com/el-tocador-de-lula-barcelona/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://dga80.github.io/instaleads/el-tocador-de-lula-barcelona/\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de El Tocador de Lula!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con el contenido de vuestra propia página: https://dga80.github.io/instaleads/el-tocador-de-lula-barcelona/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Web Generada",
+    "demo_slug": "el-tocador-de-lula-barcelona",
+    "demo_url": "https://dga80.github.io/instaleads/el-tocador-de-lula-barcelona/",
+    "demo_vibe": "Salon Etch (8ª Plantilla: Peluquerías de Autor, Salones de Belleza & Estética)",
+    "campana_id": "camp_1790624239",
+    "campana_nombre": "Peluqueria · barcelona",
+    "campana_ids": [
+      "camp_1790624239"
+    ],
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/el-tocador-de-lula-barcelona/",
+    "demo_url_publica": "https://dga80.github.io/instaleads/el-tocador-de-lula-barcelona/",
+    "demo_fecha_creacion": "28/09/2026 21:55",
+    "demo_fecha_ts": 1790625311,
+    "extraccion_fuente": "apify",
+    "extraccion_aviso": "",
+    "extraccion_exitosa": true
+  },
+  {
+    "osm_id": "1804162923",
+    "nombre": "Colectivo Salón",
+    "categoria": "peluqueria (shop:hairdresser)",
+    "direccion": "Carrer de la Ciutat 11",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "08002",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/colectivosalon/",
+    "instagram_handle": "@colectivosalon",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@colectivosalon)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/colectivosalon/",
+        "titulo": "Colectivo Salón (@colectivosalon) · Barcelona",
+        "snippet": "15K Followers, 357 Following, 691 Posts - Colectivo Salón (@colectivosalon) on Instagram: \"Belleza con textura Especiali"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://colectivosalon.com/",
+        "titulo": "Home - Colectivo Salón",
+        "snippet": "Colectivo Salón es el reflejo de la experiencia. Situado en el Barri Gòtic de Barcelona y fundado en el 2011, ofrecemos "
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/COLECTIVOSALON/",
+        "titulo": "COLECTIVO SALÓN | Barcelona - Facebook",
+        "snippet": "COLECTIVO SALÓN, Barcelona. 1,067 followers · 13 talking about this · 265 were here. Servicios de peluquería"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://colectivosalon.com/reservar/",
+        "titulo": "reservar - Colectivo Salón",
+        "snippet": "Colectivo Salón es el reflejo de la experiencia. Situado en el Barri Gòtic de Barcelona y fundado en el 2011, ofrecemos "
+      },
+      {
+        "tipo": "social",
+        "label": "Enlace Externo",
+        "icono": "🔗",
+        "url": "https://www.yelp.com/biz/colectivo-salón-barcelona",
+        "titulo": "Colectivo Salón - Barcelona, B",
+        "snippet": "COLECTIVO SALÓN in Barcelona, reviews by real people. Yelp is a fun and easy way to find, recommend and talk about what'"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.barrigotic.cat/es/negocio/colectivo-salon",
+        "titulo": "Colectivo Salón - Peluquería especializada en corte y col...",
+        "snippet": "Colectivo Salón es un establecimiento especializado en servicios de peluquería en el Barri Gòtic de Barcelona. Su compro"
+      }
+    ],
+    "web_detectada": "https://colectivosalon.com/",
+    "google_search_url": "https://www.google.com/search?q=Colectivo+Sal%C3%B3n+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Colectivo+Sal%C3%B3n+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Comercio local con web oficial activa (https://colectivosalon.com/)",
+    "mensaje_dm": "¡Hola equipo de Colectivo Salón!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://colectivosalon.com/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Colectivo Salón!\n\nOs escribí hace un par de días con la web demo interactiva que preparé como propuesta de rediseño y modernización mobile-first, utilizando el contenido de vuestra web actual: https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "No Generar",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1790624239",
+    "campana_nombre": "Peluqueria · barcelona",
+    "campana_ids": [
+      "camp_1790624239"
+    ]
+  },
+  {
+    "osm_id": "1844121284",
+    "nombre": "Perruqueria unisex Iglesias Vide",
+    "categoria": "peluqueria (shop:hairdresser)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/perruqueria_david_unisex/",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@perruqueria_david_unisex)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/perruqueria_david_unisex/",
+        "titulo": "(@perruqueria_david_unisex) • Instagram photos and videos",
+        "snippet": "100K Followers, 233 Following, 37 Posts - @perruqueria_david_unisex on Instagram: \"☎️633226844 📍👇🌍 Carrer de la Indústri"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://mapcarta.com/es/N1844121284",
+        "titulo": "Perruqueria unisex Iglesias Vide - Mapa - Peluquero ...",
+        "snippet": "Perruqueria unisex Iglesias Vide es un peluquero en Distrito del Ensanche, Barcelona, Cataluña. Perruqueria unisex Igles"
+      },
+      {
+        "tipo": "instagram",
+        "label": "Instagram",
+        "icono": "📸",
+        "url": "https://www.instagram.com/peluqueria_barcelona_/",
+        "titulo": "Peluquería Unisex (@peluqueria_barcelona ... - Instagram",
+        "snippet": "641 Followers, 1,340 Following, 54 Posts - Peluquería Unisex (@peluqueria_barcelona_) on Instagram: \"\""
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/onlinesalonunisex/",
+        "titulo": "On line salón unisex | Barcelona - FacebookPerruqueria Unisex - Barcelona, BPeluquerias Unisex en Barcelona | Teléfonos, Horarios y ...Peluquería en Barcelona, ES - Infobel",
+        "snippet": "On line salón unisex, Barcelona. 309 followers · 7 talking about this · 165 were here. Peluquería Unisex. Do you recomme"
+      },
+      {
+        "tipo": "social",
+        "label": "Enlace Externo",
+        "icono": "🔗",
+        "url": "https://www.yelp.com/biz/perruqueria-unisex-barcelona",
+        "titulo": "Perruqueria Unisex - Barcelona, BPeluquerias Unisex en Barcelona | Teléfonos, Horarios y ...Peluquería en Barcelona, ES - Infobel",
+        "snippet": "Do you recommend this business? Peluquerias Unisex en Barcelona | ☎ Teléfonos, ⏰ Horarios y Direcciones | Barcelona Sep "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://callejero.club/barcelona/peluquerias-unisex",
+        "titulo": "Peluquerias Unisex en Barcelona | Teléfonos, Horarios y ...",
+        "snippet": "Peluquerias Unisex en Barcelona | ☎ Teléfonos, ⏰ Horarios y Direcciones | Barcelona"
+      }
+    ],
+    "web_detectada": "https://mapcarta.com/es/N1844121284",
+    "google_search_url": "https://www.google.com/search?q=Perruqueria+unisex+Iglesias+Vide+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Perruqueria+unisex+Iglesias+Vide+Barcelona",
+    "gemini_verificado": false,
+    "gemini_razon": "El perfil de Instagram detectado (@perruqueria_david_unisex) es de otro negocio en Badalona, no de Perruqueria unisex Iglesias Vide en Barcelona.",
+    "mensaje_dm": "¡Hola equipo de Perruqueria unisex Iglesias Vide!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://mapcarta.com/es/N1844121284), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://dga80.github.io/instaleads/perruqueria-unisex-iglesias-vide-barcelona/\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Perruqueria unisex Iglesias Vide!\n\nOs escribí hace un par de días con la web demo interactiva que preparé para vosotros con el contenido de vuestra página: https://dga80.github.io/instaleads/perruqueria-unisex-iglesias-vide-barcelona/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Web Generada",
+    "demo_slug": "perruqueria-unisex-iglesias-vide-barcelona",
+    "demo_url": "https://dga80.github.io/instaleads/perruqueria-unisex-iglesias-vide-barcelona/",
+    "demo_vibe": "Salon Etch (8ª Plantilla: Peluquerías de Autor, Salones de Belleza & Estética)",
+    "campana_id": "camp_1790624239",
+    "campana_nombre": "Peluqueria · barcelona",
+    "campana_ids": [
+      "camp_1790624239"
+    ],
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/perruqueria-unisex-iglesias-vide-barcelona/",
+    "demo_url_publica": "https://dga80.github.io/instaleads/perruqueria-unisex-iglesias-vide-barcelona/",
+    "demo_fecha_creacion": "28/09/2026 21:57",
+    "demo_fecha_ts": 1790625430,
+    "extraccion_fuente": "apify",
+    "extraccion_aviso": "",
+    "extraccion_exitosa": true
+  },
+  {
+    "osm_id": "1888022696",
+    "nombre": "Cebado",
+    "categoria": "peluqueria (shop:hairdresser)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/cebadobori/",
+    "instagram_handle": "@cebadobori",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@cebadobori)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/cebadobori/",
+        "titulo": "Cebado Bori | Salón de belleza Barcelona (@cebadobori ...",
+        "snippet": "709 Followers, 171 Following, 844 Posts - Cebado Bori | Salón de belleza Barcelona (@cebadobori) on Instagram: \"ESPECIAL"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://www.cebado.es/centros-cebado/",
+        "titulo": "Centros Cebado - Peluquerías Cebado",
+        "snippet": "Cebado Gran de Sant Andreu Carrer Gran de Sant Andreu, 296, 300 Barcelona, Barcelona 08030 Detalles"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.cebado.es/",
+        "titulo": "Peluquerías Cebado",
+        "snippet": "En Cebado sabemos hacer algo tan fácil y tan difícil al mismo tiempo como es cortar, peinar y cuidar el cabello de las p"
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/CebadoOficial/",
+        "titulo": "Cebado | Barcelona - FacebookCebado en Barcelona - peluqueríasCebado Barcelona - Peluquería Unisex | L'illa DiagonalCebado Barcelona- Hairdressing | L'illa DiagonalCebado Barcelona (08001) Av. Roma, 110 - top-tiendas.es",
+        "snippet": "Feb 26, 2024 · En Cebado apostamos por seguir las tendencias marcadas por nosotros mismos, sin buscar referentes en cele"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://mispelus.com/cebado-barcelona/",
+        "titulo": "Cebado en Barcelona - peluquerías",
+        "snippet": "Cebado: Peluquería en Barcelona. ★ 4.6 (89 opiniones). Tel. +34932115057. horario y opiniones reales."
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://lilla.com/es/tienda/cebado-barcelona/",
+        "titulo": "Cebado Barcelona - Peluquería Unisex | L'illa Diagonal",
+        "snippet": "Cebado Barcelona está ubicado en el centro comercial de L’illa Diagonal de Barcelona. Este local es una peluquería femen"
+      }
+    ],
+    "web_detectada": "https://www.cebado.es/centros-cebado/",
+    "google_search_url": "https://www.google.com/search?q=Cebado+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Cebado+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Comercio local con web oficial activa (https://www.cebado.es/centros-cebado/)",
+    "mensaje_dm": "¡Hola equipo de Cebado!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://www.cebado.es/centros-cebado/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Cebado!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con el contenido de vuestra web actual: https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1790624239",
+    "campana_nombre": "Peluqueria · barcelona",
+    "campana_ids": [
+      "camp_1790624239"
+    ]
+  },
+  {
+    "osm_id": "1918970028",
+    "nombre": "Peluquero Garrido",
+    "categoria": "peluqueria (shop:hairdresser)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Peluquero+Garrido+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Peluquero+Garrido+Barcelona",
+    "gemini_verificado": false,
+    "gemini_razon": "Sin Instagram ni presencia web detectada",
+    "mensaje_dm": "",
+    "mensaje_seguimiento": "",
+    "estado": "No Generar",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1790624239",
+    "campana_nombre": "Peluqueria · barcelona",
+    "campana_ids": [
+      "camp_1790624239"
+    ]
+  },
+  {
+    "osm_id": "1958156523",
+    "nombre": "Màrius Escoda",
+    "categoria": "peluqueria (shop:hairdresser)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "+34933396388",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/mariusescodaperruquers/",
+    "instagram_handle": "@mariusescodaperruquers",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@mariusescodaperruquers)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/mariusescodaperruquers/",
+        "titulo": "Marius Escoda Perruquers (@mariusescodaperruquers ...",
+        "snippet": "414 Followers, 354 Following, 69 Posts - Marius Escoda Perruquers (@mariusescodaperruquers) on Instagram: \"Since 1969 3 "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://peluqueriaesteticamireia.es/peluqueria/marius-escoda-perruquers-2/",
+        "titulo": "Márius Escoda Perruquers | Peluquería en Barcelona, CatalunyaMárius Escoda Perruquers - C/ del Comte Borrell, 67, L ...Marius Escoda Perruquers (@mariusescodaperruquers ...MÀRIUS ESCODA - Updated January 2025 - Carrer de Vallespir ...Màrius Escoda Peluqueros | Peluquería en Barcelona, CatalunyaMàrius Escoda Perruquers - Barcelona - Carrer Comte Borrell ...Màrius Escoda – Barcelona, Carrer del Comte Borrell… (1 ...",
+        "snippet": "La peluquería Márius Escoda Perruquers en Barcelona ofrece servicios profesionales de corte y color con atención persona"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.fresha.com/lvp/marius-escoda-perruquers-carrer-del-comte-borrell-barcelona-r6E2rG",
+        "titulo": "Márius Escoda Perruquers - C/ del Comte Borrell, 67, L ...",
+        "snippet": "Márius Escoda Perruquers Show number C/ del Comte Borrell, 67, L'Eixample, 08015 Barcelona, Spain Get directions Call to"
+      },
+      {
+        "tipo": "social",
+        "label": "Enlace Externo",
+        "icono": "🔗",
+        "url": "https://www.yelp.com/biz/màrius-escoda-barcelona",
+        "titulo": "MÀRIUS ESCODA - Updated January 2025 - Carrer de Vallespir ...Màrius Escoda Peluqueros | Peluquería en Barcelona, CatalunyaMàrius Escoda Perruquers - Barcelona - Carrer Comte Borrell ...Màrius Escoda – Barcelona, Carrer del Comte Borrell… (1 ...",
+        "snippet": "MÀRIUS ESCODA in Barcelona, reviews by real people. Yelp is a fun and easy way to find, recommend and talk about what’s "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://peluqueriaesteticamireia.es/peluqueria/marius-escoda-peluqueros/",
+        "titulo": "Màrius Escoda Peluqueros | Peluquería en Barcelona, CatalunyaMàrius Escoda Perruquers - Barcelona - Carrer Comte Borrell ...Màrius Escoda – Barcelona, Carrer del Comte Borrell… (1 ...",
+        "snippet": "Màrius Escoda Peluqueros, peluquería en Barcelona, ofrece cortes y coloración de alta calidad con enfoque en salud capil"
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://www.paginasamarillas.es/f/barcelona/marius-escoda-perruquers_009768078_000000003.html",
+        "titulo": "Màrius Escoda Perruquers - Barcelona - Carrer Comte Borrell ...",
+        "snippet": "Encuentra en Páginas Amarillas toda la información y servicios sobre Màrius Escoda Perruquers. Consulta el teléfono de c"
+      }
+    ],
+    "web_detectada": "https://peluqueriaesteticamireia.es/peluqueria/marius-escoda-perruquers-2/",
+    "google_search_url": "https://www.google.com/search?q=M%C3%A0rius+Escoda+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=M%C3%A0rius+Escoda+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Comercio local verificado sin web propia.",
+    "mensaje_dm": "¡Hola equipo de Màrius Escoda!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://peluqueriaesteticamireia.es/peluqueria/marius-escoda-perruquers-2/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://dga80.github.io/instaleads/marius-escoda-barcelona/\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Màrius Escoda!\n\nOs escribí hace un par de días con la web demo interactiva que preparé para vosotros con el contenido de vuestra página: https://dga80.github.io/instaleads/marius-escoda-barcelona/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Web Generada",
+    "demo_slug": "marius-escoda-barcelona",
+    "demo_url": "https://dga80.github.io/instaleads/marius-escoda-barcelona/",
+    "demo_vibe": "Salon Etch (8ª Plantilla: Peluquerías de Autor, Salones de Belleza & Estética)",
+    "campana_id": "camp_1790624239",
+    "campana_nombre": "Peluqueria · barcelona",
+    "campana_ids": [
+      "camp_1790624239"
+    ],
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/marius-escoda-barcelona/",
+    "demo_url_publica": "https://dga80.github.io/instaleads/marius-escoda-barcelona/",
+    "demo_fecha_creacion": "28/09/2026 21:56",
+    "demo_fecha_ts": 1790625364,
+    "extraccion_fuente": "apify",
+    "extraccion_aviso": "",
+    "extraccion_exitosa": true
+  },
+  {
+    "osm_id": "1982848389",
+    "nombre": "Marce cia perruqueria",
+    "categoria": "peluqueria (shop:hairdresser)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "https://www.instagram.com/marce_cia/",
+    "instagram_handle": "@marce_cia",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@marce_cia)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/marce_cia/",
+        "titulo": "Marce-Cia ♥️ (@marce_cia) • Instagram photos and videos",
+        "snippet": "416 Followers, 5,988 Following, 58 Posts - Marce-Cia ♥️🐾 (@marce_cia) on Instagram: \"\""
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Marce+cia+perruqueria+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Marce+cia+perruqueria+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Comercio local verificado sin web propia",
+    "mensaje_dm": "¡Hola equipo de Marce cia perruqueria!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉 https://...\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Marce cia perruqueria!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil: https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "No Generar",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1790624239",
+    "campana_nombre": "Peluqueria · barcelona",
+    "campana_ids": [
+      "camp_1790624239"
+    ]
+  },
+  {
+    "osm_id": "2091604734",
+    "nombre": "Victoria Miguel",
+    "categoria": "peluqueria (shop:hairdresser)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "",
+    "instagram_handle": "",
+    "enlaces_internet": [],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Victoria+Miguel+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Victoria+Miguel+Barcelona",
+    "gemini_verificado": false,
+    "gemini_razon": "Sin Instagram ni presencia web detectada",
+    "mensaje_dm": "",
+    "mensaje_seguimiento": "",
+    "estado": "Sin Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1790624239",
+    "campana_nombre": "Peluqueria · barcelona",
+    "campana_ids": [
+      "camp_1790624239"
+    ]
+  },
+  {
+    "osm_id": "2120121038",
+    "nombre": "Noelia Miro",
+    "categoria": "peluqueria (shop:hairdresser)",
+    "direccion": "Carrer de Viladomat 183",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "08015",
+    "telefono": "",
+    "email": "",
+    "tiene_web": false,
+    "instagram_url": "https://www.instagram.com/noelia.miro/",
+    "instagram_handle": "@noelia.miro",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@noelia.miro)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/noelia.miro/",
+        "titulo": "Noelia Miró (@noelia.miro) • Instagram photos and videos",
+        "snippet": "66 Followers, 77 Following, 0 Posts - Noelia Miró (@noelia.miro) on Instagram: \"\""
+      },
+      {
+        "tipo": "social",
+        "label": "Enlace Externo",
+        "icono": "🔗",
+        "url": "https://www.yelp.com/biz/noelia-miro-barcelona",
+        "titulo": "Noelia Miro - Barcelona, B",
+        "snippet": "NOELIA MIRO in Barcelona, reviews by real people. Yelp is a fun and easy way to find, recommend and talk about what’s gr"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://peluqueriaesteticamireia.es/peluqueria/noelia-miro-estilistas/",
+        "titulo": "Noelia Miro Estilistas | Peluquería en Barcelona, CataluñaNoelia Miro Estilistas | Estilistas en EspañaNoelia Miró | Peluquerías, BarcelonaNoelia Miro Map - Hairdresser - Eixample, Barcelona ...Noelia Miro Estilistas S.L. - Barcelona - Carrer Viladomat ...NMEstilistasbcn | Barcelona - Facebook",
+        "snippet": "Descubre Noelia Miro Estilistas en Barcelona: color, cortes y tratamientos capilares en Eixample. Opiniones y servicios "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://bodista.es/estilistas/barcelona/noelia-miro-estilistas/",
+        "titulo": "Noelia Miro Estilistas | Estilistas en España",
+        "snippet": "Noelia Miro Estilistas, ubicada en Barcelona, ofrece un servicio de peluquería integral con un equipo de profesionales. "
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://www.cylex.es/barcelona/noelia-miró-11590468.html",
+        "titulo": "Noelia Miró | Peluquerías, Barcelona",
+        "snippet": "Ver Noelia Miró en Barcelona, Carrer de Viladomat 183 en Cylex y encuentre ☎ 932 26 96..., datos de contacto, ⌚ horario "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://mapcarta.com/N2120121038",
+        "titulo": "Noelia Miro Map - Hairdresser - Eixample, Barcelona ...",
+        "snippet": "Noelia Miro is a hairdresser in Eixample, Barcelona, Catalonia which is located on Carrer de Viladomat. Noelia Miro is s"
+      }
+    ],
+    "web_detectada": "",
+    "google_search_url": "https://www.google.com/search?q=Noelia+Miro+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Noelia+Miro+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Coincide el negocio y ubicación. Es un comercio local sin web oficial propia.",
+    "mensaje_dm": "¡Hola equipo de Noelia Miro!\n\nSoy Daniel García. He visto vuestro trabajo en Instagram y os he preparado una web demo interactiva utilizando contenido de vuestro propio perfil, pensada para potenciar vuestra imagen y captar clientes desde el móvil:\n\n👉 https://...\n*(Enlace 100% seguro para verlo en el navegador sin registros)*.\n\n¿Qué os parece la idea? Si os gusta, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Noelia Miro!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestro perfil: https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "No Generar",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1790624239",
+    "campana_nombre": "Peluqueria · barcelona",
+    "campana_ids": [
+      "camp_1790624239"
+    ]
+  },
+  {
+    "osm_id": "2295564932",
+    "nombre": "Perruqueria Manau",
+    "categoria": "peluqueria (shop:hairdresser)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/mojoperruqueria/",
+    "instagram_handle": "",
+    "enlaces_internet": [
+      {
+        "tipo": "web",
+        "label": "Web Oficial (Instagram)",
+        "icono": "🌐",
+        "url": "http://www.mojoperruqueria.com",
+        "titulo": "Web Oficial de Perruqueria Manau",
+        "snippet": "Página web oficial detectada en su perfil verificado de Instagram"
+      },
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@mojoperruqueria)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/mojoperruqueria/",
+        "titulo": "Mojo Perruquería (@mojoperruqueria) • Instagram photos and videos",
+        "snippet": "517 Followers, 295 Following, 43 Posts - Mojo Perruquería (@mojoperruqueria) on Instagram: \"Llull, 84 08005 Barcelona Te"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://peluquerialolas.es/peluqueria-manau/",
+        "titulo": "Peluquería manau - LHospitalet de Llobregat (Barcelona)",
+        "snippet": "La Peluquería Manau, ubicada en Carr. de Collblanc, 46, en LHospitalet de Llobregat, Barcelona, es una peluquería de bar"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://mapcarta.com/N2295564932",
+        "titulo": "Perruqueria Manau Map - Hairdresser - L'Hospitalet de ...",
+        "snippet": "Perruqueria Manau is a hairdresser in L'Hospitalet de Llobregat, Barcelona, Catalonia. Perruqueria Manau is situated nea"
+      },
+      {
+        "tipo": "directorio",
+        "label": "Directorio Local",
+        "icono": "📁",
+        "url": "https://www.qdq.com/peluqueria-manau-821116",
+        "titulo": "PELUQUERIA MANAU, Peluquería de mujer en L´ Hospitalet De ...",
+        "snippet": "Encuentra toda la información de PELUQUERIA MANAU, Peluquería de mujer en L´ Hospitalet De Llobregat, Barcelona"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.fresha.com/lp/es/bt/peluquerías/es-barcelona-cataluña",
+        "titulo": "Las mejores peluquerías cerca de mí en Barcelona, España",
+        "snippet": "Usa Fresha para encontrar salones de belleza en Barcelona que estén abiertos ahora mismo. Filtra por fecha y hora para v"
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/perruqueriamasnou/",
+        "titulo": "Perruqueria unisex forme's | Barcelona - Facebook",
+        "snippet": "Dec 21, 2022 · Perruqueria unisex forme's realitzem tot tipus de tècniques de tall i treballs tècnics ( reflexes amb pla"
+      }
+    ],
+    "web_detectada": "http://www.mojoperruqueria.com",
+    "google_search_url": "https://www.google.com/search?q=Perruqueria+Manau+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Perruqueria+Manau+Barcelona",
+    "gemini_verificado": false,
+    "gemini_razon": "El perfil de Instagram detectado es de 'Mojo Perruquería', no 'Perruqueria Manau'. Los enlaces de 'Perruqueria Manau' corresponden a un negocio en L'Hospitalet de Llobregat, no en Barcelona ciudad.",
+    "mensaje_dm": "¡Hola equipo de Perruqueria Manau!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (http://www.mojoperruqueria.com), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://dga80.github.io/instaleads/perruqueria-manau-barcelona/\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Perruqueria Manau!\n\nOs escribí hace un par de días con la web demo interactiva que preparé para vosotros con el contenido de vuestra página: https://dga80.github.io/instaleads/perruqueria-manau-barcelona/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Web Generada",
+    "demo_slug": "perruqueria-manau-barcelona",
+    "demo_url": "https://dga80.github.io/instaleads/perruqueria-manau-barcelona/",
+    "demo_vibe": "Salon Etch (8ª Plantilla: Peluquerías de Autor, Salones de Belleza & Estética)",
+    "campana_id": "camp_1790624239",
+    "campana_nombre": "Peluqueria · barcelona",
+    "campana_ids": [
+      "camp_1790624239"
+    ],
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/perruqueria-manau-barcelona/",
+    "demo_url_publica": "https://dga80.github.io/instaleads/perruqueria-manau-barcelona/",
+    "demo_fecha_creacion": "28/09/2026 21:57",
+    "demo_fecha_ts": 1790625459,
+    "extraccion_fuente": "apify",
+    "extraccion_aviso": "",
+    "extraccion_exitosa": true
+  },
+  {
+    "osm_id": "2576455256",
+    "nombre": "Cazcarra",
+    "categoria": "peluqueria (shop:hairdresser)",
+    "direccion": "Carrer del Comte Borrell 230",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "08029",
+    "telefono": "+34 902 300 420",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/cazcarraschool/",
+    "instagram_handle": "@cazcarraschool",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@cazcarraschool)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/cazcarraschool/",
+        "titulo": "Cazcarra Image School (@cazcarraschool) - Instagram",
+        "snippet": "24K Followers, 615 Following, 4,048 Posts - Cazcarra Image School (@cazcarraschool) on Instagram: \"🎓 +40 años siendo líd"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://cazcarra.com/",
+        "titulo": "Cazcarra Image School",
+        "snippet": "Desde su fundación en 1985, Cazcarra Image Group se ha enfocado hacia el cuidado de la Imagen Personal, entendida como d"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://booksy.com/es-es/29902_cazcarra-image-school_cuidado-de-la-piel_48863_barcelona",
+        "titulo": "Cazcarra Image School - Barcelona - Reserve Citas Online ...",
+        "snippet": "Mira Cazcarra Image School en Barcelona - descubre los precios, reseñas, y reserva las citas online 24/7"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://cazcarra.com/centros/",
+        "titulo": "Centros - Cazcarra Image School",
+        "snippet": "El Grupo Cazcarra cuenta con una gran presencia en Barcelona, con su Sede Corporativa y con tres centros especializados "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.schoolandcollegelistings.com/ES/Barcelona/109632968467855/Cazcarra-Escuela",
+        "titulo": "Cazcarra Escuela, Comte Borrell 230, Barcelona (2026)",
+        "snippet": "Aug 6, 2026 · Información de contacto, mapa y direcciones, formulario de contacto, horario de apertura, servicios, puntu"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "http://www.escuelaspeluqueriabarcelona.com/",
+        "titulo": "Escuelas de peluqueria en Barcelona | Cazcarra",
+        "snippet": "Cazcarra te ofrece variedad de academias con cursos de maquillaje, estetica y peluqueria entre otros servicios."
+      }
+    ],
+    "web_detectada": "https://cazcarra.com/",
+    "google_search_url": "https://www.google.com/search?q=Cazcarra+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Cazcarra+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Comercio local con web oficial activa (https://cazcarra.com/)",
+    "mensaje_dm": "¡Hola equipo de Cazcarra!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://cazcarra.com/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Cazcarra!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestra web: https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1790624239",
+    "campana_nombre": "Peluqueria · barcelona",
+    "campana_ids": [
+      "camp_1790624239"
+    ]
+  },
+  {
+    "osm_id": "2622087648",
+    "nombre": "Barber Shop Estyle",
+    "categoria": "peluqueria (shop:hairdresser)",
+    "direccion": "Carrer de Mallorca 439",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "08013",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/barbershopestyle_/",
+    "instagram_handle": "@barbershopestyle_",
+    "enlaces_internet": [
+      {
+        "tipo": "web",
+        "label": "Web Oficial (Instagram)",
+        "icono": "🌐",
+        "url": "http://www.peluqueriaestyle.com",
+        "titulo": "Web Oficial de Barber Shop Estyle",
+        "snippet": "Página web oficial detectada en su perfil verificado de Instagram"
+      },
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@barbershopestyle_)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/barbershopestyle_/",
+        "titulo": "Barber Shop Estyle (@barbershopestyle_) • Instagram photos ...",
+        "snippet": "83 Followers, 121 Following, 91 Posts - Barber Shop Estyle (@barbershopestyle_) on Instagram: \" Alisar , cortar y lavar "
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/barberiaestyle/",
+        "titulo": "Barber Shop Estyle | Barcelona - Facebook",
+        "snippet": "Feb 5, 2020 · Barber Shop Estyle, Barcelona. 59 likes · 4 were here. Tenemos variedades de peluqueros con el fin de dart"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.fresha.com/lvp/barber-shop-estyle-carrer-de-provenca-barcelona-eqe8oR",
+        "titulo": "Barber Shop Estyle - C/ de Provença, 522, L'Eixample, 08025 ...",
+        "snippet": "Barber Shop Estyle Show number C/ de Provença, 522, L'Eixample, 08025 Barcelona, Spain Get directions Call to book"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://peluqueriaesteticamireia.es/peluqueria/barber-shop-estyle-3/",
+        "titulo": "BARBER SHOP ESTYLE | Barbería en Barcelona, CatalunyaBarber Shop Estyle | Barbería en Barcelona, CatalunyaBarber Shop Estyle - C/ de Provença, 522, L'Eixample, 08025 ...Barber Shop Estyle, Carrer Castillejos n343 Local 3 ...Roi77 Barbershop. Old School Style in Barcelona",
+        "snippet": "BARBER SHOP ESTYLE es una opción a considerar para quienes buscan una solución de cuidado capilar en una zona céntrica d"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://peluqueriaesteticamireia.es/peluqueria/barber-shop-estyle-2/",
+        "titulo": "Barber Shop Estyle | Barbería en Barcelona, Catalunya",
+        "snippet": "Barber Shop Estyle es un negocio de cuidado capilar masculino ubicado en la Calle Gran de Sant Andreu, 384, en Barcelona"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.fresha.com/es/lvp/barber-shop-estyle-carrer-de-provenca-barcelona-eqe8oR",
+        "titulo": "Barber Shop Estyle - C/ de Provença, 522, L'Eixample, 08025 ...",
+        "snippet": "Mostrar número C/ de Provença, 522, L'Eixample, 08025 Barcelona, Spain Cómo llegar Llamar para reservar Atrás"
+      }
+    ],
+    "web_detectada": "http://www.peluqueriaestyle.com",
+    "google_search_url": "https://www.google.com/search?q=Barber+Shop+Estyle+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Barber+Shop+Estyle+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Coincide el negocio y ubicación, sin web oficial propia.",
+    "mensaje_dm": "¡Hola equipo de Barber Shop Estyle!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (http://www.peluqueriaestyle.com), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://dga80.github.io/instaleads/barber-shop-estyle-barcelona/\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Barber Shop Estyle!\n\nOs escribí hace un par de días con la web demo interactiva que preparé para vosotros con el contenido de vuestra página: https://dga80.github.io/instaleads/barber-shop-estyle-barcelona/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Web Generada",
+    "demo_slug": "barber-shop-estyle-barcelona",
+    "demo_url": "https://dga80.github.io/instaleads/barber-shop-estyle-barcelona/",
+    "demo_vibe": "Salon Etch (8ª Plantilla: Peluquerías de Autor, Salones de Belleza & Estética)",
+    "campana_id": "camp_1790624239",
+    "campana_nombre": "Peluqueria · barcelona",
+    "campana_ids": [
+      "camp_1790624239"
+    ],
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/barber-shop-estyle-barcelona/",
+    "demo_url_publica": "https://dga80.github.io/instaleads/barber-shop-estyle-barcelona/",
+    "demo_fecha_creacion": "28/09/2026 21:56",
+    "demo_fecha_ts": 1790625412,
+    "extraccion_fuente": "apify",
+    "extraccion_aviso": "",
+    "extraccion_exitosa": true
+  },
+  {
+    "osm_id": "2689415403",
+    "nombre": "Twenty One",
+    "categoria": "peluqueria (shop:hairdresser)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/twentyonecycling.cc/",
+    "instagram_handle": "@twentyonecycling.cc",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@twentyonecycling.cc)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/twentyonecycling.cc/",
+        "titulo": "Twenty One Cycling (@twentyonecycling.cc) - InstagramTwenty One Cycling on Instagram: \"Have you already visited ...Twenty One Cycling | Visiting Barcelona or Girona? You couldn ...Twenty One Cycling | If you haven’t yet, we encourage you to ...Twenty One Cycling | Simplicity Have you checked out the new ...Twenty One Cycling | Another month has past since we ...Twenty One Cycling | Last Saturday, we rode together. From ...",
+        "snippet": "15K Followers, 749 Following, 516 Posts - Twenty One Cycling (@twentyonecycling.cc) on Instagram: \"Cycling is a state of"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.bing.com/aclick?ld=e8oKLQ4u8w1gfzRgfjjCGp2DVUCUwyuM-HVhyEhGsnoIsqySCNE90mxW09s0rXWJ4kkCZziaMm9-s7mk7BuqqRksx7GwZIkQn2do7CpuzXW9jZUXfeMcgQItJD6LQ9jXFG07au54awcpHUhzkoSRLRvFMpWtoUhTTG0zF4qg6ZXrQrHCRBysIQCEOGNoEHk2PeYPw8Aw&u=aHR0cCUzYSUyZiUyZnd3dy5ib29raW5nLmNvbSUyZmhvdGVsJTJmaGslMmZ0d2VudHktb25lLXdoaXRmaWVsZC5lbi5odG1sJTNmYWlkJTNkMjI3NjM3NCUyNnBhZ2VuYW1lJTNkdHdlbnR5LW9uZS13aGl0ZmllbGQlMjZsYWJlbCUzZG1zbi1sWnN5eTN6aHRRVUZ6V25WRWtfekNBLTgwNzQ1NTIzNDQ5NzU2JTNhdGlrd2QtODA3NDU2NzE5ODgzNTclM2Fsb2MtMTcwJTNhbmVvJTNhbXRlJTNhbHAxNjQ0ODYlM2FkZWMlM2FjaWQ1NzgyNzE1NzglM2FhZ2lkMTI5MTkyNjYyMzQzOTY5MyUzYWNsa2lkOTdhNmRlMGJmOTdlMWVhNDNiNThiNGIxM2FhYjgxYzAlMjZ1dG1fY2FtcGFpZ24lM2RIb3RlbCUyNTIwLSUyNTIwSG9uZyUyNTIwS29uZyUyNnV0bV9tZWRpdW0lM2RjcGMlMjZ1dG1fc291cmNlJTNkYmluZyUyNnV0bV90ZXJtJTNkbFpzeXkzemh0UVVGelduVkVrX3pDQSUyNm1zY2xraWQlM2Q5N2E2ZGUwYmY5N2UxZWE0M2I1OGI0YjEzYWFiODFjMA&rlid=97a6de0bf97e1ea43b58b4b13aab81c0",
+        "titulo": "Twenty One Whitfield Hotel - Twenty One Whitfield Hotel",
+        "snippet": "Book at Twenty One Whitfield, Hong Kong. No Reservation Costs. Great Rates. Choose from a wide range of properties which"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.bing.com/aclick?ld=e8G35d0I8-di-0TAVGKa81XzVUCUzofJotU1LROspZsdVAAWh-aHiI4uUcNKSAe9gToLwE5uYZumyrQGH8XSldgQkGlWOk3lGj6pz2y0uUH2VIh0TlqWulFmHQ3CwXXZyk6r1HW5cN0Ew0QQGnCgnsmXky33-mdDGsUyG_FmjTggdfvuYWbI9DhlFFoJ1K2FU0-LM1aw&u=aHR0cHMlM2ElMmYlMmZ0d2VudHlvbmUtcm9tZS5ob3RlbHNvbmUuY29tJTJmJTNmYXMlM2RiJTI2YWlkJTNkNzg0Nzc4NjQ2NzAzNzYlMjZkc3RpJTNkMjU2MjY4MyUyNmRzdHQlM2Q4JTI2YWdpZCUzZDEyNTU2NDM2NTk3MzQ5MDglMjZjbXBpZCUzZDMwOTY4NTk2JTI2bXNpZCUzZDY4YmM2ZTNlZTI5MjFjNjJlYzA4MDQ4NDIxNDc1NDljJTI2bXNjbGtpZCUzZDY4YmM2ZTNlZTI5MjFjNjJlYzA4MDQ4NDIxNDc1NDljJTI2dXRtX3NvdXJjZSUzZGJpbmclMjZ1dG1fbWVkaXVtJTNkY3BjJTI2dXRtX2NhbXBhaWduJTNkaXQtSXRhbHktSG90ZWxzLWV1LWVuLXd3JTI2dXRtX3Rlcm0lM2R0d2VudHlvbmUlMjUyMGhvdGVsJTI2dXRtX2NvbnRlbnQlM2RpdCUyNTIwJTI1N0MlMjUyMHJvbWUlMjUyMCUyNTdDJTI1MjAyNTYyNjgzJTI1MjAlMjU3QyUyNTIwdHdlbnR5b25lLWhvdGVs&rlid=68bc6e3ee2921c62ec0804842147549c",
+        "titulo": "Twentyone Hotel",
+        "snippet": "4.5 (19572 reviews) Get the Best Deal Today at Twentyone Hotel in Rome - Book Now! Limited time offers · Last minute dea"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://twentyonecycling.cc/",
+        "titulo": "Ropa de ciclismo | Outfit ciclismo - Twenty One Cycling Barcelona",
+        "snippet": "En Twenty One Cycling diseñamos ropa de ciclismo para quienes buscan rendimiento, comodidad y estilo sobre la bici. Desd"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://twentyonecycling.cc/en-us",
+        "titulo": "Cycling Clothing | Outfit Cycling-Twenty One Cycling BarcelonaTwenty One - FacebookTwenty One Pilots | Palau Sant JordiTwenty One Cycling (@twentyonecycling.cc) - InstagramLabtwentytwo | Design, Tech & Sustainability in Barcelona ...Twenty One Pilots | Palau Sant JordiTwenty One Whitfield Hotel - Twenty One Whitfield HotelTwentyone Hotel",
+        "snippet": "Join the squad and be the first to know about new arrivals. Plus, get 10% off your first purchase. It designs, manufactu"
+      },
+      {
+        "tipo": "facebook",
+        "label": "Facebook",
+        "icono": "👥",
+        "url": "https://www.facebook.com/twentyonecycling/",
+        "titulo": "Twenty One - FacebookTwenty One Pilots | Palau Sant JordiTwenty One Cycling (@twentyonecycling.cc) - InstagramLabtwentytwo | Design, Tech & Sustainability in Barcelona ...Twenty One Pilots | Palau Sant JordiTwenty One Whitfield Hotel - Twenty One Whitfield HotelTwentyone Hotel",
+        "snippet": "The season is officially on 🚴🏽 Our community is back doing what it does best: riding, exploring and enjoying every kilom"
+      }
+    ],
+    "web_detectada": "https://twentyonecycling.cc/",
+    "google_search_url": "https://www.google.com/search?q=Twenty+One+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Twenty+One+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Comercio local con web oficial activa (https://twentyonecycling.cc/)",
+    "mensaje_dm": "¡Hola equipo de Twenty One!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://twentyonecycling.cc/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Twenty One!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con el contenido de vuestra web: https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1790624239",
+    "campana_nombre": "Peluqueria · barcelona",
+    "campana_ids": [
+      "camp_1790624239"
+    ]
+  },
+  {
+    "osm_id": "2691216665",
+    "nombre": "Raffel Pages",
+    "categoria": "peluqueria (shop:hairdresser)",
+    "direccion": "",
+    "ciudad": "Barcelona",
+    "provincia": "Barcelona",
+    "codigo_postal": "",
+    "telefono": "",
+    "email": "",
+    "tiene_web": true,
+    "instagram_url": "https://www.instagram.com/raffelpagesoficial/",
+    "instagram_handle": "@raffelpagesoficial",
+    "enlaces_internet": [
+      {
+        "tipo": "instagram",
+        "label": "Instagram (@raffelpagesoficial)",
+        "icono": "📸",
+        "url": "https://www.instagram.com/raffelpagesoficial/",
+        "titulo": "Raffel Pages Oficial (@raffelpagesoficial) - Instagram",
+        "snippet": "20K Followers, 1,414 Following, 1,440 Posts - Raffel Pages Oficial (@raffelpagesoficial) on Instagram: \" 100 años peinan"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web Detectado",
+        "icono": "🌐",
+        "url": "https://raffelpages.com/es",
+        "titulo": "Raffel Pages",
+        "snippet": "Raffel Pages, con más de 50 años de experiencia es la peluquería de los sentidos. Descubre e inspírate en nuestras colec"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://www.raffelpages.com/es/seccion-salones/barcelona",
+        "titulo": "Encuentra - Raffel Pages",
+        "snippet": "Encuentra la dirección, horario y teléfono de tu salón RP. Tenemos salones Raffel Pages en Barcelona, Gerona, Lleida, Ta"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://raffelpagesfrancescmacia.com/",
+        "titulo": "ᐉ Raffel Pages Peluquerías en Barcelona: El estilo te llama",
+        "snippet": "Cinco salones en Barcelona con el sello Raffel Pagès: convertimos la peluquería en una experiencia. Técnica, pasión y lo"
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://lilla.com/es/tienda/raffel-pages/",
+        "titulo": "Raffel Pages Barcelona - Peluquería | L’illa Diagonal",
+        "snippet": "En la tienda de Raffel Pages de L’illa Diagonal encontrarás los productos de maquillaje de Shu Uemura, conocidos por su "
+      },
+      {
+        "tipo": "web",
+        "label": "Sitio Web",
+        "icono": "🌐",
+        "url": "https://lilla.com/en/shop/raffel-pages/",
+        "titulo": "Raffel Pages Barcelona - Hair Salon | L’illa Diagonal",
+        "snippet": "If you are waiting for a haircut or you want to give yourself a new look, Raffel Pages Barcelona hair salon in L’illa Di"
+      }
+    ],
+    "web_detectada": "https://raffelpages.com/es",
+    "google_search_url": "https://www.google.com/search?q=Raffel+Pages+Barcelona",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Raffel+Pages+Barcelona",
+    "gemini_verificado": true,
+    "gemini_razon": "Comercio local con web oficial activa (https://raffelpages.com/es)",
+    "mensaje_dm": "¡Hola equipo de Raffel Pages!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://raffelpages.com/es), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Raffel Pages!\n\nOs escribí hace un par de días con la web demo interactiva que preparé como propuesta de rediseño a partir de vuestra web: https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Tiene Web",
+    "demo_slug": "",
+    "demo_url": "",
+    "demo_vibe": "",
+    "campana_id": "camp_1790624239",
+    "campana_nombre": "Peluqueria · barcelona",
+    "campana_ids": [
+      "camp_1790624239"
     ]
   }
 ]

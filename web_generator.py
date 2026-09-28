@@ -62,41 +62,72 @@ def descargar_imagen_a_base64(url: str, timeout: int = 12) -> str:
     
     return url
 
+DIRECTORY_DOMAINS = [
+    "google.", "maps.", "boe.es", "wikipedia", "facebook.com", "instagram.com", 
+    "linkedin.com", "mispelus.com", "fresha.com", "mapcarta.com", "callejero.club", 
+    "peluqueriaesteticamireia.es", "booksy.com", "treatwell.", "qdq.com", 
+    "paginasamarillas.es", "tripadvisor.com", "bing.com", "yelp.", "bodista.es", 
+    "infobel.com", "cylex.es", "einforma.com", "axesor.es", "beautynailhairsalons.com", 
+    "peluqueriamaster.com", "badalona.infoisinfo.es", "elflequillo.com", "peluquerialolas.es"
+]
+
 def extraer_contenido_web_existente(url_web: str) -> Dict[str, Any]:
     """
     Rastrea y extrae la información clave del sitio web oficial existente del comercio:
     - Título del sitio y meta-descripción.
-    - Encabezados (h1, h2, h3) con nombres de servicios y propuesta de valor.
-    - Párrafos principales (sobre nosotros, historia, especialidades).
-    - Imágenes destacadas, logo y teléfonos de contacto.
-    - Emails, dirección y productos/precios detectados.
+    - Encabezados (h1, h2, h3, h4) con nombres de servicios y propuesta de valor.
+    - Párrafos principales (sobre nosotros, historia, especialidades) de cualquier constructor web.
+    - Imágenes destacadas, logo y fotos reales del negocio.
+    - Teléfonos, emails, dirección y productos/precios detectados.
+    - Color de marca corporativo.
     """
     if not url_web or not isinstance(url_web, str) or not url_web.startswith("http"):
+        return {}
+    
+    url_low = url_web.lower()
+    if any(ign in url_low for ign in DIRECTORY_DOMAINS):
         return {}
     
     headers = {
         "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-        "Accept-Language": "es-ES,es;q=0.9,en;q=0.8"
+        "Accept-Language": "es-ES,es;q=0.9,ca;q=0.8,en;q=0.7"
     }
 
-    try:
-        resp = requests.get(url_web, headers=headers, timeout=10, verify=False)
-        if resp.status_code != 200 or not resp.text:
-            return {}
+    # Probar URL con fallback automático HTTP <-> HTTPS si una falla
+    urls_to_try = [url_web]
+    if url_web.startswith("http://"):
+        urls_to_try.append(url_web.replace("http://", "https://"))
+    elif url_web.startswith("https://"):
+        urls_to_try.append(url_web.replace("https://", "http://"))
 
+    resp = None
+    for try_url in urls_to_try:
+        try:
+            resp = requests.get(try_url, headers=headers, timeout=10, verify=False)
+            if resp.status_code == 200 and resp.text:
+                url_web = try_url
+                break
+        except Exception:
+            continue
+
+    if not resp or resp.status_code != 200 or not resp.text:
+        return {}
+
+    try:
         from bs4 import BeautifulSoup
         soup = BeautifulSoup(resp.text, "html.parser")
 
-        # Extraer enlaces a páginas clave como contacto o taller si existen en el mismo dominio
+        # Extraer enlaces a subpáginas clave en el mismo dominio
         sub_urls = []
+        domain = urllib.parse.urlparse(url_web).netloc
         for a in soup.find_all("a", href=True):
             href = a["href"].strip()
-            if any(k in href.lower() for k in ["contacto", "contact", "taller", "servicios"]):
+            if any(k in href.lower() for k in ["contacto", "contact", "servicios", "services", "precios", "tarifas", "equipo", "about", "nosotros", "salon", "horarios", "tratamientos", "carta", "menu", "taller"]):
                 full_sub = urllib.parse.urljoin(url_web, href)
-                if urllib.parse.urlparse(full_sub).netloc == urllib.parse.urlparse(url_web).netloc and full_sub not in sub_urls:
+                if urllib.parse.urlparse(full_sub).netloc == domain and full_sub not in sub_urls and full_sub != url_web:
                     sub_urls.append(full_sub)
-            if len(sub_urls) >= 2:
+            if len(sub_urls) >= 3:
                 break
 
         # Extraer color de marca corporativo desde meta tags o variables CSS del sitio
@@ -115,10 +146,6 @@ def extraer_contenido_web_existente(url_web: str) -> Dict[str, Any]:
                     color_marca = m_color.group(1).upper()
                     break
 
-        # Eliminar scripts y elementos irrelevantes
-        for tag in soup(["script", "style", "noscript", "svg", "iframe"]):
-            tag.decompose()
-
         titulo = soup.title.string.strip() if soup.title and soup.title.string else ""
         
         meta_desc = ""
@@ -126,59 +153,79 @@ def extraer_contenido_web_existente(url_web: str) -> Dict[str, Any]:
         if desc_tag and desc_tag.get("content"):
             meta_desc = desc_tag["content"].strip()
 
-        # Encabezados
-        encabezados = []
-        for h in soup.find_all(["h1", "h2", "h3"]):
-            txt = h.get_text(separator=" ", strip=True)
-            if txt and len(txt) > 3 and len(txt) < 120 and txt not in encabezados:
-                encabezados.append(txt)
-
-        # Párrafos informativos
-        parrafos = []
-        for p in soup.find_all("p"):
-            txt = p.get_text(separator=" ", strip=True)
-            if txt and len(txt) > 25 and len(txt) < 350 and txt not in parrafos:
-                parrafos.append(txt)
-
-        # Imágenes (og:image, logos o imágenes destacadas)
+        # Extraer imágenes antes de descomponer etiquetas
         imagenes = []
         og_img = soup.find("meta", attrs={"property": "og:image"})
         if og_img and og_img.get("content"):
             imagenes.append(urllib.parse.urljoin(url_web, og_img["content"]))
 
         for img in soup.find_all("img"):
-            src = img.get("src") or img.get("data-src")
-            if src and not src.startswith("data:"):
-                full_img = urllib.parse.urljoin(url_web, src)
-                if full_img not in imagenes and any(ext in full_img.lower() for ext in [".jpg", ".jpeg", ".png", ".webp"]):
-                    # Evitar iconos diminutos o tracking pixels
-                    w = img.get("width")
-                    if w and w.isdigit() and int(w) < 50:
-                        continue
-                    imagenes.append(full_img)
-            if len(imagenes) >= 10:
+            src = img.get("src") or img.get("data-src") or img.get("srcset")
+            if src:
+                if " " in src and "," in src:
+                    src = src.split(",")[0].split(" ")[0]
+                if not src.startswith("data:"):
+                    full_img = urllib.parse.urljoin(url_web, src)
+                    if full_img not in imagenes and any(ext in full_img.lower() for ext in [".jpg", ".jpeg", ".png", ".webp"]):
+                        w = img.get("width")
+                        if w and w.isdigit() and int(w) < 40:
+                            continue
+                        imagenes.append(full_img)
+            if len(imagenes) >= 12:
                 break
 
-        # Teléfonos detectados en la web (href="tel:" y patrones en texto)
+        # Teléfonos detectados en la web
         telefonos = []
-        tel_links = soup.find_all("a", href=re.compile(r"^tel:", re.I))
-        for t in tel_links:
+        for t in soup.find_all("a", href=re.compile(r"^tel:", re.I)):
             raw_tel = t["href"].replace("tel:", "").strip()
             if raw_tel and raw_tel not in telefonos:
                 telefonos.append(raw_tel)
 
         # Emails detectados en la web
         emails = []
-        mail_links = soup.find_all("a", href=re.compile(r"^mailto:", re.I))
-        for m in mail_links:
+        for m in soup.find_all("a", href=re.compile(r"^mailto:", re.I)):
             raw_mail = m["href"].replace("mailto:", "").split("?")[0].strip()
             if raw_mail and "@" in raw_mail and raw_mail not in emails:
                 emails.append(raw_mail)
 
-        # Si encontramos página de contacto, consultar teléfonos o emails adicionales
-        if sub_urls and (not telefonos or not emails):
+        # Eliminar scripts y elementos irrelevantes para extracción de texto
+        for tag in soup(["script", "style", "noscript", "svg", "iframe"]):
+            tag.decompose()
+
+        # Encabezados
+        encabezados = []
+        for h in soup.find_all(["h1", "h2", "h3", "h4"]):
+            txt = h.get_text(separator=" ", strip=True)
+            if txt and len(txt) > 3 and len(txt) < 120 and txt not in encabezados:
+                encabezados.append(txt)
+
+        # Párrafos informativos (soporta Elementor, Divi, WP Bakery, Webflow)
+        parrafos = []
+        for elem in soup.find_all(["p", "article", "section", "blockquote", "li"]):
+            txt = elem.get_text(separator=" ", strip=True)
+            if txt and len(txt) > 25 and len(txt) < 500 and txt not in parrafos:
+                if not any(ign in txt.lower() for ign in ["cookie", "política de privacidad", "aviso legal", "rights reserved", "todos los derechos"]):
+                    parrafos.append(txt)
+
+        # Si parrafos está vacío (debido a divs de constructores visuales), extraer stripped_strings
+        if len(parrafos) < 2:
+            for s in soup.stripped_strings:
+                txt = s.strip()
+                if len(txt) > 30 and len(txt) < 450 and txt not in parrafos:
+                    if not any(ign in txt.lower() for ign in ["cookie", "política", "aviso legal", "rights reserved"]):
+                        parrafos.append(txt)
+
+        # Detección de servicios y precios en el texto
+        servicios_detectados = []
+        for item in encabezados + parrafos:
+            if re.search(r'\d+\s*(?:€|euros?)\b', item, re.I) or any(k in item.lower() for k in ["corte", "color", "balayage", "peinado", "mechas", "alisado", "tratamiento", "keratina", "manicura", "facial", "barba"]):
+                if len(item) < 100 and item not in servicios_detectados:
+                    servicios_detectados.append(item)
+
+        # Consultar subpáginas encontradas
+        for sub_url in sub_urls[:2]:
             try:
-                sub_resp = requests.get(sub_urls[0], headers=headers, timeout=6, verify=False)
+                sub_resp = requests.get(sub_url, headers=headers, timeout=6, verify=False)
                 if sub_resp.status_code == 200:
                     sub_soup = BeautifulSoup(sub_resp.text, "html.parser")
                     for t in sub_soup.find_all("a", href=re.compile(r"^tel:", re.I)):
@@ -189,6 +236,13 @@ def extraer_contenido_web_existente(url_web: str) -> Dict[str, Any]:
                         raw = m["href"].replace("mailto:", "").split("?")[0].strip()
                         if raw and "@" in raw and raw not in emails:
                             emails.append(raw)
+                    for tag in sub_soup(["script", "style", "noscript", "svg", "iframe"]):
+                        tag.decompose()
+                    for elem in sub_soup.find_all(["p", "article", "section", "li", "h2", "h3"]):
+                        txt = elem.get_text(separator=" ", strip=True)
+                        if txt and len(txt) > 30 and len(txt) < 350 and txt not in parrafos:
+                            if not any(ign in txt.lower() for ign in ["cookie", "política", "aviso legal"]):
+                                parrafos.append(txt)
             except Exception:
                 pass
 
@@ -197,9 +251,10 @@ def extraer_contenido_web_existente(url_web: str) -> Dict[str, Any]:
             "url": url_web,
             "titulo": titulo,
             "meta_descripcion": meta_desc,
-            "encabezados": encabezados[:10],
-            "parrafos": parrafos[:8],
-            "imagenes": imagenes[:10],
+            "encabezados": encabezados[:15],
+            "parrafos": parrafos[:12],
+            "servicios_detectados": servicios_detectados[:10],
+            "imagenes": imagenes[:12],
             "telefonos": telefonos,
             "emails": emails,
             "color_marca": color_marca
@@ -272,6 +327,25 @@ def generar_servicios_inteligentes_categoria(
                 "descripcion": "Transformación y cobertura experta de piezas antiguas con estudio previo.",
                 "precio_o_duracion": "Valoración gratuita"
             })
+
+    elif any(k in text_corpus for k in ["peluquer", "hair", "salon", "peinado", "balayage", "colorist", "estilist", "mechas", "alisad"]):
+        servicios = [
+            {
+                "nombre": "Corte de Autor & Visagismo",
+                "descripcion": "Estudio morfológico personalizado, lavado sensorial con masaje capilar y secado styling.",
+                "precio_o_duracion": "Desde 38€ / 45 min"
+            },
+            {
+                "nombre": "Balayage Signature & Babylights",
+                "descripcion": "Degradados sutiles de alta fidelidad, matización gloss y protección molecular de fibra.",
+                "precio_o_duracion": "Desde 85€ / Asesoramiento previo"
+            },
+            {
+                "nombre": "Tratamiento de Keratina & Bótox Capilar",
+                "descripcion": "Sellado de cutícula, brillo espejo, eliminación total del encrespamiento y nutrición profunda.",
+                "precio_o_duracion": "Desde 65€ / 90 min"
+            }
+        ]
 
     elif any(k in text_corpus for k in ["barber", "fade", "afeitad", "barba"]):
         servicios = [
@@ -466,7 +540,7 @@ Publicaciones recientes en Instagram:
 
 Tu misión como Director de Diseño y Copywriting es decidir y estructurar el contenido en JSON:
 1. 'tema_predeterminado': Modo visual inicial ideal ("light" o "dark").
-2. 'arquetipo_diseno': Arquetipo visual más idóneo: "tattoo_2_0" (estudios de tatuajes de autor, fine line, micro-realismo, blackwork, piercing y arte corporal), "boulangerie_artisan" (panaderías de autor, forns de pa, obradores de masa madre, pastelerías y repostería artesanal), "urban_edge" (talleres, coches, motos, detailing, lavado, barberías, fitness/gimnasios), "luxury_glow" (estética, uñas, pestañas, alta cosmética, joyería, moda), "warm_artisan" (cafeterías, restaurantes, bistrós, gastrobares), "clinical_trust" (dentistas, clínicas médicas, fisioterapia, veterinarias), "craft_build" (reformas, construcción, fontanería, carpintería).
+2. 'arquetipo_diseno': Arquetipo visual más idóneo: "salon_etch" (peluquerías de autor, salones de belleza, estilistas, coloristas, balayage, estética capilar y centros de estética), "tattoo_2_0" (estudios de tatuajes de autor, fine line, micro-realismo, blackwork, piercing y arte corporal), "boulangerie_artisan" (panaderías de autor, forns de pa, obradores de masa madre, pastelerías y repostería artesanal), "urban_edge" (talleres, coches, motos, detailing, lavado, barberías, fitness/gimnasios), "luxury_glow" (estética, uñas, pestañas, alta cosmética, joyería, moda), "warm_artisan" (cafeterías, restaurantes, bistrós, gastrobares), "clinical_trust" (dentistas, clínicas médicas, fisioterapia, veterinarias), "craft_build" (reformas, construcción, fontanería, carpintería).
 3. 'subnicho_cultural': Identifica el concepto cultural, gastronómico o especialidad exacta (ej. "colombiano", "mexicano", "italiano", "japones", "hamburgueseria", "panaderia_artesanal", "cafeteria_especialidad", "taller_motos", "taller_coches", "clinica_dental", "barberia", "peluqueria", "estetica_unas", "tatuajes", "reformas", "general").
 4. 'badge_status': Una frase de estado con emoji para el header (ej. "⚡ BOX DE TALLER ACTIVO • CITA RÁPIDA", "✨ CITAS ABIERTAS • AGENDA ONLINE").
 5. 'hero_badge_pill': Frase corta para la píldora superior del Hero adaptada exactamente a la especialidad u origen del negocio (ej. "🇨🇴 SABOR AUTÉNTICO COLOMBIANO • HECHO CON AMOR", "🥖 MASA MADRE & FERMENTACIÓN LENTA").
@@ -505,21 +579,36 @@ Responde ÚNICAMENTE con el objeto JSON válido:
     servicios_base = generar_servicios_inteligentes_categoria(categoria, nombre, ciudad, ig_bio, ig_posts)
 
     cat_low = (categoria + " " + nombre).lower()
-    default_theme = "light" if any(k in cat_low for k in ["dental", "dentist", "clinic", "salud", "fisioterap", "uña", "belleza", "spa", "cafe", "panader"]) else "dark"
+    default_theme = "light" if any(k in cat_low for k in ["dental", "dentist", "clinic", "salud", "fisioterap", "uña", "belleza", "spa", "cafe", "panader", "peluquer"]) else "dark"
 
     subtitulo = ig_bio.strip() if ig_bio else f"Calidad, profesionalidad y trato cercano en {ciudad}. Descubre nuestros servicios y reserva tu cita en segundos."
+    sobre_nosotros = ig_bio or f"En {nombre} nos dedicamos con pasión a ofrecer la mejor experiencia a nuestros clientes en {ciudad}. Cuidamos cada detalle para garantizar los mejores resultados."
+
     if web_info:
         if web_info.get("meta_descripcion"):
             subtitulo = web_info["meta_descripcion"]
         elif web_info.get("parrafos"):
-            subtitulo = web_info["parrafos"][0][:140]
-        if web_info.get("encabezados"):
-            for idx, enc in enumerate(web_info["encabezados"][:3]):
+            subtitulo = web_info["parrafos"][0]
+        
+        # Párrafos de historia / sobre nosotros auténticos
+        if web_info.get("parrafos"):
+            valid_p = [p for p in web_info["parrafos"] if len(p) > 35]
+            if valid_p:
+                sobre_nosotros = " ".join(valid_p[:2])
+                
+        # Servicios reales detectados de la web existente
+        serv_reales = web_info.get("servicios_detectados", []) or web_info.get("encabezados", [])
+        if serv_reales:
+            for idx, serv_txt in enumerate(serv_reales[:3]):
                 if idx < len(servicios_base):
-                    servicios_base[idx]["nombre"] = enc
+                    m_price = re.search(r'(\d+[\d\.,]*\s*(?:€|euros?))', serv_txt, re.I)
+                    clean_name = re.sub(r'[\d\.,]+\s*(?:€|euros?)', '', serv_txt).strip(" :-|•\t\n")
+                    if clean_name and len(clean_name) > 3:
+                        servicios_base[idx]["nombre"] = clean_name.title()
+                    if m_price:
+                        servicios_base[idx]["precio_o_duracion"] = m_price.group(1).strip()
 
     subtitulo = re.sub(r'\n{3,}', '\n\n', subtitulo)
-    sobre_nosotros = (web_info.get("parrafos", [""])[0] if web_info and web_info.get("parrafos") else ig_bio) or f"En {nombre} nos dedicamos con pasión a ofrecer la mejor experiencia a nuestros clientes en {ciudad}. Cuidamos cada detalle para garantizar los mejores resultados."
 
     badge_status = f"• {categoria_clean.upper()} EN {ciudad.upper()}"
 
@@ -527,6 +616,8 @@ Responde ÚNICAMENTE con el objeto JSON válido:
         titular = f"{nombre} • Arte & Tatuajes de Autor"
     elif any(k in cat_low for k in ["panader", "forn", "bakery", "pasteler", "obrador"]):
         titular = f"{nombre} • Obrador Artesanal de Masa Madre"
+    elif any(k in cat_low for k in ["peluquer", "hair", "salon", "estilist"]):
+        titular = f"{nombre} • Alta Peluquería & Estética"
     else:
         titular = f"{nombre} en {ciudad}"
 
@@ -562,12 +653,15 @@ def generar_web_comercio(lead: Dict[str, Any], cliente_gemini=None, plantilla_se
     telefono = lead.get("telefono", "")
 
     # 1. Si el comercio tiene página web oficial detectada o en enlaces de internet, extraer su contenido real para el rediseño
-    web_existente = lead.get("web_detectada", "")
+    web_existente = lead.get("web_detectada", "") or lead.get("website", "") or lead.get("contact:website", "")
+    if web_existente and any(ign in web_existente.lower() for ign in DIRECTORY_DOMAINS):
+        web_existente = ""
+
     if not web_existente and lead.get("enlaces_internet"):
         for enl in lead["enlaces_internet"]:
-            if enl.get("tipo") == "web" and enl.get("url"):
+            if enl.get("tipo") in ["web", "oficial"] and enl.get("url"):
                 url_enl = enl["url"].lower()
-                if not any(ign in url_enl for ign in ["google.", "maps.", "boe.es", "wikipedia", "facebook.com", "instagram.com", "linkedin.com"]):
+                if not any(ign in url_enl for ign in DIRECTORY_DOMAINS):
                     web_existente = enl["url"]
                     lead["web_detectada"] = web_existente
                     lead["tiene_web"] = True
@@ -585,14 +679,27 @@ def generar_web_comercio(lead: Dict[str, Any], cliente_gemini=None, plantilla_se
     # 2. Extraer datos del perfil de Instagram
     ig_data = obtener_datos_completos_instagram(handle, nombre, categoria, ciudad)
 
-    # Incorporar imágenes de su web existente si están disponibles para enriquecer la galería
+    # Si no se encontró web en lead pero el perfil de Instagram tiene una web propia
+    if (not web_existente or any(ign in web_existente.lower() for ign in DIRECTORY_DOMAINS)):
+        ig_web = ig_data.get("sitio_web") or ig_data.get("external_url")
+        if ig_web and ig_web.startswith("http") and not any(ign in ig_web.lower() for ign in DIRECTORY_DOMAINS):
+            web_existente = ig_web
+            lead["web_detectada"] = web_existente
+            lead["tiene_web"] = True
+            web_info = extraer_contenido_web_existente(web_existente)
+            if not telefono and web_info.get("telefonos"):
+                telefono = web_info["telefonos"][0]
+                lead["telefono"] = telefono
+            if not lead.get("email") and web_info.get("emails"):
+                lead["email"] = web_info["emails"][0]
+
+    # Incorporar y priorizar imágenes de su web existente
     if web_info.get("imagenes"):
-        for img_url in web_info["imagenes"]:
-            if not any(p.get("image_url") == img_url for p in ig_data.get("posts", [])):
-                ig_data.setdefault("posts", []).append({
-                    "image_url": img_url,
-                    "caption": web_info.get("titulo", "Servicio oficial")
-                })
+        real_web_posts = [{"image_url": u, "caption": web_info.get("titulo", f"{nombre} - Servicio Oficial")} for u in web_info["imagenes"]]
+        ig_data["posts"] = real_web_posts + [p for p in ig_data.get("posts", []) if p.get("image_url") not in web_info["imagenes"]]
+        if not ig_data.get("avatar_url") and len(web_info["imagenes"]) > 0:
+            ig_data["avatar_url"] = web_info["imagenes"][0]
+            ig_data["avatar"] = web_info["imagenes"][0]
 
     # 3. Estructurar contenidos, copy persuasivo y decisiones de diseño con Gemini
     web_content = estructurar_contenido_con_gemini(
@@ -795,7 +902,8 @@ def generar_web_comercio(lead: Dict[str, Any], cliente_gemini=None, plantilla_se
         },
         ig=ig_data,
         design=design_tokens,
-        web=web_content
+        web=web_content,
+        web_info=web_info
     )
 
     print(f"[Web Generator] ✓ Demo generada en memoria para '{nombre}' (slug: {slug}, plantilla: {design_tokens.get('template_file')})")
@@ -810,6 +918,7 @@ def generar_web_comercio(lead: Dict[str, Any], cliente_gemini=None, plantilla_se
         "extraccion_aviso": ig_data.get("aviso_extraccion", ""),
         "exito_real": ig_data.get("exito_real", False),
         "sitio_web": ig_data.get("sitio_web", ""),
-        "external_url": ig_data.get("external_url", "")
+        "external_url": ig_data.get("external_url", ""),
+        "web_info": web_info
     }
 
