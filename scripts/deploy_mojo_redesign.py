@@ -207,17 +207,6 @@ html_content = """<!DOCTYPE html>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- Top Badge -->
-      <div class="flex flex-wrap items-center gap-2 mb-6">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-mojo-darkCard border border-mojo-darkBorder text-mojo-powder font-spacemono text-xs font-semibold">
-          <span class="w-2 h-2 rounded-full bg-mojo-red animate-ping"></span>
-          <span data-i18n="hero_badge">✦ PERRUQUERIA D'AUTOR & UNISEX · POBLENOU</span>
-        </div>
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-neutral-300 font-spacemono text-xs">
-          <span>🎬 25+ ANYS D'OFICI EN CINEMA I MODA</span>
-        </div>
-      </div>
-
       <!-- Main Grid Hero -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         
