@@ -8588,7 +8588,7 @@
   {
     "osm_id": "638346207",
     "nombre": "Perruqueria Nuri",
-    "categoria": "peluqueria (shop:hairdresser)",
+    "categoria": "peluqueria canina y felina",
     "direccion": "Avinguda d'Àfrica",
     "ciudad": "Badalona",
     "provincia": "Barcelona",
@@ -8653,12 +8653,12 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Perruqueria+Nuri+Badalona",
     "gemini_verificado": true,
     "gemini_razon": "Validación automática heurística",
-    "mensaje_dm": "¡Hola equipo de Perruqueria Nuri!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://mapcarta.com/N638346207), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://dga80.github.io/instaleads/perruqueria-nuri-badalona/\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Perruqueria Nuri!\n\nOs escribí hace un par de días con la web demo interactiva que preparé para vosotros con el contenido de vuestra página: https://dga80.github.io/instaleads/perruqueria-nuri-badalona/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_dm": "¡Hola equipo de Perruqueria Nuri!\n\nSoy Daniel García. He visto vuestro gran trabajo con las mascotas en Instagram (@lanuripelu) y os he preparado una web demo interactiva adaptada 100% a peluquería canina y felina como propuesta de rediseño mobile-first:\n\n👉 https://dga80.github.io/instaleads/perruqueria-nuri-badalona/\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Perruqueria Nuri!\n\nOs escribí hace un par de días con la web demo interactiva de peluquería canina y felina que preparé para vosotros: https://dga80.github.io/instaleads/perruqueria-nuri-badalona/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
     "estado": "Web Generada",
     "demo_slug": "perruqueria-nuri-badalona",
     "demo_url": "https://dga80.github.io/instaleads/perruqueria-nuri-badalona/",
-    "demo_vibe": "Salon Etch (8ª Plantilla: Peluquerías de Autor, Salones de Belleza & Estética)",
+    "demo_vibe": "Peluquería Canina & Felina (Salon Etch Adaptado)",
     "campana_id": "camp_1790624239",
     "campana_nombre": "Peluqueria · barcelona",
     "campana_ids": [
@@ -9202,6 +9202,14 @@
     "instagram_handle": "@cebadobori",
     "enlaces_internet": [
       {
+        "tipo": "web",
+        "label": "Web Oficial (Instagram)",
+        "icono": "🌐",
+        "url": "http://www.cebado.es",
+        "titulo": "Web Oficial de Cebado",
+        "snippet": "Página web oficial detectada en su perfil verificado de Instagram"
+      },
+      {
         "tipo": "instagram",
         "label": "Instagram (@cebadobori)",
         "icono": "📸",
@@ -9250,22 +9258,29 @@
         "snippet": "Cebado Barcelona está ubicado en el centro comercial de L’illa Diagonal de Barcelona. Este local es una peluquería femen"
       }
     ],
-    "web_detectada": "https://www.cebado.es/centros-cebado/",
+    "web_detectada": "http://www.cebado.es",
     "google_search_url": "https://www.google.com/search?q=Cebado+Barcelona",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Cebado+Barcelona",
     "gemini_verificado": true,
     "gemini_razon": "Comercio local con web oficial activa (https://www.cebado.es/centros-cebado/)",
-    "mensaje_dm": "¡Hola equipo de Cebado!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://www.cebado.es/centros-cebado/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Cebado!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con el contenido de vuestra web actual: https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Tiene Web",
-    "demo_slug": "",
-    "demo_url": "",
-    "demo_vibe": "",
+    "mensaje_dm": "¡Hola equipo de Cebado!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (http://www.cebado.es), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://dga80.github.io/instaleads/cebado-barcelona/\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Cebado!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestra propia página: https://dga80.github.io/instaleads/cebado-barcelona/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Web Generada",
+    "demo_slug": "cebado-barcelona",
+    "demo_url": "https://dga80.github.io/instaleads/cebado-barcelona/",
+    "demo_vibe": "Salon Etch (8ª Plantilla: Peluquerías de Autor, Salones de Belleza & Estética)",
     "campana_id": "camp_1790624239",
     "campana_nombre": "Peluqueria · barcelona",
     "campana_ids": [
       "camp_1790624239"
-    ]
+    ],
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/cebado-barcelona/",
+    "demo_url_publica": "https://dga80.github.io/instaleads/cebado-barcelona/",
+    "demo_fecha_creacion": "28/09/2026 22:08",
+    "demo_fecha_ts": 1790626098,
+    "extraccion_fuente": "apify",
+    "extraccion_aviso": "",
+    "extraccion_exitosa": true
   },
   {
     "osm_id": "1918970028",
@@ -9699,17 +9714,24 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Cazcarra+Barcelona",
     "gemini_verificado": true,
     "gemini_razon": "Comercio local con web oficial activa (https://cazcarra.com/)",
-    "mensaje_dm": "¡Hola equipo de Cazcarra!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://cazcarra.com/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Cazcarra!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con contenido de vuestra web: https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Tiene Web",
-    "demo_slug": "",
-    "demo_url": "",
-    "demo_vibe": "",
+    "mensaje_dm": "¡Hola equipo de Cazcarra!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://cazcarra.com/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://dga80.github.io/instaleads/cazcarra-barcelona/\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Cazcarra!\n\nOs escribí hace un par de días con la web demo interactiva que preparé para vosotros con el contenido de vuestra página: https://dga80.github.io/instaleads/cazcarra-barcelona/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Web Generada",
+    "demo_slug": "cazcarra-barcelona",
+    "demo_url": "https://dga80.github.io/instaleads/cazcarra-barcelona/",
+    "demo_vibe": "Salon Etch (8ª Plantilla: Peluquerías de Autor, Salones de Belleza & Estética)",
     "campana_id": "camp_1790624239",
     "campana_nombre": "Peluqueria · barcelona",
     "campana_ids": [
       "camp_1790624239"
-    ]
+    ],
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/cazcarra-barcelona/",
+    "demo_url_publica": "https://dga80.github.io/instaleads/cazcarra-barcelona/",
+    "demo_fecha_creacion": "28/09/2026 22:08",
+    "demo_fecha_ts": 1790626136,
+    "extraccion_fuente": "apify",
+    "extraccion_aviso": "",
+    "extraccion_exitosa": true
   },
   {
     "osm_id": "2622087648",
@@ -9876,7 +9898,7 @@
     "gemini_razon": "Comercio local con web oficial activa (https://twentyonecycling.cc/)",
     "mensaje_dm": "¡Hola equipo de Twenty One!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://twentyonecycling.cc/), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
     "mensaje_seguimiento": "¡Hola de nuevo equipo de Twenty One!\n\nOs escribí hace un par de días con la web demo interactiva que preparé con el contenido de vuestra web: https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Tiene Web",
+    "estado": "No Generar",
     "demo_slug": "",
     "demo_url": "",
     "demo_vibe": "",
@@ -9900,6 +9922,14 @@
     "instagram_url": "https://www.instagram.com/raffelpagesoficial/",
     "instagram_handle": "@raffelpagesoficial",
     "enlaces_internet": [
+      {
+        "tipo": "web",
+        "label": "Web Oficial (Instagram)",
+        "icono": "🌐",
+        "url": "http://www.raffelpages.com",
+        "titulo": "Web Oficial de Raffel Pages",
+        "snippet": "Página web oficial detectada en su perfil verificado de Instagram"
+      },
       {
         "tipo": "instagram",
         "label": "Instagram (@raffelpagesoficial)",
@@ -9949,21 +9979,28 @@
         "snippet": "If you are waiting for a haircut or you want to give yourself a new look, Raffel Pages Barcelona hair salon in L’illa Di"
       }
     ],
-    "web_detectada": "https://raffelpages.com/es",
+    "web_detectada": "http://www.raffelpages.com",
     "google_search_url": "https://www.google.com/search?q=Raffel+Pages+Barcelona",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Raffel+Pages+Barcelona",
     "gemini_verificado": true,
     "gemini_razon": "Comercio local con web oficial activa (https://raffelpages.com/es)",
-    "mensaje_dm": "¡Hola equipo de Raffel Pages!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (https://raffelpages.com/es), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://...\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "mensaje_seguimiento": "¡Hola de nuevo equipo de Raffel Pages!\n\nOs escribí hace un par de días con la web demo interactiva que preparé como propuesta de rediseño a partir de vuestra web: https://...\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
-    "estado": "Tiene Web",
-    "demo_slug": "",
-    "demo_url": "",
-    "demo_vibe": "",
+    "mensaje_dm": "¡Hola equipo de Raffel Pages!\n\nSoy Daniel García. He visto vuestro trabajo y vuestra web actual (http://www.raffelpages.com), y os he preparado una web demo interactiva con el contenido de vuestra propia página como propuesta de rediseño y modernización mobile-first:\n\n👉 https://dga80.github.io/instaleads/raffel-pages-barcelona/\n*(Enlace 100% seguro para abrirlo en el navegador sin descargas ni registros)*.\n\n¿Qué os parece la propuesta? Si os encaja, podemos comentarlo 2 minutos sin compromiso.\n\nUn saludo,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "mensaje_seguimiento": "¡Hola de nuevo equipo de Raffel Pages!\n\nOs escribí hace un par de días con la web demo interactiva que preparé para vosotros con el contenido de vuestra página: https://dga80.github.io/instaleads/raffel-pages-barcelona/\n\nOs lo comparto de nuevo por si se os pasó y queréis revisarlo cómodamente desde el móvil.\n\n¿Tenéis 2 minutos esta semana para comentarlo sin compromiso?\n\nUn saludo cordial,\nDaniel García | Diseño UX/UI & Desarrollo Frontend (Barcelona)\n🌐 https://dga-creative.netlify.app/",
+    "estado": "Web Generada",
+    "demo_slug": "raffel-pages-barcelona",
+    "demo_url": "https://dga80.github.io/instaleads/raffel-pages-barcelona/",
+    "demo_vibe": "Salon Etch (8ª Plantilla: Peluquerías de Autor, Salones de Belleza & Estética)",
     "campana_id": "camp_1790624239",
     "campana_nombre": "Peluqueria · barcelona",
     "campana_ids": [
       "camp_1790624239"
-    ]
+    ],
+    "demo_url_absoluta": "https://dga80.github.io/instaleads/raffel-pages-barcelona/",
+    "demo_url_publica": "https://dga80.github.io/instaleads/raffel-pages-barcelona/",
+    "demo_fecha_creacion": "28/09/2026 22:11",
+    "demo_fecha_ts": 1790626273,
+    "extraccion_fuente": "apify",
+    "extraccion_aviso": "",
+    "extraccion_exitosa": true
   }
 ]
