@@ -98,6 +98,24 @@ html_content = """<!DOCTYPE html>
     .vinyl-grooves {
       background: radial-gradient(circle, #1a1a1f 15%, #0d0e12 16%, #1a1a1f 30%, #0d0e12 31%, #1a1a1f 45%, #0d0e12 46%, #1a1a1f 60%, #0d0e12 61%, #1a1a1f 75%, #0a0b0e 100%);
     }
+    @keyframes kenburns {
+      0% { transform: scale(1.02) translate(0%, 0%); }
+      50% { transform: scale(1.10) translate(-1.5%, -1%); }
+      100% { transform: scale(1.02) translate(0%, 0%); }
+    }
+    @keyframes kenburnsReverse {
+      0% { transform: scale(1.10) translate(0%, 0%); }
+      50% { transform: scale(1.02) translate(1.5%, 1%); }
+      100% { transform: scale(1.10) translate(0%, 0%); }
+    }
+    .animate-kenburns {
+      animation: kenburns 22s ease-in-out infinite alternate;
+      will-change: transform;
+    }
+    .animate-kenburns-reverse {
+      animation: kenburnsReverse 26s ease-in-out infinite alternate;
+      will-change: transform;
+    }
     /* Custom scrollbar */
     ::-webkit-scrollbar {
       width: 6px;
@@ -198,14 +216,25 @@ html_content = """<!DOCTYPE html>
     </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <section id="inici" class="relative pt-6 pb-16 sm:pb-24 lg:pt-10 overflow-hidden">
+  <!-- HERO SECTION WITH CINEMATIC MOVING BACKGROUND -->
+  <section id="inici" class="relative min-h-[82vh] sm:min-h-[86vh] flex items-center pt-8 pb-16 sm:pb-24 lg:pt-12 overflow-hidden">
     
+    <!-- Moving Background Image with Ken Burns Effect -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none -z-20">
+      <img src="https://i0.wp.com/mojoperruqueria.com/wp-content/uploads/2022/02/0001-2-scaled.jpg?fit=2560%2C1200&ssl=1" 
+           alt="Mojo Perruqueria Interior Panoràmica" 
+           class="w-full h-full object-cover object-center animate-kenburns origin-center opacity-30 brightness-75 contrast-125 scale-105" />
+    </div>
+
+    <!-- Multi-Layer Dark Gradient Overlay for 100% Readability -->
+    <div class="absolute inset-0 bg-gradient-to-r from-mojo-black via-mojo-black/95 to-mojo-black/80 -z-10"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-mojo-black via-transparent to-mojo-black/85 -z-10"></div>
+
     <!-- Atmospheric Background Blur Glows -->
     <div class="absolute top-10 left-1/4 w-96 h-96 bg-mojo-powder/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
     <div class="absolute bottom-10 right-10 w-80 h-80 bg-mojo-red/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
       
       <!-- Main Grid Hero -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -387,7 +416,16 @@ html_content = """<!DOCTYPE html>
 
   <!-- FRONT MAN SPOTLIGHT: ÀLEX SANS -->
   <section id="alex-sans" class="py-16 sm:py-24 bg-mojo-black relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Moving Ambient Background -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none -z-20">
+      <img src="https://i0.wp.com/mojoperruqueria.com/wp-content/uploads/2022/02/MOJO_WEB_6-1.jpg?fit=1920%2C900&ssl=1" 
+           alt="Mojo Perruqueria Ambient" 
+           class="w-full h-full object-cover animate-kenburns-reverse opacity-20 brightness-50" />
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-b from-mojo-black via-mojo-black/90 to-mojo-black -z-10"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
         
