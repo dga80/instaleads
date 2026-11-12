@@ -24,9 +24,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=21">
+  <link rel="stylesheet" href="styles.css?v=22">
 </head>
-<body data-lang="ca" data-theme="option-a">
+<body data-lang="ca">
 
   <!-- Top Announcement Bar -->
   <div class="top-bar">
@@ -43,18 +43,6 @@
         </a>
       </div>
       <div class="top-bar-right">
-        <!-- Theme Comparison Switcher -->
-        <div class="theme-switcher-pill" role="radiogroup" aria-label="Selector de disseny">
-          <span class="theme-switcher-label">Disseny:</span>
-          <button type="button" class="theme-toggle-btn active" data-set-theme="option-a" aria-pressed="true" title="Opció A: Fons Clar">
-            <span class="theme-dot dot-light"></span>
-            <span class="theme-btn-label">Opció A · Clar</span>
-          </button>
-          <button type="button" class="theme-toggle-btn" data-set-theme="option-b" aria-pressed="false" title="Opció B: Fons Vi Fosc">
-            <span class="theme-dot dot-wine"></span>
-            <span class="theme-btn-label">Opció B · Vi Fosc</span>
-          </button>
-        </div>
         <div class="lang-switcher" aria-label="Canvi d'idioma">
           <button class="lang-btn active" data-switch-lang="ca">CAT</button>
           <span class="lang-divider">/</span>
@@ -71,8 +59,7 @@
     <div class="container header-container">
       <a href="#" class="brand-link" aria-label="ARS Advocats inici">
         <div class="nav-logo-wrap">
-          <img src="assets/images/logo_pure_white.png" alt="ARS Advocats i Assessors" class="brand-logo logo-dark-mode">
-          <img src="assets/images/logo.png" alt="ARS Advocats i Assessors" class="brand-logo logo-light-mode">
+          <img src="assets/images/logo.png" alt="ARS Advocats i Assessors" class="brand-logo">
         </div>
       </a>
 
@@ -85,18 +72,7 @@
         <a href="#contacte" class="nav-item" data-i18n="nav_contact">Contacte</a>
       </nav>
 
-      <div class="header-actions">
-        <div class="header-theme-toggle" aria-label="Canviador ràpid de disseny">
-          <button type="button" class="header-theme-btn active" data-set-theme="option-a" title="Opció A (Clar)">
-            <span class="theme-dot dot-light"></span>
-            <span>A · Clar</span>
-          </button>
-          <button type="button" class="header-theme-btn" data-set-theme="option-b" title="Opció B (Vi Fosc)">
-            <span class="theme-dot dot-wine"></span>
-            <span>B · Vi</span>
-          </button>
-        </div>
-        <a href="#contacte" class="btn btn-primary btn-sm" data-i18n="nav_cta">Demanar Cita</a>
+      <div class="header-actions">        <a href="#contacte" class="btn btn-primary btn-sm" data-i18n="nav_cta">Demanar Cita</a>
         <button class="mobile-toggle" id="mobileToggle" aria-label="Menú de navegació" aria-expanded="false">
           <span></span>
           <span></span>
@@ -120,21 +96,7 @@
             <p><strong>ARS Advocats i Assessors</strong></p>
             <p>C/ Barcelona, 7 - 1r, 08401 Granollers</p>
             <p><a href="tel:938795876">Tel. 938 795 876</a></p>
-          </div>
-          <div class="mobile-theme-switch">
-            <p class="mobile-theme-title">Estil visual:</p>
-            <div class="mobile-theme-btns">
-              <button type="button" class="mobile-theme-btn active" data-set-theme="option-a">
-                <span class="theme-dot dot-light"></span>
-                <span>Opció A · Clar</span>
-              </button>
-              <button type="button" class="mobile-theme-btn" data-set-theme="option-b">
-                <span class="theme-dot dot-wine"></span>
-                <span>Opció B · Vi Fosc</span>
-              </button>
-            </div>
-          </div>
-          <div class="mobile-lang">
+          </div>          <div class="mobile-lang">
             <button class="lang-btn active" data-switch-lang="ca">Català</button>
             <button class="lang-btn" data-switch-lang="es">Castellano</button>
             <button class="lang-btn" data-switch-lang="en">English</button>
@@ -197,8 +159,7 @@
         <div class="hero-emblem-stage" id="heroEmblemStage">
           <div class="emblem-card-inner">
             <div class="hero-logo-wrap">
-              <img src="assets/images/logo_pure_white.png" alt="ARS Advocats i Assessors Logo" class="hero-grand-logo logo-dark-mode">
-              <img src="assets/images/logo.png" alt="ARS Advocats i Assessors Logo" class="hero-grand-logo logo-light-mode">
+              <img src="assets/images/logo.png" alt="ARS Advocats i Assessors Logo" class="hero-grand-logo">
             </div>
           </div>
         </div>
@@ -769,9 +730,8 @@
       <div class="footer-top">
         <div class="footer-brand">
           <a href="#" class="footer-logo-link" aria-label="ARS Advocats inici">
-            <div class="interactive-logo-wrap footer-logo-wrap">
-              <img src="assets/images/logo_pure_white.png" alt="ARS Advocats" class="footer-logo logo-dark-mode">
-              <img src="assets/images/logo.png" alt="ARS Advocats" class="footer-logo logo-light-mode">
+            <div class="footer-logo-wrap">
+              <img src="assets/images/logo.png" alt="ARS Advocats" class="footer-logo">
             </div>
           </a>
           <p class="footer-bio" data-i18n="footer_bio">
@@ -854,24 +814,5 @@
 
   <!-- Main JavaScript File -->
   <script src="app.js?v=16"></script>
-  <!-- Floating Theme Switcher for easy comparison while scrolling -->
-  <aside class="floating-theme-bar" id="floatingThemeBar" aria-label="Canviador ràpid de disseny">
-    <div class="floating-theme-card">
-      <div class="floating-theme-head">
-        <span class="palette-glyph">🎨</span>
-        <span>Disseny</span>
-      </div>
-      <div class="floating-theme-btns">
-        <button type="button" class="float-theme-btn active" data-set-theme="option-a" title="Activar Opció A (Clar)">
-          <span class="theme-dot dot-light"></span>
-          <span>A · Clar</span>
-        </button>
-        <button type="button" class="float-theme-btn" data-set-theme="option-b" title="Activar Opció B (Vi Fosc)">
-          <span class="theme-dot dot-wine"></span>
-          <span>B · Vi Fosc</span>
-        </button>
-      </div>
-    </div>
-  </aside>
 </body>
 </html>
