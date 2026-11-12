@@ -587,6 +587,44 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initial apply immediately without transition
   updateTexts(currentLang);
 
+  // ==========================================
+  // Visual Theme Engine (Option A vs Option B)
+  // Default: Option B (Rojo Oscuro Vino / Deep Wine Red)
+  // ==========================================
+  let currentTheme = localStorage.getItem("ars_theme_preview") || "option-b";
+
+  function setTheme(theme) {
+    currentTheme = theme;
+    localStorage.setItem("ars_theme_preview", theme);
+    document.body.setAttribute("data-theme", theme);
+
+    // Update all theme buttons across the page
+    document.querySelectorAll("[data-set-theme]").forEach(btn => {
+      const btnTheme = btn.getAttribute("data-set-theme");
+      if (btnTheme === theme) {
+        btn.classList.add("active");
+        btn.setAttribute("aria-pressed", "true");
+      } else {
+        btn.classList.remove("active");
+        btn.setAttribute("aria-pressed", "false");
+      }
+    });
+  }
+
+  // Bind click event to all theme buttons
+  document.querySelectorAll("[data-set-theme]").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const targetTheme = btn.getAttribute("data-set-theme");
+      if (targetTheme) {
+        setTheme(targetTheme);
+      }
+    });
+  });
+
+  // Initialize theme
+  setTheme(currentTheme);
+
   // Mobile menu drawer
   const mobileToggle = document.getElementById('mobileToggle');
   const mobileMenu = document.getElementById('mobileMenu');
