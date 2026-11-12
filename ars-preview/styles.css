@@ -651,9 +651,9 @@ body.lang-switching [data-i18n] {
 
 .presentation-grid {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 70px;
-  align-items: center;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 60px;
+  align-items: start;
 }
 
 .presentation-images {
