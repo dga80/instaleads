@@ -2177,3 +2177,82 @@ body[data-theme="option-a"] .mobile-theme-switch {
     display: none;
   }
 }
+
+/* ==========================================================================
+   Option A (Clar) - Maximum Visibility & Contrast Fixes
+   ========================================================================== */
+body[data-theme="option-a"] .hero-badge {
+  background: rgba(193, 12, 19, 0.08) !important;
+  border: 1.5px solid rgba(193, 12, 19, 0.35) !important;
+  color: #c10c13 !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 10px rgba(193, 12, 19, 0.08);
+}
+
+body[data-theme="option-a"] .badge-dot {
+  background-color: #c10c13 !important;
+  box-shadow: 0 0 10px rgba(193, 12, 19, 0.5) !important;
+}
+
+body[data-theme="option-a"] .stat-num {
+  color: #c10c13 !important;
+  font-weight: 700 !important;
+}
+
+body[data-theme="option-a"] .team-role-badge {
+  color: #c10c13 !important;
+}
+
+body[data-theme="option-a"] .team-pill {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid rgba(193, 12, 19, 0.35) !important;
+  color: #c10c13 !important;
+}
+
+body[data-theme="option-a"] .honor-badge {
+  background: rgba(193, 12, 19, 0.06) !important;
+  border: 1px solid rgba(193, 12, 19, 0.22) !important;
+  color: #1c1314 !important;
+}
+
+body[data-theme="option-a"] .honor-badge svg {
+  color: #c10c13 !important;
+}
+
+body[data-theme="option-a"] .quote-author {
+  color: #c10c13 !important;
+}
+
+body[data-theme="option-a"] .quote-mark {
+  color: rgba(193, 12, 19, 0.25) !important;
+}
+
+body[data-theme="option-a"] .feature-icon {
+  background: rgba(193, 12, 19, 0.08) !important;
+  color: #c10c13 !important;
+}
+
+body[data-theme="option-a"] .value-icon {
+  color: #c10c13 !important;
+  opacity: 1 !important;
+}
+
+body[data-theme="option-a"] .detail-icon {
+  background: rgba(193, 12, 19, 0.08) !important;
+  color: #c10c13 !important;
+  border: 1px solid rgba(193, 12, 19, 0.2) !important;
+}
+
+body[data-theme="option-a"] .contact-detail-card strong {
+  color: #c10c13 !important;
+}
+
+body[data-theme="option-a"] .f-badge {
+  background: #ffffff !important;
+  border: 1px solid rgba(193, 12, 19, 0.25) !important;
+  color: #c10c13 !important;
+}
+
+body[data-theme="option-a"] .modal-body h4 {
+  color: #c10c13 !important;
+}

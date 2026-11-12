@@ -591,7 +591,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Visual Theme Engine (Option A vs Option B)
   // Default: Option B (Rojo Oscuro Vino / Deep Wine Red)
   // ==========================================
-  let currentTheme = localStorage.getItem("ars_theme_preview") || "option-b";
+  let currentTheme = localStorage.getItem("ars_theme_preview") || "option-a";
 
   function setTheme(theme) {
     currentTheme = theme;

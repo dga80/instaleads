@@ -24,9 +24,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=20">
+  <link rel="stylesheet" href="styles.css?v=21">
 </head>
-<body data-lang="ca" data-theme="option-b">
+<body data-lang="ca" data-theme="option-a">
 
   <!-- Top Announcement Bar -->
   <div class="top-bar">
@@ -46,11 +46,11 @@
         <!-- Theme Comparison Switcher -->
         <div class="theme-switcher-pill" role="radiogroup" aria-label="Selector de disseny">
           <span class="theme-switcher-label">Disseny:</span>
-          <button type="button" class="theme-toggle-btn" data-set-theme="option-a" aria-pressed="false" title="Opció A: Fons Clar">
+          <button type="button" class="theme-toggle-btn active" data-set-theme="option-a" aria-pressed="true" title="Opció A: Fons Clar">
             <span class="theme-dot dot-light"></span>
             <span class="theme-btn-label">Opció A · Clar</span>
           </button>
-          <button type="button" class="theme-toggle-btn active" data-set-theme="option-b" aria-pressed="true" title="Opció B: Fons Vi Fosc">
+          <button type="button" class="theme-toggle-btn" data-set-theme="option-b" aria-pressed="false" title="Opció B: Fons Vi Fosc">
             <span class="theme-dot dot-wine"></span>
             <span class="theme-btn-label">Opció B · Vi Fosc</span>
           </button>
@@ -87,11 +87,11 @@
 
       <div class="header-actions">
         <div class="header-theme-toggle" aria-label="Canviador ràpid de disseny">
-          <button type="button" class="header-theme-btn" data-set-theme="option-a" title="Opció A (Clar)">
+          <button type="button" class="header-theme-btn active" data-set-theme="option-a" title="Opció A (Clar)">
             <span class="theme-dot dot-light"></span>
             <span>A · Clar</span>
           </button>
-          <button type="button" class="header-theme-btn active" data-set-theme="option-b" title="Opció B (Vi Fosc)">
+          <button type="button" class="header-theme-btn" data-set-theme="option-b" title="Opció B (Vi Fosc)">
             <span class="theme-dot dot-wine"></span>
             <span>B · Vi</span>
           </button>
@@ -124,11 +124,11 @@
           <div class="mobile-theme-switch">
             <p class="mobile-theme-title">Estil visual:</p>
             <div class="mobile-theme-btns">
-              <button type="button" class="mobile-theme-btn" data-set-theme="option-a">
+              <button type="button" class="mobile-theme-btn active" data-set-theme="option-a">
                 <span class="theme-dot dot-light"></span>
                 <span>Opció A · Clar</span>
               </button>
-              <button type="button" class="mobile-theme-btn active" data-set-theme="option-b">
+              <button type="button" class="mobile-theme-btn" data-set-theme="option-b">
                 <span class="theme-dot dot-wine"></span>
                 <span>Opció B · Vi Fosc</span>
               </button>
@@ -862,11 +862,11 @@
         <span>Disseny</span>
       </div>
       <div class="floating-theme-btns">
-        <button type="button" class="float-theme-btn" data-set-theme="option-a" title="Activar Opció A (Clar)">
+        <button type="button" class="float-theme-btn active" data-set-theme="option-a" title="Activar Opció A (Clar)">
           <span class="theme-dot dot-light"></span>
           <span>A · Clar</span>
         </button>
-        <button type="button" class="float-theme-btn active" data-set-theme="option-b" title="Activar Opció B (Vi Fosc)">
+        <button type="button" class="float-theme-btn" data-set-theme="option-b" title="Activar Opció B (Vi Fosc)">
           <span class="theme-dot dot-wine"></span>
           <span>B · Vi Fosc</span>
         </button>
