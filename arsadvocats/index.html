@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=23">
+  <link rel="stylesheet" href="styles.css?v=24">
 </head>
 <body data-lang="ca">
 
@@ -238,7 +238,7 @@
           <button class="pill" data-filter="civil" data-i18n="filter_civil">Civil & Família</button>
           <button class="pill" data-filter="empresa" data-i18n="filter_business">Mercantil & Empresa</button>
           <button class="pill" data-filter="penal" data-i18n="filter_criminal">Penal</button>
-          <button class="pill" data-filter="laboral" data-i18n="filter_labor">Laboral & Danys</button>
+          <button class="pill" data-filter="laboral" data-i18n="filter_labor">Laboral & Seguretat Social</button>
           <button class="pill" data-filter="immobiliari" data-i18n="filter_property">Immobiliari & Financer</button>
         </div>
       </div>
@@ -374,8 +374,8 @@
           </div>
         </div>
 
-        <!-- 11: Accidents de Trànsit -->
-        <div class="spec-card reveal delay-1" data-category="laboral">
+        <!-- 11: Accidents de Trànsit (Civil & Família) -->
+        <div class="spec-card reveal delay-1" data-category="civil">
           <div class="spec-icon-wrap">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
           </div>
@@ -669,6 +669,7 @@
                 <select id="formArea" name="area">
                   <option value="" data-i18n="opt_select">-- Selecciona una especialitat --</option>
                   <option value="familia" data-i18n="opt_fam">Dret Matrimonial i Família</option>
+                  <option value="accidents" data-i18n="opt_acc">Accidents de Trànsit & Indemnitzacions</option>
                   <option value="herencies" data-i18n="opt_her">Successions, Testaments i Herències</option>
                   <option value="penal" data-i18n="opt_pen">Dret Penal i Defensa Judicial</option>
                   <option value="mercantil" data-i18n="opt_mer">Mercantil, Societari & Compliance</option>
@@ -813,6 +814,6 @@
   </a>
 
   <!-- Main JavaScript File -->
-  <script src="app.js?v=16"></script>
+  <script src="app.js?v=17"></script>
 </body>
 </html>
