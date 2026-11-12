@@ -691,6 +691,7 @@ body.lang-switching [data-i18n] {
   width: 100%;
   height: 480px;
   object-fit: cover;
+  object-position: center 25%;
   display: block;
   filter: grayscale(100%) contrast(1.05) brightness(0.96);
   opacity: 0.95;
@@ -961,87 +962,6 @@ body.lang-switching [data-i18n] {
   background-color: var(--bg-darker);
   border-top: 1px solid var(--border-subtle);
   border-bottom: 1px solid var(--border-subtle);
-}
-
-/* Team Group Showcase */
-.team-group-showcase {
-  margin-bottom: 48px;
-}
-
-.team-group-frame {
-  position: relative;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  border: 1px solid var(--border-card);
-  box-shadow: 0 8px 28px rgba(40, 10, 15, 0.08);
-  background: var(--bg-surface);
-}
-
-.team-group-img {
-  width: 100%;
-  height: 440px;
-  object-fit: cover;
-  object-position: center 25%;
-  display: block;
-  filter: contrast(1.02);
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.team-group-frame:hover .team-group-img {
-  transform: scale(1.015);
-}
-
-.team-group-caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 40px 36px 28px;
-  background: linear-gradient(180deg, transparent 0%, rgba(24, 10, 12, 0.68) 40%, rgba(20, 8, 10, 0.94) 100%);
-  color: #ffffff;
-}
-
-.team-group-tag {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #dda09f;
-  margin-bottom: 6px;
-}
-
-.team-group-heading {
-  font-family: var(--font-serif);
-  font-size: 1.75rem;
-  font-weight: 600;
-  line-height: 1.25;
-  color: #ffffff;
-  margin-bottom: 8px;
-}
-
-.team-group-text {
-  font-size: 0.9375rem;
-  color: #e8dede;
-  max-width: 840px;
-  line-height: 1.55;
-  margin: 0;
-}
-
-@media (max-width: 860px) {
-  .team-group-img {
-    height: 320px;
-    object-position: center 20%;
-  }
-  .team-group-caption {
-    padding: 24px 20px 20px;
-  }
-  .team-group-heading {
-    font-size: 1.25rem;
-  }
-  .team-group-text {
-    display: none;
-  }
 }
 
 .team-grid {
