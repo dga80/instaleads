@@ -4,12 +4,88 @@
    ========================================================================== */
 
 /* ==========================================================================
-   ARS ADVOCATS I ASSESSORS - DUAL THEME ENGINE (ZERO GOLD)
-   - Option B (Default): Fons Vi Fosc / Deep Wine Red & Logotip Blanc
-   - Option A: Fons Clar / Editorial White Minimalist & Logotip Corporatiu
+   ARS ADVOCATS I ASSESSORS - EDITORIAL LIGHT PALETTE (ZERO GOLD)
+   - Predominant: Warm White & Crisp Cream Backgrounds
+   - Signature Brand Accents: Corporate Carmine Red (#c10c13) & Dusty Rose (#dda09f)
+   - Contrast: High-legibility Charcoal Typography (#1c1314)
    ========================================================================== */
 
-:root,
+:root {
+  /* Predominant Background: White / Cream / Soft Warm Gray */
+  --bg-dark: #fcfbfb;          /* Fondo base general claro */
+  --bg-darker: #f5eeed;        /* Fondo top-bar y bandas alternas */
+  --bg-surface: #ffffff;       /* Fondo blanco para secciones */
+  --bg-card: #ffffff;          /* Tarjetas blancas limpias */
+  --bg-card-hover: #fff8f8;    /* Hover sutil con toque rosáceo */
+  --bg-light: #ffffff;
+  --bg-cream: #fbf7f6;
+
+  /* Header backdrop */
+  --header-bg: rgba(255, 255, 255, 0.94);
+
+  /* Accent Colors (Extracted from Brand Identity - No Golds) */
+  --accent-primary: #c10c13;   /* Rojo corporativo */
+  --accent-hover: #9e0a10;     /* Granate oscuro para hover */
+  --accent-soft: #dda09f;      /* Rosa empolvado */
+  --accent-light: #fad6d5;     /* Rosa claro */
+  --accent-dark: #7a070c;      /* Vino intenso */
+  --accent-deep: #540307;
+
+  /* Gradients */
+  --accent-grad: linear-gradient(135deg, #c10c13 0%, #8e0a0f 100%);
+  --accent-btn-grad: linear-gradient(135deg, #c10c13 0%, #9e0a10 100%);
+  --accent-glow: rgba(193, 12, 19, 0.15);
+
+  /* Button Colors */
+  --btn-primary-bg: #c10c13;
+  --btn-primary-text: #ffffff;
+  --btn-primary-border: transparent;
+  --btn-primary-hover-bg: #9e0a10;
+  --btn-primary-hover-text: #ffffff;
+
+  /* Typography Colors for High Readability on Light Background */
+  --text-main: #1c1314;        /* Titulares carbón oscuro */
+  --text-body: #3c3233;        /* Texto cuerpo legible */
+  --text-muted: #6e6061;       /* Texto secundario */
+  --text-dim: #8e8081;         /* Metadatos */
+  --text-dark: #1c1314;
+  --text-dark-muted: #6e6061;
+
+  /* Borders & Shadows */
+  --border-subtle: rgba(40, 20, 20, 0.08);
+  --border-card: rgba(40, 20, 20, 0.1);
+  --border-accent: rgba(193, 12, 19, 0.35);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 10px 30px rgba(40, 10, 15, 0.08);
+  --shadow-lg: 0 20px 45px rgba(40, 10, 15, 0.12);
+  --shadow-accent: 0 8px 25px rgba(193, 12, 19, 0.2);
+
+  /* Hero Gradient */
+  --hero-bg-gradient: radial-gradient(circle at 80% 20%, rgba(221, 160, 159, 0.22) 0%, transparent 60%),
+                      radial-gradient(circle at 10% 80%, rgba(193, 12, 19, 0.06) 0%, transparent 50%),
+                      var(--bg-dark);
+
+  /* Input fields */
+  --input-bg: #ffffff;
+  --input-border: rgba(40, 20, 20, 0.16);
+  --input-focus-border: #c10c13;
+  --input-focus-glow: rgba(193, 12, 19, 0.15);
+
+  /* Fonts */
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --container-max: 1240px;
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-full: 9999px;
+}
 
 
 
@@ -887,10 +963,105 @@ body.lang-switching [data-i18n] {
   border-bottom: 1px solid var(--border-subtle);
 }
 
+/* Team Group Showcase */
+.team-group-showcase {
+  margin-bottom: 48px;
+}
+
+.team-group-frame {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-card);
+  box-shadow: 0 8px 28px rgba(40, 10, 15, 0.08);
+  background: var(--bg-surface);
+}
+
+.team-group-img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
+  filter: contrast(1.02);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.team-group-frame:hover .team-group-img {
+  transform: scale(1.015);
+}
+
+.team-group-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px 36px 28px;
+  background: linear-gradient(180deg, transparent 0%, rgba(24, 10, 12, 0.68) 40%, rgba(20, 8, 10, 0.94) 100%);
+  color: #ffffff;
+}
+
+.team-group-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #dda09f;
+  margin-bottom: 6px;
+}
+
+.team-group-heading {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.team-group-text {
+  font-size: 0.9375rem;
+  color: #e8dede;
+  max-width: 840px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+@media (max-width: 860px) {
+  .team-group-img {
+    height: 320px;
+    object-position: center 20%;
+  }
+  .team-group-caption {
+    padding: 24px 20px 20px;
+  }
+  .team-group-heading {
+    font-size: 1.25rem;
+  }
+  .team-group-text {
+    display: none;
+  }
+}
+
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 1100px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+}
+
+@media (max-width: 640px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
 }
 
 .team-card {
@@ -913,7 +1084,7 @@ body.lang-switching [data-i18n] {
 .team-img-wrap {
   position: relative;
   width: 100%;
-  height: 380px;
+  height: 340px;
   overflow: hidden;
   background-color: var(--bg-surface);
 }
@@ -923,7 +1094,7 @@ body.lang-switching [data-i18n] {
   height: 100%;
   object-fit: cover;
   object-position: top center;
-  filter: grayscale(20%) contrast(1.05);
+  filter: grayscale(15%) contrast(1.05);
   transition: transform 0.6s ease, filter 0.6s ease;
 }
 
@@ -947,17 +1118,18 @@ body.lang-switching [data-i18n] {
   letter-spacing: 0.05em;
   padding: 4px 10px;
   border-radius: var(--radius-sm);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
 .team-info {
-  padding: 30px 26px;
+  padding: 24px 20px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
 .team-role-badge {
-  font-size: 0.8125rem;
+  font-size: 0.775rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -966,27 +1138,32 @@ body.lang-switching [data-i18n] {
 }
 
 .team-role-collab {
-  color: #38bdf8;
+  color: #9e0a10;
+}
+
+.team-role-assist {
+  color: #8c090e;
 }
 
 .team-name {
   font-family: var(--font-serif);
-  font-size: 1.85rem;
+  font-size: 1.55rem;
   font-weight: 700;
   color: var(--text-main);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
+  line-height: 1.2;
 }
 
 .team-credentials {
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   color: var(--text-muted);
-  line-height: 1.6;
-  margin-bottom: 24px;
+  line-height: 1.55;
+  margin-bottom: 20px;
   flex-grow: 1;
 }
 
 .team-credentials p {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .team-credentials strong {
@@ -1000,20 +1177,16 @@ body.lang-switching [data-i18n] {
   background: rgba(193, 12, 19, 0.06);
   border: 1px solid rgba(193, 12, 19, 0.22);
   border-radius: var(--radius-sm);
-  padding: 8px 12px;
-  font-size: 0.8125rem;
+  padding: 8px 10px;
+  font-size: 0.775rem;
   color: #1c1314;
-  margin-top: 14px;
+  margin-top: 12px;
+  line-height: 1.4;
 }
 
 .honor-badge svg {
   flex-shrink: 0;
   color: #c10c13;
-}
-
-.honor-badge svg {
-  flex-shrink: 0;
-  color: var(--accent-soft);
 }
 
 .team-action {
