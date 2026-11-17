@@ -596,6 +596,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     });
+
+    // Update WhatsApp link message based on selected language
+    const whatsappBtn = document.querySelector('.whatsapp-float');
+    if (whatsappBtn) {
+      const waMessages = {
+        ca: 'Hola, volia sol·licitar informació sobre una consulta jurídica a ARS Advocats.',
+        es: 'Hola, quería solicitar información sobre una consulta jurídica en ARS Advocats.',
+        en: 'Hello, I would like to request information regarding legal advice at ARS Advocats.'
+      };
+      const waLabels = {
+        ca: 'Contactar per WhatsApp',
+        es: 'Contactar por WhatsApp',
+        en: 'Contact via WhatsApp'
+      };
+      const msg = encodeURIComponent(waMessages[lang] || waMessages.ca);
+      whatsappBtn.href = `https://wa.me/34668556252?text=${msg}`;
+      whatsappBtn.setAttribute('aria-label', waLabels[lang] || waLabels.ca);
+    }
   }
 
   function switchLanguageWithTransition(targetLang) {
