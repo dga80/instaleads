@@ -294,7 +294,7 @@ body.lang-switching [data-i18n] {
 }
 
 .nav-logo-wrap .brand-logo {
-  height: 40px;
+  height: 36px;
   width: auto;
   object-fit: contain;
   object-position: left center;
@@ -590,6 +590,7 @@ body.lang-switching [data-i18n] {
 /* Hero Visual */
 .hero-visual {
   position: relative;
+  min-width: 0;
 }
 
 .hero-emblem-stage {
@@ -1737,18 +1738,18 @@ body.lang-switching [data-i18n] {
    ========================================================================== */
 @media (min-width: 1025px) {
   .hero-container {
-    grid-template-columns: 0.95fr 1.05fr;
-    gap: 36px;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 48px;
   }
   .hero-logo-wrap {
-    max-width: none;
+    max-width: 520px;
     width: 100%;
-    justify-content: flex-start;
+    justify-content: center;
   }
   .hero-grand-logo {
-    width: clamp(540px, 48vw, 860px);
-    max-width: none;
-    flex-shrink: 0;
+    width: 100%;
+    max-width: 520px;
+    height: auto;
   }
 }
 
@@ -1788,7 +1789,7 @@ body.lang-switching [data-i18n] {
     padding: 0 4px;
   }
   .nav-logo-wrap .brand-logo {
-    height: 34px;
+    height: 30px;
   }
   .desktop-nav, .header-actions .btn {
     display: none;
