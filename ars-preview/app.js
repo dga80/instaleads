@@ -164,7 +164,22 @@ const translations = {
     f_rights: "Tots els drets reservats.",
     f_privacy: "Política de Privacitat",
     f_legal: "Avís Legal",
-    f_cookies: "Cookies"
+    f_cookies: "Cookies",
+    sp_1_t1: "Divorcis", sp_1_t2: "Custòdies", sp_1_t3: "Pensions",
+    sp_2_t1: "Herències", sp_2_t2: "Testaments", sp_2_t3: "Legítima",
+    sp_3_t1: "Desnonaments", sp_3_t2: "Lloguers", sp_3_t3: "Recuperació",
+    sp_4_t1: "Contractació", sp_4_t2: "Incompliments", sp_4_t3: "Vicis",
+    sp_5_t1: "Impagats", sp_5_t2: "Monitoris", sp_5_t3: "Embargaments",
+    sp_6_t1: "Propietat Horitzontal", sp_6_t2: "Actes", sp_6_t3: "Defectes",
+    sp_7_t1: "Clàusula Sòl", sp_7_t2: "Revolving", sp_7_t3: "Hipotecari",
+    sp_8_t1: "Assistència 24h", sp_8_t2: "Judicis Penals", sp_8_t3: "Recursos",
+    sp_9_t1: "Protecció", sp_9_t2: "Allunyament", sp_9_t3: "Sensibilitat",
+    sp_10_t1: "Compliance", sp_10_t2: "Delictes Societaris", sp_10_t3: "Prevenció",
+    sp_11_t1: "Indemnitzacions", sp_11_t2: "Asseguradores", sp_11_t3: "Seqüeles",
+    sp_12_t1: "Acomiadaments", sp_12_t2: "Salaris", sp_12_t3: "CMAC",
+    sp_13_t1: "Incapacitat Permanent", sp_13_t2: "INSS", sp_13_t3: "Impugnacions",
+    sp_14_t1: "Pactes de Socis", sp_14_t2: "Fusions", sp_14_t3: "Societari",
+    sp_15_t1: "Segona Oportunitat", sp_15_t2: "Concursos", sp_15_t3: "Exoneració Deutes"
   },
   es: {
     top_address: "C/ Barcelona, 7 - 1º, Granollers",
@@ -320,7 +335,22 @@ const translations = {
     f_rights: "Todos los derechos reservados.",
     f_privacy: "Política de Privacidad",
     f_legal: "Aviso Legal",
-    f_cookies: "Cookies"
+    f_cookies: "Cookies",
+    sp_1_t1: "Divorcios", sp_1_t2: "Custodias", sp_1_t3: "Pensiones",
+    sp_2_t1: "Herencias", sp_2_t2: "Testamentos", sp_2_t3: "Legítima",
+    sp_3_t1: "Desahucios", sp_3_t2: "Alquileres", sp_3_t3: "Recuperación",
+    sp_4_t1: "Contratación", sp_4_t2: "Incumplimientos", sp_4_t3: "Vicios",
+    sp_5_t1: "Impagos", sp_5_t2: "Monitorios", sp_5_t3: "Embargos",
+    sp_6_t1: "Propiedad Horizontal", sp_6_t2: "Actas", sp_6_t3: "Defectos",
+    sp_7_t1: "Cláusula Suelo", sp_7_t2: "Revolving", sp_7_t3: "Hipotecario",
+    sp_8_t1: "Asistencia 24h", sp_8_t2: "Juicios Penales", sp_8_t3: "Recursos",
+    sp_9_t1: "Protección", sp_9_t2: "Alejamiento", sp_9_t3: "Sensibilidad",
+    sp_10_t1: "Compliance", sp_10_t2: "Delitos Societarios", sp_10_t3: "Prevención",
+    sp_11_t1: "Indemnizaciones", sp_11_t2: "Aseguradoras", sp_11_t3: "Secuelas",
+    sp_12_t1: "Despidos", sp_12_t2: "Salarios", sp_12_t3: "CMAC",
+    sp_13_t1: "Incapacidad Permanente", sp_13_t2: "INSS", sp_13_t3: "Impugnaciones",
+    sp_14_t1: "Pactos de Socios", sp_14_t2: "Fusiones", sp_14_t3: "Societario",
+    sp_15_t1: "Segunda Oportunidad", sp_15_t2: "Concursos", sp_15_t3: "Exoneración Deudas"
   },
   en: {
     top_address: "C/ Barcelona, 7 - 1st Floor, Granollers",
@@ -476,7 +506,22 @@ const translations = {
     f_rights: "All rights reserved.",
     f_privacy: "Privacy Policy",
     f_legal: "Legal Notice",
-    f_cookies: "Cookies Policy"
+    f_cookies: "Cookies Policy",
+    sp_1_t1: "Divorce", sp_1_t2: "Custody", sp_1_t3: "Alimony",
+    sp_2_t1: "Probate", sp_2_t2: "Wills", sp_2_t3: "Forced Heirship",
+    sp_3_t1: "Evictions", sp_3_t2: "Leases", sp_3_t3: "Recovery",
+    sp_4_t1: "Contracts", sp_4_t2: "Breach", sp_4_t3: "Defects",
+    sp_5_t1: "Unpaid Debts", sp_5_t2: "Payment Orders", sp_5_t3: "Attachments",
+    sp_6_t1: "HOA Law", sp_6_t2: "Minutes", sp_6_t3: "Defects",
+    sp_7_t1: "Floor Clauses", sp_7_t2: "Revolving", sp_7_t3: "Mortgage",
+    sp_8_t1: "24h Assistance", sp_8_t2: "Criminal Trials", sp_8_t3: "Appeals",
+    sp_9_t1: "Protection", sp_9_t2: "Restraining", sp_9_t3: "Sensitivity",
+    sp_10_t1: "Compliance", sp_10_t2: "Corporate Crime", sp_10_t3: "Prevention",
+    sp_11_t1: "Compensation", sp_11_t2: "Insurers", sp_11_t3: "Sequelae",
+    sp_12_t1: "Dismissals", sp_12_t2: "Wages", sp_12_t3: "CMAC",
+    sp_13_t1: "Disability", sp_13_t2: "INSS", sp_13_t3: "Appeals",
+    sp_14_t1: "Shareholders", sp_14_t2: "Mergers", sp_14_t3: "Corporate",
+    sp_15_t1: "Second Chance", sp_15_t2: "Insolvency", sp_15_t3: "Debt Discharge"
   }
 };
 
@@ -654,6 +699,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function openMobileMenu() {
     if (!mobileMenu || !mobileToggle) return;
     mobileMenu.classList.add('open');
+    mobileMenu.setAttribute('aria-hidden', 'false');
     mobileToggle.classList.add('active');
     mobileToggle.setAttribute('aria-expanded', 'true');
     document.body.classList.add('no-scroll');
@@ -662,6 +708,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function closeMobileMenu() {
     if (!mobileMenu || !mobileToggle) return;
     mobileMenu.classList.remove('open');
+    mobileMenu.setAttribute('aria-hidden', 'true');
     mobileToggle.classList.remove('active');
     mobileToggle.setAttribute('aria-expanded', 'false');
     document.body.classList.remove('no-scroll');
@@ -678,9 +725,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Close when clicking mobile links
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
+    // Close when clicking mobile links or language buttons
+    mobileMenu.querySelectorAll('a, .lang-btn').forEach(item => {
+      item.addEventListener('click', () => {
         closeMobileMenu();
       });
     });

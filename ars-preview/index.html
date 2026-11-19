@@ -81,31 +81,34 @@
       </div>
     </div>
 
-    <!-- Mobile Drawer -->
-    <div class="mobile-menu" id="mobileMenu">
-      <div class="mobile-menu-inner">
-        <nav class="mobile-nav">
-          <a href="#presentacio" class="mobile-nav-item" data-i18n="nav_presentation">Presentació</a>
-          <a href="#especialitats" class="mobile-nav-item" data-i18n="nav_specialties">Especialitats</a>
-          <a href="#equip" class="mobile-nav-item" data-i18n="nav_team">L'Equip</a>
-          <a href="#valors" class="mobile-nav-item" data-i18n="nav_values">Filosofia</a>
-          <a href="#contacte" class="mobile-nav-item" data-i18n="nav_contact">Contacte</a>
-        </nav>
-        <div class="mobile-menu-footer">
-          <div class="mobile-contact-info">
-            <p><strong>ARS Advocats i Assessors</strong></p>
-            <p>C/ Barcelona, 7 - 1r, 08401 Granollers</p>
-            <p><a href="tel:938795876">Tel. 938 795 876</a></p>
-          </div>          <div class="mobile-lang">
-            <button class="lang-btn active" data-switch-lang="ca">Català</button>
-            <button class="lang-btn" data-switch-lang="es">Castellano</button>
-            <button class="lang-btn" data-switch-lang="en">English</button>
-          </div>
-          <a href="#contacte" class="btn btn-primary btn-block" data-i18n="nav_cta">Demanar Cita</a>
+    <!-- Mobile Drawer moved outside sticky header to avoid backdrop-filter fixed positioning bug -->
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <nav class="mobile-nav">
+        <a href="#presentacio" class="mobile-nav-item" data-i18n="nav_presentation">Presentació</a>
+        <a href="#especialitats" class="mobile-nav-item" data-i18n="nav_specialties">Especialitats</a>
+        <a href="#equip" class="mobile-nav-item" data-i18n="nav_team">L'Equip</a>
+        <a href="#valors" class="mobile-nav-item" data-i18n="nav_values">Filosofia</a>
+        <a href="#contacte" class="mobile-nav-item" data-i18n="nav_contact">Contacte</a>
+      </nav>
+      <div class="mobile-menu-footer">
+        <div class="mobile-contact-info">
+          <p><strong>ARS Advocats i Assessors</strong></p>
+          <p>C/ Barcelona, 7 - 1r, 08401 Granollers</p>
+          <p><a href="tel:938795876">Tel. 938 795 876</a></p>
         </div>
+        <div class="mobile-lang">
+          <button class="lang-btn active" data-switch-lang="ca">Català</button>
+          <button class="lang-btn" data-switch-lang="es">Castellano</button>
+          <button class="lang-btn" data-switch-lang="en">English</button>
+        </div>
+        <a href="#contacte" class="btn btn-primary btn-block" data-i18n="nav_cta">Demanar Cita</a>
       </div>
     </div>
-  </header>
+  </div>
 
   <!-- Main Content Wrapper for smooth transitions -->
   <main id="pageContent" class="page-content page-lang-transition">
@@ -128,11 +131,11 @@
         </p>
 
         <div class="hero-buttons reveal delay-3">
-          <a href="#contacte" class="btn btn-gold" data-i18n="hero_cta_consult">
-            <span>Demanar Primera Consulta</span>
+          <a href="#contacte" class="btn btn-gold">
+            <span data-i18n="hero_cta_consult">Demanar Primera Consulta</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </a>
-          <a href="#especialitats" class="btn btn-outline" data-i18n="hero_cta_specialties">
+          <a href="#especialitats" class="btn btn-outline">
             <span data-i18n="hero_btn_explore">Explorar Àrees de Dret</span>
           </a>
         </div>
@@ -248,7 +251,7 @@
           <h3 class="spec-card-title" data-i18n="sp_1_title">Dret Matrimonial i de Família</h3>
           <p class="spec-card-desc" data-i18n="sp_1_desc">Processos de separació i divorci (de mutu acord o contenciós), redacció de convenis reguladors, guarda i custòdia, pensió d'aliments i modificació de mesures judicials.</p>
           <div class="spec-tags">
-            <span>Divorcis</span><span>Custòdies</span><span>Pensions</span>
+            <span data-i18n="sp_1_t1">Divorcis</span><span data-i18n="sp_1_t2">Custòdies</span><span data-i18n="sp_1_t3">Pensions</span>
           </div>
         </div>
 
@@ -261,7 +264,7 @@
           <h3 class="spec-card-title" data-i18n="sp_2_title">Successions, Testaments i Herències</h3>
           <p class="spec-card-desc" data-i18n="sp_2_desc">Planificació successòria patrimonial, tramitació i acceptació d'herències davant notari, declaracions d'hereus, reclamació de legítima i impugnació de testaments.</p>
           <div class="spec-tags">
-            <span>Herències</span><span>Testaments</span><span>Legítima</span>
+            <span data-i18n="sp_2_t1">Herències</span><span data-i18n="sp_2_t2">Testaments</span><span data-i18n="sp_2_t3">Legítima</span>
           </div>
         </div>
 
@@ -274,7 +277,7 @@
           <h3 class="spec-card-title" data-i18n="sp_3_title">Desnonaments i Arrendaments</h3>
           <p class="spec-card-desc" data-i18n="sp_3_desc">Recuperació ràpida de la possessió d'immobles per impagament de rendes o expiració de termini contractual. Redacció de contractes d'arrendament d'habitatge i local de negoci.</p>
           <div class="spec-tags">
-            <span>Desnonaments</span><span>Lloguers</span><span>Recuperació</span>
+            <span data-i18n="sp_3_t1">Desnonaments</span><span data-i18n="sp_3_t2">Lloguers</span><span data-i18n="sp_3_t3">Recuperació</span>
           </div>
         </div>
 
@@ -287,7 +290,7 @@
           <h3 class="spec-card-title" data-i18n="sp_4_title">Obligacions i Contractes</h3>
           <p class="spec-card-desc" data-i18n="sp_4_desc">Redacció, interpretació i negociació de contractes civils i mercantils. Resolució per incompliment, reclamació de vicis ocults i indemnització de danys i perjudicis.</p>
           <div class="spec-tags">
-            <span>Contractació</span><span>Incompliments</span><span>Vicis</span>
+            <span data-i18n="sp_4_t1">Contractació</span><span data-i18n="sp_4_t2">Incompliments</span><span data-i18n="sp_4_t3">Vicis</span>
           </div>
         </div>
 
@@ -300,7 +303,7 @@
           <h3 class="spec-card-title" data-i18n="sp_5_title">Reclamacions de Quantitat</h3>
           <p class="spec-card-desc" data-i18n="sp_5_desc">Reclamació extrajudicial i judicial d'impagats i deutes pendents. Procediments monitoris, ordinaris, verbals i execució d'actius i embargaments patrimonials.</p>
           <div class="spec-tags">
-            <span>Impagats</span><span>Monitoris</span><span>Embargaments</span>
+            <span data-i18n="sp_5_t1">Impagats</span><span data-i18n="sp_5_t2">Monitoris</span><span data-i18n="sp_5_t3">Embargaments</span>
           </div>
         </div>
 
@@ -313,7 +316,7 @@
           <h3 class="spec-card-title" data-i18n="sp_6_title">Comunitats de Propietaris</h3>
           <p class="spec-card-desc" data-i18n="sp_6_desc">Assessorament en Propietat Horitzontal, impugnació d'acords comunitaris nuls o perjudicials, reclamació a veïns morosos i responsabilitat per defectes de construcció.</p>
           <div class="spec-tags">
-            <span>Propietat Horitzontal</span><span>Actes</span><span>Defectes</span>
+            <span data-i18n="sp_6_t1">Propietat Horitzontal</span><span data-i18n="sp_6_t2">Actes</span><span data-i18n="sp_6_t3">Defectes</span>
           </div>
         </div>
 
@@ -326,7 +329,7 @@
           <h3 class="spec-card-title" data-i18n="sp_7_title">Dret Bancari & Clàusules Abusives</h3>
           <p class="spec-card-desc" data-i18n="sp_7_desc">Defensa davant abusos bancaris: clàusules sòl, despeses de formalització d'hipoteca, comissions abusives, targetes revolving i execucions hipotecàries.</p>
           <div class="spec-tags">
-            <span>Clàusula Sòl</span><span>Revolving</span><span>Hipotecari</span>
+            <span data-i18n="sp_7_t1">Clàusula Sòl</span><span data-i18n="sp_7_t2">Revolving</span><span data-i18n="sp_7_t3">Hipotecari</span>
           </div>
         </div>
 
@@ -339,7 +342,7 @@
           <h3 class="spec-card-title" data-i18n="sp_8_title">Dret Penal & Defensa Judicial</h3>
           <p class="spec-card-desc" data-i18n="sp_8_desc">Assistència urgent al detingut a comissaria i jutjat de guàrdia. Defensa i acusació particular en procediments per delictes lleus, menys greus i greus.</p>
           <div class="spec-tags">
-            <span>Assistència 24h</span><span>Judicis Penals</span><span>Recursos</span>
+            <span data-i18n="sp_8_t1">Assistència 24h</span><span data-i18n="sp_8_t2">Judicis Penals</span><span data-i18n="sp_8_t3">Recursos</span>
           </div>
         </div>
 
@@ -352,7 +355,7 @@
           <h3 class="spec-card-title" data-i18n="sp_9_title">Violència de Gènere</h3>
           <p class="spec-card-desc" data-i18n="sp_9_desc">Atenció especialitzada, urgent i sensible. Sol·licitud d'ordres de protecció i allunyament, mesures cautelars personals i patrimonials, i acompanyament en tot el procés penal.</p>
           <div class="spec-tags">
-            <span>Protecció</span><span>Allunyament</span><span>Sensibilitat</span>
+            <span data-i18n="sp_9_t1">Protecció</span><span data-i18n="sp_9_t2">Allunyament</span><span data-i18n="sp_9_t3">Sensibilitat</span>
           </div>
         </div>
 
@@ -365,7 +368,7 @@
           <h3 class="spec-card-title" data-i18n="sp_10_title">Dret Econòmic & Compliance</h3>
           <p class="spec-card-desc" data-i18n="sp_10_desc">Prevenció de delictes corporatius (Corporate Compliance), responsabilitat penal de la persona jurídica, estafes, apropiacions indegudes i delictes societaris.</p>
           <div class="spec-tags">
-            <span>Compliance</span><span>Delictes Societaris</span><span>Prevenció</span>
+            <span data-i18n="sp_10_t1">Compliance</span><span data-i18n="sp_10_t2">Delictes Societaris</span><span data-i18n="sp_10_t3">Prevenció</span>
           </div>
         </div>
 
@@ -378,7 +381,7 @@
           <h3 class="spec-card-title" data-i18n="sp_11_title">Accidents de Trànsit</h3>
           <p class="spec-card-desc" data-i18n="sp_11_desc">Defensa dels drets de les víctimes d'accidents de circulació. Càlcul precís de barems mèdics legals i màxima indemnització per danys materials, físics i seqüeles.</p>
           <div class="spec-tags">
-            <span>Indemnitzacions</span><span>Asseguradores</span><span>Seqüeles</span>
+            <span data-i18n="sp_11_t1">Indemnitzacions</span><span data-i18n="sp_11_t2">Asseguradores</span><span data-i18n="sp_11_t3">Seqüeles</span>
           </div>
         </div>
 
@@ -391,7 +394,7 @@
           <h3 class="spec-card-title" data-i18n="sp_12_title">Dret Laboral & Seguretat Social</h3>
           <p class="spec-card-desc" data-i18n="sp_12_desc">Acomiadaments disciplinaris i objectius, reclamació de salaris, sancions laborals, expedients de regulació d'ocupació (ERO/ERTO) i representació en actes de conciliació (CMAC).</p>
           <div class="spec-tags">
-            <span>Acomiadaments</span><span>Salaris</span><span>CMAC</span>
+            <span data-i18n="sp_12_t1">Acomiadaments</span><span data-i18n="sp_12_t2">Salaris</span><span data-i18n="sp_12_t3">CMAC</span>
           </div>
         </div>
 
@@ -404,7 +407,7 @@
           <h3 class="spec-card-title" data-i18n="sp_13_title">Procediments d'Incapacitat Laboral</h3>
           <p class="spec-card-desc" data-i18n="sp_13_desc">Tramitació i reclamació judicial de pensions per incapacitat laboral permanent (parcial, total, absoluta i gran invalidesa). Impugnació d'altes mèdiques de l'INSS i mútues.</p>
           <div class="spec-tags">
-            <span>Incapacitat Permanent</span><span>INSS</span><span>Impugnacions</span>
+            <span data-i18n="sp_13_t1">Incapacitat Permanent</span><span data-i18n="sp_13_t2">INSS</span><span data-i18n="sp_13_t3">Impugnacions</span>
           </div>
         </div>
 
@@ -417,7 +420,7 @@
           <h3 class="spec-card-title" data-i18n="sp_14_title">Assessorament a Societats Mercantils</h3>
           <p class="spec-card-desc" data-i18n="sp_14_desc">Constitució d'empreses, redacció de pactes de socis, acords de confidencialitat, fusions, ampliacions de capital, secretària de consells i conflictes entre socis.</p>
           <div class="spec-tags">
-            <span>Pactes de Socis</span><span>Fusions</span><span>Societari</span>
+            <span data-i18n="sp_14_t1">Pactes de Socis</span><span data-i18n="sp_14_t2">Fusions</span><span data-i18n="sp_14_t3">Societari</span>
           </div>
         </div>
 
@@ -430,7 +433,7 @@
           <h3 class="spec-card-title" data-i18n="sp_15_title">Concursos & Llei de Segona Oportunitat</h3>
           <p class="spec-card-desc" data-i18n="sp_15_desc">Reestructuració de deutes i insolvències per a pimes i autònoms. Aplicació de la Llei de la Segona Oportunitat per a la cancel·lació definitiva de deutes personals.</p>
           <div class="spec-tags">
-            <span>Segona Oportunitat</span><span>Concursos</span><span>Exoneració Deutes</span>
+            <span data-i18n="sp_15_t1">Segona Oportunitat</span><span data-i18n="sp_15_t2">Concursos</span><span data-i18n="sp_15_t3">Exoneració Deutes</span>
           </div>
         </div>
       </div>
