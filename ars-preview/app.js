@@ -695,6 +695,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Mobile menu drawer
   const mobileToggle = document.getElementById('mobileToggle');
   const mobileMenu = document.getElementById('mobileMenu');
+  const mobileMenuClose = document.getElementById('mobileMenuClose');
 
   function openMobileMenu() {
     if (!mobileMenu || !mobileToggle) return;
@@ -712,6 +713,13 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileToggle.classList.remove('active');
     mobileToggle.setAttribute('aria-expanded', 'false');
     document.body.classList.remove('no-scroll');
+  }
+
+  if (mobileMenuClose) {
+    mobileMenuClose.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeMobileMenu();
+    });
   }
 
   if (mobileToggle && mobileMenu) {

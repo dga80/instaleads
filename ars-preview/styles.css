@@ -1801,7 +1801,7 @@ body.lang-switching [data-i18n] {
   .hero-visual {
     order: 5;
     max-width: 600px;
-    margin: 4px auto 24px;
+    margin: 36px auto 28px;
     width: 100%;
   }
   .hero-stats {
@@ -1876,20 +1876,20 @@ body.lang-switching [data-i18n] {
     gap: 0;
   }
   .hero-buttons {
-    margin-bottom: 24px;
+    margin-bottom: 32px;
   }
   .hero-visual {
-    margin: 0 auto 20px;
+    margin: 28px auto 26px;
   }
   .hero-stats {
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
-    padding-top: 22px;
+    padding-top: 24px;
   }
   .hero-emblem-stage {
     min-height: auto;
-    padding: 4px 0 0;
+    padding: 12px 0 6px;
   }
   .hero-logo-wrap,
   .hero-grand-logo {
@@ -1944,8 +1944,8 @@ body.lang-switching [data-i18n] {
     background: rgba(252, 251, 251, 0.98);
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
-    z-index: 999;
-    padding-top: calc(64px + env(safe-area-inset-top, 0px));
+    z-index: 2000;
+    padding-top: max(0px, env(safe-area-inset-top, 0px));
     box-sizing: border-box;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
@@ -1961,10 +1961,41 @@ body.lang-switching [data-i18n] {
     pointer-events: auto;
     transform: translateY(0);
   }
+  .mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+    padding: 0 18px;
+    border-bottom: 1px solid var(--border-subtle);
+    flex-shrink: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .mobile-menu-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    padding: 8px;
+    background: transparent;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    color: var(--accent-primary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+  .mobile-menu-close:hover,
+  .mobile-menu-close:active {
+    border-color: var(--accent-primary);
+    background: rgba(193, 12, 19, 0.08);
+  }
   .mobile-menu-inner {
-    padding: 20px 24px 40px;
+    padding: 24px 24px 40px;
     display: flex;
     flex-direction: column;
+    flex: 1;
     min-height: calc(100vh - 64px);
     min-height: calc(100dvh - 64px);
     box-sizing: border-box;
