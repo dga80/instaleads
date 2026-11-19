@@ -1712,6 +1712,17 @@ body.lang-switching [data-i18n] {
 /* ==========================================================================
    Responsive Adaptations
    ========================================================================== */
+@media (min-width: 1025px) {
+  .hero-container {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 48px;
+  }
+  .hero-logo-wrap,
+  .hero-grand-logo {
+    max-width: 560px;
+  }
+}
+
 @media (max-width: 1024px) {
   .hero-container {
     grid-template-columns: 1fr;
@@ -1784,6 +1795,21 @@ body.lang-switching [data-i18n] {
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
+  }
+  .hero-badge {
+    background: transparent;
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 0.6875rem;
+    letter-spacing: 0.06em;
+    gap: 7px;
+    margin-bottom: 14px;
+  }
+  .badge-dot {
+    width: 6px;
+    height: 6px;
   }
   .stat-divider {
     display: none;
