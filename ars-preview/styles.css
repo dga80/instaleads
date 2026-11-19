@@ -197,7 +197,7 @@ a:focus-visible {
   gap: 12px;
 }
 
-.location-badge, .top-tel {
+.top-tel {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -1869,9 +1869,6 @@ body.lang-switching [data-i18n] {
   }
   .top-bar-left {
     gap: 8px;
-  }
-  .location-badge span {
-    display: none;
   }
   .form-row {
     grid-template-columns: 1fr;
