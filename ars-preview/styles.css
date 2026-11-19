@@ -632,13 +632,13 @@ body.lang-switching [data-i18n] {
   max-width: 440px;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.6));
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+  filter: none;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hero-emblem-stage:hover .hero-grand-logo {
   transform: scale(1.03) translateZ(20px);
-  filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 25px var(--accent-glow));
+  filter: none;
 }
 
 /* ==========================================================================
@@ -1737,12 +1737,18 @@ body.lang-switching [data-i18n] {
    ========================================================================== */
 @media (min-width: 1025px) {
   .hero-container {
-    grid-template-columns: 1.05fr 0.95fr;
-    gap: 48px;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 36px;
   }
-  .hero-logo-wrap,
+  .hero-logo-wrap {
+    max-width: none;
+    width: 100%;
+    justify-content: flex-start;
+  }
   .hero-grand-logo {
-    max-width: 560px;
+    width: clamp(540px, 48vw, 860px);
+    max-width: none;
+    flex-shrink: 0;
   }
 }
 
