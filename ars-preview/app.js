@@ -807,9 +807,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!name || !email || !message || !consent) {
         formFeedback.style.display = 'block';
         formFeedback.className = 'form-feedback error';
-        formFeedback.textContent = currentLang === 'ca'
-          ? "Si us plau, omple tots els camps obligatoris (*) i accepta la política de privacitat."
-          : "Por favor, completa todos los campos obligatorios (*) y acepta la política de privacidad.";
+        formFeedback.textContent = currentLang === 'en'
+          ? "Please fill in all required fields (*) and accept the privacy policy."
+          : currentLang === 'ca'
+            ? "Si us plau, omple tots els camps obligatoris (*) i accepta la política de privacitat."
+            : "Por favor, completa todos los campos obligatorios (*) y acepta la política de privacidad.";
         return;
       }
 
@@ -817,9 +819,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         formFeedback.style.display = 'block';
         formFeedback.className = 'form-feedback error';
-        formFeedback.textContent = currentLang === 'ca'
-          ? "Si us plau, introdueix una adreça de correu electrònic vàlida."
-          : "Por favor, introduce una dirección de correo electrónico válida.";
+        formFeedback.textContent = currentLang === 'en'
+          ? "Please enter a valid email address."
+          : currentLang === 'ca'
+            ? "Si us plau, introdueix una adreça de correu electrònic vàlida."
+            : "Por favor, introduce una dirección de correo electrónico válida.";
         return;
       }
 
@@ -827,7 +831,9 @@ document.addEventListener('DOMContentLoaded', () => {
       submitBtn.disabled = true;
       submitBtn.style.opacity = '0.7';
       const originalText = submitBtn.innerHTML;
-      submitBtn.innerHTML = currentLang === 'ca' ? "Enviant consulta..." : "Enviando consulta...";
+      submitBtn.innerHTML = currentLang === 'en'
+        ? "Sending inquiry..."
+        : currentLang === 'ca' ? "Enviant consulta..." : "Enviando consulta...";
 
       setTimeout(() => {
         submitBtn.disabled = false;
@@ -898,5 +904,25 @@ document.addEventListener('DOMContentLoaded', () => {
         photoCard.classList.toggle('is-colored');
       }
     });
+  }
+
+  // Subtle Hero Background Parallax
+  const heroSection = document.getElementById('hero');
+  const heroBgOverlay = heroSection?.querySelector('.hero-bg-overlay');
+  if (heroSection && heroBgOverlay && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let parallaxTicking = false;
+    const updateHeroParallax = () => {
+      const scrollY = window.scrollY;
+      if (scrollY <= heroSection.offsetHeight + 100) {
+        heroBgOverlay.style.transform = `translate3d(0, ${(scrollY * 0.22).toFixed(1)}px, 0)`;
+      }
+      parallaxTicking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!parallaxTicking) {
+        window.requestAnimationFrame(updateHeroParallax);
+        parallaxTicking = true;
+      }
+    }, { passive: true });
   }
 });
