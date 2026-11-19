@@ -953,21 +953,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Subtle Hero Background Parallax
+  // Subtle Background Parallax (Hero & Presentation)
   const heroSection = document.getElementById('hero');
   const heroBgOverlay = heroSection?.querySelector('.hero-bg-overlay');
-  if (heroSection && heroBgOverlay && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const presSection = document.getElementById('presentacio');
+  const presBgOverlay = presSection?.querySelector('.presentation-bg-overlay');
+
+  if ((heroBgOverlay || presBgOverlay) && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     let parallaxTicking = false;
-    const updateHeroParallax = () => {
+    const updateParallax = () => {
       const scrollY = window.scrollY;
-      if (scrollY <= heroSection.offsetHeight + 100) {
+      if (heroSection && heroBgOverlay && scrollY <= heroSection.offsetHeight + 100) {
         heroBgOverlay.style.transform = `translate3d(0, ${(scrollY * 0.22).toFixed(1)}px, 0)`;
+      }
+      if (presSection && presBgOverlay) {
+        const rect = presSection.getBoundingClientRect();
+        const vh = window.innerHeight;
+        if (rect.bottom > -100 && rect.top < vh + 100) {
+          const centerDelta = (vh * 0.5) - (rect.top + rect.height * 0.5);
+          const offset = Math.max(-80, Math.min(80, centerDelta * 0.16));
+          presBgOverlay.style.transform = `translate3d(0, ${offset.toFixed(1)}px, 0)`;
+        }
       }
       parallaxTicking = false;
     };
+    updateParallax();
     window.addEventListener('scroll', () => {
       if (!parallaxTicking) {
-        window.requestAnimationFrame(updateHeroParallax);
+        window.requestAnimationFrame(updateParallax);
         parallaxTicking = true;
       }
     }, { passive: true });
