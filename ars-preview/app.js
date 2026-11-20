@@ -38,8 +38,8 @@ const translations = {
     pres_kicker: "PRESENTACIÓ INSTITUCIONAL",
     pres_title_1: "Un despatx jove,",
     pres_title_2: "modern, àgil i compromès.",
-    pres_p1: "ARS Advocats i Assessors som una firma d’advocats i d’assessorament legal integral, situada al centre històric i comercial de Granollers.",
-    pres_p2: "El nostre és un despatx jove, modern i àgil, integrat per professionals altament compromesos i advocats de primer nivell. Aportem una àmplia experiència en totes les àrees d’especialització a què ens dediquem, amb una visió global que prioritza el servei, el rigor, la qualitat i el compromís ferm amb el client.",
+    pres_p1: "<strong>ARS Advocats i Assessors</strong> som una firma d’advocats i d’assessorament legal integral, situada al centre històric i comercial de Granollers.",
+    pres_p2: "El nostre és un despatx jove, modern i àgil, integrat per professionals altament compromesos i advocats de primer nivell. Aportem una àmplia experiència en totes les àrees d’especialització a què ens dediquem, amb una visió global que prioritza el <strong>servei</strong>, el <strong>rigor</strong>, la <strong>qualitat</strong> i el <strong>compromís ferm</strong> amb el client.",
     pres_p3: "Treballem amb passió, apostant constantment per la millora i la innovació. Creiem fermament en el sentit comú i en l’aplicació de solucions pràctiques i creatives que resolguin amb eficàcia els problemes i inquietuds legals, fent nostres els seus reptes.",
     pres_quote: "Per garantir un assessorament eficaç i de qualitat, considerem imprescindible conèixer en profunditat els nostres clients, així com els seus negocis i circumstàncies particulars.",
     pres_motto: "L'objectiu principal d'ARS es resumeix en una paraula: QUALITAT.",
@@ -158,7 +158,7 @@ const translations = {
     form_ph_email: "exemple@correu.com",
     form_ph_phone: "600 000 000",
     form_ph_msg: "Explica'ns breument els fets o qüestió legal que vols resoldre...",
-    form_consent: "He llegit i accepto la política de privacitat i el tractament de les meves dades exclusivament per a gestionar aquesta consulta jurídica.",
+    form_consent: "He llegit i accepto la <a href=\"#\" id=\"consentPrivacyLink\" class=\"legal-inline-link\">política de privacitat</a> i el tractament de les meves dades exclusivament per a gestionar aquesta consulta jurídica.",
     form_btn_submit: "Enviar Consulta Confidencial",
     map_open: "Obrir a Google Maps",
     footer_bio: "Firma d'advocats i d'assessorament legal integral al centre de Granollers. Compromís amb el rigor, l'ètica i la qualitat jurídica al servei dels nostres clients.",
@@ -214,8 +214,8 @@ const translations = {
     pres_kicker: "PRESENTACIÓN INSTITUCIONAL",
     pres_title_1: "Un despacho joven,",
     pres_title_2: "moderno, ágil y comprometido.",
-    pres_p1: "ARS Advocats i Assessors somos una firma de abogados y de asesoramiento legal integral, situada en el centro histórico y comercial de Granollers.",
-    pres_p2: "El nuestro es un despacho joven, moderno y ágil, integrado por profesionales altamente comprometidos y abogados de primer nivel. Aportamos una amplia experiencia en todas las áreas de especialización a las que nos dedicamos, con una visión global que prioriza el servicio, el rigor, la calidad y el compromiso firme con el cliente.",
+    pres_p1: "<strong>ARS Advocats i Assessors</strong> somos una firma de abogados y de asesoramiento legal integral, situada en el centro histórico y comercial de Granollers.",
+    pres_p2: "El nuestro es un despacho joven, moderno y ágil, integrado por profesionales altamente comprometidos y abogados de primer nivel. Aportamos una amplia experiencia en todas las áreas de especialización a las que nos dedicamos, con una visión global que prioriza el <strong>servicio</strong>, el <strong>rigor</strong>, la <strong>calidad</strong> y el <strong>compromiso firme</strong> con el cliente.",
     pres_p3: "Trabajamos con pasión, apostando constantemente por la mejora y la innovación. Creemos firmemente en el sentido común y en la aplicación de soluciones prácticas y creativas que resuelvan eficazmente los problemas e inquietudes legales, haciendo nuestros sus retos.",
     pres_quote: "Para garantizar un asesoramiento eficaz y de calidad, consideramos imprescindible conocer en profundidad a nuestros clientes, así como sus negocios y circunstancias particulares.",
     pres_motto: "El objetivo principal de ARS se resume en una palabra: CALIDAD.",
@@ -334,7 +334,7 @@ const translations = {
     form_ph_email: "ejemplo@correo.com",
     form_ph_phone: "600 000 000",
     form_ph_msg: "Cuéntanos brevemente los hechos o cuestión legal que deseas resolver...",
-    form_consent: "He leído y acepto la política de privacidad y el tratamiento de mis datos exclusivamente para gestionar esta consulta jurídica.",
+    form_consent: "He leído y acepto la <a href=\"#\" id=\"consentPrivacyLink\" class=\"legal-inline-link\">política de privacidad</a> y el tratamiento de mis datos exclusivamente para gestionar esta consulta jurídica.",
     form_btn_submit: "Enviar Consulta Confidencial",
     map_open: "Abrir en Google Maps",
     footer_bio: "Firma de abogados y de asesoramiento legal integral en el centro de Granollers. Compromiso con el rigor, la ética y la calidad jurídica al servicio de nuestros clientes.",
@@ -390,8 +390,8 @@ const translations = {
     pres_kicker: "INSTITUTIONAL PRESENTATION",
     pres_title_1: "A youthful, modern,",
     pres_title_2: "agile and dedicated firm.",
-    pres_p1: "ARS Advocats i Assessors is a comprehensive law and legal advisory firm located in the historic and commercial heart of Granollers.",
-    pres_p2: "Our office is modern, agile, and energetic, comprised of deeply committed professionals and top-tier attorneys. We contribute extensive experience across all our specialized practice areas, with a global vision that prioritizes client care, rigor, technical quality, and unyielding dedication.",
+    pres_p1: "<strong>ARS Advocats i Assessors</strong> is a comprehensive law and legal advisory firm located in the historic and commercial heart of Granollers.",
+    pres_p2: "Our office is modern, agile, and energetic, comprised of deeply committed professionals and top-tier attorneys. We contribute extensive experience across all our specialized practice areas, with a global vision that prioritizes <strong>client care</strong>, <strong>rigor</strong>, <strong>technical quality</strong>, and <strong>unyielding dedication</strong>.",
     pres_p3: "We work with passion, constantly pursuing innovation and continuous improvement. We firmly believe in common sense and in implementing pragmatic, creative solutions that effectively resolve legal challenges, making our clients' goals our own.",
     pres_quote: "To ensure effective, premium legal counsel, we consider it paramount to understand our clients in depth, along with their businesses and individual circumstances.",
     pres_motto: "The core mission of ARS is defined in one word: QUALITY.",
@@ -510,7 +510,7 @@ const translations = {
     form_ph_email: "example@email.com",
     form_ph_phone: "600 000 000",
     form_ph_msg: "Briefly explain the facts or legal matter you wish to consult...",
-    form_consent: "I have read and accept the privacy policy and consent to the processing of my data exclusively to address this legal inquiry.",
+    form_consent: "I have read and accept the <a href=\"#\" id=\"consentPrivacyLink\" class=\"legal-inline-link\">privacy policy</a> and consent to the processing of my data exclusively to address this legal inquiry.",
     form_btn_submit: "Send Confidential Inquiry",
     map_open: "Open in Google Maps",
     footer_bio: "Comprehensive law firm and legal counsel based in downtown Granollers. Committed to technical rigor, ethics, and legal excellence serving private and corporate clients.",
@@ -564,7 +564,11 @@ const legalContents = {
     `,
     cookiesTitle: "Política de Cookies",
     cookiesHtml: `
-      <p>Aquest lloc web utilitza exclusivament cookies tècniques indispensables per al correcte funcionament de la navegació, la memorització de l'idioma seleccionat i la seguretat del lloc. No s'utilitzen cookies de seguiment comercial de tercers sense el teu consentiment explícit.</p>
+      <h4>Ús de Cookies</h4>
+      <p>Aquest lloc web utilitza exclusivament cookies tècniques indispensables per al correcte funcionament de la navegació, la memorització de l'idioma seleccionat i la seguretat del lloc.</p>
+      <h4>Serveis de Tercers (Google Maps)</h4>
+      <p>A la secció de contacte s'integra un mapa interactiu proveït per Google Maps per facilitar la localització del nostre despatx a Granollers. La visualització d'aquest mapa pot comportar la descàrrega de cookies tècniques i de servei gestionades directament per Google LLC segons la seva pròpia política de privacitat.</p>
+      <p>No s'utilitzen cookies de seguiment comercial ni de perfilat publicitari.</p>
     `
   },
   es: {
@@ -590,7 +594,11 @@ const legalContents = {
     `,
     cookiesTitle: "Política de Cookies",
     cookiesHtml: `
-      <p>Este sitio web utiliza exclusivamente cookies técnicas esenciales para garantizar la navegación correcta, almacenar la preferencia de idioma y la seguridad. No se emplean cookies de rastreo comercial publicitario de terceros.</p>
+      <h4>Uso de Cookies</h4>
+      <p>Este sitio web utiliza exclusivamente cookies técnicas esenciales para garantizar la navegación correcta, almacenar la preferencia de idioma y la seguridad.</p>
+      <h4>Servicios de Terceros (Google Maps)</h4>
+      <p>En la sección de contacto se incorpora un mapa interactivo provisto por Google Maps para facilitar la ubicación de nuestro despacho en Granollers. La visualización del mapa puede implicar la descarga de cookies técnicas y de servicio gestionadas directamente por Google LLC conforme a su propia política de privacidad.</p>
+      <p>No se emplean cookies de rastreo comercial ni de perfilado publicitario.</p>
     `
   },
   en: {
@@ -616,7 +624,11 @@ const legalContents = {
     `,
     cookiesTitle: "Cookies Policy",
     cookiesHtml: `
-      <p>This website uses only essential technical cookies necessary for safe navigation, language preferences, and basic functionality. No commercial third-party advertising trackers are used.</p>
+      <h4>Use of Cookies</h4>
+      <p>This website uses only essential technical cookies necessary for safe navigation, language preferences, and basic functionality.</p>
+      <h4>Third-Party Services (Google Maps)</h4>
+      <p>Our contact section embeds an interactive map provided by Google Maps to help locate our office in Granollers. Viewing this map may involve technical and service cookies managed directly by Google LLC under its privacy policy.</p>
+      <p>No commercial marketing or behavioral tracking cookies are used.</p>
     `
   }
 };
@@ -664,6 +676,31 @@ document.addEventListener('DOMContentLoaded', () => {
         el.placeholder = dict[key];
       }
     });
+
+    // Update Page Title and Meta Description for SEO & Social
+    const pageTitles = {
+      ca: "ARS Advocats i Assessors | Firma Legal a Granollers",
+      es: "ARS Advocats i Assessors | Despacho de Abogados en Granollers",
+      en: "ARS Advocats i Assessors | Law Firm in Granollers (Barcelona)"
+    };
+    const pageDescriptions = {
+      ca: "ARS Advocats i Assessors. Firma d'advocats i assessorament legal integral al centre de Granollers. Dret Civil, Família, Penal, Mercantil, Laboral i Immobiliari.",
+      es: "ARS Advocats i Assessors. Despacho de abogados y asesoramiento legal integral en el centro de Granollers. Derecho Civil, Familia, Penal, Mercantil, Laboral e Inmobiliario.",
+      en: "ARS Advocats i Assessors. Comprehensive law firm in Granollers downtown. Civil, Family, Criminal, Corporate, Employment, and Real Estate Law."
+    };
+    document.title = pageTitles[lang] || pageTitles.ca;
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute('content', pageDescriptions[lang] || pageDescriptions.ca);
+
+    // Re-bind consent modal link if re-rendered
+    const consentPrivacyLink = document.getElementById('consentPrivacyLink');
+    if (consentPrivacyLink) {
+      consentPrivacyLink.onclick = (e) => {
+        e.preventDefault();
+        const texts = legalContents[currentLang] || legalContents.ca;
+        openModal(texts.privacyTitle, texts.privacyHtml);
+      };
+    }
 
     // Update WhatsApp link message based on selected language
     const whatsappBtn = document.querySelector('.whatsapp-float');
@@ -868,19 +905,22 @@ document.addEventListener('DOMContentLoaded', () => {
     openModal(texts.cookiesTitle, texts.cookiesHtml);
   });
 
-  // Contact form submission
+  // Contact form submission with AJAX to contact.php
   const contactForm = document.getElementById('contactForm');
   const formFeedback = document.getElementById('formFeedback');
   const submitBtn = document.getElementById('submitBtn');
 
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       const name = document.getElementById('formName').value.trim();
       const email = document.getElementById('formEmail').value.trim();
+      const phone = document.getElementById('formPhone')?.value.trim() || '';
+      const area = document.getElementById('formArea')?.value || '';
       const message = document.getElementById('formMessage').value.trim();
       const consent = document.getElementById('formConsent').checked;
+      const websiteHoneypot = document.getElementById('formWebsite')?.value || '';
 
       if (!name || !email || !message || !consent) {
         formFeedback.style.display = 'block';
@@ -913,24 +953,88 @@ document.addEventListener('DOMContentLoaded', () => {
         ? "Sending inquiry..."
         : currentLang === 'ca' ? "Enviant consulta..." : "Enviando consulta...";
 
-      setTimeout(() => {
+      try {
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('phone', phone);
+        formData.append('area', area);
+        formData.append('message', message);
+        formData.append('consent', consent ? '1' : '0');
+        formData.append('lang', currentLang);
+        formData.append('website', websiteHoneypot);
+
+        const response = await fetch('contact.php', {
+          method: 'POST',
+          body: formData
+        });
+
+        const result = await response.json().catch(() => ({}));
+
+        if (response.ok && result.success) {
+          contactForm.reset();
+          formFeedback.style.display = 'block';
+          formFeedback.className = 'form-feedback success';
+          if (currentLang === 'en') {
+            formFeedback.textContent = `Thank you, ${name}. We have successfully received your inquiry. A specialist attorney will contact you shortly.`;
+          } else if (currentLang === 'es') {
+            formFeedback.textContent = `Gracias, ${name}. Hemos recibido tu consulta correctamente. Un abogado del departamento correspondiente se pondrá en contacto contigo en breve.`;
+          } else {
+            formFeedback.textContent = `Gràcies, ${name}. Hem rebut la teva consulta correctament. Un advocat del departament corresponent es posarà en contacte amb tu en breu.`;
+          }
+        } else {
+          throw new Error(result.error || 'submission_failed');
+        }
+      } catch (err) {
+        formFeedback.style.display = 'block';
+        formFeedback.className = 'form-feedback error';
+        formFeedback.textContent = currentLang === 'en'
+          ? "There was an error sending your message. Please call us at 938 795 876 or email info@arsadvocats.com."
+          : currentLang === 'ca'
+            ? "Hi ha hagut un error en enviar la consulta. Si us plau, truca'ns al 938 795 876 o escriu a info@arsadvocats.com."
+            : "Ha ocurrido un error al enviar la consulta. Por favor, llámanos al 938 795 876 o escribe a info@arsadvocats.com.";
+      } finally {
         submitBtn.disabled = false;
         submitBtn.style.opacity = '1';
         submitBtn.innerHTML = originalText;
-        contactForm.reset();
-
-        formFeedback.style.display = 'block';
-        formFeedback.className = 'form-feedback success';
-        if (currentLang === 'en') {
-          formFeedback.textContent = `Thank you, ${name}. We have successfully received your inquiry. A specialist attorney will contact you shortly.`;
-        } else if (currentLang === 'es') {
-          formFeedback.textContent = `Gracias, ${name}. Hemos recibido tu consulta correctamente. Un abogado del departamento correspondiente se pondrá en contacto contigo en breve.`;
-        } else {
-          formFeedback.textContent = `Gràcies, ${name}. Hem rebut la teva consulta correctament. Un advocat del departament corresponent es posarà en contacte amb tu en breu.`;
-        }
-      }, 700);
+      }
     });
   }
+
+  // Pre-fill lawyer contact or practice area when clicking team/footer buttons
+  document.querySelectorAll('[data-contact-lawyer]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const area = btn.getAttribute('data-contact-area');
+      const lawyer = btn.getAttribute('data-contact-lawyer');
+      const formArea = document.getElementById('formArea');
+      const formMessage = document.getElementById('formMessage');
+
+      if (formArea && area) {
+        formArea.value = area;
+      }
+      if (formMessage && lawyer) {
+        const prefix = currentLang === 'en'
+          ? `Inquiry for ${lawyer}: `
+          : currentLang === 'ca'
+            ? `Consulta adreçada a ${lawyer}: `
+            : `Consulta dirigida a ${lawyer}: `;
+        if (!formMessage.value.startsWith(prefix) && formMessage.value === '') {
+          formMessage.value = prefix;
+        }
+      }
+    });
+  });
+
+  // Footer specialties click filter activation
+  document.querySelectorAll('[data-spec-filter]').forEach(link => {
+    link.addEventListener('click', () => {
+      const filterCat = link.getAttribute('data-spec-filter');
+      const matchingPill = document.querySelector(`.filter-pills .pill[data-filter="${filterCat}"]`);
+      if (matchingPill) {
+        matchingPill.click();
+      }
+    });
+  });
 
   // 3D Tilt interaction on Hero Emblem Stage (responsive from anywhere on the web)
   const emblemStage = document.getElementById('heroEmblemStage');

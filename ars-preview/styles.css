@@ -1233,7 +1233,8 @@ body.lang-switching [data-i18n] {
   opacity: 0.8;
 }
 
-.value-item h4 {
+.value-item h4,
+.value-item .value-title {
   font-family: var(--font-serif);
   font-size: 1.4rem;
   font-weight: 600;
@@ -2088,3 +2089,38 @@ body.no-scroll {
   overflow: hidden !important;
   touch-action: none;
 }
+
+/* Legal inline link inside checkbox consent */
+.legal-inline-link {
+  color: var(--accent-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.legal-inline-link:hover {
+  color: var(--accent-light);
+}
+
+/* Accessibility: Respect user reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .hero-bg-overlay,
+  .presentation-bg-overlay,
+  .hero-emblem-stage {
+    transform: none !important;
+    transition: none !important;
+  }
+}
+

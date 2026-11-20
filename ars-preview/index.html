@@ -13,18 +13,91 @@
   <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
 
-  <!-- Open Graph -->
+  <!-- Canonical & Alternate Hreflang -->
+  <link rel="canonical" href="https://www.arsadvocats.com/">
+  <link rel="alternate" hreflang="ca" href="https://www.arsadvocats.com/">
+  <link rel="alternate" hreflang="es" href="https://www.arsadvocats.com/">
+  <link rel="alternate" hreflang="en" href="https://www.arsadvocats.com/">
+  <link rel="alternate" hreflang="x-default" href="https://www.arsadvocats.com/">
+
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:site_name" content="ARS Advocats i Assessors">
   <meta property="og:title" content="ARS Advocats i Assessors | Despatx d'Advocats a Granollers">
   <meta property="og:description" content="Rigor, compromís i excel·lència jurídica al centre de Granollers. Assessorament integral per a particulars i empreses.">
-  <meta property="og:image" content="assets/images/edificio.jpg">
+  <meta property="og:url" content="https://www.arsadvocats.com/">
+  <meta property="og:image" content="https://www.arsadvocats.com/assets/images/foto_portada.jpg">
+  <meta property="og:image:width" content="1920">
+  <meta property="og:image:height" content="1276">
+  <meta property="og:image:alt" content="ARS Advocats i Assessors Despatx a Granollers">
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="ca_ES">
+  <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="en_GB">
 
-  <!-- Google Fonts: Cormorant Garamond (Editorial Elegance) + Plus Jakarta Sans (Clean Modernity) -->
+  <!-- Twitter / X Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@arsadvocats">
+  <meta name="twitter:title" content="ARS Advocats i Assessors | Firma Legal a Granollers">
+  <meta name="twitter:description" content="Rigor, compromís i excel·lència jurídica al centre de Granollers. Assessorament integral en Dret Civil, Família, Penal, Mercantil i Laboral.">
+  <meta name="twitter:image" content="https://www.arsadvocats.com/assets/images/foto_portada.jpg">
+
+  <!-- Structured Data JSON-LD (Schema.org LegalService / Attorney) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LegalService",
+    "name": "ARS Advocats i Assessors",
+    "legalName": "ARS Advocats i Assessors",
+    "url": "https://www.arsadvocats.com/",
+    "logo": "https://www.arsadvocats.com/assets/images/logo.png",
+    "image": "https://www.arsadvocats.com/assets/images/foto_portada.jpg",
+    "description": "Firma d'advocats i d'assessorament legal integral al centre de Granollers. Dret Civil, Matrimonial i Família, Successions, Penal, Mercantil, Laboral i Immobiliari.",
+    "telephone": "+34938795876",
+    "email": "info@arsadvocats.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Carrer de Barcelona, 7 - 1r",
+      "addressLocality": "Granollers",
+      "postalCode": "08401",
+      "addressRegion": "Barcelona",
+      "addressCountry": "ES"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 41.60749,
+      "longitude": 2.285817
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "14:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "16:00",
+        "closes": "19:30"
+      }
+    ],
+    "sameAs": [
+      "https://es.linkedin.com/company/ars-advocats",
+      "https://www.instagram.com/arsadvocats/",
+      "https://www.facebook.com/ARSAdvocats",
+      "https://twitter.com/arsadvocats"
+    ],
+    "priceRange": "$$",
+    "areaServed": ["Granollers", "Vallès Oriental", "Barcelona", "Catalunya"]
+  }
+  </script>
+
+  <!-- Google Fonts: Cormorant Garamond + Plus Jakarta Sans (optimized weights) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=30">
+  <link rel="stylesheet" href="styles.css?v=31">
 </head>
 <body data-lang="ca">
 
@@ -32,7 +105,7 @@
   <div class="top-bar">
     <div class="container top-bar-container">
       <div class="top-bar-left">
-        <a href="tel:938795876" class="top-tel">
+        <a href="tel:+34938795876" class="top-tel">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
           <span>938 795 876</span>
         </a>
@@ -54,7 +127,7 @@
     <div class="container header-container">
       <a href="#" class="brand-link" aria-label="ARS Advocats inici">
         <div class="nav-logo-wrap">
-          <img src="assets/images/logo.png" alt="ARS Advocats i Assessors" class="brand-logo">
+          <img src="assets/images/logo.png" alt="ARS Advocats i Assessors" class="brand-logo" width="569" height="206" decoding="async">
         </div>
       </a>
 
@@ -83,7 +156,7 @@
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <div class="mobile-menu-header">
       <div class="nav-logo-wrap">
-        <img src="assets/images/logo.png" alt="ARS Advocats i Assessors" class="brand-logo">
+        <img src="assets/images/logo.png" alt="ARS Advocats i Assessors" class="brand-logo" width="569" height="206" decoding="async">
       </div>
       <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Tancar menú">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -104,7 +177,7 @@
         <div class="mobile-contact-info">
           <p><strong>ARS Advocats i Assessors</strong></p>
           <p>C/ Barcelona, 7 - 1r, 08401 Granollers</p>
-          <p><a href="tel:938795876">Tel. 938 795 876</a></p>
+          <p><a href="tel:+34938795876">Tel. 938 795 876</a></p>
         </div>
         <div class="mobile-lang">
           <button class="lang-btn active" data-switch-lang="ca">Català</button>
@@ -163,7 +236,7 @@
         <div class="hero-emblem-stage" id="heroEmblemStage">
           <div class="emblem-card-inner">
             <div class="hero-logo-wrap">
-              <img src="assets/images/logo.png" alt="ARS Advocats i Assessors Logo" class="hero-grand-logo">
+              <img src="assets/images/logo.png" alt="ARS Advocats i Assessors Logo" class="hero-grand-logo" width="569" height="206" fetchpriority="high">
             </div>
           </div>
         </div>
@@ -178,7 +251,7 @@
       <div class="presentation-grid">
         <div class="presentation-images reveal">
           <div class="interactive-photo-card" id="presentationPhotoCard" role="button" tabindex="0" title="Clica per alternar color">
-            <img src="assets/images/fotogrup.jpg" alt="L'equip d'ARS Advocats a les nostres instal·lacions" class="presentation-photo" id="presentationPhoto">
+            <img src="assets/images/fotogrup.jpg" alt="L'equip d'ARS Advocats a les nostres instal·lacions" class="presentation-photo" id="presentationPhoto" width="1920" height="1061" loading="lazy" decoding="async">
           </div>
         </div>
 
@@ -217,7 +290,7 @@
             <div class="feature-item">
               <span class="feature-icon">✓</span>
               <div>
-                <strong data-i18n="feat_2_title">Trato Directo con Socios</strong>
+                <strong data-i18n="feat_2_title">Tracte Directe amb Socis</strong>
                 <p data-i18n="feat_2_desc">Comunicació transparent, immediata i sense intermediaris innecessaris.</p>
               </div>
             </div>
@@ -238,13 +311,13 @@
         </p>
 
         <!-- Category Filters -->
-        <div class="filter-pills" role="tablist">
-          <button class="pill active" data-filter="all" data-i18n="filter_all">Totes les Àrees</button>
-          <button class="pill" data-filter="civil" data-i18n="filter_civil">Civil & Família</button>
-          <button class="pill" data-filter="empresa" data-i18n="filter_business">Mercantil & Empresa</button>
-          <button class="pill" data-filter="penal" data-i18n="filter_criminal">Penal</button>
-          <button class="pill" data-filter="laboral" data-i18n="filter_labor">Laboral & Seguretat Social</button>
-          <button class="pill" data-filter="immobiliari" data-i18n="filter_property">Immobiliari & Financer</button>
+        <div class="filter-pills" role="tablist" aria-label="Filtre per especialitats jurídiques">
+          <button class="pill active" role="tab" aria-selected="true" data-filter="all" data-i18n="filter_all">Totes les Àrees</button>
+          <button class="pill" role="tab" aria-selected="false" data-filter="civil" data-i18n="filter_civil">Civil & Família</button>
+          <button class="pill" role="tab" aria-selected="false" data-filter="empresa" data-i18n="filter_business">Mercantil & Empresa</button>
+          <button class="pill" role="tab" aria-selected="false" data-filter="penal" data-i18n="filter_criminal">Penal</button>
+          <button class="pill" role="tab" aria-selected="false" data-filter="laboral" data-i18n="filter_labor">Laboral & Seguretat Social</button>
+          <button class="pill" role="tab" aria-selected="false" data-filter="immobiliari" data-i18n="filter_property">Immobiliari & Financer</button>
         </div>
       </div>
 
@@ -467,7 +540,7 @@
         <!-- Roger Subirana -->
         <div class="team-card reveal">
           <div class="team-img-wrap">
-            <img src="assets/images/roger.jpg" alt="Roger Subirana - Soci Director ARS Advocats" class="team-img">
+            <img src="assets/images/roger.jpg" alt="Roger Subirana - Soci Director ARS Advocats" class="team-img" width="1200" height="1782" loading="lazy" decoding="async">
           </div>
           <div class="team-info">
             <div class="team-role-badge" data-i18n="team_role_partner">Soci Director</div>
@@ -481,7 +554,7 @@
               </div>
             </div>
             <div class="team-action">
-              <a href="#contacte" class="btn btn-outline btn-sm btn-block" data-i18n="team_btn_contact_roger">Contactar amb Roger</a>
+              <a href="#contacte" class="btn btn-outline btn-sm btn-block" data-i18n="team_btn_contact_roger" data-contact-lawyer="Roger Subirana" data-contact-area="familia">Contactar amb Roger</a>
             </div>
           </div>
         </div>
@@ -489,7 +562,7 @@
         <!-- Alex Reus -->
         <div class="team-card reveal delay-1">
           <div class="team-img-wrap">
-            <img src="assets/images/alex.jpg" alt="Alex Reus - Soci Director ARS Advocats" class="team-img">
+            <img src="assets/images/alex.jpg" alt="Alex Reus - Soci Director ARS Advocats" class="team-img" width="1200" height="1600" loading="lazy" decoding="async">
           </div>
           <div class="team-info">
             <div class="team-role-badge" data-i18n="team_role_partner">Soci Director</div>
@@ -503,7 +576,7 @@
               </div>
             </div>
             <div class="team-action">
-              <a href="#contacte" class="btn btn-outline btn-sm btn-block" data-i18n="team_btn_contact_alex">Contactar amb Alex</a>
+              <a href="#contacte" class="btn btn-outline btn-sm btn-block" data-i18n="team_btn_contact_alex" data-contact-lawyer="Alex Reus" data-contact-area="mercantil">Contactar amb Alex</a>
             </div>
           </div>
         </div>
@@ -511,7 +584,7 @@
         <!-- Anna Camps -->
         <div class="team-card reveal delay-2">
           <div class="team-img-wrap">
-            <img src="assets/images/anna.jpg" alt="Anna Camps - Advocada Col·laboradora ARS Advocats" class="team-img">
+            <img src="assets/images/anna.jpg" alt="Anna Camps - Advocada Col·laboradora ARS Advocats" class="team-img" width="1200" height="1783" loading="lazy" decoding="async">
           </div>
           <div class="team-info">
             <div class="team-role-badge team-role-collab" data-i18n="team_role_collab">Advocada Col·laboradora</div>
@@ -525,7 +598,7 @@
               </div>
             </div>
             <div class="team-action">
-              <a href="#contacte" class="btn btn-outline btn-sm btn-block" data-i18n="team_btn_contact_anna">Contactar amb Anna</a>
+              <a href="#contacte" class="btn btn-outline btn-sm btn-block" data-i18n="team_btn_contact_anna" data-contact-lawyer="Anna Camps" data-contact-area="immobiliari">Contactar amb Anna</a>
             </div>
           </div>
         </div>
@@ -533,7 +606,7 @@
         <!-- Dana Costa Berenguer -->
         <div class="team-card reveal delay-3">
           <div class="team-img-wrap">
-            <img src="assets/images/dana.jpg" alt="Dana Costa Berenguer - Assistent Legal ARS Advocats" class="team-img">
+            <img src="assets/images/dana.jpg" alt="Dana Costa Berenguer - Assistent Legal ARS Advocats" class="team-img" width="1200" height="1600" loading="lazy" decoding="async">
           </div>
           <div class="team-info">
             <div class="team-role-badge team-role-assist" data-i18n="dana_role">Assistent Legal · Dret Penal</div>
@@ -548,7 +621,7 @@
               </div>
             </div>
             <div class="team-action">
-              <a href="#contacte" class="btn btn-outline btn-sm btn-block" data-i18n="team_btn_contact_dana">Contactar amb Dana</a>
+              <a href="#contacte" class="btn btn-outline btn-sm btn-block" data-i18n="team_btn_contact_dana" data-contact-lawyer="Dana Costa Berenguer" data-contact-area="penal">Contactar amb Dana</a>
             </div>
           </div>
         </div>
@@ -570,22 +643,22 @@
       <div class="values-grid">
         <div class="value-item reveal">
           <div class="value-icon">01</div>
-          <h4 data-i18n="val_1_t">Professionalitat</h4>
+          <h3 class="value-title" data-i18n="val_1_t">Professionalitat</h3>
           <p data-i18n="val_1_d">Rigurositat tècnica constant, actualització jurídica permanent i màxim estàndard d'exercici processal.</p>
         </div>
         <div class="value-item reveal delay-1">
           <div class="value-icon">02</div>
-          <h4 data-i18n="val_2_t">Honestitat & Prudència</h4>
+          <h3 class="value-title" data-i18n="val_2_t">Honestitat & Prudència</h3>
           <p data-i18n="val_2_d">Avaluació realista i honesta de les probabilitats d'èxit de cada assumpte sense generar falses expectatives.</p>
         </div>
         <div class="value-item reveal delay-2">
           <div class="value-icon">03</div>
-          <h4 data-i18n="val_3_t">Confiança Mútua</h4>
+          <h3 class="value-title" data-i18n="val_3_t">Confiança Mútua</h3>
           <p data-i18n="val_3_d">Construïm relacions duradores basades en la lleialtat, el secret professional i la comunicació fluida.</p>
         </div>
         <div class="value-item reveal delay-3">
           <div class="value-icon">04</div>
-          <h4 data-i18n="val_4_t">Creativitat & Sentit Comú</h4>
+          <h3 class="value-title" data-i18n="val_4_t">Creativitat & Sentit Comú</h3>
           <p data-i18n="val_4_d">Solucions pràctiques i innovadores davant problemes complexos, sempre prioritzant la via més eficient per al client.</p>
         </div>
       </div>
@@ -624,7 +697,7 @@
               </div>
               <div>
                 <strong data-i18n="contact_tel_label">Telèfon d'Atenció</strong>
-                <p><a href="tel:938795876" class="phone-link">938 795 876</a></p>
+                <p><a href="tel:+34938795876" class="phone-link">938 795 876</a></p>
                 <span class="sub-tel">Fax: 932 932 604</span>
               </div>
             </div>
@@ -666,20 +739,26 @@
             <h3 class="form-title" data-i18n="form_heading">Sol·licitar Cita o Consulta Legal</h3>
             <p class="form-subtitle" data-i18n="form_sub">Omple el formulari i et respondrem en menys de 24 hores laborables.</p>
 
-            <form id="contactForm" class="styled-form" novalidate>
+            <form id="contactForm" class="styled-form" novalidate action="contact.php" method="POST">
+              <!-- Honeypot anti-spam field (hidden from real users) -->
+              <div style="position: absolute; left: -9999px; top: -9999px;" aria-hidden="true">
+                <label for="formWebsite">No omplis aquest camp</label>
+                <input type="text" id="formWebsite" name="website" tabindex="-1" autocomplete="off">
+              </div>
+
               <div class="form-group">
                 <label for="formName" data-i18n="form_lbl_name">Nom complet *</label>
-                <input type="text" id="formName" name="name" required placeholder="El teu nom o el de la teva empresa" data-i18n-placeholder="form_ph_name">
+                <input type="text" id="formName" name="name" required placeholder="El teu nom o el de la teva empresa" data-i18n-placeholder="form_ph_name" autocomplete="name">
               </div>
 
               <div class="form-row">
                 <div class="form-group">
                   <label for="formEmail" data-i18n="form_lbl_email">Correu electrònic *</label>
-                  <input type="email" id="formEmail" name="email" required placeholder="exemple@correu.com" data-i18n-placeholder="form_ph_email">
+                  <input type="email" id="formEmail" name="email" required placeholder="exemple@correu.com" data-i18n-placeholder="form_ph_email" autocomplete="email">
                 </div>
                 <div class="form-group">
                   <label for="formPhone" data-i18n="form_lbl_phone">Telèfon de contacte</label>
-                  <input type="tel" id="formPhone" name="phone" placeholder="600 000 000" data-i18n-placeholder="form_ph_phone">
+                  <input type="tel" id="formPhone" name="phone" placeholder="600 000 000" data-i18n-placeholder="form_ph_phone" autocomplete="tel">
                 </div>
               </div>
 
@@ -706,9 +785,9 @@
 
               <div class="form-consent">
                 <label class="checkbox-container">
-                  <input type="checkbox" id="formConsent" required>
+                  <input type="checkbox" id="formConsent" name="consent" required>
                   <span class="checkmark"></span>
-                  <span class="consent-text" data-i18n="form_consent">He llegit i accepto la política de privacitat i el tractament de les meves dades exclusivament per a gestionar aquesta consulta jurídica.</span>
+                  <span class="consent-text" data-i18n="form_consent">He llegit i accepto la <a href="#" id="consentPrivacyLink" class="legal-inline-link">política de privacitat</a> i el tractament de les meves dades exclusivament per a gestionar aquesta consulta jurídica.</span>
                 </label>
               </div>
 
@@ -716,7 +795,7 @@
                 <span data-i18n="form_btn_submit">Enviar Consulta Confidencial</span>
               </button>
 
-              <div class="form-feedback" id="formFeedback" style="display: none;"></div>
+              <div class="form-feedback" id="formFeedback" role="alert" aria-live="polite" style="display: none;"></div>
             </form>
           </div>
         </div>
@@ -751,7 +830,7 @@
         <div class="footer-brand">
           <a href="#" class="footer-logo-link" aria-label="ARS Advocats inici">
             <div class="footer-logo-wrap">
-              <img src="assets/images/logo.png" alt="ARS Advocats" class="footer-logo">
+              <img src="assets/images/logo.png" alt="ARS Advocats" class="footer-logo" width="569" height="206" loading="lazy" decoding="async">
             </div>
           </a>
           <p class="footer-bio" data-i18n="footer_bio">
@@ -779,19 +858,19 @@
         <div class="footer-links-col">
           <h4 data-i18n="f_spec_title">Especialitats</h4>
           <ul>
-            <li><a href="#especialitats" data-i18n="sp_1_title">Dret Matrimonial i Família</a></li>
-            <li><a href="#especialitats" data-i18n="sp_2_title">Successions i Herències</a></li>
-            <li><a href="#especialitats" data-i18n="sp_8_title">Dret Penal</a></li>
-            <li><a href="#especialitats" data-i18n="sp_14_title">Societats Mercantils</a></li>
-            <li><a href="#especialitats" data-i18n="sp_12_title">Dret Laboral</a></li>
-            <li><a href="#especialitats" data-i18n="sp_3_title">Desnonaments i Lloguers</a></li>
+            <li><a href="#especialitats" data-i18n="sp_1_title" data-spec-filter="civil">Dret Matrimonial i Família</a></li>
+            <li><a href="#especialitats" data-i18n="sp_2_title" data-spec-filter="civil">Successions i Herències</a></li>
+            <li><a href="#especialitats" data-i18n="sp_8_title" data-spec-filter="penal">Dret Penal</a></li>
+            <li><a href="#especialitats" data-i18n="sp_14_title" data-spec-filter="empresa">Societats Mercantils</a></li>
+            <li><a href="#especialitats" data-i18n="sp_12_title" data-spec-filter="laboral">Dret Laboral</a></li>
+            <li><a href="#especialitats" data-i18n="sp_3_title" data-spec-filter="immobiliari">Desnonaments i Lloguers</a></li>
           </ul>
         </div>
 
         <div class="footer-links-col">
           <h4 data-i18n="f_contact_title">Contacte</h4>
           <p class="f-info-line">C/ Barcelona, 7 - 1r pis<br>08401 Granollers (Barcelona)</p>
-          <p class="f-info-line"><a href="tel:938795876">Tel. 938 795 876</a></p>
+          <p class="f-info-line"><a href="tel:+34938795876">Tel. 938 795 876</a></p>
           <p class="f-info-line">Fax. 932 932 604</p>
           <p class="f-info-line"><a href="mailto:info@arsadvocats.com">info@arsadvocats.com</a></p>
         </div>
@@ -816,12 +895,12 @@
   </main>
 
   <!-- Modal for Legal / Privacy Info -->
-  <div class="modal" id="legalModal" aria-hidden="true">
+  <div class="modal" id="legalModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-backdrop" id="modalBackdrop"></div>
     <div class="modal-dialog">
       <div class="modal-header">
         <h3 id="modalTitle">Informació Legal</h3>
-        <button class="modal-close" id="modalClose">&times;</button>
+        <button class="modal-close" id="modalClose" aria-label="Tancar finestra informativa">&times;</button>
       </div>
       <div class="modal-body" id="modalBody">
         <!-- Content injected dynamically -->
@@ -835,6 +914,6 @@
   </a>
 
   <!-- Main JavaScript File -->
-  <script src="app.js?v=21"></script>
+  <script src="app.js?v=32" defer></script>
 </body>
 </html>

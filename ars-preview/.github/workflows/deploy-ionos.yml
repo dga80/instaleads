@@ -72,8 +72,20 @@ jobs:
                       continue
                   local_file = os.path.join(root, f)
                   remote_file = posixpath.join(remote_target_dir, f)
-                  print(f"Subiendo: {remote_file}...")
-                  sftp.put(local_file, remote_file)
+                  # Upload if missing or modified/different size
+                  should_upload = True
+                  try:
+                      r_stat = sftp.stat(remote_file)
+                      l_stat = os.stat(local_file)
+                      if r_stat.st_size == l_stat.st_size and abs(r_stat.st_mtime - l_stat.st_mtime) < 2:
+                          should_upload = False
+                  except FileNotFoundError:
+                      should_upload = True
+
+                  if should_upload:
+                      print(f"Subiendo: {remote_file}...")
+                      sftp.put(local_file, remote_file)
+                      sftp.utime(remote_file, (l_stat.st_atime, l_stat.st_mtime))
 
           sftp.close()
           ssh.close()
