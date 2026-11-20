@@ -85,7 +85,10 @@ jobs:
                   if should_upload:
                       print(f"Subiendo: {remote_file}...")
                       sftp.put(local_file, remote_file)
-                      sftp.utime(remote_file, (l_stat.st_atime, l_stat.st_mtime))
+                      try:
+                          sftp.utime(remote_file, (l_stat.st_atime, l_stat.st_mtime))
+                      except Exception:
+                          pass
 
           sftp.close()
           ssh.close()
