@@ -154,6 +154,10 @@ const translations = {
     opt_con: "Concursos & Llei de Segona Oportunitat",
     opt_oth: "Altres assumptes jurídics",
     form_lbl_msg: "Missatge o breu explicació del cas *",
+    form_ph_name: "El teu nom o el de la teva empresa",
+    form_ph_email: "exemple@correu.com",
+    form_ph_phone: "600 000 000",
+    form_ph_msg: "Explica'ns breument els fets o qüestió legal que vols resoldre...",
     form_consent: "He llegit i accepto la política de privacitat i el tractament de les meves dades exclusivament per a gestionar aquesta consulta jurídica.",
     form_btn_submit: "Enviar Consulta Confidencial",
     map_open: "Obrir a Google Maps",
@@ -326,6 +330,10 @@ const translations = {
     opt_con: "Concursos & Ley de Segunda Oportunidad",
     opt_oth: "Otros asuntos jurídicos",
     form_lbl_msg: "Mensaje o breve explicación del caso *",
+    form_ph_name: "Tu nombre o el de tu empresa",
+    form_ph_email: "ejemplo@correo.com",
+    form_ph_phone: "600 000 000",
+    form_ph_msg: "Cuéntanos brevemente los hechos o cuestión legal que deseas resolver...",
     form_consent: "He leído y acepto la política de privacidad y el tratamiento de mis datos exclusivamente para gestionar esta consulta jurídica.",
     form_btn_submit: "Enviar Consulta Confidencial",
     map_open: "Abrir en Google Maps",
@@ -498,6 +506,10 @@ const translations = {
     opt_con: "Insolvency & Second Chance Law",
     opt_oth: "Other legal matters",
     form_lbl_msg: "Case summary or message *",
+    form_ph_name: "Your name or company name",
+    form_ph_email: "example@email.com",
+    form_ph_phone: "600 000 000",
+    form_ph_msg: "Briefly explain the facts or legal matter you wish to consult...",
     form_consent: "I have read and accept the privacy policy and consent to the processing of my data exclusively to address this legal inquiry.",
     form_btn_submit: "Send Confidential Inquiry",
     map_open: "Open in Google Maps",
@@ -645,6 +657,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
+    // Translate placeholder attributes with data-i18n-placeholder
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      if (dict[key] !== undefined) {
+        el.placeholder = dict[key];
+      }
+    });
+
     // Update WhatsApp link message based on selected language
     const whatsappBtn = document.querySelector('.whatsapp-float');
     if (whatsappBtn) {
@@ -736,8 +756,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Close when clicking mobile links or language buttons
-    mobileMenu.querySelectorAll('a, .lang-btn').forEach(item => {
+    // Close when clicking mobile links only (do not close on language buttons)
+    mobileMenu.querySelectorAll('a').forEach(item => {
       item.addEventListener('click', () => {
         closeMobileMenu();
       });
