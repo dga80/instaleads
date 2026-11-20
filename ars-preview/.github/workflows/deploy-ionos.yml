@@ -1,0 +1,33 @@
+name: Deploy to IONOS (arsadvocats.com)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Sync to IONOS
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Sync files via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: ./
+          server-dir: /ars2/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/ars2-web.zip
+            **/GEMINI.md
+            **/rewebars/**
+            **/.DS_Store
