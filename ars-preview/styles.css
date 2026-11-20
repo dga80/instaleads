@@ -1651,6 +1651,28 @@ body.lang-switching [data-i18n] {
   color: var(--text-muted);
 }
 
+.footer-credit-sep {
+  margin: 0 6px;
+  color: var(--text-dim);
+  opacity: 0.6;
+}
+
+.footer-credit {
+  color: var(--text-muted);
+}
+
+.footer-credit-link {
+  color: var(--accent-primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.footer-credit-link:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
 .footer-legal-links {
   display: flex;
   gap: 12px;
