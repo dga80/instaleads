@@ -52,14 +52,21 @@ if (!empty($errors)) {
 
 // 4. Map area value to human-readable label
 $areas = [
-    'familia'             => 'Dret Matrimonial i Família',
-    'accidents'           => 'Accidents de Trànsit & Indemnitzacions',
-    'herencies'           => 'Successions, Testaments i Herències',
-    'penal'               => 'Dret Penal i Defensa Judicial',
-    'mercantil'           => 'Mercantil, Societari & Compliance',
-    'laboral'             => 'Laboral & Incapacitats',
-    'immobiliari'         => 'Immobiliari, Arrendaments & Desnonaments',
-    'segona-oportunitat'  => 'Concursos & Llei de Segona Oportunitat',
+    'familia'             => 'Dret de família i matrimonial',
+    'herencies'           => 'Successions, testaments i herències',
+    'immobiliari'         => 'Immobiliari, arrendaments i desnonaments',
+    'contractes'          => 'Obligacions i contractes',
+    'quantitat'           => 'Reclamacions de quantitat',
+    'comunitats'          => 'Comunitats de propietaris',
+    'bancari'             => 'Dret bancari i clàusules abusives',
+    'penal'               => 'Dret penal i litigació',
+    'violencia'           => 'Violència masclista i de gènere',
+    'compliance'          => 'Dret econòmic i compliance',
+    'accidents'           => 'Accidents de trànsit i indemnitzacions',
+    'laboral'             => 'Dret laboral i Seguretat Social',
+    'incapacitats'        => 'Incapacitats laborals i invalidesa',
+    'mercantil'           => 'Dret mercantil i societari',
+    'segona-oportunitat'  => 'Dret concursal i segona oportunitat',
     'altres'              => 'Altres assumptes jurídics'
 ];
 $areaLabel = isset($areas[$area]) ? $areas[$area] : ($area ? $area : 'No especificada');
