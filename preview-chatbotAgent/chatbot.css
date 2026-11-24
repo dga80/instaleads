@@ -468,4 +468,8 @@
     height: 78dvh;
     max-height: calc(100dvh - 24px);
   }
+
+  .ars-chat-input {
+    font-size: 16px;
+  }
 }

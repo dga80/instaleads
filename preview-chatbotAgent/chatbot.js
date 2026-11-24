@@ -377,6 +377,30 @@
         let buffer = "";
         let fullText = "";
 
+        const parseSseLine = (line) => {
+          const trimmed = line.trim();
+          if (!trimmed.startsWith("data:")) return;
+          const jsonStr = trimmed.slice(5).trim();
+          if (!jsonStr || jsonStr === "[DONE]") return;
+          try {
+            const parsed = JSON.parse(jsonStr);
+            const parts = parsed?.candidates?.[0]?.content?.parts;
+            if (Array.isArray(parts)) {
+              for (const part of parts) {
+                if (typeof part.text === "string" && !part.thought) {
+                  fullText += part.text;
+                }
+              }
+              if (fullText) {
+                assistantBubble.innerHTML = formatSafeText(fullText);
+                scrollToBottom();
+              }
+            }
+          } catch {
+            // Ignore partial/malformed SSE frames
+          }
+        };
+
         while (true) {
           const { value, done } = await reader.read();
           if (done) break;
@@ -386,26 +410,12 @@
           buffer = lines.pop() || "";
 
           for (const line of lines) {
-            const trimmed = line.trim();
-            if (!trimmed.startsWith("data:")) continue;
-            const jsonStr = trimmed.slice(5).trim();
-            if (!jsonStr || jsonStr === "[DONE]") continue;
-            try {
-              const parsed = JSON.parse(jsonStr);
-              const parts = parsed?.candidates?.[0]?.content?.parts;
-              if (Array.isArray(parts)) {
-                for (const part of parts) {
-                  if (typeof part.text === "string") {
-                    fullText += part.text;
-                  }
-                }
-                assistantBubble.innerHTML = formatSafeText(fullText);
-                scrollToBottom();
-              }
-            } catch {
-              // Ignore partial/malformed SSE frames
-            }
+            parseSseLine(line);
           }
+        }
+
+        if (buffer.trim()) {
+          parseSseLine(buffer);
         }
 
         if (!fullText.trim()) {
@@ -415,6 +425,9 @@
         messages.push({ role: "assistant", text: fullText.trim() });
       } catch (err) {
         console.error("[ARS Chat]", err);
+        if (messages.length > 0 && messages[messages.length - 1].role === "user") {
+          messages.pop();
+        }
         assistantBubble.className = "ars-chat-msg ars-chat-msg--error";
         assistantBubble.innerHTML = formatSafeText(I18N[lang].errConnection);
       } finally {
