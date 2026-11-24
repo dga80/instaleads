@@ -126,14 +126,14 @@
 
   function detectArea(conversationText) {
     const t = conversationText.toLowerCase();
-    if (/divorci|custòdi|custodi|aliments|alimentos|família|familia|conveni/.test(t)) return "familia";
-    if (/accident|trànsit|tráfico|indemnitz|indemniz/.test(t)) return "accidents";
-    if (/herènci|herenci|testament|legítima|legitima|successi/.test(t)) return "herencies";
-    if (/penal|detingut|detenido|comissari|comisaría|denúnci|denunci|violènci|violenci|delict/.test(t)) return "penal";
-    if (/societat|sociedad|mercantil|soci|socio|compliance|empresa/.test(t)) return "mercantil";
-    if (/acomiad|despid|laboral|salari|finiquit|cmac|incapacitat|inss/.test(t)) return "laboral";
-    if (/desnonament|desahuci|lloguer|alquiler|arrendament|hipotec|clàusula|clausula|comunitat/.test(t)) return "immobiliari";
-    if (/segona oportunitat|segunda oportunidad|concurs|deute|deuda/.test(t)) return "segona-oportunitat";
+    if (/divorci|divorce|custòdi|custodi|custody|aliments|alimentos|alimony|família|familia|family|conveni/.test(t)) return "familia";
+    if (/accident|trànsit|tráfico|traffic|indemnitz|indemniz|compensation|crash/.test(t)) return "accidents";
+    if (/herènci|herenci|inheritance|testament|wills?\b|probate|legítima|legitima|successi|estate/.test(t)) return "herencies";
+    if (/penal|criminal|detingut|detenido|detained|arrest|comissari|comisaría|police|denúnci|denunci|violènci|violenci|violence|delict|threat|amenaz|maltrat/.test(t)) return "penal";
+    if (/societat|sociedad|mercantil|corporate|commercial|company|shareholder|soci|socio|compliance|empresa/.test(t)) return "mercantil";
+    if (/acomiad|despid|dismiss|fired|unfair|laboral|employment|salari|wages|severance|finiquit|cmac|incapacitat|disability|inss/.test(t)) return "laboral";
+    if (/desnonament|desahuci|evict|lloguer|alquiler|rent|tenant|lease|arrendament|hipotec|mortgage|clàusula|clausula|comunitat|homeowner|neighbor/.test(t)) return "immobiliari";
+    if (/segona oportunitat|segunda oportunidad|second chance|concurs|bankrupt|insolvenc|deute|deuda|debt/.test(t)) return "segona-oportunitat";
     return "altres";
   }
 

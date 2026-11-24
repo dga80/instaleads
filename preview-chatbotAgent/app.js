@@ -552,6 +552,8 @@ const legalContents = {
       <p>La base legal és el consentiment exprés de l'usuari i la relació precontractual/contractual d'assessorament jurídic. Les dades es conservaran mentre duri la gestió de la consulta o els terminis legals d'exigència de responsabilitats deontològiques i civils.</p>
       <h4>Drets de l'Usuari</h4>
       <p>Pots exercir els teus drets d'accés, rectificació, supressió, limitació i oposició adreçant una comunicació escrita a info@arsadvocats.com aportant còpia del document d'identitat.</p>
+      <h4>Assistent Virtual d'Orientació (IA)</h4>
+      <p>Aquest lloc web ofereix un assistent virtual automatitzat basat en intel·ligència artificial (Google Gemini API) amb finalitat exclusivament informativa i de triatge inicial, que en cap cas substitueix l'assessorament jurídic personalitzat d'un advocat. Les converses es mantenen únicament de forma temporal a la sessió del navegador (<em>sessionStorage</em>), s'esborren automàticament en tancar la pestanya i no s'utilitzen per entrenar models d'IA. Es recomana no introduir DNI, comptes bancaris ni dades especialment sensibles dins el xat.</p>
     `,
     legalTitle: "Avís Legal i Règim Col·legial",
     legalHtml: `
@@ -582,6 +584,8 @@ const legalContents = {
       <p>La base legal es el consentimiento expreso del usuario y la relación precontractual o contractual de asesoramiento legal. Los datos se conservarán durante el tiempo necesario para la atención del asunto y los plazos legales aplicables.</p>
       <h4>Derechos del Usuario</h4>
       <p>Puedes ejercer tus derechos de acceso, rectificación, supresión, limitación y oposición dirigiendo un escrito a info@arsadvocats.com junto a copia de documento de identidad.</p>
+      <h4>Asistente Virtual de Orientación (IA)</h4>
+      <p>Este sitio web ofrece un asistente virtual automatizado basado en inteligencia artificial (Google Gemini API) con finalidad exclusivamente informativa y de triaje inicial, que en ningún caso sustituye el asesoramiento jurídico personalizado de un abogado. Las conversaciones se mantienen únicamente de forma temporal en la sesión del navegador (<em>sessionStorage</em>), se borran automáticamente al cerrar la pestaña y no se utilizan para entrenar modelos de IA. Se recomienda no introducir DNI, datos bancarios ni información especialmente sensible en el chat.</p>
     `,
     legalTitle: "Aviso Legal y Régimen Colegial",
     legalHtml: `
@@ -612,6 +616,8 @@ const legalContents = {
       <p>The processing is legitimized by express user consent and pre-contractual legal advisory relationships. Data will be retained throughout the case management and during statutory limitation periods.</p>
       <h4>User Rights</h4>
       <p>You may exercise rights of access, rectification, erasure, restriction, and opposition by sending a written notice along with proof of identity to info@arsadvocats.com.</p>
+      <h4>AI Virtual Assistant</h4>
+      <p>This website provides an automated virtual assistant powered by artificial intelligence (Google Gemini API) strictly for informational guidance and initial triage; it does not replace personalized legal advice from a licensed attorney. Chat messages are stored only temporarily in your browser session (<em>sessionStorage</em>), are automatically cleared when you close the tab, and are not used to train AI models. Please do not share ID numbers, banking details, or highly sensitive personal data in the chat.</p>
     `,
     legalTitle: "Legal Notice & Regulatory Standing",
     legalHtml: `
