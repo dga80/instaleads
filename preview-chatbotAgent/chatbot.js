@@ -3,7 +3,12 @@
  * Connects via secure Cloudflare Worker proxy (streaming SSE)
  */
 (function () {
-  const WORKER_URL = "https://ars-chat.dani-dga.workers.dev/";
+  const WORKER_URL =
+    window.location.hostname.endsWith(".vercel.app") ||
+    window.location.hostname === "localhost" ||
+    window.location.hostname === "127.0.0.1"
+      ? "/api/chat"
+      : "https://ars-chat.dani-dga.workers.dev/";
   const WHATSAPP_NUMBER = "34668556252";
 
   const I18N = {
