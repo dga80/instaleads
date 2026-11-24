@@ -1,6 +1,6 @@
 /**
  * Vercel Edge Function — Proxy blindat per a l'Assistent Legal d'ARS Advocats i Assessors
- * Endpoint automàtic a Vercel: /api/chat
+ * Endpoint automàtic a Vercel: /api/chat (branch: gh-pages)
  * Variable d'entorn requerida a Vercel: GEMINI_API_KEY
  * Variable opcional: GEMINI_MODEL
  */
