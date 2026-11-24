@@ -337,12 +337,17 @@
         `<span class="ars-chat-typing" aria-label="..."><span></span><span></span><span></span></span>`
       );
 
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 20000);
+
       try {
         const response = await fetch(WORKER_URL, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ messages, lang }),
+          signal: controller.signal,
         });
+        clearTimeout(timeoutId);
 
         const contentType = response.headers.get("Content-Type") || "";
 
@@ -413,6 +418,7 @@
         assistantBubble.className = "ars-chat-msg ars-chat-msg--error";
         assistantBubble.innerHTML = formatSafeText(I18N[lang].errConnection);
       } finally {
+        clearTimeout(timeoutId);
         isSending = false;
         els.sendBtn.disabled = false;
         scrollToBottom();
