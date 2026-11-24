@@ -117,20 +117,24 @@
 }
 
 .ars-chat-avatar {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.24);
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.22);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-serif, "Cormorant Garamond", Georgia, serif);
-  font-weight: 700;
-  font-size: 1.05rem;
-  letter-spacing: 0.04em;
-  color: #ffffff;
+  padding: 6px;
   flex-shrink: 0;
+}
+
+.ars-chat-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 .ars-chat-title-wrap {
@@ -139,10 +143,11 @@
 
 .ars-chat-title {
   margin: 0;
-  font-family: var(--font-serif, "Cormorant Garamond", Georgia, serif);
-  font-size: 1.25rem;
-  font-weight: 600;
-  line-height: 1.15;
+  font-family: var(--font-sans, "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
   color: #ffffff;
 }
 

@@ -171,7 +171,9 @@
     panel.innerHTML = `
       <header class="ars-chat-header">
         <div class="ars-chat-header-info">
-          <div class="ars-chat-avatar" aria-hidden="true">ARS</div>
+          <div class="ars-chat-avatar" aria-hidden="true">
+            <img src="assets/images/apple-touch-icon.png" alt="ARS Advocats" class="ars-chat-avatar-img" width="24" height="24">
+          </div>
           <div class="ars-chat-title-wrap">
             <h3 class="ars-chat-title" id="arsChatTitle"></h3>
             <p class="ars-chat-subtitle" id="arsChatSubtitle"></p>
