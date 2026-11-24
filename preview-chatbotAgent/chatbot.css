@@ -381,13 +381,14 @@
 }
 
 .ars-chat-handoff-btn--wa {
-  background: #7a070c;
+  background: var(--accent-primary, #c10c13);
   color: #ffffff;
-  border: 1px solid #7a070c;
+  border: 1px solid var(--accent-primary, #c10c13);
 }
 
 .ars-chat-handoff-btn--wa:hover {
-  background: #9e0a10;
+  background: var(--accent-hover, #9e0a10);
+  border-color: var(--accent-hover, #9e0a10);
   color: #ffffff;
 }
 
