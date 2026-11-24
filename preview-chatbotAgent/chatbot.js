@@ -265,13 +265,21 @@
     }
 
     function updateHandoffLinks() {
+      const t = I18N[lang];
       const hasUserMsg = messages.some((m) => m.role === "user");
-      els.handoff.classList.toggle("is-visible", hasUserMsg);
       if (hasUserMsg) {
-        const t = I18N[lang];
         const summary = buildCaseSummary(messages);
         const waText = encodeURIComponent(`${t.waIntro} ${summary}`);
         els.toWaLink.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${waText}`;
+      } else {
+        const waDefault = encodeURIComponent(
+          lang === "es"
+            ? "Hola, quería solicitar información sobre una consulta jurídica en ARS Advocats."
+            : lang === "en"
+            ? "Hello, I would like to request information about a legal consultation at ARS Advocats."
+            : "Hola, volia sol·licitar informació sobre una consulta jurídica a ARS Advocats."
+        );
+        els.toWaLink.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${waDefault}`;
       }
     }
 
@@ -401,17 +409,32 @@
         `<span class="ars-chat-typing" aria-label="..."><span></span><span></span><span></span></span>`
       );
 
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 20000);
+      const fetchOnce = async () => {
+        const controller = new AbortController();
+        const tid = setTimeout(() => controller.abort(), 16000);
+        try {
+          const res = await fetch(WORKER_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ messages, lang }),
+            signal: controller.signal,
+          });
+          clearTimeout(tid);
+          return res;
+        } catch (e) {
+          clearTimeout(tid);
+          throw e;
+        }
+      };
 
       try {
-        const response = await fetch(WORKER_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ messages, lang }),
-          signal: controller.signal,
-        });
-        clearTimeout(timeoutId);
+        let response;
+        try {
+          response = await fetchOnce();
+        } catch {
+          await new Promise((r) => setTimeout(r, 450));
+          response = await fetchOnce();
+        }
 
         const contentType = response.headers.get("Content-Type") || "";
 
@@ -497,7 +520,6 @@
         assistantBubble.className = "ars-chat-msg ars-chat-msg--error";
         assistantBubble.innerHTML = formatSafeText(I18N[lang].errConnection);
       } finally {
-        clearTimeout(timeoutId);
         isSending = false;
         els.sendBtn.disabled = false;
         scrollToBottom();

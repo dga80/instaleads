@@ -339,17 +339,13 @@
 
 /* Conversion handoff bar */
 .ars-chat-handoff {
-  display: none;
+  display: flex;
   align-items: center;
   gap: 8px;
   padding: 9px 12px;
   background: #ffffff;
   border-top: 1px solid var(--border-subtle, rgba(40, 20, 20, 0.08));
   flex-shrink: 0;
-}
-
-.ars-chat-handoff.is-visible {
-  display: flex;
 }
 
 .ars-chat-handoff-btn {
