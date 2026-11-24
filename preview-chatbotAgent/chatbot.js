@@ -8,7 +8,7 @@
     window.location.hostname === "localhost" ||
     window.location.hostname === "127.0.0.1"
       ? "/api/chat"
-      : "https://ars-chat.dani-dga.workers.dev/";
+      : "https://instaleads-blond.vercel.app/api/chat";
   const WHATSAPP_NUMBER = "34668556252";
 
   const I18N = {
