@@ -20,10 +20,10 @@
       resetTitle: "Nova conversa",
       closeTitle: "Tancar xat",
       disclaimer:
-        "Orientació informativa que no substitueix una consulta jurídica. Per privacitat, no incloguis DNI ni dades sensibles.",
+        "Orientació informativa que no substitueix una consulta jurídica. Per privacitat, no inclogui DNI ni dades sensibles.",
       welcome:
-        "Hola, soc l'assistent virtual d'**ARS Advocats i Assessors** (Granollers). Explica'm breument quin assumpte legal tens i t'indicaré si entra dins les nostres especialitats i com podem ajudar-te.",
-      placeholder: "Escriu la teva consulta breument...",
+        "Benvingut a l'assistent virtual d'**ARS Advocats i Assessors** (Granollers). Indiqui'ns breument el seu assumpte legal i li informarem si entra dins les nostres especialitats i com el podem ajudar.",
+      placeholder: "Escrigui la seva consulta breument...",
       sendAria: "Enviar missatge",
       btnForm: "Passar al formulari",
       btnWa: "Continuar per WhatsApp",
@@ -35,7 +35,7 @@
         "Urgència penal",
       ],
       errConnection:
-        "Ara mateix no podem connectar amb l'assistent. Pots escriure'ns directament per WhatsApp (+34 668 556 252) o trucar al 938 795 876.",
+        "En aquest moment no podem connectar amb l'assistent. Pot escriure'ns directament per WhatsApp (+34 668 556 252) o trucar al 938 795 876.",
       errNotDeployed:
         "L'assistent està pendent d'activar el codi del Worker a Cloudflare. Mentrestant, pots contactar directament amb el despatx al 938 795 876.",
       waIntro: "Hola, he fet una consulta inicial a l'assistent web d'ARS Advocats. Resum del cas:",
@@ -49,10 +49,10 @@
       resetTitle: "Nueva conversación",
       closeTitle: "Cerrar chat",
       disclaimer:
-        "Orientación informativa que no sustituye una consulta jurídica. Por privacidad, no incluyas DNI ni datos sensibles.",
+        "Orientación informativa que no sustituye una consulta jurídica. Por privacidad, no incluya DNI ni datos sensibles.",
       welcome:
-        "Hola, soy el asistente virtual de **ARS Advocats i Assessors** (Granollers). Cuéntame brevemente tu consulta legal y te indicaré si entra en nuestras especialidades y cómo podemos ayudarte.",
-      placeholder: "Escribe tu consulta brevemente...",
+        "Bienvenido al asistente virtual de **ARS Advocats i Assessors** (Granollers). Indíquenos brevemente su consulta legal y le informaremos si entra en nuestras especialidades y cómo podemos ayudarle.",
+      placeholder: "Escriba su consulta brevemente...",
       sendAria: "Enviar mensaje",
       btnForm: "Pasar al formulario",
       btnWa: "Continuar por WhatsApp",
@@ -64,7 +64,7 @@
         "Urgencia penal",
       ],
       errConnection:
-        "Ahora mismo no podemos conectar con el asistente. Puedes escribirnos por WhatsApp (+34 668 556 252) o llamar al 938 795 876.",
+        "En este momento no podemos conectar con el asistente. Puede escribirnos por WhatsApp (+34 668 556 252) o llamar al 938 795 876.",
       errNotDeployed:
         "El asistente está pendiente de activar el código del Worker en Cloudflare. Mientras tanto, puedes contactar con el despacho en el 938 795 876.",
       waIntro: "Hola, he realizado una consulta inicial en el asistente web de ARS Advocats. Resumen del caso:",
