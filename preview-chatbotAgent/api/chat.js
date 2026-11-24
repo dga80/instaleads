@@ -257,7 +257,7 @@ export default async function handler(request) {
     safetySettings: SAFETY_SETTINGS,
     generationConfig: {
       temperature: 0.35,
-      maxOutputTokens: 700,
+      maxOutputTokens: 1200,
     },
   };
 
