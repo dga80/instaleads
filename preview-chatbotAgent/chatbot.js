@@ -140,11 +140,45 @@
     return userTurns.join(" | ").slice(0, 600);
   }
 
+  const STORAGE_KEY = "ars_chat_session_v1";
+
+  function loadSessionMessages() {
+    try {
+      const raw = sessionStorage.getItem(STORAGE_KEY);
+      if (!raw) return [];
+      const parsed = JSON.parse(raw);
+      if (!Array.isArray(parsed)) return [];
+      return parsed
+        .filter(
+          (m) =>
+            m &&
+            (m.role === "user" || m.role === "assistant") &&
+            typeof m.text === "string" &&
+            m.text.trim()
+        )
+        .slice(-16);
+    } catch {
+      return [];
+    }
+  }
+
+  function saveSessionMessages(msgs) {
+    try {
+      if (!msgs || msgs.length === 0) {
+        sessionStorage.removeItem(STORAGE_KEY);
+      } else {
+        sessionStorage.setItem(STORAGE_KEY, JSON.stringify(msgs.slice(-16)));
+      }
+    } catch {
+      // Ignore storage quota or private-mode restrictions
+    }
+  }
+
   function initChatbot() {
     let lang = getLang();
     let isOpen = false;
     let isSending = false;
-    let messages = []; // { role: 'user' | 'assistant', text: string }
+    let messages = loadSessionMessages(); // { role: 'user' | 'assistant', text: string }
 
     // Create Launcher Button
     const launcher = document.createElement("button");
@@ -242,6 +276,7 @@
 
       const welcomeBubble = document.createElement("div");
       welcomeBubble.className = "ars-chat-msg ars-chat-msg--assistant";
+      welcomeBubble.setAttribute("data-welcome", "true");
       welcomeBubble.innerHTML = formatSafeText(t.welcome);
       els.messagesBox.appendChild(welcomeBubble);
 
@@ -259,6 +294,22 @@
         chipsWrap.appendChild(chip);
       });
       els.messagesBox.appendChild(chipsWrap);
+      updateHandoffLinks();
+    }
+
+    function renderRestoredConversation() {
+      const t = I18N[lang];
+      els.messagesBox.innerHTML = "";
+
+      const welcomeBubble = document.createElement("div");
+      welcomeBubble.className = "ars-chat-msg ars-chat-msg--assistant";
+      welcomeBubble.setAttribute("data-welcome", "true");
+      welcomeBubble.innerHTML = formatSafeText(t.welcome);
+      els.messagesBox.appendChild(welcomeBubble);
+
+      messages.forEach((m) => {
+        appendMessageBubble(m.role, formatSafeText(m.text));
+      });
       updateHandoffLinks();
     }
 
@@ -282,6 +333,12 @@
       if (messages.length === 0) {
         renderWelcome();
       } else {
+        const welcomeEl = els.messagesBox.querySelector('[data-welcome="true"]');
+        if (welcomeEl) {
+          welcomeEl.innerHTML = formatSafeText(t.welcome);
+        } else {
+          renderRestoredConversation();
+        }
         updateHandoffLinks();
       }
     }
@@ -290,6 +347,7 @@
       isOpen = true;
       panel.classList.add("is-open");
       launcher.classList.add("is-hidden");
+      scrollToBottom();
       setTimeout(() => els.input.focus(), 180);
     }
 
@@ -303,6 +361,7 @@
     function resetChat() {
       if (isSending) return;
       messages = [];
+      saveSessionMessages(messages);
       renderWelcome();
       els.input.focus();
     }
@@ -423,11 +482,13 @@
         }
 
         messages.push({ role: "assistant", text: fullText.trim() });
+        saveSessionMessages(messages);
       } catch (err) {
         console.error("[ARS Chat]", err);
         if (messages.length > 0 && messages[messages.length - 1].role === "user") {
           messages.pop();
         }
+        saveSessionMessages(messages);
         assistantBubble.className = "ars-chat-msg ars-chat-msg--error";
         assistantBubble.innerHTML = formatSafeText(I18N[lang].errConnection);
       } finally {
