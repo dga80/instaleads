@@ -24,7 +24,7 @@
         "Orientació informativa que no substitueix una consulta jurídica. Per privacitat, no inclogui DNI ni dades sensibles.",
       welcome:
         "Benvingut a l'assistent virtual d'**ARS Advocats i Assessors** (Granollers). Indiqui'ns breument el seu assumpte legal i li informarem si entra dins les nostres especialitats i com el podem ajudar.",
-      placeholder: "Escrigui la seva consulta breument...",
+      placeholder: "Escrigui la seva consulta...",
       sendAria: "Enviar missatge",
       btnForm: "Passar al formulari",
       btnWa: "Continuar per WhatsApp",
@@ -54,7 +54,7 @@
         "Orientación informativa que no sustituye una consulta jurídica. Por privacidad, no incluya DNI ni datos sensibles.",
       welcome:
         "Bienvenido al asistente virtual de **ARS Advocats i Assessors** (Granollers). Indíquenos brevemente su consulta legal y le informaremos si entra en nuestras especialidades y cómo podemos ayudarle.",
-      placeholder: "Escriba su consulta brevemente...",
+      placeholder: "Escriba su consulta...",
       sendAria: "Enviar mensaje",
       btnForm: "Pasar al formulario",
       btnWa: "Continuar por WhatsApp",
@@ -84,7 +84,7 @@
         "Informational guidance only; does not replace formal legal advice. Please do not share ID numbers or sensitive data here.",
       welcome:
         "Hello, I am the virtual assistant for **ARS Advocats i Assessors** (Granollers). Briefly tell me about your legal matter and I will let you know how our team can help.",
-      placeholder: "Briefly describe your legal question...",
+      placeholder: "Write your legal question...",
       sendAria: "Send message",
       btnForm: "Send to contact form",
       btnWa: "Continue on WhatsApp",
@@ -452,6 +452,7 @@
       els.sendBtn.disabled = true;
       els.input.value = "";
       els.input.style.height = "auto";
+      els.input.style.overflowY = "hidden";
 
       messages.push({ role: "user", text });
       appendMessageBubble("user", formatSafeText(text));
@@ -608,7 +609,9 @@
 
     els.input.addEventListener("input", () => {
       els.input.style.height = "auto";
-      els.input.style.height = Math.min(els.input.scrollHeight, 96) + "px";
+      const nextHeight = Math.min(els.input.scrollHeight, 96);
+      els.input.style.height = nextHeight + "px";
+      els.input.style.overflowY = els.input.scrollHeight > 96 ? "auto" : "hidden";
     });
 
     // Handoff to contact form

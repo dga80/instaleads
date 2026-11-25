@@ -422,10 +422,12 @@
 
 .ars-chat-input {
   flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
   resize: none;
   border: 1px solid var(--input-border, rgba(40, 20, 20, 0.16));
   border-radius: 10px;
-  padding: 10px 12px;
+  padding: 9px 12px;
   font-family: inherit;
   font-size: 0.875rem;
   line-height: 1.4;
@@ -433,8 +435,17 @@
   background: var(--bg-cream, #fbf7f6);
   max-height: 96px;
   min-height: 40px;
+  overflow-y: hidden;
   outline: none;
   transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ars-chat-input::placeholder {
+  color: var(--text-muted, #6e6061);
+  opacity: 0.85;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .ars-chat-input:focus {
@@ -508,6 +519,18 @@
 
   .ars-chat-input {
     font-size: 16px;
+    line-height: 1.35;
+    padding: 9px 12px;
+    min-height: 42px;
+  }
+
+  .ars-chat-input::placeholder {
+    font-size: 0.9rem;
+  }
+
+  .ars-chat-send {
+    width: 42px;
+    height: 42px;
   }
 
   .ars-chat-handoff {
