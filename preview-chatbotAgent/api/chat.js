@@ -135,7 +135,7 @@ function getCorsHeaders(origin) {
     "Access-Control-Allow-Origin": allowed ? origin : ALLOWED_ORIGINS[0],
     "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
-    "Access-Control-Expose-Headers": "X-ARS-Model",
+    "Access-Control-Expose-Headers": "X-ARS-Model, X-ARS-Lang",
     "Vary": "Origin",
   };
 }
@@ -419,6 +419,7 @@ export default async function handler(request) {
       "Content-Type": "text/event-stream; charset=utf-8",
       "Cache-Control": "no-cache",
       "X-ARS-Model": usedModel,
+      "X-ARS-Lang": replyLang,
     },
   });
 }

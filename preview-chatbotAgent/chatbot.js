@@ -14,6 +14,7 @@
   const I18N = {
     ca: {
       launcher: "Assistent Legal",
+      launcherShort: "Assistent",
       launcherAria: "Obrir l'assistent legal d'ARS Advocats",
       title: "Assistent ARS",
       subtitle: "Orientació inicial · 24/7",
@@ -43,6 +44,7 @@
     },
     es: {
       launcher: "Asistente Legal",
+      launcherShort: "Asistente",
       launcherAria: "Abrir el asistente legal de ARS Advocats",
       title: "Asistente ARS",
       subtitle: "Orientación inicial · 24/7",
@@ -72,6 +74,7 @@
     },
     en: {
       launcher: "Legal Assistant",
+      launcherShort: "Assistant",
       launcherAria: "Open ARS Advocats legal assistant",
       title: "ARS Assistant",
       subtitle: "Initial guidance · 24/7",
@@ -146,6 +149,25 @@
   }
 
   const STORAGE_KEY = "ars_chat_session_v1";
+  const STORAGE_LANG_KEY = "ars_chat_lang_v1";
+
+  function loadSessionLang(fallback) {
+    try {
+      const saved = sessionStorage.getItem(STORAGE_LANG_KEY);
+      return saved && I18N[saved] ? saved : fallback;
+    } catch {
+      return fallback;
+    }
+  }
+
+  function saveSessionLang(l) {
+    try {
+      if (!l) sessionStorage.removeItem(STORAGE_LANG_KEY);
+      else sessionStorage.setItem(STORAGE_LANG_KEY, l);
+    } catch {
+      // Ignore storage restrictions
+    }
+  }
 
   function loadSessionMessages() {
     try {
@@ -184,6 +206,7 @@
     let isOpen = false;
     let isSending = false;
     let messages = loadSessionMessages(); // { role: 'user' | 'assistant', text: string }
+    let chatLang = messages.length > 0 ? loadSessionLang(lang) : lang;
 
     // Create Launcher Button
     const launcher = document.createElement("button");
@@ -197,7 +220,8 @@
         </svg>
         <span class="ars-chat-live-dot"></span>
       </span>
-      <span class="ars-chat-launcher-label"></span>
+      <span class="ars-chat-launcher-label-full"></span>
+      <span class="ars-chat-launcher-label-short"></span>
     `;
 
     // Create Chat Panel
@@ -245,7 +269,8 @@
     document.body.appendChild(panel);
 
     const els = {
-      launcherLabel: launcher.querySelector(".ars-chat-launcher-label"),
+      launcherLabelFull: launcher.querySelector(".ars-chat-launcher-label-full"),
+      launcherLabelShort: launcher.querySelector(".ars-chat-launcher-label-short"),
       title: panel.querySelector("#arsChatTitle"),
       subtitle: panel.querySelector("#arsChatSubtitle"),
       resetBtn: panel.querySelector("#arsChatReset"),
@@ -265,7 +290,14 @@
     }
 
     function updateHandoffLinks() {
-      const t = I18N[lang];
+      const activeLang = I18N[chatLang] ? chatLang : lang;
+      const t = I18N[activeLang];
+      els.toFormBtn.textContent = t.btnForm;
+      els.toWaLink.textContent = t.btnWa;
+      els.disclaimer.textContent = t.disclaimer;
+      els.input.placeholder = t.placeholder;
+      els.sendBtn.setAttribute("aria-label", t.sendAria);
+
       const hasUserMsg = messages.some((m) => m.role === "user");
       if (hasUserMsg) {
         const summary = buildCaseSummary(messages);
@@ -273,14 +305,28 @@
         els.toWaLink.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${waText}`;
       } else {
         const waDefault = encodeURIComponent(
-          lang === "es"
+          activeLang === "es"
             ? "Hola, quería solicitar información sobre una consulta jurídica en ARS Advocats."
-            : lang === "en"
+            : activeLang === "en"
             ? "Hello, I would like to request information about a legal consultation at ARS Advocats."
             : "Hola, volia sol·licitar informació sobre una consulta jurídica a ARS Advocats."
         );
         els.toWaLink.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${waDefault}`;
       }
+    }
+
+    function applyDialogLanguage(detectedLang) {
+      if (!I18N[detectedLang] || detectedLang === chatLang) return;
+      chatLang = detectedLang;
+      saveSessionLang(chatLang);
+      const t = I18N[chatLang];
+      els.title.textContent = t.title;
+      els.subtitle.textContent = t.subtitle;
+      els.resetBtn.title = t.resetTitle;
+      els.resetBtn.setAttribute("aria-label", t.resetTitle);
+      els.closeBtn.title = t.closeTitle;
+      els.closeBtn.setAttribute("aria-label", t.closeTitle);
+      updateHandoffLinks();
     }
 
     function renderWelcome() {
@@ -329,23 +375,28 @@
     function applyLanguage(newLang) {
       lang = I18N[newLang] ? newLang : "ca";
       const t = I18N[lang];
-      els.launcherLabel.textContent = t.launcher;
+      els.launcherLabelFull.textContent = t.launcher;
+      els.launcherLabelShort.textContent = t.launcherShort;
       launcher.setAttribute("aria-label", t.launcherAria);
-      els.title.textContent = t.title;
-      els.subtitle.textContent = t.subtitle;
-      els.resetBtn.title = t.resetTitle;
-      els.resetBtn.setAttribute("aria-label", t.resetTitle);
-      els.closeBtn.title = t.closeTitle;
-      els.closeBtn.setAttribute("aria-label", t.closeTitle);
-      els.disclaimer.textContent = t.disclaimer;
-      els.input.placeholder = t.placeholder;
-      els.sendBtn.setAttribute("aria-label", t.sendAria);
-      els.toFormBtn.textContent = t.btnForm;
-      els.toWaLink.textContent = t.btnWa;
 
       if (messages.length === 0) {
+        chatLang = lang;
+        saveSessionLang(null);
+        els.title.textContent = t.title;
+        els.subtitle.textContent = t.subtitle;
+        els.resetBtn.title = t.resetTitle;
+        els.resetBtn.setAttribute("aria-label", t.resetTitle);
+        els.closeBtn.title = t.closeTitle;
+        els.closeBtn.setAttribute("aria-label", t.closeTitle);
         renderWelcome();
       } else {
+        const ct = I18N[chatLang] || t;
+        els.title.textContent = ct.title;
+        els.subtitle.textContent = ct.subtitle;
+        els.resetBtn.title = ct.resetTitle;
+        els.resetBtn.setAttribute("aria-label", ct.resetTitle);
+        els.closeBtn.title = ct.closeTitle;
+        els.closeBtn.setAttribute("aria-label", ct.closeTitle);
         const welcomeEl = els.messagesBox.querySelector('[data-welcome="true"]');
         if (welcomeEl) {
           welcomeEl.innerHTML = formatSafeText(t.welcome);
@@ -374,8 +425,10 @@
     function resetChat() {
       if (isSending) return;
       messages = [];
+      chatLang = lang;
       saveSessionMessages(messages);
-      renderWelcome();
+      saveSessionLang(null);
+      applyLanguage(lang);
       els.input.focus();
     }
 
@@ -437,6 +490,10 @@
         }
 
         const contentType = response.headers.get("Content-Type") || "";
+        const detectedLang = response.headers.get("X-ARS-Lang");
+        if (detectedLang) {
+          applyDialogLanguage(detectedLang);
+        }
 
         if (!response.ok) {
           throw new Error(`HTTP ${response.status}`);
@@ -556,7 +613,7 @@
 
     // Handoff to contact form
     els.toFormBtn.addEventListener("click", () => {
-      const t = I18N[lang];
+      const t = I18N[chatLang] || I18N[lang];
       const summary = buildCaseSummary(messages);
       const fullConversation = messages.map((m) => m.text).join(" ");
       const detectedArea = detectArea(fullConversation);
