@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /estadistiques.php
+Disallow: /stats-data/
 
 Sitemap: https://www.arsadvocats.com/sitemap.xml

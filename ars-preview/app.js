@@ -1017,6 +1017,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const result = await response.json().catch(() => ({}));
 
         if (response.ok && result.success) {
+          if (typeof window.arsTrack === 'function') {
+            window.arsTrack(window.__arsFromChat ? 'web_form_from_chat' : 'web_form_direct');
+          }
+          window.__arsFromChat = false;
           contactForm.reset();
           formFeedback.style.display = 'block';
           formFeedback.className = 'form-feedback success';
@@ -1165,4 +1169,69 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, { passive: true });
   }
+
+  // =========================================================================
+  // Anonymous RGPD-compliant Usage & Traffic Source Counter (no cookies/PII)
+  // =========================================================================
+  window.arsTrack = function (eventOrList) {
+    try {
+      const host = window.location.hostname;
+      if (host !== 'www.arsadvocats.com' && host !== 'arsadvocats.com' && host !== 'localhost' && host !== '127.0.0.1') {
+        return;
+      }
+      const events = Array.isArray(eventOrList) ? eventOrList : [eventOrList];
+      const payload = JSON.stringify({ events });
+      if (navigator.sendBeacon) {
+        const blob = new Blob([payload], { type: 'application/json' });
+        navigator.sendBeacon('/estadistiques.php', blob);
+      } else {
+        fetch('/estadistiques.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: payload,
+          keepalive: true
+        }).catch(() => {});
+      }
+    } catch {
+      // Never impact UX
+    }
+  };
+
+  // Track visit source once per browser session
+  try {
+    if (!sessionStorage.getItem('ars_visit_tracked_v1')) {
+      sessionStorage.setItem('ars_visit_tracked_v1', '1');
+      const ref = (document.referrer || '').toLowerCase();
+      const utm = (new URLSearchParams(window.location.search).get('utm_source') || '').toLowerCase();
+      const src = `${ref} ${utm}`;
+
+      if (/chatgpt\.com|chat\.openai\.com|openai\.com/.test(src)) {
+        window.arsTrack(['visit_ai', 'ai_chatgpt']);
+      } else if (/perplexity\.ai/.test(src)) {
+        window.arsTrack(['visit_ai', 'ai_perplexity']);
+      } else if (/gemini\.google\.com|bard\.google\.com/.test(src)) {
+        window.arsTrack(['visit_ai', 'ai_gemini']);
+      } else if (/claude\.ai/.test(src)) {
+        window.arsTrack(['visit_ai', 'ai_claude']);
+      } else if (/copilot\.microsoft\.com|you\.com|phind\.com|kagi\.com/.test(src)) {
+        window.arsTrack(['visit_ai', 'ai_other']);
+      } else if (/google\.|bing\.com|duckduckgo\.com|yahoo\.|ecosia\.org|startpage\.com/.test(src)) {
+        window.arsTrack('visit_google');
+      } else if (/instagram\.com|linkedin\.com|facebook\.com|fb\.com|t\.co|x\.com|twitter\.com/.test(src)) {
+        window.arsTrack('visit_social');
+      } else {
+        window.arsTrack('visit_direct');
+      }
+    }
+  } catch {
+    // Ignore private-mode storage restrictions
+  }
+
+  // Track direct website WhatsApp clicks (excluding chatbot's own WhatsApp CTA)
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href*="wa.me"]');
+    if (link && !link.closest('#arsChatPanel')) {
+      window.arsTrack('web_wa');
+    }
+  });
 });

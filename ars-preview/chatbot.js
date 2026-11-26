@@ -419,6 +419,9 @@
       panel.classList.add("is-open");
       launcher.classList.add("is-hidden");
       scrollToBottom();
+      if (typeof window.arsTrack === "function") {
+        window.arsTrack("chat_open");
+      }
       setTimeout(() => els.input.focus(), 180);
     }
 
@@ -464,6 +467,9 @@
       messages.push({ role: "user", text });
       appendMessageBubble("user", formatSafeText(text));
       updateHandoffLinks();
+      if (typeof window.arsTrack === "function") {
+        window.arsTrack("chat_message");
+      }
 
       const assistantBubble = appendMessageBubble(
         "assistant",
@@ -621,8 +627,19 @@
       els.input.style.overflowY = els.input.scrollHeight > 96 ? "auto" : "hidden";
     });
 
+    // Track WhatsApp handoff from chatbot
+    els.toWaLink.addEventListener("click", () => {
+      if (typeof window.arsTrack === "function") {
+        window.arsTrack("chat_to_wa");
+      }
+    });
+
     // Handoff to contact form
     els.toFormBtn.addEventListener("click", () => {
+      window.__arsFromChat = true;
+      if (typeof window.arsTrack === "function") {
+        window.arsTrack("chat_to_form");
+      }
       const t = I18N[chatLang] || I18N[lang];
       const summary = buildCaseSummary(messages);
       const fullConversation = messages.map((m) => m.text).join(" ");
