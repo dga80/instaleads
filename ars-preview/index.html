@@ -16,8 +16,8 @@
   <!-- Canonical & Alternate Hreflang -->
   <link rel="canonical" href="https://www.arsadvocats.com/">
   <link rel="alternate" hreflang="ca" href="https://www.arsadvocats.com/">
-  <link rel="alternate" hreflang="es" href="https://www.arsadvocats.com/">
-  <link rel="alternate" hreflang="en" href="https://www.arsadvocats.com/">
+  <link rel="alternate" hreflang="es" href="https://www.arsadvocats.com/es/">
+  <link rel="alternate" hreflang="en" href="https://www.arsadvocats.com/en/">
   <link rel="alternate" hreflang="x-default" href="https://www.arsadvocats.com/">
 
   <!-- Open Graph / Facebook / WhatsApp -->
@@ -41,54 +41,205 @@
   <meta name="twitter:description" content="Rigor, compromís i excel·lència jurídica al centre de Granollers. Assessorament integral en Dret Civil, Família, Penal, Mercantil i Laboral.">
   <meta name="twitter:image" content="https://www.arsadvocats.com/assets/images/foto_portada.jpg">
 
-  <!-- Structured Data JSON-LD (Schema.org LegalService / Attorney) -->
+  <!-- Structured Data JSON-LD (@graph: WebSite, WebPage, LegalService/Attorney, Team & 15 Practice Areas) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LegalService",
-    "name": "ARS Advocats i Assessors",
-    "legalName": "ARS Advocats i Assessors Granollers, S.C.P.",
-    "url": "https://www.arsadvocats.com/",
-    "logo": "https://www.arsadvocats.com/assets/images/logo.png",
-    "image": "https://www.arsadvocats.com/assets/images/foto_portada.jpg",
-    "description": "Despatx d'advocats i d'assessorament legal integral al centre de Granollers. Dret Civil, Matrimonial i Família, Successions, Penal, Mercantil, Laboral i Immobiliari.",
-    "telephone": "+34938795876",
-    "email": "info@arsadvocats.com",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Carrer de Barcelona, 7, 1r",
-      "addressLocality": "Granollers",
-      "postalCode": "08401",
-      "addressRegion": "Barcelona",
-      "addressCountry": "ES"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 41.60749,
-      "longitude": 2.285817
-    },
-    "openingHoursSpecification": [
+    "@graph": [
       {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "09:00",
-        "closes": "14:00"
+        "@type": "WebSite",
+        "@id": "https://www.arsadvocats.com/#website",
+        "url": "https://www.arsadvocats.com/",
+        "name": "ARS Advocats i Assessors",
+        "inLanguage": ["ca", "es", "en"],
+        "publisher": { "@id": "https://www.arsadvocats.com/#organization" }
       },
       {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "16:00",
-        "closes": "19:30"
+        "@type": "WebPage",
+        "@id": "https://www.arsadvocats.com/#webpage",
+        "url": "https://www.arsadvocats.com/",
+        "name": "ARS Advocats i Assessors | Despatx d'advocats a Granollers",
+        "description": "ARS Advocats i Assessors. Despatx d'advocats i assessorament legal integral al centre de Granollers. Dret Civil, Família, Penal, Mercantil, Laboral i Immobiliari.",
+        "inLanguage": "ca",
+        "isPartOf": { "@id": "https://www.arsadvocats.com/#website" },
+        "about": { "@id": "https://www.arsadvocats.com/#organization" }
+      },
+      {
+        "@type": ["LegalService", "Attorney"],
+        "@id": "https://www.arsadvocats.com/#organization",
+        "name": "ARS Advocats i Assessors",
+        "legalName": "ARS Advocats i Assessors Granollers, S.C.P.",
+        "url": "https://www.arsadvocats.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.arsadvocats.com/assets/images/logo.png",
+          "width": 569,
+          "height": 206
+        },
+        "image": "https://www.arsadvocats.com/assets/images/foto_portada.jpg",
+        "description": "Despatx d'advocats i d'assessorament legal integral al centre de Granollers. Especialistes en Dret Civil, Matrimonial i Família, Successions, Penal, Mercantil, Laboral, Immobiliari, Bancari i Llei de Segona Oportunitat.",
+        "foundingDate": "2011",
+        "telephone": "+34938795876",
+        "email": "info@arsadvocats.com",
+        "priceRange": "$$",
+        "knowsLanguage": ["ca", "es", "en"],
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+34-938-795-876",
+            "contactType": "customer service",
+            "areaServed": "ES",
+            "availableLanguage": ["Catalan", "Spanish", "English"]
+          },
+          {
+            "@type": "ContactPoint",
+            "telephone": "+34-668-556-252",
+            "contactType": "customer service",
+            "url": "https://wa.me/34668556252",
+            "areaServed": "ES",
+            "availableLanguage": ["Catalan", "Spanish", "English"]
+          }
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Carrer de Barcelona, 7, 1r",
+          "addressLocality": "Granollers",
+          "postalCode": "08401",
+          "addressRegion": "Barcelona",
+          "addressCountry": "ES"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 41.60749,
+          "longitude": 2.285817
+        },
+        "hasMap": "https://maps.google.com/?q=Carrer+de+Barcelona,+7,+08401+Granollers",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "14:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "16:00",
+            "closes": "19:30"
+          }
+        ],
+        "areaServed": [
+          { "@type": "City", "name": "Granollers" },
+          { "@type": "AdministrativeArea", "name": "Vallès Oriental" },
+          { "@type": "AdministrativeArea", "name": "Barcelona" },
+          { "@type": "AdministrativeArea", "name": "Catalunya" }
+        ],
+        "memberOf": [
+          {
+            "@type": "Organization",
+            "name": "Il·lustre Col·legi d'Advocats de Granollers (ICAVOR)"
+          },
+          {
+            "@type": "Organization",
+            "name": "Il·lustre Col·legi de l'Advocacia de Barcelona (ICAB)"
+          }
+        ],
+        "founder": [
+          { "@id": "https://www.arsadvocats.com/#roger-subirana" },
+          { "@id": "https://www.arsadvocats.com/#alex-reus" }
+        ],
+        "employee": [
+          { "@id": "https://www.arsadvocats.com/#roger-subirana" },
+          { "@id": "https://www.arsadvocats.com/#alex-reus" },
+          { "@id": "https://www.arsadvocats.com/#anna-camps" },
+          { "@id": "https://www.arsadvocats.com/#dana-costa" }
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Àrees d'Especialització Jurídica",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dret Matrimonial i de Família", "description": "Separacions i divorcis de mutu acord o contenciosos, convenis reguladors, guarda i custòdia, pensions d'aliments i modificació de mesures." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Successions, Testaments i Herències", "description": "Planificació successòria, acceptació d'herències, declaració d'hereus, reclamació de la legítima catalana i impugnació de testaments." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Desnonaments i Arrendaments", "description": "Desnonaments per impagament o finalització de contracte i redacció de contractes d'arrendament d'habitatge i local comercial." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Obligacions i Contractes", "description": "Redacció, negociació i resolució de contractes civils i mercantils, vicis ocults i indemnització de danys i perjudicis." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reclamacions de Quantitat", "description": "Reclamació extrajudicial i judicial d'impagats, procediments monitoris, ordinaris, verbals i execució de sentències." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Comunitats de Propietaris", "description": "Propietat horitzontal, impugnació d'acords comunitaris, reclamació a morosos i defectes constructius." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dret Bancari i Clàusules Abusives", "description": "Clàusules sòl, despeses hipotecàries, targetes revolving, comissions abusives i execucions hipotecàries." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dret Penal i Defensa Judicial", "description": "Assistència urgent al detingut en comissaria i jutjat de guàrdia, defensa penal i acusació particular." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Violència Masclista i de Gènere", "description": "Atenció urgent i especialitzada, ordres de protecció i allunyament i mesures cautelars." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dret Econòmic i Compliance", "description": "Corporate Compliance, prevenció penal corporativa, delictes societaris, estafes i apropiacions indegudes." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Accidents de Trànsit", "description": "Reclamació d'indemnitzacions per accidents de circulació, lesions, seqüeles i danys materials." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dret Laboral i Seguretat Social", "description": "Acomiadaments disciplinaris i objectius, reclamació de salaris, sancions, ERO, ERTO i conciliacions al CMAC." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Incapacitats Laborals i Invalidesa", "description": "Tramitació i reclamació judicial d'incapacitat permanent parcial, total, absoluta i gran invalidesa davant l'INSS." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Assessorament a Societats Mercantils", "description": "Constitució de societats, pactes de socis, fusions i adquisicions, secretaria del consell i conflictes societaris." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Concursos i Llei de Segona Oportunitat", "description": "Reestructuració d'insolvències i cancel·lació de deutes (EPI) per a particulars, autònoms i pimes." } }
+          ]
+        },
+        "sameAs": [
+          "https://es.linkedin.com/company/ars-advocats",
+          "https://www.instagram.com/arsadvocats/",
+          "https://www.facebook.com/ARSAdvocats",
+          "https://twitter.com/arsadvocats"
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.arsadvocats.com/#roger-subirana",
+        "name": "Roger Subirana",
+        "jobTitle": "Soci Director",
+        "image": "https://www.arsadvocats.com/assets/images/roger.jpg",
+        "worksFor": { "@id": "https://www.arsadvocats.com/#organization" },
+        "alumniOf": [
+          { "@type": "CollegeOrUniversity", "name": "Universitat de Barcelona (UB)" },
+          { "@type": "Organization", "name": "Il·lustre Col·legi de l'Advocacia de Barcelona (ICAB)" }
+        ],
+        "memberOf": { "@type": "Organization", "name": "Il·lustre Col·legi d'Advocats de Granollers (ICAVOR)" },
+        "knowsAbout": ["Dret Civil", "Dret de Família", "Successions i Herències", "Dret Penal", "Litigació"],
+        "knowsLanguage": ["ca", "es", "en"]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.arsadvocats.com/#alex-reus",
+        "name": "Àlex Reus",
+        "jobTitle": "Soci Director",
+        "image": "https://www.arsadvocats.com/assets/images/alex.jpg",
+        "worksFor": { "@id": "https://www.arsadvocats.com/#organization" },
+        "alumniOf": [
+          { "@type": "CollegeOrUniversity", "name": "Universitat de Barcelona (UB)" },
+          { "@type": "Organization", "name": "Il·lustre Col·legi de l'Advocacia de Barcelona (ICAB)" }
+        ],
+        "knowsAbout": ["Dret Mercantil i Societari", "Dret Laboral i Seguretat Social", "Incapacitats Laborals", "Llei de Segona Oportunitat", "Corporate Compliance"],
+        "knowsLanguage": ["ca", "es", "en"]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.arsadvocats.com/#anna-camps",
+        "name": "Anna Camps",
+        "jobTitle": "Advocada Col·laboradora",
+        "image": "https://www.arsadvocats.com/assets/images/anna.jpg",
+        "worksFor": { "@id": "https://www.arsadvocats.com/#organization" },
+        "alumniOf": [
+          { "@type": "CollegeOrUniversity", "name": "Universitat Autònoma de Barcelona (UAB)" }
+        ],
+        "knowsAbout": ["Dret Immobiliari", "Desnonaments i Arrendaments", "Dret Civil", "Dret Penal"],
+        "knowsLanguage": ["ca", "es", "en"]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.arsadvocats.com/#dana-costa",
+        "name": "Dana Costa",
+        "jobTitle": "Assistent legal · Dret Penal",
+        "image": "https://www.arsadvocats.com/assets/images/dana.jpg",
+        "worksFor": { "@id": "https://www.arsadvocats.com/#organization" },
+        "alumniOf": [
+          { "@type": "CollegeOrUniversity", "name": "UPF Barcelona School of Management" },
+          { "@type": "CollegeOrUniversity", "name": "Universitat de Barcelona (UB)" },
+          { "@type": "CollegeOrUniversity", "name": "Universitat Pompeu Fabra (UPF)" }
+        ],
+        "knowsAbout": ["Dret Penal", "Dret Processal Penal", "Ciències Penals"],
+        "knowsLanguage": ["ca", "es", "en"]
       }
-    ],
-    "sameAs": [
-      "https://es.linkedin.com/company/ars-advocats",
-      "https://www.instagram.com/arsadvocats/",
-      "https://www.facebook.com/ARSAdvocats",
-      "https://twitter.com/arsadvocats"
-    ],
-    "priceRange": "$$",
-    "areaServed": ["Granollers", "Vallès Oriental", "Barcelona", "Catalunya"]
+    ]
   }
   </script>
 
@@ -929,7 +1080,7 @@
   </a>
 
   <!-- Main JavaScript File -->
-  <script src="app.js?v=35" defer></script>
+  <script src="app.js?v=36" defer></script>
   <script src="chatbot.js?v=3" defer></script>
 </body>
 </html>

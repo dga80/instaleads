@@ -683,8 +683,53 @@ document.addEventListener('DOMContentLoaded', () => {
   const statYearsEl = document.getElementById('statYearsExperience');
   if (statYearsEl) statYearsEl.textContent = `+${yearsExperience}`;
 
-  let currentLang = localStorage.getItem('ars_lang') || 'ca';
+  // Freeze resolved absolute URLs for images and form action before any history.pushState
+  // so switching between /, /es/ and /en/ never breaks lazy-loaded images or form submission.
+  document.querySelectorAll('img[src]').forEach(img => {
+    img.setAttribute('src', img.src);
+  });
+  const contactFormInitial = document.getElementById('contactForm');
+  const contactActionUrl = contactFormInitial
+    ? contactFormInitial.action
+    : new URL('contact.php', window.location.href).href;
+
+  // Compute site base path (works on root domain IONOS and subdirectories like GitHub Pages)
+  const siteBasePath = window.location.pathname
+    .replace(/\/(es|en)(\/index\.html|\/)?$/, '/')
+    .replace(/\/index\.html$/, '/')
+    .replace(/\/?$/, '/');
+
+  function detectLangFromUrl() {
+    const path = window.location.pathname;
+    if (/\/es(\/index\.html|\/)?$/.test(path)) return 'es';
+    if (/\/en(\/index\.html|\/)?$/.test(path)) return 'en';
+    const htmlLang = document.documentElement.getAttribute('lang');
+    if (htmlLang === 'es' || htmlLang === 'en' || htmlLang === 'ca') return htmlLang;
+    return localStorage.getItem('ars_lang') || 'ca';
+  }
+
+  let currentLang = detectLangFromUrl();
   let isLanguageChanging = false;
+
+  function syncUrlForLang(lang, push = true) {
+    const canonicalEl = document.querySelector('link[rel="canonical"]');
+    if (canonicalEl) {
+      canonicalEl.setAttribute(
+        'href',
+        lang === 'ca' ? 'https://www.arsadvocats.com/' : `https://www.arsadvocats.com/${lang}/`
+      );
+    }
+    if (window.location.protocol === 'file:') return;
+    const targetPath = lang === 'ca' ? siteBasePath : `${siteBasePath}${lang}/`;
+    const targetUrl = `${targetPath}${window.location.search}${window.location.hash}`;
+    if (window.location.pathname !== targetPath) {
+      if (push) {
+        window.history.pushState({ lang }, '', targetUrl);
+      } else {
+        window.history.replaceState({ lang }, '', targetUrl);
+      }
+    }
+  }
 
   function updateTexts(lang) {
     currentLang = lang;
@@ -766,7 +811,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function switchLanguageWithTransition(targetLang) {
+  function switchLanguageWithTransition(targetLang, pushHistory = true) {
     if (targetLang === currentLang || isLanguageChanging) return;
     isLanguageChanging = true;
 
@@ -775,6 +820,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setTimeout(() => {
       updateTexts(targetLang);
+      syncUrlForLang(targetLang, pushHistory);
       // Revelar con el nuevo idioma suavemente
       requestAnimationFrame(() => {
         document.body.classList.remove('lang-switching');
@@ -790,8 +836,16 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const targetLang = btn.getAttribute('data-switch-lang');
-      switchLanguageWithTransition(targetLang);
+      switchLanguageWithTransition(targetLang, true);
     });
+  });
+
+  // Support browser Back / Forward between /, /es/ and /en/ without reloading
+  window.addEventListener('popstate', () => {
+    const urlLang = detectLangFromUrl();
+    if (urlLang !== currentLang) {
+      switchLanguageWithTransition(urlLang, false);
+    }
   });
 
   // Initial apply immediately without transition
@@ -1009,7 +1063,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('lang', currentLang);
         formData.append('website', websiteHoneypot);
 
-        const response = await fetch('contact.php', {
+        const response = await fetch(contactActionUrl, {
           method: 'POST',
           body: formData
         });
