@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Defecte de Forma | ARS Advocats i Assessors</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ARS Advocats - Editorial Brand Palette (Carmine Red & Warm Cream) */
+    :root {
+      --bg-base: #fcfbfb;
+      --bg-cream: #fbf7f6;
+      --bg-card: #ffffff;
+      --accent-primary: #c10c13;   /* Vermell corporatiu */
+      --accent-hover: #9e0a10;     /* Granat fosc */
+      --accent-soft: #dda09f;      /* Rosa empolvat */
+      --accent-light: #fad6d5;     /* Rosa clar */
+      --accent-dark: #7a070c;      /* Vi intens */
+      --accent-deep: #540307;
+      --text-main: #1c1314;        /* Carbó fosc */
+      --text-body: #3c3233;        /* Text de lectura */
+      --text-muted: #6e6061;       /* Text secundari */
+      --text-dim: #8e8081;         /* Metadades */
+      --border-subtle: rgba(40, 20, 20, 0.08);
+      --border-accent: rgba(193, 12, 19, 0.35);
+      --shadow-card: 0 20px 45px rgba(40, 10, 15, 0.08), 0 4px 16px rgba(0, 0, 0, 0.03);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background-color: var(--bg-base);
+      background-image: 
+        radial-gradient(circle at 80% 20%, rgba(221, 160, 159, 0.22) 0%, transparent 60%),
+        radial-gradient(circle at 10% 80%, rgba(193, 12, 19, 0.05) 0%, transparent 50%),
+        linear-gradient(180deg, #ffffff 0%, var(--bg-cream) 100%);
+      color: var(--text-body);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.5rem;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Trama de fons subtil i refinada */
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(40, 20, 20, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(40, 20, 20, 0.025) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+    }
+
+    .container {
+      max-width: 660px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .brand-header {
+      margin-bottom: 2.25rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .brand-logo-img {
+      max-width: 220px;
+      height: auto;
+      filter: drop-shadow(0 4px 12px rgba(40, 10, 15, 0.06));
+    }
+
+    .brand-subtitle {
+      font-size: 0.72rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--accent-primary);
+      font-weight: 600;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-top: 3px solid var(--accent-primary);
+      border-radius: 10px;
+      padding: 3.5rem 2.5rem 3rem;
+      box-shadow: var(--shadow-card);
+      position: relative;
+    }
+
+    /* Segell jurídic d'estil corporatiu vermell */
+    .stamp {
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+      transform: rotate(8deg);
+      border: 2px dashed var(--accent-primary);
+      color: var(--accent-primary);
+      padding: 0.35rem 0.85rem;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      background: rgba(193, 12, 19, 0.05);
+      box-shadow: 0 0 14px rgba(193, 12, 19, 0.08);
+      user-select: none;
+    }
+
+    .error-code {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(5.5rem, 14vw, 7.5rem);
+      font-weight: 700;
+      line-height: 0.9;
+      letter-spacing: 0.03em;
+      background: linear-gradient(135deg, var(--accent-primary) 0%, #8e0a0f 65%, var(--accent-deep) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1.25rem;
+      filter: drop-shadow(0 3px 12px rgba(193, 12, 19, 0.16));
+    }
+
+    .error-headline {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.4rem, 3.2vw, 1.85rem);
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.01em;
+    }
+
+    .divider {
+      width: 48px;
+      height: 2px;
+      background: var(--accent-soft);
+      margin: 0 auto 1.5rem;
+      border-radius: 2px;
+    }
+
+    .error-body {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--text-body);
+      font-weight: 400;
+      max-width: 510px;
+      margin: 0 auto 1.85rem;
+    }
+
+    .legal-cite {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--accent-dark);
+      border-top: 1px solid rgba(221, 160, 159, 0.4);
+      padding-top: 1.35rem;
+      max-width: 440px;
+      margin: 0 auto 2rem;
+    }
+
+    .home-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0.85rem 1.85rem;
+      background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-hover) 100%);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      border-radius: 6px;
+      box-shadow: 0 8px 22px rgba(193, 12, 19, 0.22);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .home-btn:hover {
+      background: linear-gradient(135deg, var(--accent-hover) 0%, var(--accent-dark) 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(122, 7, 12, 0.3);
+    }
+
+    .footer-bar {
+      margin-top: 2.5rem;
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    @media (max-width: 560px) {
+      .card {
+        padding: 2.5rem 1.5rem 2rem;
+      }
+      .stamp {
+        position: static;
+        display: inline-block;
+        transform: rotate(-3deg);
+        margin-bottom: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="brand-header">
+      <a href="/" aria-label="Tornar a l'inici d'ARS Advocats">
+        <img src="/assets/images/logo.png" alt="ARS Advocats i Assessors" class="brand-logo-img">
+      </a>
+      <span class="brand-subtitle">Granollers · Despatx d'Advocats</span>
+    </header>
+
+    <main class="card">
+      <div class="stamp">Sobreseïment provisional</div>
+      
+      <div class="error-code">404</div>
+      <h1 class="error-headline">Defecte de forma: Expedient no localitzat</h1>
+      <div class="divider"></div>
+      
+      <p class="error-body">
+        Aquesta pàgina no compareix als nostres registres o ha estat declarada en rebel·lia processal. Els nostres lletrats han desestimat el recurs per manca de proves documentals.
+      </p>
+
+      <div class="legal-cite">
+        «Causa arxivada provisionalment en virtut de les diligències tècniques incoades.»
+      </div>
+
+      <a href="/" class="home-btn">
+        <span>Tornar a l'inici</span>
+        <span aria-hidden="true">&rarr;</span>
+      </a>
+    </main>
+
+    <footer class="footer-bar">
+      ARS Advocats i Assessors Granollers, S.C.P.
+    </footer>
+  </div>
+</body>
+</html>
