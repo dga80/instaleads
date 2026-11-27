@@ -6,6 +6,7 @@
  */
 
 header('X-Robots-Tag: noindex, nofollow, noarchive', true);
+date_default_timezone_set('Europe/Madrid');
 
 define('ARS_STATS_KEY', 'ars2026-8f4c9a2e');
 define('ARS_DATA_DIR', __DIR__ . '/stats-data');
@@ -22,12 +23,53 @@ $ALLOWED_EVENTS = [
     'visit_social',
     'visit_direct',
     'chat_open',
+    'chat_session',
     'chat_message',
     'chat_to_wa',
     'chat_to_form',
     'web_wa',
+    'web_tel',
+    'web_mailto',
     'web_form_direct',
     'web_form_from_chat',
+    'lang_ca',
+    'lang_es',
+    'lang_en',
+    'area_familia',
+    'area_herencies',
+    'area_immobiliari',
+    'area_contractes',
+    'area_quantitat',
+    'area_comunitats',
+    'area_bancari',
+    'area_penal',
+    'area_violencia',
+    'area_compliance',
+    'area_accidents',
+    'area_laboral',
+    'area_incapacitats',
+    'area_mercantil',
+    'area_segona_oportunitat',
+    'area_altres',
+];
+
+$AREA_LABELS = [
+    'area_familia'            => 'Família i matrimonial',
+    'area_laboral'            => 'Laboral i Seguretat Social',
+    'area_herencies'          => 'Herències i successions',
+    'area_immobiliari'        => 'Desnonaments i lloguers',
+    'area_penal'              => 'Penal i litigació',
+    'area_violencia'          => 'Violència de gènere',
+    'area_accidents'          => 'Accidents de trànsit',
+    'area_bancari'            => 'Bancari i clàusules',
+    'area_comunitats'         => 'Comunitats de propietaris',
+    'area_quantitat'          => 'Reclamacions de quantitat',
+    'area_contractes'         => 'Obligacions i contractes',
+    'area_incapacitats'       => 'Incapacitats laborals',
+    'area_mercantil'          => 'Mercantil i societari',
+    'area_segona_oportunitat' => 'Concursal i segona oportunitat',
+    'area_compliance'         => 'Delictes econòmics i compliance',
+    'area_altres'             => 'Altres assumptes',
 ];
 
 function ars_load_data($file) {
@@ -132,9 +174,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $events = [$_POST['event']];
     }
 
-    // Filtrar només esdeveniments permesos (màxim 4 per petició)
+    // Filtrar només esdeveniments permesos (màxim 6 per petició)
     $validEvents = [];
-    foreach (array_slice($events, 0, 4) as $ev) {
+    foreach (array_slice($events, 0, 6) as $ev) {
         if (is_string($ev) && in_array($ev, $ALLOWED_EVENTS, true)) {
             $validEvents[] = $ev;
         }
@@ -243,18 +285,37 @@ $aiGemini     = $val('ai_gemini');
 $aiClaude     = $val('ai_claude');
 $aiOther      = $val('ai_other');
 
-$chatOpen   = $val('chat_open');
-$chatMsg    = $val('chat_message');
-$chatToWa   = $val('chat_to_wa');
-$chatToForm = $val('chat_to_form');
+$chatOpen     = $val('chat_open');
+$chatSessions = $val('chat_session');
+$chatMsg      = $val('chat_message');
+$chatToWa     = $val('chat_to_wa');
+$chatToForm   = $val('chat_to_form');
 
 $webWa           = $val('web_wa');
+$webTel          = $val('web_tel');
+$webMailto       = $val('web_mailto');
 $webFormDirect   = $val('web_form_direct');
 $webFormFromChat = $val('web_form_from_chat');
 
-$totalWa   = $webWa + $chatToWa;
-$totalForm = $webFormDirect + $webFormFromChat;
-$totalLeads = $totalWa + $totalForm;
+$totalWa      = $webWa + $chatToWa;
+$totalForm    = $webFormDirect + $webFormFromChat;
+$totalDirectC = $totalWa + $webTel + $webMailto;
+$totalLeads   = $totalWa + $totalForm + $webTel + $webMailto;
+
+$langCa    = $val('lang_ca');
+$langEs    = $val('lang_es');
+$langEn    = $val('lang_en');
+$langTotal = $langCa + $langEs + $langEn;
+
+$areaCounts = [];
+foreach ($AREA_LABELS as $aKey => $aLabel) {
+    $c = $val($aKey);
+    if ($c > 0) {
+        $areaCounts[$aKey] = $c;
+    }
+}
+arsort($areaCounts);
+$areaTotal = array_sum($areaCounts);
 
 $pct = function ($part, $whole) {
     if ($whole <= 0) return 0;
@@ -262,7 +323,9 @@ $pct = function ($part, $whole) {
 };
 
 $chatActions = $chatToWa + $chatToForm;
-$chatConvRate = $chatOpen > 0 ? round(($chatActions / $chatOpen) * 100, 1) : 0;
+$chatConvBase = $chatSessions > 0 ? $chatSessions : $chatOpen;
+$chatConvBaseLabel = $chatSessions > 0 ? 'converses' : 'obertures';
+$chatConvRate = $chatConvBase > 0 ? round(($chatActions / $chatConvBase) * 100, 1) : 0;
 
 // Últims 14 dies per al gràfic diari
 $last14 = [];
@@ -309,20 +372,26 @@ $availableYears = array_keys($yearsSet);
 sort($availableYears);
 
 $extractRow = function ($bucket) {
-    $visits = (int)($bucket['visit_google'] ?? 0) + (int)($bucket['visit_ai'] ?? 0) + (int)($bucket['visit_social'] ?? 0) + (int)($bucket['visit_direct'] ?? 0);
-    $google = (int)($bucket['visit_google'] ?? 0);
-    $ai     = (int)($bucket['visit_ai'] ?? 0);
-    $chat   = (int)($bucket['chat_message'] ?? 0);
-    $wa     = (int)($bucket['chat_to_wa'] ?? 0) + (int)($bucket['web_wa'] ?? 0);
-    $form   = (int)($bucket['web_form_direct'] ?? 0) + (int)($bucket['web_form_from_chat'] ?? 0);
+    $visits   = (int)($bucket['visit_google'] ?? 0) + (int)($bucket['visit_ai'] ?? 0) + (int)($bucket['visit_social'] ?? 0) + (int)($bucket['visit_direct'] ?? 0);
+    $google   = (int)($bucket['visit_google'] ?? 0);
+    $ai       = (int)($bucket['visit_ai'] ?? 0);
+    $sessions = (int)($bucket['chat_session'] ?? 0);
+    $chat     = (int)($bucket['chat_message'] ?? 0);
+    $wa       = (int)($bucket['chat_to_wa'] ?? 0) + (int)($bucket['web_wa'] ?? 0);
+    $tel      = (int)($bucket['web_tel'] ?? 0);
+    $mailto   = (int)($bucket['web_mailto'] ?? 0);
+    $form     = (int)($bucket['web_form_direct'] ?? 0) + (int)($bucket['web_form_from_chat'] ?? 0);
     return [
-        'visits' => $visits,
-        'google' => $google,
-        'ai'     => $ai,
-        'chat'   => $chat,
-        'wa'     => $wa,
-        'form'   => $form,
-        'leads'  => $wa + $form,
+        'visits'   => $visits,
+        'google'   => $google,
+        'ai'       => $ai,
+        'sessions' => $sessions,
+        'chat'     => $chat,
+        'wa'       => $wa,
+        'tel'      => $tel,
+        'mailto'   => $mailto,
+        'form'     => $form,
+        'leads'    => $wa + $form + $tel + $mailto,
     ];
 };
 
@@ -332,12 +401,12 @@ $yearlySeries    = [];
 foreach ($availableYears as $yr) {
     $monthlyByYear[$yr] = [];
     $quarters = [
-        1 => ['label' => 'T1', 'fullLabel' => "T1 {$yr} (Gen–Mar)", 'visits' => 0, 'google' => 0, 'ai' => 0, 'chat' => 0, 'wa' => 0, 'form' => 0, 'leads' => 0],
-        2 => ['label' => 'T2', 'fullLabel' => "T2 {$yr} (Abr–Jun)", 'visits' => 0, 'google' => 0, 'ai' => 0, 'chat' => 0, 'wa' => 0, 'form' => 0, 'leads' => 0],
-        3 => ['label' => 'T3', 'fullLabel' => "T3 {$yr} (Jul–Set)", 'visits' => 0, 'google' => 0, 'ai' => 0, 'chat' => 0, 'wa' => 0, 'form' => 0, 'leads' => 0],
-        4 => ['label' => 'T4', 'fullLabel' => "T4 {$yr} (Oct–Des)", 'visits' => 0, 'google' => 0, 'ai' => 0, 'chat' => 0, 'wa' => 0, 'form' => 0, 'leads' => 0],
+        1 => ['label' => 'T1', 'fullLabel' => "T1 {$yr} (Gen–Mar)", 'visits' => 0, 'google' => 0, 'ai' => 0, 'sessions' => 0, 'chat' => 0, 'wa' => 0, 'tel' => 0, 'mailto' => 0, 'form' => 0, 'leads' => 0],
+        2 => ['label' => 'T2', 'fullLabel' => "T2 {$yr} (Abr–Jun)", 'visits' => 0, 'google' => 0, 'ai' => 0, 'sessions' => 0, 'chat' => 0, 'wa' => 0, 'tel' => 0, 'mailto' => 0, 'form' => 0, 'leads' => 0],
+        3 => ['label' => 'T3', 'fullLabel' => "T3 {$yr} (Jul–Set)", 'visits' => 0, 'google' => 0, 'ai' => 0, 'sessions' => 0, 'chat' => 0, 'wa' => 0, 'tel' => 0, 'mailto' => 0, 'form' => 0, 'leads' => 0],
+        4 => ['label' => 'T4', 'fullLabel' => "T4 {$yr} (Oct–Des)", 'visits' => 0, 'google' => 0, 'ai' => 0, 'sessions' => 0, 'chat' => 0, 'wa' => 0, 'tel' => 0, 'mailto' => 0, 'form' => 0, 'leads' => 0],
     ];
-    $yrTotals = ['label' => $yr, 'visits' => 0, 'google' => 0, 'ai' => 0, 'chat' => 0, 'wa' => 0, 'form' => 0, 'leads' => 0];
+    $yrTotals = ['label' => $yr, 'visits' => 0, 'google' => 0, 'ai' => 0, 'sessions' => 0, 'chat' => 0, 'wa' => 0, 'tel' => 0, 'mailto' => 0, 'form' => 0, 'leads' => 0];
     foreach ($monthNames as $mm => $mLabel) {
         $ymKey = "{$yr}-{$mm}";
         $row = $extractRow($data['months'][$ymKey] ?? []);
@@ -345,7 +414,7 @@ foreach ($availableYears as $yr) {
         $row['fullLabel'] = "{$mLabel} {$yr}";
         $monthlyByYear[$yr][] = $row;
         $qIdx = (int)ceil(((int)$mm) / 3);
-        foreach (['visits', 'google', 'ai', 'chat', 'wa', 'form', 'leads'] as $f) {
+        foreach (['visits', 'google', 'ai', 'sessions', 'chat', 'wa', 'tel', 'mailto', 'form', 'leads'] as $f) {
             $quarters[$qIdx][$f] += $row[$f];
             $yrTotals[$f] += $row[$f];
         }
@@ -381,12 +450,67 @@ $chartPayload = [
 
 $reqPath = parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) ?: '';
 $isPrettyUrl = (strpos($reqPath, '/panell-ars') === 0);
-$buildUrl = function ($period) use ($isPrettyUrl, $key) {
-    if ($isPrettyUrl) {
-        return '/panell-ars?m=' . urlencode($period);
-    }
-    return '?k=' . urlencode($key) . '&m=' . urlencode($period);
+$buildUrl = function ($period, $extra = '') use ($isPrettyUrl, $key) {
+    $base = $isPrettyUrl
+        ? '/panell-ars?m=' . urlencode($period)
+        : '?k=' . urlencode($key) . '&m=' . urlencode($period);
+    return $extra ? $base . '&' . $extra : $base;
 };
+
+// =========================================================================
+// 2b. EXPORTACIÓ CSV DEL PERÍODE SELECCIONAT
+// =========================================================================
+if (isset($_GET['export']) && $_GET['export'] === 'csv') {
+    $safePeriod = preg_replace('/[^a-zA-Z0-9_-]/', '', $selectedPeriod);
+    header('Content-Type: text/csv; charset=UTF-8');
+    header('Content-Disposition: attachment; filename="ars-estadistiques-' . $safePeriod . '.csv"');
+    echo "\xEF\xBB\xBF";
+    $out = fopen('php://output', 'w');
+    $periodTitle = $selectedPeriod === 'all' ? 'Històric total' : $formatMonth($selectedPeriod);
+    fputcsv($out, ['ARS Advocats i Assessors — Informe Estadístic', $periodTitle, 'Generat: ' . date('d/m/Y H:i')], ';');
+    fputcsv($out, [], ';');
+    fputcsv($out, ['SECCIÓ', 'MÈTRICA', 'VALOR'], ';');
+    fputcsv($out, ['Visites', 'Total visites web', $vTotal], ';');
+    fputcsv($out, ['Visites', 'Buscadors clàssics (Google, Bing...)', $vGoogle], ';');
+    fputcsv($out, ['Visites', 'Buscadors i Assistents IA (total)', $vAi], ';');
+    fputcsv($out, ['Visites IA', 'ChatGPT', $aiChatgpt], ';');
+    fputcsv($out, ['Visites IA', 'Perplexity', $aiPerplexity], ';');
+    fputcsv($out, ['Visites IA', 'Gemini', $aiGemini], ';');
+    fputcsv($out, ['Visites IA', 'Claude', $aiClaude], ';');
+    fputcsv($out, ['Visites IA', 'Altres IA', $aiOther], ';');
+    fputcsv($out, ['Visites', 'Xarxes socials i directoris', $vSocial], ';');
+    fputcsv($out, ['Visites', 'Directe / Apps / Altres', $vDirect], ';');
+    fputcsv($out, ['Assistent IA', 'Obertures del xat', $chatOpen], ';');
+    fputcsv($out, ['Assistent IA', 'Converses iniciades', $chatSessions], ';');
+    fputcsv($out, ['Assistent IA', 'Consultes (missatges) enviades', $chatMsg], ';');
+    fputcsv($out, ['Assistent IA', 'Pas a WhatsApp des del xat', $chatToWa], ';');
+    fputcsv($out, ['Assistent IA', 'Pas al Formulari des del xat', $chatToForm], ';');
+    fputcsv($out, ['Contactes', 'Total contactes generats', $totalLeads], ';');
+    fputcsv($out, ['Contactes', 'WhatsApp total (Xat + Web)', $totalWa], ';');
+    fputcsv($out, ['Contactes', 'WhatsApp web directe', $webWa], ';');
+    fputcsv($out, ['Contactes', 'Clics a Telèfon (tel:)', $webTel], ';');
+    fputcsv($out, ['Contactes', 'Clics a Email (mailto:)', $webMailto], ';');
+    fputcsv($out, ['Contactes', 'Formularis enviats (total)', $totalForm], ';');
+    fputcsv($out, ['Contactes', 'Formularis via Chatbot', $webFormFromChat], ';');
+    fputcsv($out, ['Contactes', 'Formularis web directes', $webFormDirect], ';');
+    fputcsv($out, ['Idiomes', 'Català', $langCa], ';');
+    fputcsv($out, ['Idiomes', 'Castellà', $langEs], ';');
+    fputcsv($out, ['Idiomes', 'Anglès', $langEn], ';');
+    foreach ($AREA_LABELS as $aKey => $aLabel) {
+        $c = $val($aKey);
+        if ($c > 0) {
+            fputcsv($out, ['Temàtica consultada', $aLabel, $c], ';');
+        }
+    }
+    fputcsv($out, [], ';');
+    fputcsv($out, ['DESGLOSSAMENT DIARI (ÚLTIMS 30 DIES)'], ';');
+    fputcsv($out, ['Data', 'Visites', 'Google', 'IA', 'Converses Xat', 'Consultes Xat', 'WhatsApp', 'Telèfon', 'Email', 'Formularis', 'Total Contactes'], ';');
+    foreach ($chartPayload['days30'] as $r) {
+        fputcsv($out, [$r['fullLabel'], $r['visits'], $r['google'], $r['ai'], $r['sessions'], $r['chat'], $r['wa'], $r['tel'], $r['mailto'], $r['form'], $r['leads']], ';');
+    }
+    fclose($out);
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="ca">
@@ -557,14 +681,43 @@ $buildUrl = function ($period) use ($isPrettyUrl, $key) {
       box-shadow: 0 4px 12px rgba(193, 12, 19, 0.22);
     }
 
+    .period-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
     .refresh-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: inherit;
       font-size: 0.78rem;
       font-weight: 600;
       color: var(--accent-dark);
       text-decoration: none;
-      padding: 6px 10px;
+      padding: 6px 11px;
       border-radius: 8px;
       background: var(--surface-soft);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: background 0.18s ease, border-color 0.18s ease;
+    }
+
+    .refresh-link:hover {
+      background: #efe3e2;
+      border-color: var(--accent);
+    }
+
+    .empty-hint {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: var(--bg);
+      border: 1px dashed var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      line-height: 1.45;
     }
 
     /* KPI Grid */
@@ -1120,6 +1273,50 @@ $buildUrl = function ($period) use ($isPrettyUrl, $key) {
       .panel { padding: 16px; }
       .split-grid { grid-template-columns: 1fr; }
     }
+
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 12mm;
+      }
+      body {
+        background: #ffffff;
+        padding-bottom: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .topbar {
+        border-radius: 10px;
+        margin-bottom: 14px;
+      }
+      .period-bar,
+      .evo-controls,
+      .evo-hint,
+      .chart-legend {
+        display: none !important;
+      }
+      .kpi-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 10px;
+      }
+      .panels-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 12px;
+      }
+      .kpi-card,
+      .panel {
+        box-shadow: none !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .evo-scroll {
+        overflow: visible !important;
+      }
+      .evo-svg {
+        min-width: 0 !important;
+        width: 100% !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1151,7 +1348,11 @@ $buildUrl = function ($period) use ($isPrettyUrl, $key) {
           </a>
         <?php endforeach; ?>
       </nav>
-      <a href="<?= htmlspecialchars($buildUrl($selectedPeriod), ENT_QUOTES, 'UTF-8') ?>" class="refresh-link">↻ Actualitzar</a>
+      <div class="period-actions">
+        <a href="<?= htmlspecialchars($buildUrl($selectedPeriod, 'export=csv'), ENT_QUOTES, 'UTF-8') ?>" class="refresh-link">↓ Exportar CSV</a>
+        <button type="button" class="refresh-link" onclick="window.print()">⎙ Imprimir / PDF</button>
+        <a href="<?= htmlspecialchars($buildUrl($selectedPeriod), ENT_QUOTES, 'UTF-8') ?>" class="refresh-link">↻ Actualitzar</a>
+      </div>
     </div>
 
     <!-- 4 Hero KPIs -->
@@ -1165,13 +1366,13 @@ $buildUrl = function ($period) use ($isPrettyUrl, $key) {
       <article class="kpi-card kpi-card--primary">
         <div class="kpi-label">Consultes al Chatbot</div>
         <div class="kpi-value"><?= number_format($chatMsg, 0, ',', '.') ?></div>
-        <div class="kpi-sub">Obertures del xat: <strong><?= $chatOpen ?></strong></div>
+        <div class="kpi-sub">Converses: <strong><?= $chatSessions ?></strong> · Obertures: <strong><?= $chatOpen ?></strong></div>
       </article>
 
       <article class="kpi-card">
-        <div class="kpi-label">Clics a WhatsApp</div>
-        <div class="kpi-value"><?= number_format($totalWa, 0, ',', '.') ?></div>
-        <div class="kpi-sub">Via Chatbot: <strong><?= $chatToWa ?></strong> · Web directe: <strong><?= $webWa ?></strong></div>
+        <div class="kpi-label">Contactes directes</div>
+        <div class="kpi-value"><?= number_format($totalDirectC, 0, ',', '.') ?></div>
+        <div class="kpi-sub">WA: <strong><?= $totalWa ?></strong> · Tel: <strong><?= $webTel ?></strong> · Email: <strong><?= $webMailto ?></strong></div>
       </article>
 
       <article class="kpi-card">
@@ -1187,7 +1388,7 @@ $buildUrl = function ($period) use ($isPrettyUrl, $key) {
       <article class="panel">
         <div class="panel-head">
           <h2 class="panel-title">Rendiment de l'Assistent IA</h2>
-          <span class="panel-badge">Conversió xat: <?= $chatConvRate ?>%</span>
+          <span class="panel-badge">Conversió: <?= $chatConvRate ?>% (sobre <?= $chatConvBaseLabel ?>)</span>
         </div>
 
         <div class="metric-list">
@@ -1201,26 +1402,34 @@ $buildUrl = function ($period) use ($isPrettyUrl, $key) {
 
           <div>
             <div class="metric-row-top">
-              <span class="metric-name">2. Consultes enviades a l'assistent</span>
+              <span class="metric-name">2. Converses iniciades (sessions úniques)</span>
+              <span class="metric-num"><?= $chatSessions ?> <?php if ($chatOpen > 0): ?><span>(<?= min(100, $pct($chatSessions, $chatOpen)) ?>%)</span><?php endif; ?></span>
+            </div>
+            <div class="bar-track"><div class="bar-fill" style="width: <?= $chatSessions > 0 ? min(100, $pct($chatSessions, max($chatOpen, $chatSessions))) : 0 ?>%"></div></div>
+          </div>
+
+          <div>
+            <div class="metric-row-top">
+              <span class="metric-name">3. Consultes (missatges) enviades a la IA</span>
               <span class="metric-num"><?= $chatMsg ?></span>
             </div>
-            <div class="bar-track"><div class="bar-fill" style="width: <?= $chatOpen > 0 ? min(100, $pct($chatMsg, max($chatOpen, $chatMsg))) : ($chatMsg > 0 ? 100 : 0) ?>%"></div></div>
+            <div class="bar-track"><div class="bar-fill" style="width: <?= $chatMsg > 0 ? 100 : 0 ?>%"></div></div>
           </div>
 
           <div>
             <div class="metric-row-top">
-              <span class="metric-name">3. Pas a WhatsApp des del xat</span>
-              <span class="metric-num"><?= $chatToWa ?> <span>(<?= $pct($chatToWa, $chatOpen) ?>%)</span></span>
+              <span class="metric-name">4. Pas a WhatsApp des del xat</span>
+              <span class="metric-num"><?= $chatToWa ?> <span>(<?= $pct($chatToWa, $chatConvBase) ?>%)</span></span>
             </div>
-            <div class="bar-track"><div class="bar-fill bar-fill--ai" style="width: <?= min(100, $pct($chatToWa, max(1, $chatOpen))) ?>%"></div></div>
+            <div class="bar-track"><div class="bar-fill bar-fill--ai" style="width: <?= min(100, $pct($chatToWa, max(1, $chatConvBase))) ?>%"></div></div>
           </div>
 
           <div>
             <div class="metric-row-top">
-              <span class="metric-name">4. Pas al Formulari des del xat</span>
-              <span class="metric-num"><?= $chatToForm ?> <span>(<?= $pct($chatToForm, $chatOpen) ?>%)</span></span>
+              <span class="metric-name">5. Pas al Formulari des del xat</span>
+              <span class="metric-num"><?= $chatToForm ?> <span>(<?= $pct($chatToForm, $chatConvBase) ?>%)</span></span>
             </div>
-            <div class="bar-track"><div class="bar-fill bar-fill--soft" style="width: <?= min(100, $pct($chatToForm, max(1, $chatOpen))) ?>%"></div></div>
+            <div class="bar-track"><div class="bar-fill bar-fill--soft" style="width: <?= min(100, $pct($chatToForm, max(1, $chatConvBase))) ?>%"></div></div>
           </div>
         </div>
 
@@ -1228,12 +1437,12 @@ $buildUrl = function ($period) use ($isPrettyUrl, $key) {
           <div class="split-box">
             <div class="split-box-title">Total contactes generats</div>
             <div class="split-box-val"><?= $totalLeads ?></div>
-            <div class="split-box-detail"><?= $totalWa ?> WhatsApp · <?= $totalForm ?> Formularis</div>
+            <div class="split-box-detail"><?= $totalWa ?> WA · <?= $totalForm ?> Form · <?= $webTel ?> Tel · <?= $webMailto ?> Email</div>
           </div>
           <div class="split-box">
             <div class="split-box-title">Origen dels contactes</div>
             <div class="split-box-val"><?= $pct($chatToWa + $webFormFromChat, $totalLeads) ?>% xat</div>
-            <div class="split-box-detail"><?= $chatToWa + $webFormFromChat ?> via Chatbot · <?= $webWa + $webFormDirect ?> web directe</div>
+            <div class="split-box-detail"><?= $chatToWa + $webFormFromChat ?> via Chatbot · <?= $webWa + $webFormDirect + $webTel + $webMailto ?> web directe</div>
           </div>
         </div>
       </article>
@@ -1288,6 +1497,88 @@ $buildUrl = function ($period) use ($isPrettyUrl, $key) {
       </article>
     </section>
 
+    <!-- Topics, Languages & Direct Contact Channels -->
+    <section class="panels-grid">
+      <!-- Left: Top Consulted Legal Areas -->
+      <article class="panel">
+        <div class="panel-head">
+          <h2 class="panel-title">Temàtiques consultades</h2>
+          <span class="panel-badge">Xat i Formulari · Anònim</span>
+        </div>
+
+        <?php if (!empty($areaCounts)): ?>
+          <div class="metric-list">
+            <?php foreach (array_slice($areaCounts, 0, 8, true) as $aKey => $aCount): ?>
+              <div>
+                <div class="metric-row-top">
+                  <span class="metric-name"><?= htmlspecialchars($AREA_LABELS[$aKey] ?? $aKey, ENT_QUOTES, 'UTF-8') ?></span>
+                  <span class="metric-num"><?= $aCount ?> <span>(<?= $pct($aCount, $areaTotal) ?>%)</span></span>
+                </div>
+                <div class="bar-track"><div class="bar-fill" style="width: <?= $pct($aCount, $areaTotal) ?>%"></div></div>
+              </div>
+            <?php endforeach; ?>
+          </div>
+        <?php else: ?>
+          <div class="empty-hint">
+            Les àrees jurídiques consultades (Família, Laboral, Herències, Penal, etc.) s'aniran registrant automàticament de forma anònima a partir de les pròximes converses i formularis.
+          </div>
+        <?php endif; ?>
+      </article>
+
+      <!-- Right: Languages & Direct Contact Channels -->
+      <article class="panel">
+        <div class="panel-head">
+          <h2 class="panel-title">Idiomes i canals de contacte</h2>
+          <span class="panel-badge"><?= $totalLeads ?> contactes</span>
+        </div>
+
+        <div class="metric-list">
+          <div>
+            <div class="metric-row-top">
+              <span class="metric-name">WhatsApp (Xat + Web)</span>
+              <span class="metric-num"><?= $totalWa ?> <span>(<?= $pct($totalWa, $totalLeads) ?>%)</span></span>
+            </div>
+            <div class="bar-track"><div class="bar-fill" style="width: <?= $pct($totalWa, $totalLeads) ?>%"></div></div>
+          </div>
+
+          <div>
+            <div class="metric-row-top">
+              <span class="metric-name">Formularis enviats</span>
+              <span class="metric-num"><?= $totalForm ?> <span>(<?= $pct($totalForm, $totalLeads) ?>%)</span></span>
+            </div>
+            <div class="bar-track"><div class="bar-fill bar-fill--ai" style="width: <?= $pct($totalForm, $totalLeads) ?>%"></div></div>
+          </div>
+
+          <div>
+            <div class="metric-row-top">
+              <span class="metric-name">Clics a Telèfon (938 795 876)</span>
+              <span class="metric-num"><?= $webTel ?> <span>(<?= $pct($webTel, $totalLeads) ?>%)</span></span>
+            </div>
+            <div class="bar-track"><div class="bar-fill bar-fill--soft" style="width: <?= $pct($webTel, $totalLeads) ?>%"></div></div>
+          </div>
+
+          <div>
+            <div class="metric-row-top">
+              <span class="metric-name">Clics a Email (info@arsadvocats.com)</span>
+              <span class="metric-num"><?= $webMailto ?> <span>(<?= $pct($webMailto, $totalLeads) ?>%)</span></span>
+            </div>
+            <div class="bar-track"><div class="bar-fill bar-fill--muted" style="width: <?= $pct($webMailto, $totalLeads) ?>%"></div></div>
+          </div>
+        </div>
+
+        <div class="split-grid" style="grid-template-columns: 1fr; margin-top: 16px;">
+          <div class="split-box">
+            <div class="split-box-title">Idioma de les consultes (<?= $langTotal ?> registrades)</div>
+            <div class="ai-chips" style="margin-top: 8px;">
+              <span class="ai-chip">Català: <strong><?= $langCa ?></strong><?php if ($langTotal > 0): ?> (<?= $pct($langCa, $langTotal) ?>%)<?php endif; ?></span>
+              <span class="ai-chip">Castellà: <strong><?= $langEs ?></strong><?php if ($langTotal > 0): ?> (<?= $pct($langEs, $langTotal) ?>%)<?php endif; ?></span>
+              <span class="ai-chip">Anglès: <strong><?= $langEn ?></strong><?php if ($langTotal > 0): ?> (<?= $pct($langEn, $langTotal) ?>%)<?php endif; ?></span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
     <!-- Interactive Temporal Evolution Chart (7d / 30d / Months / Quarters / Years) -->
     <section class="panel evo-panel" id="evoChartPanel">
       <div class="panel-head">
@@ -1331,7 +1622,7 @@ $buildUrl = function ($period) use ($isPrettyUrl, $key) {
           <span class="legend-dot" style="background:#c10c13"></span> Consultes Chatbot
         </button>
         <button type="button" class="legend-toggle" data-series="leads">
-          <span class="legend-dot" style="background:#1c1314"></span> Contactes (WhatsApp + Formulari)
+          <span class="legend-dot" style="background:#1c1314"></span> Contactes (WA · Form · Tel · Email)
         </button>
       </div>
     </section>
@@ -1386,12 +1677,14 @@ $buildUrl = function ($period) use ($isPrettyUrl, $key) {
 
       function setTooltip(row) {
         if (!row) return;
+        const sessTxt = row.sessions > 0 ? ` (${row.sessions} conv.)` : '';
+        const extraC = (row.tel > 0 || row.mailto > 0) ? ` · Tel ${row.tel} · Mail ${row.mailto}` : '';
         tooltip.innerHTML = `
           <strong>${row.fullLabel}</strong>
           <div class="evo-tooltip-metrics">
             <span>Visites: <strong>${row.visits}</strong> (Google ${row.google} · IA ${row.ai})</span>
-            <span>Chatbot: <strong>${row.chat}</strong></span>
-            <span>Contactes: <strong>${row.leads}</strong> (WA ${row.wa} · Form ${row.form})</span>
+            <span>Chatbot: <strong>${row.chat}</strong>${sessTxt}</span>
+            <span>Contactes: <strong>${row.leads}</strong> (WA ${row.wa} · Form ${row.form}${extraC})</span>
           </div>
         `;
       }

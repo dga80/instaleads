@@ -288,6 +288,39 @@
   font-size: 0.82rem;
 }
 
+.ars-chat-retry-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding: 5px 11px;
+  border-radius: 9999px;
+  border: 1px solid rgba(193, 12, 19, 0.35);
+  background: #ffffff;
+  color: #7a070c;
+  font-family: inherit;
+  font-size: 0.74rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.ars-chat-retry-btn:hover {
+  background: var(--accent-primary, #c10c13);
+  color: #ffffff;
+  border-color: var(--accent-primary, #c10c13);
+}
+
+.ars-chat-handoff--highlight {
+  background: #fdf2f2;
+  border-top-color: rgba(193, 12, 19, 0.25);
+}
+
+.ars-chat-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .ars-chat-msg strong {
   font-weight: 600;
 }

@@ -1,6 +1,6 @@
 /**
  * ARS Advocats i Assessors — Assistent Legal (Client Widget)
- * Connects via secure Cloudflare Worker proxy (streaming SSE)
+ * Connects via secure Vercel Edge proxy (streaming SSE)
  */
 (function () {
   const WORKER_URL =
@@ -10,6 +10,7 @@
       ? "/api/chat"
       : "https://ars20.vercel.app/api/chat";
   const WHATSAPP_NUMBER = "34668556252";
+  const MAX_USER_TURNS = 12;
 
   const I18N = {
     ca: {
@@ -28,6 +29,11 @@
       sendAria: "Enviar missatge",
       btnForm: "Passar al formulari",
       btnWa: "Continuar per WhatsApp",
+      retryBtn: "Tornar a provar",
+      areaLabel: "Àrea estimada",
+      turnLimitPlaceholder: "Contacti amb un advocat pels botons superiors",
+      turnLimitMsg:
+        "Hem assolit el límit de consultes orientatives d'aquesta sessió. Per continuar amb el seu cas de manera personalitzada, pot enviar el resum al formulari, continuar per WhatsApp o trucar al 938 795 876.",
       chips: [
         "Divorci o custòdia",
         "Acomiadament laboral",
@@ -36,10 +42,10 @@
         "Urgència penal",
       ],
       errConnection:
-        "En aquest moment no podem connectar amb l'assistent. Pot escriure'ns directament per WhatsApp (+34 668 556 252) o trucar al 938 795 876.",
+        "En aquest moment no podem connectar amb l'assistent. Pot tornar-ho a provar, escriure'ns per WhatsApp (+34 668 556 252) o trucar al 938 795 876.",
       errNotDeployed:
-        "L'assistent està pendent d'activar el codi del Worker a Cloudflare. Mentrestant, pots contactar directament amb el despatx al 938 795 876.",
-      waIntro: "Hola, he fet una consulta inicial a l'assistent web d'ARS Advocats. Resum del cas:",
+        "L'assistent es troba temporalment en manteniment. Mentrestant, pot contactar directament amb el despatx al 938 795 876.",
+      waIntro: "Hola, he fet una consulta inicial a l'assistent web d'ARS Advocats.",
       formIntro: "[Resum generat des de l'Assistent Web]",
     },
     es: {
@@ -58,6 +64,11 @@
       sendAria: "Enviar mensaje",
       btnForm: "Pasar al formulario",
       btnWa: "Continuar por WhatsApp",
+      retryBtn: "Reintentar",
+      areaLabel: "Área estimada",
+      turnLimitPlaceholder: "Contacte con un abogado mediante los botones superiores",
+      turnLimitMsg:
+        "Hemos alcanzado el límite de consultas orientativas de esta sesión. Para continuar con su caso de forma personalizada, puede enviar el resumen al formulario, continuar por WhatsApp o llamar al 938 795 876.",
       chips: [
         "Divorcio o custodia",
         "Despido laboral",
@@ -66,10 +77,10 @@
         "Urgencia penal",
       ],
       errConnection:
-        "En este momento no podemos conectar con el asistente. Puede escribirnos por WhatsApp (+34 668 556 252) o llamar al 938 795 876.",
+        "En este momento no podemos conectar con el asistente. Puede reintentarlo, escribirnos por WhatsApp (+34 668 556 252) o llamar al 938 795 876.",
       errNotDeployed:
-        "El asistente está pendiente de activar el código del Worker en Cloudflare. Mientras tanto, puedes contactar con el despacho en el 938 795 876.",
-      waIntro: "Hola, he realizado una consulta inicial en el asistente web de ARS Advocats. Resumen del caso:",
+        "El asistente se encuentra temporalmente en mantenimiento. Mientras tanto, puede contactar con el despacho en el 938 795 876.",
+      waIntro: "Hola, he realizado una consulta inicial en el asistente web de ARS Advocats.",
       formIntro: "[Resumen generado desde el Asistente Web]",
     },
     en: {
@@ -88,6 +99,11 @@
       sendAria: "Send message",
       btnForm: "Send to contact form",
       btnWa: "Continue on WhatsApp",
+      retryBtn: "Retry",
+      areaLabel: "Estimated area",
+      turnLimitPlaceholder: "Please use the buttons above to contact a lawyer",
+      turnLimitMsg:
+        "We have reached the guidance limit for this session. To continue with a specialist lawyer, please use the contact form or WhatsApp buttons below, or call +34 938 795 876.",
       chips: [
         "Divorce or custody",
         "Unfair dismissal",
@@ -96,11 +112,68 @@
         "Urgent criminal matter",
       ],
       errConnection:
-        "We cannot reach the assistant right now. You can contact us directly on WhatsApp (+34 668 556 252) or call +34 938 795 876.",
+        "We cannot reach the assistant right now. You can retry, contact us on WhatsApp (+34 668 556 252), or call +34 938 795 876.",
       errNotDeployed:
-        "The Cloudflare Worker code is pending activation. Meanwhile, you can reach the firm directly at +34 938 795 876.",
-      waIntro: "Hello, I had an initial chat with the ARS Advocats web assistant. Summary of my case:",
+        "The assistant is temporarily under maintenance. Meanwhile, you can reach the firm directly at +34 938 795 876.",
+      waIntro: "Hello, I had an initial chat with the ARS Advocats web assistant.",
       formIntro: "[Summary generated from Web Assistant]",
+    },
+  };
+
+  const AREA_LABELS = {
+    ca: {
+      familia: "Dret de família i matrimonial",
+      herencies: "Successions, testaments i herències",
+      immobiliari: "Immobiliari, arrendaments i desnonaments",
+      contractes: "Obligacions i contractes",
+      quantitat: "Reclamacions de quantitat",
+      comunitats: "Comunitats de propietaris",
+      bancari: "Dret bancari i clàusules abusives",
+      penal: "Dret penal i litigació",
+      violencia: "Violència masclista i de gènere",
+      compliance: "Dret econòmic i compliance",
+      accidents: "Accidents de trànsit i indemnitzacions",
+      laboral: "Dret laboral i Seguretat Social",
+      incapacitats: "Incapacitats laborals i invalidesa",
+      mercantil: "Dret mercantil i societari",
+      "segona-oportunitat": "Dret concursal i segona oportunitat",
+      altres: "Consulta jurídica general",
+    },
+    es: {
+      familia: "Derecho de familia y matrimonial",
+      herencies: "Sucesiones, testamentos y herencias",
+      immobiliari: "Inmobiliario, alquileres y desahucios",
+      contractes: "Obligaciones y contratos",
+      quantitat: "Reclamaciones de cantidad",
+      comunitats: "Comunidades de propietarios",
+      bancari: "Derecho bancario y cláusulas abusivas",
+      penal: "Derecho penal y litigación",
+      violencia: "Violencia de género",
+      compliance: "Derecho económico y compliance",
+      accidents: "Accidentes de tráfico e indemnizaciones",
+      laboral: "Derecho laboral y Seguridad Social",
+      incapacitats: "Incapacidades laborales e invalidez",
+      mercantil: "Derecho mercantil y societario",
+      "segona-oportunitat": "Derecho concursal y segunda oportunidad",
+      altres: "Consulta jurídica general",
+    },
+    en: {
+      familia: "Family & Matrimonial Law",
+      herencies: "Inheritance, Wills & Estates",
+      immobiliari: "Real Estate, Leases & Evictions",
+      contractes: "Obligations & Contracts",
+      quantitat: "Debt Collection & Claims",
+      comunitats: "Homeowners Associations",
+      bancari: "Banking Law & Abusive Clauses",
+      penal: "Criminal Law & Defense",
+      violencia: "Gender & Domestic Violence",
+      compliance: "Economic Crime & Compliance",
+      accidents: "Traffic Accidents & Compensation",
+      laboral: "Employment & Social Security Law",
+      incapacitats: "Permanent Disability Claims",
+      mercantil: "Corporate & Commercial Law",
+      "segona-oportunitat": "Bankruptcy & Second Chance Law",
+      altres: "General Legal Inquiry",
     },
   };
 
@@ -147,16 +220,35 @@
     return "altres";
   }
 
-  function buildCaseSummary(messages) {
-    const userTurns = messages
-      .filter((m) => m.role === "user")
-      .map((m) => m.text.trim())
-      .filter(Boolean);
-    return userTurns.join(" | ").slice(0, 600);
+  function buildCaseSummary(messages, activeLang, maxLen) {
+    const langKey = AREA_LABELS[activeLang] ? activeLang : "ca";
+    const t = I18N[langKey];
+    const fullText = messages.map((m) => m.text).join(" ");
+    const areaCode = detectArea(fullText);
+    const areaName = AREA_LABELS[langKey][areaCode] || AREA_LABELS[langKey].altres;
+
+    const seen = new Set();
+    const userPoints = [];
+    for (const m of messages) {
+      if (m.role !== "user") continue;
+      const clean = m.text.replace(/\s+/g, " ").trim();
+      if (!clean) continue;
+      const norm = clean.toLowerCase();
+      if (seen.has(norm)) continue;
+      seen.add(norm);
+      userPoints.push(clean.length > 220 ? clean.slice(0, 217) + "..." : clean);
+    }
+
+    const lines = [`${t.areaLabel}: ${areaName}`];
+    userPoints.slice(-5).forEach((pt) => {
+      lines.push(`• ${pt}`);
+    });
+    return lines.join("\n").slice(0, maxLen || 650);
   }
 
   const STORAGE_KEY = "ars_chat_session_v1";
   const STORAGE_LANG_KEY = "ars_chat_lang_v1";
+  const STORAGE_FROM_CHAT_KEY = "ars_from_chat_v1";
 
   function loadSessionLang(fallback) {
     try {
@@ -296,19 +388,33 @@
       els.messagesBox.scrollTop = els.messagesBox.scrollHeight;
     }
 
+    function getUserTurnCount() {
+      return messages.filter((m) => m.role === "user").length;
+    }
+
+    function updateComposerLimitState(forceReached) {
+      const activeLang = I18N[chatLang] ? chatLang : lang;
+      const t = I18N[activeLang];
+      const limitReached = Boolean(forceReached) || getUserTurnCount() >= MAX_USER_TURNS;
+      els.input.disabled = limitReached;
+      els.sendBtn.disabled = limitReached || isSending;
+      els.input.placeholder = limitReached ? t.turnLimitPlaceholder : t.placeholder;
+      els.handoff.classList.toggle("ars-chat-handoff--highlight", limitReached);
+    }
+
     function updateHandoffLinks() {
       const activeLang = I18N[chatLang] ? chatLang : lang;
       const t = I18N[activeLang];
       els.toFormBtn.textContent = t.btnForm;
       els.toWaLink.textContent = t.btnWa;
       els.disclaimer.textContent = t.disclaimer;
-      els.input.placeholder = t.placeholder;
       els.sendBtn.setAttribute("aria-label", t.sendAria);
+      updateComposerLimitState();
 
       const hasUserMsg = messages.some((m) => m.role === "user");
       if (hasUserMsg) {
-        const summary = buildCaseSummary(messages);
-        const waText = encodeURIComponent(`${t.waIntro} ${summary}`);
+        const summary = buildCaseSummary(messages, activeLang, 520);
+        const waText = encodeURIComponent(`${t.waIntro}\n${summary}`);
         els.toWaLink.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${waText}`;
       } else {
         const waDefault = encodeURIComponent(
@@ -455,6 +561,13 @@
       const text = rawText.trim();
       if (!text || isSending) return;
 
+      const activeLang = I18N[chatLang] ? chatLang : lang;
+      if (getUserTurnCount() >= MAX_USER_TURNS) {
+        updateComposerLimitState(true);
+        appendMessageBubble("assistant", formatSafeText(I18N[activeLang].turnLimitMsg));
+        return;
+      }
+
       const chipsEl = els.messagesBox.querySelector("#arsChatChips");
       if (chipsEl) chipsEl.remove();
 
@@ -465,15 +578,17 @@
       els.input.style.overflowY = "hidden";
 
       messages.push({ role: "user", text });
-      appendMessageBubble("user", formatSafeText(text));
+      const userBubble = appendMessageBubble("user", formatSafeText(text));
       updateHandoffLinks();
-      // Production chat_message is tracked server-side in /api/chat (immune to adblockers);
+      // Production chat_message/chat_session are tracked server-side in /api/chat (immune to adblockers);
       // keep client-side tracking only on localhost for local development.
       if (
         (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") &&
         typeof window.arsTrack === "function"
       ) {
-        window.arsTrack("chat_message");
+        const devEvents = ["chat_message"];
+        if (getUserTurnCount() === 1) devEvents.push("chat_session");
+        window.arsTrack(devEvents);
       }
 
       const assistantBubble = appendMessageBubble(
@@ -499,6 +614,8 @@
         }
       };
 
+      let hitServerLimit = false;
+
       try {
         let response;
         try {
@@ -513,21 +630,24 @@
         if (detectedLang) {
           applyDialogLanguage(detectedLang);
         }
+        if (response.headers.get("X-ARS-Limit") === "1") {
+          hitServerLimit = true;
+        }
 
         if (!response.ok) {
           throw new Error(`HTTP ${response.status}`);
         }
 
-        // Detect default Cloudflare "Hello World" Worker if user hasn't pasted code yet
         if (contentType.includes("text/plain")) {
           const plain = await response.text();
           if (plain.toLowerCase().includes("hello world")) {
             assistantBubble.className = "ars-chat-msg ars-chat-msg--error";
-            assistantBubble.innerHTML = formatSafeText(I18N[lang].errNotDeployed);
+            assistantBubble.innerHTML = formatSafeText(I18N[chatLang || lang].errNotDeployed);
             return;
           }
           assistantBubble.innerHTML = formatSafeText(plain);
           messages.push({ role: "assistant", text: plain });
+          saveSessionMessages(messages);
           return;
         }
 
@@ -593,11 +713,25 @@
           messages.pop();
         }
         saveSessionMessages(messages);
+        const errT = I18N[chatLang] || I18N[lang];
         assistantBubble.className = "ars-chat-msg ars-chat-msg--error";
-        assistantBubble.innerHTML = formatSafeText(I18N[lang].errConnection);
+        assistantBubble.innerHTML = `<div>${formatSafeText(errT.errConnection)}</div>`;
+        const retryBtn = document.createElement("button");
+        retryBtn.type = "button";
+        retryBtn.className = "ars-chat-retry-btn";
+        retryBtn.textContent = `↻ ${errT.retryBtn}`;
+        retryBtn.addEventListener("click", () => {
+          if (isSending) return;
+          assistantBubble.remove();
+          if (userBubble && userBubble.parentNode) {
+            userBubble.remove();
+          }
+          sendMessage(text);
+        });
+        assistantBubble.appendChild(retryBtn);
       } finally {
         isSending = false;
-        els.sendBtn.disabled = false;
+        updateComposerLimitState(hitServerLimit);
         scrollToBottom();
       }
     }
@@ -642,11 +776,18 @@
     // Handoff to contact form
     els.toFormBtn.addEventListener("click", () => {
       window.__arsFromChat = true;
+      try {
+        sessionStorage.setItem(STORAGE_FROM_CHAT_KEY, "1");
+      } catch {
+        // Ignore storage restrictions
+      }
       if (typeof window.arsTrack === "function") {
         window.arsTrack("chat_to_form");
       }
-      const t = I18N[chatLang] || I18N[lang];
-      const summary = buildCaseSummary(messages);
+      const activeLang = I18N[chatLang] ? chatLang : lang;
+      const t = I18N[activeLang];
+      const hasUserMsg = messages.some((m) => m.role === "user");
+      const summary = hasUserMsg ? buildCaseSummary(messages, activeLang, 750) : "";
       const fullConversation = messages.map((m) => m.text).join(" ");
       const detectedArea = detectArea(fullConversation);
 

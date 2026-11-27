@@ -1053,6 +1053,15 @@ document.addEventListener('DOMContentLoaded', () => {
         : currentLang === 'ca' ? "Enviant consulta..." : "Enviando consulta...";
 
       try {
+        let isFromChat = Boolean(window.__arsFromChat);
+        try {
+          if (sessionStorage.getItem('ars_from_chat_v1') === '1') {
+            isFromChat = true;
+          }
+        } catch {
+          // Ignore storage restrictions
+        }
+
         const formData = new FormData();
         formData.append('name', name);
         formData.append('email', email);
@@ -1062,7 +1071,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('consent', consent ? '1' : '0');
         formData.append('lang', currentLang);
         formData.append('website', websiteHoneypot);
-        formData.append('from_chat', window.__arsFromChat ? '1' : '0');
+        formData.append('from_chat', isFromChat ? '1' : '0');
 
         const response = await fetch(contactActionUrl, {
           method: 'POST',
@@ -1074,6 +1083,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (response.ok && result.success) {
           // Form submission is counted server-side in contact.php (immune to adblockers)
           window.__arsFromChat = false;
+          try {
+            sessionStorage.removeItem('ars_from_chat_v1');
+          } catch {
+            // Ignore
+          }
           contactForm.reset();
           formFeedback.style.display = 'block';
           formFeedback.className = 'form-feedback success';
@@ -1285,11 +1299,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // Ignore private-mode storage restrictions
   }
 
-  // Track direct website WhatsApp clicks (excluding chatbot's own WhatsApp CTA)
+  // Track direct website WhatsApp, phone (tel:), and email (mailto:) clicks
   document.addEventListener('click', (e) => {
-    const link = e.target.closest('a[href*="wa.me"]');
-    if (link && !link.closest('#arsChatPanel')) {
+    const waLink = e.target.closest('a[href*="wa.me"]');
+    if (waLink && !waLink.closest('#arsChatPanel')) {
       window.arsTrack('web_wa');
+      return;
+    }
+    const telLink = e.target.closest('a[href^="tel:"]');
+    if (telLink) {
+      window.arsTrack('web_tel');
+      return;
+    }
+    const mailLink = e.target.closest('a[href^="mailto:"]');
+    if (mailLink) {
+      window.arsTrack('web_mailto');
     }
   });
 });

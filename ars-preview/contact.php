@@ -5,6 +5,7 @@
  */
 
 header('Content-Type: application/json; charset=utf-8');
+date_default_timezone_set('Europe/Madrid');
 
 // Allow only POST requests
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -121,7 +122,12 @@ if ($sent) {
             $data['months'] = isset($data['months']) && is_array($data['months']) ? $data['months'] : [];
             $data['days']   = isset($data['days'])   && is_array($data['days'])   ? $data['days']   : [];
 
-            $ev       = $fromChat ? 'web_form_from_chat' : 'web_form_direct';
+            $eventsToRecord = [$fromChat ? 'web_form_from_chat' : 'web_form_direct'];
+            if (!$fromChat) {
+                $eventsToRecord[] = 'lang_' . $lang;
+                $areaKey = ($area === 'segona-oportunitat') ? 'area_segona_oportunitat' : ('area_' . (isset($areas[$area]) ? $area : 'altres'));
+                $eventsToRecord[] = $areaKey;
+            }
             $monthKey = date('Y-m');
             $dayKey   = date('Y-m-d');
 
@@ -132,9 +138,11 @@ if ($sent) {
                 $data['days'][$dayKey] = [];
             }
 
-            $data['totals'][$ev]            = (int)($data['totals'][$ev] ?? 0) + 1;
-            $data['months'][$monthKey][$ev] = (int)($data['months'][$monthKey][$ev] ?? 0) + 1;
-            $data['days'][$dayKey][$ev]     = (int)($data['days'][$dayKey][$ev] ?? 0) + 1;
+            foreach ($eventsToRecord as $ev) {
+                $data['totals'][$ev]            = (int)($data['totals'][$ev] ?? 0) + 1;
+                $data['months'][$monthKey][$ev] = (int)($data['months'][$monthKey][$ev] ?? 0) + 1;
+                $data['days'][$dayKey][$ev]     = (int)($data['days'][$dayKey][$ev] ?? 0) + 1;
+            }
 
             if (count($data['days']) > 60) {
                 ksort($data['days']);
