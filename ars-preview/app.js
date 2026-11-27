@@ -1062,6 +1062,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('consent', consent ? '1' : '0');
         formData.append('lang', currentLang);
         formData.append('website', websiteHoneypot);
+        formData.append('from_chat', window.__arsFromChat ? '1' : '0');
 
         const response = await fetch(contactActionUrl, {
           method: 'POST',
@@ -1071,9 +1072,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const result = await response.json().catch(() => ({}));
 
         if (response.ok && result.success) {
-          if (typeof window.arsTrack === 'function') {
-            window.arsTrack(window.__arsFromChat ? 'web_form_from_chat' : 'web_form_direct');
-          }
+          // Form submission is counted server-side in contact.php (immune to adblockers)
           window.__arsFromChat = false;
           contactForm.reset();
           formFeedback.style.display = 'block';
