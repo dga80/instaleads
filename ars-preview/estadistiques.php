@@ -1382,6 +1382,54 @@ if (isset($_GET['export']) && $_GET['export'] === 'csv') {
       </article>
     </section>
 
+    <!-- Interactive Temporal Evolution Chart (7d / 30d / Months / Quarters / Years) -->
+    <section class="panel evo-panel" id="evoChartPanel">
+      <div class="panel-head">
+        <div>
+          <h2 class="panel-title">Evolució temporal</h2>
+        </div>
+        <div class="evo-controls">
+          <div class="seg-tabs" role="tablist" aria-label="Selector de temporalitat">
+            <button type="button" class="seg-btn" data-evo-mode="days7" role="tab" aria-selected="false">7 dies</button>
+            <button type="button" class="seg-btn active" data-evo-mode="days30" role="tab" aria-selected="true">30 dies</button>
+            <button type="button" class="seg-btn" data-evo-mode="monthly" role="tab" aria-selected="false">Mesos</button>
+            <button type="button" class="seg-btn" data-evo-mode="quarterly" role="tab" aria-selected="false">Trimestres</button>
+            <button type="button" class="seg-btn" data-evo-mode="yearly" role="tab" aria-selected="false">Anys</button>
+          </div>
+          <div class="evo-subcontrols">
+            <select id="evoYearSelect" class="year-select" aria-label="Seleccionar any" style="display:none"></select>
+            <div class="zoom-group" aria-label="Zoom del gràfic">
+              <button type="button" class="zoom-btn" id="evoZoomOut" title="Reduir">−</button>
+              <span class="zoom-label" id="evoZoomLabel">100%</span>
+              <button type="button" class="zoom-btn" id="evoZoomIn" title="Augmentar">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="evo-stage">
+        <div class="evo-scroll" id="evoScroll">
+          <svg id="evoSvg" class="evo-svg" viewBox="0 0 760 240" preserveAspectRatio="none" role="img" aria-label="Gràfic evolutiu per temporalitat"></svg>
+        </div>
+        <div class="evo-hint">← Llisca cap a l'esquerra per veure dates anteriors</div>
+        <div class="evo-tooltip" id="evoTooltip">
+          <span>Toca o passa el cursor sobre una barra per veure'n el detall.</span>
+        </div>
+      </div>
+
+      <div class="chart-legend" id="evoLegend">
+        <button type="button" class="legend-toggle" data-series="visits">
+          <span class="legend-dot" style="background:#d9b8b7"></span> Visites
+        </button>
+        <button type="button" class="legend-toggle" data-series="chat">
+          <span class="legend-dot" style="background:#c10c13"></span> Consultes Chatbot
+        </button>
+        <button type="button" class="legend-toggle" data-series="leads">
+          <span class="legend-dot" style="background:#1c1314"></span> Contactes (WA · Form · Tel · Email)
+        </button>
+      </div>
+    </section>
+
     <!-- Main Breakdown Panels -->
     <section class="panels-grid">
       <!-- Left: Chatbot Funnel & Conversions -->
@@ -1579,54 +1627,6 @@ if (isset($_GET['export']) && $_GET['export'] === 'csv') {
       </article>
     </section>
 
-    <!-- Interactive Temporal Evolution Chart (7d / 30d / Months / Quarters / Years) -->
-    <section class="panel evo-panel" id="evoChartPanel">
-      <div class="panel-head">
-        <div>
-          <h2 class="panel-title">Evolució temporal</h2>
-        </div>
-        <div class="evo-controls">
-          <div class="seg-tabs" role="tablist" aria-label="Selector de temporalitat">
-            <button type="button" class="seg-btn" data-evo-mode="days7" role="tab" aria-selected="false">7 dies</button>
-            <button type="button" class="seg-btn" data-evo-mode="days30" role="tab" aria-selected="false">30 dies</button>
-            <button type="button" class="seg-btn active" data-evo-mode="monthly" role="tab" aria-selected="true">Mesos</button>
-            <button type="button" class="seg-btn" data-evo-mode="quarterly" role="tab" aria-selected="false">Trimestres</button>
-            <button type="button" class="seg-btn" data-evo-mode="yearly" role="tab" aria-selected="false">Anys</button>
-          </div>
-          <div class="evo-subcontrols">
-            <select id="evoYearSelect" class="year-select" aria-label="Seleccionar any"></select>
-            <div class="zoom-group" aria-label="Zoom del gràfic">
-              <button type="button" class="zoom-btn" id="evoZoomOut" title="Reduir">−</button>
-              <span class="zoom-label" id="evoZoomLabel">100%</span>
-              <button type="button" class="zoom-btn" id="evoZoomIn" title="Augmentar">+</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="evo-stage">
-        <div class="evo-scroll" id="evoScroll">
-          <svg id="evoSvg" class="evo-svg" viewBox="0 0 760 240" preserveAspectRatio="none" role="img" aria-label="Gràfic evolutiu per temporalitat"></svg>
-        </div>
-        <div class="evo-hint">← Llisca cap a l'esquerra per veure dates anteriors</div>
-        <div class="evo-tooltip" id="evoTooltip">
-          <span>Toca o passa el cursor sobre una barra per veure'n el detall.</span>
-        </div>
-      </div>
-
-      <div class="chart-legend" id="evoLegend">
-        <button type="button" class="legend-toggle" data-series="visits">
-          <span class="legend-dot" style="background:#d9b8b7"></span> Visites
-        </button>
-        <button type="button" class="legend-toggle" data-series="chat">
-          <span class="legend-dot" style="background:#c10c13"></span> Consultes Chatbot
-        </button>
-        <button type="button" class="legend-toggle" data-series="leads">
-          <span class="legend-dot" style="background:#1c1314"></span> Contactes (WA · Form · Tel · Email)
-        </button>
-      </div>
-    </section>
-
     <p class="footer-note">
       ARS Advocats i Assessors Granollers, S.C.P. · Panell privat no indexat · Dades 100% anònimes sense cookies ni textos de converses.
     </p>
@@ -1647,7 +1647,7 @@ if (isset($_GET['export']) && $_GET['export'] === 'csv') {
 
       if (!svg || !DATA) return;
 
-      let mode = 'monthly';
+      let mode = 'days30';
       let selectedYear = DATA.currentYear;
       const zoomSteps = [0.7, 1, 1.4, 1.8, 2.3];
       let zoomIdx = 1;
