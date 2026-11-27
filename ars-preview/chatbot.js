@@ -467,7 +467,12 @@
       messages.push({ role: "user", text });
       appendMessageBubble("user", formatSafeText(text));
       updateHandoffLinks();
-      if (typeof window.arsTrack === "function") {
+      // Production chat_message is tracked server-side in /api/chat (immune to adblockers);
+      // keep client-side tracking only on localhost for local development.
+      if (
+        (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") &&
+        typeof window.arsTrack === "function"
+      ) {
         window.arsTrack("chat_message");
       }
 

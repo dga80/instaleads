@@ -1235,17 +1235,22 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       const events = Array.isArray(eventOrList) ? eventOrList : [eventOrList];
       const payload = JSON.stringify({ events });
-      if (navigator.sendBeacon) {
-        const blob = new Blob([payload], { type: 'application/json' });
-        navigator.sendBeacon('/estadistiques.php', blob);
-      } else {
-        fetch('/estadistiques.php', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: payload,
-          keepalive: true
-        }).catch(() => {});
-      }
+      fetch('/estadistiques.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: payload,
+        keepalive: true,
+        credentials: 'omit'
+      }).catch(() => {
+        try {
+          if (navigator.sendBeacon) {
+            const blob = new Blob([payload], { type: 'application/json' });
+            navigator.sendBeacon('/estadistiques.php', blob);
+          }
+        } catch {
+          // Ignore fallback errors
+        }
+      });
     } catch {
       // Never impact UX
     }
